@@ -1,7 +1,7 @@
 
 extends Camera2D
 export var camera_zoom_level = Vector2(0.5,0.5)
-var camera_position = Vector2(0,0)
+export var camera_position = Vector2(0,0)
 const CAMERA_SPEED = 100
 const CAMERA_ZOOM_STEPS = 0.05
 
