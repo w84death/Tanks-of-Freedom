@@ -15,7 +15,7 @@ func _fixed_process(delta):
 		if(camera_zoom_level<Vector2(1,1)):
 			camera_zoom_level+=Vector2(CAMERA_ZOOM_STEPS,CAMERA_ZOOM_STEPS)
 		
-	set_zoom(camera_zoom_level)
+#	set_zoom(camera_zoom_level)
 	
 	if (Input.is_action_pressed('camera_left')):
 		camera_position-=Vector2(CAMERA_SPEED*delta,0)
