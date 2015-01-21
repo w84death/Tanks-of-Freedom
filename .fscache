@@ -1,6 +1,6 @@
-::res://::1421824881
-game.scn::PackedScene::1421824881::
-gui.scn::PackedScene::1421823328::
+::res://::1421835036
+game.scn::PackedScene::1421835036::
+gui.scn::PackedScene::1421834914::
 icon.png::ImageTexture::1421701362::
 map_tileset.res::TileSet::1421785786::
 new_imagetexture.tex::ImageTexture::1421785787::
@@ -15,8 +15,8 @@ tileset.png::ImageTexture::1421785775::
 units.png::ImageTexture::1402833119::
 ::res://maps::1421777900
 test.scn::PackedScene::1421777900::
-::res://scripts::1421824887
-camera.gd::GDScript::1421824887::
+::res://scripts::1421835036
+camera.gd::GDScript::1421835036::
 ::res://units::1421782572
 tank_red.gd::GDScript::1421782572::
 tank_red.scn::PackedScene::1421782572::
