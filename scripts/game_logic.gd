@@ -19,7 +19,7 @@ func _input(event):
 
 # MOUSE SELECT
 	if (event.type == InputEvent.MOUSE_BUTTON):
-		if (event.button_index == BUTTON_LEFT):
+		if (event.pressed and event.button_index == BUTTON_LEFT):
 			print('click on map pos: ', selector_position)
 			if(not unit_selected):
 				for unit in units:
@@ -27,7 +27,7 @@ func _input(event):
 						unit_selected = unit
 						print('unit selected')
 			else:
-				unit_selected.set_pos(current_map.map_to_world(selector_position))
+				unit_selected.set_pos_map(selector_position)
 				print('unit moved and unselect')
 				unit_selected = false
 		
