@@ -9,9 +9,11 @@ var units
 var unit_selected = false
 
 func _input(event):
-# SELECTOR POS
-	map_pos = current_map.get_pos()
-	selector_position = current_map.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
+# UPDATE LIVE STUFF
+	if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
+		units = get_tree().get_nodes_in_group("units")
+		map_pos = current_map.get_pos()
+		selector_position = current_map.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
 
 # MOUSE MOVE
 	if (event.type == InputEvent.MOUSE_MOTION):
@@ -30,7 +32,9 @@ func _input(event):
 				unit_selected.set_pos_map(selector_position)
 				print('unit moved and unselect')
 				unit_selected = false
-		
+		if (event.pressed and event.button_index == BUTTON_RIGHT):
+			print('unit unselect')
+			unit_selected = false
 
 #func _process(delta):
 	# do realtime stuff here
@@ -38,8 +42,7 @@ func _input(event):
 func _ready():
 	selector = get_node('/root/game/pixel_scale/map/YSort/player_red')
 	current_map = get_node("/root/game/pixel_scale/map")
-	game_scale = get_node("/root/game/pixel_scale").get_scale()
-	units = get_tree().get_nodes_in_group("units")
+	game_scale = get_node("/root/game/pixel_scale").get_scale()	
 	set_process_input(true)
 	#set_process(true)
 	pass
