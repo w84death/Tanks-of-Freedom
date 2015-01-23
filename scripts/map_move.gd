@@ -2,6 +2,7 @@ extends TileMap
 
 var mouse_dragging = false
 var pos = self.get_pos()
+var scale = 3
 
 func _input(event):
 	if(event.type == InputEvent.MOUSE_BUTTON):
@@ -13,9 +14,10 @@ func _input(event):
 			pos.x = pos.x + event.relative_x
 			pos.y = pos.y + event.relative_y
 			self.set_pos(pos)
+		print( 'mouse over: ',self.world_to_map( Vector2((event.x/scale)-pos.x,(event.y/scale)-pos.y)))
 
 func _ready():
-	set_process_input(true)
+	set_process_input(true)	
 	pass
 
 

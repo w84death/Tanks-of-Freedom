@@ -1,7 +1,7 @@
 
 extends Sprite
 
-var position = Vector2(16,154)
+var position = self.get_pos()
 var move_vector = Vector2(32,16)
 
 func _input(event):
@@ -18,6 +18,8 @@ func _input(event):
 		position += Vector2(move_vector.x/2,-move_vector.y/2)
 		
 	self.set_pos(position)
+	
+	print ( 'selector pos: ',self.get_parent().get_parent().world_to_map(position) )
 	
 func _ready():
 	set_process_input(true)
