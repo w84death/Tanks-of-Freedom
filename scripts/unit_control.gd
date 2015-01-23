@@ -1,14 +1,12 @@
 
 extends AnimatedSprite
-var selected=false
+export var position_on_map = Vector2(0,0)
 
-func _input(event):
-	if (event.type==InputEvent.MOUSE_BUTTON and event.pressed):
-		selected = not selected
-		print('unit selected ')
+func get_pos_map():
+	return position_on_map
 
 func _ready():
-	set_process_input(true)
+	add_to_group("units")
 	pass
 
 

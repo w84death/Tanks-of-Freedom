@@ -19,10 +19,11 @@ func _input(event):
 		
 	self.set_pos(position)
 	
-	print ( 'selector pos: ',self.get_parent().get_parent().world_to_map(position) )
+	#print ( 'selector pos: ',self.get_parent().get_parent().world_to_map(position) )
+	#print(get_path())
 	
 func _ready():
-	set_process_input(true)
+	#set_process_input(true)
 	pass
 
 

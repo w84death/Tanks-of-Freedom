@@ -13,11 +13,10 @@ func _input(event):
 		if (mouse_dragging):
 			pos.x = pos.x + event.relative_x
 			pos.y = pos.y + event.relative_y
-			self.set_pos(pos)
-		print( 'mouse over: ',self.world_to_map( Vector2((event.x/scale)-pos.x,(event.y/scale)-pos.y)))
+			self.set_pos(pos)		
 
 func _ready():
-	set_process_input(true)	
+	set_process_input(true)
 	pass
 
 
