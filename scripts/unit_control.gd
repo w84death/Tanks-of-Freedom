@@ -7,6 +7,7 @@ func get_pos_map():
 
 func _ready():
 	add_to_group("units")
+	get_node('anim').play("move")
 	pass
 
 
