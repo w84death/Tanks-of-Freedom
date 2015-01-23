@@ -2,7 +2,6 @@ extends TileMap
 
 var mouse_dragging = false
 var pos = self.get_pos()
-var scale = 3
 
 func _input(event):
 	if(event.type == InputEvent.MOUSE_BUTTON):
