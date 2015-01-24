@@ -3,7 +3,8 @@ var root_node
 var abstract_map = preload('abstract_map.gd').new()
 var active_field = null
 var active_indicator = preload('res://units/selector.xscn').instance()
-var damage = preload('damage.gd')
+var battle_controller = preload('battle_controller.gd')
+var movement_controller = preload('movement_controller.gd').new()
 var object_factory = preload('object_factory.gd').new()
 
 func handle_action(position):
@@ -11,13 +12,13 @@ func handle_action(position):
 	
 	if field.object != null:
 		if(active_field != null && field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field)):
-			damage.resolve_fight(active_field.object, field.object)
+			battle_controller.resolve_fight(active_field.object, field.object)
 		if (field.object.group == 'unit' || field.object.group == 'building'):
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
 			if (active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1):
-				self.move_object(active_field, field)
+				movement_controller.move_object(active_field, field)
 				self.activate_field(field)
 
 func init_root(root):
@@ -37,10 +38,7 @@ func clear_active_field():
 	active_field = null
 	abstract_map.tilemap.remove_child(active_indicator)
 
-func move_object(from, to):
-	to.object = from.object
-	from.object = null
-	to.object.set_pos_map(to.position)
+
 	
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))

@@ -12,7 +12,7 @@ func _input(event):
 		if (mouse_dragging):
 			pos.x = pos.x + event.relative_x
 			pos.y = pos.y + event.relative_y
-			self.set_pos(pos)		
+			self.set_pos(pos)
 
 func _ready():
 	set_process_input(true)
