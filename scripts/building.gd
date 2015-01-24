@@ -7,6 +7,9 @@ export var player = -1
 var current_map
 var group = 'building'
 
+var object_factory = preload('object_factory.gd').new()
+
+
 func get_pos_map():
 	return position_on_map
 	
@@ -31,6 +34,9 @@ func set_frame(number):
 	var current_frame = get_region_rect()
 	var new_frame = Rect2(number * 32, current_frame.pos.y, 32, 32)
 	set_region_rect(new_frame)
+	
+func spawn_unit():
+	return null
 
 
 func _ready():

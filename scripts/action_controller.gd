@@ -5,7 +5,6 @@ var active_field = null
 var active_indicator = preload('res://units/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd')
 var movement_controller = preload('movement_controller.gd').new()
-var object_factory = preload('object_factory.gd').new()
 
 var current_player = 1
 
