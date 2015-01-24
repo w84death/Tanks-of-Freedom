@@ -3,12 +3,16 @@ var root_node
 var abstract_map = preload('abstract_map.gd').new()
 var active_field = null
 var active_indicator = preload('res://units/player_red.scn').instance()
+var damage = preload('damage.gd')
 
 func handle_action(position):
 	var field = abstract_map.get_field(position)
-	
+
 	if field.object != null:
-		self.activate_field(field)
+		if(active_field != null):
+			damage.resolve_fight(active_field.object, field.object)
+		else:
+			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
 			self.move_object(active_field, field)
@@ -32,7 +36,7 @@ func activate_field(field):
 func clear_active_field():
 	active_field = null
 	abstract_map.tilemap.remove_child(active_indicator)
-		
+
 func move_object(from, to):
 	to.object = from.object
 	from.object = null
