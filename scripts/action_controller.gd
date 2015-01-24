@@ -3,7 +3,7 @@ var root_node
 var abstract_map = preload('abstract_map.gd').new()
 var active_field = null
 var active_indicator = preload('res://units/selector.xscn').instance()
-var battle_controller = preload('battle_controller.gd')
+var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 
 var current_player = 1
@@ -14,7 +14,10 @@ func handle_action(position):
 	if field.object != null:
 		if active_field != null:
 			if field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field):
-				battle_controller.resolve_fight(active_field.object, field.object)
+				if (battle_controller.resolve_fight(active_field.object, field.object)):
+					self.despawn_unit(field)
+					return
+					
 			if field == active_field && field.object.group == 'building':
 				var spawn_point = abstract_map.get_field(field.object.spawn_point)
 				if spawn_point.object == null:
