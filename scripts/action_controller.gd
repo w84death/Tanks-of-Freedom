@@ -12,8 +12,21 @@ func handle_action(position):
 	var field = abstract_map.get_field(position)
 	
 	if field.object != null:
-		if active_field != null && field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field):
-			battle_controller.resolve_fight(active_field.object, field.object)
+		if active_field != null:
+			if field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field):
+				battle_controller.resolve_fight(active_field.object, field.object)
+			if field == active_field && field.object.group == 'building':
+				var spawn_point = abstract_map.get_field(field.object.spawn_point)
+				if spawn_point.object == null:
+					var unit = field.object.spawn_unit(current_player)
+					abstract_map.tilemap.add_child(unit)
+					unit.set_pos_map(spawn_point.position)
+					spawn_point.object = unit
+			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
+				if active_field.is_adjacent(field):
+					field.object.claim(current_player)
+					self.despawn_unit(active_field)
+					self.activate_field(field)
 		if (field.object.group == 'unit' || field.object.group == 'building') && field.object.player == current_player:
 			self.activate_field(field)
 	else:
@@ -39,6 +52,11 @@ func clear_active_field():
 	active_field = null
 	abstract_map.tilemap.remove_child(active_indicator)
 
+func despawn_unit(field):
+	abstract_map.tilemap.remove_child(field.object)
+	field.object.queue_free()
+	field.object = null
+	
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("buildings"))
