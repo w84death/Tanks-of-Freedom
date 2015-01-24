@@ -16,7 +16,7 @@ func handle_action(position):
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
-			if (active_field.object.group == 'unit' && active_field.is_adjacent(field)):
+			if (active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1):
 				self.move_object(active_field, field)
 				self.activate_field(field)
 
