@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="TileSet" subresource_count="2" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
+	<main_resource>
+		<string name="0/name"> "land_clear" </string>
+		<resource name="0/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="0/tex_offset"> 0, -14 </vector2>
+		<vector2 name="0/shape_offset"> 0, 0 </vector2>
+		<rect2 name="0/region"> 0, 0, 32, 32 </rect2>
+		<array name="0/shapes" len="0" shared="false">
+		</array>
+		<string name="1/name"> "land_road_1" </string>
+		<resource name="1/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="1/tex_offset"> 0, -14 </vector2>
+		<vector2 name="1/shape_offset"> 0, 0 </vector2>
+		<rect2 name="1/region"> 32, 0, 32, 32 </rect2>
+		<array name="1/shapes" len="0" shared="false">
+		</array>
+		<string name="2/name"> "land_road_ 2" </string>
+		<resource name="2/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="2/tex_offset"> 0, -14 </vector2>
+		<vector2 name="2/shape_offset"> 0, 0 </vector2>
+		<rect2 name="2/region"> 64, 0, 32, 32 </rect2>
+		<array name="2/shapes" len="0" shared="false">
+		</array>
+		<string name="3/name"> "land_road_ 3" </string>
+		<resource name="3/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="3/tex_offset"> 0, -14 </vector2>
+		<vector2 name="3/shape_offset"> 0, 0 </vector2>
+		<rect2 name="3/region"> 96, 0, 32, 32 </rect2>
+		<array name="3/shapes" len="0" shared="false">
+		</array>
+		<string name="4/name"> "land_road_ 4" </string>
+		<resource name="4/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="4/tex_offset"> 0, -14 </vector2>
+		<vector2 name="4/shape_offset"> 0, 0 </vector2>
+		<rect2 name="4/region"> 128, 0, 32, 32 </rect2>
+		<array name="4/shapes" len="0" shared="false">
+		</array>
+		<string name="5/name"> "land_road_ 5" </string>
+		<resource name="5/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="5/tex_offset"> 0, -14 </vector2>
+		<vector2 name="5/shape_offset"> 0, 0 </vector2>
+		<rect2 name="5/region"> 160, 0, 32, 32 </rect2>
+		<array name="5/shapes" len="0" shared="false">
+		</array>
+		<string name="6/name"> "land_road_ 6" </string>
+		<resource name="6/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="6/tex_offset"> 0, -14 </vector2>
+		<vector2 name="6/shape_offset"> 0, 0 </vector2>
+		<rect2 name="6/region"> 192, 0, 32, 32 </rect2>
+		<array name="6/shapes" len="0" shared="false">
+		</array>
+		<string name="7/name"> "land_road_ 7" </string>
+		<resource name="7/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="7/tex_offset"> 0, -14 </vector2>
+		<vector2 name="7/shape_offset"> 0, 0 </vector2>
+		<rect2 name="7/region"> 224, 0, 32, 32 </rect2>
+		<array name="7/shapes" len="0" shared="false">
+		</array>
+		<string name="8/name"> "land_river_1" </string>
+		<resource name="8/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="8/tex_offset"> 0, -14 </vector2>
+		<vector2 name="8/shape_offset"> 0, 0 </vector2>
+		<rect2 name="8/region"> 0, 32, 32, 32 </rect2>
+		<array name="8/shapes" len="0" shared="false">
+		</array>
+		<string name="9/name"> "land_river_ 2" </string>
+		<resource name="9/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="9/tex_offset"> 0, -14 </vector2>
+		<vector2 name="9/shape_offset"> 0, 0 </vector2>
+		<rect2 name="9/region"> 32, 32, 32, 32 </rect2>
+		<array name="9/shapes" len="0" shared="false">
+		</array>
+		<string name="10/name"> "land_river_ 3" </string>
+		<resource name="10/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="10/tex_offset"> 0, -14 </vector2>
+		<vector2 name="10/shape_offset"> 0, 0 </vector2>
+		<rect2 name="10/region"> 64, 32, 32, 32 </rect2>
+		<array name="10/shapes" len="0" shared="false">
+		</array>
+		<string name="11/name"> "land_river_ 4" </string>
+		<resource name="11/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="11/tex_offset"> 0, -14 </vector2>
+		<vector2 name="11/shape_offset"> 0, 0 </vector2>
+		<rect2 name="11/region"> 96, 32, 32, 32 </rect2>
+		<array name="11/shapes" len="0" shared="false">
+		</array>
+		<string name="12/name"> "land_river_ 5" </string>
+		<resource name="12/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="12/tex_offset"> 0, -14 </vector2>
+		<vector2 name="12/shape_offset"> 0, 0 </vector2>
+		<rect2 name="12/region"> 128, 32, 32, 32 </rect2>
+		<array name="12/shapes" len="0" shared="false">
+		</array>
+		<string name="13/name"> "land_river_ 6" </string>
+		<resource name="13/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="13/tex_offset"> 0, -14 </vector2>
+		<vector2 name="13/shape_offset"> 0, 0 </vector2>
+		<rect2 name="13/region"> 160, 32, 32, 32 </rect2>
+		<array name="13/shapes" len="0" shared="false">
+		</array>
+		<string name="14/name"> "land_river_ 7" </string>
+		<resource name="14/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="14/tex_offset"> 0, -14 </vector2>
+		<vector2 name="14/shape_offset"> 0, 0 </vector2>
+		<rect2 name="14/region"> 192, 32, 32, 32 </rect2>
+		<array name="14/shapes" len="0" shared="false">
+		</array>
+		<string name="15/name"> "land_river_ 8" </string>
+		<resource name="15/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="15/tex_offset"> 0, -14 </vector2>
+		<vector2 name="15/shape_offset"> 0, 0 </vector2>
+		<rect2 name="15/region"> 224, 32, 32, 32 </rect2>
+		<array name="15/shapes" len="0" shared="false">
+		</array>
+		<string name="16/name"> "land_bridge_1" </string>
+		<resource name="16/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="16/tex_offset"> 0, -14 </vector2>
+		<vector2 name="16/shape_offset"> 0, 0 </vector2>
+		<rect2 name="16/region"> 64, 128, 32, 32 </rect2>
+		<array name="16/shapes" len="0" shared="false">
+		</array>
+		<string name="17/name"> "land_bridge_ 2" </string>
+		<resource name="17/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="17/tex_offset"> 0, -14 </vector2>
+		<vector2 name="17/shape_offset"> 0, 0 </vector2>
+		<rect2 name="17/region"> 96, 128, 32, 32 </rect2>
+		<array name="17/shapes" len="0" shared="false">
+		</array>
+
+	</main_resource>
+</resource_file>
