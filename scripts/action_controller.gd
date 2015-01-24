@@ -4,6 +4,7 @@ var abstract_map = preload('abstract_map.gd').new()
 var active_field = null
 var active_indicator = preload('res://units/player_red.scn').instance()
 var damage = preload('damage.gd')
+var object_factory = preload('object_factory.gd').new()
 
 func handle_action(position):
 	var field = abstract_map.get_field(position)
@@ -22,10 +23,8 @@ func handle_action(position):
 func init_root(root):
 	root_node = root
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
-	var units = root.get_tree().get_nodes_in_group("units")
-	for unit in units:
-		abstract_map.get_field(unit.get_pos_map()).object = unit
 	active_indicator.set_region_rect(Rect2(32, 0, 32, 32))
+	self.import_objects()
 
 func activate_field(field):
 	active_field = field
@@ -42,3 +41,9 @@ func move_object(from, to):
 	to.object = from.object
 	from.object = null
 	to.object.set_pos_map(to.position)
+	
+func import_objects():
+	var units = root_node.get_tree().get_nodes_in_group("units")
+	var new_entity
+	for unit in units:
+		abstract_map.get_field(unit.get_pos_map()).object = unit
