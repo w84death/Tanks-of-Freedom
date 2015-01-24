@@ -27,6 +27,9 @@ func _input(event):
 		if (event.pressed and event.button_index == BUTTON_LEFT):
 			print('click on map pos: ', selector_position)
 			action_controller.handle_action(selector_position)
+	
+	if Input.is_action_pressed('ui_cancel'):
+		action_controller.clear_active_field()
 
 #func _process(delta):
 	# do realtime stuff here
