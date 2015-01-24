@@ -7,6 +7,7 @@ var map_pos
 var game_scale
 var units
 var unit_selected = false
+var abstract_map
 
 func _input(event):
 # UPDATE LIVE STUFF
@@ -34,6 +35,13 @@ func _input(event):
 				unit_selected.set_pos_map(selector_position)
 				print('unit moved and unselect')
 				unit_selected = false
+			
+			var field = abstract_map.get_field(selector_position)
+			if field == null:
+				print('out of bounds')
+			else:
+				print(field.terrain_type)
+				print(field.position)
 		if (event.pressed and event.button_index == BUTTON_RIGHT):
 			print('unit unselect')
 			unit_selected = false
@@ -44,7 +52,9 @@ func _input(event):
 func _ready():
 	selector = get_node('/root/game/pixel_scale/map/YSort/player_red')
 	current_map = get_node("/root/game/pixel_scale/map")
-	game_scale = get_node("/root/game/pixel_scale").get_scale()	
+	game_scale = get_node("/root/game/pixel_scale").get_scale()
+	abstract_map = preload("abstract_map.gd").new()
+	abstract_map.tilemap = current_map
 	set_process_input(true)
 	#set_process(true)
 	pass
