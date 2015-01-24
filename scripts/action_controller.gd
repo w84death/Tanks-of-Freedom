@@ -60,7 +60,7 @@ func despawn_unit(field):
 	abstract_map.tilemap.remove_child(field.object)
 	field.object.queue_free()
 	field.object = null
-	
+
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("buildings"))
@@ -69,3 +69,13 @@ func import_objects():
 func attach_objects(collection):
 	for entity in collection:
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
+
+func switch_to_player(player):
+	current_player = player
+	self.reset_player_units(player)
+
+func reset_player_units(player):
+	var units = root_node.get_tree().get_nodes_in_group("units")
+	for unit in units:
+		if unit.player == player:
+			return
