@@ -11,10 +11,9 @@ var group = 'unit'
 var stats = {
 	life      = 2,
 	attack    = 3,
-	grass     = 2,
+	plain     = 2,
 	road      = 1,
-	forest    = 99,
-	generator = 99,
+	river     = 3,
 	ap        = 8
 }
 

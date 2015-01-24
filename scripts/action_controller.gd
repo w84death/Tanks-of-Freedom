@@ -19,8 +19,8 @@ func handle_action(position):
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
 			if (active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1):
-				movement_controller.move_object(active_field, field)
-				self.activate_field(field)
+				if(movement_controller.move_object(active_field, field)):
+					self.activate_field(field)
 
 func init_root(root):
 	root_node = root
@@ -39,8 +39,6 @@ func clear_active_field():
 	active_field = null
 	abstract_map.tilemap.remove_child(active_indicator)
 
-
-	
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("buildings"))
