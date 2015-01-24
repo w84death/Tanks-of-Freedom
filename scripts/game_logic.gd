@@ -17,7 +17,9 @@ func _input(event):
 
 # MOUSE MOVE
 	if (event.type == InputEvent.MOUSE_MOTION):
-		selector.set_pos((current_map.map_to_world(selector_position)))
+		var position = current_map.map_to_world(selector_position)
+		position.y += 2
+		selector.set_pos(position)
 
 # MOUSE SELECT
 	if (event.type == InputEvent.MOUSE_BUTTON):
