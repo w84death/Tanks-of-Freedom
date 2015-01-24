@@ -7,13 +7,18 @@ var battle_controller = preload('battle_controller.gd')
 var movement_controller = preload('movement_controller.gd').new()
 var object_factory = preload('object_factory.gd').new()
 
+var current_player = 0
+
 func handle_action(position):
 	var field = abstract_map.get_field(position)
 	
 	if field.object != null:
-		if(active_field != null && field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field)):
+		if field.object.group == 'building':
+			print('owner ', field.object.player)
+	
+		if active_field != null && field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field):
 			battle_controller.resolve_fight(active_field.object, field.object)
-		if (field.object.group == 'unit' || field.object.group == 'building'):
+		if field.object.group == 'unit' || field.object.group == 'building' :
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
