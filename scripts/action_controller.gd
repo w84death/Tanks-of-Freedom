@@ -10,7 +10,7 @@ func handle_action(position):
 	var field = abstract_map.get_field(position)
 	print(field.object)
 	if field.object != null:
-		if(active_field != null):
+		if(active_field != null && active_field.is_adjacent(field)):
 			damage.resolve_fight(active_field.object, field.object)
 		else:
 			self.activate_field(field)
