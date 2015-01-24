@@ -40,7 +40,6 @@ func extend(position):
 	size.y = position.y
 
 func create_field(position):
-#	print("building ", position)
 	var field = field_template.new()
 	field.position = position
 	field.terrain_type = tilemap.get_cell(position.x, position.y)
