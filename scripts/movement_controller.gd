@@ -20,6 +20,8 @@ var tile_types = [
 ]
 
 func move_object(active_field, field):
+	var from = active_field
+	var to = field
 	var action_cost = self.get_terrain_cost(from, self.get_terrain_type(to))
 	var player_stats = from.object.get_stats()
 	
