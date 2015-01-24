@@ -1,11 +1,12 @@
 
 extends AnimatedSprite
 export var position_on_map = Vector2(0,0)
+export var player = -1
+
 var current_map
 
 var group = 'unit'
 var type
-var player
 
 var stats = {
 	life      = 2,
