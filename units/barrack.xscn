@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
-	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/building.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
@@ -176,7 +176,7 @@
 				<int> -1 </int>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="55"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 1, 7, 3, 8, 4, 9, 5, 10, 6, 11, 1, 12, 3, 13, 7, 14, 7, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 3, 24, 9, 25, 14, 0 </int_array>
+			<int_array  len="55"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 1, 7, 3, 8, 4, 9, 5, 10, 6, 11, 1, 12, 3, 13, 7, 14, 7, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 3, 24, 8, 25, 14, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
