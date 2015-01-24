@@ -2,7 +2,7 @@
 var root_node
 var abstract_map = preload('abstract_map.gd').new()
 var active_field = null
-var active_indicator = preload('res://units/player_red.scn').instance()
+var active_indicator = preload('res://units/selector.xscn').instance()
 var damage = preload('damage.gd')
 var object_factory = preload('object_factory.gd').new()
 

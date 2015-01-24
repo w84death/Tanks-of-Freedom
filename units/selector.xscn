@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="3" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
-	<ext_resource path="res://scripts/building.gd" type="Script"></ext_resource>
+<resource_file type="PackedScene" subresource_count="2" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://assets/players.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="26">
-				<string> "bunker_blue" </string>
+			<string_array  len="22">
+				<string> "selector" </string>
 				<string> "Sprite" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
@@ -27,11 +26,7 @@
 				<string> "modulate" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
-				<string> "script/script" </string>
 				<string> "__meta__" </string>
-				<string> "position_on_map" </string>
-				<string> "type" </string>
-				<string> "player" </string>
 			</string_array>
 			<string> "version" </string>
 			<int> 1 </int>
@@ -40,7 +35,7 @@
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "variants" </string>
-			<array  len="14" shared="false">
+			<array  len="13" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -48,23 +43,21 @@
 				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
-				<resource  resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/players.png">  </resource>
 				<int> 1 </int>
 				<int> 0 </int>
 				<color> 1, 1, 1, 1 </color>
-				<rect2> 64, 64, 32, 32 </rect2>
-				<resource  resource_type="Script" path="res://scripts/building.gd">  </resource>
+				<rect2> 0, 0, 32, 32 </rect2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 2 </int>
+							<int> 1 </int>
 							<string> "sources" </string>
-							<array  len="3" shared="false">
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
+							<array  len="2" shared="false">
+								<string> "res://scripts/player_move.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
 							</array>
 						</dictionary>
@@ -73,11 +66,11 @@
 							<string> "pixel_snap" </string>
 							<bool> False </bool>
 							<string> "zoom" </string>
-							<real> 1.32038 </real>
+							<real> 2.205276 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -327.394, -67.7161 </vector2>
+							<vector2> 220.739, 178.423 </vector2>
 							<string> "snap" </string>
 							<int> 10 </int>
 						</dictionary>
@@ -186,7 +179,7 @@
 				</dictionary>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="55"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 4, 24, 9, 25, 9, 0 </int_array>
+			<int_array  len="47"> 				-1, -1, 1, 0, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

@@ -35,7 +35,7 @@ func _input(event):
 	# do realtime stuff here
 
 func _ready():
-	selector = get_node('/root/game/pixel_scale/map/YSort/player_red')
+	selector = get_node('/root/game/pixel_scale/map/YSort/selector')
 	current_map = get_node("/root/game/pixel_scale/map")
 	game_scale = get_node("/root/game/pixel_scale").get_scale()
 	action_controller = preload("action_controller.gd").new()

@@ -1,11 +1,11 @@
 
 extends AnimatedSprite
 export var position_on_map = Vector2(0,0)
-var current_map
+export var type = 0
+export var player = 0
 
+var current_map
 var group = 'building'
-var type
-var player
 
 func get_pos_map():
 	return position_on_map
