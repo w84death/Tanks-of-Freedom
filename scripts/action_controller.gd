@@ -8,15 +8,15 @@ var object_factory = preload('object_factory.gd').new()
 
 func handle_action(position):
 	var field = abstract_map.get_field(position)
-	print(field.object)
+	
 	if field.object != null:
-		if(active_field != null && active_field.is_adjacent(field)):
+		if(active_field != null && field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field)):
 			damage.resolve_fight(active_field.object, field.object)
-		else:
+		if (field.object.group == 'unit' || field.object.group == 'building'):
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
-			if (active_field.is_adjacent(field)):
+			if (active_field.object.group == 'unit' && active_field.is_adjacent(field)):
 				self.move_object(active_field, field)
 				self.activate_field(field)
 
