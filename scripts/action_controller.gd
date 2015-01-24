@@ -14,7 +14,7 @@ func handle_action(position):
 	if field.object != null:
 		if active_field != null:
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
-				if active_field.is_adjacent(field) && field.object.player != current_player && active_field.object.can_attack(field.object):
+				if active_field.is_adjacent(field) && field.object.player != current_player:
 					if (battle_controller.resolve_fight(active_field.object, field.object)):
 						self.despawn_unit(field)
 						return

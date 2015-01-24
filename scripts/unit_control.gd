@@ -10,6 +10,7 @@ export var plain = 2
 export var road = 2
 export var river = 3
 export var max_ap = 8
+export var attack_ap = 2
 var ap = 8
 
 
@@ -25,7 +26,7 @@ func get_initial_pos():
 	return position_on_map
 
 func get_stats():
-	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : ap}
+	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : ap, 'attack_ap': attack_ap}
 
 func set_stats(new_stats):
 	life = new_stats.life
@@ -41,11 +42,6 @@ func set_pos_map(new_position):
 
 func die():
 	print('DIED!')
-
-func can_attack(enemy):
-	if type == 1 && enemy.type == 2:
-		return false
-	return true
 
 func set_damaged():
 	print('DAMAGED!')
