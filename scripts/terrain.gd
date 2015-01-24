@@ -1,5 +1,5 @@
 
-extends AnimatedSprite
+extends Sprite
 export var position_on_map = Vector2(0,0)
 var current_map
 
