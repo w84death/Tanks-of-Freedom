@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="12" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://units/bunker_red.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/forest_1.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scripts/map_move.gd" type="Script"></ext_resource>
 	<ext_resource path="res://terrain_tileset.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://units/forest_2.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/selector.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/tank_red.scn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/bunker_blue.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/bunker_red.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/factory.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/forest_2.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/barrack.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/airport.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/forest_1.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/bunker_blue.xscn" type="PackedScene"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
@@ -118,13 +118,14 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 3 </int>
+							<int> 4 </int>
 							<string> "sources" </string>
-							<array  len="4" shared="false">
+							<array  len="5" shared="false">
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/building.gd" </string>
 								<string> "res://scripts/unit_control.gd" </string>
 								<string> "res://scripts/terrain.gd" </string>
+								<string> "res://scripts/damage.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
@@ -132,11 +133,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 2 </real>
+							<real> 2.720748 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -171.301, 23.2804 </vector2>
+							<vector2> -64.9502, 125.046 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -1004,7 +1005,7 @@
 				<vector2> 16, 55 </vector2>
 				<vector2> -64, 47 </vector2>
 				<resource  resource_type="PackedScene" path="res://units/airport.xscn">  </resource>
-				<vector2> 80, 152 </vector2>
+				<vector2> 80, 151 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
