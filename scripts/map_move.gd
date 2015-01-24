@@ -5,7 +5,7 @@ var pos = self.get_pos()
 
 func _input(event):
 	if(event.type == InputEvent.MOUSE_BUTTON):
-		if (event.button_index == BUTTON_LEFT):
+		if (event.button_index == BUTTON_RIGHT):
 			mouse_dragging = event.pressed
 			
 	if (event.type == InputEvent.MOUSE_MOTION):
