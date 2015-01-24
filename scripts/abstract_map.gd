@@ -36,8 +36,10 @@ func extend(position):
 			row.insert(j, self.create_field(Vector2(j, size.y + i + 1)))
 		fields.insert(size.y + i + 1, row)
 
-	size.x = position.x
-	size.y = position.y
+	if position.x > size.x:
+		size.x = position.x
+	if position.y > size.y:
+		size.y = position.y
 
 func create_field(position):
 	var field = field_template.new()

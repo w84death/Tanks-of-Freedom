@@ -3,6 +3,7 @@ extends AnimatedSprite
 export var position_on_map = Vector2(0,0)
 var current_map
 
+var group = 'unit'
 var type
 var player
 
@@ -17,6 +18,10 @@ var stats = {
 }
 
 func get_pos_map():
+	return position_on_map
+	
+func get_initial_pos():
+	position_on_map = current_map.world_to_map(self.get_pos())
 	return position_on_map
 
 func get_stats():

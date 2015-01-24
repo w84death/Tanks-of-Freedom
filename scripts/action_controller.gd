@@ -8,7 +8,7 @@ var object_factory = preload('object_factory.gd').new()
 
 func handle_action(position):
 	var field = abstract_map.get_field(position)
-
+	print(field.object)
 	if field.object != null:
 		if(active_field != null):
 			damage.resolve_fight(active_field.object, field.object)
@@ -48,5 +48,5 @@ func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("terrain"))
 
 func attach_objects(collection):
-	for object in collection:
-		abstract_map.get_field(object.get_pos_map()).object = object
+	for entity in collection:
+		abstract_map.get_field(entity.get_initial_pos()).object = entity
