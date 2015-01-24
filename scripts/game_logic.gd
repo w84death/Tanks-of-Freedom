@@ -26,20 +26,7 @@ func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON):
 		if (event.pressed and event.button_index == BUTTON_LEFT):
 			print('click on map pos: ', selector_position)
-			if(not unit_selected):
-				for unit in units:
-					if(unit.get_pos_map() == selector_position):
-						unit_selected = unit
-						print('unit selected')
-			else:
-				unit_selected.set_pos_map(selector_position)
-				print('unit moved and unselect')
-				unit_selected = false
 			action_controller.handle_action(selector_position)
-
-		if (event.pressed and event.button_index == BUTTON_RIGHT):
-			print('unit unselect')
-			unit_selected = false
 
 #func _process(delta):
 	# do realtime stuff here
