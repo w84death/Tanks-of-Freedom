@@ -1,5 +1,5 @@
 
-var red_tank_template = preload('res://units/tank_red.scn')
+var red_tank_template = preload('res://units/tank_red.xscn')
 
 var player_blue = 0
 var player_red = 0
