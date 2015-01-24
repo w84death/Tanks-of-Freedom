@@ -71,6 +71,7 @@ func attach_objects(collection):
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func switch_to_player(player):
+	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
 
@@ -78,4 +79,4 @@ func reset_player_units(player):
 	var units = root_node.get_tree().get_nodes_in_group("units")
 	for unit in units:
 		if unit.player == player:
-			return
+			unit.reset_ap()
