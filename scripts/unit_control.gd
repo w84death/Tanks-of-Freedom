@@ -37,6 +37,10 @@ func set_pos_map(new_position):
 func die():
 	print('DIED!')
 
+func can_attack(enemy):
+	if type == 1 && enemy.type == 2:
+		return false
+	return true
 
 func set_damaged():
 	print('DAMAGED!')
