@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="22" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://units/bunker_red.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/selector.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/forest_1.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/tank_red.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/bunker_blue.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/city_4.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/airport.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/barrack.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/factory.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/soldier_red.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/helicopter_red.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/city_2.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://terrain_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://units/city_1.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://scripts/map_move.gd" type="Script"></ext_resource>
-	<ext_resource path="res://units/city_3.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/city_2.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/selector.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/bunker_red.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/forest_2.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/tank_red.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/helicopter_blue.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/helicopter_red.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/bunker_blue.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/soldier_red.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/soldier_blue.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/city_3.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://terrain_tileset.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://scripts/map_move.gd" type="Script"></ext_resource>
 	<ext_resource path="res://units/tank_blue.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/city_5.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/helicopter_blue.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/city_4.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/airport.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/forest_1.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/factory.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/barrack.xscn" type="PackedScene"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
