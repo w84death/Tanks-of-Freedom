@@ -13,10 +13,11 @@ func handle_action(position):
 	
 	if field.object != null:
 		if active_field != null:
-			if field.object.group == 'unit' && active_field.object.group == 'unit' && active_field.is_adjacent(field):
-				if (battle_controller.resolve_fight(active_field.object, field.object)):
-					self.despawn_unit(field)
-					return
+			if field.object.group == 'unit' && active_field.object.group == 'unit':
+				if active_field.is_adjacent(field) && field.object.player != current_player:
+					if (battle_controller.resolve_fight(active_field.object, field.object)):
+						self.despawn_unit(field)
+						return
 					
 			if field == active_field && field.object.group == 'building':
 				var spawn_point = abstract_map.get_field(field.object.spawn_point)
