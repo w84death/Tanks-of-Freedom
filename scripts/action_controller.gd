@@ -43,7 +43,10 @@ func move_object(from, to):
 	to.object.set_pos_map(to.position)
 	
 func import_objects():
-	var units = root_node.get_tree().get_nodes_in_group("units")
-	var new_entity
-	for unit in units:
-		abstract_map.get_field(unit.get_pos_map()).object = unit
+	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
+	self.attach_objects(root_node.get_tree().get_nodes_in_group("buildings"))
+	self.attach_objects(root_node.get_tree().get_nodes_in_group("terrain"))
+
+func attach_objects(collection):
+	for object in collection:
+		abstract_map.get_field(object.get_pos_map()).object = object

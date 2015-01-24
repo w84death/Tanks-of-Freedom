@@ -3,6 +3,7 @@ extends AnimatedSprite
 export var position_on_map = Vector2(0,0)
 var current_map
 
+var group = 'terrain'
 var type
 
 func get_pos_map():
