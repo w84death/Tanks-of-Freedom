@@ -76,12 +76,13 @@ func spawn_unit_from_active_building():
 	if active_field == null || active_field.object.group != 'building':
 		return
 	var spawn_point = abstract_map.get_field(active_field.object.spawn_point)
-	if spawn_point.object == null && self.has_ap():
+	var required_ap = active_field.object.get_required_ap()
+	if spawn_point.object == null && self.has_enough_ap(required_ap):
 		var unit = active_field.object.spawn_unit(current_player)
 		abstract_map.tilemap.add_child(unit)
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
-		self.use_ap()
+		self.deduct_ap(required_ap)
 
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
@@ -102,9 +103,17 @@ func has_ap():
 	if player_ap > 0:
 		return true
 	return false
+	
+func has_enough_ap(ap):
+	if player_ap >= ap:
+		return true
+	return false
 
 func use_ap():
-	self.update_ap(player_ap - 1)
+	self.deduct_ap(1)
+	
+func deduct_ap(ap):
+	self.update_ap(player_ap - ap)
 	
 func update_ap(ap):
 	player_ap = ap
