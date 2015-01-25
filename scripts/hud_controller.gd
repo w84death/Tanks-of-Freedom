@@ -18,11 +18,15 @@ var hud_building_spawn_button
 var hud_building_icon
 var hud_building_unit_icon
 
+var player_ap
+
 func init_root(root, action_controller_object):
 	root_node = root
 	action_controller = action_controller_object
 	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")
 	end_turn_button.connect("pressed", action_controller, "end_turn")
+	
+	player_ap = root.get_node("/root/game/GUI/turn_card/Label")
 	
 	hud_unit = root.get_node("/root/game/GUI/bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")

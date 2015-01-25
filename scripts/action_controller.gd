@@ -9,6 +9,8 @@ var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
 
 var current_player = 1
+var player_ap = 10
+var player_ap_max = 10
 
 func handle_action(position):
 	var field = abstract_map.get_field(position)
@@ -24,7 +26,7 @@ func handle_action(position):
 					hud_controller.update_unit_card(active_field.object)
 					
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
-				if active_field.is_adjacent(field):
+				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field):
 					field.object.claim(current_player)
 					self.despawn_unit(active_field)
 					self.activate_field(field)
@@ -91,6 +93,15 @@ func end_turn():
 		self.switch_to_player(1)
 	else:
 		self.switch_to_player(0)
+	player_ap = player_ap_max
+
+func has_ap():
+	if player_ap > 0:
+		return true
+	return false
+
+func use_ap():
+	player_ap -= 1
 
 func switch_to_player(player):
 	self.clear_active_field()

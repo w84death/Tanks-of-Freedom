@@ -25,7 +25,6 @@ func _input(event):
 # MOUSE SELECT
 	if (event.type == InputEvent.MOUSE_BUTTON):
 		if (event.pressed and event.button_index == BUTTON_LEFT):
-			print('click on map pos: ', selector_position)
 			action_controller.handle_action(selector_position)
 	
 	if Input.is_action_pressed('ui_cancel'):
