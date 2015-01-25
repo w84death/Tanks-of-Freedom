@@ -2,6 +2,7 @@
 var root_node
 var action_controller
 
+var end_turn_card
 var end_turn_button
 
 var hud_unit
@@ -20,16 +21,26 @@ var hud_building_unit_icon
 var hud_building_label
 
 var player_ap
+var turn_card
 var turn_counter
+
+var blue_wins
+var red_wins
 
 func init_root(root, action_controller_object):
 	root_node = root
 	action_controller = action_controller_object
+	
+	end_turn_card = root.get_node("/root/game/GUI/turn_card")
 	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")
 	end_turn_button.connect("pressed", action_controller, "end_turn")
 	
 	player_ap = root.get_node("/root/game/GUI/turn_card/Label")
+	turn_card = root.get_node("/root/game/GUI/game_card")
 	turn_counter = root.get_node("/root/game/GUI/game_card/turn_no")
+	
+	blue_wins = root.get_node("/root/game/GUI/blue_win")
+	red_wins = root.get_node("/root/game/GUI/blue_win")
 	
 	hud_unit = root.get_node("/root/game/GUI/bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")
@@ -81,4 +92,16 @@ func update_ap(ap):
 	
 func set_turn(no):
 	turn_counter.set_text(str(no))
+	
+func show_win(player):
+	end_turn_card.hide()
+	turn_card.hide()
+	self.clear_building_card()
+	self.clear_unit_card()
+	if player == 0:
+		blue_wins.show()
+		print('blue wins')
+	else:
+		red_wins.show()
+		print('red wins')
 	

@@ -14,7 +14,12 @@ var player_ap = 10
 var player_ap_max = 10
 var turn = 1
 
+var game_ended = false
+
 func handle_action(position):
+	if game_ended:
+		return
+	
 	var field = abstract_map.get_field(position)
 	
 	if field.object != null:
@@ -45,6 +50,9 @@ func handle_action(position):
 					sample_player.play('pickup_box')
 					self.despawn_unit(active_field)
 					self.activate_field(field)
+					if field.object.type == 0:
+						self.end_game()
+						return
 		if (field.object.group == 'unit' || field.object.group == 'building') && field.object.player == current_player:
 			self.activate_field(field)
 	else:
@@ -156,3 +164,9 @@ func reset_player_units(player):
 	for unit in units:
 		if unit.player == player:
 			unit.reset_ap()
+			
+func end_game():
+	self.clear_active_field()
+	game_ended = true
+	hud_controller.show_win(current_player)
+	selector.hide()
