@@ -4,7 +4,6 @@
 	<ext_resource path="res://maps/map.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/not_dead.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/select.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/spawn.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/pickup_box.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/menu.wav" type="Sample"></ext_resource>
@@ -15,6 +14,7 @@
 	<ext_resource path="res://assets/sounds/fx/powerup.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/no_attack.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
 	<resource type="SampleLibrary" path="local://1">
 		<dictionary name="samples/select" shared="false">
 			<string> "db" </string>

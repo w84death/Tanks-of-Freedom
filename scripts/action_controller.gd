@@ -40,7 +40,9 @@ func handle_action(position):
 							sample_player.play('not_dead')
 					else:
 						sample_player.play('no_attack')
-				
+				else:
+					sample_player.play('no_move')
+					
 					hud_controller.update_unit_card(active_field.object)
 					
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
