@@ -128,6 +128,27 @@
 		<rect2 name="17/region"> 96, 128, 32, 32 </rect2>
 		<array name="17/shapes" len="0" shared="false">
 		</array>
+		<string name="18/name"> "land_airport" </string>
+		<resource name="18/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="18/tex_offset"> 0, -14 </vector2>
+		<vector2 name="18/shape_offset"> 0, 0 </vector2>
+		<rect2 name="18/region"> 64, 64, 32, 32 </rect2>
+		<array name="18/shapes" len="0" shared="false">
+		</array>
+		<string name="19/name"> "land_factory" </string>
+		<resource name="19/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="19/tex_offset"> 0, -14 </vector2>
+		<vector2 name="19/shape_offset"> 0, 0 </vector2>
+		<rect2 name="19/region"> 96, 64, 32, 32 </rect2>
+		<array name="19/shapes" len="0" shared="false">
+		</array>
+		<string name="20/name"> "land_barracks" </string>
+		<resource name="20/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="20/tex_offset"> 0, -14 </vector2>
+		<vector2 name="20/shape_offset"> 0, 0 </vector2>
+		<rect2 name="20/region"> 128, 64, 32, 32 </rect2>
+		<array name="20/shapes" len="0" shared="false">
+		</array>
 
 	</main_resource>
 </resource_file>
