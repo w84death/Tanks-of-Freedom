@@ -39,8 +39,8 @@ func init_root(root, action_controller_object):
 	turn_card = root.get_node("/root/game/GUI/game_card")
 	turn_counter = root.get_node("/root/game/GUI/game_card/turn_no")
 	
-	blue_wins = root.get_node("/root/game/GUI/blue_win")
-	red_wins = root.get_node("/root/game/GUI/blue_win")
+	blue_wins = root.get_node("/root/game/GUI/middle_center/blue_win")
+	red_wins = root.get_node("/root/game/GUI/middle_center/red_win")
 	
 	hud_unit = root.get_node("/root/game/GUI/bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")
