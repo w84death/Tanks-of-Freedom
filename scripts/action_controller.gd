@@ -1,6 +1,7 @@
 
 var root_node
 var abstract_map = preload('abstract_map.gd').new()
+var ysort
 var selector
 var active_field = null
 var active_indicator = preload('res://units/selector.xscn').instance()
@@ -70,6 +71,7 @@ func handle_action(position):
 func init_root(root):
 	root_node = root
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
+	ysort = root.get_node('/root/game/pixel_scale/map/YSort')
 	selector = root.get_node('/root/game/pixel_scale/map/YSort/selector')
 	sample_player = root.get_node("/root/game/SamplePlayer")
 	active_indicator.set_region_rect(Rect2(64, 0, 32, 32))
@@ -80,7 +82,7 @@ func init_root(root):
 func activate_field(field):
 	self.clear_active_field()
 	active_field = field
-	abstract_map.tilemap.add_child(active_indicator)
+	ysort.add_child(active_indicator)
 	var position = Vector2(abstract_map.tilemap.map_to_world(field.position))
 	position.y += 2
 	active_indicator.set_pos(position)
@@ -92,12 +94,12 @@ func activate_field(field):
 
 func clear_active_field():
 	active_field = null
-	abstract_map.tilemap.remove_child(active_indicator)
+	ysort.remove_child(active_indicator)
 	hud_controller.clear_unit_card()
 	hud_controller.clear_building_card()
 
 func despawn_unit(field):
-	abstract_map.tilemap.remove_child(field.object)
+	ysort.remove_child(field.object)
 	field.object.queue_free()
 	field.object = null
 
@@ -108,7 +110,7 @@ func spawn_unit_from_active_building():
 	var required_ap = active_field.object.get_required_ap()
 	if spawn_point.object == null && self.has_enough_ap(required_ap):
 		var unit = active_field.object.spawn_unit(current_player)
-		abstract_map.tilemap.add_child(unit)
+		ysort.add_child(unit)
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
 		self.deduct_ap(required_ap)
