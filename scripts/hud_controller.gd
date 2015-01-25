@@ -71,3 +71,6 @@ func show_building_card(building):
 func clear_building_card():
 	hud_building.hide()
 	
+func update_ap(ap):
+	player_ap.set_text(str(ap))
+	

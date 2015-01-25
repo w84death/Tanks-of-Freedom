@@ -18,7 +18,8 @@ func handle_action(position):
 	if field.object != null:
 		if active_field != null:
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
-				if active_field.is_adjacent(field) && field.object.player != current_player:
+				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
+					self.use_ap()
 					if (battle_controller.resolve_fight(active_field.object, field.object)):
 						self.despawn_unit(field)
 						hud_controller.update_unit_card(active_field.object)
@@ -26,7 +27,8 @@ func handle_action(position):
 					hud_controller.update_unit_card(active_field.object)
 					
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
-				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field):
+				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field) && self.has_ap():
+					self.use_ap()
 					field.object.claim(current_player)
 					self.despawn_unit(active_field)
 					self.activate_field(field)
@@ -34,9 +36,10 @@ func handle_action(position):
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
-			if (active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1):
-				if(movement_controller.move_object(active_field, field)):
+			if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
+				if movement_controller.move_object(active_field, field):
 					self.activate_field(field)
+					self.use_ap()
 
 func init_root(root):
 	root_node = root
@@ -73,11 +76,12 @@ func spawn_unit_from_active_building():
 	if active_field == null || active_field.object.group != 'building':
 		return
 	var spawn_point = abstract_map.get_field(active_field.object.spawn_point)
-	if spawn_point.object == null:
+	if spawn_point.object == null && self.has_ap():
 		var unit = active_field.object.spawn_unit(current_player)
 		abstract_map.tilemap.add_child(unit)
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
+		self.use_ap()
 
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
@@ -93,7 +97,6 @@ func end_turn():
 		self.switch_to_player(1)
 	else:
 		self.switch_to_player(0)
-	player_ap = player_ap_max
 
 func has_ap():
 	if player_ap > 0:
@@ -101,13 +104,18 @@ func has_ap():
 	return false
 
 func use_ap():
-	player_ap -= 1
+	self.update_ap(player_ap - 1)
+	
+func update_ap(ap):
+	player_ap = ap
+	hud_controller.update_ap(player_ap)
 
 func switch_to_player(player):
 	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
 	selector.set_region_rect(Rect2(player * 32, 0, 32, 32))
+	self.update_ap(player_ap_max)
 
 func reset_player_units(player):
 	var units = root_node.get_tree().get_nodes_in_group("units")
