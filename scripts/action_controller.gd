@@ -19,9 +19,9 @@ func handle_action(position):
 				if active_field.is_adjacent(field) && field.object.player != current_player:
 					if (battle_controller.resolve_fight(active_field.object, field.object)):
 						self.despawn_unit(field)
-						hud_controller.update_unit_card(active_field.object.get_stats())
+						hud_controller.update_unit_card(active_field.object)
 						return
-					hud_controller.update_unit_card(active_field.object.get_stats())
+					hud_controller.update_unit_card(active_field.object)
 					
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
 				if active_field.is_adjacent(field):
