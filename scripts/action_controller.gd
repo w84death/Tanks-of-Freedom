@@ -23,7 +23,7 @@ func handle_action(position):
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
 					self.use_ap()
 					if (battle_controller.can_attack(active_field.object, field.object)):
-						if (battle_controller.resolve_fight(active_field.object, field.object)):							
+						if (battle_controller.resolve_fight(active_field.object, field.object)):
 							if (field.object.type == 0):
 								sample_player.play('hurt')
 							else:
@@ -125,6 +125,8 @@ func end_turn():
 func has_ap():
 	if player_ap > 0:
 		return true
+	
+	sample_player.play('no_moves')
 	return false
 	
 func has_enough_ap(ap):

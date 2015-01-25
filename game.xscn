@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="12" version="1.0" version_name="Godot Engine v1.0.3917-beta1">
+<resource_file type="PackedScene" subresource_count="17" version="1.0" version_name="Godot Engine v1.0.3917-beta1">
 	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
-	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://maps/map.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/not_dead.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/select.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/spawn.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/pickup_box.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/menu.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/move.wav" type="Sample"></ext_resource>
@@ -10,7 +13,17 @@
 	<ext_resource path="res://assets/sounds/fx/hurt.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/explosion.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/powerup.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/no_attack.wav" type="Sample"></ext_resource>
 	<resource type="SampleLibrary" path="local://1">
+		<dictionary name="samples/select" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/select.wav">  </resource>
+		</dictionary>
 		<dictionary name="samples/move" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
@@ -19,21 +32,21 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/move.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/no_moves" shared="false">
+		<dictionary name="samples/powerup" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/powerup.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/menu" shared="false">
+		<dictionary name="samples/end_turn" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/menu.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/end_turn.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/explosion" shared="false">
 			<string> "db" </string>
@@ -43,13 +56,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/explosion.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/pickup_box" shared="false">
+		<dictionary name="samples/no_attack" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_attack.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/hurt" shared="false">
 			<string> "db" </string>
@@ -59,13 +72,45 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/hurt.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/powerup" shared="false">
+		<dictionary name="samples/menu" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/powerup.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/menu.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/not_dead" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/no_moves" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/pickup_box" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/spawn" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/spawn.wav">  </resource>
 		</dictionary>
 
 	</resource>
