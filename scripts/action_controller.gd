@@ -5,6 +5,7 @@ var active_field = null
 var active_indicator = preload('res://units/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
+var hud_controller = preload('hud_controller.gd').new()
 
 var current_player = 1
 
@@ -44,6 +45,7 @@ func init_root(root):
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
 	active_indicator.set_region_rect(Rect2(32, 0, 32, 32))
 	self.import_objects()
+	hud_controller.init_root(root, self)
 
 func activate_field(field):
 	active_field = field
@@ -69,6 +71,12 @@ func import_objects():
 func attach_objects(collection):
 	for entity in collection:
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
+		
+func end_turn():
+	if current_player == 0:
+		self.switch_to_player(1)
+	else:
+		self.switch_to_player(0)
 
 func switch_to_player(player):
 	self.clear_active_field()

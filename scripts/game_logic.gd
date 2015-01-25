@@ -33,12 +33,6 @@ func _input(event):
 
 #func _process(delta):
 	# do realtime stuff here
-	
-func end_turn():
-	if action_controller.current_player == 0:
-		action_controller.switch_to_player(1)
-	else:
-		action_controller.switch_to_player(0)
 
 func _ready():
 	selector = get_node('/root/game/pixel_scale/map/YSort/selector')
@@ -47,8 +41,6 @@ func _ready():
 	action_controller = preload("action_controller.gd").new()
 	action_controller.init_root(self)
 	action_controller.switch_to_player(0)
-	var end_turn_button = get_node("/root/game/GUI/turn_card/end_turn")
-	end_turn_button.connect("pressed", self, "end_turn")
 	set_process_input(true)
 	pass
 
