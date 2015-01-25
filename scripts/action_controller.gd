@@ -1,6 +1,7 @@
 
 var root_node
 var abstract_map = preload('abstract_map.gd').new()
+var selector
 var active_field = null
 var active_indicator = preload('res://units/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
@@ -38,7 +39,8 @@ func handle_action(position):
 func init_root(root):
 	root_node = root
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
-	active_indicator.set_region_rect(Rect2(32, 0, 32, 32))
+	selector = root.get_node('/root/game/pixel_scale/map/YSort/selector')
+	active_indicator.set_region_rect(Rect2(64, 0, 32, 32))
 	self.import_objects()
 	hud_controller.init_root(root, self)
 
@@ -94,6 +96,7 @@ func switch_to_player(player):
 	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
+	selector.set_region_rect(Rect2(player * 32, 0, 32, 32))
 
 func reset_player_units(player):
 	var units = root_node.get_tree().get_nodes_in_group("units")
