@@ -22,13 +22,6 @@ func handle_action(position):
 						return
 					hud_controller.update_unit_card(active_field.object.get_stats())
 					
-			if field == active_field && field.object.group == 'building':
-				var spawn_point = abstract_map.get_field(field.object.spawn_point)
-				if spawn_point.object == null:
-					var unit = field.object.spawn_unit(current_player)
-					abstract_map.tilemap.add_child(unit)
-					unit.set_pos_map(spawn_point.position)
-					spawn_point.object = unit
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
 				if active_field.is_adjacent(field):
 					field.object.claim(current_player)
@@ -71,6 +64,16 @@ func despawn_unit(field):
 	abstract_map.tilemap.remove_child(field.object)
 	field.object.queue_free()
 	field.object = null
+
+func spawn_unit_from_active_building():
+	if active_field == null || active_field.object.group != 'building':
+		return
+	var spawn_point = abstract_map.get_field(active_field.object.spawn_point)
+	if spawn_point.object == null:
+		var unit = active_field.object.spawn_unit(current_player)
+		abstract_map.tilemap.add_child(unit)
+		unit.set_pos_map(spawn_point.position)
+		spawn_point.object = unit
 
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))

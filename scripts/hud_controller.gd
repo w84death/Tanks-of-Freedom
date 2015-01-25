@@ -13,6 +13,7 @@ var hud_unit_road
 var hud_unit_river
 
 var hud_building
+var hud_building_spawn_button
 
 func init_root(root, action_controller_object):
 	root_node = root
@@ -29,6 +30,8 @@ func init_root(root, action_controller_object):
 	hud_unit_river = hud_unit.get_node("river")
 	
 	hud_building = root.get_node("/root/game/GUI/bottom_center/building_card")
+	hud_building_spawn_button = hud_building.get_node("TextureButton")
+	hud_building_spawn_button.connect("pressed", action_controller, "spawn_unit_from_active_building")
 
 func show_unit_card(unit):
 	self.update_unit_card(unit.get_stats())
