@@ -66,6 +66,16 @@ func get_required_ap():
 		return 3
 
 	return 0
+	
+func get_name():
+	if type == TYPE_BUNKER:
+		return "BUNKER"
+	if type == TYPE_BARRACKS:
+		return "BARRACKS"
+	if type == TYPE_FACTORY:
+		return "FACTORY"
+	if type == TYPE_AIRPORT:
+		return "AIRFIELD"
 
 func _ready():
 	add_to_group("buildings")

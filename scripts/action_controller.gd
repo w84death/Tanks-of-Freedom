@@ -12,6 +12,7 @@ var sample_player
 var current_player = 1
 var player_ap = 10
 var player_ap_max = 10
+var turn = 1
 
 func handle_action(position):
 	var field = abstract_map.get_field(position)
@@ -64,6 +65,7 @@ func init_root(root):
 	active_indicator.set_region_rect(Rect2(64, 0, 32, 32))
 	self.import_objects()
 	hud_controller.init_root(root, self)
+	hud_controller.set_turn(turn)
 
 func activate_field(field):
 	self.clear_active_field()
@@ -117,6 +119,8 @@ func end_turn():
 		self.switch_to_player(1)
 	else:
 		self.switch_to_player(0)
+		turn += 1
+	hud_controller.set_turn(turn)
 
 func has_ap():
 	if player_ap > 0:

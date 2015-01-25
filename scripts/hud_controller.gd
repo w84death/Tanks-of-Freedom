@@ -17,8 +17,10 @@ var hud_building
 var hud_building_spawn_button
 var hud_building_icon
 var hud_building_unit_icon
+var hud_building_label
 
 var player_ap
+var turn_counter
 
 func init_root(root, action_controller_object):
 	root_node = root
@@ -27,6 +29,7 @@ func init_root(root, action_controller_object):
 	end_turn_button.connect("pressed", action_controller, "end_turn")
 	
 	player_ap = root.get_node("/root/game/GUI/turn_card/Label")
+	turn_counter = root.get_node("/root/game/GUI/game_card/turn_no")
 	
 	hud_unit = root.get_node("/root/game/GUI/bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")
@@ -39,6 +42,7 @@ func init_root(root, action_controller_object):
 	
 	hud_building = root.get_node("/root/game/GUI/bottom_center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
+	hud_building_label = hud_building.get_node("name")
 	hud_building_spawn_button = hud_building.get_node("TextureButton")
 	hud_building_unit_icon = hud_building_spawn_button.get_node("unit_icon")
 	hud_building_spawn_button.connect("pressed", action_controller, "spawn_unit_from_active_building")
@@ -66,6 +70,7 @@ func clear_unit_card():
 func show_building_card(building):
 	hud_building_icon.set_region_rect(building.get_region_rect())
 	hud_building_unit_icon.set_region_rect(building.get_region_rect())
+	hud_building_label.set_text(building.get_name())
 	hud_building.show()
 	
 func clear_building_card():
@@ -73,4 +78,7 @@ func clear_building_card():
 	
 func update_ap(ap):
 	player_ap.set_text(str(ap))
+	
+func set_turn(no):
+	turn_counter.set_text(str(no))
 	
