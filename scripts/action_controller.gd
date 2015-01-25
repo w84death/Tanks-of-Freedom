@@ -18,7 +18,9 @@ func handle_action(position):
 				if active_field.is_adjacent(field) && field.object.player != current_player:
 					if (battle_controller.resolve_fight(active_field.object, field.object)):
 						self.despawn_unit(field)
+						hud_controller.update_unit_card(active_field.object.get_stats())
 						return
+					hud_controller.update_unit_card(active_field.object.get_stats())
 					
 			if field == active_field && field.object.group == 'building':
 				var spawn_point = abstract_map.get_field(field.object.spawn_point)
@@ -48,15 +50,22 @@ func init_root(root):
 	hud_controller.init_root(root, self)
 
 func activate_field(field):
+	self.clear_active_field()
 	active_field = field
 	abstract_map.tilemap.add_child(active_indicator)
 	var position = Vector2(abstract_map.tilemap.map_to_world(field.position))
 	position.y += 2
 	active_indicator.set_pos(position)
+	if field.object.group == 'unit':
+		hud_controller.show_unit_card(field.object)
+	if field.object.group == 'building':
+		hud_controller.show_building_card(field.object)
 
 func clear_active_field():
 	active_field = null
 	abstract_map.tilemap.remove_child(active_indicator)
+	hud_controller.clear_unit_card()
+	hud_controller.clear_building_card()
 
 func despawn_unit(field):
 	abstract_map.tilemap.remove_child(field.object)
