@@ -23,13 +23,13 @@ func handle_action(position):
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
 					self.use_ap()
 					if (battle_controller.can_attack(active_field.object, field.object)):
-						if (battle_controller.resolve_fight(active_field.object, field.object)):
-							self.despawn_unit(field)
-							hud_controller.update_unit_card(active_field.object)
+						if (battle_controller.resolve_fight(active_field.object, field.object)):							
 							if (field.object.type == 0):
 								sample_player.play('hurt')
 							else:
 								sample_player.play('explosion')
+							self.despawn_unit(field)
+							hud_controller.update_unit_card(active_field.object)
 							return
 						else:
 							sample_player.play('not_dead')
