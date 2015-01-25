@@ -18,6 +18,8 @@ func _input(event):
 
 # MOUSE MOVE
 	if (event.type == InputEvent.MOUSE_MOTION):
+		get_node("SamplePlayer").play("move")
+		
 		var position = current_map.map_to_world(selector_position)
 		position.y += 2
 		selector.set_pos(position)

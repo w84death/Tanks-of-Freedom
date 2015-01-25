@@ -31,8 +31,10 @@ func move_object(from, to):
 		from.object = null
 		to.object.set_pos_map(to.position)
 		
+		
 		return true
 	else:
+	
 		return false
 		
 func can_move(from, to):
