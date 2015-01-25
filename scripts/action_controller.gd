@@ -7,6 +7,7 @@ var active_indicator = preload('res://units/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
+var sample_player
 
 var current_player = 1
 var player_ap = 10
@@ -20,16 +21,27 @@ func handle_action(position):
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
 					self.use_ap()
-					if (battle_controller.resolve_fight(active_field.object, field.object)):
-						self.despawn_unit(field)
-						hud_controller.update_unit_card(active_field.object)
-						return
+					if (battle_controller.can_attack(active_field.object, field.object)):
+						if (battle_controller.resolve_fight(active_field.object, field.object)):
+							self.despawn_unit(field)
+							hud_controller.update_unit_card(active_field.object)
+							if (field.object.type == 0):
+								sample_player.play('hurt')
+							else:
+								sample_player.play('explosion')
+							return
+						else:
+							sample_player.play('not_dead')
+					else:
+						sample_player.play('no_attack')
+				
 					hud_controller.update_unit_card(active_field.object)
 					
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
 				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field) && self.has_ap():
 					self.use_ap()
 					field.object.claim(current_player)
+					sample_player.play('pickup_box')
 					self.despawn_unit(active_field)
 					self.activate_field(field)
 		if (field.object.group == 'unit' || field.object.group == 'building') && field.object.player == current_player:
@@ -38,13 +50,17 @@ func handle_action(position):
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
 			if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
 				if movement_controller.move_object(active_field, field):
+					sample_player.play('move')
 					self.activate_field(field)
 					self.use_ap()
+				else:
+					sample_player.play('no_moves')
 
 func init_root(root):
 	root_node = root
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
 	selector = root.get_node('/root/game/pixel_scale/map/YSort/selector')
+	sample_player = root.get_node("/root/game/SamplePlayer")
 	active_indicator.set_region_rect(Rect2(64, 0, 32, 32))
 	self.import_objects()
 	hud_controller.init_root(root, self)
@@ -56,6 +72,7 @@ func activate_field(field):
 	var position = Vector2(abstract_map.tilemap.map_to_world(field.position))
 	position.y += 2
 	active_indicator.set_pos(position)
+	sample_player.play('select')
 	if field.object.group == 'unit':
 		hud_controller.show_unit_card(field.object)
 	if field.object.group == 'building':
@@ -83,6 +100,7 @@ func spawn_unit_from_active_building():
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
 		self.deduct_ap(required_ap)
+		sample_player.play('spawn')
 
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
@@ -94,6 +112,7 @@ func attach_objects(collection):
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
 		
 func end_turn():
+	sample_player.play('end_turn')
 	if current_player == 0:
 		self.switch_to_player(1)
 	else:

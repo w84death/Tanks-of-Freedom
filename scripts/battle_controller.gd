@@ -9,12 +9,6 @@ func calculate():
 	print('calc')
 
 func resolve_fight(attacker, defender):
-	
-	if (self.can_attack(attacker, defender)):
-		print('Fight!')
-	else:
-		return false
-		
 	var attacker_stats = attacker.get_stats()
 	var defender_stats = defender.get_stats()
 		

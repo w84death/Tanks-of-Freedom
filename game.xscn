@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="12" version="1.0" version_name="Godot Engine v1.0.3917-beta1">
 	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://maps/map.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/pickup_box.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/menu.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/move.wav" type="Sample"></ext_resource>
@@ -8,8 +10,6 @@
 	<ext_resource path="res://assets/sounds/fx/hurt.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/explosion.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/powerup.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://maps/map.xscn" type="PackedScene"></ext_resource>
 	<resource type="SampleLibrary" path="local://1">
 		<dictionary name="samples/move" shared="false">
 			<string> "db" </string>
@@ -139,9 +139,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 5 </int>
 							<string> "sources" </string>
-							<array  len="7" shared="false">
+							<array  len="8" shared="false">
 								<string> "res://scripts/camera.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/map_move.gd" </string>
@@ -149,6 +149,7 @@
 								<string> "res://scripts/player_move.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/movement_controller.gd" </string>
+								<string> "res://scripts/battle_controller.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
