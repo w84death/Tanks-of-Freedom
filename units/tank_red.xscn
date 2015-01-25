@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
+<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
 	<ext_resource path="res://scripts/unit_control.gd" type="Script"></ext_resource>
-	<resource type="Animation" path="local://0">
+	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
+	<resource type="Animation" path="local://1">
 		<string name="resource/name"> "move" </string>
 		<real name="length"> 0.75 </real>
 		<bool name="loop"> True </bool>
@@ -29,7 +29,7 @@
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="31">
+			<string_array  len="38">
 				<string> "tank_red" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "_import_path" </string>
@@ -51,6 +51,13 @@
 				<string> "position_on_map" </string>
 				<string> "player" </string>
 				<string> "type" </string>
+				<string> "life" </string>
+				<string> "attack" </string>
+				<string> "plain" </string>
+				<string> "road" </string>
+				<string> "river" </string>
+				<string> "max_ap" </string>
+				<string> "attack_ap" </string>
 				<string> "anim" </string>
 				<string> "AnimationPlayer" </string>
 				<string> "playback/process_mode" </string>
@@ -69,7 +76,7 @@
 			<string> "node_count" </string>
 			<int> 2 </int>
 			<string> "variants" </string>
-			<array  len="17" shared="false">
+			<array  len="21" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -210,14 +217,18 @@
 					<string> "2D" </string>
 				</dictionary>
 				<int> 1 </int>
+				<int> 3 </int>
+				<int> 2 </int>
+				<int> 6 </int>
+				<int> 8 </int>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://0">  </resource>
+				<resource  resource_type="Animation" path="local://1">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="70"> 				-1, -1, 1, 0, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 1, 13, 3, 14, 3, 15, 9, 16, 10, 17, 11, 18, 4, 19, 12, 20, 12, 0, 0, 0, 22, 21, -1, 9, 2, 0, 23, 12, 24, 5, 25, 13, 26, 14, 27, 1, 28, 2, 29, 15, 30, 16, 0 </int_array>
+			<int_array  len="84"> 				-1, -1, 1, 0, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 1, 13, 3, 14, 3, 15, 9, 16, 10, 17, 11, 18, 4, 19, 12, 20, 12, 21, 13, 22, 14, 23, 14, 24, 12, 25, 15, 26, 16, 27, 14, 0, 0, 0, 29, 28, -1, 9, 2, 0, 30, 12, 31, 5, 32, 17, 33, 18, 34, 1, 35, 2, 36, 19, 37, 20, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

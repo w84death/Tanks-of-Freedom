@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
 	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
 	<ext_resource path="res://scripts/unit_control.gd" type="Script"></ext_resource>
-	<resource type="Animation" path="local://0">
+	<resource type="Animation" path="local://1">
 		<string name="resource/name"> "move" </string>
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
@@ -30,7 +30,7 @@
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="30">
+			<string_array  len="37">
 				<string> "helicopter_blue" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "_import_path" </string>
@@ -51,6 +51,13 @@
 				<string> "position_on_map" </string>
 				<string> "player" </string>
 				<string> "type" </string>
+				<string> "life" </string>
+				<string> "attack" </string>
+				<string> "plain" </string>
+				<string> "road" </string>
+				<string> "river" </string>
+				<string> "max_ap" </string>
+				<string> "attack_ap" </string>
 				<string> "anim" </string>
 				<string> "AnimationPlayer" </string>
 				<string> "playback/process_mode" </string>
@@ -69,7 +76,7 @@
 			<string> "node_count" </string>
 			<int> 2 </int>
 			<string> "variants" </string>
-			<array  len="18" shared="false">
+			<array  len="20" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -201,15 +208,17 @@
 				</dictionary>
 				<int> 0 </int>
 				<int> 2 </int>
+				<int> 3 </int>
 				<int> 1 </int>
+				<int> 8 </int>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://0">  </resource>
+				<resource  resource_type="Animation" path="local://1">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="68"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 3, 13, 3, 14, 8, 15, 9, 16, 10, 17, 4, 18, 11, 19, 12, 0, 0, 0, 21, 20, -1, 9, 2, 0, 22, 13, 23, 5, 24, 14, 25, 15, 26, 1, 27, 2, 28, 16, 29, 17, 0 </int_array>
+			<int_array  len="82"> 				-1, -1, 1, 0, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 3, 13, 3, 14, 8, 15, 9, 16, 10, 17, 4, 18, 11, 19, 12, 20, 12, 21, 13, 22, 14, 23, 14, 24, 14, 25, 15, 26, 12, 0, 0, 0, 28, 27, -1, 9, 2, 0, 29, 14, 30, 5, 31, 16, 32, 17, 33, 1, 34, 2, 35, 18, 36, 19, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
