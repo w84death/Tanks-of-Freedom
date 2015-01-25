@@ -47,7 +47,7 @@ func _ready():
 	action_controller = preload("action_controller.gd").new()
 	action_controller.init_root(self)
 	action_controller.switch_to_player(0)
-	var end_turn_button = get_node("/root/game/GUI/HUD/center_hud/end_turn")
+	var end_turn_button = get_node("/root/game/GUI/turn_card/end_turn")
 	end_turn_button.connect("pressed", self, "end_turn")
 	set_process_input(true)
 	pass
