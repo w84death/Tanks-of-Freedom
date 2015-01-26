@@ -40,8 +40,14 @@ func _ready():
 	current_map = get_node("/root/game/pixel_scale/map")
 	game_scale = get_node("/root/game/pixel_scale").get_scale()
 	action_controller = preload("action_controller.gd").new()
-	soundtrack_player = get_node("/root/game/SoundtrackPlayer")
-	soundtrack_player.play('aliens')
+
+	
+	action_controller = preload("action_controller.gd").new()
+	
+	var stream_player = get_node("/root/game/StreamPlayer")
+	stream_player.set_stream(get_node("/root/game/assets/sounds/soundtrack/aliens.ogg"))
+	stream_player.play()
+	
 	action_controller.init_root(self)
 	action_controller.switch_to_player(0)
 	set_process_input(true)
