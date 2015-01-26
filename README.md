@@ -1,4 +1,4 @@
-# TANKS OF FREEDOME
+# TANKS OF FREEDOM
 
 ![Alt text](http://i.imgur.com/REAaFBV.png)
 
