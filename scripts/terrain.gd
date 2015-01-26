@@ -25,6 +25,8 @@ func take_damage():
 		var smoke = self.get_node("smoke")
 		if smoke:
 			smoke.show()
+			smoke.set_lifetime(1.5*damage)
+			smoke.set_amount(32*damage)
 			smoke.set_emitting(true)
 		var region = self.get_region_rect()
 		self.set_region_rect(Rect2(Vector2(region.pos.x,region.pos.y + 32),Vector2(region.size.x,region.size.y)))
@@ -32,8 +34,13 @@ func take_damage():
 func _ready():
 	add_to_group("terrain")
 	current_map = get_node("/root/game/pixel_scale/map")
-	take_damage()
-	take_damage()
+# FOR DEBUGING ONLY
+	randomize()
+	if randf() > 0.5:
+		take_damage()
+		if randf() > 0.5:
+			take_damage()
+# DELETE THIS :D
 	pass
 
 
