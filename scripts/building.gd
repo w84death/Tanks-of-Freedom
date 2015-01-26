@@ -21,14 +21,14 @@ func get_pos_map():
 	
 func get_initial_pos():
 	position_on_map = current_map.world_to_map(self.get_pos()) + Vector2(1, 1)
-	spawn_point = Vector2(position_on_map) + Vector2(0, -1)
+	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
 	return position_on_map
 
 	
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
 	position_on_map = new_position
-	spawn_point = Vector2(position_on_map) + Vector2(0, -1)
+	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
 
 	
 func claim(new_player):

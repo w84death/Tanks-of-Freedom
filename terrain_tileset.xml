@@ -118,14 +118,14 @@
 		<resource name="16/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
 		<vector2 name="16/tex_offset"> 0, -14 </vector2>
 		<vector2 name="16/shape_offset"> 0, 0 </vector2>
-		<rect2 name="16/region"> 64, 128, 32, 32 </rect2>
+		<rect2 name="16/region"> 160, 64, 32, 32 </rect2>
 		<array name="16/shapes" len="0" shared="false">
 		</array>
 		<string name="17/name"> "land_bridge_ 2" </string>
 		<resource name="17/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
 		<vector2 name="17/tex_offset"> 0, -14 </vector2>
 		<vector2 name="17/shape_offset"> 0, 0 </vector2>
-		<rect2 name="17/region"> 96, 128, 32, 32 </rect2>
+		<rect2 name="17/region"> 192, 64, 32, 32 </rect2>
 		<array name="17/shapes" len="0" shared="false">
 		</array>
 		<string name="18/name"> "land_airport" </string>
