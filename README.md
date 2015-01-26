@@ -1,5 +1,7 @@
 # TANKS OF FREEDOME
 
+![Alt text](http://i.imgur.com/REAaFBV.png)
+
 Turn-based strategy game in isometric pixel-art style.
 
 Take one of the sites and fight for freedom!
@@ -7,9 +9,14 @@ Take one of the sites and fight for freedom!
 Game made on Global Game Jam in 48h!
 New features and bug fixes will be added.
 
--------------
+
+## Media
+![Alt text](http://i.imgur.com/krOz6Rs.png)
+![Alt text](http://i.imgur.com/RXsiHXN.png)
 
 ## Credits
+
+![Alt text](http://i.imgur.com/wZPAs75.jpg)
 
 * P1X Team
   * code
