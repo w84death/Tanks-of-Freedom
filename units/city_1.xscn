@@ -50,7 +50,7 @@
 				<int> 1 </int>
 				<int> 0 </int>
 				<color> 1, 1, 1, 1 </color>
-				<rect2> 224, 96, 32, 32 </rect2>
+				<rect2> 0, 96, 32, 32 </rect2>
 				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
@@ -60,11 +60,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.629012 </real>
+							<real> 2.517532 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -274.83, -151.386 </vector2>
+							<vector2> -104.242, -55.5431 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
