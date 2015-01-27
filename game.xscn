@@ -191,9 +191,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 5 </int>
+							<int> 10 </int>
 							<string> "sources" </string>
-							<array  len="8" shared="false">
+							<array  len="11" shared="false">
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/building.gd" </string>
 								<string> "res://scripts/abstract_map.gd" </string>
@@ -202,6 +202,9 @@
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/movement_controller.gd" </string>
 								<string> "res://scripts/map_move.gd" </string>
+								<string> "res://assets/sounds/soundtrack/sound_controller.gd" </string>
+								<string> "res://assets/sounds/soundtrack/game_logic.gd" </string>
+								<string> "res://scripts/sound_controller.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>

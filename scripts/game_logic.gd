@@ -8,7 +8,7 @@ var game_scale
 var units
 var unit_selected = false
 var action_controller
-var soundtrack_player
+var sound_controller
 
 func _input(event):
 # UPDATE LIVE STUFF
@@ -40,13 +40,12 @@ func _ready():
 	current_map = get_node("/root/game/pixel_scale/map")
 	game_scale = get_node("/root/game/pixel_scale").get_scale()
 	action_controller = preload("action_controller.gd").new()
-
 	
 	action_controller = preload("action_controller.gd").new()
 	
-	var stream_player = get_node("/root/game/StreamPlayer")
-	stream_player.set_stream(get_node("aliens"))
-	stream_player.play()
+	sound_controller = preload("sound_controller.gd").new()
+	sound_controller.init(get_node("/root/game/StreamPlayer"))
+	sound_controller.play_soundtrack()
 	
 	action_controller.init_root(self)
 	action_controller.switch_to_player(0)
