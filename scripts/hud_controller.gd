@@ -19,6 +19,7 @@ var hud_building_spawn_button
 var hud_building_icon
 var hud_building_unit_icon
 var hud_building_label
+var hud_building_cost
 
 var player_ap
 var turn_card
@@ -56,6 +57,7 @@ func init_root(root, action_controller_object):
 	hud_building_label = hud_building.get_node("name")
 	hud_building_spawn_button = hud_building.get_node("TextureButton")
 	hud_building_unit_icon = hud_building_spawn_button.get_node("unit_icon")
+	hud_building_cost = hud_building_spawn_button.get_node("unit_cost")
 	hud_building_spawn_button.connect("pressed", action_controller, "spawn_unit_from_active_building")
 
 func show_unit_card(unit):
@@ -82,6 +84,7 @@ func show_building_card(building):
 	hud_building_icon.set_region_rect(building.get_region_rect())
 	hud_building_unit_icon.set_region_rect(building.get_region_rect())
 	hud_building_label.set_text(building.get_name())
+	hud_building_cost.set_text(str(building.get_cost()))
 	hud_building.show()
 	
 func clear_building_card():

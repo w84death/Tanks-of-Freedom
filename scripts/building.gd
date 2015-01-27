@@ -79,6 +79,9 @@ func get_name():
 	if type == TYPE_AIRPORT:
 		return "AIRFIELD"
 
+func get_cost():
+	return get_required_ap()
+
 func _ready():
 	add_to_group("buildings")
 	current_map = get_node("/root/game/pixel_scale/map")
