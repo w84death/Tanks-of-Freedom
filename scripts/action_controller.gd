@@ -78,6 +78,7 @@ func init_root(root):
 	self.import_objects()
 	hud_controller.init_root(root, self)
 	hud_controller.set_turn(turn)
+	hud_controller.show_in_game_card("Witaj drogi graczu! Nacisnij ok aby rozpoczac rozgrywke.")
 
 func activate_field(field):
 	self.clear_active_field()
@@ -133,6 +134,10 @@ func end_turn():
 		self.switch_to_player(0)
 		turn += 1
 	hud_controller.set_turn(turn)
+	hud_controller.show_in_game_card("Nastapila nowa tura. Nacisnij ok aby podjac to wyzwanie.")
+
+func in_game_menu_pressed():
+	hud_controller.close_in_game_card()
 
 func has_ap():
 	if player_ap > 0:

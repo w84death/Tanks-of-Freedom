@@ -21,6 +21,11 @@ var hud_building_unit_icon
 var hud_building_label
 var hud_building_cost
 
+var hud_in_game_card
+var hud_in_game_card_body
+var hud_in_game_card_text
+var hud_in_game_card_button
+
 var player_ap
 var turn_card
 var turn_counter
@@ -60,6 +65,12 @@ func init_root(root, action_controller_object):
 	hud_building_cost = hud_building_spawn_button.get_node("unit_cost")
 	hud_building_spawn_button.connect("pressed", action_controller, "spawn_unit_from_active_building")
 
+	hud_in_game_card = root.get_node("/root/game/GUI/in_game_card")
+	hud_in_game_card_body = hud_in_game_card.get_node("center")
+	hud_in_game_card_text = hud_in_game_card_body.get_node("text")
+	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
+	hud_in_game_card_button.connect("pressed", action_controller, "in_game_menu_pressed")
+
 func show_unit_card(unit):
 	self.update_unit_card(unit)
 	self.set_unit_card_icon(unit)
@@ -89,7 +100,15 @@ func show_building_card(building):
 	
 func clear_building_card():
 	hud_building.hide()
-	
+
+func show_in_game_card(message):
+	hud_in_game_card_text.clear()
+	hud_in_game_card_text.add_text(message)
+	hud_in_game_card.show()
+
+func close_in_game_card():
+	hud_in_game_card.hide()
+
 func update_ap(ap):
 	player_ap.set_text(str(ap))
 	
