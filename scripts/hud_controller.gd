@@ -101,9 +101,12 @@ func show_building_card(building):
 func clear_building_card():
 	hud_building.hide()
 
-func show_in_game_card(message):
+func show_in_game_card(messages):
 	hud_in_game_card_text.clear()
-	hud_in_game_card_text.add_text(message)
+	for message in messages:
+		hud_in_game_card_text.add_text(message)
+		hud_in_game_card_text.newline()
+		hud_in_game_card_text.newline()
 	hud_in_game_card.show()
 
 func close_in_game_card():
