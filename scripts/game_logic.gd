@@ -45,7 +45,7 @@ func _ready():
 	action_controller = preload("action_controller.gd").new()
 	
 	var stream_player = get_node("/root/game/StreamPlayer")
-	stream_player.set_stream(get_node("/root/game/assets/sounds/soundtrack/aliens.ogg"))
+	stream_player.set_stream(get_node("aliens"))
 	stream_player.play()
 	
 	action_controller.init_root(self)
