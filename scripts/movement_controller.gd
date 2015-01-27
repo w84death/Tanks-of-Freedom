@@ -16,6 +16,9 @@ var tile_types = [
 	'river',
 	'river',
 	'road',
+	'road',
+	'road',
+	'road',
 	'road'
 ]
 
