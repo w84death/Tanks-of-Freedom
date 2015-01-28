@@ -130,12 +130,13 @@ func end_turn():
 	sample_player.play('end_turn')
 	if current_player == 0:
 		self.switch_to_player(1)
+		abstract_map.tilemap.move_to_map(Vector2(22,3))
 	else:
 		self.switch_to_player(0)
+		abstract_map.tilemap.move_to_map(Vector2(1,12))
 		turn += 1
 	hud_controller.set_turn(turn)
 	hud_controller.show_in_game_card(["Nastapila nowa tura.", "Nacisnij ok aby podjac to wyzwanie."])
-
 func in_game_menu_pressed():
 	hud_controller.close_in_game_card()
 
