@@ -130,10 +130,10 @@ func end_turn():
 	sample_player.play('end_turn')
 	if current_player == 0:
 		self.switch_to_player(1)
-		abstract_map.tilemap.move_to_map(Vector2(22,3))
+		abstract_map.tilemap.move_to_map(Vector2(22,3)) # <- podac prawdziwa pozycje bunkra
 	else:
 		self.switch_to_player(0)
-		abstract_map.tilemap.move_to_map(Vector2(1,12))
+		abstract_map.tilemap.move_to_map(Vector2(1,12)) # <- podac prawdziwa pozycje bunkra
 		turn += 1
 	hud_controller.set_turn(turn)
 	hud_controller.show_in_game_card(["Nastapila nowa tura.", "Nacisnij ok aby podjac to wyzwanie."])
