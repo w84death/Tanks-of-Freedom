@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="17" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/explosion.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/spawn.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/not_dead.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/move.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/select.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://gui/gui.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/powerup.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/menu.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://maps/map.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/no_attack.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://gui.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/no_moves.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/explosion.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/no_attack.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/spawn.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/move.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/not_dead.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/select.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/hurt.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://maps/map.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/pickup_box.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/menu.wav" type="Sample"></ext_resource>
 	<resource type="SampleLibrary" path="local://0">
-		<dictionary name="samples/hurt" shared="false">
+		<dictionary name="samples/select" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/hurt.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/select.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/move" shared="false">
 			<string> "db" </string>
@@ -32,29 +32,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/move.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/select" shared="false">
+		<dictionary name="samples/hurt" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/select.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/no_moves" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/not_dead" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/hurt.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/powerup" shared="false">
 			<string> "db" </string>
@@ -64,13 +48,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/powerup.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/spawn" shared="false">
+		<dictionary name="samples/end_turn" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/spawn.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/end_turn.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/pickup_box" shared="false">
 			<string> "db" </string>
@@ -80,21 +64,37 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/end_turn" shared="false">
+		<dictionary name="samples/spawn" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/end_turn.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/spawn.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/explosion" shared="false">
+		<dictionary name="samples/not_dead" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/explosion.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/no_attack" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_attack.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/no_moves" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/menu" shared="false">
 			<string> "db" </string>
@@ -104,13 +104,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/menu.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/no_attack" shared="false">
+		<dictionary name="samples/explosion" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_attack.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/explosion.wav">  </resource>
 		</dictionary>
 
 	</resource>
@@ -191,18 +191,16 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 7 </int>
+							<int> 5 </int>
 							<string> "sources" </string>
-							<array  len="9" shared="false">
+							<array  len="7" shared="false">
 								<string> "res://scripts/action_controller.gd" </string>
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/abstract_map.gd" </string>
-								<string> "res://scripts/object_factory.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/movement_controller.gd" </string>
+								<string> "res://scripts/selector.gd" </string>
+								<string> "res://scripts/cursor.gd" </string>
+								<string> "res://scripts/abstract_map.gd" </string>
+								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/map_move.gd" </string>
-								<string> "res://scripts/sound_controller.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
@@ -463,27 +461,41 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<resource  resource_type="PackedScene" path="res://gui.xscn">  </resource>
+				<resource  resource_type="PackedScene" path="res://gui/gui.xscn">  </resource>
 				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 2 </int>
+							<string> "sources" </string>
+							<array  len="4" shared="false">
+								<string> "res://scripts/game_logic.gd" </string>
+								<string> "res://scripts/action_controller.gd" </string>
+								<string> "res://scripts/hud_controller.gd" </string>
+								<string> "res://scripts/building.gd" </string>
+							</array>
+						</dictionary>
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 0.880253 </real>
+							<real> 1.038353 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -137.123, -133.032 </vector2>
+							<vector2> -35.4043, -57.3588 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -551,12 +563,8 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
 							<string> "deflight_rot_y" </string>
 							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
 							<string> "default_light" </string>
@@ -585,7 +593,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<resource  resource_type="SampleLibrary" path="local://0">  </resource>
 				<nil>  </nil>

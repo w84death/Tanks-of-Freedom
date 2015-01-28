@@ -6,9 +6,10 @@ var pos = self.get_pos()
 var sX = 0
 var sY = 0
 var k = 0.98
-var target = Vector2(-200,-150)
+var target = Vector2(300,-46)
 
 func _input(event):
+	pos = self.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
 		if (event.button_index == BUTTON_LEFT):
 			mouse_dragging = event.pressed
@@ -19,6 +20,7 @@ func _input(event):
 			pos.y = pos.y + event.relative_y / 2
 			target = pos
 			self.set_pos(pos)
+			print(pos.x,pos.y)
 
 func _process(delta):
 	if not pos == target:

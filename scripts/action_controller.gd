@@ -4,7 +4,7 @@ var abstract_map = preload('abstract_map.gd').new()
 var ysort
 var selector
 var active_field = null
-var active_indicator = preload('res://units/selector.xscn').instance()
+var active_indicator = preload('res://gui/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
@@ -72,9 +72,8 @@ func init_root(root):
 	root_node = root
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
 	ysort = root.get_node('/root/game/pixel_scale/map/YSort')
-	selector = root.get_node('/root/game/pixel_scale/map/YSort/selector')
+	selector = root.get_node('/root/game/pixel_scale/map/selector')
 	sample_player = root.get_node("/root/game/SamplePlayer")
-	active_indicator.set_region_rect(Rect2(64, 0, 32, 32))
 	self.import_objects()
 	hud_controller.init_root(root, self)
 	hud_controller.set_turn(turn)
@@ -83,7 +82,8 @@ func init_root(root):
 func activate_field(field):
 	self.clear_active_field()
 	active_field = field
-	ysort.add_child(active_indicator)
+	abstract_map.tilemap.add_child(active_indicator)
+	abstract_map.tilemap.move_child(active_indicator,0)
 	var position = Vector2(abstract_map.tilemap.map_to_world(field.position))
 	position.y += 2
 	active_indicator.set_pos(position)
@@ -95,7 +95,7 @@ func activate_field(field):
 
 func clear_active_field():
 	active_field = null
-	ysort.remove_child(active_indicator)
+	abstract_map.tilemap.remove_child(active_indicator)
 	hud_controller.clear_unit_card()
 	hud_controller.clear_building_card()
 
@@ -165,7 +165,7 @@ func switch_to_player(player):
 	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
-	selector.set_region_rect(Rect2(player * 32, 0, 32, 32))
+	selector.set_player(player);
 	self.update_ap(player_ap_max)
 
 func reset_player_units(player):

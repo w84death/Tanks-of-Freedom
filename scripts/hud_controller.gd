@@ -1,6 +1,7 @@
 
 var root_node
 var action_controller
+var active_map
 
 var end_turn_card
 var end_turn_button
@@ -36,6 +37,8 @@ var red_wins
 func init_root(root, action_controller_object):
 	root_node = root
 	action_controller = action_controller_object
+	
+	active_map = root.get_node("/root/game/pixel_scale/map")
 	
 	end_turn_card = root.get_node("/root/game/GUI/turn_card")
 	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")
@@ -101,7 +104,12 @@ func show_building_card(building):
 func clear_building_card():
 	hud_building.hide()
 
-func show_in_game_card(messages):
+func show_in_game_card(messages):	
+	active_map.hide()
+	end_turn_card.hide()
+	turn_card.hide()
+	self.clear_building_card()
+	self.clear_unit_card()
 	hud_in_game_card_text.clear()
 	for message in messages:
 		hud_in_game_card_text.add_text(message)
@@ -111,6 +119,9 @@ func show_in_game_card(messages):
 
 func close_in_game_card():
 	hud_in_game_card.hide()
+	active_map.show()
+	end_turn_card.show()
+	turn_card.show()
 
 func update_ap(ap):
 	player_ap.set_text(str(ap))
