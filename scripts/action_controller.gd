@@ -14,6 +14,7 @@ var current_player = 1
 var player_ap = 10
 var player_ap_max = 10
 var turn = 1
+var title
 
 var game_ended = false
 
@@ -77,7 +78,7 @@ func init_root(root):
 	self.import_objects()
 	hud_controller.init_root(root, self)
 	hud_controller.set_turn(turn)
-	hud_controller.show_in_game_card(["Witaj drogi graczu!","Nacisnij ok aby rozpoczac rozgrywke."])
+	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the bunker and send it to take control of the barracks."])
 
 func activate_field(field):
 	self.clear_active_field()
@@ -136,7 +137,11 @@ func end_turn():
 		abstract_map.tilemap.move_to_map(Vector2(1,12)) # <- podac prawdziwa pozycje bunkra
 		turn += 1
 	hud_controller.set_turn(turn)
-	hud_controller.show_in_game_card(["Nastapila nowa tura.", "Nacisnij ok aby podjac to wyzwanie."])
+	if current_player == 0:
+		title = "Blue turn"
+	else:
+		title = "Red turn"
+	hud_controller.show_in_game_card([title, "Take the control of the enemy bunker!"])
 func in_game_menu_pressed():
 	hud_controller.close_in_game_card()
 

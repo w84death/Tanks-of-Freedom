@@ -22,7 +22,6 @@ func _input(event):
 			pos.y = pos.y + event.relative_y / 2
 			target = pos
 			self.set_pos(pos)
-			print(pos.x,pos.y)
 
 func _process(delta):
 	if not pos == target:
