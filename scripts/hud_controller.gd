@@ -11,6 +11,7 @@ var hud_unit
 var hud_unit_life
 var hud_unit_attack
 var hud_unit_ap
+var hud_unit_ap_red
 var hud_unit_plain
 var hud_unit_road
 var hud_unit_river
@@ -58,6 +59,7 @@ func init_root(root, action_controller_object):
 	hud_unit_life = hud_unit.get_node("life")
 	hud_unit_attack = hud_unit.get_node("attack")
 	hud_unit_ap = hud_unit.get_node("action_points")
+	hud_unit_ap_red = hud_unit.get_node("action_points_red")
 	hud_unit_plain = hud_unit.get_node("plain")
 	hud_unit_road = hud_unit.get_node("road")
 	hud_unit_river = hud_unit.get_node("river")
@@ -81,6 +83,7 @@ func show_unit_card(unit):
 	self.update_unit_card(unit)
 	self.set_unit_card_icon(unit)
 	hud_unit.show()
+	
 
 func update_unit_card(unit):
 	var stats = unit.get_stats()
@@ -90,6 +93,10 @@ func update_unit_card(unit):
 	hud_unit_plain.set_text(str(stats.plain))
 	hud_unit_road.set_text(str(stats.road))
 	hud_unit_river.set_text(str(stats.river))
+	if stats.ap>0:
+		hud_unit_ap_red.hide()
+	else:
+		hud_unit_ap_red.show()
 
 func set_unit_card_icon(unit):
 	hud_unit_icon.set_region_rect(Rect2((unit.player + 1) * 32, unit.type * 32, 32, 32))
@@ -128,14 +135,18 @@ func close_in_game_card():
 
 func update_ap(ap):
 	player_ap.set_text(str(ap))
+	if ap>0:
+		end_turn_button_red.hide()
 	
 func set_turn(no):
 	turn_counter.set_text(str(no))
-	end_turn_button_red.hide()
 	
 func warn_end_turn():
 	end_turn_button_red.show()
 	
+func warn_player_ap():
+	hud_unit_ap_red.show()
+
 func show_win(player):
 	end_turn_card.hide()
 	turn_card.hide()

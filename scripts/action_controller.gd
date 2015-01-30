@@ -12,7 +12,7 @@ var sample_player
 
 var current_player = 1
 var player_ap = 10
-var player_ap_max = 10
+var player_ap_max = 15
 var turn = 1
 var title
 
@@ -159,8 +159,6 @@ func has_enough_ap(ap):
 
 func use_ap():
 	self.deduct_ap(1)
-	if player_ap == 0:
-		hud_controller.warn_end_turn()
 
 func deduct_ap(ap):
 	self.update_ap(player_ap - ap)
@@ -168,6 +166,8 @@ func deduct_ap(ap):
 func update_ap(ap):
 	player_ap = ap
 	hud_controller.update_ap(player_ap)
+	if player_ap == 0:
+		hud_controller.warn_end_turn()
 
 func switch_to_player(player):
 	self.clear_active_field()
