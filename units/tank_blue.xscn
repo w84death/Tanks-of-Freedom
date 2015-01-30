@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
+<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
 	<ext_resource path="res://scripts/unit_control.gd" type="Script"></ext_resource>
-	<resource type="Animation" path="local://1">
+	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "move" </string>
 		<real name="length"> 0.75 </real>
 		<bool name="loop"> True </bool>
@@ -223,7 +223,7 @@
 				<int> 6 </int>
 				<int> 8 </int>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://1">  </resource>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "move" </string>
