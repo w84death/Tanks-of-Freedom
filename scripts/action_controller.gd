@@ -159,7 +159,9 @@ func has_enough_ap(ap):
 
 func use_ap():
 	self.deduct_ap(1)
-	
+	if player_ap == 0:
+		hud_controller.warn_end_turn()
+
 func deduct_ap(ap):
 	self.update_ap(player_ap - ap)
 	

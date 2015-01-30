@@ -5,6 +5,7 @@ var active_map
 
 var end_turn_card
 var end_turn_button
+var end_turn_button_red
 
 var hud_unit
 var hud_unit_life
@@ -41,8 +42,10 @@ func init_root(root, action_controller_object):
 	active_map = root.get_node("/root/game/pixel_scale/map")
 	
 	end_turn_card = root.get_node("/root/game/GUI/turn_card")
-	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")
+	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")	
+	end_turn_button_red = root.get_node("/root/game/GUI/turn_card/end_turn_red")
 	end_turn_button.connect("pressed", action_controller, "end_turn")
+	end_turn_button_red.connect("pressed", action_controller, "end_turn")
 	
 	player_ap = root.get_node("/root/game/GUI/turn_card/Label")
 	turn_card = root.get_node("/root/game/GUI/game_card")
@@ -128,6 +131,10 @@ func update_ap(ap):
 	
 func set_turn(no):
 	turn_counter.set_text(str(no))
+	end_turn_button_red.hide()
+	
+func warn_end_turn():
+	end_turn_button_red.show()
 	
 func show_win(player):
 	end_turn_card.hide()
