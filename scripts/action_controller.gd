@@ -15,6 +15,8 @@ var player_ap = 10
 var player_ap_max = 15
 var turn = 1
 var title
+var camera
+var camera_zoom_range = [1,6]
 
 var game_ended = false
 
@@ -72,6 +74,7 @@ func handle_action(position):
 func init_root(root):
 	root_node = root
 	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
+	camera = root.get_node('/root/game/pixel_scale')
 	ysort = root.get_node('/root/game/pixel_scale/map/YSort')
 	selector = root.get_node('/root/game/pixel_scale/map/selector')
 	sample_player = root.get_node("/root/game/SamplePlayer")
@@ -187,3 +190,13 @@ func end_game():
 	game_ended = true
 	hud_controller.show_win(current_player)
 	selector.hide()
+	
+func camera_zoom_in():
+	var scale = camera.get_scale()
+	if scale.x < camera_zoom_range[1]:
+		camera.set_scale(scale + Vector2(1,1))
+	
+func camera_zoom_out():
+	var scale = camera.get_scale()
+	if scale.x > camera_zoom_range[0]:
+		camera.set_scale(scale - Vector2(1,1))

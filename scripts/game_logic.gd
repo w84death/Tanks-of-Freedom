@@ -11,6 +11,7 @@ var sound_controller
 
 func _input(event):
 	if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
+		game_scale = get_node("/root/game/pixel_scale").get_scale()
 		map_pos = current_map.get_pos()
 		selector_position = current_map.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
 

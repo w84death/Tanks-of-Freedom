@@ -29,6 +29,10 @@ var hud_in_game_card_body
 var hud_in_game_card_text
 var hud_in_game_card_button
 
+var zoom_card
+var zoom_in_button
+var zoom_out_button
+
 var player_ap
 var turn_card
 var turn_counter
@@ -43,7 +47,7 @@ func init_root(root, action_controller_object):
 	active_map = root.get_node("/root/game/pixel_scale/map")
 	
 	end_turn_card = root.get_node("/root/game/GUI/turn_card")
-	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")	
+	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")
 	end_turn_button_red = root.get_node("/root/game/GUI/turn_card/end_turn_red")
 	end_turn_button.connect("pressed", action_controller, "end_turn")
 	end_turn_button_red.connect("pressed", action_controller, "end_turn")
@@ -78,6 +82,12 @@ func init_root(root, action_controller_object):
 	hud_in_game_card_text = hud_in_game_card_body.get_node("text")
 	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
 	hud_in_game_card_button.connect("pressed", action_controller, "in_game_menu_pressed")
+
+	zoom_card = root.get_node("/root/game/GUI/zoom_card")
+	zoom_in_button = zoom_card.get_node("zoom_in")
+	zoom_out_button = zoom_card.get_node("zoom_out")
+	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
+	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
 
 func show_unit_card(unit):
 	self.update_unit_card(unit)
