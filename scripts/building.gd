@@ -15,7 +15,6 @@ var TYPE_BARRACKS = 1;
 var TYPE_FACTORY = 2;
 var TYPE_AIRPORT = 3;
 
-
 func get_pos_map():
 	return position_on_map
 	
@@ -24,13 +23,11 @@ func get_initial_pos():
 	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
 	return position_on_map
 
-	
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
 	position_on_map = new_position
 	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
 
-	
 func claim(new_player):
 	if new_player == -1:
 		self.set_frame(0)
@@ -40,6 +37,9 @@ func claim(new_player):
 		self.set_frame(2)
 	
 	player = new_player
+
+func get_player():
+	return player
 	
 func set_frame(number):
 	var current_frame = get_region_rect()

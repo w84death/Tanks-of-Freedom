@@ -8,8 +8,12 @@ var game_scale
 
 var action_controller
 var sound_controller
+var position_controller
 
 func _input(event):
+
+
+
 	if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 		game_scale = get_node("/root/game/pixel_scale").get_scale()
 		map_pos = current_map.get_pos()
@@ -34,12 +38,16 @@ func _ready():
 	current_map = get_node("/root/game/pixel_scale/map")
 	game_scale = get_node("/root/game/pixel_scale").get_scale()
 	action_controller = preload("action_controller.gd").new()
-	
-	action_controller = preload("action_controller.gd").new()
+
 	
 	sound_controller = preload("sound_controller.gd").new()
 	sound_controller.init(get_node("/root/game/StreamPlayer"))
 	sound_controller.play_soundtrack()
+	
+	position_controller = preload("position_controller.gd").new()
+	position_controller.init_root(self)
+	position_controller.get_player_bunker_position(0)
+	
 	
 	action_controller.init_root(self)
 	action_controller.switch_to_player(0)
