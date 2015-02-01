@@ -142,6 +142,7 @@ func close_in_game_card():
 	active_map.show()
 	end_turn_card.show()
 	turn_card.show()
+	action_controller.move_camera_to_active_bunker()
 
 func update_ap(ap):
 	player_ap.set_text(str(ap))

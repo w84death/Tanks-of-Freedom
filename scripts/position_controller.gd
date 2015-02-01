@@ -1,6 +1,7 @@
 var root_node
 var buildings
 var bunkers
+var center
 
 func init_root(root):
 	root_node = root
@@ -9,7 +10,6 @@ func init_root(root):
 	get_bunkers()
 
 func get_player_bunker_position(player):
-	print(bunkers[player].get_initial_pos())
 	return bunkers[player].get_initial_pos()
 
 func get_bunkers():
@@ -18,5 +18,3 @@ func get_bunkers():
 	for building in buildings:
 		if (building.get_name() == "BUNKER"):
 			bunkers[building.get_player()] = building
-
-	

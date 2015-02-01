@@ -8,6 +8,7 @@ var active_indicator = preload('res://gui/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
+var position_controller = preload("position_controller.gd").new()
 var sample_player
 
 var current_player = 1
@@ -89,6 +90,8 @@ func init_root(root):
 	hud_controller.init_root(root, self)
 	hud_controller.set_turn(turn)
 	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the bunker and send it to take control of the barracks."])
+	position_controller.init_root(root)
+	position_controller.get_player_bunker_position(current_player)
 	
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
@@ -200,10 +203,8 @@ func end_turn():
 	sample_player.play('end_turn')
 	if current_player == 0:
 		self.switch_to_player(1)
-		abstract_map.tilemap.move_to_map(Vector2(22,3)) # <- podac prawdziwa pozycje bunkra
 	else:
 		self.switch_to_player(0)
-		abstract_map.tilemap.move_to_map(Vector2(1,12)) # <- podac prawdziwa pozycje bunkra
 		turn += 1
 	hud_controller.set_turn(turn)
 	if current_player == 0:
@@ -211,6 +212,13 @@ func end_turn():
 	else:
 		title = "Red turn"
 	hud_controller.show_in_game_card([title, "Take the control of the enemy bunker!"])
+
+func move_camera_to_active_bunker():
+	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
+	
+func move_camera_to_point(position):
+	abstract_map.tilemap.move_to_map(position)
+
 func in_game_menu_pressed():
 	hud_controller.close_in_game_card()
 
