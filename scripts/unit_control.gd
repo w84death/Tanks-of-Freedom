@@ -5,6 +5,7 @@ export var player = -1
 export var type = 0
 
 export var life = 2
+export var max_life = 10
 export var attack = 3
 export var plain = 2
 export var road = 2
@@ -13,8 +14,8 @@ export var max_ap = 8
 export var attack_ap = 2
 var ap = 8
 
-
 var current_map
+var health_bar
 
 var group = 'unit'
 
@@ -32,6 +33,7 @@ func set_stats(new_stats):
 	life = new_stats.life
 	attack = new_stats.attack
 	ap = new_stats.ap
+	update_healthbar()
 
 func reset_ap():
 	ap = max_ap
@@ -45,11 +47,22 @@ func die():
 
 func set_damaged():
 	print('DAMAGED!')
+	
+func update_healthbar():
+	var frame = health_bar.get_frame()
+	if self.life <= 2:
+		health_bar.set_frame(2)
+	elif self.life <= 7:
+		health_bar.set_frame(1)
+	else:
+		health_bar.set_frame(0)
+	return
 
 func _ready():
 	add_to_group("units")
 	get_node('anim').play("move")
 	current_map = get_node("/root/game/pixel_scale/map")
+	health_bar = get_node("health")
 	pass
 
 
