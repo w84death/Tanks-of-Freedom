@@ -190,6 +190,7 @@ func spawn_unit_from_active_building():
 		self.deduct_ap(required_ap)
 		sample_player.play('spawn')
 		self.activate_field(spawn_point)
+		self.move_camera_to_point(spawn_point.position)
 
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
