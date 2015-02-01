@@ -149,6 +149,13 @@
 		<rect2 name="20/region"> 128, 64, 32, 32 </rect2>
 		<array name="20/shapes" len="0" shared="false">
 		</array>
+		<string name="21/name"> "underground" </string>
+		<resource name="21/texture" resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+		<vector2 name="21/tex_offset"> 0, -14 </vector2>
+		<vector2 name="21/shape_offset"> 0, 0 </vector2>
+		<rect2 name="21/region"> 192, 128, 32, 32 </rect2>
+		<array name="21/shapes" len="0" shared="false">
+		</array>
 
 	</main_resource>
 </resource_file>
