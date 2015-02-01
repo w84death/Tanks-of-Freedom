@@ -44,7 +44,7 @@ func init_root(root, action_controller_object):
 	root_node = root
 	action_controller = action_controller_object
 	
-	active_map = root.get_node("/root/game/pixel_scale/map")
+	active_map = root.get_node("/root/game/pixel_scale")
 	
 	end_turn_card = root.get_node("/root/game/GUI/turn_card")
 	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")

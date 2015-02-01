@@ -1,7 +1,10 @@
-extends TileMap
+extends Node2D
+
+var terrain
+var underground
 
 var mouse_dragging = false
-var pos = self.get_pos()
+var pos
 var game_size
 var scale
 
@@ -11,7 +14,7 @@ var k = 0.98
 var target = Vector2(0,0)
 
 func _input(event):
-	pos = self.get_pos()
+	pos = terrain.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
 		if (event.button_index == BUTTON_LEFT):
 			mouse_dragging = event.pressed
@@ -21,13 +24,16 @@ func _input(event):
 			pos.x = pos.x + event.relative_x / 2
 			pos.y = pos.y + event.relative_y / 2
 			target = pos
-			self.set_pos(pos)
+			underground.set_pos(target)
+			terrain.set_pos(target)
+
 
 func _process(delta):
 	if not pos == target:
 		self.sX = self.k * self.sX + (1.0 - self.k) * target.x;
 		self.sY = self.k * self.sY + (1.0 - self.k) * target.y;
-		self.set_pos(Vector2(self.sX,self.sY))
+		terrain.set_pos(Vector2(self.sX,self.sY))
+		underground.set_pos(Vector2(self.sX,self.sY))
 
 func move_to(target):
 	self.target = target;
@@ -39,8 +45,10 @@ func move_to_map(target):
 	
 	
 func _ready():
+	terrain = get_node("/root/game/pixel_scale/map")
+	underground = get_node("/root/game/pixel_scale/underground")
 	scale = get_node("/root/game/pixel_scale").get_scale()
-	self.move_to_map(Vector2(1,12))
+	pos = terrain.get_pos()
 	set_process_input(true)
 	set_process(true)
 	pass
