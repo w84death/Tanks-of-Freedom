@@ -91,15 +91,10 @@ func init_root(root):
 	
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
-	movement_arrow_bl.get_node('anim').play("move_bl")
 	movement_arrow_br = movement_template.instance()
-	movement_arrow_br.get_node('anim').play("move_br")
 	movement_arrow_tl = movement_template.instance()
-	movement_arrow_tl.get_node('anim').play("move_tl")
 	movement_arrow_tr = movement_template.instance()
-	movement_arrow_tr.get_node('anim').play("move_tr")
 	movement_attack = movement_template.instance()
-	movement_attack.get_node('anim').play("attack")
 
 func activate_field(field):
 	self.clear_active_field()
@@ -129,9 +124,13 @@ func add_movement_indicators(field):
 	var bottom_left = abstract_map.get_field(Vector2(field.position) + Vector2(0, 1))
 	var bottom_right = abstract_map.get_field(Vector2(field.position) + Vector2(1, 0))
 	self.mark_field(field, top_left, movement_arrow_tl)
+	movement_arrow_tl.get_node('anim').play("move_tl")
 	self.mark_field(field, top_right, movement_arrow_tr)
+	movement_arrow_tr.get_node('anim').play("move_tr")
 	self.mark_field(field, bottom_left, movement_arrow_bl)
+	movement_arrow_bl.get_node('anim').play("move_bl")
 	self.mark_field(field, bottom_right, movement_arrow_br)
+	movement_arrow_br.get_node('anim').play("move_br")
 	
 func mark_field(source, target, indicator):
 	if target.terrain_type == -1:
@@ -151,6 +150,7 @@ func mark_field(source, target, indicator):
 					movement_attack.set_pos(position)
 					ysort.add_child(movement_attack)
 					ysort.move_child(movement_attack,0)
+					movement_attack.get_node('anim').play("attack")
 	else:
 		ysort.remove_child(indicator)
 	
