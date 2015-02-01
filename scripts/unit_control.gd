@@ -41,6 +41,11 @@ func reset_ap():
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
 	position_on_map = new_position
+	
+func can_attack():
+	if ap >= attack_ap:
+		return true
+	return false
 
 func die():
 	print('DIED!')

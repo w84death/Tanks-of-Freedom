@@ -20,6 +20,12 @@ var camera_zoom_range = [1,6]
 
 var game_ended = false
 
+var movement_arrow_bl
+var movement_arrow_br
+var movement_arrow_tl
+var movement_arrow_tr
+var movement_attack
+
 func handle_action(position):
 	if game_ended:
 		return
@@ -66,8 +72,8 @@ func handle_action(position):
 			if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
 				if movement_controller.move_object(active_field, field):
 					sample_player.play('move')
-					self.activate_field(field)
 					self.use_ap()
+					self.activate_field(field)
 				else:
 					sample_player.play('no_moves')
 
@@ -82,6 +88,18 @@ func init_root(root):
 	hud_controller.init_root(root, self)
 	hud_controller.set_turn(turn)
 	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the bunker and send it to take control of the barracks."])
+	
+	var movement_template = preload('res://gui/movement.xscn')
+	movement_arrow_bl = movement_template.instance()
+	movement_arrow_bl.get_node('anim').play("move_bl")
+	movement_arrow_br = movement_template.instance()
+	movement_arrow_br.get_node('anim').play("move_br")
+	movement_arrow_tl = movement_template.instance()
+	movement_arrow_tl.get_node('anim').play("move_tl")
+	movement_arrow_tr = movement_template.instance()
+	movement_arrow_tr.get_node('anim').play("move_tr")
+	movement_attack = movement_template.instance()
+	movement_attack.get_node('anim').play("attack")
 
 func activate_field(field):
 	self.clear_active_field()
@@ -94,6 +112,7 @@ func activate_field(field):
 	sample_player.play('select')
 	if field.object.group == 'unit':
 		hud_controller.show_unit_card(field.object)
+		self.add_movement_indicators(field)
 	if field.object.group == 'building':
 		hud_controller.show_building_card(field.object)
 
@@ -102,6 +121,46 @@ func clear_active_field():
 	abstract_map.tilemap.remove_child(active_indicator)
 	hud_controller.clear_unit_card()
 	hud_controller.clear_building_card()
+	self.clear_movement_indicators()
+	
+func add_movement_indicators(field):
+	var top_left = abstract_map.get_field(Vector2(field.position) + Vector2(-1, 0))
+	var top_right = abstract_map.get_field(Vector2(field.position) + Vector2(0, -1))
+	var bottom_left = abstract_map.get_field(Vector2(field.position) + Vector2(0, 1))
+	var bottom_right = abstract_map.get_field(Vector2(field.position) + Vector2(1, 0))
+	self.mark_field(field, top_left, movement_arrow_tl)
+	self.mark_field(field, top_right, movement_arrow_tr)
+	self.mark_field(field, bottom_left, movement_arrow_bl)
+	self.mark_field(field, bottom_right, movement_arrow_br)
+	
+func mark_field(source, target, indicator):
+	if target.terrain_type == -1:
+		return
+	
+	if player_ap > 0:
+		var position = Vector2(abstract_map.tilemap.map_to_world(target.position)) 
+		if target.object == null:
+			if movement_controller.can_move(source, target):
+				indicator.set_pos(position)
+				ysort.add_child(indicator)
+				ysort.move_child(active_indicator,0)
+		else:
+			print(target.object)
+			if target.object.group == 'unit' || target.object.group == 'building':
+				if target.object.player != current_player && source.object.can_attack():
+					movement_attack.set_pos(position)
+					ysort.add_child(movement_attack)
+					ysort.move_child(movement_attack,0)
+	else:
+		ysort.remove_child(indicator)
+	
+func clear_movement_indicators():
+	ysort.remove_child(movement_arrow_bl)
+	ysort.remove_child(movement_arrow_br)
+	ysort.remove_child(movement_arrow_tl)
+	ysort.remove_child(movement_arrow_tr)
+	ysort.remove_child(movement_attack)
+	return
 
 func despawn_unit(field):
 	ysort.remove_child(field.object)
