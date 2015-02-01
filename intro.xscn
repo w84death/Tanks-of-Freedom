@@ -94,11 +94,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 0.643915 </real>
+							<real> 0.790559 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -646.653, -189.776 </vector2>
+							<vector2> -300.559, -45.3211 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -217,9 +217,9 @@
 				</dictionary>
 				<real> 48 </real>
 				<real> 136 </real>
-				<real> 14 </real>
+				<real> 40 </real>
 				<real> 663 </real>
-				<real> 33 </real>
+				<real> 59 </real>
 				<resource  resource_type="Font" path="res://assets/boxy_small.fnt">  </resource>
 				<real> 0 </real>
 				<string> "czlowiekimadlo - wrmz - w84death - Mathias Nova" </string>
