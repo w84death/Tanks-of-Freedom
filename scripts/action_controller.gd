@@ -36,7 +36,6 @@ func handle_action(position):
 		if active_field != null:
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
-					self.use_ap()
 					if (battle_controller.can_attack(active_field.object, field.object)):
 						if (battle_controller.resolve_fight(active_field.object, field.object)):
 							if (field.object.type == 0):
@@ -44,13 +43,15 @@ func handle_action(position):
 							else:
 								sample_player.play('explosion')
 							self.despawn_unit(field)
-							hud_controller.update_unit_card(active_field.object)
-							return
 						else:
 							sample_player.play('not_dead')
+						hud_controller.update_unit_card(active_field.object)
+						self.use_ap()
+						self.clear_movement_indicators()
+						self.add_movement_indicators(active_field)
 					else:
 						sample_player.play('no_attack')
-						return
+					return
 				else:
 					sample_player.play('no_move')
 					
@@ -145,8 +146,14 @@ func mark_field(source, target, indicator):
 				ysort.move_child(active_indicator,0)
 		else:
 			print(target.object)
-			if target.object.group == 'unit' || target.object.group == 'building':
-				if target.object.player != current_player && source.object.can_attack():
+			if target.object.group == 'unit':
+				if target.object.player != current_player && battle_controller.can_attack(source.object, target.object):
+					movement_attack.set_pos(position)
+					ysort.add_child(movement_attack)
+					ysort.move_child(movement_attack,0)
+					movement_attack.get_node('anim').play("attack")
+			if target.object.group == 'building' && target.object.player != current_player:
+				if movement_controller.can_move(source, target):
 					movement_attack.set_pos(position)
 					ysort.add_child(movement_attack)
 					ysort.move_child(movement_attack,0)
