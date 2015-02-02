@@ -27,6 +27,8 @@ var movement_arrow_tl
 var movement_arrow_tr
 var movement_attack
 
+const break_event_loop = 1
+
 func handle_action(position):
 	if game_ended:
 		return
@@ -37,22 +39,8 @@ func handle_action(position):
 		if active_field != null:
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
-					if (battle_controller.can_attack(active_field.object, field.object)):
-						if (battle_controller.resolve_fight(active_field.object, field.object)):
-							if (field.object.type == 0):
-								sample_player.play('hurt')
-							else:
-								sample_player.play('explosion')
-							self.despawn_unit(field)
-						else:
-							sample_player.play('not_dead')
-						hud_controller.update_unit_card(active_field.object)
-						self.use_ap()
-						self.clear_movement_indicators()
-						self.add_movement_indicators(active_field)
-					else:
-						sample_player.play('no_attack')
-					return
+					if (self.handle_battle(active_field, field) == break_event_loop):
+						return
 				else:
 					sample_player.play('no_move')
 					
@@ -276,3 +264,40 @@ func camera_zoom_out():
 	var scale = camera.get_scale()
 	if scale.x > camera_zoom_range[0]:
 		camera.set_scale(scale - Vector2(1,1))
+
+func play_destroy(field):
+	if (field.object.type == 0):
+		sample_player.play('hurt')
+	else:
+		sample_player.play('explosion')
+
+func update_unit(field):
+	hud_controller.update_unit_card(active_field.object)
+	self.add_movement_indicators(active_field)
+
+func handle_battle(active_field, field):
+	if (battle_controller.can_attack(active_field.object, field.object)):
+		self.use_ap()
+		self.clear_movement_indicators()
+
+		if (battle_controller.resolve_fight(active_field.object, field.object)):
+			print('attacker kill defender');
+			self.play_destroy(field)
+			self.despawn_unit(field)
+			self.update_unit(active_field)
+		else:
+			sample_player.play('not_dead')
+			# defender can deal damage
+			print('defend!')
+			if (battle_controller.resolve_defend(active_field.object, field.object)):
+				print('defender kill attacker');
+				self.play_destroy(active_field)
+				self.despawn_unit(active_field)
+			else:
+				sample_player.play('not_dead')
+				self.update_unit(active_field)
+
+	else:
+		sample_player.play('no_attack')
+
+	return break_event_loop
