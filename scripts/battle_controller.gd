@@ -18,6 +18,7 @@ func resolve_fight(attacker, defender):
 	defender.set_stats(defender_stats)
 	
 	attacker_stats.ap = attacker_stats.ap - attacker_stats.attack_ap
+	attacker_stats.attacks_number = attacker_stats.attacks_number - 1
 	attacker.set_stats(attacker_stats)
 	
 	#handle
@@ -42,14 +43,14 @@ func resolve_defend(attacker, defender):
 		return false
 
 func can_attack(attacker, defender):
-	var attacker_stats = attacker.get_stats()
-	if attacker_stats.ap < attacker_stats.attack_ap:
-		print('Not enough AP')
-		return false
-
 	if attacker.type == 1 && defender.type == 2:
 		return false
-	return true
+
+	if attacker.can_attack():
+		return true
+
+	print('Not enough AP')
+	return false
 
 func can_defend(attacker, defender):
 	if defender.type == 1 && attacker.type == 2:

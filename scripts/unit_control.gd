@@ -12,7 +12,9 @@ export var road = 2
 export var river = 3
 export var max_ap = 8
 export var attack_ap = 2
+export var max_attacks_number = 1
 var ap = 8
+var attacks_number = 1
 
 var current_map
 var health_bar
@@ -27,23 +29,25 @@ func get_initial_pos():
 	return position_on_map
 
 func get_stats():
-	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : ap, 'attack_ap': attack_ap}
+	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : ap, 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
 
 func set_stats(new_stats):
 	life = new_stats.life
 	attack = new_stats.attack
 	ap = new_stats.ap
+	attacks_number = new_stats.attacks_number
 	update_healthbar()
 
 func reset_ap():
 	ap = max_ap
+	attacks_number = max_attacks_number
 	
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
 	position_on_map = new_position
 	
 func can_attack():
-	if ap >= attack_ap:
+	if ap >= attack_ap && attacks_number > 0:
 		return true
 	return false
 
