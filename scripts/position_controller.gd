@@ -16,5 +16,5 @@ func get_bunkers():
 	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	var row
 	for building in buildings:
-		if (building.get_name() == "BUNKER"):
+		if (building.get_building_name() == "BUNKER"):
 			bunkers[building.get_player()] = building

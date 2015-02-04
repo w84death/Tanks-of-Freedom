@@ -17,7 +17,7 @@ var TYPE_AIRPORT = 3;
 
 func get_pos_map():
 	return position_on_map
-	
+
 func get_initial_pos():
 	position_on_map = current_map.world_to_map(self.get_pos()) + Vector2(1, 1)
 	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
@@ -35,17 +35,17 @@ func claim(new_player):
 		self.set_frame(1)
 	if new_player == 1:
 		self.set_frame(2)
-	
+
 	player = new_player
 
 func get_player():
 	return player
-	
+
 func set_frame(number):
 	var current_frame = get_region_rect()
 	var new_frame = Rect2(number * 32, current_frame.pos.y, 32, 32)
 	set_region_rect(new_frame)
-	
+
 func spawn_unit(player):
 	var unit = null
 	if type == TYPE_BUNKER || type == TYPE_BARRACKS:
@@ -54,7 +54,7 @@ func spawn_unit(player):
 		unit = object_factory.build_unit(1, player)
 	if type == TYPE_AIRPORT:
 		unit = object_factory.build_unit(2, player)
-		
+
 	return unit
 
 func get_required_ap():
@@ -68,8 +68,8 @@ func get_required_ap():
 		return 8
 
 	return 0
-	
-func get_name():
+
+func get_building_name():
 	if type == TYPE_BUNKER:
 		return "BUNKER"
 	if type == TYPE_BARRACKS:

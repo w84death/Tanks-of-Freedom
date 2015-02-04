@@ -43,22 +43,22 @@ var red_wins
 func init_root(root, action_controller_object):
 	root_node = root
 	action_controller = action_controller_object
-	
+
 	active_map = root.get_node("/root/game/pixel_scale")
-	
+
 	end_turn_card = root.get_node("/root/game/GUI/turn_card")
 	end_turn_button = root.get_node("/root/game/GUI/turn_card/end_turn")
 	end_turn_button_red = root.get_node("/root/game/GUI/turn_card/end_turn_red")
 	end_turn_button.connect("pressed", action_controller, "end_turn")
 	end_turn_button_red.connect("pressed", action_controller, "end_turn")
-	
+
 	player_ap = root.get_node("/root/game/GUI/turn_card/Label")
 	turn_card = root.get_node("/root/game/GUI/game_card")
 	turn_counter = root.get_node("/root/game/GUI/game_card/turn_no")
-	
+
 	blue_wins = root.get_node("/root/game/GUI/middle_center/blue_win")
 	red_wins = root.get_node("/root/game/GUI/middle_center/red_win")
-	
+
 	hud_unit = root.get_node("/root/game/GUI/bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")
 	hud_unit_attack = hud_unit.get_node("attack")
@@ -68,7 +68,7 @@ func init_root(root, action_controller_object):
 	hud_unit_road = hud_unit.get_node("road")
 	hud_unit_river = hud_unit.get_node("river")
 	hud_unit_icon = hud_unit.get_node("unit_icon")
-	
+
 	hud_building = root.get_node("/root/game/GUI/bottom_center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
 	hud_building_label = hud_building.get_node("name")
@@ -93,7 +93,7 @@ func show_unit_card(unit):
 	self.update_unit_card(unit)
 	self.set_unit_card_icon(unit)
 	hud_unit.show()
-	
+
 
 func update_unit_card(unit):
 	var stats = unit.get_stats()
@@ -110,21 +110,21 @@ func update_unit_card(unit):
 
 func set_unit_card_icon(unit):
 	hud_unit_icon.set_region_rect(Rect2((unit.player + 1) * 32, unit.type * 32, 32, 32))
-	
+
 func clear_unit_card():
 	hud_unit.hide()
-	
+
 func show_building_card(building):
 	hud_building_icon.set_region_rect(building.get_region_rect())
 	hud_building_unit_icon.set_region_rect(building.get_region_rect())
-	hud_building_label.set_text(building.get_name())
+	hud_building_label.set_text(building.get_building_name())
 	hud_building_cost.set_text(str(building.get_cost()))
 	hud_building.show()
-	
+
 func clear_building_card():
 	hud_building.hide()
 
-func show_in_game_card(messages):	
+func show_in_game_card(messages):
 	active_map.hide()
 	end_turn_card.hide()
 	turn_card.hide()
@@ -148,13 +148,13 @@ func update_ap(ap):
 	player_ap.set_text(str(ap))
 	if ap>0:
 		end_turn_button_red.hide()
-	
+
 func set_turn(no):
 	turn_counter.set_text(str(no))
-	
+
 func warn_end_turn():
 	end_turn_button_red.show()
-	
+
 func warn_player_ap():
 	hud_unit_ap_red.show()
 
@@ -169,4 +169,3 @@ func show_win(player):
 	else:
 		red_wins.show()
 		print('red wins')
-	
