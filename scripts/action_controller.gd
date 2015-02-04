@@ -37,6 +37,9 @@ func handle_action(position):
 	
 	if field.object != null:
 		if active_field != null:
+			if active_field.object.group == 'unit':
+				position_controller.battle_debug(active_field.position)
+
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
 					if (self.handle_battle(active_field, field) == break_event_loop):
@@ -66,6 +69,11 @@ func handle_action(position):
 					self.activate_field(field)
 				else:
 					sample_player.play('no_moves')
+
+func post_handle_action():
+	# should check if something is changed
+	position_controller.refresh()
+
 
 func init_root(root):
 	root_node = root

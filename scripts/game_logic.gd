@@ -29,7 +29,8 @@ func _input(event):
 	if (event.type == InputEvent.MOUSE_BUTTON):
 		if (event.pressed and event.button_index == BUTTON_LEFT):
 			action_controller.handle_action(selector_position)
-	
+			action_controller.post_handle_action()
+
 	if Input.is_action_pressed('ui_cancel'):
 		action_controller.clear_active_field()
 

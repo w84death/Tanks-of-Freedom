@@ -21,8 +21,19 @@ func init_root(root):
 	get_bunkers()
 
 func refresh():
+	print('Refreshing unit & building data')
 	get_units()
 	get_buildings()
+
+func battle_debug(position):
+	var nearby_tiles = get_nearby_tiles(position, lookout_range)
+	print('enemies:')
+	print(self.get_nearby_enemies(nearby_tiles))
+	print('empty buildings:')
+	print(self.get_nearby_empty_buldings(nearby_tiles))
+	print('enemy buildings:')
+	print(self.get_nearby_enemy_buldings(nearby_tiles))
+
 
 func get_units_player_blue():
 	return units_player_blue
@@ -56,7 +67,9 @@ func get_nearby_tiles(position, distance=2):
 	var tiles = []
 	for y in range(-distance, distance):
 		for x in range(-distance, distance):
-			if (self.fabs(x) + self.fabs(y) < max_distance):
+			# we are skipping current tile
+			# todo skip tiles that are not on map
+			if (self.fabs(x) + self.fabs(y) < max_distance && x != 0 && y != 0):
 				var vector = Vector2(position.x + x, position.y + y)
 				tiles.append(vector)
 
@@ -99,7 +112,7 @@ func get_nearby_empty_buldings(nearby_tiles):
 	for tile in nearby_tiles:
 		var tile_key = self.position_to_key(tile)
 		if buildings_player_none.has(tile_key):
-			buildings.append(buildings_player_blue[tile_key])
+			buildings.append(buildings_player_none[tile_key])
 
 	return buildings
 
