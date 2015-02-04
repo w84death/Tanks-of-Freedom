@@ -21,6 +21,9 @@ var health_bar
 
 var group = 'unit'
 
+func get_player():
+	return player
+	
 func get_pos_map():
 	return position_on_map
 	
