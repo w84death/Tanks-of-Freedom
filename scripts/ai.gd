@@ -14,3 +14,4 @@ func execute_assignments():
 
 func init(position_controller):
 	position_controller = position_controller
+
