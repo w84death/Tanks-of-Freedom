@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
-	<ext_resource path="res://particle/smoke.scn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
+	<ext_resource path="res://particle/smoke.xscn" type="PackedScene"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
@@ -176,7 +176,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<resource  resource_type="PackedScene" path="res://particle/smoke.scn">  </resource>
+				<resource  resource_type="PackedScene" path="res://particle/smoke.xscn">  </resource>
 				<vector2_array  len="0"> 					 </vector2_array>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
@@ -186,11 +186,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.360374 </real>
+							<real> 3.090869 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -306.293, -160.623 </vector2>
+							<vector2> -197.355, -111.611 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -269,22 +269,22 @@
 							<real> 0.628319 </real>
 							<string> "fov" </string>
 							<real> 45 </real>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
 							<string> "default_light" </string>
 							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
 							<string> "znear" </string>
 							<real> 0.1 </real>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
 							<string> "deflight_rot_x" </string>
 							<real> 0.942478 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
