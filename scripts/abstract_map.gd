@@ -3,6 +3,11 @@ var size = Vector2(0, 0)
 var fields = [[null]]
 var tilemap
 var field_template = preload('abstract_field.gd')
+var movement_controller = preload('movement_controller.gd').new()
+var tiles_type = [[null]]
+
+func get_fields():
+	return fields
 
 func get_field(position):
 	if position.x < 0 || position.y < 0:
@@ -46,3 +51,21 @@ func create_field(position):
 	field.position = position
 	field.terrain_type = tilemap.get_cell(position.x, position.y)
 	return field
+
+# for pathfinding
+func create_tile_type_map():
+	var row
+	var tiles_type = []
+	for x in range(size.x):
+		row = []
+		for y in range(size.y):
+			var type = fields[y][x].get_terrain_type()
+			if (type == -1):
+				row.insert(y, 'x')
+			else:
+				row.insert(y,movement_controller.get_type_name(type))
+		tiles_type.insert(x, row)
+	#todo - check x, y
+	#print('tile types:')
+	#print(tiles_type)
+

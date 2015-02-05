@@ -34,7 +34,8 @@ func handle_action(position):
 		return
 	
 	var field = abstract_map.get_field(position)
-	
+	abstract_map.create_tile_type_map()
+
 	if field.object != null:
 		if active_field != null:
 			if active_field.object.group == 'unit':

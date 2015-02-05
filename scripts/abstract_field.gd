@@ -3,6 +3,9 @@ var terrain_type
 var position
 var object = null
 
+func get_terrain_type():
+	return terrain_type
+
 func is_adjacent(field):
 	var diff_x = self.position.x - field.position.x
 	var diff_y = self.position.y - field.position.y

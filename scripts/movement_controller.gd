@@ -50,7 +50,12 @@ func can_move(from, to):
 		
 func get_terrain_type(to):
 	return tile_types[to.terrain_type]
+
+# todo make consistent method (look above)
+func get_type_name(terrain_type):
+	return tile_types[terrain_type]
+
 	
-func get_terrain_cost(from, terrain_type):
-	var stats = from.object.get_stats()
+func get_terrain_cost(unit, terrain_type):
+	var stats = unit.object.get_stats()
 	return stats[terrain_type]
