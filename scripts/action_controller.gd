@@ -174,8 +174,7 @@ func clear_movement_indicators():
 	return
 
 func despawn_unit(field):
-	ysort.remove_child(field.object)
-	field.object.queue_free()
+	field.object.die_after_explosion(ysort)
 	field.object = null
 
 func spawn_unit_from_active_building():
