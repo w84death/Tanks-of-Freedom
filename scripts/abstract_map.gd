@@ -4,7 +4,7 @@ var fields = [[null]]
 var tilemap
 var field_template = preload('abstract_field.gd')
 var movement_controller = preload('movement_controller.gd').new()
-var tiles_type = [[null]]
+var tiles_cost_map = [[[null]]]
 
 func get_fields():
 	return fields
@@ -53,7 +53,12 @@ func create_field(position):
 	return field
 
 # for pathfinding
-func create_tile_type_map():
+func create_tile_type_maps():
+	var soldier = preload('units/soldier.gd').new()
+	self.create_tile_type_map_for_unit(soldier)
+
+
+func create_tile_type_map_for_unit(unit):
 	var row
 	var tiles_type = []
 	for x in range(size.x):
@@ -65,7 +70,9 @@ func create_tile_type_map():
 			else:
 				row.insert(y,movement_controller.get_type_name(type))
 		tiles_type.insert(x, row)
-	#todo - check x, y
-	#print('tile types:')
-	#print(tiles_type)
+	tiles_cost_map.insert(unit.get_type(), tiles_type)
+	print(tiles_cost_map)
+
+
+
 
