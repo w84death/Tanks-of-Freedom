@@ -5,6 +5,7 @@ var tilemap
 var field_template = preload('abstract_field.gd')
 var movement_controller = preload('movement_controller.gd').new()
 var tiles_cost_map = [[[null]]]
+const unmovable_cost = 100
 
 func get_fields():
 	return fields
@@ -54,11 +55,15 @@ func create_field(position):
 
 # for pathfinding
 func create_tile_type_maps():
-	var soldier = preload('units/soldier.gd').new()
-	self.create_tile_type_map_for_unit(soldier)
+	self.create_tile_type_map_for_unit(preload('units/soldier.gd').new())
 
+	self.create_tile_type_map_for_unit(preload('units/tank.gd').new())
+
+	self.create_tile_type_map_for_unit(preload('units/helicopter.gd').new())
 
 func create_tile_type_map_for_unit(unit):
+	var stats = unit.get_stats();
+
 	var row
 	var tiles_type = []
 	for x in range(size.x):
@@ -66,12 +71,17 @@ func create_tile_type_map_for_unit(unit):
 		for y in range(size.y):
 			var type = fields[y][x].get_terrain_type()
 			if (type == -1):
-				row.insert(y, 'x')
+				row.insert(y, unmovable_cost)
 			else:
-				row.insert(y,movement_controller.get_type_name(type))
+				row.insert(y,self.calculate_cost(stats, type))
 		tiles_type.insert(x, row)
 	tiles_cost_map.insert(unit.get_type(), tiles_type)
-	print(tiles_cost_map)
+	print('map cost generate')
+	print(tiles_type)
+
+func calculate_cost(stats, type):
+	var tile_type_name = movement_controller.get_type_name(type)
+	return stats[tile_type_name]
 
 
 

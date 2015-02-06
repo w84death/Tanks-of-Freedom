@@ -1,8 +1,8 @@
 
 extends "../unit_control.gd"
 
-func _ready():
-	type = 2
+func _init():
+	type = 0
 
 	life = 10
 	max_life = 10

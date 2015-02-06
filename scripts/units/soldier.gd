@@ -1,7 +1,7 @@
 
 extends "../unit_control.gd"
 
-func _ready():
+func _init():
 	type = 0
 
 	life = 10
@@ -13,9 +13,9 @@ func _ready():
 	max_ap = 8
 	attack_ap = 2
 	max_attacks_number = 1
-	ap = 8
+	var ap = 8
 	attacks_number = 1
-	pass
+	self.set_ap(8)
 
 
 

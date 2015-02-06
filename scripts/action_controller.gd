@@ -38,6 +38,7 @@ func handle_action(position):
 		return
 	
 	var field = abstract_map.get_field(position)
+	print('generating maps costs')
 	abstract_map.create_tile_type_maps()
 
 	if field.object != null:

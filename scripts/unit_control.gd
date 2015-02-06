@@ -27,6 +27,13 @@ var explosion
 var die = false
 var parent
 
+func set_ap(value):
+	ap = value
+
+
+func get_ap():
+	return ap;
+
 func get_player():
 	return player
 
@@ -41,7 +48,7 @@ func get_initial_pos():
 	return position_on_map
 
 func get_stats():
-	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : ap, 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
+	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : get_ap(), 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
 
 func set_stats(new_stats):
 	life = new_stats.life
