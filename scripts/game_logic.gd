@@ -6,7 +6,7 @@ var current_map_terrain
 var map_pos
 var game_scale
 var scale_root
-var map_template = preload('res://maps/map_1.xscn')
+var map_template = preload('res://maps/map_0.xscn')
 var hud_template = preload('res://gui/gui.xscn')
 
 var action_controller
