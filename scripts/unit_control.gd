@@ -1,23 +1,23 @@
 
 extends AnimatedSprite
-export var position_on_map = Vector2(0,0)
+
 export var player = -1
-export var type = 0
-
-export var life = 2
-export var max_life = 10
-export var attack = 3
-export var plain = 2
-export var road = 2
-export var river = 3
-export var max_ap = 8
-export var attack_ap = 2
-export var max_attacks_number = 1
-var ap = 8
-var attacks_number = 1
-
+export var position_on_map = Vector2(0,0)
 var current_map
 var health_bar
+var type = 0
+
+var life
+var max_life
+var attack
+var plain
+var road
+var river
+var max_ap
+var attack_ap
+var max_attacks_number
+var ap
+var attacks_number
 
 var group = 'unit'
 

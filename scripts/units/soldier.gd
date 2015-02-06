@@ -1,21 +1,21 @@
 
 extends "../unit_control.gd"
 
-export var position_on_map = Vector2(0,0)
-export var player = -1
-export var type = 0
+func _ready():
+	type = 0
 
-export var life = 10
-export var max_life = 10
-export var attack = 3
-export var plain = 2
-export var road = 2
-export var river = 3
-export var max_ap = 8
-export var attack_ap = 2
-export var max_attacks_number = 1
-var ap = 8
-var attacks_number = 1
+	life = 10
+	max_life = 10
+	attack = 3
+	plain = 2
+	road = 2
+	river = 3
+	max_ap = 8
+	attack_ap = 2
+	max_attacks_number = 1
+	ap = 8
+	attacks_number = 1
+	pass
 
 
 
