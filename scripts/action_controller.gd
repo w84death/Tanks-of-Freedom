@@ -156,7 +156,7 @@ func mark_field(source, target, indicator):
 					ysort.add_child(movement_attack)
 					ysort.move_child(movement_attack,0)
 					movement_attack.get_node('anim').play("attack")
-			if target.object.group == 'building' && target.object.player != current_player:
+			if target.object.group == 'building' && target.object.player != current_player && source.object.type == 0:
 				if movement_controller.can_move(source, target):
 					movement_attack.set_pos(position)
 					ysort.add_child(movement_attack)
@@ -307,14 +307,15 @@ func handle_battle(active_field, field):
 			field.object.show_explosion()
 			# defender can deal damage
 			print('defend!')
-			if (battle_controller.resolve_defend(active_field.object, field.object)):
-				print('defender kill attacker');
-				self.play_destroy(active_field)
-				self.destroy_unit(active_field)
-			else:
-				sample_player.play('not_dead')
-				self.update_unit(active_field)
-				active_field.object.show_explosion()
+			if battle_controller.can_attack(field.object, active_field.object):
+				if (battle_controller.resolve_defend(active_field.object, field.object)):
+					print('defender kill attacker');
+					self.play_destroy(active_field)
+					self.destroy_unit(active_field)
+				else:
+					sample_player.play('not_dead')
+					self.update_unit(active_field)
+					active_field.object.show_explosion()
 
 	else:
 		sample_player.play('no_attack')
