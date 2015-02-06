@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
+	<ext_resource path="res://scripts/units/helicopter.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gui/health_bar.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://scripts/unit_control.gd" type="Script"></ext_resource>
+	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "move" </string>
 		<real name="length"> 1 </real>
@@ -31,7 +31,7 @@
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="40">
+			<string_array  len="42">
 				<string> "helicopter_red" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "_import_path" </string>
@@ -54,12 +54,14 @@
 				<string> "player" </string>
 				<string> "type" </string>
 				<string> "life" </string>
+				<string> "max_life" </string>
 				<string> "attack" </string>
 				<string> "plain" </string>
 				<string> "road" </string>
 				<string> "river" </string>
 				<string> "max_ap" </string>
 				<string> "attack_ap" </string>
+				<string> "max_attacks_number" </string>
 				<string> "anim" </string>
 				<string> "AnimationPlayer" </string>
 				<string> "playback/process_mode" </string>
@@ -91,10 +93,21 @@
 				<resource  resource_type="SpriteFrames" path="res://animation_frames.xml">  </resource>
 				<int> 7 </int>
 				<color> 1, 1, 1, 1 </color>
-				<resource  resource_type="Script" path="res://scripts/unit_control.gd">  </resource>
+				<resource  resource_type="Script" path="res://scripts/units/helicopter.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 1 </int>
+							<string> "sources" </string>
+							<array  len="3" shared="false">
+								<string> "res://scripts/units/tank.gd" </string>
+								<string> "res://scripts/unit_control.gd" </string>
+								<string> "res://scripts/units/../unit_control.gd" </string>
+							</array>
+						</dictionary>
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "pixel_snap" </string>
@@ -209,7 +222,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<int> 1 </int>
 				<int> 2 </int>
@@ -241,10 +254,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
-							<string> "fov" </string>
-							<real> 45 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
 							<string> "zfar" </string>
 							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -312,24 +327,22 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
 							<string> "default_light" </string>
 							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
 							<string> "znear" </string>
 							<real> 0.1 </real>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
 							<string> "deflight_rot_x" </string>
 							<real> 0.942478 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -344,7 +357,7 @@
 				</dictionary>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="97"> 				-1, -1, 1, 0, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 1, 13, 3, 14, 3, 15, 9, 16, 10, 17, 11, 18, 4, 19, 12, 20, 13, 21, 14, 22, 15, 23, 12, 24, 12, 25, 12, 26, 16, 27, 13, 0, 0, 0, 29, 28, -1, 9, 2, 0, 30, 12, 31, 5, 32, 17, 33, 18, 34, 1, 35, 2, 36, 19, 37, 20, 0, 0, 0, 39, 38, 21, 3, 2, 0, 7, 22, 17, 23, 0 </int_array>
+			<int_array  len="125"> 				-1, -1, 1, 0, -1, 40, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 1, 13, 3, 14, 3, 15, 9, 16, 10, 17, 11, 18, 4, 19, 12, 20, 13, 21, 14, 22, 14, 23, 15, 24, 12, 25, 12, 26, 12, 27, 16, 28, 13, 29, 12, 18, 4, 19, 12, 20, 13, 21, 14, 22, 14, 23, 15, 24, 12, 25, 12, 26, 12, 27, 16, 28, 13, 29, 12, 0, 0, 0, 31, 30, -1, 9, 2, 0, 32, 12, 33, 5, 34, 17, 35, 18, 36, 1, 37, 2, 38, 19, 39, 20, 0, 0, 0, 41, 40, 21, 3, 2, 0, 7, 22, 17, 23, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
