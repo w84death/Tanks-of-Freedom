@@ -174,6 +174,11 @@ func clear_movement_indicators():
 	return
 
 func despawn_unit(field):
+	ysort.remove_child(field.object)
+	field.object.queue_free()
+	field.object = null
+
+func destroy_unit(field):
 	field.object.die_after_explosion(ysort)
 	field.object = null
 
@@ -295,7 +300,7 @@ func handle_battle(active_field, field):
 		if (battle_controller.resolve_fight(active_field.object, field.object)):
 			print('attacker kill defender');
 			self.play_destroy(field)
-			self.despawn_unit(field)
+			self.destroy_unit(field)
 			self.update_unit(active_field)
 		else:
 			sample_player.play('not_dead')
@@ -305,7 +310,7 @@ func handle_battle(active_field, field):
 			if (battle_controller.resolve_defend(active_field.object, field.object)):
 				print('defender kill attacker');
 				self.play_destroy(active_field)
-				self.despawn_unit(active_field)
+				self.destroy_unit(active_field)
 			else:
 				sample_player.play('not_dead')
 				self.update_unit(active_field)
