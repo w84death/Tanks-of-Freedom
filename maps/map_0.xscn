@@ -7,19 +7,19 @@
 	<ext_resource path="res://units/city_4.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/city_2.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gui/selector.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/factory.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/city_1.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://eyecandy/flowers.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/barrack.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://units/airport.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/city_5.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://eyecandy/grass.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/city_3.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/factory.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/airport.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://units/bunker_red.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://units/barrack.xscn" type="PackedScene"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="72">
+			<string_array  len="73">
 				<string> "map_0" </string>
 				<string> "EmptyControl" </string>
 				<string> "_import_path" </string>
@@ -77,6 +77,7 @@
 				<string> "flowers 6" </string>
 				<string> "flowers 7" </string>
 				<string> "bunker_blue" </string>
+				<string> "spawn_point_position" </string>
 				<string> "bunker_red" </string>
 				<string> "city_1" </string>
 				<string> "city_3" </string>
@@ -100,7 +101,7 @@
 			<string> "node_count" </string>
 			<int> 34 </int>
 			<string> "variants" </string>
-			<array  len="78" shared="false">
+			<array  len="82" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -114,7 +115,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 6 </int>
 							<string> "sources" </string>
 							<array  len="7" shared="false">
 								<string> "res://scripts/map_move.gd" </string>
@@ -131,11 +132,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 2.999992 </real>
+							<real> 3.324091 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -165.992, -11.1543 </vector2>
+							<vector2> -148.664, -3.80369 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -250,9 +251,16 @@
 				<int> 16 </int>
 				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
 				<int_array  len="54"> 					65543, 21, 131079, 21, 196620, 21, 262151, 21, 262152, 21, 262156, 21, 327687, 21, 327688, 21, 327689, 21, 327692, 21, 393222, 21, 393228, 21, 458753, 21, 458754, 21, 458757, 21, 458762, 21, 458763, 21, 458764, 21, 524293, 21, 589829, 21, 655367, 21, 720903, 21, 786435, 21, 786436, 21, 786437, 21, 786438, 21, 786439, 21 </int_array>
-				<vector2> -1, -1 </vector2>
-				<int_array  len="174"> 					1, 0, 2, 0, 3, 1, 4, 0, 5, 0, 6, 9, 65536, 0, 65537, 11, 65538, 8, 65539, 16, 65540, 15, 65541, 8, 65542, 12, 131072, 0, 131073, 9, 131074, 0, 131075, 1, 131076, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 131083, 0, 196608, 2, 196609, 17, 196610, 2, 196611, 7, 196612, 2, 196613, 2, 196614, 2, 196615, 2, 196616, 2, 196617, 2, 196618, 2, 196619, 2, 262144, 0, 262145, 9, 262146, 0, 262147, 1, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 262155, 0, 327680, 0, 327681, 14, 327682, 0, 327683, 1, 327684, 0, 327685, 0, 327689, 0, 327690, 0, 327691, 0, 393216, 8, 393217, 12, 393218, 0, 393219, 1, 393220, 0, 393225, 0, 393226, 0, 393227, 0, 458754, 0, 458755, 1, 458756, 0, 524290, 0, 524291, 1, 524292, 0, 589826, 0, 589827, 1, 589828, 0, 589829, 0, 589830, 0, 655362, 0, 655363, 1, 655364, 0, 655365, 0, 655366, 0, 720898, 0, 720899, 1, 720900, 0, 720901, 0, 720902, 0 </int_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<int_array  len="174"> 					1, 0, 2, 0, 3, 1, 4, 0, 5, 0, 6, 9, 65536, 0, 65537, 11, 65538, 8, 65539, 16, 65540, 15, 65541, 8, 65542, 12, 131072, 0, 131073, 9, 131074, 0, 131075, 1, 131076, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 19, 131081, 0, 131082, 0, 131083, 0, 196608, 2, 196609, 17, 196610, 2, 196611, 7, 196612, 2, 196613, 2, 196614, 2, 196615, 2, 196616, 2, 196617, 2, 196618, 2, 196619, 2, 262144, 0, 262145, 9, 262146, 0, 262147, 1, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 20, 262154, 0, 262155, 0, 327680, 0, 327681, 14, 327682, 0, 327683, 1, 327684, 18, 327685, 0, 327689, 0, 327690, 0, 327691, 0, 393216, 8, 393217, 12, 393218, 0, 393219, 1, 393220, 0, 393225, 20, 393226, 20, 393227, 0, 458754, 0, 458755, 1, 458756, 0, 524290, 19, 524291, 1, 524292, 0, 589826, 0, 589827, 1, 589828, 20, 589829, 0, 589830, 20, 655362, 0, 655363, 1, 655364, 0, 655365, 0, 655366, 20, 720898, 0, 720899, 1, 720900, 0, 720901, 0, 720902, 0 </int_array>
 				<resource  resource_type="Script" path="res://scripts/map_move.gd">  </resource>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
 				<resource  resource_type="PackedScene" path="res://eyecandy/grass.xscn">  </resource>
 				<vector2> 34, 79 </vector2>
 				<int> 29 </int>
@@ -642,6 +650,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
+				<vector2> 1, 0 </vector2>
 				<resource  resource_type="PackedScene" path="res://units/bunker_red.xscn">  </resource>
 				<vector2> 80, 119 </vector2>
 				<dictionary  shared="false">
@@ -772,6 +781,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
+				<vector2> 0, 1 </vector2>
 				<resource  resource_type="PackedScene" path="res://units/city_1.xscn">  </resource>
 				<vector2> -64, 31 </vector2>
 				<dictionary  shared="false">
@@ -1509,7 +1519,7 @@
 					<string> "2D" </string>
 				</dictionary>
 				<resource  resource_type="PackedScene" path="res://units/barrack.xscn">  </resource>
-				<vector2> -98, 110 </vector2>
+				<vector2> -65, 111 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
@@ -1629,6 +1639,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
+				<vector2> -1, 0 </vector2>
 				<vector2> 64, 111 </vector2>
 				<resource  resource_type="PackedScene" path="res://units/factory.xscn">  </resource>
 				<vector2> 80, 71 </vector2>
@@ -2013,7 +2024,7 @@
 				</dictionary>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="568"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 21, 20, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 25, 10, 26, 11, 27, 12, 28, 13, 29, 14, 30, 5, 31, 2, 32, 8, 33, 10, 34, 15, 0, 0, 0, 21, 35, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 16, 23, 8, 24, 9, 25, 10, 26, 11, 27, 12, 28, 13, 29, 14, 30, 5, 31, 2, 32, 8, 33, 10, 34, 17, 36, 18, 0, 2, 0, 38, 37, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 39, 1, 0, 3, 0, 41, 40, 19, 4, 2, 0, 22, 20, 42, 21, 19, 22, 0, 3, 0, 41, 43, 19, 3, 2, 0, 22, 23, 19, 22, 0, 3, 0, 41, 44, 19, 3, 2, 0, 22, 24, 19, 22, 0, 3, 0, 41, 45, 19, 3, 2, 0, 22, 25, 19, 22, 0, 3, 0, 41, 46, 19, 3, 2, 0, 22, 26, 19, 22, 0, 3, 0, 41, 47, 19, 3, 2, 0, 22, 27, 19, 22, 0, 3, 0, 41, 48, 19, 4, 2, 0, 22, 28, 42, 21, 19, 22, 0, 3, 0, 41, 49, 29, 3, 2, 0, 22, 30, 19, 31, 0, 3, 0, 41, 50, 29, 3, 2, 0, 22, 32, 19, 31, 0, 3, 0, 41, 51, 29, 4, 2, 0, 22, 33, 42, 34, 19, 31, 0, 3, 0, 41, 52, 29, 3, 2, 0, 22, 35, 19, 31, 0, 3, 0, 41, 53, 29, 4, 2, 0, 22, 36, 42, 37, 19, 31, 0, 3, 0, 41, 54, 29, 4, 2, 0, 22, 38, 42, 37, 19, 31, 0, 3, 0, 41, 55, 29, 4, 2, 0, 22, 39, 42, 34, 19, 31, 0, 2, 0, 38, 38, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 39, 1, 0, 18, 0, 41, 56, 40, 3, 2, 0, 22, 41, 19, 42, 0, 18, 0, 41, 57, 43, 3, 2, 0, 22, 44, 19, 45, 0, 18, 0, 41, 58, 46, 3, 2, 0, 22, 47, 19, 48, 0, 18, 0, 41, 59, 49, 3, 2, 0, 22, 50, 19, 51, 0, 18, 0, 41, 60, 52, 3, 2, 0, 22, 53, 19, 54, 0, 18, 0, 41, 61, 55, 3, 2, 0, 22, 56, 19, 57, 0, 18, 0, 41, 62, 58, 3, 2, 0, 22, 59, 19, 60, 0, 18, 0, 41, 63, 52, 3, 2, 0, 22, 61, 19, 54, 0, 18, 0, 41, 64, 62, 3, 2, 0, 22, 63, 19, 64, 0, 18, 0, 41, 65, 65, 3, 2, 0, 22, 66, 19, 67, 0, 18, 0, 41, 66, 65, 3, 2, 0, 22, 68, 19, 67, 0, 18, 0, 41, 67, 69, 3, 2, 0, 22, 70, 19, 71, 0, 18, 0, 41, 68, 69, 3, 2, 0, 22, 72, 19, 71, 0, 18, 0, 41, 69, 73, 3, 2, 0, 22, 74, 19, 75, 0, 2, 0, 71, 70, 76, 2, 2, 0, 19, 77, 0 </int_array>
+			<int_array  len="586"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 21, 20, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 25, 10, 26, 11, 27, 12, 28, 13, 29, 14, 30, 5, 31, 2, 32, 8, 33, 10, 34, 15, 19, 16, 0, 0, 0, 21, 35, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 25, 10, 26, 11, 27, 12, 28, 13, 29, 14, 30, 5, 31, 2, 32, 8, 33, 10, 34, 17, 36, 18, 19, 19, 0, 2, 0, 38, 37, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 39, 1, 0, 3, 0, 41, 40, 20, 4, 2, 0, 22, 21, 42, 22, 19, 23, 0, 3, 0, 41, 43, 20, 3, 2, 0, 22, 24, 19, 23, 0, 3, 0, 41, 44, 20, 3, 2, 0, 22, 25, 19, 23, 0, 3, 0, 41, 45, 20, 3, 2, 0, 22, 26, 19, 23, 0, 3, 0, 41, 46, 20, 3, 2, 0, 22, 27, 19, 23, 0, 3, 0, 41, 47, 20, 3, 2, 0, 22, 28, 19, 23, 0, 3, 0, 41, 48, 20, 4, 2, 0, 22, 29, 42, 22, 19, 23, 0, 3, 0, 41, 49, 30, 3, 2, 0, 22, 31, 19, 32, 0, 3, 0, 41, 50, 30, 3, 2, 0, 22, 33, 19, 32, 0, 3, 0, 41, 51, 30, 4, 2, 0, 22, 34, 42, 35, 19, 32, 0, 3, 0, 41, 52, 30, 3, 2, 0, 22, 36, 19, 32, 0, 3, 0, 41, 53, 30, 4, 2, 0, 22, 37, 42, 38, 19, 32, 0, 3, 0, 41, 54, 30, 4, 2, 0, 22, 39, 42, 38, 19, 32, 0, 3, 0, 41, 55, 30, 4, 2, 0, 22, 40, 42, 35, 19, 32, 0, 2, 0, 38, 38, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 6, 23, 8, 24, 9, 39, 1, 0, 18, 0, 41, 56, 41, 4, 2, 0, 22, 42, 19, 43, 57, 44, 0, 18, 0, 41, 58, 45, 4, 2, 0, 22, 46, 19, 47, 57, 48, 0, 18, 0, 41, 59, 49, 3, 2, 0, 22, 50, 19, 51, 0, 18, 0, 41, 60, 52, 3, 2, 0, 22, 53, 19, 54, 0, 18, 0, 41, 61, 55, 3, 2, 0, 22, 56, 19, 57, 0, 18, 0, 41, 62, 58, 3, 2, 0, 22, 59, 19, 60, 0, 18, 0, 41, 63, 61, 3, 2, 0, 22, 62, 19, 63, 0, 18, 0, 41, 64, 55, 3, 2, 0, 22, 64, 19, 57, 0, 18, 0, 41, 65, 65, 3, 2, 0, 22, 66, 19, 67, 0, 18, 0, 41, 66, 68, 4, 2, 0, 22, 69, 19, 70, 57, 71, 0, 18, 0, 41, 67, 68, 4, 2, 0, 22, 72, 19, 70, 57, 59, 0, 18, 0, 41, 68, 73, 4, 2, 0, 22, 74, 19, 75, 57, 44, 0, 18, 0, 41, 69, 73, 4, 2, 0, 22, 76, 19, 75, 57, 48, 0, 18, 0, 41, 70, 77, 4, 2, 0, 22, 78, 19, 79, 57, 48, 0, 2, 0, 72, 71, 80, 2, 2, 0, 19, 81, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

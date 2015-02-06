@@ -7,6 +7,7 @@ export var player = -1
 var current_map
 var group = 'building'
 var spawn_point = Vector2(0, 0)
+export var spawn_point_position = Vector2(0, 1)
 
 var object_factory = preload('object_factory.gd').new()
 
@@ -20,13 +21,13 @@ func get_pos_map():
 
 func get_initial_pos():
 	position_on_map = current_map.world_to_map(self.get_pos()) + Vector2(1, 1)
-	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
+	spawn_point = Vector2(position_on_map) + spawn_point_position
 	return position_on_map
 
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
 	position_on_map = new_position
-	spawn_point = Vector2(position_on_map) + Vector2(0, 1)
+	spawn_point = Vector2(position_on_map) + spawn_point_position
 
 func claim(new_player):
 	if new_player == -1:
