@@ -300,6 +300,7 @@ func handle_battle(active_field, field):
 			self.update_unit(active_field)
 		else:
 			sample_player.play('not_dead')
+			field.object.show_explosion()
 			# defender can deal damage
 			print('defend!')
 			if (battle_controller.resolve_defend(active_field.object, field.object)):
@@ -309,6 +310,7 @@ func handle_battle(active_field, field):
 			else:
 				sample_player.play('not_dead')
 				self.update_unit(active_field)
+				active_field.object.show_explosion()
 
 	else:
 		sample_player.play('no_attack')

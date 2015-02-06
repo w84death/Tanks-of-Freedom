@@ -21,6 +21,9 @@ var attacks_number
 
 var group = 'unit'
 
+var explosion_template = preload('res://particle/explosion.xscn')
+var explosion
+
 func get_player():
 	return player
 
@@ -72,6 +75,15 @@ func update_healthbar():
 	else:
 		health_bar.set_frame(0)
 	return
+	
+func show_explosion():
+	explosion = explosion_template.instance()
+	explosion.unit = self
+	self.add_child(explosion)
+	
+func clear_explosion():
+	self.remove_child(explosion)
+	explosion.queue_free()
 
 func _ready():
 	add_to_group("units")
