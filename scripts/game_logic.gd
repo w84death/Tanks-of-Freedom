@@ -36,8 +36,8 @@ func _input(event):
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	selector = get_node('/root/game/pixel_scale/map/selector')
-	current_map = get_node("/root/game/pixel_scale/map")
+	selector = get_node('/root/game/pixel_scale/map/terrain/selector')
+	current_map = get_node("/root/game/pixel_scale/map/terrain")
 	game_scale = get_node("/root/game/pixel_scale").get_scale()
 	action_controller = preload("action_controller.gd").new()
 

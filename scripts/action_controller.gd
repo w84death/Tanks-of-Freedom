@@ -78,10 +78,10 @@ func post_handle_action():
 
 func init_root(root):
 	root_node = root
-	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map")
+	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map/terrain")
 	camera = root.get_node('/root/game/pixel_scale')
-	ysort = root.get_node('/root/game/pixel_scale/map/YSort')
-	selector = root.get_node('/root/game/pixel_scale/map/selector')
+	ysort = root.get_node('/root/game/pixel_scale/map/terrain/YSort')
+	selector = root.get_node('/root/game/pixel_scale/map/terrain/selector')
 	sample_player = root.get_node("/root/game/SamplePlayer")
 	self.import_objects()
 	hud_controller.init_root(root, self)

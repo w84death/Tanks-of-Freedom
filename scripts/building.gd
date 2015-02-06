@@ -84,7 +84,7 @@ func get_cost():
 
 func _ready():
 	add_to_group("buildings")
-	current_map = get_node("/root/game/pixel_scale/map")
+	current_map = get_node("/root/game/pixel_scale/map/terrain")
 	pass
 
 

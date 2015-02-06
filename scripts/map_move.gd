@@ -1,4 +1,4 @@
-extends Node2D
+extends TileMap
 
 var terrain
 var underground
@@ -45,8 +45,8 @@ func move_to_map(target):
 	
 	
 func _ready():
-	terrain = get_node("/root/game/pixel_scale/map")
-	underground = get_node("/root/game/pixel_scale/underground")
+	terrain = get_node("/root/game/pixel_scale/map/terrain")
+	underground = get_node("/root/game/pixel_scale/map/underground")
 	scale = get_node("/root/game/pixel_scale").get_scale()
 	pos = terrain.get_pos()
 	set_process_input(true)
