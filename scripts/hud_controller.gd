@@ -139,6 +139,8 @@ func clear_building_card():
 
 func show_in_game_card(messages):
 	active_map.hide()
+	end_turn_button.set_disabled(true)
+	end_turn_button_red.set_disabled(true)
 	end_turn_card.hide()
 	turn_card.hide()
 	self.clear_building_card()
@@ -151,6 +153,8 @@ func show_in_game_card(messages):
 	hud_in_game_card.show()
 
 func close_in_game_card():
+	end_turn_button.set_disabled(false)
+	end_turn_button_red.set_disabled(false)
 	hud_in_game_card.hide()
 	active_map.show()
 	end_turn_card.show()

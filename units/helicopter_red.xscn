@@ -102,10 +102,9 @@
 							<string> "current" </string>
 							<int> 1 </int>
 							<string> "sources" </string>
-							<array  len="3" shared="false">
+							<array  len="2" shared="false">
 								<string> "res://scripts/units/tank.gd" </string>
 								<string> "res://scripts/unit_control.gd" </string>
-								<string> "res://scripts/units/../unit_control.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
