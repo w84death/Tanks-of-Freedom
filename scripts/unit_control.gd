@@ -73,7 +73,7 @@ func update_healthbar():
 func _ready():
 	add_to_group("units")
 	get_node('anim').play("move")
-	current_map = get_node("/root/game/pixel_scale/map/terrain")
+	current_map = get_node("/root/game").current_map_terrain
 	health_bar = get_node("health")
 	pass
 

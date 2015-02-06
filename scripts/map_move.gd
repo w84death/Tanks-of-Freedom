@@ -45,9 +45,10 @@ func move_to_map(target):
 	
 	
 func _ready():
-	terrain = get_node("/root/game/pixel_scale/map/terrain")
-	underground = get_node("/root/game/pixel_scale/map/underground")
-	scale = get_node("/root/game/pixel_scale").get_scale()
+	var root = get_node("/root/game")
+	terrain = root.current_map_terrain
+	underground = root.current_map.get_node("underground")
+	scale = root.scale_root.get_scale()
 	pos = terrain.get_pos()
 	set_process_input(true)
 	set_process(true)

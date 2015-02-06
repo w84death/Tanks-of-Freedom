@@ -9,6 +9,7 @@ var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
 var position_controller = preload("position_controller.gd").new()
+var ai
 var sample_player
 
 var current_player = 1
@@ -76,19 +77,22 @@ func post_handle_action():
 	position_controller.refresh()
 
 
-func init_root(root):
+func init_root(root, map, hud):
 	root_node = root
-	abstract_map.tilemap = root.get_node("/root/game/pixel_scale/map/terrain")
-	camera = root.get_node('/root/game/pixel_scale')
-	ysort = root.get_node('/root/game/pixel_scale/map/terrain/YSort')
-	selector = root.get_node('/root/game/pixel_scale/map/terrain/selector')
+	abstract_map.tilemap = map.get_node("terrain")
+	camera = root.scale_root
+	ysort = map.get_node('terrain/YSort')
+	selector = map.get_node('terrain/selector')
 	sample_player = root.get_node("/root/game/SamplePlayer")
 	self.import_objects()
-	hud_controller.init_root(root, self)
+	hud_controller.init_root(root, self, hud)
 	hud_controller.set_turn(turn)
 	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the bunker and send it to take control of the barracks."])
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
+	
+	ai = preload("ai.gd").new()
+	ai.init(position_controller)
 	
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
