@@ -22,6 +22,7 @@ var attacks_number
 var group = 'unit'
 
 var explosion_template = preload('res://particle/explosion.xscn')
+var explosion_big_template = preload('res://particle/explosion_big.xscn')
 var explosion
 var die = false
 var parent
@@ -83,6 +84,11 @@ func show_explosion():
 	explosion.unit = self
 	self.add_child(explosion)
 	
+func show_big_explosion():
+	explosion = explosion_big_template.instance()
+	explosion.unit = self
+	self.add_child(explosion)
+	
 func clear_explosion():
 	self.remove_child(explosion)
 	explosion.queue_free()
@@ -93,7 +99,7 @@ func clear_explosion():
 func die_after_explosion(ysort):
 	die = true
 	parent = ysort
-	self.show_explosion()
+	self.show_big_explosion()
 
 func _ready():
 	add_to_group("units")
