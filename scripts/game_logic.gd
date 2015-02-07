@@ -12,6 +12,8 @@ var hud_template = preload('res://gui/gui.xscn')
 var menu = preload('res://gui/menu.xscn').instance()
 var cursor = preload('res://gui/cursor.xscn').instance()
 
+var intro = preload('res://intro.xscn').instance()
+
 var action_controller
 var sound_controller
 
@@ -19,8 +21,12 @@ var current_map
 var hud
 
 var is_map_loaded = false
+var is_intro = true
 
 func _input(event):
+	if is_intro:
+		self.load_menu()
+
 	if is_map_loaded:
 		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 
@@ -92,10 +98,16 @@ func toggle_menu():
 			menu.show()
 		else:
 			menu.hide()
-
+			
+func load_menu():
+	is_intro = false
+	self.add_child(menu)
+	self.add_child(cursor)
+	self.remove_child(intro)
+	intro.queue_free()
+	
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	menu.init_root(self)
-	self.add_child(menu)
-	self.add_child(cursor)
+	self.add_child(intro)
 	pass
