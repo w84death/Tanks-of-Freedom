@@ -21,8 +21,8 @@ func _input(event):
 			
 	if (event.type == InputEvent.MOUSE_MOTION):
 		if (mouse_dragging):
-			pos.x = pos.x + event.relative_x / 2
-			pos.y = pos.y + event.relative_y / 2
+			pos.x = pos.x + event.relative_x / scale.x
+			pos.y = pos.y + event.relative_y / scale.y
 			target = pos
 			underground.set_pos(target)
 			terrain.set_pos(target)
