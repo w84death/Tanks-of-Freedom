@@ -1,5 +1,5 @@
 
-extends "../unit_control.gd"
+extends "res://scripts/unit_control.gd"
 
 func _init():
 	type = 0
