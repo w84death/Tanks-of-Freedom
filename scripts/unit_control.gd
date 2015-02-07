@@ -24,6 +24,8 @@ var group = 'unit'
 var explosion_template = preload('res://particle/explosion.xscn')
 var explosion_big_template = preload('res://particle/explosion_big.xscn')
 var explosion
+var floating_damage_template = preload('res://particle/hit_points.xscn')
+var floating_damage
 var die = false
 var parent
 
@@ -102,6 +104,16 @@ func clear_explosion():
 	if die:
 		parent.remove_child(self)
 		self.queue_free()
+
+func show_floating_damage(amount):
+	floating_damage = floating_damage_template.instance()
+	floating_damage.set_text(str(amount))
+	floating_damage.unit = self
+	self.add_child(floating_damage)
+
+func clear_floating_damage():
+	self.remove_child(floating_damage)
+	floating_damage.queue_free()
 
 func die_after_explosion(ysort):
 	die = true

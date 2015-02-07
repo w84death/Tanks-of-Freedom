@@ -16,6 +16,7 @@ func resolve_fight(attacker, defender):
 		
 	defender_stats.life = defender_stats.life - attacker_stats.attack
 	defender.set_stats(defender_stats)
+	defender.show_floating_damage(attacker_stats.attack)
 	
 	attacker_stats.ap = attacker_stats.ap - attacker_stats.attack_ap
 	attacker_stats.attacks_number = attacker_stats.attacks_number - 1
@@ -34,6 +35,7 @@ func resolve_defend(attacker, defender):
 
 	attacker_stats.life = attacker_stats.life - defender_stats.attack
 	attacker.set_stats(attacker_stats)
+	attacker.show_floating_damage(defender_stats.attack)
 
 	#handle
 	if (attacker_stats.life <= 0):
