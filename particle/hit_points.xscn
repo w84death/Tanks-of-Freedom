@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
-	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
+<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
-	<resource type="Animation" path="local://1">
+	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
+	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "fly" </string>
 		<real name="length"> 0.7 </real>
 		<bool name="loop"> False </bool>
@@ -17,12 +17,12 @@
 			<real_array  len="3"> 				1, 1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="3" shared="false">
-				<vector2> -23, -13 </vector2>
-				<vector2> -23, -64 </vector2>
-				<vector2> -23, -128 </vector2>
+				<vector2> -24, -24 </vector2>
+				<vector2> -24, -44 </vector2>
+				<vector2> -24, -80 </vector2>
 			</array>
 			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.3, 0.6 </real_array>
+			<real_array  len="3"> 				0, 0.2, 0.6 </real_array>
 		</dictionary>
 		<string name="tracks/1/type"> "value" </string>
 		<node_path name="tracks/1/path"> ".:visibility/opacity" </node_path>
@@ -120,10 +120,10 @@
 				<bool> True </bool>
 				<real> 1 </real>
 				<bool> False </bool>
-				<real> -23 </real>
-				<real> -13 </real>
-				<real> 23 </real>
-				<real> 11 </real>
+				<real> -24 </real>
+				<real> -44 </real>
+				<real> 22 </real>
+				<real> -20 </real>
 				<int> 2 </int>
 				<resource  resource_type="Font" path="res://assets/boxy_normal.fnt">  </resource>
 				<real> 0 </real>
@@ -258,10 +258,10 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 				</dictionary>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://1">  </resource>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "fly" </string>
