@@ -75,6 +75,7 @@ func load_map(map_template):
 
 	action_controller.init_root(self, current_map, hud)
 	action_controller.switch_to_player(0)
+	menu.close_button.show()
 	is_map_loaded = true
 	set_process_input(true)
 
@@ -91,6 +92,7 @@ func unload_map():
 	self.remove_child(hud)
 	hud.queue_free()
 	hud = null
+	menu.close_button.hide()
 	return
 	
 func toggle_menu():
@@ -107,6 +109,7 @@ func toggle_menu():
 func load_menu():
 	is_intro = false
 	self.add_child(menu)
+	menu.close_button.hide()
 	cursor.show()
 	cursor.raise()
 	self.remove_child(intro)
