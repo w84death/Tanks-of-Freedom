@@ -69,10 +69,6 @@ func load_map(map_template):
 	sound_controller = preload("sound_controller.gd").new()
 	sound_controller.init(get_node("/root/game/StreamPlayer"))
 	sound_controller.play_soundtrack()
-
-	var a_star = preload("a_star_pathfinding.gd").new()
-	a_star._ready()
-
 	action_controller.init_root(self, current_map, hud)
 	action_controller.switch_to_player(0)
 	menu.close_button.show()

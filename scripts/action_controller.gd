@@ -98,9 +98,9 @@ func init_root(root, map, hud):
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
 
-	pathfinding = preload('a_star_pathfinding.gd')
+	pathfinding = preload('a_star_pathfinding.gd').new()
 	ai = preload("ai.gd").new()
-	ai.init(position_controller, pathfinding)
+	ai.init(position_controller, pathfinding, abstract_map)
 	
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
