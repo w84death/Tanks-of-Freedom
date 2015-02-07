@@ -22,12 +22,13 @@ var hud
 
 var is_map_loaded = false
 var is_intro = true
+var is_paused = false
 
 func _input(event):
 	if is_intro:
 		self.load_menu()
 
-	if is_map_loaded:
+	if is_map_loaded && is_paused == false:
 		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 
 			game_scale = get_node("/root/game/pixel_scale").get_scale()
@@ -95,9 +96,11 @@ func unload_map():
 func toggle_menu():
 	if is_map_loaded:
 		if menu.is_hidden():
+			is_paused = true
 			menu.show()
 			hud.hide()
 		else:
+			is_paused = false
 			menu.hide()
 			hud.show()
 			
