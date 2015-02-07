@@ -27,12 +27,12 @@ func refresh():
 
 func battle_debug(position):
 	var nearby_tiles = get_nearby_tiles(position, lookout_range)
-	print('enemies:')
-	print(self.get_nearby_enemies(nearby_tiles))
-	print('empty buildings:')
-	print(self.get_nearby_empty_buldings(nearby_tiles))
-	print('enemy buildings:')
-	print(self.get_nearby_enemy_buldings(nearby_tiles))
+	#print('enemies:')
+	#print(self.get_nearby_enemies(nearby_tiles))
+	#print('empty buildings:')
+	#print(self.get_nearby_empty_buldings(nearby_tiles))
+	#print('enemy buildings:')
+	#print(self.get_nearby_enemy_buldings(nearby_tiles))
 
 
 func get_units_player_blue():
@@ -126,6 +126,6 @@ func fabs(value):
 		return value
 
 func position_to_key(position):
-	return 'pos:'+str(position.x)+':'+str(position.y)
+	return str(position.x)+':'+str(position.y)
 
 

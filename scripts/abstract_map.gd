@@ -56,9 +56,7 @@ func create_field(position):
 # for pathfinding
 func create_tile_type_maps():
 	self.create_tile_type_map_for_unit(preload('units/soldier.gd').new())
-
 	self.create_tile_type_map_for_unit(preload('units/tank.gd').new())
-
 	self.create_tile_type_map_for_unit(preload('units/helicopter.gd').new())
 
 func create_tile_type_map_for_unit(unit):
@@ -77,7 +75,6 @@ func create_tile_type_map_for_unit(unit):
 		tiles_type.insert(x, row)
 	tiles_cost_map.insert(unit.get_type(), tiles_type)
 	print('map cost generate')
-	print(tiles_type)
 
 func calculate_cost(stats, type):
 	var tile_type_name = movement_controller.get_type_name(type)

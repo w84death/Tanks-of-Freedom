@@ -11,6 +11,7 @@ var hud_controller = preload('hud_controller.gd').new()
 var position_controller = preload("position_controller.gd").new()
 var ai
 var sample_player
+var pathfinding
 
 var current_player = 1
 var player_ap = 10
@@ -40,6 +41,8 @@ func handle_action(position):
 	var field = abstract_map.get_field(position)
 	print('generating maps costs')
 	abstract_map.create_tile_type_maps()
+	print('---AI COMES IN---')
+	ai.gather_available_actions()
 
 	if field.object != null:
 		if active_field != null:
@@ -94,9 +97,10 @@ func init_root(root, map, hud):
 	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the bunker and send it to take control of the barracks."])
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
-	
+
+	pathfinding = preload('a_star_pathfinding.gd')
 	ai = preload("ai.gd").new()
-	ai.init(position_controller)
+	ai.init(position_controller, pathfinding)
 	
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()

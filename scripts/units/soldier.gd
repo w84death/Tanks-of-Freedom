@@ -1,5 +1,4 @@
-
-extends "res://scripts/unit_control.gd"
+extends "behaviours.gd"
 
 func _init():
 	type = 0
@@ -13,9 +12,8 @@ func _init():
 	max_ap = 8
 	attack_ap = 2
 	max_attacks_number = 1
-	var ap = 8
+	ap = 8
 	attacks_number = 1
-	self.set_ap(8)
-
+	pass
 
 
