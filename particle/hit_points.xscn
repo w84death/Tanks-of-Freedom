@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/boxy_nano.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "fly" </string>
@@ -17,9 +17,9 @@
 			<real_array  len="3"> 				1, 1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="3" shared="false">
-				<vector2> -24, -24 </vector2>
-				<vector2> -24, -44 </vector2>
-				<vector2> -24, -80 </vector2>
+				<vector2> -11, -12 </vector2>
+				<vector2> -11, -27 </vector2>
+				<vector2> -11, -36 </vector2>
 			</array>
 			<string> "times" </string>
 			<real_array  len="3"> 				0, 0.2, 0.6 </real_array>
@@ -60,7 +60,7 @@
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="46">
+			<string_array  len="48">
 				<string> "hit_points" </string>
 				<string> "Label" </string>
 				<string> "_import_path" </string>
@@ -81,6 +81,8 @@
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/stretch_ratio" </string>
 				<string> "custom_fonts/font" </string>
+				<string> "custom_colors/font_color_shadow" </string>
+				<string> "custom_constants/shadow_offset_x" </string>
 				<string> "range/min" </string>
 				<string> "range/max" </string>
 				<string> "range/step" </string>
@@ -115,20 +117,21 @@
 			<string> "node_count" </string>
 			<int> 2 </int>
 			<string> "variants" </string>
-			<array  len="21" shared="false">
+			<array  len="22" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
+				<real> 0 </real>
 				<real> 1 </real>
 				<bool> False </bool>
+				<real> -11 </real>
+				<real> -36 </real>
+				<real> 11 </real>
 				<real> -24 </real>
-				<real> -44 </real>
-				<real> 22 </real>
-				<real> -20 </real>
 				<int> 2 </int>
-				<resource  resource_type="Font" path="res://assets/boxy_normal.fnt">  </resource>
-				<real> 0 </real>
-				<string> "99" </string>
+				<resource  resource_type="Font" path="res://assets/boxy_nano.fnt">  </resource>
+				<color> 0, 0, 0, 1 </color>
 				<int> 1 </int>
+				<string> "99" </string>
 				<int> 0 </int>
 				<real> -1 </real>
 				<resource  resource_type="Script" path="res://particle/explosion.gd">  </resource>
@@ -149,11 +152,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.670182 </real>
+							<real> 4.204737 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -151.111, -129.071 </vector2>
+							<vector2> -61.3726, -75.1695 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -267,9 +270,9 @@
 				<string> "fly" </string>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="98"> 				-1, -1, 1, 0, -1, 33, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 0, 12, 0, 13, 0, 14, 0, 15, 1, 16, 1, 17, 8, 18, 2, 19, 9, 20, 10, 21, 2, 22, 2, 23, 2, 24, 10, 25, 3, 26, 3, 27, 11, 28, 12, 29, 13, 30, 3, 31, 3, 32, 14, 33, 15, 34, 16, 0, 0, 0, 35, 35, -1, 9, 2, 0, 36, 12, 37, 10, 38, 17, 39, 18, 40, 1, 41, 2, 42, 19, 43, 20, 0 </int_array>
+			<int_array  len="102"> 				-1, -1, 1, 0, -1, 35, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 0, 12, 0, 13, 0, 14, 0, 15, 1, 16, 1, 17, 9, 18, 3, 19, 10, 20, 11, 21, 12, 22, 2, 23, 3, 24, 3, 25, 3, 26, 2, 27, 4, 28, 4, 29, 13, 30, 12, 31, 14, 32, 4, 33, 4, 34, 15, 35, 16, 36, 17, 0, 0, 0, 37, 37, -1, 9, 2, 0, 38, 12, 39, 2, 40, 18, 41, 19, 42, 1, 43, 3, 44, 20, 45, 21, 0 </int_array>
 			<string> "conns" </string>
-			<int_array  len="6"> 				1, 0, 45, 44, 2, 0 </int_array>
+			<int_array  len="6"> 				1, 0, 47, 46, 2, 0 </int_array>
 		</dictionary>
 
 	</main_resource>
