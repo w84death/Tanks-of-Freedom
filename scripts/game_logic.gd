@@ -58,10 +58,9 @@ func load_map(map_template):
 	current_map_terrain.add_child(selector)
 	
 	scale_root.add_child(current_map)
+	menu.raise()
 	self.add_child(hud)
-	self.move_child(hud,0)
-	self.move_child(scale_root, 0)
-	self.move_child(get_node("corners"), 0)
+	cursor.raise()
 	
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
@@ -97,18 +96,23 @@ func toggle_menu():
 	if is_map_loaded:
 		if menu.is_hidden():
 			menu.show()
+			hud.hide()
 		else:
 			menu.hide()
+			hud.show()
 			
 func load_menu():
 	is_intro = false
 	self.add_child(menu)
-	self.add_child(cursor)
+	cursor.show()
+	cursor.raise()
 	self.remove_child(intro)
 	intro.queue_free()
 	
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	menu.init_root(self)
+	cursor.hide()
+	self.add_child(cursor)
 	self.add_child(intro)
 	pass

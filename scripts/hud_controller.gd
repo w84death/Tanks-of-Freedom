@@ -35,6 +35,8 @@ var zoom_card
 var zoom_in_button
 var zoom_out_button
 
+var menu_button
+
 var player_ap
 var turn_card
 var turn_counter
@@ -91,6 +93,9 @@ func init_root(root, action_controller_object, hud):
 	zoom_out_button = zoom_card.get_node("zoom_out")
 	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
 	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
+	
+	menu_button = hud.get_node("menu_button/escape")
+	menu_button.connect("pressed", root, "toggle_menu")
 
 func show_unit_card(unit):
 	self.update_unit_card(unit)
