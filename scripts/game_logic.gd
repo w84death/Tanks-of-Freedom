@@ -61,6 +61,7 @@ func load_map(map_template):
 	self.add_child(hud)
 	self.move_child(hud,0)
 	self.move_child(scale_root, 0)
+	self.move_child(get_node("corners"), 0)
 	
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
