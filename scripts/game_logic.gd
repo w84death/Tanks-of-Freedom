@@ -1,13 +1,16 @@
 extends Control
 
-var selector
+var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
 var current_map_terrain
 var map_pos
 var game_scale
 var scale_root
-var map_template = preload('res://maps/map_0.xscn')
+var map_template_0 = preload('res://maps/map_0.xscn')
+var map_template_1 = preload('res://maps/map_1.xscn')
 var hud_template = preload('res://gui/gui.xscn')
+var menu = preload('res://gui/menu.xscn').instance()
+var cursor = preload('res://gui/cursor.xscn').instance()
 
 var action_controller
 var sound_controller
@@ -36,19 +39,22 @@ func _input(event):
 				action_controller.handle_action(selector_position)
 				action_controller.post_handle_action()
 
-		if Input.is_action_pressed('ui_cancel'):
-			action_controller.clear_active_field()
+	if Input.is_action_pressed('ui_cancel'):
+		self.toggle_menu()
 
-func load_map():
+func load_map(map_template):
+	self.unload_map()
 	current_map = map_template.instance()
 	hud = hud_template.instance()
 	
-	selector = current_map.get_node('terrain/selector')
 	current_map_terrain = current_map.get_node("terrain")
 	scale_root = get_node("/root/game/pixel_scale")
+	current_map_terrain.add_child(selector)
 	
 	scale_root.add_child(current_map)
 	self.add_child(hud)
+	self.move_child(hud,0)
+	self.move_child(scale_root, 0)
 	
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
@@ -62,21 +68,34 @@ func load_map():
 
 	action_controller.init_root(self, current_map, hud)
 	action_controller.switch_to_player(0)
+	is_map_loaded = true
 	set_process_input(true)
 
-	is_map_loaded = true
-
 func unload_map():
+	if is_map_loaded == false:
+		return
+	
 	is_map_loaded = false
+	current_map_terrain.remove_child(selector)
 	scale_root.remove_child(current_map)
 	current_map.queue_free()
 	current_map = null
+	current_map_terrain = null
 	self.remove_child(hud)
 	hud.queue_free()
 	hud = null
 	return
+	
+func toggle_menu():
+	if is_map_loaded:
+		if menu.is_hidden():
+			menu.show()
+		else:
+			menu.hide()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	self.load_map()
+	menu.init_root(self)
+	self.add_child(menu)
+	self.add_child(cursor)
 	pass

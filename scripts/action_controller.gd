@@ -341,11 +341,3 @@ func handle_battle(active_field, field):
 		sample_player.play('no_attack')
 
 	return break_event_loop
-
-func start_single_player():
-	sample_player.play('pickup_box')
-	hud_controller.close_menu()
-
-func start_multi_player():
-	sample_player.play('pickup_box')
-	hud_controller.close_menu()

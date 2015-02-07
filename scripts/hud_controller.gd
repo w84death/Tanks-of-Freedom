@@ -35,10 +35,6 @@ var zoom_card
 var zoom_in_button
 var zoom_out_button
 
-var menu_card
-var menu_card_button_single
-var menu_card_button_multi
-
 var player_ap
 var turn_card
 var turn_counter
@@ -95,12 +91,6 @@ func init_root(root, action_controller_object, hud):
 	zoom_out_button = zoom_card.get_node("zoom_out")
 	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
 	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
-
-	menu_card = hud.get_node("menu_card")
-	menu_card_button_single = menu_card.get_node("control/single")
-	menu_card_button_multi = menu_card.get_node("control/multi")
-	menu_card_button_single.connect("pressed", action_controller, "start_single_player")
-	menu_card_button_multi.connect("pressed", action_controller, "start_multi_player")
 
 func show_unit_card(unit):
 	self.update_unit_card(unit)
@@ -174,9 +164,6 @@ func warn_end_turn():
 
 func warn_player_ap():
 	hud_unit_ap_red.show()
-
-func close_menu():
-	menu_card.hide()
 
 func show_win(player):
 	end_turn_card.hide()
