@@ -55,7 +55,6 @@ func load_map(map_template):
 	hud = hud_template.instance()
 	
 	current_map_terrain = current_map.get_node("terrain")
-	scale_root = get_node("/root/game/pixel_scale")
 	current_map_terrain.add_child(selector)
 	
 	scale_root.add_child(current_map)
@@ -113,6 +112,7 @@ func load_menu():
 	
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	scale_root = get_node("/root/game/pixel_scale")
 	menu.init_root(self)
 	cursor.hide()
 	self.add_child(cursor)
