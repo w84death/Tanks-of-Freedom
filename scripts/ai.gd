@@ -2,7 +2,7 @@ var position_controller
 var pathfinding
 var abstract_map
 const lookup_range = 4
-var actions = []
+var actions = {}
 
 const action_attack = 0
 const action_move   = 1
@@ -12,9 +12,7 @@ const action_capture = 2
 func gather_available_actions():
 	print('gathering moves')
 	self.gather_unit_data()
-	var action = self.choose_action()
-	if (action):
-		self.execute_action(action)
+	var action = self.execute_best_action()
 
 func gather_unit_data():
 	var units = position_controller.get_units_player_red()
@@ -59,18 +57,15 @@ func add_action(unit, position, destination, cost_map, action_type):
 		print(path)
 		# jakis dziwny algorytm skorowania todo dostosowac i sprawdzic sens
 		var score = unit.estimate_action(action_type, can_be_finished, destination, path.size(), unit_ap_cost)
-		actions.insert(score, actionObject.new(unit, destination, path, action_type))
+		actions[score] =  actionObject.new(unit, destination, path, action_type)
 
-func choose_action():
-	print(actions)
-	for action in actions:
-		print('MANUAL AI MOVEMENT:')
-		print(action.path)
-		return action
-
-func execute_action(action):
-	#execute action
-	print('execute')
+func execute_best_action():
+	# last element of sorted keys
+	var action = null
+	var size = actions.size()
+	if (size > 0):
+		action = actions.keys()[actions.size() - 1]
+		print('executiong action')
 
 
 func init(controller, astar_pathfinding, map):
