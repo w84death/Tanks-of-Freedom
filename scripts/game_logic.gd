@@ -7,7 +7,7 @@ var map_pos
 var game_scale
 var scale_root
 var map_template_0 = preload('res://maps/map_0.xscn')
-var map_template_1 = preload('res://maps/map_1.xscn')
+var map_template_1 = preload('res://maps/map_2.xscn')
 var hud_template = preload('res://gui/gui.xscn')
 var menu = preload('res://gui/menu.xscn').instance()
 var cursor = preload('res://gui/cursor.xscn').instance()
