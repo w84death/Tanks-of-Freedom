@@ -101,6 +101,7 @@ func show_big_explosion():
 	explosion = explosion_big_template.instance()
 	explosion.unit = self
 	self.add_child(explosion)
+	current_map.shake_camera()
 	
 func clear_explosion():
 	self.remove_child(explosion)

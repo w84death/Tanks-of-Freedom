@@ -310,6 +310,7 @@ func handle_battle(active_field, field):
 					print('defender kill attacker');
 					self.play_destroy(active_field)
 					self.destroy_unit(active_field)
+					self.clear_active_field()
 				else:
 					sample_player.play('not_dead')
 					self.update_unit(active_field)
