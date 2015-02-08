@@ -5,6 +5,7 @@ export var player = -1
 export var position_on_map = Vector2(0,0)
 var current_map
 var health_bar
+var icon_shield
 var type = 0
 
 var life
@@ -58,10 +59,13 @@ func set_stats(new_stats):
 	ap = new_stats.ap
 	attacks_number = new_stats.attacks_number
 	update_healthbar()
+	update_shield()
 
 func reset_ap():
 	ap = max_ap
 	attacks_number = max_attacks_number
+	update_shield()
+	update_healthbar()
 	
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
@@ -120,11 +124,18 @@ func die_after_explosion(ysort):
 	parent = ysort
 	self.show_big_explosion()
 
+func update_shield():
+	if ap > 0:
+		icon_shield.show()
+	else:
+		icon_shield.hide()
+
 func _ready():
 	add_to_group("units")
 	get_node('anim').play("move")
 	current_map = get_node("/root/game").current_map_terrain
 	health_bar = get_node("health")
+	icon_shield = get_node("shield")
 	pass
 
 
