@@ -74,7 +74,6 @@ func create_tile_type_map_for_unit(unit):
 				row.insert(y,self.calculate_cost(stats, type))
 		tiles_type.insert(x, row)
 	tiles_cost_map.insert(unit.get_type(), tiles_type)
-	print('map cost generate')
 
 func calculate_cost(stats, type):
 	var tile_type_name = movement_controller.get_type_name(type)

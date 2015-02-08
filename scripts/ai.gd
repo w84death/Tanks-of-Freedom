@@ -65,10 +65,6 @@ func add_action(unit, position, destination, cost_map, action_type):
 		else :
 			can_be_finished = false
 			action_type = action_move # because it will not reach destination
-		print('FOUND POSSIBLE ACTION:')
-		print(action_type)
-		print('path:')
-		print(path)
 		# jakis dziwny algorytm skorowania todo dostosowac i sprawdzic sens
 		var score = unit.estimate_action(action_type, can_be_finished, destination, path.size(), unit_ap_cost)
 		actions[score] =  actionObject.new(unit, destination, path, action_type)
@@ -79,8 +75,6 @@ func add_building_action(unit, enemy_units_nearby, own_units):
 	if (unit.get_required_ap() >= current_player_ap):
 		var score = unit.estimate_action(action_type, enemy_units_nearby, own_units)
 		actions[score] =  actionObject.new(unit, null, null, action_type)
-		print('SPAWNING SCORE')
-		print(score)
 
 func execute_best_action():
 	# last element of sorted keys
@@ -88,7 +82,7 @@ func execute_best_action():
 	var size = actions.size()
 	if (size > 0):
 		action = actions.keys()[actions.size() - 1]
-		print('executiong action')
+		#print('executiong action')
 
 
 func init(controller, astar_pathfinding, map):

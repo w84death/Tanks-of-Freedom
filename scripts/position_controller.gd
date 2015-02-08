@@ -21,7 +21,6 @@ func init_root(root):
 	get_bunkers()
 
 func refresh():
-	print('Refreshing unit & building data')
 	get_units()
 	get_buildings()
 
@@ -121,9 +120,6 @@ func get_nearby_empty_buldings(nearby_tiles):
 			buildings.append(buildings_player_none[tile_key])
 
 	return buildings
-
-func get_best_path():
-	print('get best path')
 
 func fabs(value):
 	if value < 0:
