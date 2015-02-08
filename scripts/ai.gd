@@ -3,15 +3,17 @@ var pathfinding
 var abstract_map
 const lookup_range = 4
 var actions = {}
+var current_player_ap = 0
 
 const action_attack = 0
 const action_move   = 1
 const action_capture = 2
+const action_spawn = 3
 
-
-func gather_available_actions():
-	print('gathering moves')
+func gather_available_actions(player_ap):
+	current_player_ap = player_ap
 	self.gather_unit_data()
+	self.gather_building_data()
 	var action = self.execute_best_action()
 
 func gather_unit_data():
@@ -39,6 +41,18 @@ func gather_unit_data():
 		for destination in destinations:
 			self.add_action(unit, position, destination, cost_map, action_attack)
 
+func gather_building_data():
+	var units = position_controller.get_units_player_red()
+	var buildings = position_controller.get_buildings_player_red()
+	for pos in buildings:
+		var building = buildings[pos]
+		var position = building.get_pos_map()
+		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
+		var enemy_units = position_controller.get_nearby_enemies(nearby_tiles)
+
+		self.add_building_action(building, enemy_units, units)
+
+
 func add_action(unit, position, destination, cost_map, action_type):
 	var path = pathfinding.pathSearch(cost_map, position, destination.get_pos_map())
 	if path.size() > 0:
@@ -59,6 +73,15 @@ func add_action(unit, position, destination, cost_map, action_type):
 		var score = unit.estimate_action(action_type, can_be_finished, destination, path.size(), unit_ap_cost)
 		actions[score] =  actionObject.new(unit, destination, path, action_type)
 
+
+func add_building_action(unit, enemy_units_nearby, own_units):
+	var action_type = action_spawn
+	if (unit.get_required_ap() >= current_player_ap):
+		var score = unit.estimate_action(action_type, enemy_units_nearby, own_units)
+		actions[score] =  actionObject.new(unit, null, null, action_type)
+		print('SPAWNING SCORE')
+		print(score)
+
 func execute_best_action():
 	# last element of sorted keys
 	var action = null
@@ -77,7 +100,7 @@ class actionObject:
 	var unit
 	var destination
 	var path
-	var type = 'move' # todo inne typy akcji
+	var type
 
 	func _init(unit, destination, path, action_type):
 		self.unit = unit

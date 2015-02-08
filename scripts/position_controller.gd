@@ -44,6 +44,12 @@ func get_units_player_red():
 func get_player_bunker_position(player):
 	return bunkers[player].get_initial_pos()
 
+func get_buildings_player_red():
+	return buildings_player_red
+
+func get_buildings_player_blue():
+	return buildings_player_blue
+
 func get_bunkers():
 	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	for building in buildings:

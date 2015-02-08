@@ -38,7 +38,7 @@ func handle_action(position):
 	print('generating maps costs')
 	abstract_map.create_tile_type_maps()
 	print('---AI COMES IN---')
-	ai.gather_available_actions()
+	ai.gather_available_actions(player_ap)
 
 	if field.object != null:
 		if active_field != null:

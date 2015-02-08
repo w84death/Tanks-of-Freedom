@@ -16,6 +16,10 @@ var TYPE_BARRACKS = 1;
 var TYPE_FACTORY = 2;
 var TYPE_AIRPORT = 3;
 
+const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3;
+const IN_DANGER_MODIFIER  = 5
+
+
 func get_pos_map():
 	return position_on_map
 
@@ -82,6 +86,17 @@ func get_building_name():
 
 func get_cost():
 	return get_required_ap()
+
+func estimate_action(action_type, enemy_units_nearby, own_units):
+	var score = 100
+	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER # todo should be only for soldiers or smth
+	score = score - get_required_ap() * 2
+	score = score - own_units.size()
+
+	#todo - ten sam typ obiektow - nie ma sensu produkowac na siłe jednostek jednego typu
+	return score
+
+
 
 func _ready():
 	add_to_group("buildings")
