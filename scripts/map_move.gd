@@ -7,6 +7,7 @@ var mouse_dragging = false
 var pos
 var game_size
 var scale
+var root
 
 var sX = 0
 var sY = 0
@@ -14,6 +15,9 @@ var k = 0.98
 var target = Vector2(0,0)
 
 func _input(event):
+	if root.is_paused:
+		return
+		
 	pos = terrain.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
 		if (event.button_index == BUTTON_LEFT):
@@ -45,7 +49,7 @@ func move_to_map(target):
 	
 	
 func _ready():
-	var root = get_node("/root/game")
+	root = get_node("/root/game")
 	terrain = root.current_map_terrain
 	underground = root.current_map.get_node("underground")
 	scale = root.scale_root.get_scale()
