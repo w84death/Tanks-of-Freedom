@@ -27,10 +27,6 @@ var movement_arrow_bl
 var movement_arrow_br
 var movement_arrow_tl
 var movement_arrow_tr
-var movement_attack_bl
-var movement_attack_br
-var movement_attack_tl
-var movement_attack_tr
 
 const break_event_loop = 1
 
@@ -107,10 +103,6 @@ func init_root(root, map, hud):
 	movement_arrow_br = movement_template.instance()
 	movement_arrow_tl = movement_template.instance()
 	movement_arrow_tr = movement_template.instance()
-	movement_attack_bl = movement_template.instance()
-	movement_attack_br = movement_template.instance()
-	movement_attack_tl = movement_template.instance()
-	movement_attack_tr = movement_template.instance()
 
 func activate_field(field):
 	self.clear_active_field()
@@ -140,27 +132,13 @@ func add_movement_indicators(field):
 	var bottom_left = abstract_map.get_field(Vector2(field.position) + Vector2(0, 1))
 	var bottom_right = abstract_map.get_field(Vector2(field.position) + Vector2(1, 0))
 	self.mark_field(field, top_left, movement_arrow_tl, 'tl')
-	movement_arrow_tl.get_node('anim').play("move_tl")
 	self.mark_field(field, top_right, movement_arrow_tr, 'tr')
-	movement_arrow_tr.get_node('anim').play("move_tr")
 	self.mark_field(field, bottom_left, movement_arrow_bl, 'bl')
-	movement_arrow_bl.get_node('anim').play("move_bl")
 	self.mark_field(field, bottom_right, movement_arrow_br, 'br')
-	movement_arrow_br.get_node('anim').play("move_br")
 	
-func mark_field(source, target, indicator, position):
+func mark_field(source, target, indicator, direction):
 	if target.terrain_type == -1:
 		return
-		
-	var movement_attack
-	if position == 'tl':
-		movement_attack = movement_attack_tl
-	if position == 'tr':
-		movement_attack = movement_attack_tr
-	if position == 'bl':
-		movement_attack = movement_attack_bl
-	if position == 'br':
-		movement_attack = movement_attack_br
 	
 	if player_ap > 0:
 		var position = Vector2(abstract_map.tilemap.map_to_world(target.position)) 
@@ -168,21 +146,19 @@ func mark_field(source, target, indicator, position):
 			if movement_controller.can_move(source, target):
 				indicator.set_pos(position)
 				ysort.add_child(indicator)
-				ysort.move_child(active_indicator,0)
+				indicator.get_node('anim').play("move_" + direction)
 		else:
 			print(target.object)
 			if target.object.group == 'unit':
 				if target.object.player != current_player && battle_controller.can_attack(source.object, target.object):
-					movement_attack.set_pos(position)
-					ysort.add_child(movement_attack)
-					ysort.move_child(movement_attack,0)
-					movement_attack.get_node('anim').play("attack")
+					indicator.set_pos(position)
+					ysort.add_child(indicator)
+					indicator.get_node('anim').play("attack")
 			if target.object.group == 'building' && target.object.player != current_player && source.object.type == 0:
 				if movement_controller.can_move(source, target):
-					movement_attack.set_pos(position)
-					ysort.add_child(movement_attack)
-					ysort.move_child(movement_attack,0)
-					movement_attack.get_node('anim').play("enter")
+					indicator.set_pos(position)
+					ysort.add_child(indicator)
+					indicator.get_node('anim').play("enter")
 	else:
 		ysort.remove_child(indicator)
 	
@@ -191,10 +167,6 @@ func clear_movement_indicators():
 	ysort.remove_child(movement_arrow_br)
 	ysort.remove_child(movement_arrow_tl)
 	ysort.remove_child(movement_arrow_tr)
-	ysort.remove_child(movement_attack_bl)
-	ysort.remove_child(movement_attack_br)
-	ysort.remove_child(movement_attack_tl)
-	ysort.remove_child(movement_attack_tr)
 	return
 
 func despawn_unit(field):
