@@ -9,6 +9,7 @@ Take one of the sites and fight for freedom!
 Game made on Global Game Jam in 48h!
 New features and bug fixes will be added.
 
+<iframe src="//itch.io/embed/17705" width="552" height="167" frameborder="0"></iframe>
 
 ## Media
 ![Alt text](http://i.imgur.com/krOz6Rs.png)
