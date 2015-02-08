@@ -88,7 +88,7 @@ func get_cost():
 	return get_required_ap()
 
 func estimate_action(action_type, enemy_units_nearby, own_units):
-	var score = 100
+	var score = 50
 	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER # todo should be only for soldiers or smth
 	score = score - get_required_ap() * 2
 	score = score - own_units.size()

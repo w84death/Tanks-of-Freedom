@@ -10,7 +10,7 @@ var path_size_modifier = 5
 var action_type_modifiers = [3, 2, 5]
 
 func estimate_action(action_type, can_be_finished, destination, path_size, ap_cost):
-	var score = 50
+	var score = 100
 	if (can_be_finished):
 		score = score + can_be_finished_modifier
 

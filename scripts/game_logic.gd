@@ -46,6 +46,9 @@ func _input(event):
 				action_controller.handle_action(selector_position)
 				action_controller.post_handle_action()
 
+		if (event.type == InputEvent.KEY):
+			action_controller.perform_ai_stuff()
+
 	if Input.is_action_pressed('ui_cancel'):
 		self.toggle_menu()
 

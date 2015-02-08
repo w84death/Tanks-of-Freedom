@@ -30,13 +30,19 @@ var movement_arrow_tr
 
 const break_event_loop = 1
 
+func set_active_field(position):
+	var field = abstract_map.get_field(position)
+	self.clear_active_field()
+	self.activate_field(field)
+
+	return field
+
 func handle_action(position):
 	if game_ended:
 		return
 	
 	var field = abstract_map.get_field(position)
-	abstract_map.create_tile_type_maps()
-	ai.gather_available_actions(player_ap)
+
 
 	if field.object != null:
 		if active_field != null:
@@ -66,12 +72,7 @@ func handle_action(position):
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
 			if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
-				if movement_controller.move_object(active_field, field):
-					sample_player.play('move')
-					self.use_ap()
-					self.activate_field(field)
-				else:
-					sample_player.play('no_moves')
+				self.move_unit(active_field, field)
 
 func post_handle_action():
 	# should check if something is changed
@@ -94,7 +95,7 @@ func init_root(root, map, hud):
 
 	pathfinding = preload('a_star_pathfinding.gd').new()
 	ai = preload("ai.gd").new()
-	ai.init(position_controller, pathfinding, abstract_map)
+	ai.init(position_controller, pathfinding, abstract_map, self)
 	
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
@@ -254,6 +255,12 @@ func switch_to_player(player):
 	selector.set_player(player);
 	self.update_ap(player_ap_max)
 
+func perform_ai_stuff():
+	if current_player == 1 && player_ap > 0:
+		abstract_map.create_tile_type_maps()
+		ai.gather_available_actions(player_ap)
+
+
 func reset_player_units(player):
 	var units = root_node.get_tree().get_nodes_in_group("units")
 	for unit in units:
@@ -287,6 +294,14 @@ func play_destroy(field):
 func update_unit(field):
 	hud_controller.update_unit_card(active_field.object)
 	self.add_movement_indicators(active_field)
+
+func move_unit(active_field, field):
+	if movement_controller.move_object(active_field, field):
+		sample_player.play('move')
+		self.use_ap()
+		self.activate_field(field)
+	else:
+		sample_player.play('no_moves')
 
 func handle_battle(active_field, field):
 	if (battle_controller.can_attack(active_field.object, field.object)):

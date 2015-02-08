@@ -1,14 +1,15 @@
 var position_controller
 var pathfinding
 var abstract_map
+var action_controller
 const lookup_range = 4
 var actions = {}
 var current_player_ap = 0
 
-const action_attack = 0
-const action_move   = 1
-const action_capture = 2
-const action_spawn = 3
+const ACTION_ATTACK = 0
+const ACTION_MOVE   = 1
+const ACTION_CAPTURE = 2
+const ACTION_SPAWN = 3
 
 func gather_available_actions(player_ap):
 	current_player_ap = player_ap
@@ -31,15 +32,15 @@ func gather_unit_data():
 		var destinations = []
 		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles)
 		for destination in destinations:
-			self.add_action(unit, position, destination, cost_map, action_capture)
+			self.add_action(unit, position, destination, cost_map, ACTION_CAPTURE)
 
 		destinations = position_controller.get_nearby_empty_buldings(nearby_tiles)
 		for destination in destinations:
-			self.add_action(unit, position, destination, cost_map, action_capture)
+			self.add_action(unit, position, destination, cost_map, ACTION_CAPTURE)
 
 		destinations = position_controller.get_nearby_enemies(nearby_tiles)
 		for destination in destinations:
-			self.add_action(unit, position, destination, cost_map, action_attack)
+			self.add_action(unit, position, destination, cost_map, ACTION_ATTACK)
 
 func gather_building_data():
 	var units = position_controller.get_units_player_red()
@@ -64,31 +65,62 @@ func add_action(unit, position, destination, cost_map, action_type):
 			can_be_finished = true
 		else :
 			can_be_finished = false
-			action_type = action_move # because it will not reach destination
+			action_type = ACTION_MOVE # because it will not reach destination
 		# jakis dziwny algorytm skorowania todo dostosowac i sprawdzic sens
 		var score = unit.estimate_action(action_type, can_be_finished, destination, path.size(), unit_ap_cost)
 		actions[score] =  actionObject.new(unit, destination, path, action_type)
 
 
 func add_building_action(unit, enemy_units_nearby, own_units):
-	var action_type = action_spawn
+	var action_type = ACTION_SPAWN
 	if (unit.get_required_ap() >= current_player_ap):
 		var score = unit.estimate_action(action_type, enemy_units_nearby, own_units)
-		actions[score] =  actionObject.new(unit, null, null, action_type)
+		#actions[score] =  actionObject.new(unit, null, null, action_type)
 
 func execute_best_action():
 	# last element of sorted keys
 	var action = null
 	var size = actions.size()
 	if (size > 0):
-		action = actions.keys()[actions.size() - 1]
-		#print('executiong action')
+		action = actions[actions.keys()[actions.size() - 1]]
+		if action.type == ACTION_SPAWN:
+			self.execute_spawn(action)
+		elif action.type == ACTION_ATTACK:
+			self.execute_attack(action)
+		else:
+			self.execute_move(action)
 
+func execute_spawn(action):
+	print('spawn')
+	action_controller.set_active_field(action.unit.get_pos_map())
+	action_controller.spawn_unit_from_active_building()
 
-func init(controller, astar_pathfinding, map):
+func execute_move(action):
+	print('move')
+	var active_field = action_controller.set_active_field(action.unit.get_pos_map())
+	var field = self.get_next_tile_from_action(action)
+	if field:
+		action_controller.move_unit(active_field, field)
+
+func execute_attack(action):
+	print('attack')
+	var active_field = action_controller.set_active_field(action.unit.get_pos_map())
+	var field = self.get_next_tile_from_action(action)
+	if field:
+		action_controller.handle_battle(active_field, field)
+
+func get_next_tile_from_action(action):
+	var path = action.path
+	if path.size() == 0:
+		return null
+		
+	return abstract_map.get_field(path[0])
+
+func init(controller, astar_pathfinding, map, action_controller_object):
 	position_controller = controller
 	pathfinding = astar_pathfinding
 	abstract_map = map
+	action_controller = action_controller_object
 
 class actionObject:
 	var unit
