@@ -1,7 +1,7 @@
 extends "behaviours.gd"
 
 func _init():
-	type = 0
+	type = 2
 
 	life = 10
 	max_life = 10
