@@ -182,7 +182,7 @@ func mark_field(source, target, indicator, position):
 					movement_attack.set_pos(position)
 					ysort.add_child(movement_attack)
 					ysort.move_child(movement_attack,0)
-					movement_attack.get_node('anim').play("attack")
+					movement_attack.get_node('anim').play("enter")
 	else:
 		ysort.remove_child(indicator)
 	
