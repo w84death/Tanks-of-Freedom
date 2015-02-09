@@ -102,8 +102,8 @@
 				<string> "map_2" </string>
 				<string> "map_ 3" </string>
 				<string> "close" </string>
-				<string> "choose" </string>
-				<string> "choose 2" </string>
+				<string> "choose_new_map" </string>
+				<string> "setings" </string>
 				<string> "p1x" </string>
 				<string> "settings_controls" </string>
 				<string> "sound_off" </string>
@@ -152,7 +152,7 @@
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -103.142, -171.302 </vector2>
+							<vector2> -97.8064, -88.0675 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -370,7 +370,7 @@
 				<real> 161 </real>
 				<real> 115 </real>
 				<real> 5 </real>
-				<string> "BETA 2.040&#000a;&#000a;AI - enabled&#000a;MAX TURNS - unlimited&#000a;AP pern turn - 16" </string>
+				<string> "BETA 2.040&#000a;&#000a;AI - enabled&#000a;MAX TURNS - unlimited&#000a;AP per turn - 16" </string>
 				<vector2> 0, 144 </vector2>
 				<vector2> 2, 2 </vector2>
 				<resource  resource_type="Texture" path="res://assets/logo.png">  </resource>
