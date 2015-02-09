@@ -5,7 +5,7 @@
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="26">
+			<string_array  len="27">
 				<string> "bunker_blue" </string>
 				<string> "Sprite" </string>
 				<string> "_import_path" </string>
@@ -32,6 +32,7 @@
 				<string> "position_on_map" </string>
 				<string> "type" </string>
 				<string> "player" </string>
+				<string> "spawn_point_position" </string>
 			</string_array>
 			<string> "version" </string>
 			<int> 1 </int>
@@ -40,7 +41,7 @@
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "variants" </string>
-			<array  len="14" shared="false">
+			<array  len="15" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -73,11 +74,11 @@
 							<string> "pixel_snap" </string>
 							<bool> False </bool>
 							<string> "zoom" </string>
-							<real> 1.32038 </real>
+							<real> 2.443519 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -327.394, -67.7161 </vector2>
+							<vector2> -153.888, -98.3757 </vector2>
 							<string> "snap" </string>
 							<int> 10 </int>
 						</dictionary>
@@ -184,9 +185,10 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
+				<vector2> 0, 1 </vector2>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="55"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 4, 24, 9, 25, 9, 0 </int_array>
+			<int_array  len="57"> 				-1, -1, 1, 0, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 4, 24, 9, 25, 9, 26, 14, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
