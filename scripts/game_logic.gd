@@ -15,10 +15,15 @@ var cursor = preload('res://gui/cursor.xscn').instance()
 var intro = preload('res://intro.xscn').instance()
 
 var action_controller
-var sound_controller
+var sound_controller = preload("sound_controller.gd").new()
 
 var current_map
 var hud
+
+var sound_settings = {
+	'sound_enabled' : true,
+	'music_enabled' : true
+}
 
 var is_map_loaded = false
 var is_intro = true
@@ -67,10 +72,6 @@ func load_map(map_template):
 	
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
-
-	sound_controller = preload("sound_controller.gd").new()
-	sound_controller.init(get_node("/root/game/StreamPlayer"))
-	sound_controller.play_soundtrack()
 	action_controller.init_root(self, current_map, hud)
 	action_controller.switch_to_player(0)
 	menu.close_button.show()
@@ -116,6 +117,7 @@ func load_menu():
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	scale_root = get_node("/root/game/pixel_scale")
+	sound_controller.init_root(self)
 	menu.init_root(self)
 	cursor.hide()
 	self.add_child(cursor)

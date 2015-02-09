@@ -1,12 +1,24 @@
 
+var root
 var stream_player
+var sample_player
 
-func init(player):
-	stream_player = player
+func init_root(root_node):
+	root = root_node
+	stream_player = root.get_node("StreamPlayer")
+	sample_player = root.get_node("SamplePlayer")
 
 func play_soundtrack():
-	var stream = load("res://assets/sounds/soundtrack/aliens.ogg")
-	stream_player.set_stream(stream)
-	stream_player.set_loop(true)
+	self.stop_soundtrack()
+	if root.sound_settings['music_enabled']:
+		var stream = load("res://assets/sounds/soundtrack/aliens.ogg")
+		stream_player.set_stream(stream)
+		stream_player.set_loop(true)
+		stream_player.play()
 	
-	stream_player.play()
+func stop_soundtrack():
+	stream_player.stop()
+	
+func play(sound):
+	if root.sound_settings['sound_enabled']:
+		sample_player.play(sound)
