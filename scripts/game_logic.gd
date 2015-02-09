@@ -38,8 +38,8 @@ func _input(event):
 
 			game_scale = get_node("/root/game/pixel_scale").get_scale()
 			map_pos = current_map_terrain.get_pos()
-			selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
 
+			selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
 		if (event.type == InputEvent.MOUSE_MOTION):
 			var position = current_map_terrain.map_to_world(selector_position)
 			position.y += 2

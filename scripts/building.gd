@@ -88,10 +88,10 @@ func get_cost():
 	return get_required_ap()
 
 func estimate_action(action_type, enemy_units_nearby, own_units):
-	var score = 50
-	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER # todo should be only for soldiers or smth
+	var score = 100
+	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER
 	score = score - get_required_ap() * 2
-	score = score - own_units.size()
+	score = score - own_units.size() * 8
 
 	#todo - ten sam typ obiektow - nie ma sensu produkowac na siłe jednostek jednego typu
 	return score

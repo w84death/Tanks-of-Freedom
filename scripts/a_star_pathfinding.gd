@@ -18,12 +18,12 @@ var lastCurrent
 
 		 
 
-func pathSearch(cost_map, startTile, endTile):
+func pathSearch(startTile, endTile):
 	searched_children.append(startTile)
 	path = [startTile, endTile]
 	var finalPath = _pathSearch2(startTile, endTile)
 
-	#todo dodaj koszt, chyba że inna metoda będzie liczyć na podstawie path
+	#removing start element
 	return finalPath
 
 func prepareCostMap(cost_map):
@@ -33,8 +33,8 @@ func prepareCostMap(cost_map):
 		for y in range(cost_map[x].size()):
 			var not_walkable_flag
 			# 'x' means nonwalkable (no map ect)
-			if (cost_map[x][y] == 999):
-				notWalkable.append(Vector2(x,y))
+			# if (cost_map[x][y] == 999):
+			# 	notWalkable.append(Vector2(x,y))
 
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
 

@@ -21,18 +21,14 @@ func init_root(root):
 	get_bunkers()
 
 func refresh():
+	units_player_blue.clear()
+	units_player_red.clear()
+	buildings_player_none.clear()
+	buildings_player_blue.clear()
+	buildings_player_red.clear()
+
 	get_units()
 	get_buildings()
-
-func battle_debug(position):
-	var nearby_tiles = get_nearby_tiles(position, lookout_range)
-	#print('enemies:')
-	#print(self.get_nearby_enemies(nearby_tiles))
-	#print('empty buildings:')
-	#print(self.get_nearby_empty_buldings(nearby_tiles))
-	#print('enemy buildings:')
-	#print(self.get_nearby_enemy_buldings(nearby_tiles))
-
 
 func get_units_player_blue():
 	return units_player_blue

@@ -11,6 +11,7 @@ var hud_controller = preload('hud_controller.gd').new()
 var position_controller = preload("position_controller.gd").new()
 var sound_controller
 var ai
+var sample_player
 var pathfinding
 
 var current_player = 1
@@ -28,7 +29,7 @@ var movement_arrow_br
 var movement_arrow_tl
 var movement_arrow_tr
 
-const break_event_loop = 1
+const BREAK_EVENT_LOOP = 1
 
 func set_active_field(position):
 	var field = abstract_map.get_field(position)
@@ -40,7 +41,7 @@ func set_active_field(position):
 func handle_action(position):
 	if game_ended:
 		return
-
+	
 	var field = abstract_map.get_field(position)
 
 
@@ -51,7 +52,7 @@ func handle_action(position):
 
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
-					if (self.handle_battle(active_field, field) == break_event_loop):
+					if (self.handle_battle(active_field, field) == BREAK_EVENT_LOOP):
 						return
 				else:
 					sound_controller.play('no_move')
@@ -59,13 +60,7 @@ func handle_action(position):
 					hud_controller.update_unit_card(active_field.object)
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
 				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field) && self.has_ap():
-					self.use_ap()
-					field.object.claim(current_player)
-					sound_controller.play('pickup_box')
-					self.despawn_unit(active_field)
-					self.activate_field(field)
-					if field.object.type == 0:
-						self.end_game()
+					if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
 						return
 		if (field.object.group == 'unit' || field.object.group == 'building') && field.object.player == current_player:
 			self.activate_field(field)
@@ -77,6 +72,17 @@ func handle_action(position):
 func post_handle_action():
 	# should check if something is changed
 	position_controller.refresh()
+
+func capture_building(active_field, field):
+	self.use_ap()
+	field.object.claim(current_player)
+	sample_player.play('pickup_box')
+	self.despawn_unit(active_field)
+	
+	self.activate_field(field)
+	if field.object.type == 0:
+		self.end_game()
+		return 1
 
 
 func init_root(root, map, hud):
@@ -139,16 +145,16 @@ func add_movement_indicators(field):
 func mark_field(source, target, indicator, direction):
 	if target.terrain_type == -1:
 		return
-
+	
 	if player_ap > 0:
-		var position = Vector2(abstract_map.tilemap.map_to_world(target.position))
+		var position = Vector2(abstract_map.tilemap.map_to_world(target.position)) 
 		if target.object == null:
 			if movement_controller.can_move(source, target):
 				indicator.set_pos(position)
 				ysort.add_child(indicator)
 				indicator.get_node('anim').play("move_" + direction)
 		else:
-			print(target.object)
+			#print(target.object)
 			if target.object.group == 'unit':
 				if target.object.player != current_player && battle_controller.can_attack(source.object, target.object):
 					indicator.set_pos(position)
@@ -161,7 +167,7 @@ func mark_field(source, target, indicator, direction):
 					indicator.get_node('anim').play("enter")
 	else:
 		ysort.remove_child(indicator)
-
+	
 func clear_movement_indicators():
 	ysort.remove_child(movement_arrow_bl)
 	ysort.remove_child(movement_arrow_br)
@@ -201,7 +207,7 @@ func import_objects():
 func attach_objects(collection):
 	for entity in collection:
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
-
+		
 func end_turn():
 	sound_controller.play('end_turn')
 	if current_player == 0:
@@ -218,7 +224,7 @@ func end_turn():
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
-
+	
 func move_camera_to_point(position):
 	abstract_map.tilemap.move_to_map(position)
 
@@ -279,7 +285,7 @@ func camera_zoom_in():
 	if scale.x < camera_zoom_range[1]:
 		camera.set_scale(scale + Vector2(1,1))
 	abstract_map.tilemap.scale = camera.get_scale()
-
+	
 func camera_zoom_out():
 	var scale = camera.get_scale()
 	if scale.x > camera_zoom_range[0]:
@@ -310,7 +316,7 @@ func handle_battle(active_field, field):
 		self.clear_movement_indicators()
 
 		if (battle_controller.resolve_fight(active_field.object, field.object)):
-			print('attacker kill defender');
+			#print('attacker kill defender');
 			self.play_destroy(field)
 			self.destroy_unit(field)
 			self.update_unit(active_field)
@@ -318,19 +324,19 @@ func handle_battle(active_field, field):
 			sound_controller.play('not_dead')
 			field.object.show_explosion()
 			# defender can deal damage
-			print('defend!')
+			#print('defend!')
 			if battle_controller.can_attack(field.object, active_field.object):
 				if (battle_controller.resolve_defend(active_field.object, field.object)):
-					print('defender kill attacker');
+					#print('defender kill attacker');
 					self.play_destroy(active_field)
 					self.destroy_unit(active_field)
 					self.clear_active_field()
 				else:
-					sound_controller.play('not_dead')
+					sample_player.play('not_dead')
 					self.update_unit(active_field)
 					active_field.object.show_explosion()
 
 	else:
 		sound_controller.play('no_attack')
 
-	return break_event_loop
+	return BREAK_EVENT_LOOP

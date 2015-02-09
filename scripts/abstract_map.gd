@@ -80,12 +80,14 @@ func calculate_cost(stats, type):
 	return stats[tile_type_name]
 
 func calculate_path_cost(unit, path):
-	#start element 
-	path.remove(0)
+	#start element
 	var cost = 0
+	var skip = true
 	var cost_map = tiles_cost_map[unit.get_type()]
 	for pos in path:
-		cost = cost + cost_map[pos.x][pos.y]
+		if !skip:
+			cost = cost + cost_map[pos.x][pos.y]
+		skip = false
 
 	return cost
 
