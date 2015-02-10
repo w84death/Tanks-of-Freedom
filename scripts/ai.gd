@@ -72,13 +72,19 @@ func add_action(unit, destination, cost_map):
 		var unit_ap_cost = 0
 		# verify action_type
 		var next_tile = abstract_map.get_field(path[0])
-		if(next_tile.object != null && next_tile.object.group == 'building' && unit.can_capture_building(next_tile.object)):
-			action_type = ACTION_CAPTURE
+		if (next_tile.object != null):
+			if(next_tile.object.group == 'building' && unit.can_capture_building(next_tile.object)):
+				action_type = ACTION_CAPTURE
+			elif(next_tile.object.group == 'unit'): #todo sprawdzanie typu jednostki
+				if (unit.can_attack()):
+					action_type = ACTION_ATTACK
+				else:
+					return
 		else:
 			action_type = ACTION_MOVE
 			unit_ap_cost = abstract_map.calculate_path_cost(unit, path)
 			var last_tile = abstract_map.get_field(path[path.size() - 1])
-			if (!unit.can_capture_building(last_tile.object)):
+			if (last_tile.object != null && last_tile.object.group == 'building' && !unit.can_capture_building(last_tile.object)):
 				additional_modificator = -90
 
 		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost)
@@ -127,6 +133,7 @@ func get_max_key(keys):
 			max_key = key
 
 	return max_key
+
 func execute_spawn(action):
 	action_controller.set_active_field(action.unit.get_pos_map())
 	action_controller.spawn_unit_from_active_building()
