@@ -11,7 +11,6 @@ var hud_controller = preload('hud_controller.gd').new()
 var position_controller = preload("position_controller.gd").new()
 var sound_controller
 var ai
-var sample_player
 var pathfinding
 
 var current_player = 1
@@ -47,9 +46,6 @@ func handle_action(position):
 
 	if field.object != null:
 		if active_field != null:
-			if active_field.object.group == 'unit':
-				position_controller.battle_debug(active_field.position)
-
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
 					if (self.handle_battle(active_field, field) == BREAK_EVENT_LOOP):
@@ -76,7 +72,7 @@ func post_handle_action():
 func capture_building(active_field, field):
 	self.use_ap()
 	field.object.claim(current_player)
-	sample_player.play('pickup_box')
+	sound_controller.play('pickup_box')
 	self.despawn_unit(active_field)
 	
 	self.activate_field(field)
@@ -332,7 +328,7 @@ func handle_battle(active_field, field):
 					self.destroy_unit(active_field)
 					self.clear_active_field()
 				else:
-					sample_player.play('not_dead')
+					sound_controller.play('not_dead')
 					self.update_unit(active_field)
 					active_field.object.show_explosion()
 
