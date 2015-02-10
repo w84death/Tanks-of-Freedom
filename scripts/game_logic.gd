@@ -14,7 +14,7 @@ var intro = preload('res://intro.xscn').instance()
 
 var action_controller
 var sound_controller = preload("sound_controller.gd").new()
-
+var map_template
 var current_map
 var hud
 

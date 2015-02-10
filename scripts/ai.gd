@@ -31,10 +31,11 @@ func gather_unit_data():
 		var unit = units[pos]
 		var position = unit.get_pos_map()
 		# this should be already map for use in pathfinding
-		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()])
+		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], units)
 
 		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
 		var destinations = []
+
 		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles) + position_controller.get_nearby_empty_buldings(nearby_tiles)
 		for destination in destinations:
 			self.add_action(unit, destination, cost_map)
@@ -66,17 +67,22 @@ func add_action(unit, destination, cost_map):
 		path.remove(0)
 
 	if path.size() > 0:
+		# skip if this can be capture move and building cannot be captured
+		var additional_modificator = 0;
 		var unit_ap_cost = 0
 		# verify action_type
 		var next_tile = abstract_map.get_field(path[0])
-		if next_tile.object == null:
+		if(next_tile.object != null && next_tile.object.group == 'building' && unit.can_capture_building(next_tile.object)):
+			action_type = ACTION_CAPTURE
+		else:
 			action_type = ACTION_MOVE
 			unit_ap_cost = abstract_map.calculate_path_cost(unit, path)
-			
-		elif(next_tile.object.group == 'building'):
-			action_type = ACTION_CAPTURE
+			var last_tile = abstract_map.get_field(path[path.size() - 1])
+			if (!unit.can_capture_building(last_tile.object)):
+				additional_modificator = -90
 
 		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost)
+		score = score + additional_modificator
 		
 		print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 		actions[score] =  actionObject.new(unit, path, action_type)

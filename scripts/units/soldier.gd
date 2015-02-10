@@ -16,4 +16,19 @@ func _init():
 	attacks_number = 1
 	pass
 
+func can_capture_building(building):
+	var type = building.get_building_name()
+	if type == "BUNKER":
+		return true
+	if type == "BARRACKS":
+		return true
+	if type == "FACTORY":
+		return true
+	if type == "AIRPORT":
+		return true
+
+	return false;
+
+func can_capture():
+	return true
 
