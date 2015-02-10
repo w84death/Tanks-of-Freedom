@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="6" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
 	<ext_resource path="res://gui/health_bar.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gui/icon_shield.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scripts/units/soldier.gd" type="Script"></ext_resource>
+	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "move" </string>
 		<real name="length"> 0.75 </real>
@@ -231,6 +231,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -298,12 +304,6 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
 							<string> "default_light" </string>
@@ -352,6 +352,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -419,12 +425,6 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
 							<string> "default_light" </string>
 							<bool> True </bool>
 							<string> "viewport_mode" </string>
