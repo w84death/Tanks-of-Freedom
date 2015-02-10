@@ -7,10 +7,13 @@ var map_2_button
 var map_3_button
 var close_button
 
-var sound_on_button
-var sound_off_button
-var music_on_button
-var music_off_button
+var sound_toggle_button
+var music_toggle_button
+var shake_toggle_button
+
+var sound_toggle_label
+var music_toggle_label
+var shake_toggle_label
 
 func _ready():
 	map_0_button = get_node("control/game_controls/map_0")
@@ -19,18 +22,22 @@ func _ready():
 	map_3_button = get_node("control/game_controls/map_3")
 	close_button = get_node("control/game_controls/close")
 
-	sound_on_button = get_node("control/settings_controls/sound_on")
-	sound_off_button = get_node("control/settings_controls/sound_off")
-	music_on_button = get_node("control/settings_controls/music_on")
-	music_off_button = get_node("control/settings_controls/music_off")
+	sound_toggle_button = get_node("control/settings_controls/sound_toggle")
+	music_toggle_button = get_node("control/settings_controls/music_toggle")
+	shake_toggle_button = get_node("control/settings_controls/shake_toggle")
 
+	sound_toggle_label = sound_toggle_button.get_node("Label")
+	music_toggle_label = music_toggle_button.get_node("Label")
+	shake_toggle_label = shake_toggle_button.get_node("Label")
+	
 	map_0_button.connect("pressed", self, "load_small_map")
 	map_1_button.connect("pressed", self, "load_large_map")
+	sound_toggle_button.connect("pressed", self, "toggle_sound")
+	music_toggle_button.connect("pressed", self, "toggle_music")
+	shake_toggle_button.connect("pressed", self, "toggle_shake")
+	
 	close_button.connect("pressed", root, "toggle_menu")
-	sound_on_button.connect("pressed", self, "enable_sound")
-	sound_off_button.connect("pressed", self, "disable_sound")
-	music_on_button.connect("pressed", self, "enable_music")
-	music_off_button.connect("pressed", self, "disable_music")
+	self.refresh_buttons_labels()
 
 func load_small_map():
 	root.load_map(root.map_template_0)
@@ -40,19 +47,36 @@ func load_large_map():
 	root.load_map(root.map_template_1)
 	root.toggle_menu()
 
-func enable_sound():
-	root.sound_settings['sound_enabled'] = true
+func toggle_sound():
+	root.sound_settings['sound_enabled'] = not root.sound_settings['sound_enabled']
+	self.refresh_buttons_labels()
 
-func disable_sound():
-	root.sound_settings['sound_enabled'] = false
+func toggle_music():
+	root.sound_settings['music_enabled'] = not root.sound_settings['music_enabled']
+	if root.sound_settings['music_enabled']:
+		root.sound_controller.play_soundtrack()
+	else:
+		root.sound_controller.stop_soundtrack()
+	self.refresh_buttons_labels()
 
-func enable_music():
-	root.sound_settings['music_enabled'] = true
-	root.sound_controller.play_soundtrack()
+func toggle_shake():
+	#implementation missing
+	#remember that button is disabled in scene settings
+	#if root.sound_settings['sound_enabled']:
+	#	sound_toggle_label.set_text("ON")
+	#else:
+	#	sound_toggle_label.set_text("OFF")
+	return true
 
-func disable_music():
-	root.sound_settings['music_enabled'] = false
-	root.sound_controller.stop_soundtrack()
+func refresh_buttons_labels():
+	if root.sound_settings['sound_enabled']:
+		sound_toggle_label.set_text("ON")
+	else:
+		sound_toggle_label.set_text("OFF")
+	if root.sound_settings['music_enabled']:
+		music_toggle_label.set_text("ON")
+	else:
+		music_toggle_label.set_text("OFF")
 
 func init_root(root_node):
 	root = root_node
