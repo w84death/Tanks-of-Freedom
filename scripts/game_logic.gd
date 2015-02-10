@@ -6,8 +6,6 @@ var current_map_terrain
 var map_pos
 var game_scale
 var scale_root
-var map_template_0 = preload('res://maps/map_0.xscn')
-var map_template_1 = preload('res://maps/map_2.xscn')
 var hud_template = preload('res://gui/gui.xscn')
 var menu = preload('res://gui/menu.xscn').instance()
 var cursor = preload('res://gui/cursor.xscn').instance()
@@ -19,6 +17,13 @@ var sound_controller = preload("sound_controller.gd").new()
 
 var current_map
 var hud
+
+var maps = {
+	'tutorial' : preload('res://maps/map_0.xscn'),
+	'crossing' : preload('res://maps/map_0.xscn'),
+	'city' : preload('res://maps/map_1.xscn'),
+	'forest' : preload('res://maps/map_2.xscn')
+}
 
 var sound_settings = {
 	'sound_enabled' : true,
@@ -57,8 +62,9 @@ func _input(event):
 	if Input.is_action_pressed('ui_cancel'):
 		self.toggle_menu()
 
-func load_map(map_template):
+func load_map(template_name):
 	self.unload_map()
+	map_template = maps[template_name]
 	current_map = map_template.instance()
 	hud = hud_template.instance()
 	

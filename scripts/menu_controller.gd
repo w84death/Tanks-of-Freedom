@@ -39,13 +39,15 @@ func _ready():
 	close_button.connect("pressed", root, "toggle_menu")
 	self.refresh_buttons_labels()
 
-func load_small_map():
-	root.load_map(root.map_template_0)
+func load_map(name):
+	root.load_map(name)
 	root.toggle_menu()
 
+func load_small_map():
+	self.load_map('crossing')
+
 func load_large_map():
-	root.load_map(root.map_template_1)
-	root.toggle_menu()
+	self.load_map('forest')
 
 func toggle_sound():
 	root.sound_settings['sound_enabled'] = not root.sound_settings['sound_enabled']
