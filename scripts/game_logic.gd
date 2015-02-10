@@ -64,7 +64,7 @@ func _input(event):
 
 func load_map(template_name):
 	self.unload_map()
-	map_template = maps[template_name]
+	var map_template = maps[template_name]
 	current_map = map_template.instance()
 	hud = hud_template.instance()
 	
