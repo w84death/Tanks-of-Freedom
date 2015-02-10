@@ -76,7 +76,7 @@ func get_required_ap():
 
 func get_building_name():
 	if type == TYPE_BUNKER:
-		return "BUNKER"
+		return "HQ"
 	if type == TYPE_BARRACKS:
 		return "BARRACKS"
 	if type == TYPE_FACTORY:

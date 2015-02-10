@@ -48,7 +48,7 @@ func get_buildings_player_blue():
 func get_bunkers():
 	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	for building in buildings:
-		if (building.get_building_name() == "BUNKER"):
+		if (building.type == 0):
 			bunkers[building.get_player()] = building
 
 func get_units():

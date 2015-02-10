@@ -90,7 +90,7 @@ func init_root(root, map, hud):
 	self.import_objects()
 	hud_controller.init_root(root, self, hud)
 	hud_controller.set_turn(turn)
-	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the bunker and send it to take control of the barracks."])
+	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the HQ and send it to take control of the barracks."])
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
 	sound_controller = root.sound_controller
@@ -216,7 +216,7 @@ func end_turn():
 		title = "Blue turn"
 	else:
 		title = "Red turn"
-	hud_controller.show_in_game_card([title, "Take the control of the enemy bunker!"])
+	hud_controller.show_in_game_card([title, "Take the control of the enemy HQ!"])
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
