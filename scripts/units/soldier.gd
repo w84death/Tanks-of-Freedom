@@ -17,6 +17,9 @@ func _init():
 	pass
 
 func can_capture_building(building):
+	if building.player == player:
+		return false
+
 	var type = building.get_building_name()
 	if type == "BUNKER":
 		return true
