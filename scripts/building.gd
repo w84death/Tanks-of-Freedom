@@ -82,7 +82,7 @@ func get_building_name():
 	if type == TYPE_FACTORY:
 		return "FACTORY"
 	if type == TYPE_AIRPORT:
-		return "AIRFIELD"
+		return "AIRPORT"
 
 func get_cost():
 	return get_required_ap()

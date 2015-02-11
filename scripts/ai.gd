@@ -29,9 +29,12 @@ func gather_unit_data():
 	
 	for pos in units:
 		var unit = units[pos]
+		if unit.get_ap() <= 0:
+			return
+
 		var position = unit.get_pos_map()
 		# this should be already map for use in pathfinding
-		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], units)
+		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], units, position_controller.get_buildings_player_red())
 
 		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
 		var destinations = []
@@ -73,14 +76,18 @@ func add_action(unit, destination, cost_map):
 		# verify action_type
 		var next_tile = abstract_map.get_field(path[0])
 		if (next_tile.object != null):
-			if(next_tile.object.group == 'building' && unit.can_capture_building(next_tile.object)):
-				action_type = ACTION_CAPTURE
-			elif(next_tile.object.group == 'unit'): #todo sprawdzanie typu jednostki
+			if(next_tile.object.group == 'building'):
+				if unit.can_capture_building(next_tile.object):
+					action_type = ACTION_CAPTURE
+				else:
+					return # if cannot capture he canot move
+			elif(next_tile.object.group == 'unit' && unit.can_attack_unit_type(next_tile.object)):
 				if (unit.can_attack()):
 					action_type = ACTION_ATTACK
 				else:
 					return
 		else:
+			
 			action_type = ACTION_MOVE
 			unit_ap_cost = abstract_map.calculate_path_cost(unit, path)
 			var last_tile = abstract_map.get_field(path[path.size() - 1])
@@ -127,7 +134,7 @@ func execute_best_action():
 			self.execute_move(action)
 
 func get_max_key(keys):
-	var max_key = 0
+	var max_key = -999
 	for key in keys:
 		if (key > max_key):
 			max_key = key
@@ -145,7 +152,6 @@ func execute_move(action):
 		action_controller.move_unit(active_field, field)
 
 func execute_attack(action):
-	print('attack')
 	var active_field = action_controller.set_active_field(action.unit.get_pos_map())
 	var field = self.get_next_tile_from_action(action)
 	if field:

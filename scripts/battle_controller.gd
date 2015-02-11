@@ -45,16 +45,12 @@ func resolve_defend(attacker, defender):
 		return false
 
 func can_attack(attacker, defender):
-	if attacker.type == 1 && defender.type == 2:
-		return false
+	if (attacker.can_attack_unit_type(defender)):
 
-	if attacker.can_attack():
-		return true
+		if attacker.can_attack():
+			return true
 
-	print('Not enough AP')
 	return false
 
 func can_defend(attacker, defender):
-	if defender.type == 1 && attacker.type == 2:
-		return false
-	return true
+	return defender.can_attack_unit_type(attacker)

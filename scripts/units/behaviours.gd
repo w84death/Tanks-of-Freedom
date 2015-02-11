@@ -22,6 +22,12 @@ func can_capture_building(building):
 func can_capture():
 	return false
 
+func can_attack_unit_type(defender):
+	if type == 1 && defender.type == 2:
+		return false
+
+	return true
+
 
 
 

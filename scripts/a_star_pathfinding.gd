@@ -23,11 +23,15 @@ func pathSearch(startTile, endTile):
 	#removing start element
 	return finalPath
 
-func prepareCostMap(cost_map, units):
+func prepareCostMap(cost_map, units, ownBuildings):
 	notWalkable.clear()
 	grid.clear()
 	for pos in units:
 		var unit_pos = units[pos].get_pos_map()
+		cost_map[unit_pos.x][unit_pos.y] = 999
+
+	for pos in ownBuildings:
+		var unit_pos = ownBuildings[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = 999
 
 	for x in range(cost_map.size()):
