@@ -13,7 +13,7 @@ var sound_controller
 var ai
 var pathfinding
 
-var current_player = 1
+var current_player = 0
 var player_ap = 10
 var player_ap_max = 16
 var turn = 1
@@ -90,7 +90,7 @@ func init_root(root, map, hud):
 	self.import_objects()
 	hud_controller.init_root(root, self, hud)
 	hud_controller.set_turn(turn)
-	hud_controller.show_in_game_card(["New mission!","Buy your first unit in the HQ and send it to take control of the barracks."])
+	hud_controller.show_in_game_card(["Welcome!","You are the blue player.","The red one is the bad guy."],current_player)
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
 	sound_controller = root.sound_controller
@@ -212,11 +212,7 @@ func end_turn():
 		self.switch_to_player(0)
 		turn += 1
 	hud_controller.set_turn(turn)
-	if current_player == 0:
-		title = "Blue turn"
-	else:
-		title = "Red turn"
-	hud_controller.show_in_game_card([title, "Take the control of the enemy HQ!"])
+	hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"],current_player)
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))

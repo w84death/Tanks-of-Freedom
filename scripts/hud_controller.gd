@@ -29,6 +29,8 @@ var hud_building_cost
 var hud_in_game_card
 var hud_in_game_card_body
 var hud_in_game_card_text
+var hud_in_game_card_player_blue_turn
+var hud_in_game_card_player_red_turn
 var hud_in_game_card_button
 
 var zoom_card
@@ -85,6 +87,8 @@ func init_root(root, action_controller_object, hud):
 	hud_in_game_card = hud.get_node("in_game_card")
 	hud_in_game_card_body = hud_in_game_card.get_node("center")
 	hud_in_game_card_text = hud_in_game_card_body.get_node("text")
+	hud_in_game_card_player_blue_turn = hud_in_game_card_body.get_node("blue_player")
+	hud_in_game_card_player_red_turn = hud_in_game_card_body.get_node("red_player")
 	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
 	hud_in_game_card_button.connect("pressed", action_controller, "in_game_menu_pressed")
 
@@ -132,7 +136,7 @@ func show_building_card(building):
 func clear_building_card():
 	hud_building.hide()
 
-func show_in_game_card(messages):
+func show_in_game_card(messages, current_player):
 	active_map.hide()
 	end_turn_button.set_disabled(true)
 	end_turn_button_red.set_disabled(true)
@@ -140,6 +144,12 @@ func show_in_game_card(messages):
 	turn_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
+	if current_player == 1:
+		hud_in_game_card_player_blue_turn.hide()
+		hud_in_game_card_player_red_turn.show()
+	else:
+		hud_in_game_card_player_blue_turn.show()
+		hud_in_game_card_player_red_turn.hide()
 	hud_in_game_card_text.clear()
 	for message in messages:
 		hud_in_game_card_text.add_text(message)
