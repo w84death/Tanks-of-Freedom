@@ -14,19 +14,22 @@ const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
 
 const SPAWN_LIMIT = 25
+const DEBUG = false
 
 func gather_available_actions(player_ap):
 	current_player_ap = player_ap
 	actions = {}
 	# refreshing unit and building data
 	position_controller.refresh()
-	print('DEBUG -------------------- ')
+	if DEBUG:
+		print('DEBUG -------------------- ')
 	var buildings = position_controller.get_buildings_player_red()
 	var units     = position_controller.get_units_player_red()
 
 	self.gather_building_data(buildings, units)
 	self.gather_unit_data(buildings, units)
-	var action = self.execute_best_action()
+
+	return self.execute_best_action()
 
 
 func gather_unit_data(own_buildings, own_units):
@@ -87,10 +90,8 @@ func add_action(unit, destination, cost_map):
 		if (next_tile.object != null):
 			if(next_tile.object.group == 'building'):
 				if unit.can_capture_building(next_tile.object):
-					print('can capture')
 					action_type = ACTION_CAPTURE
 				else:
-					print('cannot capture')
 					return # if cannot capture he canot move
 			elif(next_tile.object.group == 'unit' && unit.can_attack_unit_type(next_tile.object)):
 				if (unit.can_attack()):
@@ -113,8 +114,8 @@ func add_action(unit, destination, cost_map):
 
 
 		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost)
-
-		print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
+		if DEBUG:
+			print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 		actions[score] =  actionObject.new(unit, path, action_type)
 
 func get_action_name(type):
@@ -136,7 +137,8 @@ func add_building_action(building, enemy_units_nearby, own_units):
 	var spawn_point = abstract_map.get_field(building.spawn_point)
 	if (spawn_point.object == null && building.get_required_ap() <= current_player_ap):
 		var score = building.estimate_action(action_type, enemy_units_nearby, own_units)
-		print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", building.get_required_ap())
+		if DEBUG:
+			print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", building.get_required_ap())
 		actions[score] =  actionObject.new(building, null, action_type)
 
 func execute_best_action():
@@ -153,6 +155,10 @@ func execute_best_action():
 			self.execute_capture(action)
 		else:
 			self.execute_move(action)
+
+		return true
+
+	return false
 
 func get_max_key(keys):
 	var max_key = -999

@@ -255,10 +255,13 @@ func switch_to_player(player):
 	self.update_ap(player_ap_max)
 
 func perform_ai_stuff():
+
+	var success = false
 	if current_player == 1 && player_ap > 0:
 		abstract_map.create_tile_type_maps()
-		ai.gather_available_actions(player_ap)
+		success = ai.gather_available_actions(player_ap)
 
+	return player_ap > 0 && success
 
 func reset_player_units(player):
 	var units = root_node.get_tree().get_nodes_in_group("units")

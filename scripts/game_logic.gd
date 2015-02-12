@@ -57,7 +57,9 @@ func _input(event):
 				action_controller.post_handle_action()
 
 		if (event.type == InputEvent.KEY):
-			action_controller.perform_ai_stuff()
+			var timer = get_node("AITimer")
+			timer.inject_action_controller(action_controller)
+			timer.start()
 
 	if Input.is_action_pressed('ui_cancel'):
 		self.toggle_menu()
