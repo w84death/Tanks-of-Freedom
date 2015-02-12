@@ -69,10 +69,8 @@ func get_nearby_tiles(position, distance=2):
 	for y in range(-distance, distance):
 		for x in range(-distance, distance):
 			# we are skipping current tile
-			# todo skip tiles that are not on map
 			if (self.fabs(x) + self.fabs(y) < max_distance && x != 0 && y != 0):
-				var vector = Vector2(position.x + x, position.y + y)
-				tiles.append(vector)
+				tiles.append(Vector2(position.x + x, position.y + y))
 
 	return tiles
 

@@ -2,7 +2,7 @@ var position_controller
 var pathfinding
 var abstract_map
 var action_controller
-const lookup_range = 8
+const LOOKUP_RANGE = 8
 var actions = {}
 var current_player_ap = 0
 
@@ -10,6 +10,10 @@ const ACTION_ATTACK = 0
 const ACTION_MOVE   = 1
 const ACTION_CAPTURE = 2
 const ACTION_SPAWN = 3
+const ACTION_MOVE_TO_ATTACK = 4
+const ACTION_MOVE_TO_CAPTURE = 5
+
+const SPAWN_LIMIT = 25
 
 func gather_available_actions(player_ap):
 	current_player_ap = player_ap
@@ -17,26 +21,29 @@ func gather_available_actions(player_ap):
 	# refreshing unit and building data
 	position_controller.refresh()
 	print('DEBUG -------------------- ')
-	self.gather_building_data()
-	self.gather_unit_data()
+	var buildings = position_controller.get_buildings_player_red()
+	var units     = position_controller.get_units_player_red()
+
+	self.gather_building_data(buildings, units)
+	self.gather_unit_data(buildings, units)
 	var action = self.execute_best_action()
 
 
-func gather_unit_data():
-	var units = position_controller.get_units_player_red()
-	if units.size() == 0:
+func gather_unit_data(own_buildings, own_units):
+	if own_units.size() == 0:
 		return
 	
-	for pos in units:
-		var unit = units[pos]
+	for pos in own_units:
+		var unit = own_units[pos]
 		if unit.get_ap() <= 0:
 			return
 
 		var position = unit.get_pos_map()
-		# this should be already map for use in pathfinding
-		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], units, position_controller.get_buildings_player_red())
 
-		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
+		# this should be already map for use in pathfinding
+		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], own_units, own_buildings)
+
+		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 		var destinations = []
 
 		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles) + position_controller.get_nearby_empty_buldings(nearby_tiles)
@@ -47,16 +54,18 @@ func gather_unit_data():
 		for destination in destinations:
 			self.add_action(unit, destination, cost_map)
 
-func gather_building_data():
-	var units = position_controller.get_units_player_red()
+func gather_building_data(own_buildings, own_units):
+	if own_units.size() >= SPAWN_LIMIT:
+		return
+
 	var buildings = position_controller.get_buildings_player_red()
-	for pos in buildings:
-		var building = buildings[pos]
+	for pos in own_buildings:
+		var building = own_buildings[pos]
 		var position = building.get_pos_map()
-		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
+		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 		var enemy_units = position_controller.get_nearby_enemies(nearby_tiles)
 		
-		self.add_building_action(building, enemy_units, units)
+		self.add_building_action(building, enemy_units, own_units)
 
 
 func add_action(unit, destination, cost_map):
@@ -71,15 +80,17 @@ func add_action(unit, destination, cost_map):
 
 	if path.size() > 0:
 		# skip if this can be capture move and building cannot be captured
-		var additional_modificator = 0;
 		var unit_ap_cost = 0
 		# verify action_type
 		var next_tile = abstract_map.get_field(path[0])
+
 		if (next_tile.object != null):
 			if(next_tile.object.group == 'building'):
 				if unit.can_capture_building(next_tile.object):
+					print('can capture')
 					action_type = ACTION_CAPTURE
 				else:
+					print('cannot capture')
 					return # if cannot capture he canot move
 			elif(next_tile.object.group == 'unit' && unit.can_attack_unit_type(next_tile.object)):
 				if (unit.can_attack()):
@@ -91,22 +102,32 @@ func add_action(unit, destination, cost_map):
 			action_type = ACTION_MOVE
 			unit_ap_cost = abstract_map.calculate_path_cost(unit, path)
 			var last_tile = abstract_map.get_field(path[path.size() - 1])
-			if (last_tile.object != null && last_tile.object.group == 'building' && !unit.can_capture_building(last_tile.object)):
-				additional_modificator = -90
+			if (last_tile.object != null):
+				if (last_tile.object.group == 'building'):
+					if (unit.can_capture_building(last_tile.object)):
+						action_type = ACTION_MOVE_TO_CAPTURE
+
+				elif(last_tile.object.group == 'unit'):
+					if (unit.can_attack_unit_type(last_tile.object)):
+						action_type = ACTION_MOVE_TO_ATTACK
+
 
 		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost)
-		score = score + additional_modificator
-		
+
 		print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 		actions[score] =  actionObject.new(unit, path, action_type)
 
 func get_action_name(type):
 	if type == ACTION_MOVE:
 		return 'MOVE'
-	elif (type == ACTION_CAPTURE):
+	elif type == ACTION_CAPTURE:
 		return 'CAPTURE'
-	elif (type == ACTION_SPAWN):
+	elif type == ACTION_SPAWN:
 		return 'SPAWN'
+	elif type == ACTION_MOVE_TO_ATTACK:
+		return 'MOVE ATTACK'
+	elif type == ACTION_MOVE_TO_CAPTURE:
+		return 'MOVE CAPTURE'
 	else:
 		return 'ATTACK'
 

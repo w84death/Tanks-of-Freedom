@@ -15,7 +15,7 @@ var pathfinding
 
 var current_player = 0
 var player_ap = 10
-var player_ap_max = 16
+var player_ap_max = 56
 var turn = 1
 var title
 var camera

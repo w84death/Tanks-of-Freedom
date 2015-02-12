@@ -29,6 +29,8 @@ func can_capture_building(building):
 		return true
 	if type == "AIRPORT":
 		return true
+	if type == "HQ":
+		return true
 
 	return false;
 

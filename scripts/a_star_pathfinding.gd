@@ -24,8 +24,10 @@ func pathSearch(startTile, endTile):
 	return finalPath
 
 func prepareCostMap(cost_map, units, ownBuildings):
+
 	notWalkable.clear()
 	grid.clear()
+
 	for pos in units:
 		var unit_pos = units[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = 999
@@ -40,6 +42,7 @@ func prepareCostMap(cost_map, units, ownBuildings):
 				notWalkable.append(Vector2(x,y))
 
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
+
 # new path search
 func _pathSearch2(start, goal):
    var closedset = []    #The set of nodes already evaluated.

@@ -16,5 +16,8 @@ func _init():
 	attacks_number = 1
 	pass
 
+func can_capture_building(building):
+	return false
+
 
 
