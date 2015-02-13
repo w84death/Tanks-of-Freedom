@@ -25,9 +25,10 @@ var maps = {
 	'forest' : preload('res://maps/map_2.xscn')
 }
 
-var sound_settings = {
+var settings = {
 	'sound_enabled' : true,
-	'music_enabled' : true
+	'music_enabled' : true,
+	'shake_enabled' : true
 }
 
 var is_map_loaded = false
@@ -69,15 +70,15 @@ func load_map(template_name):
 	var map_template = maps[template_name]
 	current_map = map_template.instance()
 	hud = hud_template.instance()
-	
+
 	current_map_terrain = current_map.get_node("terrain")
 	current_map_terrain.add_child(selector)
-	
+
 	scale_root.add_child(current_map)
 	menu.raise()
 	self.add_child(hud)
 	cursor.raise()
-	
+
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
 	action_controller.init_root(self, current_map, hud)
@@ -89,7 +90,7 @@ func load_map(template_name):
 func unload_map():
 	if is_map_loaded == false:
 		return
-	
+
 	is_map_loaded = false
 	current_map_terrain.remove_child(selector)
 	scale_root.remove_child(current_map)
@@ -101,7 +102,7 @@ func unload_map():
 	hud = null
 	menu.close_button.hide()
 	return
-	
+
 func toggle_menu():
 	if is_map_loaded:
 		if menu.is_hidden():
@@ -112,7 +113,7 @@ func toggle_menu():
 			is_paused = false
 			menu.hide()
 			hud.show()
-			
+
 func load_menu():
 	is_intro = false
 	self.add_child(menu)
@@ -121,7 +122,7 @@ func load_menu():
 	cursor.raise()
 	self.remove_child(intro)
 	intro.queue_free()
-	
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	scale_root = get_node("/root/game/pixel_scale")
