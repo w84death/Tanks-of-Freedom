@@ -55,9 +55,10 @@ func move_to_map(target):
 	self.target = target_position + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 
 func shake_camera():
-	shakes = 0
-	shake_initial_position = terrain.get_pos()
-	self.do_single_shake()
+	if root.settings['shake_enabled']:
+		shakes = 0
+		shake_initial_position = terrain.get_pos()
+		self.do_single_shake()
 	
 func do_single_shake():
 	if shakes < shakes_max:

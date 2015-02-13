@@ -85,13 +85,11 @@ func toggle_music():
 	self.refresh_buttons_labels()
 
 func toggle_shake():
-	#implementation missing
-	#remember that button is disabled in scene settings
-	#if root.sound_settings['sound_enabled']:
-	#	sound_toggle_label.set_text("ON")
-	#else:
-	#	sound_toggle_label.set_text("OFF")
-	return true
+	root.settings['shake_enabled'] = not root.settings['shake_enabled']
+	if root.settings['shake_enabled']:
+		shake_toggle_label.set_text("ON")
+	else:
+		shake_toggle_label.set_text("OFF")
 
 func refresh_buttons_labels():
 	if root.settings['sound_enabled']:
@@ -102,6 +100,10 @@ func refresh_buttons_labels():
 		music_toggle_label.set_text("ON")
 	else:
 		music_toggle_label.set_text("OFF")
+	if root.settings['shake_enabled']:
+		shake_toggle_label.set_text("ON")
+	else:
+		shake_toggle_label.set_text("OFF")
 
 func init_root(root_node):
 	root = root_node
