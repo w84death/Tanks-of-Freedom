@@ -21,7 +21,7 @@ New features and bug fixes will be added.
 
 * P1X Team
   * code
-    * czlowiekimadlo
+    * czlowiekimadlo https://twitter.com/czlowiekimadlo
     * WrmZ
   * gfx
     * w84death http://krzysztofjankowski.com
