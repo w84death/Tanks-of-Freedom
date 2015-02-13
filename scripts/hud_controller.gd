@@ -106,7 +106,6 @@ func show_unit_card(unit):
 	self.set_unit_card_icon(unit)
 	hud_unit.show()
 
-
 func update_unit_card(unit):
 	var stats = unit.get_stats()
 	hud_unit_life.set_text(str(stats.life))

@@ -14,6 +14,7 @@ var intro = preload('res://intro.xscn').instance()
 
 var action_controller
 var sound_controller = preload("sound_controller.gd").new()
+var hud_controller = preload('hud_controller.gd').new()
 var map_template
 var current_map
 var hud
@@ -57,13 +58,14 @@ func _input(event):
 				action_controller.handle_action(selector_position)
 				action_controller.post_handle_action()
 
-		if (event.type == InputEvent.KEY):
-			var timer = get_node("AITimer")
-			timer.inject_action_controller(action_controller)
-			timer.start()
-
 	if Input.is_action_pressed('ui_cancel'):
 		self.toggle_menu()
+
+func start_ai_timer():
+	var timer = get_node("AITimer")
+	timer.reset()
+	timer.inject_action_controller(action_controller, hud_controller)
+	timer.start()
 
 func load_map(template_name):
 	self.unload_map()
