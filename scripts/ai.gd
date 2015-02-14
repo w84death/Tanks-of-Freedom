@@ -93,11 +93,13 @@ func add_action(unit, destination, cost_map):
 					action_type = ACTION_CAPTURE
 				else:
 					return # if cannot capture he canot move
-			elif(next_tile.object.group == 'unit' && unit.can_attack_unit_type(next_tile.object)):
-				if (unit.can_attack()):
+			elif next_tile.object.group == 'unit':
+				if unit.can_attack_unit_type(next_tile.object) && unit.can_attack():
 					action_type = ACTION_ATTACK
 				else:
 					return
+			elif next_tile.object.group == "terrain":
+				return # no tresspassing
 		else:
 			
 			action_type = ACTION_MOVE
@@ -176,19 +178,22 @@ func execute_move(action):
 	var active_field = action_controller.set_active_field(action.unit.get_pos_map())
 	var field = self.get_next_tile_from_action(action)
 	if field:
-		action_controller.move_unit(active_field, field)
+#		action_controller.move_unit(active_field, field)
+		action_controller.handle_action(field.position)
 
 func execute_attack(action):
 	var active_field = action_controller.set_active_field(action.unit.get_pos_map())
 	var field = self.get_next_tile_from_action(action)
 	if field:
-		action_controller.handle_battle(active_field, field)
+#		action_controller.handle_battle(active_field, field)
+		action_controller.handle_action(field.position)
 
 func execute_capture(action):
 	var active_field = action_controller.set_active_field(action.unit.get_pos_map())
 	var field = self.get_next_tile_from_action(action)
 	if field:
-	    action_controller.capture_building(active_field, field)
+#	    action_controller.capture_building(active_field, field)
+		action_controller.handle_action(field.position)
 
 func get_next_tile_from_action(action):
 	var path = action.path
