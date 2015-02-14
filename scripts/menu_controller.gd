@@ -39,6 +39,7 @@ func _ready():
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 
+	cpu_vs_cpu_button.connect("pressed", self, "start_demo_game")
 	human_vs_cpu_button.connect("pressed", self, "start_single_player_game")
 	human_vs_human_button.connect("pressed", self, "start_multi_player_game")
 
@@ -69,6 +70,10 @@ func hide_maps_menu():
 	control_node.show()
 	maps_sub_menu.hide()
 	
+func start_demo_game():
+	next_game_mode = 'demo'
+	self.show_maps_menu()
+	
 func start_single_player_game():
 	next_game_mode = 'single'
 	self.show_maps_menu()
@@ -79,10 +84,15 @@ func start_multi_player_game():
 
 func load_map(name):
 	if next_game_mode == 'single':
+		root.settings['cpu_0'] = false
 		root.settings['cpu_1'] = true
 	if next_game_mode == 'multi':
+		root.settings['cpu_0'] = false
 		root.settings['cpu_1'] = false
-	
+	if next_game_mode == 'demo':
+		root.settings['cpu_0'] = true
+		root.settings['cpu_1'] = true
+		
 	root.load_map(name)
 	root.toggle_menu()
 	self.hide_maps_menu()
