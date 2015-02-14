@@ -79,9 +79,9 @@ func init_root(root, action_controller_object, hud):
 	hud_building = hud.get_node("bottom_center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
 	hud_building_label = hud_building.get_node("name")
-	hud_building_spawn_button = hud_building.get_node("TextureButton")
-	hud_building_unit_icon = hud_building_spawn_button.get_node("unit_icon")
-	hud_building_cost = hud_building_spawn_button.get_node("unit_cost")
+	hud_building_spawn_button = hud_building.get_node("buy")
+	hud_building_unit_icon = hud_building.get_node("unit_icon")
+	hud_building_cost = hud_building.get_node("unit_cost")
 	hud_building_spawn_button.connect("pressed", action_controller, "spawn_unit_from_active_building")
 
 	hud_in_game_card = hud.get_node("in_game_card")
