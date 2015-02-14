@@ -30,20 +30,18 @@ func refresh():
 	get_units()
 	get_buildings()
 
-func get_units_player_blue():
-	return units_player_blue
-
-func get_units_player_red():
+func get_player_units(player):
+	if player == 0:
+		return units_player_blue
 	return units_player_red
+	
+func get_player_buildings(player):
+	if player == 0:
+		return buildings_player_blue
+	return buildings_player_red
 
 func get_player_bunker_position(player):
 	return bunkers[player].get_initial_pos()
-
-func get_buildings_player_red():
-	return buildings_player_red
-
-func get_buildings_player_blue():
-	return buildings_player_blue
 
 func get_bunkers():
 	buildings = root_node.get_tree().get_nodes_in_group("buildings")
@@ -75,12 +73,18 @@ func get_nearby_tiles(position, distance=2):
 	return tiles
 
 # for red
-func get_nearby_enemies(nearby_tiles):
+func get_nearby_enemies(nearby_tiles, current_player):
+	var enemy_units_collection
+	if current_player == 0:
+		enemy_units_collection = units_player_red
+	else:
+		enemy_units_collection = units_player_blue
+	
 	var enemies = []
 	for tile in nearby_tiles:
 		var tile_key = self.position_to_key(tile)
-		if units_player_blue.has(tile_key):
-			enemies.append(units_player_blue[tile_key])
+		if enemy_units_collection.has(tile_key):
+			enemies.append(enemy_units_collection[tile_key])
 
 	return enemies
 
@@ -96,12 +100,18 @@ func get_buildings():
 			buildings_player_none[pos] = building
 
 #for red
-func get_nearby_enemy_buldings(nearby_tiles):
+func get_nearby_enemy_buldings(nearby_tiles, current_player):
+	var enemy_buildings_collection
+	if current_player == 0:
+		enemy_buildings_collection = buildings_player_red
+	else:
+		enemy_buildings_collection = buildings_player_blue
+		
 	var buildings = []
 	for tile in nearby_tiles:
 		var tile_key = self.position_to_key(tile)
-		if buildings_player_blue.has(tile_key):
-			buildings.append(buildings_player_blue[tile_key])
+		if enemy_buildings_collection.has(tile_key):
+			buildings.append(enemy_buildings_collection[tile_key])
 
 	return buildings
 
