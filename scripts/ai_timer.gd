@@ -7,11 +7,9 @@ var state = null
 
 const INTERVAL = 0.4
 const END_TURN_INTERVAL = 1.5
-const HIDE_HUD_INTERVAL = 1.5
 
-const HIDE_HUD = 0;
-const AI_STUFF = 1;
-const END_TURN = 2;
+const AI_STUFF = 1
+const END_TURN = 2
 
 
 var action_controller
@@ -28,8 +26,6 @@ func _process(delta):
 			action_controller.end_turn()
 			end_turn = false
 			self.stop()
-		elif state == HIDE_HUD:
-			state = AI_STUFF
 		else:
 			var result = action_controller.perform_ai_stuff()
 			if (result != true):
@@ -37,17 +33,21 @@ func _process(delta):
 		timeout = 0
 
 func get_interval():
-	if state == HIDE_HUD:
-		return HIDE_HUD_INTERVAL
-	elif state == END_TURN:
+	if state == END_TURN:
 		return END_TURN_INTERVAL
 	else:
 		return INTERVAL
 
 func reset():
-	state = HIDE_HUD
+	state = AI_STUFF
 	timeout = 0
 	end_turn = false
+	
+func reset_state():
+	self.stop()
+	self.reset()
+	action_controller = null
+	hud_controller = null
 
 func inject_action_controller(controller, hud):
 	action_controller = controller

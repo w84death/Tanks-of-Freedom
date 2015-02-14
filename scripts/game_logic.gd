@@ -18,6 +18,7 @@ var hud_controller = preload('hud_controller.gd').new()
 var map_template
 var current_map
 var hud
+var ai_timer
 
 var maps = {
 	'tutorial' : preload('res://maps/map_0.xscn'),
@@ -91,6 +92,8 @@ func load_map(template_name):
 	menu.close_button.show()
 	is_map_loaded = true
 	set_process_input(true)
+	if settings['cpu_0'] == false:
+		self.unlock_for_player()
 
 func unload_map():
 	if is_map_loaded == false:
@@ -106,7 +109,7 @@ func unload_map():
 	hud.queue_free()
 	hud = null
 	menu.close_button.hide()
-	return
+	ai_timer.reset_state()
 
 func toggle_menu():
 	if is_map_loaded:
@@ -139,6 +142,7 @@ func unlock_for_player():
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	scale_root = get_node("/root/game/pixel_scale")
+	ai_timer = get_node("AITimer")
 	sound_controller.init_root(self)
 	menu.init_root(self)
 	cursor.hide()
