@@ -1,4 +1,4 @@
-extends Control
+ extends Control
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
