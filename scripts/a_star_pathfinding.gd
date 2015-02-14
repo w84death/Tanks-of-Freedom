@@ -1,6 +1,6 @@
 var tileSize = 40
 var tileSizeVector = Vector2(tileSize,tileSize)
-var gridWidth= 20; var gridHeight = 15
+var gridWidth= 30; var gridHeight = 30
 var grid = {}
 var startTile
 var endTile
@@ -46,7 +46,6 @@ func prepareCostMap(cost_map, units, ownBuildings, terrain):
 			if (cost_map[x][y] == 999):
 				notWalkable.append(Vector2(x,y))
 
-			print(Vector2(x,y))
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
 
 # new path search

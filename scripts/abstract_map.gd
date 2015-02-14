@@ -64,9 +64,9 @@ func create_tile_type_map_for_unit(unit):
 
 	var row
 	var tiles_type = []
-	for x in range(size.x):
+	for x in range(size.x + 1):
 		row = []
-		for y in range(size.y):
+		for y in range(size.y + 1):
 			var type = fields[y][x].get_terrain_type()
 			if (type == -1):
 				row.insert(y, nonwalkable_cost)
