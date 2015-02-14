@@ -48,6 +48,9 @@ func handle_action(position):
 
 	if field.object != null:
 		if active_field != null:
+			print("FIELD ", field.object.group)
+
+
 			if field.object.group == 'unit' && active_field.object.group == 'unit':
 				if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
 					if (self.handle_battle(active_field, field) == BREAK_EVENT_LOOP):

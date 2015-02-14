@@ -23,7 +23,7 @@ func pathSearch(startTile, endTile):
 	#removing start element
 	return finalPath
 
-func prepareCostMap(cost_map, units, ownBuildings):
+func prepareCostMap(cost_map, units, ownBuildings, terrain):
 
 	notWalkable.clear()
 	grid.clear()
@@ -36,11 +36,17 @@ func prepareCostMap(cost_map, units, ownBuildings):
 		var unit_pos = ownBuildings[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = 999
 
+	# # todo this is const for map
+	for pos in terrain:
+		var unit_pos = terrain[pos].get_pos_map()
+		cost_map[unit_pos.x][unit_pos.y] = 999
+
 	for x in range(cost_map.size()):
 		for y in range(cost_map[x].size()):
 			if (cost_map[x][y] == 999):
 				notWalkable.append(Vector2(x,y))
 
+			print(Vector2(x,y))
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
 
 # new path search

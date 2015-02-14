@@ -9,6 +9,7 @@ var units_player_red = {}
 var buildings_player_none = {}
 var buildings_player_blue = {}
 var buildings_player_red = {}
+var terrain_obstacles = {}
 
 var units
 
@@ -26,9 +27,11 @@ func refresh():
 	buildings_player_none.clear()
 	buildings_player_blue.clear()
 	buildings_player_red.clear()
+	terrain_obstacles = {}
 
 	get_units()
 	get_buildings()
+	get_terrain()
 
 func get_player_units(player):
 	if player == 0:
@@ -43,11 +46,20 @@ func get_player_buildings(player):
 func get_player_bunker_position(player):
 	return bunkers[player].get_initial_pos()
 
+func get_terrain_obstacles():
+	return terrain_obstacles
+
 func get_bunkers():
 	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	for building in buildings:
 		if (building.type == 0):
 			bunkers[building.get_player()] = building
+
+func get_terrain():
+	var terrains = root_node.get_tree().get_nodes_in_group("terrain")
+	for terrain in terrains:
+		var pos = self.position_to_key(terrain.get_pos_map())
+		terrain_obstacles[pos] = terrain
 
 func get_units():
 	units = root_node.get_tree().get_nodes_in_group("units")

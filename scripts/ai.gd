@@ -27,14 +27,15 @@ func gather_available_actions(player_ap):
 		print('DEBUG -------------------- ')
 	var buildings = position_controller.get_player_buildings(current_player)
 	var units     = position_controller.get_player_units(current_player)
+	var terrain   = position_controller.get_terrain_obstacles()
 
 	self.gather_building_data(buildings, units)
-	self.gather_unit_data(buildings, units)
+	self.gather_unit_data(buildings, units, terrain)
 
 	return self.execute_best_action()
 
 
-func gather_unit_data(own_buildings, own_units):
+func gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
 		return
 	
@@ -46,7 +47,7 @@ func gather_unit_data(own_buildings, own_units):
 		var position = unit.get_pos_map()
 
 		# this should be already map for use in pathfinding
-		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], own_units, own_buildings)
+		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], own_units, own_buildings, terrain)
 
 		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 		var destinations = []
