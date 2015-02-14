@@ -18,6 +18,9 @@ var action_controller
 var hud_controller
 
 func _process(delta):
+	if get_parent().is_paused:
+		return
+	
 	timeout += delta
 
 	if timeout > self.get_interval():
@@ -26,7 +29,6 @@ func _process(delta):
 			end_turn = false
 			self.stop()
 		elif state == HIDE_HUD:
-			# todo hud hiding
 			state = AI_STUFF
 		else:
 			var result = action_controller.perform_ai_stuff()
