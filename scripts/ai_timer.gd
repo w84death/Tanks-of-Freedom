@@ -18,6 +18,9 @@ var action_controller
 var hud_controller
 
 func _process(delta):
+	if get_parent().is_paused:
+		return
+	
 	timeout += delta
 
 	if timeout > self.get_interval():
