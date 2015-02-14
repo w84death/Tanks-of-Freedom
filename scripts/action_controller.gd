@@ -95,7 +95,6 @@ func init_root(root, map, hud):
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
 	sound_controller = root.sound_controller
-	sound_controller.play_soundtrack()
 
 	pathfinding = preload('a_star_pathfinding.gd').new()
 	ai = preload("ai.gd").new()

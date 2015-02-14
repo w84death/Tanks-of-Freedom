@@ -94,6 +94,7 @@ func load_map(template_name):
 	set_process_input(true)
 	if settings['cpu_0'] == false:
 		self.unlock_for_player()
+	sound_controller.play_soundtrack()
 
 func unload_map():
 	if is_map_loaded == false:
