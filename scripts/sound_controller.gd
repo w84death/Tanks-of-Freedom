@@ -10,7 +10,7 @@ func init_root(root_node):
 
 func play_soundtrack():
 	self.stop_soundtrack()
-	if root.settings['music_enabled']:
+	if root.settings['music_enabled'] && root.is_map_loaded:
 		var stream = load("res://assets/sounds/soundtrack/aliens.ogg")
 		stream_player.set_stream(stream)
 		stream_player.set_loop(true)
