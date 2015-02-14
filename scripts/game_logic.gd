@@ -29,7 +29,9 @@ var maps = {
 var settings = {
 	'sound_enabled' : true,
 	'music_enabled' : true,
-	'shake_enabled' : true
+	'shake_enabled' : true,
+	'cpu_0' : false,
+	'cpu_1' : false
 }
 
 var is_map_loaded = false
