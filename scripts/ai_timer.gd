@@ -23,9 +23,9 @@ func _process(delta):
 
 	if timeout > self.get_interval():
 		if state == END_TURN:
-			action_controller.end_turn()
-			end_turn = false
 			self.stop()
+			end_turn = false
+			action_controller.end_turn()
 		else:
 			var result = action_controller.perform_ai_stuff()
 			if (result != true):

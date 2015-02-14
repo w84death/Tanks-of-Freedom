@@ -94,7 +94,8 @@ func init_root(root, map, hud):
 	self.import_objects()
 	hud_controller.init_root(root, self, hud)
 	hud_controller.set_turn(turn)
-	hud_controller.show_in_game_card(["Welcome!","You are the blue player.","The red one is the bad guy."],current_player)
+	if not root_node.settings['cpu_0']:
+		hud_controller.show_in_game_card(["Welcome!","You are the blue player.","The red one is the bad guy."],current_player)
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
 	sound_controller = root.sound_controller
@@ -121,7 +122,7 @@ func activate_field(field):
 	if field.object.group == 'unit':
 		hud_controller.show_unit_card(field.object)
 		self.add_movement_indicators(field)
-	if field.object.group == 'building':
+	if field.object.group == 'building' && not root_node.settings['cpu_' + str(current_player)]:
 		hud_controller.show_building_card(field.object)
 
 func clear_active_field():
@@ -215,14 +216,6 @@ func end_turn():
 		self.switch_to_player(0)
 		turn += 1
 	hud_controller.set_turn(turn)
-	if root_node.settings['cpu_' + str(current_player)]:
-		root_node.start_ai_timer()
-		root_node.lock_for_cpu()
-		self.move_camera_to_active_bunker()
-	else:
-		root_node.unlock_for_player()
-		hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
-		
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
@@ -263,6 +256,14 @@ func switch_to_player(player):
 	self.reset_player_units(player)
 	selector.set_player(player);
 	self.update_ap(player_ap_max)
+	if root_node.settings['cpu_' + str(player)]:
+		root_node.start_ai_timer()
+		root_node.lock_for_cpu()
+		self.move_camera_to_active_bunker()
+	else:
+		root_node.unlock_for_player()
+		hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
+
 
 func perform_ai_stuff():
 	var success = false

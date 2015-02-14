@@ -179,6 +179,7 @@ func warn_end_turn():
 func warn_player_ap():
 	hud_unit_ap_red.show()
 
+
 func show_win(player):
 	end_turn_card.hide()
 	turn_card.hide()

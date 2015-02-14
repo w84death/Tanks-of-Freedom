@@ -66,10 +66,9 @@ func _input(event):
 		self.toggle_menu()
 
 func start_ai_timer():
-	var timer = get_node("AITimer")
-	timer.reset()
-	timer.inject_action_controller(action_controller, hud_controller)
-	timer.start()
+	ai_timer.reset_state()
+	ai_timer.inject_action_controller(action_controller, hud_controller)
+	ai_timer.start()
 
 func load_map(template_name):
 	self.unload_map()
@@ -92,7 +91,9 @@ func load_map(template_name):
 	menu.close_button.show()
 	is_map_loaded = true
 	set_process_input(true)
-	if settings['cpu_0'] == false:
+	if settings['cpu_0']:
+		self.lock_for_cpu()
+	else:
 		self.unlock_for_player()
 	sound_controller.play_soundtrack()
 
@@ -134,11 +135,11 @@ func load_menu():
 
 func lock_for_cpu():
 	is_locked_for_cpu = true
-	hud.hide()
+	hud.get_node("turn_card").hide()
 	
 func unlock_for_player():
 	is_locked_for_cpu = false
-	hud.show()
+	hud.get_node("turn_card").show()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

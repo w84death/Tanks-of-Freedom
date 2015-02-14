@@ -71,7 +71,7 @@ func create_tile_type_map_for_unit(unit):
 			if (type == -1):
 				row.insert(y, nonwalkable_cost)
 			else:
-				row.insert(y,self.calculate_cost(stats, type))
+				row.insert(y, self.calculate_cost(stats, type))
 		tiles_type.insert(x, row)
 	tiles_cost_map.insert(unit.get_type(), tiles_type)
 
