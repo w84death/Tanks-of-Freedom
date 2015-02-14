@@ -3,12 +3,12 @@ extends "behaviours.gd"
 func _init():
 	type = 1
 
-	life = 10
-	max_life = 10
-	attack = 3
+	life = 14
+	max_life = 14
+	attack = 7
 	plain = 2
-	road = 2
-	river = 3
+	road = 1
+	river = 6
 	max_ap = 8
 	attack_ap = 2
 	max_attacks_number = 1

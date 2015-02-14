@@ -5,10 +5,10 @@ func _init():
 
 	life = 10
 	max_life = 10
-	attack = 3
-	plain = 2
-	road = 2
-	river = 3
+	attack = 4
+	plain = 1
+	road = 1
+	river = 1
 	max_ap = 8
 	attack_ap = 2
 	max_attacks_number = 1
