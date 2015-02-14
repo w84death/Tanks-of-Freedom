@@ -26,7 +26,6 @@ func _process(delta):
 			end_turn = false
 			self.stop()
 		elif state == HIDE_HUD:
-			# todo hud hiding
 			state = AI_STUFF
 		else:
 			var result = action_controller.perform_ai_stuff()

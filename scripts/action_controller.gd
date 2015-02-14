@@ -34,6 +34,8 @@ func set_active_field(position):
 	var field = abstract_map.get_field(position)
 	self.clear_active_field()
 	self.activate_field(field)
+	
+	self.move_camera_to_point(field.position)
 
 	return field
 
@@ -66,7 +68,6 @@ func handle_action(position):
 				self.move_unit(active_field, field)
 
 func post_handle_action():
-	# should check if something is changed
 	position_controller.refresh()
 
 func capture_building(active_field, field):
@@ -215,6 +216,7 @@ func end_turn():
 	if root_node.settings['cpu_' + str(current_player)]:
 		root_node.start_ai_timer()
 		root_node.lock_for_cpu()
+		self.move_camera_to_active_bunker()
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
@@ -261,9 +263,8 @@ func switch_to_player(player):
 	self.update_ap(player_ap_max)
 
 func perform_ai_stuff():
-
 	var success = false
-	if current_player == 1 && player_ap > 0:
+	if root_node.settings['cpu_' + str(current_player)] && player_ap > 0:
 		abstract_map.create_tile_type_maps()
 		success = ai.gather_available_actions(player_ap)
 
