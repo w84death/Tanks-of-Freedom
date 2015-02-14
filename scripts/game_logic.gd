@@ -37,12 +37,13 @@ var settings = {
 var is_map_loaded = false
 var is_intro = true
 var is_paused = false
+var is_locked_for_cpu = false
 
 func _input(event):
 	if is_intro:
 		self.load_menu()
 
-	if is_map_loaded && is_paused == false:
+	if is_map_loaded && is_paused == false && is_locked_for_cpu == false:
 		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 
 			game_scale = get_node("/root/game/pixel_scale").get_scale()
@@ -126,6 +127,14 @@ func load_menu():
 	cursor.raise()
 	self.remove_child(intro)
 	intro.queue_free()
+
+func lock_for_cpu():
+	is_locked_for_cpu = true
+	hud.hide()
+	
+func unlock_for_player():
+	is_locked_for_cpu = false
+	hud.show()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

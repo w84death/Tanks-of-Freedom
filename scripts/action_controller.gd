@@ -212,9 +212,13 @@ func end_turn():
 		self.switch_to_player(0)
 		turn += 1
 	hud_controller.set_turn(turn)
-	hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
-	if current_player == 1 :
+	if root_node.settings['cpu_' + str(current_player)]:
 		root_node.start_ai_timer()
+		root_node.lock_for_cpu()
+	else:
+		root_node.unlock_for_player()
+		hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
+		
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
