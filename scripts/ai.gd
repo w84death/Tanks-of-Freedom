@@ -2,7 +2,7 @@ var position_controller
 var pathfinding
 var abstract_map
 var action_controller
-const LOOKUP_RANGE = 8
+const LOOKUP_RANGE = 10
 var actions = {}
 var current_player_ap = 0
 var current_player
@@ -15,7 +15,8 @@ const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
 
 const SPAWN_LIMIT = 25
-const DEBUG = false
+const DEBUG = true
+var terrain
 
 func gather_available_actions(player_ap):
 	current_player = action_controller.current_player
@@ -27,7 +28,7 @@ func gather_available_actions(player_ap):
 		print('DEBUG -------------------- ')
 	var buildings = position_controller.get_player_buildings(current_player)
 	var units     = position_controller.get_player_units(current_player)
-	var terrain   = position_controller.get_terrain_obstacles()
+
 
 	self.gather_building_data(buildings, units)
 	self.gather_unit_data(buildings, units, terrain)
@@ -52,11 +53,9 @@ func gather_unit_data(own_buildings, own_units, terrain):
 		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 		var destinations = []
 
-		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles, current_player) + position_controller.get_nearby_empty_buldings(nearby_tiles)
-		for destination in destinations:
-			self.add_action(unit, destination, cost_map)
-
-		destinations = position_controller.get_nearby_enemies(nearby_tiles, current_player)
+		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles, current_player)
+		destinations = destinations + position_controller.get_nearby_empty_buldings(nearby_tiles)
+		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
 		for destination in destinations:
 			self.add_action(unit, destination, cost_map)
 
@@ -67,8 +66,7 @@ func gather_building_data(own_buildings, own_units):
 	var buildings = position_controller.get_player_buildings(current_player)
 	for pos in own_buildings:
 		var building = own_buildings[pos]
-		var position = building.get_pos_map()
-		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
+		var nearby_tiles = position_controller.get_nearby_tiles(building.get_pos_map(), LOOKUP_RANGE)
 		var enemy_units = position_controller.get_nearby_enemies(nearby_tiles, current_player)
 		
 		self.add_building_action(building, enemy_units, own_units)
@@ -101,8 +99,8 @@ func add_action(unit, destination, cost_map):
 					action_type = ACTION_ATTACK
 				else:
 					return
-			elif next_tile.object.group == "terrain":
-				return # no tresspassing
+			# elif next_tile.object.group == "terrain":
+			# 	return # no tresspassing
 		else:
 			
 			action_type = ACTION_MOVE
@@ -147,8 +145,10 @@ func add_building_action(building, enemy_units_nearby, own_units):
 		self.append_action(actionObject.new(building, null, action_type), score)
 	
 func append_action(action, score):
-	if (not actions.has(score)) || randf() > 0.5:
-		actions[score] = action
+	if actions.has(score):
+		score = score + floor(randf() * 20)
+
+	actions[score] = action
 
 func execute_best_action():
 	# last element of sorted keys
@@ -214,6 +214,7 @@ func init(controller, astar_pathfinding, map, action_controller_object):
 	pathfinding = astar_pathfinding
 	abstract_map = map
 	action_controller = action_controller_object
+	terrain = position_controller.get_terrain_obstacles()
 
 class actionObject:
 	var unit

@@ -93,7 +93,7 @@ func get_cost():
 func estimate_action(action_type, enemy_units_nearby, own_units):
 	var score = 120
 	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER
-	score = score - get_required_ap()
+	#score = score - get_required_ap()
 	score = score - own_units.size() * 10
 
 	var spawn_unit_type = self.get_spawn_type()
@@ -103,7 +103,7 @@ func estimate_action(action_type, enemy_units_nearby, own_units):
 		same_units_count = same_units_count + 1
 
 	if (same_units_count == 0):
-		score = score + 50
+		score = score + 80
 	else:
 		score = score - 10 * same_units_count
 
