@@ -82,7 +82,7 @@
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
 				<resource  resource_type="SpriteFrames" path="res://animation_frames.xml">  </resource>
-				<int> 14 </int>
+				<int> 15 </int>
 				<color> 1, 1, 1, 1 </color>
 				<resource  resource_type="Script" path="res://scripts/units/tank.gd">  </resource>
 				<dictionary  shared="false">
@@ -106,7 +106,7 @@
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -29.1393, -15.4667 </vector2>
+							<vector2> -42.5376, -26.7715 </vector2>
 							<string> "snap" </string>
 							<int> 10 </int>
 						</dictionary>
@@ -240,10 +240,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
-							<string> "fov" </string>
-							<real> 45 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
 							<string> "zfar" </string>
 							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -311,24 +313,22 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "default_light" </string>
-							<bool> True </bool>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -361,6 +361,10 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -428,28 +432,24 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
 							<string> "deflight_rot_y" </string>
 							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "default_light" </string>
-							<bool> True </bool>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
