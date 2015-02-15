@@ -76,10 +76,10 @@ func get_units():
 func get_nearby_tiles(position, distance=2):
 	var max_distance = distance *2 -1
 	var tiles = []
-	for y in range(-distance, distance):
-		for x in range(-distance, distance):
+	for x in range(-distance, distance + 1):
+		for y in range(-distance, distance  + 1):
 			# we are skipping current tile
-			if (self.fabs(x) + self.fabs(y) < max_distance && x != 0 && y != 0):
+			if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
 				tiles.append(Vector2(position.x + x, position.y + y))
 
 	return tiles

@@ -21,6 +21,7 @@ const ACTION_MOVE_TO_CAPTURE = 5
 const HICCUP_MODIFIER = 100
 const HI_LIFE_MODIFIER = 15
 const LO_LIFE_MODIFIER = -15
+const RANDOMNESS_MODIFIER = 20
 
 func estimate_action(action_type, path_size, ap_cost, hiccup):
 
@@ -51,6 +52,7 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 	score = score * action_type_modifiers[action_type]
 	score = score - ap_cost_modifier * ap_cost
 	score = score - path_size_modifier * path_size
+	score = score + floor(randf() * RANDOMNESS_MODIFIER)
 
 	return score
 

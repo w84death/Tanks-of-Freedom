@@ -13,6 +13,8 @@ var openList = []
 var closedList = []
 var font = load("res://font.fnt")
 
+const RANDOMNESS = 50
+
 var lastCurrent
 
 func pathSearch(startTile, endTile):
@@ -46,6 +48,16 @@ func prepareCostMap(cost_map, units, ownBuildings, terrain):
 				notWalkable.append(Vector2(x,y))
 
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
+
+func addRandomness(tiles):
+	if (RANDOMNESS > randi() % 100):
+		var tile = tiles[randi() % tiles.size()]
+
+		notWalkable.append(Vector2(tile.x,tile.y))
+		grid[Vector2(tile.x,tile.y)] = tileObject.new(999)
+
+		print('add random non walkable', tile)
+
 
 # new path search
 func _pathSearch2(start, goal):

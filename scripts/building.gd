@@ -22,6 +22,9 @@ const IN_DANGER_MODIFIER  = 5
 func get_pos_map():
 	return position_on_map
 
+func get_spawn_point_pos():
+	return spawn_point
+
 func get_initial_pos():
 	position_on_map = current_map.world_to_map(self.get_pos()) + Vector2(1, 1)
 	spawn_point = Vector2(position_on_map) + spawn_point_position
