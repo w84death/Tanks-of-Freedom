@@ -18,19 +18,29 @@ const ACTION_CAPTURE = 2
 const ACTION_SPAWN = 3
 const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
+const HICCUP_MODIFIER = 100
 
-func estimate_action(action_type, path_size, ap_cost):
+
+
+func estimate_action(action_type, path_size, ap_cost, hiccup):
 	var modifier = 1
 	if action_type == ACTION_CAPTURE:
 		modifier = capture_modifiers[type]
 	elif action_type == ACTION_ATTACK:
-		modifier = attack_modifiers[type]
+		if attacks_number > 0:
+			modifier = attack_modifiers[type]
+		else:
+			modifier = 1
 	elif action_type == ACTION_MOVE_TO_ATTACK:
 		modifier = move_attack_modifiers[type]
 	elif action_type == ACTION_MOVE_TO_CAPTURE:
 		modifier = move_capture_modifiers[type]
 
+
 	var score = 50 * modifier
+	if hiccup:
+		score = score - HICCUP_MODIFIER
+		
 	score = score * action_type_modifiers[action_type]
 	score = score - ap_cost_modifier * ap_cost
 	score = score - path_size_modifier * path_size

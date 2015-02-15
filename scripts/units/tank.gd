@@ -3,8 +3,8 @@ extends "behaviours.gd"
 func _init():
 	type = 1
 
-	life = 14
-	max_life = 14
+	life = 15
+	max_life = 15
 	attack = 7
 	plain = 2
 	road = 1

@@ -3,6 +3,7 @@ extends AnimatedSprite
 
 export var player = -1
 export var position_on_map = Vector2(0,0)
+var last_position_on_map = Vector2(0,0)
 var current_map
 var health_bar
 var icon_shield
@@ -33,7 +34,6 @@ var parent
 func set_ap(value):
 	ap = value
 
-
 func get_ap():
 	return ap;
 
@@ -48,6 +48,7 @@ func get_pos_map():
 	
 func get_initial_pos():
 	position_on_map = current_map.world_to_map(self.get_pos())
+	last_position_on_map = position_on_map
 	return position_on_map
 
 func get_stats():
@@ -69,7 +70,13 @@ func reset_ap():
 	
 func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
+	last_position_on_map = position_on_map
 	position_on_map = new_position
+
+func check_hiccup(new_position):
+	if new_position == last_position_on_map:
+		return true
+	return false
 	
 func can_attack():
 	if ap >= attack_ap && attacks_number > 0:
@@ -84,9 +91,10 @@ func set_damaged():
 	
 func update_healthbar():
 	var frame = health_bar.get_frame()
-	if self.life <= 2:
+	var life_status = self.life / (self.max_life * 1.0 )
+	if life_status <= 0.33:
 		health_bar.set_frame(2)
-	elif self.life <= 7:
+	elif life_status <= 0.66:
 		health_bar.set_frame(1)
 	else:
 		health_bar.set_frame(0)

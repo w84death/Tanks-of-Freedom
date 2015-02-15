@@ -75,6 +75,7 @@ func gather_building_data(own_buildings, own_units):
 func add_action(unit, destination, cost_map):
 	var path = pathfinding.pathSearch(unit.get_pos_map(), destination.get_pos_map())
 	var action_type = ACTION_MOVE
+	var hiccup = false
 	if path.size() == 0:
 		return
 		
@@ -115,8 +116,11 @@ func add_action(unit, destination, cost_map):
 					if (unit.can_attack_unit_type(last_tile.object)):
 						action_type = ACTION_MOVE_TO_ATTACK
 
+			# checking for moovement hiccup (onl for movement)
+			hiccup = unit.check_hiccup(path[0])
 
-		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost)
+
+		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost, hiccup)
 		if DEBUG:
 			print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 		self.append_action(actionObject.new(unit, path, action_type), score)
