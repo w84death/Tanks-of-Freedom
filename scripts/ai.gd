@@ -15,7 +15,7 @@ const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
 
 const SPAWN_LIMIT = 25
-const DEBUG = true
+const DEBUG = false
 var terrain
 
 func gather_available_actions(player_ap):
@@ -28,7 +28,7 @@ func gather_available_actions(player_ap):
 		print('DEBUG -------------------- ')
 	var buildings = position_controller.get_player_buildings(current_player)
 	var units     = position_controller.get_player_units(current_player)
-
+	terrain = position_controller.get_terrain_obstacles()
 
 	self.gather_building_data(buildings, units)
 	self.gather_unit_data(buildings, units, terrain)
@@ -42,7 +42,7 @@ func gather_unit_data(own_buildings, own_units, terrain):
 	
 	for pos in own_units:
 		var unit = own_units[pos]
-		if unit.get_ap() <= 0:
+		if unit.get_ap() < 2:
 			return
 
 		var position = unit.get_pos_map()
@@ -218,7 +218,7 @@ func init(controller, astar_pathfinding, map, action_controller_object):
 	pathfinding = astar_pathfinding
 	abstract_map = map
 	action_controller = action_controller_object
-	terrain = position_controller.get_terrain_obstacles()
+
 
 class actionObject:
 	var unit

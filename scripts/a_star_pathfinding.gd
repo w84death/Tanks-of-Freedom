@@ -36,7 +36,6 @@ func prepareCostMap(cost_map, units, ownBuildings, terrain):
 		var unit_pos = ownBuildings[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = 999
 
-	# # todo this is const for map
 	for pos in terrain:
 		var unit_pos = terrain[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = 999

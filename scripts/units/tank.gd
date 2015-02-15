@@ -5,7 +5,7 @@ func _init():
 
 	life = 15
 	max_life = 15
-	attack = 7
+	attack = 8
 	plain = 2
 	road = 1
 	river = 6

@@ -34,6 +34,3 @@ func can_capture_building(building):
 
 	return false;
 
-func can_capture():
-	return true
-

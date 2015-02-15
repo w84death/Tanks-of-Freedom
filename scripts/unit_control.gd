@@ -88,10 +88,13 @@ func die():
 
 func set_damaged():
 	print('DAMAGED!')
-	
+
+func get_life_status():
+	return self.life / (self.max_life * 1.0 )
+
 func update_healthbar():
 	var frame = health_bar.get_frame()
-	var life_status = self.life / (self.max_life * 1.0 )
+	var life_status = self.get_life_status()
 	if life_status <= 0.33:
 		health_bar.set_frame(2)
 	elif life_status <= 0.66:
