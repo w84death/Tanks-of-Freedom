@@ -77,6 +77,7 @@ func capture_building(active_field, field):
 	
 	self.activate_field(field)
 	if field.object.type == 0:
+		root_node.ai_timer.reset_state()
 		self.end_game()
 		return 1
 

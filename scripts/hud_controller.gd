@@ -182,7 +182,6 @@ func warn_player_ap():
 
 func show_win(player):
 	end_turn_card.hide()
-	turn_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
 	if player == 0:
