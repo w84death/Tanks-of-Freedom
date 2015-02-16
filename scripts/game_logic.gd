@@ -136,10 +136,12 @@ func load_menu():
 func lock_for_cpu():
 	is_locked_for_cpu = true
 	hud.get_node("turn_card").hide()
+	selector.hide()
 	
 func unlock_for_player():
 	is_locked_for_cpu = false
 	hud.get_node("turn_card").show()
+	selector.show()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
