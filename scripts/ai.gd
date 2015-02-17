@@ -15,11 +15,12 @@ const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
 
 const SPAWN_LIMIT = 25
-const DEBUG = true
+const DEBUG = false
 var terrain
 var units
 var buildings
 var enemy_bunker
+
 
 func gather_available_actions(player_ap):
 	#generate new seed
@@ -59,7 +60,6 @@ func gather_unit_data(own_buildings, own_units, terrain):
 
 		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], own_units, own_buildings, terrain)
 		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
-		pathfinding.addRandomness(position_controller.get_nearby_tiles(position, 1))
 
 		var destinations = []
 

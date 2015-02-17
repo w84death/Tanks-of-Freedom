@@ -22,4 +22,3 @@ func resolve_fight(attacker, defender):
 #ludzik atakuje czolg z lasu
 #czolgi biora ludzika na strzał
 #helikopter rozpieprza wszystko na strzal
-
