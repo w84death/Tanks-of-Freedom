@@ -61,6 +61,12 @@ func _input(event):
 			if (event.pressed and event.button_index == BUTTON_LEFT):
 				action_controller.handle_action(selector_position)
 				action_controller.post_handle_action()
+		
+		if event.type == InputEvent.KEY && event.scancode == KEY_SPACE && event.pressed:
+			if hud.is_visible():
+				hud.hide()
+			else:
+				hud.show()
 
 	if Input.is_action_pressed('ui_cancel'):
 		self.toggle_menu()
