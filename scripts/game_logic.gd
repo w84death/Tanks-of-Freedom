@@ -62,7 +62,7 @@ func _input(event):
 				action_controller.handle_action(selector_position)
 				action_controller.post_handle_action()
 		
-		if event.type == InputEvent.KEY && event.scancode == KEY_SPACE && event.pressed:
+		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
 				hud.hide()
 			else:
