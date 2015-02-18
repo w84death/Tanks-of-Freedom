@@ -133,10 +133,14 @@ func clear_unit_card():
 	hud_unit.hide()
 
 func sync_ap_progress(ap):
+	if ap > 8:
+		ap = 8
 	hud_unit_progress_ap_blank.set_frame(ap)
 	hud_unit_progress_ap.set_frame(ap)
 	
 func set_ap_progress(ap):
+	if ap > 8:
+		ap = 8
 	hud_unit_progress_ap.set_frame(ap)
 
 func show_building_card(building):
