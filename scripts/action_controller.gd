@@ -87,7 +87,7 @@ func init_root(root, map, hud):
 	abstract_map.tilemap = map.get_node("terrain")
 	camera = root.scale_root
 	ysort = map.get_node('terrain/YSort')
-	selector = map.get_node('terrain/selector')
+	selector = root.selector
 	self.import_objects()
 	hud_controller.init_root(root, self, hud)
 	hud_controller.set_turn(turn)

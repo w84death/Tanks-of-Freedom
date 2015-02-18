@@ -137,6 +137,19 @@ func sync_ap_progress(ap):
 		ap = 8
 	hud_unit_progress_ap_blank.set_frame(ap)
 	hud_unit_progress_ap.set_frame(ap)
+
+func mark_potential_ap_usage(active, required_ap):
+	if active == null || active.object == null || active.object.group != 'unit':
+		return
+	if hud_unit_progress_ap == null:
+		return
+	
+	var ap_left = active.object.ap - required_ap
+	if ap_left < 0:
+		ap_left = 0
+	if ap_left > 8:
+		ap_left = 8
+	hud_unit_progress_ap.set_frame(ap_left)
 	
 func set_ap_progress(ap):
 	if ap > 8:
