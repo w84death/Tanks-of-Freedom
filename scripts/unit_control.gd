@@ -69,6 +69,15 @@ func reset_ap():
 	update_healthbar()
 	
 func set_pos_map(new_position):
+	if new_position.x > position_on_map.x:
+		self.set_flip_h(true)
+	elif new_position.x < position_on_map.x:
+		self.set_flip_h(false)
+	if new_position.y < position_on_map.y:
+		self.set_flip_h(true)
+	elif new_position.y > position_on_map.y:
+		self.set_flip_h(false)
+
 	self.set_pos(current_map.map_to_world(new_position))
 	last_position_on_map = position_on_map
 	position_on_map = new_position

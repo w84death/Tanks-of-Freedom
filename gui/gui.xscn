@@ -183,13 +183,16 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 2 </int>
+							<int> 6 </int>
 							<string> "sources" </string>
-							<array  len="4" shared="false">
+							<array  len="7" shared="false">
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/building.gd" </string>
+								<string> "res://scripts/units/behaviours.gd" </string>
+								<string> "res://scripts/units/helicopter.gd" </string>
+								<string> "res://scripts/unit_control.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
