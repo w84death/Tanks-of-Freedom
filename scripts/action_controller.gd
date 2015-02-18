@@ -325,6 +325,7 @@ func handle_battle(active_field, field):
 		else:
 			sound_controller.play('not_dead')
 			field.object.show_explosion()
+			self.update_unit(active_field)
 			# defender can deal damage
 			#print('defend!')
 			if battle_controller.can_attack(field.object, active_field.object):

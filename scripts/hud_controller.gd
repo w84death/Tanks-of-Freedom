@@ -125,6 +125,7 @@ func update_unit_card(unit):
 		hud_unit_ap_red.hide()
 	else:
 		hud_unit_ap_red.show()
+	hud_unit_progress_attack.set_frame(stats.attacks_number)
 
 func set_unit_card_icon(unit):
 	hud_unit_icon.set_region_rect(Rect2((unit.player + 1) * 32, unit.type * 32, 32, 32))
