@@ -3,6 +3,7 @@ extends Sprite
 export var position_on_map = Vector2(0,0)
 export var type = 0
 export var player = -1
+export var bonus_ap = 1
 
 var current_map
 var group = 'building'

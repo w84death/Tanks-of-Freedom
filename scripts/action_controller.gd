@@ -247,12 +247,19 @@ func update_ap(ap):
 	if player_ap == 0:
 		hud_controller.warn_end_turn()
 
+func refill_ap():
+	var total_ap = player_ap_max
+	var buildings = position_controller.get_player_buildings(current_player)
+	for building in buildings:
+		total_ap = total_ap + buildings[building].bonus_ap
+	self.update_ap(total_ap)
+
 func switch_to_player(player):
 	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
 	selector.set_player(player);
-	self.update_ap(player_ap_max)
+	self.refill_ap()
 	if root_node.settings['cpu_' + str(player)]:
 		root_node.start_ai_timer()
 		root_node.lock_for_cpu()
