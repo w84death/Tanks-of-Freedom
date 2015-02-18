@@ -117,8 +117,7 @@ func update_unit_card(unit):
 	hud_unit_life.set_text(str(stats.life))
 	hud_unit_attack.set_text(str(stats.attack))
 	hud_unit_ap.set_text(str(stats.ap))
-	hud_unit_progress_ap_blank.set_frame(stats.ap)
-	hud_unit_progress_ap.set_frame(stats.ap)
+	sync_ap_progress(stats.ap)
 	hud_unit_plain.set_text(str(stats.plain))
 	hud_unit_road.set_text(str(stats.road))
 	hud_unit_river.set_text(str(stats.river))
@@ -132,6 +131,13 @@ func set_unit_card_icon(unit):
 
 func clear_unit_card():
 	hud_unit.hide()
+
+func sync_ap_progress(ap):
+	hud_unit_progress_ap_blank.set_frame(ap)
+	hud_unit_progress_ap.set_frame(ap)
+	
+func set_ap_progress(ap):
+	hud_unit_progress_ap.set_frame(ap)
 
 func show_building_card(building):
 	hud_building_icon.set_region_rect(building.get_region_rect())
