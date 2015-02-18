@@ -26,9 +26,7 @@ func pathSearch(startTile, endTile):
 	return finalPath
 
 func prepareCostMap(cost_map, units, ownBuildings, terrain):
-
 	grid.clear()
-
 	for pos in units:
 		var unit_pos = units[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = 999
@@ -44,6 +42,8 @@ func prepareCostMap(cost_map, units, ownBuildings, terrain):
 	for x in range(cost_map.size()):
 		for y in range(cost_map[x].size()):
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
+
+
 
 # new path search
 func _pathSearch2(start, goal):

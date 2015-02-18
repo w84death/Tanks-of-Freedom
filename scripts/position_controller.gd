@@ -1,5 +1,4 @@
 var root_node
-var buildings
 var bunkers
 var center
 
@@ -15,10 +14,16 @@ var units
 
 const lookout_range = 3
 
+# not changable data
+var buildings
+var terrains
+
 func init_root(root):
 	root_node = root
-
 	bunkers = {0: null, 1: null}
+
+	buildings = root_node.get_tree().get_nodes_in_group("buildings")
+	terrains = root_node.get_tree().get_nodes_in_group("terrain")
 	get_bunkers()
 
 func refresh():
@@ -50,16 +55,13 @@ func get_terrain_obstacles():
 	return terrain_obstacles
 
 func get_bunkers():
-	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	for building in buildings:
 		if (building.type == 0):
 			bunkers[building.get_player()] = building
 
 func get_terrain():
-	var terrains = root_node.get_tree().get_nodes_in_group("terrain")
 	for terrain in terrains:
-		var pos = self.position_to_key(terrain.get_pos_map())
-		terrain_obstacles[pos] = terrain
+		terrain_obstacles[terrain.get_pos_map()] = terrain
 
 func get_units():
 	units = root_node.get_tree().get_nodes_in_group("units")
@@ -67,11 +69,10 @@ func get_units():
 	units_player_red.clear()
 
 	for unit in units:
-		var pos = self.position_to_key(unit.get_pos_map())
 		if(unit.get_player() == 1):
-			units_player_red[pos] = unit
+			units_player_red[unit.get_pos_map()] = unit
 		else:
-			units_player_blue[pos] = unit
+			units_player_blue[unit.get_pos_map()] = unit
 
 func get_nearby_tiles(position, distance=2):
 	var max_distance = distance *2 -1
@@ -94,16 +95,14 @@ func get_nearby_enemies(nearby_tiles, current_player):
 	
 	var enemies = []
 	for tile in nearby_tiles:
-		var tile_key = self.position_to_key(tile)
-		if enemy_units_collection.has(tile_key):
-			enemies.append(enemy_units_collection[tile_key])
+		if enemy_units_collection.has(tile):
+			enemies.append(enemy_units_collection[tile])
 
 	return enemies
 
 func get_buildings():
-	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	for building in buildings:
-		var pos = self.position_to_key(building.get_pos_map())
+		var pos = building.get_pos_map()
 		if (building.get_player() == 0):
 			buildings_player_blue[pos] = building
 		elif(building.get_player() == 1):
@@ -121,9 +120,8 @@ func get_nearby_enemy_buldings(nearby_tiles, current_player):
 		
 	var buildings = []
 	for tile in nearby_tiles:
-		var tile_key = self.position_to_key(tile)
-		if enemy_buildings_collection.has(tile_key):
-			buildings.append(enemy_buildings_collection[tile_key])
+		if enemy_buildings_collection.has(tile):
+			buildings.append(enemy_buildings_collection[tile])
 
 	return buildings
 
@@ -131,9 +129,8 @@ func get_nearby_enemy_buldings(nearby_tiles, current_player):
 func get_nearby_empty_buldings(nearby_tiles):
 	var buildings = []
 	for tile in nearby_tiles:
-		var tile_key = self.position_to_key(tile)
-		if buildings_player_none.has(tile_key):
-			buildings.append(buildings_player_none[tile_key])
+		if buildings_player_none.has(tile):
+			buildings.append(buildings_player_none[tile])
 
 	return buildings
 
@@ -144,6 +141,6 @@ func fabs(value):
 		return value
 
 func position_to_key(position):
-	return str(position.x)+':'+str(position.y)
+	return position
 
 

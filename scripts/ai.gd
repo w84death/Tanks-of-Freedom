@@ -44,21 +44,29 @@ func gather_available_actions(player_ap):
 
 	return self.execute_best_action()
 
-
+func _prepare_cost_maps(own_buildings, own_units, terrain):
+	var cost_maps = {}
+	# for each unit type
+	for unit_type in range(0,3):
+		print('COST_MAP', unit_type)
+		cost_maps[unit_type] = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit_type], own_units, own_buildings, terrain)
+		
+	return cost_maps
+	
 func gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
 		return
-	
+
+	var cost_maps = self._prepare_cost_maps(own_buildings, own_units, terrain)
 	for pos in own_units:
 		var unit = own_units[pos]
 		if unit.get_ap() < 2:
 			return
-
 		var position = unit.get_pos_map()
 
 		# this should be already map for use in pathfinding
 
-		var cost_map = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit.get_type()], own_units, own_buildings, terrain)
+
 		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 
 		var destinations = []
@@ -68,7 +76,7 @@ func gather_unit_data(own_buildings, own_units, terrain):
 		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
 		self.gather_random_nearby_tile(unit)
 		for destination in destinations:
-			self.add_action(unit, destination, cost_map)
+			self.add_action(unit, destination, cost_maps[unit.get_type()])
 
 
 func gather_random_nearby_tile(unit):
