@@ -15,6 +15,7 @@ var TYPE_BUNKER = 0;
 var TYPE_BARRACKS = 1;
 var TYPE_FACTORY = 2;
 var TYPE_AIRPORT = 3;
+var TYPE_TOWER = 4;
 
 const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3;
 const IN_DANGER_MODIFIER  = 5
@@ -89,7 +90,9 @@ func get_building_name():
 		return "FACTORY"
 	if type == TYPE_AIRPORT:
 		return "AIRPORT"
-
+	if type == TYPE_TOWER:
+		return "GSM TOWER"
+		
 func get_cost():
 	return get_required_ap()
 

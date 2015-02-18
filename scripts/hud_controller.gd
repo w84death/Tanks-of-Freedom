@@ -19,6 +19,7 @@ var hud_unit_road
 var hud_unit_river
 var hud_unit_icon
 var hud_unit_progress_ap
+var hud_unit_progress_ap_blank
 var hud_unit_progress_attack
 
 var hud_building
@@ -78,6 +79,7 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_river = hud_unit.get_node("river")
 	hud_unit_icon = hud_unit.get_node("unit_icon")
 	hud_unit_progress_ap = hud_unit.get_node("progress_ap")
+	hud_unit_progress_ap_blank = hud_unit.get_node("progress_ap_blank")
 	hud_unit_progress_attack = hud_unit.get_node("progress_attack")
 
 	hud_building = hud.get_node("bottom_center/building_card")
@@ -115,6 +117,7 @@ func update_unit_card(unit):
 	hud_unit_life.set_text(str(stats.life))
 	hud_unit_attack.set_text(str(stats.attack))
 	hud_unit_ap.set_text(str(stats.ap))
+	hud_unit_progress_ap_blank.set_frame(stats.ap)
 	hud_unit_progress_ap.set_frame(stats.ap)
 	hud_unit_plain.set_text(str(stats.plain))
 	hud_unit_road.set_text(str(stats.road))
