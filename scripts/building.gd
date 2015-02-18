@@ -10,6 +10,7 @@ var current_map
 var group = 'building'
 var spawn_point = Vector2(0, 0)
 export var spawn_point_position = Vector2(0, 1)
+var flag
 
 var object_factory = preload('object_factory.gd').new()
 
@@ -47,6 +48,7 @@ func claim(new_player):
 		self.set_frame(2)
 
 	player = new_player
+	flag.change_flag(new_player)
 
 func get_player():
 	return player
@@ -122,6 +124,7 @@ func estimate_action(action_type, enemy_units_nearby, own_units):
 func _ready():
 	add_to_group("buildings")
 	current_map = get_node("/root/game").current_map_terrain
+	flag = get_node('flag')
 	pass
 
 
