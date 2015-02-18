@@ -158,6 +158,9 @@ func set_ap_progress(ap):
 	hud_unit_progress_ap.set_frame(ap)
 
 func show_building_card(building):
+	if not building.can_spawn:
+		return
+	
 	hud_building_icon.set_region_rect(building.get_region_rect())
 	hud_building_unit_icon.set_region_rect(building.get_region_rect())
 	hud_building_label.set_text(building.get_building_name())

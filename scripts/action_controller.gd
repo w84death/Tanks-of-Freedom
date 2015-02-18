@@ -59,7 +59,7 @@ func handle_action(position):
 				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field) && self.has_ap():
 					if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
 						return
-		if (field.object.group == 'unit' || field.object.group == 'building') && field.object.player == current_player:
+		if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == current_player:
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
@@ -182,7 +182,7 @@ func destroy_unit(field):
 	field.object = null
 
 func spawn_unit_from_active_building():
-	if active_field == null || active_field.object.group != 'building':
+	if active_field == null || active_field.object.group != 'building' || active_field.object.can_spawn == false:
 		return
 	var spawn_point = abstract_map.get_field(active_field.object.spawn_point)
 	var required_ap = active_field.object.get_required_ap()
