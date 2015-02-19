@@ -50,9 +50,9 @@ func _prepare_cost_maps(own_buildings, own_units, terrain):
 	for unit_type in range(0,3):
 		print('COST_MAP', unit_type)
 		cost_maps[unit_type] = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit_type], own_units, own_buildings, terrain)
-		
+
 	return cost_maps
-	
+
 func gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
 		return
@@ -94,7 +94,7 @@ func gather_building_data(own_buildings, own_units):
 		var building = own_buildings[pos]
 		var nearby_tiles = position_controller.get_nearby_tiles(building.get_pos_map(), LOOKUP_RANGE)
 		var enemy_units = position_controller.get_nearby_enemies(nearby_tiles, current_player)
-		
+
 		self.add_building_action(building, enemy_units, own_units)
 
 func add_action(unit, destination, cost_map):
@@ -103,7 +103,7 @@ func add_action(unit, destination, cost_map):
 	var hiccup = false
 	if path.size() == 0:
 		return
-		
+
 	# jakies solidne WTF?
 	if (unit.get_pos_map() == path[0]):
 		path.remove(0)
@@ -111,6 +111,7 @@ func add_action(unit, destination, cost_map):
 	if path.size() > 0:
 		# skip if this can be capture move and building cannot be captured
 		var unit_ap_cost = 0
+		var tile_ap = 0
 		# verify action_type
 		var next_tile = abstract_map.get_field(path[0])
 
@@ -128,7 +129,11 @@ func add_action(unit, destination, cost_map):
 			# elif next_tile.object.group == "terrain":
 			# 	return # no tresspassing
 		else:
-			
+			var from = action_controller.abstract_map.get_field(unit.get_pos_map())
+			var to = action_controller.abstract_map.get_field(path[0])
+			if not action_controller.movement_controller.can_move(from, to):
+				return
+
 			action_type = ACTION_MOVE
 			unit_ap_cost = abstract_map.calculate_path_cost(unit, path)
 			var last_tile = abstract_map.get_field(path[path.size() - 1])
@@ -172,7 +177,7 @@ func add_building_action(building, enemy_units_nearby, own_units):
 		if DEBUG:
 			print("DEBUG : ", self.get_action_name(action_type), " score: ", score, " ap: ", building.get_required_ap())
 		self.append_action(actionObject.new(building, null, action_type), score)
-	
+
 func append_action(action, score):
 	if actions.has(score):
 		score = score + floor(randf() * 20)
