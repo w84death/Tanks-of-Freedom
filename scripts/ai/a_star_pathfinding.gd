@@ -11,7 +11,7 @@ var searched_children = []
 var openList = []
 var closedList = []
 
-var tileObject = preload('ai/tile_object.gd')
+var tileObject = preload('tile_object.gd')
 
 const RANDOMNESS = 50
 

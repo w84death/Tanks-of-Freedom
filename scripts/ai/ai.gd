@@ -21,6 +21,7 @@ var units
 var buildings
 var enemy_bunker
 
+var actionObject = preload('actions/action_object.gd')
 
 func gather_available_actions(player_ap):
 	#generate new seed
@@ -35,9 +36,6 @@ func gather_available_actions(player_ap):
 	buildings = position_controller.get_player_buildings(current_player)
 	units     = position_controller.get_player_units(current_player)
 	terrain   = position_controller.get_terrain_obstacles()
-	#todo
-	# var enemy_player = abs(action_controller.current_player - 1);
-	# enemy_bunker = position_controller.get_player_bunker_position(enemy_player)
 
 	self.gather_building_data(buildings, units)
 	self.gather_unit_data(buildings, units, terrain)
@@ -48,7 +46,6 @@ func _prepare_cost_maps(own_buildings, own_units, terrain):
 	var cost_maps = {}
 	# for each unit type
 	for unit_type in range(0,3):
-		print('COST_MAP', unit_type)
 		cost_maps[unit_type] = pathfinding.prepareCostMap(abstract_map.tiles_cost_map[unit_type], own_units, own_buildings, terrain)
 
 	return cost_maps
@@ -248,15 +245,3 @@ func init(controller, astar_pathfinding, map, action_controller_object):
 	pathfinding = astar_pathfinding
 	abstract_map = map
 	action_controller = action_controller_object
-
-
-class actionObject:
-	var unit
-	var path
-	var type
-
-	func _init(unit, path, action_type):
-		self.unit = unit
-		self.path = path
-		self.type = action_type
-
