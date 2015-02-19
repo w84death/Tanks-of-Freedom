@@ -11,8 +11,6 @@ var searched_children = []
 var openList = []
 var closedList = []
 
-var tileObject = preload('tile_object.gd')
-
 const RANDOMNESS = 50
 
 var lastCurrent
@@ -25,25 +23,8 @@ func pathSearch(startTile, endTile):
 	#removing start element
 	return finalPath
 
-func prepareCostMap(cost_map, units, ownBuildings, terrain):
-	grid.clear()
-	for pos in units:
-		var unit_pos = units[pos].get_pos_map()
-		cost_map[unit_pos.x][unit_pos.y] = 999
-
-	for pos in ownBuildings:
-		var unit_pos = ownBuildings[pos].get_pos_map()
-		cost_map[unit_pos.x][unit_pos.y] = 999
-
-	for pos in terrain:
-		var unit_pos = terrain[pos].get_pos_map()
-		cost_map[unit_pos.x][unit_pos.y] = 999
-
-	for x in range(cost_map.size()):
-		for y in range(cost_map[x].size()):
-			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
-
-
+func set_cost_grid(cost_grid):
+	grid = cost_grid
 
 # new path search
 func _pathSearch2(start, goal):
