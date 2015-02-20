@@ -1,15 +1,6 @@
 var defender_stats
 var attacker_stats
 
-func deal(attacker, defender):
-	return 1
-
-func deal_fortify(attacker, defender):
-	print('test')
-
-func calculate():
-	print('calc')
-
 func resolve_fight(attacker, defender):
 	attacker_stats = attacker.get_stats()
 	defender_stats = defender.get_stats()

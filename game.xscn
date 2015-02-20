@@ -196,9 +196,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 22 </int>
+							<int> 17 </int>
 							<string> "sources" </string>
-							<array  len="23" shared="false">
+							<array  len="24" shared="false">
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/map_move.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
@@ -222,6 +222,7 @@
 								<string> "res://scripts/ai/actions/types/attack.gd" </string>
 								<string> "res://scripts/ai/actions/types/move_attack.gd" </string>
 								<string> "res://scripts/ai/actions/types/spawn.gd" </string>
+								<string> "res://scripts/ai_timer.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>

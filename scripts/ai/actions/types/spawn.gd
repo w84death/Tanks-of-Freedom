@@ -6,5 +6,6 @@ func _init(unit, path):
 	self.path = path
 
 func execute():
-	action_controller.set_active_field(self.unit.get_pos_map())
+	action_controller.set_active_field(unit.get_pos_map())
 	action_controller.spawn_unit_from_active_building()
+	return true
