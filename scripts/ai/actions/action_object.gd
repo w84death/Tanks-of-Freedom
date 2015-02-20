@@ -1,6 +1,8 @@
 var unit
 var path
 var type
+var abstract_map
+var action_controller
 
 const ACTION_ATTACK = 0
 const ACTION_MOVE   = 1
@@ -9,11 +11,19 @@ const ACTION_SPAWN = 3
 const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
 
-func _init(unit, path, action_type):
-	self.unit = unit
-	self.path = path
-	self.type = action_type
+func get_next_tile_from_action():
+	if path.size() == 0:
+		return null
 
+	return abstract_map.get_field(path[0])
+
+func set_action_controller(controller):
+	action_controller = controller
+
+func set_abstract_map(abs_map):
+	abstract_map = abs_map
+
+# just for debugging purporses
 func get_action_name():
 	if type == ACTION_MOVE:
 		return 'MOVE'

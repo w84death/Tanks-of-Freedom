@@ -98,8 +98,7 @@ func init_root(root, map, hud):
 	sound_controller = root.sound_controller
 
 	pathfinding = preload('ai/a_star_pathfinding.gd').new()
-	ai = preload("ai/ai.gd").new()
-	ai.init(position_controller, pathfinding, abstract_map, self)
+	ai = preload("ai/ai.gd").new(position_controller, pathfinding, abstract_map, self)
 
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
