@@ -11,7 +11,7 @@ var root
 
 var sX = 0
 var sY = 0
-var k = 0.94
+var k = 0.97
 var target = Vector2(0,0)
 
 var shake_timer = Timer.new()
@@ -47,12 +47,14 @@ func _process(delta):
 		underground.set_pos(Vector2(self.sX,self.sY))
 
 func move_to(target):
-	self.target = target;
+	if not mouse_dragging:
+		self.target = target;
 
 func move_to_map(target):
-	game_size = get_node("/root/game").get_size()
-	var target_position = self.map_to_world(target*Vector2(-1,-1))
-	self.target = target_position + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
+	if not mouse_dragging:
+		game_size = get_node("/root/game").get_size()
+		var target_position = self.map_to_world(target*Vector2(-1,-1))
+		self.target = target_position + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 
 func shake_camera():
 	if root.settings['shake_enabled'] and not mouse_dragging:
