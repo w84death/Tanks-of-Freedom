@@ -11,7 +11,7 @@ var root
 
 var sX = 0
 var sY = 0
-var k = 0.98
+var k = 0.94
 var target = Vector2(0,0)
 
 var shake_timer = Timer.new()
@@ -55,7 +55,7 @@ func move_to_map(target):
 	self.target = target_position + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 
 func shake_camera():
-	if root.settings['shake_enabled']:
+	if root.settings['shake_enabled'] and not mouse_dragging:
 		shakes = 0
 		shake_initial_position = terrain.get_pos()
 		self.do_single_shake()
