@@ -92,6 +92,11 @@ func can_attack():
 		return true
 	return false
 
+func can_defend():
+	if ap >= attack_ap:
+		return true
+	return false
+
 func die():
 	print('DIED!')
 

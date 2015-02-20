@@ -336,7 +336,7 @@ func handle_battle(active_field, field):
 			self.update_unit(active_field)
 			# defender can deal damage
 			#print('defend!')
-			if battle_controller.can_attack(field.object, active_field.object):
+			if battle_controller.can_defend(field.object, active_field.object):
 				if (battle_controller.resolve_defend(active_field.object, field.object)):
 					#print('defender kill attacker');
 					self.play_destroy(active_field)

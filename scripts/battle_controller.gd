@@ -36,6 +36,9 @@ func resolve_defend(attacker, defender):
 	attacker_stats.life = attacker_stats.life - defender_stats.attack
 	attacker.set_stats(attacker_stats)
 	attacker.show_floating_damage(defender_stats.attack)
+	
+	defender_stats.ap = 0
+	defender.set_stats(defender_stats)
 
 	#handle
 	if (attacker_stats.life <= 0):
@@ -44,13 +47,9 @@ func resolve_defend(attacker, defender):
 	else:
 		return false
 
-func can_attack(attacker, defender):
-	if (attacker.can_attack_unit_type(defender)):
-
-		if attacker.can_attack():
-			return true
-
-	return false
+func can_attack(defender, attacker):
+	return attacker.can_attack_unit_type(defender) && attacker.can_attack()
 
 func can_defend(attacker, defender):
-	return defender.can_attack_unit_type(attacker)
+	return defender.can_attack_unit_type(attacker) && defender.can_defend()
+	
