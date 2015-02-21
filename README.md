@@ -1,6 +1,6 @@
-# TANKS OF FREEDOM
+# Tanks of Freedom
 
-![Alt text](http://i.imgur.com/Av43iOA.png)
+![Tanks of Freedom](http://i.imgur.com/RXYSYhp.png)
 
 ## Turn-based, isometric, classic strategy game.
 
@@ -25,8 +25,9 @@ by gamers for gamers
 [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 
 ## Media
-![Alt text](http://i.imgur.com/krOz6Rs.png)
-![Alt text](http://i.imgur.com/RXsiHXN.png)
+![Imgur](http://i.imgur.com/pyDr87G.png)
+![Imgur](http://i.imgur.com/U0ORsxQ.png)
+![Imgur](http://i.imgur.com/kkp8zFD.png)
 
 ## Credits
 
