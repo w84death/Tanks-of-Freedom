@@ -1,13 +1,12 @@
 # TANKS OF FREEDOM
 
-![Alt text](http://i.imgur.com/REAaFBV.png)
+![Alt text](http://i.imgur.com/Av43iOA.png)
 
 ## Turn-based, isometric, classic strategy game.
 
 Push the frontline with your tanks, support with your helicopters, and claim strategic buildings with your infantry! Issue orders and fight for freedom!
 
 Use roads to move the front forward with your armed forces . Break through the enemy lines and take control of your opponent's bunker to win the battle.
-
 
 ## Why should you play Tanks of Freedom?
 
@@ -19,6 +18,12 @@ great performance provided by Godot Engine
 available for Windows, Linux, OSX, Android and BlackBerry OS 10
 constantly updated with new features and bugfixes
 by gamers for gamers
+
+## Download the game binaries
+![http://w84death.itch.io/tanks-of-freedom](http://i.imgur.com/4QeiJSH.png)
+
+[http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+
 ## Media
 ![Alt text](http://i.imgur.com/krOz6Rs.png)
 ![Alt text](http://i.imgur.com/RXsiHXN.png)
@@ -38,9 +43,7 @@ by gamers for gamers
  * engine
    * Godot Engine http://www.godotengine.org/
 
-## Public aperance
+## Public game catalogs
 
 <a href="http://www.indiedb.com/games/tanks-of-freedom" title="View Tanks of Freedom on Indie DB" target="_blank"><img src="http://button.indiedb.com/popularity/medium/games/39024.png" alt="Tanks of Freedom" /></a>
-
-<iframe src="//itch.io/embed/17705?linkback=true" width="552" height="167" frameborder="0"></iframe>
 
