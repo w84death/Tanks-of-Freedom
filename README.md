@@ -19,10 +19,9 @@ available for Windows, Linux, OSX, Android and BlackBerry OS 10
 constantly updated with new features and bugfixes
 by gamers for gamers
 
-## Download the game binaries
-![http://w84death.itch.io/tanks-of-freedom](http://i.imgur.com/4QeiJSH.png)
-
-[http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+## Download
+Windows, Linux, OSX, Android, Blackberry:
+- [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 
 ## Media
 ![Imgur](http://i.imgur.com/pyDr87G.png)
