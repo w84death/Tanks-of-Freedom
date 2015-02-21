@@ -46,8 +46,9 @@ by gamers for gamers
 
 ## Public game catalogs
 
-[http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
-[www.lgdb.org/game/tanks-of-freedom](www.lgdb.org/game/tanks-of-freedom)
+- itch.io [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+- Linux Games DB [www.lgdb.org/game/tanks-of-freedom](www.lgdb.org/game/tanks-of-freedom)
+- Indie DB [http://www.indiedb.com/games/tanks-of-freedom](http://www.indiedb.com/games/tanks-of-freedom)
 
 <a href="http://www.indiedb.com/games/tanks-of-freedom" title="View Tanks of Freedom on Indie DB" target="_blank"><img src="http://button.indiedb.com/popularity/medium/games/39024.png" alt="Tanks of Freedom" /></a>
 
