@@ -2,7 +2,7 @@
 
 ![Tanks of Freedom](http://i.imgur.com/RXYSYhp.png)
 
-## Turn-based, isometric, classic strategy game.
+## Indie Turn Based Strategy in Isometric Pixel Art
 
 Push the frontline with your tanks, support with your helicopters, and claim strategic buildings with your infantry! Issue orders and fight for freedom!
 
