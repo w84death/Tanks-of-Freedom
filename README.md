@@ -2,15 +2,23 @@
 
 ![Alt text](http://i.imgur.com/REAaFBV.png)
 
-Turn-based strategy game in isometric pixel-art style.
+## Turn-based, isometric, classic strategy game.
 
-Take one of the sites and fight for freedom!
+Push the frontline with your tanks, support with your helicopters, and claim strategic buildings with your infantry! Issue orders and fight for freedom!
 
-Game made on Global Game Jam in 48h!
-New features and bug fixes will be added.
+Use roads to move the front forward with your armed forces . Break through the enemy lines and take control of your opponent's bunker to win the battle.
 
-<iframe src="//itch.io/embed/17705" width="552" height="167" frameborder="0"></iframe>
 
+## Why should you play Tanks of Freedom?
+
+hand-made pixel art assets in 16 colours!
+original soundtrack made on Access Virus C and Korg Electribe
+modern theme of real world events
+free (if you want to)
+great performance provided by Godot Engine
+available for Windows, Linux, OSX, Android and BlackBerry OS 10
+constantly updated with new features and bugfixes
+by gamers for gamers
 ## Media
 ![Alt text](http://i.imgur.com/krOz6Rs.png)
 ![Alt text](http://i.imgur.com/RXsiHXN.png)
@@ -20,20 +28,19 @@ New features and bug fixes will be added.
 ![Alt text](http://i.imgur.com/wZPAs75.jpg)
 
 * P1X Team
-  * code
-    * czlowiekimadlo https://twitter.com/czlowiekimadlo
-    * WrmZ
-  * gfx
-    * w84death http://krzysztofjankowski.com
-  * music
-    * Mathias Nova
-  * engine
-    * Godot Engine http://www.godotengine.org/
+ * code
+   * czlowiekimadlo https://twitter.com/czlowiekimadlo
+   * WrmZ https://plus.google.com/u/0/113866605142376544736/posts
+ * gfx
+   * w84death http://krzysztofjankowski.com
+ * music
+   * Mathias Nova http://mathiasnova.blogspot.com/
+ * engine
+   * Godot Engine http://www.godotengine.org/
 
-## About the jam
-Global Game Jam
-http://globalgamejam.org/2015/games/tanks-freedom-p1x
+## Public aperance
 
-Poznan Game Jam
-https://www.facebook.com/poznangamejam
+<a href="http://www.indiedb.com/games/tanks-of-freedom" title="View Tanks of Freedom on Indie DB" target="_blank"><img src="http://button.indiedb.com/popularity/medium/games/39024.png" alt="Tanks of Freedom" /></a>
+
+<iframe src="//itch.io/embed/17705?linkback=true" width="552" height="167" frameborder="0"></iframe>
 
