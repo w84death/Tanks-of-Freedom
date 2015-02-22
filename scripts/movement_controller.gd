@@ -1,25 +1,9 @@
 var tile_types = [
-	'plain',
-	'road',
-	'road',
-	'road',
-	'road',
-	'road',
-	'road',
-	'road',
-	'river',
-	'river',
-	'river',
-	'river',
-	'river',
-	'river',
-	'river',
-	'river',
-	'road',
-	'road',
-	'road',
-	'road',
-	'road'
+	'plain','road','road','road','road','road','road','road',
+	'river','river','river','river','river','river','river',
+	'river','road','road','road','road','road',null,'road',
+	'road','road','road','road','road','road','road','road',
+	'road','road','road'
 ]
 
 func move_object(from, to):
