@@ -11,7 +11,7 @@ var root
 
 var sX = 0
 var sY = 0
-var k = 0.97
+var k = 0.90
 var target = Vector2(0,0)
 
 var shake_timer = Timer.new()
