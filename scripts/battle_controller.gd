@@ -38,9 +38,9 @@ func resolve_defend(attacker, defender):
 	else:
 		return false
 
-func can_attack(defender, attacker):
+func can_attack(attacker, defender):
 	return attacker.can_attack_unit_type(defender) && attacker.can_attack()
 
-func can_defend(attacker, defender):
+func can_defend(defender, attacker):
 	return defender.can_attack_unit_type(attacker) && defender.can_defend()
 	
