@@ -20,6 +20,8 @@ export var shakes_max = 5
 export var shake_time = 0.25
 export var shake_boundary = 5
 var shake_initial_position
+var temp_delta = 0
+var map_step = 0.01
 
 func _input(event):
 	if root.is_paused:
@@ -40,11 +42,13 @@ func _input(event):
 
 
 func _process(delta):
-	if not pos == target:
-		self.sX = self.k * self.sX + (1.0 - self.k) * target.x;
-		self.sY = self.k * self.sY + (1.0 - self.k) * target.y;
+	temp_delta += delta
+	if not pos == target and temp_delta > map_step:
+		self.sX = self.sX - (self.sX - target.x) * temp_delta;
+		self.sY = self.sY - (self.sY - target.y) * temp_delta;
 		terrain.set_pos(Vector2(self.sX,self.sY))
 		underground.set_pos(Vector2(self.sX,self.sY))
+		temp_delta = 0
 
 func move_to(target):
 	if not mouse_dragging:

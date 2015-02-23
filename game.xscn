@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="17" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
-	<ext_resource path="res://scripts/ai_timer.gd" type="Script"></ext_resource>
-	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
+<resource_file type="PackedScene" subresource_count="17" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/sounds/fx/powerup.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/menu.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/select.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/hurt.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://scripts/ai_timer.gd" type="Script"></ext_resource>
+	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/no_attack.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/pickup_box.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/not_dead.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/no_moves.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/explosion.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/move.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/spawn.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://gui/corners.scn" type="PackedScene"></ext_resource>
-	<resource type="SampleLibrary" path="local://1">
+	<ext_resource path="res://assets/sounds/fx/explosion.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/select.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/spawn.wav" type="Sample"></ext_resource>
+	<ext_resource path="res://assets/sounds/fx/hurt.wav" type="Sample"></ext_resource>
+	<resource type="SampleLibrary" path="local://0">
+		<dictionary name="samples/move" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/move.wav">  </resource>
+		</dictionary>
 		<dictionary name="samples/select" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
@@ -24,13 +32,29 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/select.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/move" shared="false">
+		<dictionary name="samples/explosion" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/move.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/explosion.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/no_moves" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/pickup_box" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/end_turn" shared="false">
 			<string> "db" </string>
@@ -64,38 +88,6 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/spawn.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/no_moves" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/explosion" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/explosion.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/pickup_box" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/not_dead" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
-		</dictionary>
 		<dictionary name="samples/powerup" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
@@ -111,6 +103,14 @@
 			<real> 1 </real>
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_attack.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/not_dead" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
 		</dictionary>
 
 	</resource>
@@ -196,7 +196,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 17 </int>
+							<int> 1 </int>
 							<string> "sources" </string>
 							<array  len="24" shared="false">
 								<string> "res://scripts/action_controller.gd" </string>
@@ -363,6 +363,10 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -430,28 +434,24 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
 							<string> "deflight_rot_y" </string>
 							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
 							<string> "default_light" </string>
 							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
 							<string> "znear" </string>
 							<real> 0.1 </real>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
 							<string> "deflight_rot_x" </string>
 							<real> 0.942478 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -464,7 +464,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
+				<resource  resource_type="SampleLibrary" path="local://0">  </resource>
 				<nil>  </nil>
 				<resource name=""></resource>				<real> 2 </real>
 				<resource  resource_type="Script" path="res://scripts/ai_timer.gd">  </resource>
