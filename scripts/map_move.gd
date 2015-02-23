@@ -22,6 +22,7 @@ export var shake_boundary = 5
 var shake_initial_position
 var temp_delta = 0
 var map_step = 0.01
+var near_threshold = 10
 
 func _input(event):
 	if root.is_paused:
@@ -42,13 +43,19 @@ func _input(event):
 
 
 func _process(delta):
-	temp_delta += delta
-	if not pos == target and temp_delta > map_step:
-		self.sX = self.sX - (self.sX - target.x) * temp_delta;
-		self.sY = self.sY - (self.sY - target.y) * temp_delta;
-		terrain.set_pos(Vector2(self.sX,self.sY))
-		underground.set_pos(Vector2(self.sX,self.sY))
-		temp_delta = 0
+	if not pos == target:
+		temp_delta += delta
+		if temp_delta > map_step:
+			var diff_x = target.x - self.sX
+			var diff_y = target.y - self.sY
+			if diff_x > -near_threshold && diff_x < near_threshold && diff_y > -near_threshold && diff_y < near_threshold:
+				target = pos
+			else:
+				self.sX = self.sX + (diff_x) * temp_delta;
+				self.sY = self.sY + (diff_y) * temp_delta;
+				terrain.set_pos(Vector2(self.sX,self.sY))
+				underground.set_pos(Vector2(self.sX,self.sY))
+			temp_delta = 0
 
 func move_to(target):
 	if not mouse_dragging:
@@ -57,8 +64,16 @@ func move_to(target):
 func move_to_map(target):
 	if not mouse_dragging:
 		game_size = get_node("/root/game").get_size()
-		var target_position = self.map_to_world(target*Vector2(-1,-1))
-		self.target = target_position + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
+		var target_position = self.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
+		var diff_x = target_position.x - self.sX
+		var diff_y = target_position.y - self.sY
+		var near_x = game_size.x * (0.1 / scale.x)
+		var near_y = game_size.y * (0.1 / scale.y)
+		print(near_x)
+		print(diff_x)
+		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
+			return
+		self.target = target_position
 
 func shake_camera():
 	if root.settings['shake_enabled'] and not mouse_dragging:
