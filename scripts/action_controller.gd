@@ -108,6 +108,8 @@ func init_root(root, map, hud):
 
 func activate_field(field):
 	self.clear_active_field()
+	if !field.object: #todo - investigate why there is no object
+		print("FAIL to activate field: ", field.position)
 	active_field = field
 	abstract_map.tilemap.add_child(active_indicator)
 	abstract_map.tilemap.move_child(active_indicator,0)

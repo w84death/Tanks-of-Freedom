@@ -137,13 +137,5 @@ func get_nearby_empty_buldings(nearby_tiles):
 
 	return buildings
 
-func fabs(value):
-	if value < 0:
-		return -value
-	else:
-		return value
-
-func position_to_key(position):
-	return position
 
 

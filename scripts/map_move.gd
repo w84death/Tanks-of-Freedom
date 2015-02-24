@@ -69,8 +69,8 @@ func move_to_map(target):
 		var diff_y = target_position.y - self.sY
 		var near_x = game_size.x * (0.1 / scale.x)
 		var near_y = game_size.y * (0.1 / scale.y)
-		print(near_x)
-		print(diff_x)
+		# print(near_x)
+		# print(diff_x)
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
 			return
 		self.target = target_position

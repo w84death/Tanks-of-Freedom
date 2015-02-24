@@ -110,6 +110,10 @@ func __add_action(unit, destination):
 			# 	return # no tresspassing
 		else:
 			var from = action_controller.abstract_map.get_field(unit.get_pos_map())
+			# todo - check why this still counts as action
+			if not from.object:
+				return
+
 			var to = action_controller.abstract_map.get_field(path[0])
 			if not action_controller.movement_controller.can_move(from, to):
 				return
