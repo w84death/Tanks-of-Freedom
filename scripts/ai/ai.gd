@@ -2,7 +2,7 @@ var position_controller
 var pathfinding
 var abstract_map
 var action_controller
-const LOOKUP_RANGE = 10
+const LOOKUP_RANGE = 8
 var actions = {}
 var current_player_ap = 0
 var current_player

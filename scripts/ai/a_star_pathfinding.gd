@@ -66,12 +66,17 @@ func __identify_successors(current, start, goal):
 	var dy = clamp(goal.y - current.y, -1, 1)
 
 	for neighbor in neighbours:
-		if clamp(neighbor.x - current.x, -1, 1) != -dx && clamp(neighbor.x - current.y, -1, 1) != -dy:
+		var exact_neighbor = false
+		if clamp(neighbor.x - current.x, -1, 1) == dx && clamp(neighbor.x - current.y, -1, 1) == dy:
+			exact_neighbor = true
+			successors.append(neighbor)
+
+		if !exact_neighbor && clamp(neighbor.x - current.x, -1, 1) != -dx && clamp(neighbor.x - current.y, -1, 1) != -dy:
 			successors.append(neighbor)
 
 	if successors.size() == 0:
 		successors = neighbours
-
+ 
 	return successors
 
 # find the tile with the smallest F value that is open
