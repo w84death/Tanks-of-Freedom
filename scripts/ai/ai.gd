@@ -23,14 +23,15 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	abstract_map = map
 	action_controller = action_controller_object
 	cost_grid = preload('cost_grid.gd').new(abstract_map)
-	actionBuilder = preload('actions/action_builder.gd').new(action_controller, abstract_map)
+	actionBuilder = preload('actions/action_builder.gd').new(action_controller, abstract_map, position_controller)
 
 func gather_available_actions(player_ap):
 	current_player = action_controller.current_player
 	current_player_ap = player_ap
 	actions = {}
 	# refreshing unit and building data
-	position_controller.refresh()
+	position_controller.refresh_units()
+	#position_controller.refresh_buildings()
 	if DEBUG:
 		print('DEBUG -------------------- ')
 	buildings = position_controller.get_player_buildings(current_player)

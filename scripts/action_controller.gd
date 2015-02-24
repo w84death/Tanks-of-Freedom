@@ -247,7 +247,9 @@ func update_ap(ap):
 		hud_controller.warn_end_turn()
 
 func refill_ap():
-	position_controller.refresh()
+	position_controller.refresh_units()
+	position_controller.refresh_buildings()
+
 	var total_ap = player_ap_max
 	var buildings = position_controller.get_player_buildings(current_player)
 	for building in buildings:

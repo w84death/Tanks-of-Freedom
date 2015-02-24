@@ -25,18 +25,21 @@ func init_root(root):
 	buildings = root_node.get_tree().get_nodes_in_group("buildings")
 	terrains = root_node.get_tree().get_nodes_in_group("terrain")
 	get_bunkers()
+	get_terrain()
 
-func refresh():
+func refresh_units():
 	units_player_blue.clear()
 	units_player_red.clear()
+
+	get_units()
+
+
+func refresh_buildings():
 	buildings_player_none.clear()
 	buildings_player_blue.clear()
 	buildings_player_red.clear()
-	terrain_obstacles = {}
 
-	get_units()
 	get_buildings()
-	get_terrain()
 
 func get_player_units(player):
 	if player == 0:

@@ -11,7 +11,6 @@ const END_TURN_INTERVAL = 1.5
 const AI_STUFF = 1
 const END_TURN = 2
 
-
 var action_controller
 var hud_controller
 

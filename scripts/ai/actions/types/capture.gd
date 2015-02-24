@@ -10,6 +10,7 @@ func execute():
 	if field:
 		action_controller.set_active_field(unit.get_pos_map())
 		action_controller.handle_action(field.position)
+		position_controller.refresh_buildings()
 		return true
 
 	return false

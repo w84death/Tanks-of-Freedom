@@ -76,7 +76,7 @@ func __identify_successors(current, start, goal):
 
 	if successors.size() == 0:
 		successors = neighbours
- 
+
 	return successors
 
 # find the tile with the smallest F value that is open

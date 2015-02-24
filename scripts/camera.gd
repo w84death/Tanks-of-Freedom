@@ -30,7 +30,7 @@ func _fixed_process(delta):
 		camera_position+=Vector2(0,CAMERA_SPEED*delta)
 		
 	set_pos(camera_position)
-	print(camera_position)
+	#print(camera_position)
 
 func _ready():
 	set_fixed_process(true)
