@@ -72,10 +72,11 @@ func get_units():
 	units_player_red.clear()
 
 	for unit in units:
-		if(unit.get_player() == 1):
-			units_player_red[unit.get_pos_map()] = unit
-		else:
-			units_player_blue[unit.get_pos_map()] = unit
+		if unit.life > 0: # skip undead units (despawn bug)
+			if unit.get_player() == 1:
+				units_player_red[unit.get_pos_map()] = unit
+			else:
+				units_player_blue[unit.get_pos_map()] = unit
 
 func get_nearby_tiles(position, distance=2):
 	var max_distance = distance *2 -1
