@@ -180,6 +180,7 @@ func despawn_unit(field):
 
 func destroy_unit(field):
 	field.object.die_after_explosion(ysort)
+	field.object.queue_free()
 	field.object = null
 
 func spawn_unit_from_active_building():

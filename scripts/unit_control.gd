@@ -98,6 +98,7 @@ func can_defend():
 	return false
 
 func die():
+	self.queue_free()
 	print('DIED!')
 
 func set_damaged():
@@ -133,7 +134,7 @@ func clear_explosion():
 	explosion.queue_free()
 	if die:
 		parent.remove_child(self)
-		self.queue_free()
+		self.die()
 
 func show_floating_damage(amount):
 	floating_damage = floating_damage_template.instance()

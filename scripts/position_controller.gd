@@ -77,6 +77,8 @@ func get_units():
 				units_player_red[unit.get_pos_map()] = unit
 			else:
 				units_player_blue[unit.get_pos_map()] = unit
+		else:
+			print('UNDEAD UNIT')
 
 func get_nearby_tiles(position, distance=2):
 	var max_distance = distance *2 -1
