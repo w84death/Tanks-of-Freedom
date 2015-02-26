@@ -67,7 +67,7 @@ func handle_action(position):
 				self.move_unit(active_field, field)
 
 func post_handle_action():
-	position_controller.refresh()
+	position_controller.refresh_units()
 
 func capture_building(active_field, field):
 	self.use_ap()
@@ -180,7 +180,6 @@ func despawn_unit(field):
 
 func destroy_unit(field):
 	field.object.die_after_explosion(ysort)
-	field.object.queue_free()
 	field.object = null
 
 func spawn_unit_from_active_building():
@@ -228,7 +227,6 @@ func in_game_menu_pressed():
 func has_ap():
 	if player_ap > 0:
 		return true
-
 	sound_controller.play('no_moves')
 	return false
 
