@@ -24,7 +24,7 @@ var maps = {
 	'tutorial' : preload('res://maps/map_0.xscn'),
 	'crossing' : preload('res://maps/map_0.xscn'),
 	'city' : preload('res://maps/map_1.xscn'),
-	'forest' : preload('res://maps/map_2.xscn'),
+	'forest' : preload('res://maps/map_3.xscn'),
 	'airport' : preload('res://maps/map_3.xscn'),
 	'big_city' : preload('res://maps/map_4.xscn')
 }
