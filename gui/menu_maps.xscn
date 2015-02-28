@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="17" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/map.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_disabled.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/map.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
 	<resource type="GDScript" path="local://0">
 		<string name="script/source"> "&#000a;func load_map(name):&#000a;&#0009;get_parent().load_map(name)&#000a;" </string>
 
@@ -137,7 +137,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 4 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="5" shared="false">
 								<string> "res://scripts/menu_controller.gd" </string>
@@ -261,7 +261,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<real> 400 </real>
 				<real> 225 </real>
@@ -270,9 +270,9 @@
 				<real> 40 </real>
 				<real> 20 </real>
 				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
 					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<vector2> -270, -128 </vector2>

@@ -11,6 +11,8 @@ var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_tutorial_button
 var maps_forest_button
 var maps_city_button
+var maps_airport_button
+var maps_big_city_button
 var maps_close_button
 
 var sound_toggle_button
@@ -58,6 +60,8 @@ func load_maps_menu():
 	maps_tutorial_button = maps_sub_menu.get_node("control/menu_controls/tutorial")
 	maps_forest_button = maps_sub_menu.get_node("control/menu_controls/forest")
 	maps_city_button = maps_sub_menu.get_node("control/menu_controls/city")
+	maps_airport_button = maps_sub_menu.get_node("control/menu_controls/airport")
+	maps_big_city_button = maps_sub_menu.get_node("control/menu_controls/big_city")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
 
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
