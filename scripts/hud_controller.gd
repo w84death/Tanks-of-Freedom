@@ -47,6 +47,7 @@ var player_ap
 var turn_card
 var turn_counter
 
+var end_game
 var blue_wins
 var red_wins
 
@@ -67,8 +68,9 @@ func init_root(root, action_controller_object, hud):
 	turn_card = hud.get_node("game_card")
 	turn_counter = turn_card.get_node("turn_no")
 
-	blue_wins = hud.get_node("middle_center/blue_win")
-	red_wins = hud.get_node("middle_center/red_win")
+	end_game = hud.get_node("end_game")
+	blue_wins = hud.get_node("end_game/blue_win")
+	red_wins = hud.get_node("end_game/red_win")
 
 	hud_unit = hud.get_node("bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")
@@ -181,6 +183,8 @@ func show_in_game_card(messages, current_player):
 	end_turn_button.set_disabled(true)
 	end_turn_button_red.set_disabled(true)
 	end_turn_card.hide()
+	end_game.hide()
+	
 	turn_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
@@ -225,6 +229,7 @@ func show_win(player):
 	end_turn_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
+	end_game.show();
 	if player == 0:
 		blue_wins.show()
 		print('blue wins')
