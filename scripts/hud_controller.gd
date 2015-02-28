@@ -21,6 +21,7 @@ var hud_unit_icon
 var hud_unit_progress_ap
 var hud_unit_progress_ap_blank
 var hud_unit_progress_attack
+var hud_unit_shield
 
 var hud_building
 var hud_building_spawn_button
@@ -81,6 +82,7 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_progress_ap = hud_unit.get_node("progress_ap")
 	hud_unit_progress_ap_blank = hud_unit.get_node("progress_ap_blank")
 	hud_unit_progress_attack = hud_unit.get_node("progress_attack")
+	hud_unit_shield = hud_unit.get_node("shield")
 
 	hud_building = hud.get_node("bottom_center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
@@ -126,6 +128,10 @@ func update_unit_card(unit):
 	else:
 		hud_unit_ap_red.show()
 	hud_unit_progress_attack.set_frame(stats.attacks_number)
+	if unit.can_defend():
+		hud_unit_shield.show()
+	else:
+		hud_unit_shield.hide()
 
 func set_unit_card_icon(unit):
 	hud_unit_icon.set_region_rect(Rect2((unit.player + 1) * 32, unit.type * 32, 32, 32))
