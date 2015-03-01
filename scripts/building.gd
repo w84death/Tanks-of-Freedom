@@ -75,11 +75,11 @@ func spawn_unit(player):
 
 func get_required_ap():
 	if type == TYPE_BARRACKS:
-		return 4
+		return 6
 	if type == TYPE_FACTORY:
-		return 8
+		return 10
 	if type == TYPE_AIRPORT:
-		return 12
+		return 14
 	if type == TYPE_BUNKER:
 		return 8
 

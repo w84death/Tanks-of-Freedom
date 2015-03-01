@@ -37,11 +37,11 @@ func _ready():
 	add_to_group("terrain")
 	current_map = get_node("/root/game").current_map_terrain
 # FOR DEBUGING ONLY
-	randomize()
-	if randf() > 0.5:
-		take_damage()
-		if randf() > 0.5:
-			take_damage()
+	#randomize()
+	#if randf() > 0.5:
+	#	take_damage()
+	#	if randf() > 0.5:
+	#		take_damage()
 # DELETE THIS :D
 	pass
 

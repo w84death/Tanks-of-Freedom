@@ -5,12 +5,12 @@ func _init():
 
 	life = 15
 	max_life = 15
-	attack = 8
+	attack = 9
 	plain = 2
 	road = 1
 	river = 6
 	max_ap = 8
-	attack_ap = 2
+	attack_ap = 3
 	max_attacks_number = 1
 	ap = 8
 	attacks_number = 1
