@@ -63,6 +63,11 @@ func load_maps_menu():
 	maps_airport_button = maps_sub_menu.get_node("control/menu_controls/airport")
 	maps_big_city_button = maps_sub_menu.get_node("control/menu_controls/big_city")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
+	
+	maps_forest_button.connect("pressed", self, "load_map", ["forest"])
+	maps_city_button.connect("pressed", self, "load_map", ["city"])
+	maps_airport_button.connect("pressed", self, "load_map", ["airport"])
+	maps_big_city_button.connect("pressed", self, "load_map", ["big_city"])
 
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
 
