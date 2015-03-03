@@ -50,6 +50,8 @@ var turn_counter
 var end_game
 var blue_wins
 var red_wins
+var win_missions_button
+var win_restart_button
 
 func init_root(root, action_controller_object, hud):
 	root_node = root
@@ -71,6 +73,10 @@ func init_root(root, action_controller_object, hud):
 	end_game = hud.get_node("end_game")
 	blue_wins = hud.get_node("end_game/blue_win")
 	red_wins = hud.get_node("end_game/red_win")
+	win_missions_button = end_game.get_node("buttons/select_mission")
+	win_missions_button.connect("pressed", root, "show_missions")
+	win_restart_button = end_game.get_node("buttons/restart")
+	win_restart_button.connect("pressed", root, "restart_map")
 
 	hud_unit = hud.get_node("bottom_center/unit_card")
 	hud_unit_life = hud_unit.get_node("life")

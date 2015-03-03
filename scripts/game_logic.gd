@@ -17,6 +17,7 @@ var sound_controller = preload("sound_controller.gd").new()
 var hud_controller
 var map_template
 var current_map
+var current_map_name
 var hud
 var ai_timer
 
@@ -82,6 +83,7 @@ func start_ai_timer():
 
 func load_map(template_name):
 	self.unload_map()
+	current_map_name = template_name
 	var map_template = maps[template_name]
 	current_map = map_template.instance()
 	hud = hud_template.instance()
@@ -108,6 +110,9 @@ func load_map(template_name):
 	else:
 		self.unlock_for_player()
 	sound_controller.play_soundtrack()
+	
+func restart_map():
+	self.load_map(current_map_name)
 
 func unload_map():
 	if is_map_loaded == false:
@@ -138,6 +143,10 @@ func toggle_menu():
 			is_paused = false
 			menu.hide()
 			hud.show()
+			
+func show_missions():
+	self.toggle_menu()
+	menu.show_maps_menu()
 
 func load_menu():
 	is_intro = false
