@@ -6,6 +6,7 @@ var cpu_vs_cpu_button
 var human_vs_cpu_button
 var human_vs_human_button
 var close_button
+var quit_button
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_tutorial_button
@@ -35,6 +36,7 @@ func _ready():
 	human_vs_cpu_button = get_node("control/game_controls/1p_cpu")
 	human_vs_human_button = get_node("control/game_controls/1p_2p")
 	close_button = get_node("control/game_controls/close")
+	quit_button = get_node("control/game_controls/quit")
 
 	sound_toggle_button = get_node("control/settings_controls/sound_toggle")
 	music_toggle_button = get_node("control/settings_controls/music_toggle")
@@ -53,6 +55,7 @@ func _ready():
 	shake_toggle_button.connect("pressed", self, "toggle_shake")
 
 	close_button.connect("pressed", root, "toggle_menu")
+	quit_button.connect("pressed", self, "quit_game")
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
 	self.load_tutorial()
@@ -158,6 +161,10 @@ func refresh_buttons_labels():
 		shake_toggle_label.set_text("ON")
 	else:
 		shake_toggle_label.set_text("OFF")
+		
+func quit_game():
+	OS.get_main_loop().quit()
+	
 
 func init_root(root_node):
 	root = root_node
