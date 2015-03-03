@@ -15,6 +15,9 @@ var maps_airport_button
 var maps_big_city_button
 var maps_close_button
 
+var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
+var tutorial_close_button
+
 var sound_toggle_button
 var music_toggle_button
 var shake_toggle_button
@@ -52,6 +55,7 @@ func _ready():
 	close_button.connect("pressed", root, "toggle_menu")
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
+	self.load_tutorial()
 
 func load_maps_menu():
 	maps_sub_menu.hide()
@@ -63,7 +67,8 @@ func load_maps_menu():
 	maps_airport_button = maps_sub_menu.get_node("control/menu_controls/airport")
 	maps_big_city_button = maps_sub_menu.get_node("control/menu_controls/big_city")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
-	
+
+	maps_tutorial_button.connect("pressed", self, "show_tutorial")
 	maps_forest_button.connect("pressed", self, "load_map", ["forest"])
 	maps_city_button.connect("pressed", self, "load_map", ["city"])
 	maps_airport_button.connect("pressed", self, "load_map", ["airport"])
@@ -78,15 +83,30 @@ func show_maps_menu():
 func hide_maps_menu():
 	control_node.show()
 	maps_sub_menu.hide()
-	
+
+func load_tutorial():
+	tutorial_sub_menu.hide()
+	self.add_child(tutorial_sub_menu)
+
+	tutorial_close_button = tutorial_sub_menu.get_node("control/menu_controls/close")
+	tutorial_close_button.connect("pressed", self, "hide_tutorial")
+
+func show_tutorial():
+	maps_sub_menu.hide()
+	tutorial_sub_menu.show()
+
+func hide_tutorial():
+	tutorial_sub_menu.hide()
+	maps_sub_menu.show()
+
 func start_demo_game():
 	next_game_mode = 'demo'
 	self.show_maps_menu()
-	
+
 func start_single_player_game():
 	next_game_mode = 'single'
 	self.show_maps_menu()
-	
+
 func start_multi_player_game():
 	next_game_mode = 'multi'
 	self.show_maps_menu()
@@ -101,7 +121,7 @@ func load_map(name):
 	if next_game_mode == 'demo':
 		root.settings['cpu_0'] = true
 		root.settings['cpu_1'] = true
-		
+
 	root.load_map(name)
 	root.toggle_menu()
 	self.hide_maps_menu()
