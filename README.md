@@ -6,7 +6,7 @@
 
 Push the frontline with your tanks, support with your helicopters, and claim strategic buildings with your infantry! Issue orders and fight for freedom!
 
-Use roads to move the front forward with your armed forces . Break through the enemy lines and take control of your opponent's bunker to win the battle.
+Use roads to move the front forward with your armed forces. Break through the enemy lines and take control of your opponent's bunker to win the battle.
 
 ## Why should you play Tanks of Freedom?
 
