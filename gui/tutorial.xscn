@@ -3,12 +3,12 @@
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gui/cloud.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/boxy_huge.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gui/cloud.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/animations/soldier_blue_0.png" type="Texture"></ext_resource>
@@ -131,7 +131,7 @@
 				<string> "win" </string>
 				<string> "2" </string>
 				<string> "3" </string>
-				<string> " 4" </string>
+				<string> "4" </string>
 				<string> "5" </string>
 			</string_array>
 			<string> "version" </string>
@@ -175,7 +175,7 @@
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -121.612, -64.0994 </vector2>
+							<vector2> -45.7829, -58.4824 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
