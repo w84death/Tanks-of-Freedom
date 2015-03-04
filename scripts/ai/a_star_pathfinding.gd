@@ -11,20 +11,68 @@ var searched_children = []
 var openList = []
 var closedList = []
 
-const RANDOMNESS = 50
-
 var lastCurrent
+var path_cache = []
+var bench_result = 0
 
-func pathSearch(startTile, endTile):
+const CACHE_MINIMUM_PATH_SIZE = 5
+
+func pathSearch(startTile, endTile, units_positions1, units_positions2):
+
+	var start = OS.get_ticks_msec();
+	var start2 = start
+	var end
+	var time_cached = 0
+	var time_normal = 0
+
 	searched_children.append(startTile)
-	path = [startTile, endTile]
-	var finalPath = __pathSearch2(startTile, endTile)
 
-	#removing start element
-	return finalPath
+	for cache in path_cache:
+		# print('cache', cache)
+		var end_pos = cache.find(endTile)
+		var start_pos = cache.find(startTile)
+		
+		if (end_pos != -1 && start_pos != -1):
+			var cached = []
+
+			for i in range(start_pos, end_pos):
+				cached.append(cache[i])
+
+			if (self.__invalid_check(cached, units_positions1, units_positions2)):
+				continue
+
+			time_cached = OS.get_ticks_msec() - start
+			#print('TIME CACHED: ', time_cached)
+			start2 = OS.get_ticks_msec()
+
+			#return cached
+
+	var result = __pathSearch2(startTile, endTile)
+
+	if (result.size() >= self.CACHE_MINIMUM_PATH_SIZE):
+		path_cache.append(result)
+	
+	#print('CACHE SIZE', path_cache.size())
+	#print(path_cache)
+	time_normal = OS.get_ticks_msec() - start2
+	#print('TIME NORMAL: ', time_normal)
+	bench_result = bench_result + (time_cached - time_normal)
+	#print ('BENCH : ', bench_result)
+	return result
 
 func set_cost_grid(cost_grid):
 	grid = cost_grid
+
+func __invalid_check(cached, units_positions1, units_positions2):
+	# temp cache invalidation
+	for unit_pos in units_positions1:
+		if (cached.find(startTile)):
+			return true
+	for unit_pos in units_positions2:
+		if (cached.find(startTile)):
+			return true
+
+	return false
 
 # new path search
 func __pathSearch2(start, goal):
