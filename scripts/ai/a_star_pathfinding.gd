@@ -31,7 +31,13 @@ func pathSearch(startTile, endTile, own_units):
 		if (end_pos != -1 && start_pos != -1):
 			var cached = []
 
-			for i in range(start_pos, end_pos):
+			var index_range
+			if (start_pos > end_pos):
+				index_range = range(end_pos, start_pos)
+			else:
+				index_range = range(start_pos, end_pos)
+
+			for i in index_range:
 				cached.append(cache[i])
 
 			if (self.__invalid_check(cached, own_units)):
