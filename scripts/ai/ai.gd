@@ -2,7 +2,7 @@ var position_controller
 var pathfinding
 var abstract_map
 var action_controller
-const LOOKUP_RANGE = 8
+const LOOKUP_RANGE = 10
 var actions = {}
 var current_player_ap = 0
 var current_player
@@ -62,7 +62,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
 		pathfinding.set_cost_grid(cost_grids[unit.get_type()])
 		for destination in destinations:
-			self.__add_action(unit, destination)
+			self.__add_action(unit, destination, own_units)
 
 func __gather_building_data(own_buildings, own_units):
 	if own_units.size() >= SPAWN_LIMIT:
@@ -76,8 +76,8 @@ func __gather_building_data(own_buildings, own_units):
 
 		self.__add_building_action(building, enemy_units, own_units)
 
-func __add_action(unit, destination):
-	var path = pathfinding.pathSearch(unit.get_pos_map(), destination.get_pos_map(), position_controller.units_player_blue, position_controller.units_player_red) #todo move cache temporary invalidation before loop
+func __add_action(unit, destination, own_units):
+	var path = pathfinding.pathSearch(unit.get_pos_map(), destination.get_pos_map(), own_units) #todo move cache temporary invalidation before loop
 
 	var action_type = actionBuilder.ACTION_MOVE
 	var hiccup = false
