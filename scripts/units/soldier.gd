@@ -31,6 +31,8 @@ func can_capture_building(building):
 		return true
 	if type == "HQ":
 		return true
+	if type == "GSM TOWER":
+		return true
 
 	return false;
 
