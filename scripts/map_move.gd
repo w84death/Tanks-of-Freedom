@@ -22,7 +22,7 @@ export var shake_boundary = 5
 var shake_initial_position
 var temp_delta = 0
 var map_step = 0.01
-var near_threshold = 10
+var near_threshold = 0.4
 
 func _input(event):
 	if root.is_paused:
@@ -67,8 +67,8 @@ func move_to_map(target):
 		var target_position = self.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
-		var near_x = game_size.x * (0.1 / scale.x)
-		var near_y = game_size.y * (0.1 / scale.y)
+		var near_x = game_size.x * (near_threshold / scale.x)
+		var near_y = game_size.y * (near_threshold / scale.y)
 		# print(near_x)
 		# print(diff_x)
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
