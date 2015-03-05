@@ -2,9 +2,12 @@
 var root
 var control_node
 
-var cpu_vs_cpu_button
-var human_vs_cpu_button
-var human_vs_human_button
+var tutorial_button
+var red_player_button
+var red_player_button_label
+var blue_player_button
+var blue_player_button_label
+var play_button
 var close_button
 var quit_button
 
@@ -28,14 +31,15 @@ var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
 
-var next_game_mode
-
 func _ready():
 	control_node = get_node("control")
 
-	cpu_vs_cpu_button = get_node("control/game_controls/cpu_cpu")
-	human_vs_cpu_button = get_node("control/game_controls/1p_cpu")
-	human_vs_human_button = get_node("control/game_controls/1p_2p")
+	tutorial_button = get_node("control/game_controls/tutorial")
+	blue_player_button = get_node("control/game_controls/blue_player")
+	blue_player_button_label = blue_player_button.get_node("Label")
+	red_player_button = get_node("control/game_controls/red_player")
+	red_player_button_label = red_player_button.get_node("Label")
+	play_button = get_node("control/game_controls/play")
 	close_button = get_node("control/game_controls/close")
 	quit_button = get_node("control/game_controls/quit")
 
@@ -47,9 +51,10 @@ func _ready():
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 
-	cpu_vs_cpu_button.connect("pressed", self, "start_demo_game")
-	human_vs_cpu_button.connect("pressed", self, "start_single_player_game")
-	human_vs_human_button.connect("pressed", self, "start_multi_player_game")
+	tutorial_button.connect("pressed", self, "show_tutorial")
+	blue_player_button.connect("pressed", self, "toggle_player", [0])
+	red_player_button.connect("pressed", self, "toggle_player", [1])
+	play_button.connect("pressed", self, "show_maps_menu")
 
 	sound_toggle_button.connect("pressed", self, "toggle_sound")
 	music_toggle_button.connect("pressed", self, "toggle_music")
@@ -64,7 +69,6 @@ func _ready():
 func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
-
 
 	maps_1_button = maps_sub_menu.get_node("control/menu_controls/map_1")
 	maps_2_button = maps_sub_menu.get_node("control/menu_controls/map_2")
@@ -98,36 +102,27 @@ func load_tutorial():
 	tutorial_close_button.connect("pressed", self, "hide_tutorial")
 
 func show_tutorial():
-	maps_sub_menu.hide()
+	control_node.hide()
 	tutorial_sub_menu.show()
 
 func hide_tutorial():
 	tutorial_sub_menu.hide()
-	maps_sub_menu.show()
+	control_node.show()
 
-func start_demo_game():
-	next_game_mode = 'demo'
-	self.show_maps_menu()
-
-func start_single_player_game():
-	next_game_mode = 'single'
-	self.show_maps_menu()
-
-func start_multi_player_game():
-	next_game_mode = 'multi'
-	self.show_maps_menu()
-
+func toggle_player(player):
+	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
+	var label
+	if root.settings['cpu_' + str(player)]:
+		label = "CPU"
+	else:
+		label = "Human"
+		
+	if player == 0:
+		blue_player_button_label.set_text(label)
+	else:
+		red_player_button_label.set_text(label)
+	
 func load_map(name):
-	if next_game_mode == 'single':
-		root.settings['cpu_0'] = false
-		root.settings['cpu_1'] = true
-	if next_game_mode == 'multi':
-		root.settings['cpu_0'] = false
-		root.settings['cpu_1'] = false
-	if next_game_mode == 'demo':
-		root.settings['cpu_0'] = true
-		root.settings['cpu_1'] = true
-
 	root.load_map(name)
 	root.toggle_menu()
 	self.hide_maps_menu()
