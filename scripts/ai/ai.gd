@@ -71,6 +71,9 @@ func __gather_building_data(own_buildings, own_units):
 	for pos in own_buildings:
 		var building = own_buildings[pos]
 
+		if (building.type == 4): # skip tower
+			continue
+
 		var nearby_tiles = position_controller.get_nearby_tiles(building.get_pos_map(), LOOKUP_RANGE)
 		var enemy_units = position_controller.get_nearby_enemies(nearby_tiles, current_player)
 
