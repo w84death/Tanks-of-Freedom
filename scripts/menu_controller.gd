@@ -9,11 +9,12 @@ var close_button
 var quit_button
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
-var maps_tutorial_button
-var maps_forest_button
-var maps_city_button
-var maps_airport_button
-var maps_big_city_button
+var maps_1_button
+var maps_2_button
+var maps_3_button
+var maps_4_button
+var maps_5_button
+var maps_6_button
 var maps_close_button
 
 var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
@@ -64,19 +65,21 @@ func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
 
-	maps_tutorial_button = maps_sub_menu.get_node("control/menu_controls/tutorial")
-	maps_forest_button = maps_sub_menu.get_node("control/menu_controls/forest")
-	maps_city_button = maps_sub_menu.get_node("control/menu_controls/city")
-	maps_airport_button = maps_sub_menu.get_node("control/menu_controls/airport")
-	maps_big_city_button = maps_sub_menu.get_node("control/menu_controls/big_city")
+
+	maps_1_button = maps_sub_menu.get_node("control/menu_controls/map_1")
+	maps_2_button = maps_sub_menu.get_node("control/menu_controls/map_2")
+	maps_3_button = maps_sub_menu.get_node("control/menu_controls/map_3")
+	maps_4_button = maps_sub_menu.get_node("control/menu_controls/map_4")
+	maps_5_button = maps_sub_menu.get_node("control/menu_controls/map_5")
+	maps_6_button = maps_sub_menu.get_node("control/menu_controls/map_6")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
 
-	maps_tutorial_button.connect("pressed", self, "show_tutorial")
-	maps_forest_button.connect("pressed", self, "load_map", ["forest"])
-	maps_city_button.connect("pressed", self, "load_map", ["city"])
-	maps_airport_button.connect("pressed", self, "load_map", ["airport"])
-	maps_big_city_button.connect("pressed", self, "load_map", ["big_city"])
-
+	maps_1_button.connect("pressed", self, "load_map", ["map_1"])
+	maps_2_button.connect("pressed", self, "load_map", ["map_2"])
+	maps_3_button.connect("pressed", self, "load_map", ["map_3"])
+	maps_4_button.connect("pressed", self, "load_map", ["map_4"])
+	maps_5_button.connect("pressed", self, "load_map", ["map_6"])
+	maps_6_button.connect("pressed", self, "load_map", ["map_5"])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
 
 func show_maps_menu():

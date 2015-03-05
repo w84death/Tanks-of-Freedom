@@ -22,12 +22,12 @@ var hud
 var ai_timer
 
 var maps = {
-	'tutorial' : preload('res://maps/map_0.xscn'),
-	'crossing' : preload('res://maps/map_0.xscn'),
-	'city' : preload('res://maps/map_1.xscn'),
-	'forest' : preload('res://maps/map_2.xscn'),
-	'airport' : preload('res://maps/map_3.xscn'),
-	'big_city' : preload('res://maps/map_4.xscn')
+	'map_1' : preload('res://maps/map_1.xscn'),
+	'map_2' : preload('res://maps/map_2.xscn'),
+	'map_3' : preload('res://maps/map_3.xscn'),
+	'map_4' : preload('res://maps/map_4.xscn'),
+	'map_5' : preload('res://maps/map_5.xscn'),
+	'map_6' : preload('res://maps/map_6.xscn')
 }
 
 var settings = {
