@@ -14,6 +14,9 @@ var flag
 
 var object_factory = preload('object_factory.gd').new()
 
+var floating_ap_template = preload('res://particle/hit_points.xscn')
+var floating_ap 
+
 var TYPE_BUNKER = 0;
 var TYPE_BARRACKS = 1;
 var TYPE_FACTORY = 2;
@@ -119,6 +122,16 @@ func estimate_action(action_type, enemy_units_nearby, own_units):
 
 	return score
 
+func show_floating_ap():
+	floating_ap = floating_ap_template.instance()
+	floating_ap.set_text(str(bonus_ap))
+	floating_ap.unit = self
+	floating_ap.show_ap_icon()
+	self.add_child(floating_ap)
+
+func clear_floating_damage():
+	self.remove_child(floating_ap)
+	floating_ap.queue_free()
 
 
 func _ready():

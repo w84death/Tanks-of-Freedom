@@ -215,6 +215,7 @@ func close_in_game_card():
 	end_turn_card.show()
 	turn_card.show()
 	action_controller.move_camera_to_active_bunker()
+	action_controller.show_bonus_ap()
 
 func update_ap(ap):
 	player_ap.set_text(str(ap))

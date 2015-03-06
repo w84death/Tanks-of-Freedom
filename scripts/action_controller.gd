@@ -256,6 +256,12 @@ func refill_ap():
 	for building in buildings:
 		total_ap = total_ap + buildings[building].bonus_ap
 	self.update_ap(total_ap)
+	
+func show_bonus_ap():
+	var buildings = position_controller.get_player_buildings(current_player)
+	for building in buildings:
+		if buildings[building].bonus_ap > 0:
+			buildings[building].show_floating_ap()
 
 func switch_to_player(player):
 	self.clear_active_field()
