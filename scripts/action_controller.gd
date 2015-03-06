@@ -34,7 +34,7 @@ func set_active_field(position):
 	var field = abstract_map.get_field(position)
 	self.clear_active_field()
 	self.activate_field(field)
-	
+
 	self.move_camera_to_point(field.position)
 
 	return field
@@ -42,7 +42,7 @@ func set_active_field(position):
 func handle_action(position):
 	if game_ended:
 		return
-	
+
 	var field = abstract_map.get_field(position)
 
 	if field.object != null:
@@ -74,7 +74,7 @@ func capture_building(active_field, field):
 	field.object.claim(current_player)
 	sound_controller.play('pickup_box')
 	self.despawn_unit(active_field)
-	
+
 	self.activate_field(field)
 	if field.object.type == 0:
 		root_node.ai_timer.reset_state()
@@ -143,9 +143,9 @@ func add_movement_indicators(field):
 func mark_field(source, target, indicator, direction):
 	if target.terrain_type == -1:
 		return
-	
+
 	if player_ap > 0:
-		var position = Vector2(abstract_map.tilemap.map_to_world(target.position)) 
+		var position = Vector2(abstract_map.tilemap.map_to_world(target.position))
 		if target.object == null:
 			if movement_controller.can_move(source, target):
 				indicator.set_pos(position)
@@ -165,7 +165,7 @@ func mark_field(source, target, indicator, direction):
 					indicator.get_node('anim').play("enter")
 	else:
 		ysort.remove_child(indicator)
-	
+
 func clear_movement_indicators():
 	ysort.remove_child(movement_arrow_bl)
 	ysort.remove_child(movement_arrow_br)
@@ -205,7 +205,7 @@ func import_objects():
 func attach_objects(collection):
 	for entity in collection:
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
-		
+
 func end_turn():
 	sound_controller.play('end_turn')
 	if current_player == 0:
@@ -217,7 +217,7 @@ func end_turn():
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
-	
+
 func move_camera_to_point(position):
 	abstract_map.tilemap.move_to_map(position)
 
@@ -256,7 +256,7 @@ func refill_ap():
 	for building in buildings:
 		total_ap = total_ap + buildings[building].bonus_ap
 	self.update_ap(total_ap)
-	
+
 func show_bonus_ap():
 	var buildings = position_controller.get_player_buildings(current_player)
 	for building in buildings:
@@ -273,6 +273,7 @@ func switch_to_player(player):
 		root_node.start_ai_timer()
 		root_node.lock_for_cpu()
 		self.move_camera_to_active_bunker()
+		self.show_bonus_ap()
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
@@ -303,7 +304,7 @@ func camera_zoom_in():
 	if scale.x < camera_zoom_range[1]:
 		camera.set_scale(scale + Vector2(1,1))
 	abstract_map.tilemap.scale = camera.get_scale()
-	
+
 func camera_zoom_out():
 	var scale = camera.get_scale()
 	if scale.x > camera_zoom_range[0]:
