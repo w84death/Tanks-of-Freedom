@@ -59,7 +59,8 @@ func _input(event):
 			position.y += 2
 			selector.set_pos(position)
 			selector.calculate_cost()
-			hud_controller.mark_potential_ap_usage(action_controller.active_field, selector.current_cost)
+			if not settings['cpu_' + str(action_controller.current_player)]:
+				hud_controller.mark_potential_ap_usage(action_controller.active_field, selector.current_cost)
 
 		# MOUSE SELECT
 		if (event.type == InputEvent.MOUSE_BUTTON):
