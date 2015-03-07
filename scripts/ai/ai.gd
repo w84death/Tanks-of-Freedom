@@ -8,7 +8,7 @@ var current_player_ap = 0
 var current_player
 
 const SPAWN_LIMIT = 25
-const DEBUG = false
+const DEBUG = true
 var terrain
 var units
 var buildings

@@ -18,21 +18,29 @@ const ACTION_CAPTURE = 2
 const ACTION_SPAWN = 3
 const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
+
 const HICCUP_MODIFIER = 100
 const HI_LIFE_MODIFIER = 15
 const LO_LIFE_MODIFIER = -15
-const RANDOMNESS_MODIFIER = 20
+const RANDOMNESS_MODIFIER = 30
+const AP_MODIFIER = 10
+
+const SAFE_BUILDING_ZONE = 2
 
 func estimate_action(action_type, path_size, ap_cost, hiccup):
 
 	var modifier = 1
 	var modifier_sign = 1
+	var apply_ap_modifier = true
+
 	if action_type == ACTION_CAPTURE:
 		modifier = capture_modifiers[type]
 		modifier_sign = -1
+		apply_ap_modifier = false
 	elif action_type == ACTION_ATTACK:
 		if attacks_number > 0:
 			modifier = attack_modifiers[type]
+			apply_ap_modifier = false
 		else:
 			modifier = 1
 	elif action_type == ACTION_MOVE_TO_ATTACK:
@@ -41,8 +49,12 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 		else:
 			modifier = 1
 	elif action_type == ACTION_MOVE_TO_CAPTURE:
-		modifier = move_capture_modifiers[type]
-		modifier_sign = -1
+		#only soldier should be in close range of building
+		if self.type != 0 && path_size <= self.SAFE_BUILDING_ZONE:
+			modifier = -3;
+		else:
+			modifier = move_capture_modifiers[type]
+			modifier_sign = -1
 
 	# for capturing better is having lo health an so on
 	var score = 50 * modifier + (modifier_sign * self._get_health_modifier())
@@ -52,6 +64,11 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 	score = score * action_type_modifiers[action_type]
 	score = score - ap_cost_modifier * ap_cost
 	score = score - path_size_modifier * path_size
+
+	if apply_ap_modifier == true :
+		var ap_modifier = pow(10, (1 - 1.0 * self.ap / self.max_ap)) - 1
+		score = ceil(score - (ap_modifier / 10 * score))
+
 	score = score + floor(randf() * RANDOMNESS_MODIFIER)
 
 	return score
