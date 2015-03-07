@@ -13,10 +13,10 @@ var openList = []
 var closedList = []
 
 var lastCurrent
-var path_cache = []
+var path_cache = {}
 var bench_result = 0
 
-const CACHE_MINIMUM_PATH_SIZE = 5
+const CACHE_MINIMUM_PATH_SIZE = 6
 
 func pathSearch(startTile, endTile, own_units):
 
@@ -25,6 +25,7 @@ func pathSearch(startTile, endTile, own_units):
 	var add_path_to_cache = true
 
 	for cache in path_cache:
+		cache = path_cache[cache]
 		var end_pos = cache.find(endTile)
 		var start_pos = cache.find(startTile)
 		
@@ -49,9 +50,9 @@ func pathSearch(startTile, endTile, own_units):
 
 	var result = __pathSearch2(startTile, endTile)
 
-	if (add_path_to_cache && result.size() >= self.CACHE_MINIMUM_PATH_SIZE):
-		path_cache.append(result)
-	#print('CACHE_SIZE: ', path_cache.size())
+	if (add_path_to_cache && result.size() >= self.CACHE_MINIMUM_PATH_SIZE && !path_cache.has(result.hash())):
+		path_cache[result.hash()] = result
+
 	return result
 
 func set_cost_grid(cost_grid):
@@ -88,7 +89,7 @@ func __pathSearch2(start, goal):
 				continue
 			#var tentative_g_score = grid[current].G + 1
 			var tentative_g_score = grid[current].G + grid[current].cost
-			
+
 			if !(neighbor in openset) or tentative_g_score < grid[neighbor].G :
 				came_from[neighbor] = current
 				grid[neighbor].G = tentative_g_score
