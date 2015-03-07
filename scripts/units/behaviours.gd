@@ -66,12 +66,26 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 	score = score - path_size_modifier * path_size
 
 	if apply_ap_modifier == true :
-		var ap_modifier = pow(10, (1 - 1.0 * self.ap / self.max_ap)) - 1
-		score = ceil(score - (ap_modifier / 10 * score))
+		score = self.__apply_ap_modifier(score)
 
 	score = score + floor(randf() * RANDOMNESS_MODIFIER)
 
 	return score
+
+func __apply_ap_modifier(score):
+	var ap = self.ap / self.max_ap
+	var modifier = 0.7
+	if (ap > 0.75):
+		modifier = 0
+	elif (ap > 0.62):
+		modifier = 0.1
+	elif (ap > 0.5):
+		modifier = 0.15
+	elif (ap > 0.25):
+		modifier = 0.5
+
+	print('MODIFIER:', modifier)
+	return ceil(score - (score * modifier))
 
 func _get_health_modifier():
 	var status = self.get_life_status();
