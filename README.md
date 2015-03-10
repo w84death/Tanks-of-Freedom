@@ -40,6 +40,8 @@ Windows, Linux, OSX, Android, Blackberry:
    * w84death http://krzysztofjankowski.com
  * music
    * Mathias Nova http://mathiasnova.blogspot.com/
+ * sfx
+   * QmYaan (Grand Beats) http://www.grandbeats.com/
  * engine
    * Godot Engine http://www.godotengine.org/
 
