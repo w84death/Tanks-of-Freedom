@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="5" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
-	<ext_resource path="res://assets/boxy_nano.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
+<resource_file type="PackedScene" subresource_count="5" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
-	<resource type="Animation" path="local://1">
+	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/boxy_nano.fnt" type="Font"></ext_resource>
+	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "fly" </string>
-		<real name="length"> 0.7 </real>
+		<real name="length"> 1.2 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> ".:rect/pos" </node_path>
+		<node_path name="tracks/0/path"> ".:visibility/opacity" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
 		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> True </bool>
+			<string> "transitions" </string>
+			<real_array  len="2"> 				1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="2" shared="false">
+				<real> 1 </real>
+				<real> 0 </real>
+			</array>
+			<string> "times" </string>
+			<real_array  len="2"> 				0.7, 1.2 </real_array>
+		</dictionary>
+		<string name="tracks/1/type"> "value" </string>
+		<node_path name="tracks/1/path"> ".:rect/pos" </node_path>
+		<int name="tracks/1/interp"> 1 </int>
+		<dictionary name="tracks/1/keys" shared="false">
 			<string> "cont" </string>
 			<bool> True </bool>
 			<string> "transitions" </string>
@@ -23,23 +39,7 @@
 				<vector2> -11, -36 </vector2>
 			</array>
 			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.2, 0.6 </real_array>
-		</dictionary>
-		<string name="tracks/1/type"> "value" </string>
-		<node_path name="tracks/1/path"> ".:visibility/opacity" </node_path>
-		<int name="tracks/1/interp"> 1 </int>
-		<dictionary name="tracks/1/keys" shared="false">
-			<string> "cont" </string>
-			<bool> True </bool>
-			<string> "transitions" </string>
-			<real_array  len="2"> 				1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="2" shared="false">
-				<real> 1 </real>
-				<real> 0 </real>
-			</array>
-			<string> "times" </string>
-			<real_array  len="2"> 				0.2, 0.6 </real_array>
+			<real_array  len="3"> 				0, 0.2, 1.2 </real_array>
 		</dictionary>
 		<string name="tracks/2/type"> "value" </string>
 		<node_path name="tracks/2/path"> ".:visibility/self_opacity" </node_path>
@@ -54,7 +54,7 @@
 				<real> 1 </real>
 			</array>
 			<string> "times" </string>
-			<real_array  len="1"> 				0.5 </real_array>
+			<real_array  len="1"> 				1.2 </real_array>
 		</dictionary>
 
 	</resource>
@@ -134,7 +134,7 @@
 			<string> "node_count" </string>
 			<int> 3 </int>
 			<string> "variants" </string>
-			<array  len="28" shared="false">
+			<array  len="30" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 0 </real>
@@ -281,19 +281,21 @@
 					<string> "2D" </string>
 				</dictionary>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://1">  </resource>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "fly" </string>
-				<vector2> 23, 5 </vector2>
+				<vector2> -6, 5 </vector2>
 				<vector2> 1, 1 </vector2>
 				<resource  resource_type="Texture" path="res://assets/hud/icons.png">  </resource>
 				<vector2> 0, 0 </vector2>
+				<int> 3 </int>
+				<int> 6 </int>
 				<color> 1, 1, 1, 1 </color>
-				<rect2> 0, 32, 16, 16 </rect2>
+				<rect2> 0, 0, 0, 0 </rect2>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="147"> 				-1, -1, 1, 0, -1, 35, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 0, 12, 0, 13, 0, 14, 0, 15, 1, 16, 1, 17, 9, 18, 3, 19, 10, 20, 11, 21, 12, 22, 2, 23, 3, 24, 3, 25, 3, 26, 2, 27, 4, 28, 4, 29, 13, 30, 12, 31, 14, 32, 4, 33, 4, 34, 15, 35, 16, 36, 17, 0, 0, 0, 37, 37, -1, 9, 2, 0, 38, 12, 39, 2, 40, 18, 41, 19, 42, 1, 43, 3, 44, 20, 45, 21, 0, 0, 0, 47, 46, -1, 19, 2, 0, 3, 4, 4, 3, 5, 3, 6, 4, 48, 22, 49, 2, 50, 23, 51, 24, 52, 1, 53, 25, 54, 4, 55, 4, 56, 12, 57, 12, 58, 14, 59, 26, 60, 1, 61, 27, 0 </int_array>
+			<int_array  len="147"> 				-1, -1, 1, 0, -1, 35, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 0, 12, 0, 13, 0, 14, 0, 15, 1, 16, 1, 17, 9, 18, 3, 19, 10, 20, 11, 21, 12, 22, 2, 23, 3, 24, 3, 25, 3, 26, 2, 27, 4, 28, 4, 29, 13, 30, 14, 31, 14, 32, 4, 33, 4, 34, 15, 35, 16, 36, 17, 0, 0, 0, 37, 37, -1, 9, 2, 0, 38, 12, 39, 2, 40, 18, 41, 19, 42, 1, 43, 3, 44, 20, 45, 21, 0, 0, 0, 47, 46, -1, 19, 2, 0, 3, 4, 4, 3, 5, 3, 6, 4, 48, 22, 49, 2, 50, 23, 51, 24, 52, 1, 53, 25, 54, 4, 55, 4, 56, 26, 57, 26, 58, 27, 59, 28, 60, 4, 61, 29, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="6"> 				1, 0, 63, 62, 2, 0 </int_array>
 		</dictionary>

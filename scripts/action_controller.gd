@@ -14,7 +14,7 @@ var ai
 var pathfinding
 
 var current_player = 0
-var player_ap = [10,10]
+var player_ap = [0,0]
 var player_ap_max = 1
 var turn = 1
 var title

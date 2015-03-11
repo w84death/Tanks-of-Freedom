@@ -5,9 +5,9 @@ var active_map
 
 var hud_root
 
-var end_turn_card
-var end_turn_button
-var end_turn_button_red
+var hud_game_card
+var hud_turn_button
+var hud_turn_button_red
 
 var hud_unit_card
 var hud_unit
@@ -49,7 +49,7 @@ var zoom_out_button
 var menu_button
 
 var player_ap
-var turn_card
+var game_card
 var turn_counter
 
 var end_game
@@ -65,16 +65,16 @@ func init_root(root, action_controller_object, hud):
 
 	active_map = root.scale_root
 
-	end_turn_card = hud.get_node("turn_card")
-	end_turn_button = end_turn_card.get_node("end_turn")
-	end_turn_button_red = end_turn_card.get_node("end_turn_red")
-	turn_counter = end_turn_card.get_node("turn_no")
-	end_turn_button.connect("pressed", action_controller, "end_turn")
-	end_turn_button_red.connect("pressed", action_controller, "end_turn")
+	hud_game_card = hud.get_node("top_center/turn_card")
+	hud_turn_button = hud_game_card.get_node("end_turn")
+	hud_turn_button_red = hud_game_card.get_node("end_turn_red")
+	turn_counter = hud_game_card.get_node("turn_no")
+	hud_turn_button.connect("pressed", action_controller, "end_turn")
+	hud_turn_button_red.connect("pressed", action_controller, "end_turn")
 	
 
-	player_ap = end_turn_card.get_node("Label")
-	turn_card = hud.get_node("game_card")
+	player_ap = hud_game_card.get_node("Label")
+	game_card = hud.get_node("game_card")
 	
 
 	end_game = hud.get_node("end_game")
@@ -192,12 +192,12 @@ func clear_building_card():
 
 func show_in_game_card(messages, current_player):
 	active_map.hide()
-	end_turn_button.set_disabled(true)
-	end_turn_button_red.set_disabled(true)
-	end_turn_card.hide()
+	hud_turn_button.set_disabled(true)
+	hud_turn_button_red.set_disabled(true)
+	hud_game_card.hide()
 	end_game.hide()
 	
-	turn_card.hide()
+	game_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
 	if current_player == 1:
@@ -214,32 +214,32 @@ func show_in_game_card(messages, current_player):
 	hud_in_game_card.show()
 
 func close_in_game_card():
-	end_turn_button.set_disabled(false)
-	end_turn_button_red.set_disabled(false)
+	hud_turn_button.set_disabled(false)
+	hud_turn_button_red.set_disabled(false)
 	hud_in_game_card.hide()
 	active_map.show()
-	end_turn_card.show()
-	turn_card.show()
+	hud_game_card.show()
+	game_card.show()
 	action_controller.move_camera_to_active_bunker()
 	action_controller.show_bonus_ap()
 
 func update_ap(ap):
 	player_ap.set_text(str(ap))
 	if ap>0:
-		end_turn_button_red.hide()
+		hud_turn_button_red.hide()
 
 func set_turn(no):
 	turn_counter.set_text(str(no))
 
 func warn_end_turn():
-	end_turn_button_red.show()
+	hud_turn_button_red.show()
 
 func warn_player_ap():
 	return
 
 
 func show_win(player):
-	end_turn_card.hide()
+	hud_game_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
 	end_game.show();
