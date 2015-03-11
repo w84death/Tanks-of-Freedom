@@ -14,8 +14,8 @@ var ai
 var pathfinding
 
 var current_player = 0
-var player_ap = 10
-var player_ap_max = 12
+var player_ap = [10,10]
+var player_ap_max = 1
 var turn = 1
 var title
 var camera
@@ -144,7 +144,7 @@ func mark_field(source, target, indicator, direction):
 	if target.terrain_type == -1:
 		return
 
-	if player_ap > 0:
+	if player_ap[current_player] > 0:
 		var position = Vector2(abstract_map.tilemap.map_to_world(target.position))
 		if target.object == null:
 			if movement_controller.can_move(source, target):
@@ -197,6 +197,9 @@ func spawn_unit_from_active_building():
 		self.activate_field(spawn_point)
 		self.move_camera_to_point(spawn_point.position)
 
+func toggle_unit_details_view():
+	hud_controller.toggle_unit_details_view()
+
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("buildings"))
@@ -225,13 +228,13 @@ func in_game_menu_pressed():
 	hud_controller.close_in_game_card()
 
 func has_ap():
-	if player_ap > 0:
+	if player_ap[current_player] > 0:
 		return true
 	sound_controller.play('no_moves')
 	return false
 
 func has_enough_ap(ap):
-	if player_ap >= ap:
+	if player_ap[current_player] >= ap:
 		return true
 	return false
 
@@ -239,19 +242,19 @@ func use_ap():
 	self.deduct_ap(1)
 
 func deduct_ap(ap):
-	self.update_ap(player_ap - ap)
+	self.update_ap(player_ap[current_player] - ap)
 
 func update_ap(ap):
-	player_ap = ap
-	hud_controller.update_ap(player_ap)
-	if player_ap == 0:
+	player_ap[current_player] = ap
+	hud_controller.update_ap(player_ap[current_player])
+	if player_ap[current_player] == 0:
 		hud_controller.warn_end_turn()
 
 func refill_ap():
 	position_controller.refresh_units()
 	position_controller.refresh_buildings()
 
-	var total_ap = player_ap_max
+	var total_ap = player_ap[current_player]
 	var buildings = position_controller.get_player_buildings(current_player)
 	for building in buildings:
 		total_ap = total_ap + buildings[building].bonus_ap
@@ -281,11 +284,11 @@ func switch_to_player(player):
 
 func perform_ai_stuff():
 	var success = false
-	if root_node.settings['cpu_' + str(current_player)] && player_ap > 0:
+	if root_node.settings['cpu_' + str(current_player)] && player_ap[current_player] > 0:
 		abstract_map.create_tile_type_maps()
-		success = ai.gather_available_actions(player_ap)
+		success = ai.gather_available_actions(player_ap[current_player])
 
-	return player_ap > 0 && success
+	return player_ap[current_player] > 0 && success
 
 func reset_player_units(player):
 	var units = root_node.get_tree().get_nodes_in_group("units")

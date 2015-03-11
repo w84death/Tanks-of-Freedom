@@ -33,7 +33,7 @@ func calculate_cost():
 	var active_field = action_controller.active_field
 	var marked_field = action_controller.abstract_map.get_field(action_controller.root_node.selector_position)
 	
-	if action_controller.player_ap < 1:
+	if action_controller.player_ap[action_controller.current_player] < 1:
 		return # no ap left
 
 	if active_field == null || active_field.object == null || active_field.object.group != 'unit':

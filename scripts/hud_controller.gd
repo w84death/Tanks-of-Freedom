@@ -13,7 +13,6 @@ var hud_unit
 var hud_unit_life
 var hud_unit_attack
 var hud_unit_ap
-var hud_unit_ap_red
 var hud_unit_plain
 var hud_unit_road
 var hud_unit_river
@@ -22,6 +21,10 @@ var hud_unit_progress_ap
 var hud_unit_progress_ap_blank
 var hud_unit_progress_attack
 var hud_unit_shield
+var hud_unit_details_toggle
+var hud_unit_details_toggle_label
+var hud_unit_expanded = false
+var hud_unit_expanded_positions = [0,-58]
 
 var hud_building
 var hud_building_spawn_button
@@ -63,12 +66,14 @@ func init_root(root, action_controller_object, hud):
 	end_turn_card = hud.get_node("turn_card")
 	end_turn_button = end_turn_card.get_node("end_turn")
 	end_turn_button_red = end_turn_card.get_node("end_turn_red")
+	turn_counter = end_turn_card.get_node("turn_no")
 	end_turn_button.connect("pressed", action_controller, "end_turn")
 	end_turn_button_red.connect("pressed", action_controller, "end_turn")
+	
 
 	player_ap = end_turn_card.get_node("Label")
 	turn_card = hud.get_node("game_card")
-	turn_counter = turn_card.get_node("turn_no")
+	
 
 	end_game = hud.get_node("end_game")
 	blue_wins = hud.get_node("end_game/blue_win")
@@ -82,7 +87,6 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_life = hud_unit.get_node("life")
 	hud_unit_attack = hud_unit.get_node("attack")
 	hud_unit_ap = hud_unit.get_node("action_points")
-	hud_unit_ap_red = hud_unit.get_node("action_points_red")
 	hud_unit_plain = hud_unit.get_node("plain")
 	hud_unit_road = hud_unit.get_node("road")
 	hud_unit_river = hud_unit.get_node("river")
@@ -91,7 +95,10 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_progress_ap_blank = hud_unit.get_node("progress_ap_blank")
 	hud_unit_progress_attack = hud_unit.get_node("progress_attack")
 	hud_unit_shield = hud_unit.get_node("shield")
-
+	hud_unit_details_toggle = hud_unit.get_node("details_toggle")
+	hud_unit_details_toggle_label = hud_unit_details_toggle.get_node("Label")
+	hud_unit_details_toggle.connect("pressed", action_controller, "toggle_unit_details_view")
+	
 	hud_building = hud.get_node("bottom_center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
 	hud_building_label = hud_building.get_node("name")
@@ -120,7 +127,7 @@ func init_root(root, action_controller_object, hud):
 func show_unit_card(unit):
 	self.update_unit_card(unit)
 	self.set_unit_card_icon(unit)
-	hud_unit.show()
+	self.show_hud_unit()
 
 func update_unit_card(unit):
 	var stats = unit.get_stats()
@@ -131,10 +138,6 @@ func update_unit_card(unit):
 	hud_unit_plain.set_text(str(stats.plain))
 	hud_unit_road.set_text(str(stats.road))
 	hud_unit_river.set_text(str(stats.river))
-	if stats.ap>0:
-		hud_unit_ap_red.hide()
-	else:
-		hud_unit_ap_red.show()
 	hud_unit_progress_attack.set_frame(stats.attacks_number)
 	if unit.can_defend():
 		hud_unit_shield.show()
@@ -229,7 +232,7 @@ func warn_end_turn():
 	end_turn_button_red.show()
 
 func warn_player_ap():
-	hud_unit_ap_red.show()
+	return
 
 
 func show_win(player):
@@ -243,3 +246,17 @@ func show_win(player):
 	else:
 		red_wins.show()
 		print('red wins')
+		
+func toggle_unit_details_view():
+	hud_unit_expanded = not hud_unit_expanded
+	self.show_hud_unit()
+	
+func show_hud_unit(): 
+	var index = 0
+	var label = "SHOW\nMORE" 
+	if hud_unit_expanded:
+		index = 1
+		label = "SHOW\nLESS"
+	hud_unit_details_toggle_label.set_text(label)
+	hud_unit.set_pos(Vector2(hud_unit.get_pos().x,hud_unit_expanded_positions[index]))
+	hud_unit.show()
