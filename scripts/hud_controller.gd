@@ -9,6 +9,7 @@ var end_turn_card
 var end_turn_button
 var end_turn_button_red
 
+var hud_unit_card
 var hud_unit
 var hud_unit_life
 var hud_unit_attack
@@ -23,9 +24,10 @@ var hud_unit_progress_attack
 var hud_unit_shield
 var hud_unit_details_toggle
 var hud_unit_details_toggle_label
-var hud_unit_expanded = false
-var hud_unit_expanded_positions = [0,-58]
-
+var hud_unit_expanded = [false,false]
+var hud_unit_expanded_positions = [
+	{'top':42,'bottom':42},
+	{'top':100,'bottom':100}]
 var hud_building
 var hud_building_spawn_button
 var hud_building_icon
@@ -83,7 +85,8 @@ func init_root(root, action_controller_object, hud):
 	win_restart_button = end_game.get_node("buttons/restart")
 	win_restart_button.connect("pressed", root, "restart_map")
 
-	hud_unit = hud.get_node("bottom_center/unit_card")
+	hud_unit_card = hud.get_node("bottom_center")
+	hud_unit = hud_unit_card.get_node("unit_card")
 	hud_unit_life = hud_unit.get_node("life")
 	hud_unit_attack = hud_unit.get_node("attack")
 	hud_unit_ap = hud_unit.get_node("action_points")
@@ -124,10 +127,10 @@ func init_root(root, action_controller_object, hud):
 	menu_button = hud.get_node("game_card/escape")
 	menu_button.connect("pressed", root, "toggle_menu")
 
-func show_unit_card(unit):
+func show_unit_card(unit, player):
 	self.update_unit_card(unit)
 	self.set_unit_card_icon(unit)
-	self.show_hud_unit()
+	self.show_hud_unit(player)
 
 func update_unit_card(unit):
 	var stats = unit.get_stats()
@@ -247,16 +250,23 @@ func show_win(player):
 		red_wins.show()
 		print('red wins')
 		
-func toggle_unit_details_view():
-	hud_unit_expanded = not hud_unit_expanded
-	self.show_hud_unit()
+func toggle_unit_details_view(player):
+	hud_unit_expanded[player] = not hud_unit_expanded[player]
+	self.show_hud_unit(player)
 	
-func show_hud_unit(): 
+func show_hud_unit(player):
 	var index = 0
-	#var label = "SHOW\nMORE" 
-	if hud_unit_expanded:
+	var margin
+	var label = "SHOW\nMORE" 
+		
+	if hud_unit_expanded[player]:
 		index = 1
-	#	label = "SHOW\nLESS"
-	#hud_unit_details_toggle_label.set_text(label)
-	hud_unit.set_pos(Vector2(hud_unit.get_pos().x,hud_unit_expanded_positions[index]))
+		label = "SHOW\nLESS"
+
+	hud_unit_details_toggle_label.set_text(label)
+	margin = hud_unit_expanded_positions[index]
+	hud_unit_card.set_margin(MARGIN_TOP,margin.top)
+	hud_unit_card.set_margin(MARGIN_BOTTOM,margin.bottom)
 	hud_unit.show()
+	print(hud_unit_expanded_positions[index])
+	

@@ -118,7 +118,7 @@ func activate_field(field):
 	active_indicator.set_pos(position)
 	sound_controller.play('select')
 	if field.object.group == 'unit':
-		hud_controller.show_unit_card(field.object)
+		hud_controller.show_unit_card(field.object, current_player)
 		self.add_movement_indicators(field)
 	if field.object.group == 'building' && not root_node.settings['cpu_' + str(current_player)]:
 		hud_controller.show_building_card(field.object)
@@ -198,7 +198,7 @@ func spawn_unit_from_active_building():
 		self.move_camera_to_point(spawn_point.position)
 
 func toggle_unit_details_view():
-	hud_controller.toggle_unit_details_view()
+	hud_controller.toggle_unit_details_view(current_player)
 
 func import_objects():
 	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
