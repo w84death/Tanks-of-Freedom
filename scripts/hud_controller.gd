@@ -253,10 +253,10 @@ func toggle_unit_details_view():
 	
 func show_hud_unit(): 
 	var index = 0
-	var label = "SHOW\nMORE" 
+	#var label = "SHOW\nMORE" 
 	if hud_unit_expanded:
 		index = 1
-		label = "SHOW\nLESS"
-	hud_unit_details_toggle_label.set_text(label)
+	#	label = "SHOW\nLESS"
+	#hud_unit_details_toggle_label.set_text(label)
 	hud_unit.set_pos(Vector2(hud_unit.get_pos().x,hud_unit_expanded_positions[index]))
 	hud_unit.show()
