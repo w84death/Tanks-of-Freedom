@@ -110,12 +110,8 @@ func get_life_status():
 func update_healthbar():
 	var frame = health_bar.get_frame()
 	var life_status = self.get_life_status()
-	if life_status <= 0.33:
-		health_bar.set_frame(2)
-	elif life_status <= 0.66:
-		health_bar.set_frame(1)
-	else:
-		health_bar.set_frame(0)
+
+	health_bar.set_frame(floor(life_status*10))
 	return
 
 func show_explosion():
