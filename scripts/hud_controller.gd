@@ -37,7 +37,8 @@ var hud_building_cost
 
 var hud_in_game_card
 var hud_in_game_card_body
-var hud_in_game_card_text
+var hud_in_game_card_blue_score
+var hud_in_game_card_red_score
 var hud_in_game_card_player_blue_turn
 var hud_in_game_card_player_red_turn
 var hud_in_game_card_button
@@ -112,7 +113,8 @@ func init_root(root, action_controller_object, hud):
 
 	hud_in_game_card = hud.get_node("in_game_card")
 	hud_in_game_card_body = hud_in_game_card.get_node("center")
-	hud_in_game_card_text = hud_in_game_card_body.get_node("text")
+	hud_in_game_card_blue_score = hud_in_game_card_body.get_node("blue_score")
+	hud_in_game_card_red_score = hud_in_game_card_body.get_node("red_score")
 	hud_in_game_card_player_blue_turn = hud_in_game_card_body.get_node("blue_player")
 	hud_in_game_card_player_red_turn = hud_in_game_card_body.get_node("red_player")
 	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
@@ -196,7 +198,7 @@ func show_in_game_card(messages, current_player):
 	hud_turn_button_red.set_disabled(true)
 	hud_game_card.hide()
 	end_game.hide()
-	
+	zoom_card.hide()
 	game_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
@@ -206,11 +208,11 @@ func show_in_game_card(messages, current_player):
 	else:
 		hud_in_game_card_player_blue_turn.show()
 		hud_in_game_card_player_red_turn.hide()
-	hud_in_game_card_text.clear()
-	for message in messages:
-		hud_in_game_card_text.add_text(message)
-		hud_in_game_card_text.newline()
-		hud_in_game_card_text.newline()
+
+	# set proper players score
+	hud_in_game_card_blue_score.set_text('3')
+	hud_in_game_card_red_score.set_text('3')
+
 	hud_in_game_card.show()
 
 func close_in_game_card():
@@ -220,6 +222,7 @@ func close_in_game_card():
 	active_map.show()
 	hud_game_card.show()
 	game_card.show()
+	zoom_card.show()
 	action_controller.move_camera_to_active_bunker()
 	action_controller.show_bonus_ap()
 
