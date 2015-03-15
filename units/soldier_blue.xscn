@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://gui/health_bar.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
+<resource_file type="PackedScene" subresource_count="11" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://assets/animations/small_cloud_alert_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/units/soldier.gd" type="Script"></ext_resource>
+	<ext_resource path="res://animation_frames.xml" type="SpriteFrames"></ext_resource>
+	<ext_resource path="res://gui/health_bar.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/animations/small_cloud_alert_1.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/animations/small_cloud_alert_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/icon_shield.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://gui/small_cloud.xscn" type="PackedScene"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "move" </string>
 		<real name="length"> 0.75 </real>
@@ -28,10 +32,18 @@
 		</dictionary>
 
 	</resource>
+	<resource type="SpriteFrames" path="local://1">
+		<array name="frames" len="3" shared="false">
+			<resource  resource_type="Texture" path="res://assets/animations/small_cloud_alert_0.png">  </resource>
+			<resource  resource_type="Texture" path="res://assets/animations/small_cloud_alert_1.png">  </resource>
+			<resource  resource_type="Texture" path="res://assets/animations/small_cloud_alert_2.png">  </resource>
+		</array>
+
+	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="33">
+			<string_array  len="34">
 				<string> "soldier_blue" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "_import_path" </string>
@@ -65,15 +77,16 @@
 				<string> "health" </string>
 				<string> "Sprite" </string>
 				<string> "shield" </string>
+				<string> "cloud" </string>
 			</string_array>
 			<string> "version" </string>
 			<int> 1 </int>
 			<string> "conn_count" </string>
 			<int> 0 </int>
 			<string> "node_count" </string>
-			<int> 4 </int>
+			<int> 5 </int>
 			<string> "variants" </string>
-			<array  len="24" shared="false">
+			<array  len="28" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -91,7 +104,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 6 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="7" shared="false">
 								<string> "res://scripts/units/soldier.gd" </string>
@@ -217,7 +230,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 				</dictionary>
 				<int> 0 </int>
 				<int> 1 </int>
@@ -246,6 +259,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -313,12 +332,6 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
 							<string> "default_light" </string>
@@ -364,6 +377,137 @@
 							<vector2> -35.9431, -29.2837 </vector2>
 							<string> "snap" </string>
 							<int> 10 </int>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+							</array>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+					<string> "__editor_plugin_screen__" </string>
+					<string> "2D" </string>
+				</dictionary>
+				<resource  resource_type="PackedScene" path="res://gui/small_cloud.xscn">  </resource>
+				<vector2> 4, -10 </vector2>
+				<resource  resource_type="SpriteFrames" path="local://1">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 0 </int>
+							<string> "sources" </string>
+							<array  len="1" shared="false">
+								<string> "res://scripts/cloud.gd" </string>
+							</array>
+						</dictionary>
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "pixel_snap" </string>
+							<bool> True </bool>
+							<string> "zoom" </string>
+							<real> 2.050546 </real>
+							<string> "use_snap" </string>
+							<bool> False </bool>
+							<string> "ofs" </string>
+							<vector2> -82.0464, -91.7758 </vector2>
+							<string> "snap" </string>
+							<int> 1 </int>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -470,7 +614,7 @@
 				</dictionary>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="94"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 1, 13, 3, 14, 3, 15, 9, 16, 10, 17, 11, 18, 12, 19, 4, 0, 0, 0, 21, 20, -1, 9, 2, 0, 22, 13, 23, 5, 24, 14, 25, 15, 26, 1, 27, 2, 28, 16, 29, 17, 0, 0, 0, 31, 30, 18, 3, 2, 0, 7, 19, 17, 20, 0, 0, 0, 31, 32, 21, 3, 2, 0, 7, 22, 17, 23, 0 </int_array>
+			<int_array  len="111"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 8, 12, 1, 13, 3, 14, 3, 15, 9, 16, 10, 17, 11, 18, 12, 19, 4, 0, 0, 0, 21, 20, -1, 9, 2, 0, 22, 13, 23, 5, 24, 14, 25, 15, 26, 1, 27, 2, 28, 16, 29, 17, 0, 0, 0, 31, 30, 18, 3, 2, 0, 7, 19, 17, 20, 0, 0, 0, 31, 32, 21, 3, 2, 0, 7, 22, 17, 23, 0, 0, 0, 1, 33, 24, 5, 2, 0, 3, 3, 7, 25, 10, 26, 17, 27, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
