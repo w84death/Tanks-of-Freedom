@@ -121,7 +121,7 @@ func activate_field(field):
 		hud_controller.show_unit_card(field.object, current_player)
 		self.add_movement_indicators(field)
 	if field.object.group == 'building' && not root_node.settings['cpu_' + str(current_player)]:
-		hud_controller.show_building_card(field.object)
+		hud_controller.show_building_card(field.object, player_ap[current_player])
 
 func clear_active_field():
 	active_field = null

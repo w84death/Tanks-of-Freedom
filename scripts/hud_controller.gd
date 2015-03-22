@@ -179,7 +179,7 @@ func set_ap_progress(ap):
 		ap = 8
 	hud_unit_progress_ap.set_frame(ap)
 
-func show_building_card(building):
+func show_building_card(building, player_ap):
 	if not building.can_spawn:
 		return
 	
@@ -187,6 +187,10 @@ func show_building_card(building):
 	hud_building_unit_icon.set_region_rect(building.get_region_rect())
 	hud_building_label.set_text(building.get_building_name())
 	hud_building_cost.set_text(str(building.get_cost()))
+	if player_ap >= building.get_cost():
+		hud_building_spawn_button.set_disabled(false)
+	else:
+		hud_building_spawn_button.set_disabled(true)
 	hud_building.show()
 
 func clear_building_card():
