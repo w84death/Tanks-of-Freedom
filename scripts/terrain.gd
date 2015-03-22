@@ -21,7 +21,7 @@ func set_pos_map(new_position):
 	self.set_pos(current_map.map_to_world(new_position))
 	position_on_map = new_position
 
-func take_damage():
+func set_damage():
 	if destructable and damage < 2:
 		damage += 1
 		var smoke = self.get_node("smoke")
@@ -36,13 +36,6 @@ func take_damage():
 func _ready():
 	add_to_group("terrain")
 	current_map = get_node("/root/game").current_map_terrain
-# FOR DEBUGING ONLY
-	#randomize()
-	#if randf() > 0.5:
-	#	take_damage()
-	#	if randf() > 0.5:
-	#		take_damage()
-# DELETE THIS :D
 	pass
 
 
