@@ -9,6 +9,7 @@ var health_bar
 var icon_shield
 var icon_cloud
 var type = 0
+var kills = 0
 
 var life
 var max_life
@@ -161,6 +162,9 @@ func update_ap_left():
 		icon_cloud.show()
 	else:
 		icon_cloud.hide()
+
+func score_kill():
+	kills = kills + 1
 
 func _ready():
 	add_to_group("units")

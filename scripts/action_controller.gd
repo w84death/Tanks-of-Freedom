@@ -9,6 +9,7 @@ var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
 var position_controller = preload("position_controller.gd").new()
+var battle_stats = preload("battle_stats.gd").new(self, position_controller)
 var sound_controller
 var ai
 var pathfinding
@@ -197,6 +198,9 @@ func spawn_unit_from_active_building():
 		self.activate_field(spawn_point)
 		self.move_camera_to_point(spawn_point.position)
 
+		#gather stats
+		battle_stats.add_spawn()
+
 func toggle_unit_details_view():
 	hud_controller.toggle_unit_details_view(current_player)
 
@@ -217,6 +221,11 @@ func end_turn():
 		self.switch_to_player(0)
 		turn += 1
 	hud_controller.set_turn(turn)
+
+	#gather stats
+	battle_stats.add_domination()
+	if current_player == 1 :
+		print(battle_stats.get_stats())
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
@@ -329,6 +338,10 @@ func move_unit(active_field, field):
 		sound_controller.play('move')
 		self.use_ap()
 		self.activate_field(field)
+
+		#gather stats
+		battle_stats.add_moves()
+
 	else:
 		sound_controller.play('no_moves')
 
@@ -342,6 +355,9 @@ func handle_battle(active_field, field):
 			self.play_destroy(field)
 			self.destroy_unit(field)
 			self.update_unit(active_field)
+
+			#gather stats
+			battle_stats.add_kills(current_player)
 		else:
 			sound_controller.play('not_dead')
 			field.object.show_explosion()
@@ -354,6 +370,9 @@ func handle_battle(active_field, field):
 					self.play_destroy(active_field)
 					self.destroy_unit(active_field)
 					self.clear_active_field()
+
+					#gather stats
+					battle_stats.add_kills(abs(current_player - 1))
 				else:
 					sound_controller.play('not_dead')
 					self.update_unit(active_field)
