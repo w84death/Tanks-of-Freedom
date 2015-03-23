@@ -8,6 +8,7 @@ var hud_root
 var hud_game_card
 var hud_turn_button
 var hud_turn_button_red
+var hud_turn_button_red_anim
 
 var hud_unit_card
 var hud_unit
@@ -69,6 +70,7 @@ func init_root(root, action_controller_object, hud):
 	hud_game_card = hud.get_node("top_center/turn_card")
 	hud_turn_button = hud_game_card.get_node("end_turn")
 	hud_turn_button_red = hud_game_card.get_node("end_turn_red")
+	hud_turn_button_red_anim = hud_turn_button_red.get_node("anim")
 	turn_counter = hud_game_card.get_node("turn_no")
 	hud_turn_button.connect("pressed", action_controller, "end_turn")
 	hud_turn_button_red.connect("pressed", action_controller, "end_turn")
@@ -234,12 +236,16 @@ func update_ap(ap):
 	player_ap.set_text(str(ap))
 	if ap>0:
 		hud_turn_button_red.hide()
+		#hud_turn_button_red_anim.stop()
+		hud_turn_button.show()
 
 func set_turn(no):
 	turn_counter.set_text(str(no))
 
 func warn_end_turn():
+	hud_turn_button.hide()
 	hud_turn_button_red.show()
+	hud_turn_button_red_anim.play()
 
 func warn_player_ap():
 	return
