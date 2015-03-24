@@ -38,8 +38,6 @@ var hud_building_cost
 
 var hud_in_game_card
 var hud_in_game_card_body
-var hud_in_game_card_blue_score
-var hud_in_game_card_red_score
 var hud_in_game_card_player_blue_turn
 var hud_in_game_card_player_red_turn
 var hud_in_game_card_button
@@ -115,10 +113,8 @@ func init_root(root, action_controller_object, hud):
 
 	hud_in_game_card = hud.get_node("in_game_card")
 	hud_in_game_card_body = hud_in_game_card.get_node("center")
-	hud_in_game_card_blue_score = hud_in_game_card_body.get_node("blue_score")
-	hud_in_game_card_red_score = hud_in_game_card_body.get_node("red_score")
-	hud_in_game_card_player_blue_turn = hud_in_game_card_body.get_node("blue_player")
-	hud_in_game_card_player_red_turn = hud_in_game_card_body.get_node("red_player")
+	hud_in_game_card_player_blue_turn = hud_in_game_card_body.get_node("blue")
+	hud_in_game_card_player_red_turn = hud_in_game_card_body.get_node("red")
 	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
 	hud_in_game_card_button.connect("pressed", action_controller, "in_game_menu_pressed")
 
@@ -214,10 +210,6 @@ func show_in_game_card(messages, current_player):
 	else:
 		hud_in_game_card_player_blue_turn.show()
 		hud_in_game_card_player_red_turn.hide()
-
-	# set proper players score
-	hud_in_game_card_blue_score.set_text('3')
-	hud_in_game_card_red_score.set_text('3')
 
 	hud_in_game_card.show()
 
