@@ -214,6 +214,12 @@ func attach_objects(collection):
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func end_turn():
+	# 0 = infinite, others: 25,50,75,100
+	#
+	#if root.settings['turns_cap'] > 0:
+	#	if turn > root.settings['turns_cap']:
+	#		self.end_game()
+	
 	sound_controller.play('end_turn')
 	if current_player == 0:
 		self.switch_to_player(1)
@@ -288,7 +294,6 @@ func switch_to_player(player):
 		self.show_bonus_ap()
 	else:
 		root_node.unlock_for_player()
-		hud_controller.show_in_game_card(["winning conditions:", "- Take the control of the enemy HQ!", "- destroy all enemy units"], current_player)
 
 
 func perform_ai_stuff():

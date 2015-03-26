@@ -19,6 +19,8 @@ var maps_4_button
 var maps_5_button
 var maps_6_button
 var maps_close_button
+var maps_turns_cap
+var maps_turns_cap_label
 
 var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
 var tutorial_close_button
@@ -77,7 +79,9 @@ func load_maps_menu():
 	maps_5_button = maps_sub_menu.get_node("control/menu_controls/map_5")
 	maps_6_button = maps_sub_menu.get_node("control/menu_controls/map_6")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
-
+	maps_turns_cap = maps_sub_menu.get_node("control/menu_controls/turns_cap")
+	maps_turns_cap_label = maps_turns_cap.get_node("Label")
+	
 	maps_1_button.connect("pressed", self, "load_map", ["map_1"])
 	maps_2_button.connect("pressed", self, "load_map", ["map_2"])
 	maps_3_button.connect("pressed", self, "load_map", ["map_3"])
@@ -85,6 +89,7 @@ func load_maps_menu():
 	maps_5_button.connect("pressed", self, "load_map", ["map_6"])
 	maps_6_button.connect("pressed", self, "load_map", ["map_5"])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
+	maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
 
 func show_maps_menu():
 	control_node.hide()
@@ -163,6 +168,19 @@ func refresh_buttons_labels():
 func quit_game():
 	OS.get_main_loop().quit()
 	
+func toggle_turns_cap():
+	var turns_cap_modifer = 25
+	var turns_cap = root.settings['turns_cap']
+	
+	if turns_cap < 100:
+		root.settings['turns_cap'] = turns_cap + turns_cap_modifer
+	else:
+		root.settings['turns_cap'] = 0
+	
+	if turns_cap > 0:
+		maps_turns_cap_label.set_text(str(turns_cap))
+	else:
+		maps_turns_cap_label.set_text("OFF")
 
 func init_root(root_node):
 	root = root_node

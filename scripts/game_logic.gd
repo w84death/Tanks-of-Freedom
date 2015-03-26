@@ -35,7 +35,8 @@ var settings = {
 	'music_enabled' : true,
 	'shake_enabled' : true,
 	'cpu_0' : false,
-	'cpu_1' : true
+	'cpu_1' : true,
+	'turns_cap': 25
 }
 
 var is_map_loaded = false
