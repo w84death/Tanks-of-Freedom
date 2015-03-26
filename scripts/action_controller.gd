@@ -308,7 +308,7 @@ func reset_player_units(player):
 func end_game():
 	self.clear_active_field()
 	game_ended = true
-	hud_controller.show_win(current_player, battle_stats.get_stats())
+	hud_controller.show_win(current_player, battle_stats.get_stats(), turn)
 	selector.hide()
 
 func camera_zoom_in():

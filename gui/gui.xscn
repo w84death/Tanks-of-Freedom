@@ -18,6 +18,7 @@
 	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://gui/stats.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/units_to_buy.png" type="Texture"></ext_resource>
@@ -27,7 +28,6 @@
 	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/progress_attack.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/progress_ap_unit_blank.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gui/stats.xscn" type="PackedScene"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "jump" </string>
 		<real name="length"> 0.8 </real>
@@ -361,7 +361,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 				</dictionary>
 				<real> 78 </real>
 				<real> 400 </real>

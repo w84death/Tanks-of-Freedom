@@ -11,7 +11,7 @@ var domination = [0, 0]
 var moves = [0, 0]
 var time = [0, 0]
 var kills = [0, 0]
-var total_time = ["N/A","N/A"]
+var total_time = ["00:00","00:00"]
 var spawns = [0, 0]
 var score = [0, 0]
 

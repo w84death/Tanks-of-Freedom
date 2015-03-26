@@ -54,6 +54,8 @@ var turn_counter
 
 var hud_end_game
 var hud_end_game_controls
+var hud_end_game_total_turns
+var hud_end_game_total_time
 var hud_end_game_stats_blue
 var hud_end_game_stats_red
 var hud_end_game_missions_button
@@ -83,7 +85,9 @@ func init_root(root, action_controller_object, hud):
 	# HUD END GAME
 	#
 	hud_end_game = hud.get_node("end_game")
-	hud_end_game_controls = hud_end_game.get_node("control/menu_controls")
+	hud_end_game_controls = hud_end_game.get_node("control/controls")
+	hud_end_game_total_turns = hud_end_game_controls.get_node("labels/total_turns")
+	hud_end_game_total_time = hud_end_game_controls.get_node("labels/total_time")
 	hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
 	hud_end_game_stats_red = hud_end_game_controls.get_node("red")
 	hud_end_game_missions_button = hud_end_game_controls.get_node("select_mission")
@@ -263,7 +267,7 @@ func warn_player_ap():
 	return
 
 
-func show_win(player,stats):
+func show_win(player,stats,turns):
 	hud_game_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
@@ -273,10 +277,10 @@ func show_win(player,stats):
 	hud_game_card.hide()
 	zoom_card.hide()
 	game_card.hide()
-	self.feel_end_game_stats(stats)
+	self.feel_end_game_stats(stats,turns)
 	hud_end_game.show()
 
-func feel_end_game_stats(stats):
+func feel_end_game_stats(stats,turns):
 	#var total_turns = hud_end_game_controls.get_node("total_turns")
 	var blue_domination = hud_end_game_stats_blue.get_node("domination")
 	var blue_moves = hud_end_game_stats_blue.get_node("unit_moves")
@@ -291,6 +295,8 @@ func feel_end_game_stats(stats):
 	var red_kills = hud_end_game_stats_red.get_node("kills")
 	var red_spawns = hud_end_game_stats_red.get_node("spawn_count")
 	var red_score = hud_end_game_stats_red.get_node("overall")
+	
+	hud_end_game_total_turns.set_text(str(turns))
 	
 	blue_domination.set_text(str(stats["domination"][0]))
 	blue_moves.set_text(str(stats["moves"][0]))
