@@ -11,6 +11,7 @@ var domination = [0, 0]
 var moves = [0, 0]
 var time = [0, 0]
 var kills = [0, 0]
+var total_time = ["N/A","N/A"]
 var spawns = [0, 0]
 var score = [0, 0]
 
@@ -38,7 +39,7 @@ func __calculate_score():
 
 func get_stats():
 	score = self.__calculate_score()
-	return {"domination": domination, "kills": kills, "moves": moves, "spawns": spawns, "score" : score};
+	return {"domination": domination, "kills": kills, "time": total_time, "moves": moves, "spawns": spawns, "score" : score};
 
 func _init(action_controller_object, position_controller_object):
 	action_controller = action_controller_object

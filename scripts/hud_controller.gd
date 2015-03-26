@@ -52,11 +52,13 @@ var player_ap
 var game_card
 var turn_counter
 
-var end_game
-var blue_wins
-var red_wins
-var win_missions_button
-var win_restart_button
+var hud_end_game
+var hud_end_game_controls
+var hud_end_game_stats_blue
+var hud_end_game_stats_red
+var hud_end_game_missions_button
+var hud_end_game_restart_button
+var hud_end_game_menu_button
 
 func init_root(root, action_controller_object, hud):
 	root_node = root
@@ -77,15 +79,24 @@ func init_root(root, action_controller_object, hud):
 	player_ap = hud_game_card.get_node("Label")
 	game_card = hud.get_node("game_card")
 	
+	#
+	# HUD END GAME
+	#
+	hud_end_game = hud.get_node("end_game")
+	hud_end_game_controls = hud_end_game.get_node("control/menu_controls")
+	hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
+	hud_end_game_stats_red = hud_end_game_controls.get_node("red")
+	hud_end_game_missions_button = hud_end_game_controls.get_node("select_mission")
+	hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
+	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
+	
+	hud_end_game_missions_button.connect("pressed", root, "show_missions")
+	hud_end_game_restart_button.connect("pressed", root, "restart_map")
+	hud_end_game_menu_button.connect("pressed", root, "toggle_menu")
 
-	end_game = hud.get_node("end_game")
-	blue_wins = hud.get_node("end_game/blue_win")
-	red_wins = hud.get_node("end_game/red_win")
-	win_missions_button = end_game.get_node("buttons/select_mission")
-	win_missions_button.connect("pressed", root, "show_missions")
-	win_restart_button = end_game.get_node("buttons/restart")
-	win_restart_button.connect("pressed", root, "restart_map")
-
+	#
+	# HUD UNIT CARD
+	#
 	hud_unit_card = hud.get_node("bottom_center")
 	hud_unit = hud_unit_card.get_node("unit_card")
 	hud_unit_life = hud_unit.get_node("life")
@@ -103,6 +114,9 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_details_toggle_label = hud_unit_details_toggle.get_node("Label")
 	hud_unit_details_toggle.connect("pressed", action_controller, "toggle_unit_details_view")
 	
+	#
+	# HUD BUILDING
+	#
 	hud_building = hud.get_node("bottom_center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
 	hud_building_label = hud_building.get_node("name")
@@ -111,6 +125,9 @@ func init_root(root, action_controller_object, hud):
 	hud_building_cost = hud_building.get_node("unit_cost")
 	hud_building_spawn_button.connect("pressed", action_controller, "spawn_unit_from_active_building")
 
+	#
+	# HUD IN GAME CARD
+	#
 	hud_in_game_card = hud.get_node("in_game_card")
 	hud_in_game_card_body = hud_in_game_card.get_node("center")
 	hud_in_game_card_player_blue_turn = hud_in_game_card_body.get_node("blue")
@@ -118,6 +135,9 @@ func init_root(root, action_controller_object, hud):
 	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
 	hud_in_game_card_button.connect("pressed", action_controller, "in_game_menu_pressed")
 
+	#
+	# HUD ZOOM CARD
+	#
 	zoom_card = hud.get_node("zoom_card")
 	zoom_in_button = zoom_card.get_node("zoom_in")
 	zoom_out_button = zoom_card.get_node("zoom_out")
@@ -199,7 +219,7 @@ func show_in_game_card(messages, current_player):
 	hud_turn_button.set_disabled(true)
 	hud_turn_button_red.set_disabled(true)
 	hud_game_card.hide()
-	end_game.hide()
+	hud_end_game.hide()
 	zoom_card.hide()
 	game_card.hide()
 	self.clear_building_card()
@@ -243,18 +263,49 @@ func warn_player_ap():
 	return
 
 
-func show_win(player):
+func show_win(player,stats):
 	hud_game_card.hide()
 	self.clear_building_card()
 	self.clear_unit_card()
-	end_game.show();
-	if player == 0:
-		blue_wins.show()
-		print('blue wins')
-	else:
-		red_wins.show()
-		print('red wins')
-		
+	active_map.hide()
+	hud_turn_button.set_disabled(true)
+	hud_turn_button_red.set_disabled(true)
+	hud_game_card.hide()
+	zoom_card.hide()
+	game_card.hide()
+	self.feel_end_game_stats(stats)
+	hud_end_game.show()
+
+func feel_end_game_stats(stats):
+	#var total_turns = hud_end_game_controls.get_node("total_turns")
+	var blue_domination = hud_end_game_stats_blue.get_node("domination")
+	var blue_moves = hud_end_game_stats_blue.get_node("unit_moves")
+	var blue_turn_time = hud_end_game_stats_blue.get_node("turn_time")
+	var blue_kills = hud_end_game_stats_blue.get_node("kills")
+	var blue_spawns = hud_end_game_stats_blue.get_node("spawn_count")
+	var blue_score = hud_end_game_stats_blue.get_node("overall")
+
+	var red_domination = hud_end_game_stats_red.get_node("domination")
+	var red_moves = hud_end_game_stats_red.get_node("unit_moves")
+	var red_turn_time = hud_end_game_stats_red.get_node("turn_time")
+	var red_kills = hud_end_game_stats_red.get_node("kills")
+	var red_spawns = hud_end_game_stats_red.get_node("spawn_count")
+	var red_score = hud_end_game_stats_red.get_node("overall")
+	
+	blue_domination.set_text(str(stats["domination"][0]))
+	blue_moves.set_text(str(stats["moves"][0]))
+	blue_turn_time.set_text(str(stats["time"][0]))
+	blue_kills.set_text(str(stats["kills"][0]))
+	blue_spawns.set_text(str(stats["spawns"][0]))
+	blue_score.set_text(str(stats["score"][0]))
+	
+	red_domination.set_text(str(stats["domination"][1]))
+	red_moves.set_text(str(stats["moves"][1]))
+	red_turn_time.set_text(str(stats["time"][1]))
+	red_kills.set_text(str(stats["kills"][1]))
+	red_spawns.set_text(str(stats["spawns"][1]))
+	red_score.set_text(str(stats["score"][1]))
+
 func toggle_unit_details_view(player):
 	hud_unit_expanded[player] = not hud_unit_expanded[player]
 	self.show_hud_unit(player)
