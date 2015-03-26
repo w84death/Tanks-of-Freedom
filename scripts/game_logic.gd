@@ -36,7 +36,7 @@ var settings = {
 	'shake_enabled' : true,
 	'cpu_0' : false,
 	'cpu_1' : true,
-	'turns_cap': 25
+	'turns_cap': 0
 }
 
 var is_map_loaded = false

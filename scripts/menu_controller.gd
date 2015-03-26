@@ -170,15 +170,14 @@ func quit_game():
 	
 func toggle_turns_cap():
 	var turns_cap_modifer = 25
-	var turns_cap = root.settings['turns_cap']
 	
-	if turns_cap < 100:
-		root.settings['turns_cap'] = turns_cap + turns_cap_modifer
-	else:
+	if root.settings['turns_cap'] >= 100:
 		root.settings['turns_cap'] = 0
+	else:
+		root.settings['turns_cap'] = root.settings['turns_cap'] + turns_cap_modifer
 	
-	if turns_cap > 0:
-		maps_turns_cap_label.set_text(str(turns_cap))
+	if root.settings['turns_cap'] > 0:
+		maps_turns_cap_label.set_text(str(root.settings['turns_cap']))
 	else:
 		maps_turns_cap_label.set_text("OFF")
 
