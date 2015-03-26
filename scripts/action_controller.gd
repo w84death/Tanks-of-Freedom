@@ -78,7 +78,6 @@ func capture_building(active_field, field):
 
 	self.activate_field(field)
 	if field.object.type == 0:
-		root_node.ai_timer.reset_state()
 		self.end_game()
 		return 1
 
@@ -214,10 +213,10 @@ func attach_objects(collection):
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func end_turn():
-	# 0 = infinite, others: 25,50,75,100
 	if self.root_node.settings['turns_cap'] > 0:
 		if turn > self.root_node.settings['turns_cap']:
 			self.end_game()
+			return
 	
 	sound_controller.play('end_turn')
 	if current_player == 0:
@@ -311,6 +310,7 @@ func reset_player_units(player):
 			unit.reset_ap()
 
 func end_game():
+	self.root_node.ai_timer.reset_state()
 	self.clear_active_field()
 	game_ended = true
 	hud_controller.show_win(current_player, battle_stats.get_stats(), turn)
