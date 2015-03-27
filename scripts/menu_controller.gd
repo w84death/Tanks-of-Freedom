@@ -135,6 +135,7 @@ func load_map(name):
 func toggle_sound():
 	root.settings['sound_enabled'] = not root.settings['sound_enabled']
 	self.refresh_buttons_labels()
+	root.write_settings_to_file()
 
 func toggle_music():
 	root.settings['music_enabled'] = not root.settings['music_enabled']
@@ -143,6 +144,7 @@ func toggle_music():
 	else:
 		root.sound_controller.stop_soundtrack()
 	self.refresh_buttons_labels()
+	root.write_settings_to_file()
 
 func toggle_shake():
 	root.settings['shake_enabled'] = not root.settings['shake_enabled']
@@ -150,6 +152,7 @@ func toggle_shake():
 		shake_toggle_label.set_text("ON")
 	else:
 		shake_toggle_label.set_text("OFF")
+	root.write_settings_to_file()
 
 func refresh_buttons_labels():
 	if root.settings['sound_enabled']:

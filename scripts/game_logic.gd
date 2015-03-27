@@ -43,6 +43,7 @@ var is_map_loaded = false
 var is_intro = true
 var is_paused = false
 var is_locked_for_cpu = false
+var settings_file = File.new()
 
 func _input(event):
 	if is_intro:
@@ -171,8 +172,24 @@ func unlock_for_player():
 	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(false)
 	selector.show()
 
+func read_settings_from_file():
+	if settings_file.file_exists("user://settings.tof"):
+		settings_file.open("user://settings.tof",File.READ)
+		self.settings = settings_file.get_var()
+		print('ToF: settings loaded from file')
+	else:
+		self.write_settings_to_file()
+	return
+
+func write_settings_to_file():
+	settings_file.open("user://settings.tof",File.WRITE)
+	settings_file.store_var(self.settings)
+	print('ToF: settings saved to file')
+	return
+	
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	self.read_settings_from_file()
 	scale_root = get_node("/root/game/pixel_scale")
 	ai_timer = get_node("AITimer")
 	sound_controller.init_root(self)
