@@ -62,6 +62,14 @@ var hud_end_game_missions_button
 var hud_end_game_restart_button
 var hud_end_game_menu_button
 
+
+var show_help = false
+var hud_help_button
+var hud_help_top
+var hud_help_bottom
+var hud_help_unit
+var hud_help_building
+
 func init_root(root, action_controller_object, hud):
 	root_node = root
 	action_controller = action_controller_object
@@ -148,13 +156,45 @@ func init_root(root, action_controller_object, hud):
 	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
 	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
 	
+	#
+	# HUD HELP
+	#
+	hud_help_button = hud.get_node("help_button/help")
+	hud_help_top = hud.get_node("help_top")
+	hud_help_bottom = hud.get_node("help_bottom")
+	hud_help_unit = hud_help_bottom.get_node("unit_card")
+	hud_help_building = hud_help_bottom.get_node("building_card")
+	
+	hud_help_button.connect("pressed", self, "toggle_help")
+	
 	menu_button = hud.get_node("game_card/escape")
 	menu_button.connect("pressed", root, "toggle_menu")
+
+func toggle_help():
+	show_help = not show_help
+	self.refresh_help()
+
+func refresh_help():
+	if show_help:
+		hud_help_top.show()
+		hud_help_bottom.show()
+		if not hud_unit.is_hidden():
+			hud_help_unit.show()
+		else:
+			hud_help_unit.hide()
+		if not hud_building.is_hidden():
+			hud_help_building.show()
+		else:
+			hud_help_building.hide()
+	else:
+		hud_help_top.hide()
+		hud_help_bottom.hide()
 
 func show_unit_card(unit, player):
 	self.update_unit_card(unit)
 	self.set_unit_card_icon(unit)
 	self.show_hud_unit(player)
+	self.refresh_help()
 
 func update_unit_card(unit):
 	var stats = unit.get_stats()
@@ -176,6 +216,7 @@ func set_unit_card_icon(unit):
 
 func clear_unit_card():
 	hud_unit.hide()
+	self.refresh_help()
 
 func sync_ap_progress(ap):
 	if ap > 8:
@@ -214,9 +255,11 @@ func show_building_card(building, player_ap):
 	else:
 		hud_building_spawn_button.set_disabled(true)
 	hud_building.show()
+	self.refresh_help()
 
 func clear_building_card():
 	hud_building.hide()
+	self.refresh_help()
 
 func show_in_game_card(messages, current_player):
 	active_map.hide()
