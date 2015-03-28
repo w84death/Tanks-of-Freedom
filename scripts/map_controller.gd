@@ -115,10 +115,12 @@ func do_single_shake():
 		terrain.set_pos(shake_initial_position)
 
 func generate_map():
-	var map_max_x = 32
-	var map_max_y = 32
+	var map_max_x = 64
+	var map_max_y = 64
 	var temp = null
 	var temp2 = null
+	var cells_to_change = []
+	var cell
 	randomize()
 	
 	for x in range(map_max_x):
@@ -170,9 +172,70 @@ func generate_map():
 				temp = null
 			
 			# roads
-			
-	return
+			if terrain.get_cell(x,y) == 14: # city road
+				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,14)})
+			#if terrain.get_cell(x,y) == 15: # country road
+				#self.build_road(x,y,15)
+			#if terrain.get_cell(x,y) == 16: # road mix
+				#self.build_road(x,y,16)
+			if terrain.get_cell(x,y) == 17: # river
+				self.build_river(x,y)
+			if terrain.get_cell(x,y) == 18: # bridge
+				cells_to_change.append({x=x,y=y,type=self.build_bridge(x,y)})
 	
+	for c in cells_to_change:
+		if(c.type):
+			terrain.set_cell(c.x,c.y,c.type)
+	
+	return
+
+func build_road(x,y,type):
+	var position = 0
+	var positive_type = [type, 16, -1, 18]
+	
+	if terrain.get_cell(x,y-1) in positive_type:
+		position += 2
+	if terrain.get_cell(x+1,y) in positive_type:
+		position += 4
+	if terrain.get_cell(x,y+1) in positive_type:
+		position += 8
+	if terrain.get_cell(x-1,y) in positive_type:
+		position += 16
+
+	if position == 10:
+		return 19
+	if position == 20:
+		return 20
+	if position == 24:
+		return 21
+	if position == 12:
+		return 22
+	if position == 18:
+		return 23
+	if position == 6:
+		return 24
+	if position == 26:
+		return 25
+	if position == 28:
+		return 26
+	if position == 14:
+		return 27
+	if position == 22:
+		return 28
+	if position == 30:
+		return 29
+		
+	return false
+
+func build_river(x,y):
+	return
+
+func build_bridge(x,y):
+	if terrain.get_cell(x,y-1) == 17 and terrain.get_cell(x,y+1) == 17:
+		return 31
+	if terrain.get_cell(x-1,y) == 17 and terrain.get_cell(x+1,y) == 17:
+		return 30
+
 func _ready():
 	terrain = get_node("terrain")
 	underground = get_node("underground")
