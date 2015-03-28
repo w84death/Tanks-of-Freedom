@@ -169,7 +169,8 @@ func score_kill():
 func _ready():
 	add_to_group("units")
 	get_node('anim').play("move")
-	current_map = get_node("/root/game").current_map_terrain
+	if get_node("/root/game"):
+		current_map = get_node("/root/game").current_map_terrain
 	health_bar = get_node("health")
 	icon_shield = get_node("shield")
 	icon_cloud = get_node("cloud")

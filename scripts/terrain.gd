@@ -35,7 +35,8 @@ func set_damage():
 
 func _ready():
 	add_to_group("terrain")
-	current_map = get_node("/root/game").current_map_terrain
+	if get_node("/root/game"):
+		current_map = get_node("/root/game").current_map_terrain
 	pass
 
 

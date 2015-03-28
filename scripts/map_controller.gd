@@ -24,6 +24,17 @@ var temp_delta = 0
 var map_step = 0.01
 var near_threshold = 0.4
 
+
+var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
+var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn')]
+var map_city = [preload('res://terrain/city_1.xscn'),preload('res://terrain/city_2.xscn'),preload('res://terrain/city_3.xscn'),preload('res://terrain/city_4.xscn'),preload('res://terrain/city_5.xscn')]
+var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terrain/mountain_2.xscn')]
+var map_statue = preload('res://terrain/city_statue.xscn')
+var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn')]
+var map_layer
+var map_layer_units
+
+
 func _input(event):
 		
 	pos = terrain.get_pos()
@@ -102,17 +113,66 @@ func do_single_shake():
 		underground.set_pos(shake_initial_position)
 		terrain.set_pos(shake_initial_position)
 
+func generate_map():
+	var map_max_x = 32
+	var map_max_y = 32
+	var temp = null
+	var temp2 = null
+	randomize()
+	
+	for x in range(map_max_x):
+		for y in range(map_max_y):
+		
+			# grass, flowers, log
+			if terrain.get_cell(x,y) == 1:
+				temp = map_grass[randi() % 2].instance()
+				temp2 = map_flowers[randi() % 4].instance()
+			if terrain.get_cell(x,y) == 2:
+				temp = map_forest[randi() % 2].instance()
+				
+			# mountains
+			if terrain.get_cell(x,y) == 3:
+				temp = map_mountain[randi() % 2].instance()
+			
+			if temp:
+				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+				map_layer.add_child(temp)
+				temp = null
+			if temp2:
+				temp2.set_pos(terrain.map_to_world(Vector2(x,y)))
+				map_layer.add_child(temp2)
+				temp2 = null
+				
+			# city, statue
+			if terrain.get_cell(x,y) == 4:
+				temp = map_city[randi() % 5].instance()
+			if terrain.get_cell(x,y) == 5:
+				temp = map_statue.instance()
+			
+			if temp:
+				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+				map_layer_units.add_child(temp)
+				temp = null
+			
+			# roads
+			
+	return
 	
 func _ready():
 	terrain = get_node("terrain")
 	underground = get_node("underground")
-	scale = Vector2(1,1)
+	map_layer = terrain.get_node("plants")
+	map_layer_units = terrain.get_node("units")
+	scale = Vector2(2,2)
+	terrain.set_scale(scale)
+	underground.set_scale(scale)
 	pos = terrain.get_pos()
 	shake_timer.set_wait_time(shake_time / shakes_max)
 	shake_timer.set_one_shot(true)
 	shake_timer.set_autostart(false)
 	shake_timer.connect('timeout', self, 'do_single_shake')
 	self.add_child(shake_timer)
+	self.generate_map()
 	set_process_input(true)
 	set_process(true)
 	pass
