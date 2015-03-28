@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
-	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
 	<ext_resource path="res://particle/smoke.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/buildings/buildings.png" type="Texture"></ext_resource>
+	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="28">
-				<string> "city_1" </string>
+			<string_array  len="30">
+				<string> "city_4" </string>
 				<string> "Sprite" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
@@ -32,6 +32,8 @@
 				<string> "__meta__" </string>
 				<string> "position_on_map" </string>
 				<string> "destructable" </string>
+				<string> "smoke_particles" </string>
+				<string> "smoke_lifetime" </string>
 				<string> "smoke" </string>
 				<string> "Particles2D" </string>
 				<string> "emission_points" </string>
@@ -43,7 +45,7 @@
 			<string> "node_count" </string>
 			<int> 2 </int>
 			<string> "variants" </string>
-			<array  len="17" shared="false">
+			<array  len="18" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -51,34 +53,25 @@
 				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
-				<resource  resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/buildings/buildings.png">  </resource>
 				<int> 1 </int>
 				<int> 0 </int>
 				<color> 1, 1, 1, 1 </color>
-				<rect2> 0, 96, 32, 32 </rect2>
+				<rect2> 128, 0, 32, 32 </rect2>
 				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 0 </int>
-							<string> "sources" </string>
-							<array  len="1" shared="false">
-								<string> "res://scripts/terrain.gd" </string>
-							</array>
-						</dictionary>
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.108033 </real>
+							<real> 2.720749 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -309.893, -134.368 </vector2>
+							<vector2> -151.362, -42.1914 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -185,6 +178,7 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
+				<int> 16 </int>
 				<resource  resource_type="PackedScene" path="res://particle/smoke.xscn">  </resource>
 				<vector2_array  len="0"> 					 </vector2_array>
 				<dictionary  shared="false">
@@ -205,6 +199,10 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -272,28 +270,24 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
 							<string> "deflight_rot_y" </string>
 							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "default_light" </string>
-							<bool> True </bool>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -308,7 +302,7 @@
 				</dictionary>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="66"> 				-1, -1, 1, 0, -1, 23, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 4, 24, 1, 0, 0, 0, 26, 25, 14, 3, 2, 0, 27, 15, 22, 16, 0 </int_array>
+			<int_array  len="70"> 				-1, -1, 1, 0, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 1, 20, 11, 21, 12, 22, 13, 23, 4, 24, 1, 25, 14, 26, 8, 0, 0, 0, 28, 27, 15, 3, 2, 0, 29, 16, 22, 17, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
