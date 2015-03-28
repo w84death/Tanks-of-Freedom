@@ -31,6 +31,7 @@ var map_city = [preload('res://terrain/city_1.xscn'),preload('res://terrain/city
 var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terrain/mountain_2.xscn')]
 var map_statue = preload('res://terrain/city_statue.xscn')
 var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn')]
+var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
 var map_layer
 var map_layer_units
 
@@ -149,6 +150,20 @@ func generate_map():
 			if terrain.get_cell(x,y) == 5:
 				temp = map_statue.instance()
 			
+			# military buildings
+			if terrain.get_cell(x,y) == 6: # HQ blue
+				temp = map_buildings[0].instance()
+			if terrain.get_cell(x,y) == 7: # HQ red
+				temp = map_buildings[1].instance()
+			if terrain.get_cell(x,y) == 8: # barrack
+				temp = map_buildings[2].instance()
+			if terrain.get_cell(x,y) == 9: # factory
+				temp = map_buildings[3].instance()
+			if terrain.get_cell(x,y) == 10: # airport
+				temp = map_buildings[4].instance()
+			if terrain.get_cell(x,y) == 11: # tower
+				temp = map_buildings[5].instance()
+				
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_units.add_child(temp)
@@ -173,6 +188,7 @@ func _ready():
 	shake_timer.connect('timeout', self, 'do_single_shake')
 	self.add_child(shake_timer)
 	self.generate_map()
+	
 	set_process_input(true)
 	set_process(true)
 	pass
