@@ -22,6 +22,7 @@ var hud
 var ai_timer
 
 var maps = {
+	'workshop' : preload('res://maps/workshop.xscn'),
 	'map_1' : preload('res://maps/map_1.xscn'),
 	'map_2' : preload('res://maps/map_2.xscn'),
 	'map_3' : preload('res://maps/map_1.xscn'),
@@ -44,6 +45,7 @@ var is_intro = true
 var is_paused = false
 var is_locked_for_cpu = false
 var settings_file = File.new()
+var workshop_file_name
 
 func _input(event):
 	if is_intro:
@@ -84,11 +86,15 @@ func start_ai_timer():
 	ai_timer.inject_action_controller(action_controller, hud_controller)
 	ai_timer.start()
 
-func load_map(template_name):
+func load_map(template_name, workshop_file_name):
 	self.unload_map()
 	current_map_name = template_name
 	var map_template = maps[template_name]
 	current_map = map_template.instance()
+	if workshop_file_name:
+		current_map.load_map(workshop_file_name)
+		current_map.generate_map()
+		self.workshop_file_name = workshop_file_name
 	hud = hud_template.instance()
 
 	current_map_terrain = current_map.get_node("terrain")
@@ -116,7 +122,7 @@ func load_map(template_name):
 	sound_controller.play_soundtrack()
 	
 func restart_map():
-	self.load_map(current_map_name)
+	self.load_map(current_map_name,workshop_file_name)
 
 func unload_map():
 	if is_map_loaded == false:
