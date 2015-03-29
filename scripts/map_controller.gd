@@ -339,10 +339,9 @@ func generate_underground(x,y):
 		underground.set_cell(x+1,y+1,0)
 
 func set_default_zoom():
-	scale = Vector2(2,2)
+	self.scale = Vector2(2,2)
 	terrain.set_scale(scale)
 	underground.set_scale(scale)
-	self.scale = scale
 
 func save_map(file_name):
 	var temp_data = []
