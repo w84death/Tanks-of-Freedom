@@ -321,13 +321,13 @@ func camera_zoom_in():
 	var scale = camera.get_scale()
 	if scale.x < camera_zoom_range[1]:
 		camera.set_scale(scale + Vector2(1,1))
-	abstract_map.map.set_zoom(camera.get_scale())
+	abstract_map.map.scale = camera.get_scale()
 
 func camera_zoom_out():
 	var scale = camera.get_scale()
 	if scale.x > camera_zoom_range[0]:
 		camera.set_scale(scale - Vector2(1,1))
-	abstract_map.map.set_zoom(camera.get_scale())
+	abstract_map.map.scale = camera.get_scale()
 
 func play_destroy(field):
 	if (field.object.type == 0):

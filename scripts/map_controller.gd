@@ -319,7 +319,8 @@ func generate_underground(x,y):
 	if generate:
 		underground.set_cell(x+1,y+1,0)
 
-func set_zoom(scale):
+func set_default_zoom():
+	scale = Vector2(2,2)
 	terrain.set_scale(scale)
 	underground.set_scale(scale)
 	self.scale = scale
@@ -333,8 +334,7 @@ func _ready():
 	if root:
 		scale = root.scale_root.get_scale()
 	else:
-		scale = Vector2(2,2)
-	self.set_zoom(scale)
+		self.set_default_zoom()
 	pos = terrain.get_pos()
 	shake_timer.set_wait_time(shake_time / shakes_max)
 	shake_timer.set_one_shot(true)

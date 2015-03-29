@@ -196,32 +196,10 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
-							<array  len="23" shared="false">
-								<string> "res://scripts/action_controller.gd" </string>
-								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/position_controller.gd" </string>
-								<string> "res://scripts/abstract_map.gd" </string>
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/object_factory.gd" </string>
-								<string> "res://scripts/unit_control.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
-								<string> "res://scripts/units/soldier.gd" </string>
-								<string> "res://scripts/units/behaviours.gd" </string>
-								<string> "res://scripts/ai/tile_object.gd" </string>
-								<string> "res://scripts/movement_controller.gd" </string>
-								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
-								<string> "res://scripts/ai/ai.gd" </string>
-								<string> "res://scripts/ai/cost_grid.gd" </string>
-								<string> "res://scripts/ai/actions/action_object.gd" </string>
-								<string> "res://scripts/ai/actions/action_builder.gd" </string>
-								<string> "res://scripts/ai/actions/types/move.gd" </string>
-								<string> "res://scripts/ai/actions/types/attack.gd" </string>
-								<string> "res://scripts/ai/actions/types/move_attack.gd" </string>
-								<string> "res://scripts/ai/actions/types/spawn.gd" </string>
-								<string> "res://scripts/ai_timer.gd" </string>
+							<array  len="1" shared="false">
+								<string> "res://scripts/map_controller.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
