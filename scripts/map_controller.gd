@@ -192,11 +192,10 @@ func generate_map():
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[17, 18])})
 			if terrain.get_cell(x,y) == 18: # bridge
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[18, 17])})
-				#cells_to_change.append({x=x,y=y,type=self.build_bridge(x,y)})
 	
-	for c in cells_to_change:
-		if(c.type):
-			terrain.set_cell(c.x,c.y,c.type)
+	for cell in cells_to_change:
+		if(cell.type):
+			terrain.set_cell(cell.x,cell.y,cell.type)
 	
 	return
 
