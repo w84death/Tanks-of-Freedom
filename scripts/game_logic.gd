@@ -104,6 +104,7 @@ func load_map(template_name):
 	action_controller.init_root(self, current_map, hud)
 	action_controller.switch_to_player(0)
 	hud_controller = action_controller.hud_controller
+	hud_controller.show_map()
 	selector.init(action_controller)
 	menu.close_button.show()
 	is_map_loaded = true

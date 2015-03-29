@@ -309,7 +309,6 @@ func warn_end_turn():
 func warn_player_ap():
 	return
 
-
 func show_win(player,stats,turns):
 	hud_game_card.hide()
 	self.clear_building_card()
@@ -322,6 +321,9 @@ func show_win(player,stats,turns):
 	game_card.hide()
 	self.feel_end_game_stats(stats,turns)
 	hud_end_game.show()
+
+func show_map():
+	active_map.show()
 
 func feel_end_game_stats(stats,turns):
 	#var total_turns = hud_end_game_controls.get_node("total_turns")

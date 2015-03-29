@@ -93,7 +93,7 @@ func init_root(root, map, hud):
 	hud_controller.init_root(root, self, hud)
 	hud_controller.set_turn(turn)
 	if not root_node.settings['cpu_0']:
-		hud_controller.show_in_game_card(["Welcome!","You are the blue player.","The red one is the bad guy."],current_player)
+		hud_controller.show_in_game_card([],current_player)
 	position_controller.init_root(root)
 	position_controller.get_player_bunker_position(current_player)
 	sound_controller = root.sound_controller
