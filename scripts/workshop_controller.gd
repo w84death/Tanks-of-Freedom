@@ -21,8 +21,8 @@ var hud_toolset_forest
 var hud_toolset_mountains
 var hud_toolset_river
 var hud_toolset_active
-var tool_type
-var brush_type
+var tool_type = null
+var brush_type = -1
 
 var map
 var terrain
@@ -55,9 +55,9 @@ func init_gui():
 	hud_toolset_active = hud_toolset_plain.get_node("active")
 	hud_toolset_active.show()
 	
-	hud_toolset_plain.connect("pressed", self, "select_tool", ["terrain",0,hud_toolset_plain.get_node("active")])
-	hud_toolset_forest.connect("pressed", self, "select_tool", ["terrain",1,hud_toolset_forest.get_node("active")])
-	hud_toolset_mountains.connect("pressed", self, "select_tool", ["terrain",2,hud_toolset_mountains.get_node("active")])
+	hud_toolset_plain.connect("pressed", self, "select_tool", ["terrain",1,hud_toolset_plain.get_node("active")])
+	hud_toolset_forest.connect("pressed", self, "select_tool", ["terrain",2,hud_toolset_forest.get_node("active")])
+	hud_toolset_mountains.connect("pressed", self, "select_tool", ["terrain",3,hud_toolset_mountains.get_node("active")])
 	hud_toolset_river.connect("pressed", self, "select_tool", ["terrain",17,hud_toolset_river.get_node("active")])
 
 
@@ -84,8 +84,10 @@ func select_tool(tool_type,brush_type,button):
 	return
 
 func paint(position):
-	if brush_type:
+	if brush_type > -1:
 		terrain.set_cell(position.x,position.y,brush_type)
+	units.raise()
+	selector.raise()
 	return
 
 func init(root):
