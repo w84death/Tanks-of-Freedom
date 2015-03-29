@@ -23,7 +23,7 @@ var ai_timer
 
 var maps = {
 	'map_1' : preload('res://maps/map_1.xscn'),
-	'map_2' : preload('res://maps/map_1.xscn'),
+	'map_2' : preload('res://maps/map_2.xscn'),
 	'map_3' : preload('res://maps/map_1.xscn'),
 	'map_4' : preload('res://maps/map_1.xscn'),
 	'map_5' : preload('res://maps/map_1.xscn'),

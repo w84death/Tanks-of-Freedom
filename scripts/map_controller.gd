@@ -2,6 +2,8 @@ extends Control
 
 var terrain
 var underground
+var map_layer_back
+var map_layer_front
 
 var mouse_dragging = false
 var pos
@@ -34,8 +36,7 @@ var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terr
 var map_statue = preload('res://terrain/city_statue.xscn')
 var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn')]
 var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
-var map_layer_back
-var map_layer_front
+
 
 
 func _input(event):
