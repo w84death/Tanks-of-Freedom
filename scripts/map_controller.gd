@@ -346,8 +346,8 @@ func set_default_zoom():
 
 func save_map(file_name):
 	var temp_data = []
-	var temp_terrain = false
-	var temp_unit = false
+	var temp_terrain = -1
+	var temp_unit = -1
 	
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
@@ -363,8 +363,9 @@ func save_map(file_name):
 					terrain=temp_terrain,
 					unit=temp_unit
 				})
-			temp_terrain = false
-			temp_unit = false
+			
+			temp_terrain = -1
+			temp_unit = -1
 	
 	if self.check_file_name(file_name):
 		map_file.open("user://"+file_name+".tof",File.WRITE)
@@ -396,10 +397,9 @@ func load_map(file_name):
 		terrain.clear()
 		units.clear()
 		for cell in temp_data:
-			if cell.terrain:
+			if cell.terrain > -1:
 				terrain.set_cell(cell.x,cell.y,cell.terrain)
-			if cell.unit:
-				#print("load.... x:",cell.x," y:",cell.y," type:",cell.unit)
+			if cell.unit > -1:
 				units.set_cell(cell.x,cell.y,cell.unit)
 		units.raise()
 		print('ToF: map loaded from file')
