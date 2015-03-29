@@ -183,15 +183,15 @@ func generate_map():
 			
 			# roads
 			if terrain.get_cell(x,y) == 14: # city road
-				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[14, 16, -1, 18])})
+				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[14, 16, -1, 18])})
 			if terrain.get_cell(x,y) == 15: # country road
-				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[15, 16, -1, 18])})
+				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[15, 16, -1, 18])})
 			if terrain.get_cell(x,y) == 16: # road mix
-				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[16, 14])})
+				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[16, 14])})
 			if terrain.get_cell(x,y) == 17: # river
-				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[17, 18])})
+				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[17, 18])})
 			if terrain.get_cell(x,y) == 18: # bridge
-				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[18, 17])})
+				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[18, 17])})
 				#cells_to_change.append({x=x,y=y,type=self.build_bridge(x,y)})
 	
 	for c in cells_to_change:
@@ -200,7 +200,7 @@ func generate_map():
 	
 	return
 
-func build_road(x,y,type):
+func build_sprite_path(x,y,type):
 	var position = 0
 	
 	if terrain.get_cell(x,y-1) in type:
