@@ -21,8 +21,8 @@ var hud_toolset_forest
 var hud_toolset_mountains
 var hud_toolset_river
 var hud_toolset_active
-var tool_type = null
-var brush_type = -1
+var tool_type = "terrain"
+var brush_type = 1
 
 var map
 var terrain
