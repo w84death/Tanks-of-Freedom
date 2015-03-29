@@ -87,15 +87,16 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 0 </int>
+							<int> 5 </int>
 							<string> "sources" </string>
-							<array  len="6" shared="false">
+							<array  len="7" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/unit_control.gd" </string>
-								<string> "res://scripts/abstract_map.gd" </string>
+								<string> "res://scripts/building.gd" </string>
+								<string> "res://scripts/terrain.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
