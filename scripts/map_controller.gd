@@ -1,7 +1,13 @@
 extends Control
 
+export var campaign_map = true
+export var take_enemy_hq = true
+export var control_all_towers = false
+export var multiplayer_map = false
+
 var terrain
 var underground
+var units
 var map_layer_back
 var map_layer_front
 
@@ -36,7 +42,7 @@ var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terr
 var map_statue = preload('res://terrain/city_statue.xscn')
 var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn')]
 var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
-
+var map_units = [preload('res://units/soldier_blue.xscn'),preload('res://units/tank_blue.xscn'),preload('res://units/helicopter_blue.xscn'),preload('res://units/soldier_red.xscn'),preload('res://units/tank_red.xscn'),preload('res://units/helicopter_red.xscn')]
 
 
 func _input(event):
@@ -151,10 +157,12 @@ func generate_map():
 			# forest
 			if terrain.get_cell(x,y) == 2:
 				temp = map_forest[randi() % 2].instance()
+				cells_to_change.append({x=x,y=y,type=1})
 				
 			# mountains
 			if terrain.get_cell(x,y) == 3:
 				temp = map_mountain[randi() % 2].instance()
+				cells_to_change.append({x=x,y=y,type=1})
 
 			# city, statue
 			if terrain.get_cell(x,y) == 4:
@@ -192,11 +200,14 @@ func generate_map():
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[17, 18])})
 			if terrain.get_cell(x,y) == 18: # bridge
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[18, 17])})
+			
+			if units.get_cell(x,y) > -1:
+				self.spawn_unit(x,y,units.get_cell(x,y))
 	
 	for cell in cells_to_change:
 		if(cell.type):
 			terrain.set_cell(cell.x,cell.y,cell.type)
-	
+	units.hide()
 	return
 
 func build_sprite_path(x,y,type):
@@ -303,6 +314,13 @@ func build_sprite_path(x,y,type):
 	# nothing to change
 	return false
 
+func spawn_unit(x,y,type):
+	var temp = map_units[type].instance()
+	temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+	map_layer_front.add_child(temp)
+	temp = null
+	return
+
 func generate_underground(x,y):
 	var generate = false
 	
@@ -328,6 +346,7 @@ func _ready():
 	root = get_node("/root/game")
 	terrain = get_node("terrain")
 	underground = get_node("underground")
+	units = terrain.get_node("units")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
 	if root:
@@ -340,6 +359,8 @@ func _ready():
 	shake_timer.set_autostart(false)
 	shake_timer.connect('timeout', self, 'do_single_shake')
 	self.add_child(shake_timer)
+	
+	# where the magic happens
 	self.generate_map()
 	
 	set_process_input(true)

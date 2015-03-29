@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="TileSet" subresource_count="2" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://assets/units/blueprint_units.png" type="Texture"></ext_resource>
+	<main_resource>
+		<string name="0/name"> "soldier blue" </string>
+		<resource name="0/texture" resource_type="Texture" path="res://assets/units/blueprint_units.png">  </resource>
+		<vector2 name="0/tex_offset"> 0, -14 </vector2>
+		<vector2 name="0/shape_offset"> 0, 0 </vector2>
+		<rect2 name="0/region"> 0, 0, 32, 32 </rect2>
+		<array name="0/shapes" len="0" shared="false">
+		</array>
+		<string name="1/name"> "tank blue" </string>
+		<resource name="1/texture" resource_type="Texture" path="res://assets/units/blueprint_units.png">  </resource>
+		<vector2 name="1/tex_offset"> 0, -14 </vector2>
+		<vector2 name="1/shape_offset"> 0, 0 </vector2>
+		<rect2 name="1/region"> 32, 0, 32, 32 </rect2>
+		<array name="1/shapes" len="0" shared="false">
+		</array>
+		<string name="2/name"> "helicopter blue" </string>
+		<resource name="2/texture" resource_type="Texture" path="res://assets/units/blueprint_units.png">  </resource>
+		<vector2 name="2/tex_offset"> 0, -14 </vector2>
+		<vector2 name="2/shape_offset"> 0, 0 </vector2>
+		<rect2 name="2/region"> 64, 0, 32, 32 </rect2>
+		<array name="2/shapes" len="0" shared="false">
+		</array>
+		<string name="3/name"> "soldier red" </string>
+		<resource name="3/texture" resource_type="Texture" path="res://assets/units/blueprint_units.png">  </resource>
+		<vector2 name="3/tex_offset"> 0, -14 </vector2>
+		<vector2 name="3/shape_offset"> 0, 0 </vector2>
+		<rect2 name="3/region"> 96, 0, 32, 32 </rect2>
+		<array name="3/shapes" len="0" shared="false">
+		</array>
+		<string name="4/name"> "tank red" </string>
+		<resource name="4/texture" resource_type="Texture" path="res://assets/units/blueprint_units.png">  </resource>
+		<vector2 name="4/tex_offset"> 0, -14 </vector2>
+		<vector2 name="4/shape_offset"> 0, 0 </vector2>
+		<rect2 name="4/region"> 128, 0, 32, 32 </rect2>
+		<array name="4/shapes" len="0" shared="false">
+		</array>
+		<string name="5/name"> "helicopter red" </string>
+		<resource name="5/texture" resource_type="Texture" path="res://assets/units/blueprint_units.png">  </resource>
+		<vector2 name="5/tex_offset"> 0, -14 </vector2>
+		<vector2 name="5/shape_offset"> 0, 0 </vector2>
+		<rect2 name="5/region"> 160, 0, 32, 32 </rect2>
+		<array name="5/shapes" len="0" shared="false">
+		</array>
+
+	</main_resource>
+</resource_file>
