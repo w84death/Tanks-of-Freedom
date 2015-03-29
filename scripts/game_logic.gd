@@ -24,10 +24,10 @@ var ai_timer
 var maps = {
 	'map_1' : preload('res://maps/map_1.xscn'),
 	'map_2' : preload('res://maps/map_2.xscn'),
-	'map_3' : preload('res://maps/map_3.xscn'),
-	'map_4' : preload('res://maps/map_4.xscn'),
-	'map_5' : preload('res://maps/map_5.xscn'),
-	'map_6' : preload('res://maps/map_6.xscn')
+	'map_3' : preload('res://maps/map_1.xscn'),
+	'map_4' : preload('res://maps/map_1.xscn'),
+	'map_5' : preload('res://maps/map_1.xscn'),
+	'map_6' : preload('res://maps/map_1.xscn')
 }
 
 var settings = {
@@ -104,6 +104,7 @@ func load_map(template_name):
 	action_controller.init_root(self, current_map, hud)
 	action_controller.switch_to_player(0)
 	hud_controller = action_controller.hud_controller
+	hud_controller.show_map()
 	selector.init(action_controller)
 	menu.close_button.show()
 	is_map_loaded = true

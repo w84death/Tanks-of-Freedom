@@ -1,9 +1,12 @@
 var tile_types = [
-	'plain','road','road','road','road','road','road','road',
-	'river','river','river','river','river','river','river',
-	'river','road','road','road','road','road',null,'road',
+	'plain','plain','plain','plain','plain','plain','plain','plain',
+	'plain','plain','plain','plain','plain','road','road','road',
+	'road','river','road',
 	'road','road','road','road','road','road','road','road',
-	'road','road','road'
+	'road','road','road','road','road','road','road','road',
+	'road','road','road','road','road','road','road','road',
+	'road','road','road','road',
+	'river','river','river','river','river','river','river','river'
 ]
 
 func move_object(from, to):
@@ -33,6 +36,7 @@ func can_move(from, to):
 		return false
 
 func get_terrain_type(to):
+	print(to)
 	return tile_types[to.terrain_type]
 
 # todo make consistent method (look above)

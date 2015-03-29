@@ -33,7 +33,7 @@ func get_spawn_point_pos():
 	return spawn_point
 
 func get_initial_pos():
-	position_on_map = current_map.world_to_map(self.get_pos()) + Vector2(1, 1)
+	position_on_map = current_map.world_to_map(self.get_pos())
 	spawn_point = Vector2(position_on_map) + spawn_point_position
 	return position_on_map
 
@@ -136,7 +136,8 @@ func clear_floating_damage():
 
 func _ready():
 	add_to_group("buildings")
-	current_map = get_node("/root/game").current_map_terrain
+	if get_node("/root/game"):
+		current_map = get_node("/root/game").current_map_terrain
 	flag = get_node('flag')
 	pass
 

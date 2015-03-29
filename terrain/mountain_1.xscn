@@ -1,103 +1,74 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
-	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/terrain/terrain.png" type="Texture"></ext_resource>
+	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="47">
-				<string> "map" </string>
-				<string> "EmptyControl" </string>
+			<string_array  len="27">
+				<string> "mountain_1" </string>
+				<string> "Sprite" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
 				<string> "visibility/self_opacity" </string>
 				<string> "visibility/behind_parent" </string>
-				<string> "margin/right" </string>
-				<string> "margin/bottom" </string>
-				<string> "focus_neighbour/left" </string>
-				<string> "focus_neighbour/top" </string>
-				<string> "focus_neighbour/right" </string>
-				<string> "focus_neighbour/bottom" </string>
-				<string> "focus/ignore_mouse" </string>
-				<string> "focus/stop_mouse" </string>
-				<string> "size_flags/horizontal" </string>
-				<string> "size_flags/vertical" </string>
-				<string> "size_flags/stretch_ratio" </string>
-				<string> "minsize" </string>
-				<string> "script/script" </string>
-				<string> "__meta__" </string>
-				<string> "shakes_max" </string>
-				<string> "shake_time" </string>
-				<string> "shake_boundary" </string>
-				<string> "gen_grass" </string>
-				<string> "gen_flowers" </string>
-				<string> "underground" </string>
-				<string> "TileMap" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/rot" </string>
 				<string> "transform/scale" </string>
-				<string> "mode" </string>
-				<string> "tile_set" </string>
-				<string> "cell/size" </string>
-				<string> "cell/quadrant_size" </string>
-				<string> "cell/custom_transform" </string>
-				<string> "cell/half_offset" </string>
-				<string> "collision/friction" </string>
-				<string> "collision/bounce" </string>
-				<string> "collision/layers" </string>
-				<string> "tile_data" </string>
-				<string> "terrain" </string>
-				<string> "back" </string>
-				<string> "YSort" </string>
-				<string> "sort/enabled" </string>
-				<string> "destruction" </string>
-				<string> "front" </string>
+				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
+				<string> "frame" </string>
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "position_on_map" </string>
+				<string> "destructable" </string>
+				<string> "smoke_particles" </string>
+				<string> "smoke_lifetime" </string>
 			</string_array>
 			<string> "version" </string>
 			<int> 1 </int>
 			<string> "conn_count" </string>
 			<int> 0 </int>
 			<string> "node_count" </string>
-			<int> 6 </int>
+			<int> 1 </int>
 			<string> "variants" </string>
-			<array  len="22" shared="false">
+			<array  len="17" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
 				<bool> False </bool>
-				<real> 40 </real>
-				<int> 2 </int>
 				<vector2> 0, 0 </vector2>
-				<resource  resource_type="Script" path="res://scripts/map_controller.gd">  </resource>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<resource  resource_type="Texture" path="res://assets/terrain/terrain.png">  </resource>
+				<int> 4 </int>
+				<int> 8 </int>
+				<int> 3 </int>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
+				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 0 </int>
-							<string> "sources" </string>
-							<array  len="7" shared="false">
-								<string> "res://scripts/map_controller.gd" </string>
-								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/action_controller.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
-								<string> "res://scripts/unit_control.gd" </string>
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
-							</array>
-						</dictionary>
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.990256 </real>
+							<real> 2.517532 </real>
 							<string> "use_snap" </string>
-							<bool> False </bool>
+							<bool> True </bool>
 							<string> "ofs" </string>
-							<vector2> -243.917, -96.7857 </vector2>
+							<vector2> -171.001, -115.478 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -204,22 +175,11 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<int> 5 </int>
-				<real> 0.25 </real>
-				<int> 7 </int>
-				<int> 4 </int>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
-				<int> 1 </int>
-				<resource  resource_type="TileSet" path="res://maps/map_tileset.xml">  </resource>
-				<vector2> 32, 16 </vector2>
 				<int> 16 </int>
-				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
-				<int_array  len="0"> 					 </int_array>
-				<int_array  len="18"> 					65537, 3, 65538, 3, 65539, 2, 131073, 3, 131074, 2, 131075, 1, 196609, 2, 196610, 1, 196611, 1 </int_array>
+				<int> 1 </int>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="216"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 8, 21, 9, 22, 10, 23, 9, 24, 11, 25, 12, 0, 0, 0, 27, 26, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 31, 15, 32, 16, 33, 17, 34, 18, 35, 19, 36, 5, 37, 2, 38, 13, 39, 15, 40, 20, 0, 0, 0, 27, 41, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 31, 15, 32, 16, 33, 17, 34, 18, 35, 19, 36, 5, 37, 2, 38, 13, 39, 15, 40, 21, 0, 2, 0, 43, 42, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0, 2, 0, 43, 45, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0, 2, 0, 43, 46, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0 </int_array>
+			<int_array  len="57"> 				-1, -1, 1, 0, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 9, 17, 10, 18, 11, 19, 3, 20, 12, 21, 13, 22, 14, 23, 4, 24, 3, 25, 15, 26, 16, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

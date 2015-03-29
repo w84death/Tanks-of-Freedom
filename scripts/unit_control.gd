@@ -4,6 +4,7 @@ extends AnimatedSprite
 export var player = -1
 export var position_on_map = Vector2(0,0)
 var last_position_on_map = Vector2(0,0)
+var current_map_terrain
 var current_map
 var health_bar
 var icon_shield
@@ -49,7 +50,7 @@ func get_pos_map():
 	return position_on_map
 
 func get_initial_pos():
-	position_on_map = current_map.world_to_map(self.get_pos())
+	position_on_map = current_map_terrain.world_to_map(self.get_pos())
 	last_position_on_map = position_on_map
 	return position_on_map
 
@@ -82,7 +83,7 @@ func set_pos_map(new_position):
 	elif new_position.y > position_on_map.y:
 		self.set_flip_h(false)
 
-	self.set_pos(current_map.map_to_world(new_position))
+	self.set_pos(current_map_terrain.map_to_world(new_position))
 	last_position_on_map = position_on_map
 	position_on_map = new_position
 
@@ -169,7 +170,9 @@ func score_kill():
 func _ready():
 	add_to_group("units")
 	get_node('anim').play("move")
-	current_map = get_node("/root/game").current_map_terrain
+	if get_node("/root/game"):
+		current_map_terrain = get_node("/root/game").current_map_terrain
+		current_map = get_node("/root/game").current_map
 	health_bar = get_node("health")
 	icon_shield = get_node("shield")
 	icon_cloud = get_node("cloud")

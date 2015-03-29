@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="2" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/terrain.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
 			<string_array  len="22">
-				<string> "grass" </string>
+				<string> "log" </string>
 				<string> "Sprite" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
@@ -35,7 +35,7 @@
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "variants" </string>
-			<array  len="13" shared="false">
+			<array  len="14" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -43,9 +43,10 @@
 				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
-				<resource  resource_type="Texture" path="res://assets/terrain_tileset.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/terrain/terrain.png">  </resource>
+				<int> 4 </int>
 				<int> 8 </int>
-				<int> 23 </int>
+				<int> 9 </int>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
 				<dictionary  shared="false">
@@ -169,7 +170,7 @@
 				</dictionary>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="47"> 				-1, -1, 1, 0, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 8, 17, 9, 18, 10, 19, 3, 20, 11, 21, 12, 0 </int_array>
+			<int_array  len="47"> 				-1, -1, 1, 0, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 4, 13, 3, 14, 3, 15, 8, 16, 9, 17, 10, 18, 11, 19, 3, 20, 12, 21, 13, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

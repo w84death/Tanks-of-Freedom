@@ -14,7 +14,7 @@ func get_pos_map():
 	return position_on_map
 	
 func get_initial_pos():
-	position_on_map = current_map.world_to_map(self.get_pos()) + Vector2(1, 1)
+	position_on_map = current_map.world_to_map(self.get_pos())
 	return position_on_map
 
 func set_pos_map(new_position):
@@ -35,7 +35,8 @@ func set_damage():
 
 func _ready():
 	add_to_group("terrain")
-	current_map = get_node("/root/game").current_map_terrain
+	if get_node("/root/game"):
+		current_map = get_node("/root/game").current_map_terrain
 	pass
 
 
