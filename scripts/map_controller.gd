@@ -24,6 +24,8 @@ var temp_delta = 0
 var map_step = 0.01
 var near_threshold = 0.4
 
+export var gen_grass = 7
+export var gen_flowers = 5
 
 var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
 var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn')]
@@ -125,11 +127,17 @@ func generate_map():
 	
 	for x in range(map_max_x):
 		for y in range(map_max_y):
-		
+
+			# underground
+			if terrain.get_cell(x,y) > -1:
+				self.generate_underground(x,y)
+
 			# grass, flowers, log
 			if terrain.get_cell(x,y) == 1:
-				temp = map_grass[randi() % 2].instance()
-				temp2 = map_flowers[randi() % 4].instance()
+				if randi() % 10 <= gen_grass:
+					temp = map_grass[randi() % 2].instance()
+				if randi() % 10 <= gen_flowers:
+					temp2 = map_flowers[randi() % 4].instance()
 			if terrain.get_cell(x,y) == 2:
 				temp = map_forest[randi() % 2].instance()
 				
@@ -173,15 +181,16 @@ func generate_map():
 			
 			# roads
 			if terrain.get_cell(x,y) == 14: # city road
-				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,14)})
-			#if terrain.get_cell(x,y) == 15: # country road
-				#self.build_road(x,y,15)
-			#if terrain.get_cell(x,y) == 16: # road mix
-				#self.build_road(x,y,16)
+				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[14, 16, -1, 18])})
+			if terrain.get_cell(x,y) == 15: # country road
+				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[15, 16, -1, 18])})
+			if terrain.get_cell(x,y) == 16: # road mix
+				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[16, 14])})
 			if terrain.get_cell(x,y) == 17: # river
-				self.build_river(x,y)
+				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[17, 18])})
 			if terrain.get_cell(x,y) == 18: # bridge
-				cells_to_change.append({x=x,y=y,type=self.build_bridge(x,y)})
+				cells_to_change.append({x=x,y=y,type=self.build_road(x,y,[18, 17])})
+				#cells_to_change.append({x=x,y=y,type=self.build_bridge(x,y)})
 	
 	for c in cells_to_change:
 		if(c.type):
@@ -191,50 +200,122 @@ func generate_map():
 
 func build_road(x,y,type):
 	var position = 0
-	var positive_type = [type, 16, -1, 18]
 	
-	if terrain.get_cell(x,y-1) in positive_type:
+	if terrain.get_cell(x,y-1) in type:
 		position += 2
-	if terrain.get_cell(x+1,y) in positive_type:
+	if terrain.get_cell(x+1,y) in type:
 		position += 4
-	if terrain.get_cell(x,y+1) in positive_type:
+	if terrain.get_cell(x,y+1) in type:
 		position += 8
-	if terrain.get_cell(x-1,y) in positive_type:
+	if terrain.get_cell(x-1,y) in type:
 		position += 16
-
-	if position == 10:
-		return 19
-	if position == 20:
-		return 20
-	if position == 24:
-		return 21
-	if position == 12:
-		return 22
-	if position == 18:
-		return 23
-	if position == 6:
-		return 24
-	if position == 26:
-		return 25
-	if position == 28:
-		return 26
-	if position == 14:
-		return 27
-	if position == 22:
-		return 28
-	if position == 30:
-		return 29
 		
+	# road
+	if type[0] == 14: 
+		if position in [10,2,8]:
+			return 19
+		if position in [20,16,4]:
+			return 20
+		if position == 24:
+			return 21
+		if position == 12:
+			return 22
+		if position == 18:
+			return 23
+		if position == 6:
+			return 24
+		if position == 26:
+			return 25
+		if position == 28:
+			return 26
+		if position == 14:
+			return 27
+		if position == 22:
+			return 28
+		if position == 30:
+			return 29
+	
+	# coutry road
+	if type[0] == 15:
+		if position in [10,2,8]:
+			return 36
+		if position in [20,16,4]:
+			return 37
+		if position == 24:
+			return 38
+		if position == 12:
+			return 39
+		if position == 18:
+			return 40
+		if position == 6:
+			return 41
+		if position == 26:
+			return 42
+		if position == 28:
+			return 43
+		if position == 14:
+			return 44
+		if position == 22:
+			return 45
+		if position == 30:
+			return 46
+	
+	# road mix
+	if type[0] == 16:
+		if position == 2:
+			return 32
+		if position == 16:
+			return 33
+		if position == 8:
+			return 34
+		if position == 4:
+			return 35
+
+	# river
+	if type[0] == 17:
+		if position in [10,2,8]:
+			if randi() % 4  > 2:
+				return 47
+			else:
+				return 53
+		if position in [20,16,4]:
+			if randi() % 4  > 2:
+				return 48
+			else:
+				return 54
+		if position == 24:
+			return 49
+		if position == 12:
+			return 50
+		if position == 18:
+			return 51
+		if position == 6:
+			return 52
+
+	# bridge
+	if type[0] == 18:
+		if position in [10,2,8]:
+			return 31
+		if position in [20,16,4]:
+			return 30
+	
+	# nothing to change
 	return false
 
-func build_river(x,y):
-	return
-
-func build_bridge(x,y):
-	if terrain.get_cell(x,y-1) == 17 and terrain.get_cell(x,y+1) == 17:
-		return 31
-	if terrain.get_cell(x-1,y) == 17 and terrain.get_cell(x+1,y) == 17:
-		return 30
+func generate_underground(x,y):
+	var generate = false
+	
+	if terrain.get_cell(x,y-1) == -1:
+		generate = true
+	if terrain.get_cell(x+1,y) == -1:
+		generate = true
+	if terrain.get_cell(x,y+1) == -1:
+		generate = true
+	if terrain.get_cell(x-1,y) == -1:
+		generate = true
+	
+	if generate:
+		underground.set_cell(x+1,y+1,0)
 
 func _ready():
 	terrain = get_node("terrain")

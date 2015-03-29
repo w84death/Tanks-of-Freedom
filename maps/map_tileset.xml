@@ -226,6 +226,167 @@
 		<rect2 name="31/region"> 128, 128, 32, 32 </rect2>
 		<array name="31/shapes" len="0" shared="false">
 		</array>
+		<string name="32/name"> "road mix 1" </string>
+		<resource name="32/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="32/tex_offset"> 0, -14 </vector2>
+		<vector2 name="32/shape_offset"> 0, 0 </vector2>
+		<rect2 name="32/region"> 160, 128, 32, 32 </rect2>
+		<array name="32/shapes" len="0" shared="false">
+		</array>
+		<string name="33/name"> "road mix 2" </string>
+		<resource name="33/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="33/tex_offset"> 0, -14 </vector2>
+		<vector2 name="33/shape_offset"> 0, 0 </vector2>
+		<rect2 name="33/region"> 192, 128, 32, 32 </rect2>
+		<array name="33/shapes" len="0" shared="false">
+		</array>
+		<string name="34/name"> "road mix 3" </string>
+		<resource name="34/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="34/tex_offset"> 0, -14 </vector2>
+		<vector2 name="34/shape_offset"> 0, 0 </vector2>
+		<rect2 name="34/region"> 224, 128, 32, 32 </rect2>
+		<array name="34/shapes" len="0" shared="false">
+		</array>
+		<string name="35/name"> "road mix 4" </string>
+		<resource name="35/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="35/tex_offset"> 0, -14 </vector2>
+		<vector2 name="35/shape_offset"> 0, 0 </vector2>
+		<rect2 name="35/region"> 0, 160, 32, 32 </rect2>
+		<array name="35/shapes" len="0" shared="false">
+		</array>
+		<string name="36/name"> "country road 1" </string>
+		<resource name="36/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="36/tex_offset"> 0, -14 </vector2>
+		<vector2 name="36/shape_offset"> 0, 0 </vector2>
+		<rect2 name="36/region"> 32, 160, 32, 32 </rect2>
+		<array name="36/shapes" len="0" shared="false">
+		</array>
+		<string name="37/name"> "country road 2" </string>
+		<resource name="37/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="37/tex_offset"> 0, -14 </vector2>
+		<vector2 name="37/shape_offset"> 0, 0 </vector2>
+		<rect2 name="37/region"> 64, 160, 32, 32 </rect2>
+		<array name="37/shapes" len="0" shared="false">
+		</array>
+		<string name="38/name"> "country road 3" </string>
+		<resource name="38/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="38/tex_offset"> 0, -14 </vector2>
+		<vector2 name="38/shape_offset"> 0, 0 </vector2>
+		<rect2 name="38/region"> 96, 160, 32, 32 </rect2>
+		<array name="38/shapes" len="0" shared="false">
+		</array>
+		<string name="39/name"> "country road 4" </string>
+		<resource name="39/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="39/tex_offset"> 0, -14 </vector2>
+		<vector2 name="39/shape_offset"> 0, 0 </vector2>
+		<rect2 name="39/region"> 128, 160, 32, 32 </rect2>
+		<array name="39/shapes" len="0" shared="false">
+		</array>
+		<string name="40/name"> "country road 5" </string>
+		<resource name="40/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="40/tex_offset"> 0, -14 </vector2>
+		<vector2 name="40/shape_offset"> 0, 0 </vector2>
+		<rect2 name="40/region"> 160, 160, 32, 32 </rect2>
+		<array name="40/shapes" len="0" shared="false">
+		</array>
+		<string name="41/name"> "country road 6" </string>
+		<resource name="41/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="41/tex_offset"> 0, -14 </vector2>
+		<vector2 name="41/shape_offset"> 0, 0 </vector2>
+		<rect2 name="41/region"> 192, 160, 32, 32 </rect2>
+		<array name="41/shapes" len="0" shared="false">
+		</array>
+		<string name="42/name"> "country road 7" </string>
+		<resource name="42/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="42/tex_offset"> 0, -14 </vector2>
+		<vector2 name="42/shape_offset"> 0, 0 </vector2>
+		<rect2 name="42/region"> 224, 160, 32, 32 </rect2>
+		<array name="42/shapes" len="0" shared="false">
+		</array>
+		<string name="43/name"> "country road 8" </string>
+		<resource name="43/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="43/tex_offset"> 0, -14 </vector2>
+		<vector2 name="43/shape_offset"> 0, 0 </vector2>
+		<rect2 name="43/region"> 0, 192, 32, 32 </rect2>
+		<array name="43/shapes" len="0" shared="false">
+		</array>
+		<string name="44/name"> "country road 9" </string>
+		<resource name="44/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="44/tex_offset"> 0, -14 </vector2>
+		<vector2 name="44/shape_offset"> 0, 0 </vector2>
+		<rect2 name="44/region"> 32, 192, 32, 32 </rect2>
+		<array name="44/shapes" len="0" shared="false">
+		</array>
+		<string name="45/name"> "country road 10" </string>
+		<resource name="45/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="45/tex_offset"> 0, -14 </vector2>
+		<vector2 name="45/shape_offset"> 0, 0 </vector2>
+		<rect2 name="45/region"> 64, 192, 32, 32 </rect2>
+		<array name="45/shapes" len="0" shared="false">
+		</array>
+		<string name="46/name"> "country road 11" </string>
+		<resource name="46/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="46/tex_offset"> 0, -14 </vector2>
+		<vector2 name="46/shape_offset"> 0, 0 </vector2>
+		<rect2 name="46/region"> 96, 192, 32, 32 </rect2>
+		<array name="46/shapes" len="0" shared="false">
+		</array>
+		<string name="47/name"> "river 1" </string>
+		<resource name="47/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="47/tex_offset"> 0, -14 </vector2>
+		<vector2 name="47/shape_offset"> 0, 0 </vector2>
+		<rect2 name="47/region"> 0, 224, 32, 32 </rect2>
+		<array name="47/shapes" len="0" shared="false">
+		</array>
+		<string name="48/name"> "river 2" </string>
+		<resource name="48/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="48/tex_offset"> 0, -14 </vector2>
+		<vector2 name="48/shape_offset"> 0, 0 </vector2>
+		<rect2 name="48/region"> 32, 224, 32, 32 </rect2>
+		<array name="48/shapes" len="0" shared="false">
+		</array>
+		<string name="49/name"> "river 3" </string>
+		<resource name="49/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="49/tex_offset"> 0, -14 </vector2>
+		<vector2 name="49/shape_offset"> 0, 0 </vector2>
+		<rect2 name="49/region"> 64, 224, 32, 32 </rect2>
+		<array name="49/shapes" len="0" shared="false">
+		</array>
+		<string name="50/name"> "river 4" </string>
+		<resource name="50/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="50/tex_offset"> 0, -14 </vector2>
+		<vector2 name="50/shape_offset"> 0, 0 </vector2>
+		<rect2 name="50/region"> 96, 224, 32, 32 </rect2>
+		<array name="50/shapes" len="0" shared="false">
+		</array>
+		<string name="51/name"> "river 5" </string>
+		<resource name="51/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="51/tex_offset"> 0, -14 </vector2>
+		<vector2 name="51/shape_offset"> 0, 0 </vector2>
+		<rect2 name="51/region"> 128, 224, 32, 32 </rect2>
+		<array name="51/shapes" len="0" shared="false">
+		</array>
+		<string name="52/name"> "river 6" </string>
+		<resource name="52/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="52/tex_offset"> 0, -14 </vector2>
+		<vector2 name="52/shape_offset"> 0, 0 </vector2>
+		<rect2 name="52/region"> 160, 224, 32, 32 </rect2>
+		<array name="52/shapes" len="0" shared="false">
+		</array>
+		<string name="53/name"> "river 7" </string>
+		<resource name="53/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="53/tex_offset"> 0, -14 </vector2>
+		<vector2 name="53/shape_offset"> 0, 0 </vector2>
+		<rect2 name="53/region"> 192, 224, 32, 32 </rect2>
+		<array name="53/shapes" len="0" shared="false">
+		</array>
+		<string name="54/name"> "river 8" </string>
+		<resource name="54/texture" resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+		<vector2 name="54/tex_offset"> 0, -14 </vector2>
+		<vector2 name="54/shape_offset"> 0, 0 </vector2>
+		<rect2 name="54/region"> 224, 224, 32, 32 </rect2>
+		<array name="54/shapes" len="0" shared="false">
+		</array>
 
 	</main_resource>
 </resource_file>
