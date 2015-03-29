@@ -34,8 +34,8 @@ var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terr
 var map_statue = preload('res://terrain/city_statue.xscn')
 var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn')]
 var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
-var map_layer
-var map_layer_units
+var map_layer_back
+var map_layer_front
 
 
 func _input(event):
@@ -76,13 +76,12 @@ func move_to(target):
 func move_to_map(target):
 	if not mouse_dragging:
 		game_size = get_node("/root/game").get_size()
-		var target_position = self.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
+		var target_position = terrain.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
 		var near_x = game_size.x * (near_threshold / scale.x)
 		var near_y = game_size.y * (near_threshold / scale.y)
-		# print(near_x)
-		# print(diff_x)
+
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
 			return
 		self.target = target_position
@@ -138,22 +137,24 @@ func generate_map():
 					temp = map_grass[randi() % 2].instance()
 				if randi() % 10 <= gen_flowers:
 					temp2 = map_flowers[randi() % 4].instance()
+					
+			if temp:
+				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+				map_layer_back.add_child(temp)
+				temp = null
+			if temp2:
+				temp2.set_pos(terrain.map_to_world(Vector2(x,y)))
+				map_layer_back.add_child(temp2)
+				temp2 = null
+
+			# forest
 			if terrain.get_cell(x,y) == 2:
 				temp = map_forest[randi() % 2].instance()
 				
 			# mountains
 			if terrain.get_cell(x,y) == 3:
 				temp = map_mountain[randi() % 2].instance()
-			
-			if temp:
-				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
-				map_layer.add_child(temp)
-				temp = null
-			if temp2:
-				temp2.set_pos(terrain.map_to_world(Vector2(x,y)))
-				map_layer.add_child(temp2)
-				temp2 = null
-				
+
 			# city, statue
 			if terrain.get_cell(x,y) == 4:
 				temp = map_city[randi() % 5].instance()
@@ -176,7 +177,7 @@ func generate_map():
 				
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
-				map_layer_units.add_child(temp)
+				map_layer_front.add_child(temp)
 				temp = null
 			
 			# roads
@@ -317,14 +318,22 @@ func generate_underground(x,y):
 	if generate:
 		underground.set_cell(x+1,y+1,0)
 
-func _ready():
-	terrain = get_node("terrain")
-	underground = get_node("underground")
-	map_layer = terrain.get_node("plants")
-	map_layer_units = terrain.get_node("units")
-	scale = Vector2(2,2)
+func set_zoom(scale):
 	terrain.set_scale(scale)
 	underground.set_scale(scale)
+	self.scale = scale
+
+func _ready():
+	root = get_node("/root/game")
+	terrain = get_node("terrain")
+	underground = get_node("underground")
+	map_layer_back = terrain.get_node("back")
+	map_layer_front = terrain.get_node("front")
+	if root:
+		scale = root.scale_root.get_scale()
+	else:
+		scale = Vector2(2,2)
+	self.set_zoom(scale)
 	pos = terrain.get_pos()
 	shake_timer.set_wait_time(shake_time / shakes_max)
 	shake_timer.set_one_shot(true)

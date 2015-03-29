@@ -1,6 +1,7 @@
 
 var size = Vector2(0, 0)
 var fields = [[null]]
+var map
 var tilemap
 var field_template = preload('abstract_field.gd')
 var movement_controller = preload('movement_controller.gd').new()

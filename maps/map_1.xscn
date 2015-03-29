@@ -6,7 +6,7 @@
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
 			<string_array  len="47">
-				<string> "map_sample" </string>
+				<string> "map" </string>
 				<string> "EmptyControl" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
@@ -48,11 +48,11 @@
 				<string> "collision/layers" </string>
 				<string> "tile_data" </string>
 				<string> "terrain" </string>
-				<string> "plants" </string>
+				<string> "back" </string>
 				<string> "YSort" </string>
 				<string> "sort/enabled" </string>
 				<string> "destruction" </string>
-				<string> "units" </string>
+				<string> "front" </string>
 			</string_array>
 			<string> "version" </string>
 			<int> 1 </int>
@@ -61,7 +61,7 @@
 			<string> "node_count" </string>
 			<int> 6 </int>
 			<string> "variants" </string>
-			<array  len="23" shared="false">
+			<array  len="22" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -78,14 +78,10 @@
 							<string> "current" </string>
 							<int> 0 </int>
 							<string> "sources" </string>
-							<array  len="7" shared="false">
+							<array  len="3" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
-								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
-								<string> "res://scripts/unit_control.gd" </string>
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
+								<string> "res://scripts/abstract_map.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
@@ -202,7 +198,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<int> 5 </int>
 				<real> 0.25 </real>
@@ -216,14 +212,10 @@
 				<int> 16 </int>
 				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
 				<int_array  len="0"> 					 </int_array>
-				<int_array  len="18"> 					65537, 3, 65538, 3, 65539, 2, 131073, 3, 131074, 2, 131075, 1, 196609, 2, 196610, 1, 196611, 1 </int_array>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
+				<int_array  len="98"> 					65537, 3, 65538, 3, 65539, 2, 65540, 1, 65541, 1, 65542, 2, 65543, 2, 131073, 3, 131074, 2, 131075, 1, 131076, 1, 131077, 1, 131078, 7, 131079, 2, 196609, 2, 196610, 1, 196611, 1, 196612, 1, 196613, 1, 196614, 1, 196615, 1, 262145, 1, 262146, 1, 262147, 1, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 327681, 1, 327682, 1, 327683, 1, 327684, 1, 327685, 1, 327686, 1, 327687, 2, 393217, 2, 393218, 6, 393219, 1, 393220, 1, 393221, 1, 393222, 2, 393223, 3, 458753, 2, 458754, 2, 458755, 1, 458756, 1, 458757, 2, 458758, 3, 458759, 3 </int_array>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="218"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 8, 21, 9, 22, 10, 23, 9, 24, 11, 25, 12, 0, 0, 0, 27, 26, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 31, 15, 32, 16, 33, 17, 34, 18, 35, 19, 36, 5, 37, 2, 38, 13, 39, 15, 40, 20, 0, 0, 0, 27, 41, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 31, 15, 32, 16, 33, 17, 34, 18, 35, 19, 36, 5, 37, 2, 38, 13, 39, 15, 40, 21, 20, 22, 0, 2, 0, 43, 42, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0, 2, 0, 43, 45, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0, 2, 0, 43, 46, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0 </int_array>
+			<int_array  len="216"> 				-1, -1, 1, 0, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 8, 21, 9, 22, 10, 23, 9, 24, 11, 25, 12, 0, 0, 0, 27, 26, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 31, 15, 32, 16, 33, 17, 34, 18, 35, 19, 36, 5, 37, 2, 38, 13, 39, 15, 40, 20, 0, 0, 0, 27, 41, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 31, 15, 32, 16, 33, 17, 34, 18, 35, 19, 36, 5, 37, 2, 38, 13, 39, 15, 40, 21, 0, 2, 0, 43, 42, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0, 2, 0, 43, 45, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0, 2, 0, 43, 46, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 28, 6, 29, 13, 30, 14, 44, 1, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

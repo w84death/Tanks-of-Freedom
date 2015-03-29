@@ -84,9 +84,10 @@ func capture_building(active_field, field):
 
 func init_root(root, map, hud):
 	root_node = root
+	abstract_map.map = map
 	abstract_map.tilemap = map.get_node("terrain")
 	camera = root.scale_root
-	ysort = map.get_node('terrain/YSort')
+	ysort = map.get_node('terrain/front')
 	selector = root.selector
 	self.import_objects()
 	hud_controller.init_root(root, self, hud)
@@ -235,7 +236,7 @@ func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
 
 func move_camera_to_point(position):
-	abstract_map.tilemap.move_to_map(position)
+	abstract_map.map.move_to_map(position)
 
 func in_game_menu_pressed():
 	hud_controller.close_in_game_card()
@@ -320,13 +321,13 @@ func camera_zoom_in():
 	var scale = camera.get_scale()
 	if scale.x < camera_zoom_range[1]:
 		camera.set_scale(scale + Vector2(1,1))
-	abstract_map.tilemap.scale = camera.get_scale()
+	abstract_map.map.set_zoom(camera.get_scale())
 
 func camera_zoom_out():
 	var scale = camera.get_scale()
 	if scale.x > camera_zoom_range[0]:
 		camera.set_scale(scale - Vector2(1,1))
-	abstract_map.tilemap.scale = camera.get_scale()
+	abstract_map.map.set_zoom(camera.get_scale())
 
 func play_destroy(field):
 	if (field.object.type == 0):
