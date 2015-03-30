@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
+	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "names" </string>
+			<string_array  len="53">
+				<string> "map" </string>
+				<string> "EmptyControl" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/behind_parent" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
+				<string> "focus_neighbour/left" </string>
+				<string> "focus_neighbour/top" </string>
+				<string> "focus_neighbour/right" </string>
+				<string> "focus_neighbour/bottom" </string>
+				<string> "focus/ignore_mouse" </string>
+				<string> "focus/stop_mouse" </string>
+				<string> "size_flags/horizontal" </string>
+				<string> "size_flags/vertical" </string>
+				<string> "size_flags/stretch_ratio" </string>
+				<string> "minsize" </string>
+				<string> "script/script" </string>
+				<string> "__meta__" </string>
+				<string> "show_blueprint" </string>
+				<string> "campaign_map" </string>
+				<string> "take_enemy_hq" </string>
+				<string> "control_all_towers" </string>
+				<string> "multiplayer_map" </string>
+				<string> "shakes_max" </string>
+				<string> "shake_time" </string>
+				<string> "shake_boundary" </string>
+				<string> "gen_grass" </string>
+				<string> "gen_flowers" </string>
+				<string> "underground" </string>
+				<string> "TileMap" </string>
+				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "transform/scale" </string>
+				<string> "mode" </string>
+				<string> "tile_set" </string>
+				<string> "cell/size" </string>
+				<string> "cell/quadrant_size" </string>
+				<string> "cell/custom_transform" </string>
+				<string> "cell/half_offset" </string>
+				<string> "collision/friction" </string>
+				<string> "collision/bounce" </string>
+				<string> "collision/layers" </string>
+				<string> "tile_data" </string>
+				<string> "terrain" </string>
+				<string> "back" </string>
+				<string> "YSort" </string>
+				<string> "sort/enabled" </string>
+				<string> "destruction" </string>
+				<string> "front" </string>
+				<string> "units" </string>
+			</string_array>
+			<string> "version" </string>
+			<int> 1 </int>
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "node_count" </string>
+			<int> 7 </int>
+			<string> "variants" </string>
+			<array  len="24" shared="false">
+				<node_path> "" </node_path>
+				<bool> True </bool>
+				<real> 1 </real>
+				<bool> False </bool>
+				<real> 40 </real>
+				<int> 2 </int>
+				<vector2> 0, 0 </vector2>
+				<resource  resource_type="Script" path="res://scripts/map_controller.gd">  </resource>
+				<dictionary  shared="false">
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 0 </int>
+							<string> "sources" </string>
+							<array  len="7" shared="false">
+								<string> "res://scripts/map_controller.gd" </string>
+								<string> "res://scripts/hud_controller.gd" </string>
+								<string> "res://scripts/action_controller.gd" </string>
+								<string> "res://scripts/terrain.gd" </string>
+								<string> "res://scripts/unit_control.gd" </string>
+								<string> "res://scripts/building.gd" </string>
+								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
+							</array>
+						</dictionary>
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "pixel_snap" </string>
+							<bool> True </bool>
+							<string> "zoom" </string>
+							<real> 1.796206 </real>
+							<string> "use_snap" </string>
+							<bool> False </bool>
+							<string> "ofs" </string>
+							<vector2> -268.832, -118.118 </vector2>
+							<string> "snap" </string>
+							<int> 1 </int>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+								</dictionary>
+							</array>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+					<string> "__editor_plugin_screen__" </string>
+					<string> "2D" </string>
+				</dictionary>
+				<int> 5 </int>
+				<real> 0.25 </real>
+				<int> 7 </int>
+				<int> 4 </int>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<int> 1 </int>
+				<resource  resource_type="TileSet" path="res://maps/map_tileset.xml">  </resource>
+				<vector2> 32, 16 </vector2>
+				<int> 16 </int>
+				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<int_array  len="0"> 					 </int_array>
+				<int_array  len="92"> 					65537, 1, 65538, 1, 65539, 7, 65540, 1, 65541, 1, 131073, 1, 131074, 1, 131075, 1, 131076, 1, 131077, 1, 196608, 2, 196609, 2, 196610, 1, 196611, 1, 196612, 1, 196613, 2, 196614, 2, 262144, 3, 262145, 3, 262146, 2, 262147, 1, 262148, 1, 262149, 1, 262150, 2, 327680, 2, 327681, 3, 327682, 3, 327683, 2, 327684, 1, 327685, 1, 327686, 2, 393217, 2, 393218, 1, 393219, 1, 393220, 1, 393221, 1, 458753, 1, 458754, 1, 458755, 1, 458756, 1, 458757, 1, 524289, 1, 524290, 1, 524291, 6, 524292, 1, 524293, 1 </int_array>
+				<resource  resource_type="TileSet" path="res://maps/blueprint_units_tileset.xml">  </resource>
+				<int_array  len="8"> 					131074, 3, 131076, 3, 458754, 0, 458756, 0 </int_array>
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="269"> 				-1, -1, 1, 0, -1, 29, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 8, 21, 1, 22, 1, 23, 1, 24, 3, 25, 3, 26, 9, 27, 10, 28, 9, 29, 11, 30, 12, 0, 0, 0, 32, 31, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 6, 34, 13, 35, 14, 36, 15, 37, 16, 38, 17, 39, 18, 40, 19, 41, 5, 42, 2, 43, 13, 44, 15, 45, 20, 0, 0, 0, 32, 46, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 6, 34, 13, 35, 14, 36, 15, 37, 16, 38, 17, 39, 18, 40, 19, 41, 5, 42, 2, 43, 13, 44, 15, 45, 21, 0, 2, 0, 48, 47, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 6, 34, 13, 35, 14, 49, 1, 0, 2, 0, 48, 50, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 6, 34, 13, 35, 14, 49, 1, 0, 2, 0, 48, 51, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 6, 34, 13, 35, 14, 49, 1, 0, 2, 0, 32, 52, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 33, 6, 34, 13, 35, 14, 36, 15, 37, 22, 38, 17, 39, 18, 40, 19, 41, 5, 42, 2, 43, 13, 44, 15, 45, 23, 0 </int_array>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

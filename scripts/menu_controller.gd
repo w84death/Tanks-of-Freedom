@@ -2,7 +2,6 @@
 var root
 var control_node
 
-var tutorial_button
 var red_player_button
 var red_player_button_label
 var blue_player_button
@@ -24,6 +23,10 @@ var maps_turns_cap_label
 
 var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
 var tutorial_close_button
+var tutorial_button
+
+var workshop = preload("res://gui/workshop.xscn").instance()
+var workshop_button
 
 var sound_toggle_button
 var music_toggle_button
@@ -37,10 +40,12 @@ func _ready():
 	control_node = get_node("control")
 
 	tutorial_button = get_node("control/game_controls/tutorial")
+	workshop_button = get_node("control/game_controls/workshop")
 	blue_player_button = get_node("control/game_controls/blue_player")
 	blue_player_button_label = blue_player_button.get_node("Label")
 	red_player_button = get_node("control/game_controls/red_player")
 	red_player_button_label = red_player_button.get_node("Label")
+
 	play_button = get_node("control/game_controls/play")
 	close_button = get_node("control/game_controls/close")
 	quit_button = get_node("control/game_controls/quit")
@@ -54,6 +59,7 @@ func _ready():
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 
 	tutorial_button.connect("pressed", self, "show_tutorial")
+	workshop_button.connect("pressed", self, "show_workshop")
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
 	red_player_button.connect("pressed", self, "toggle_player", [1])
 	play_button.connect("pressed", self, "show_maps_menu")
@@ -67,6 +73,7 @@ func _ready():
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
 	self.load_tutorial()
+	self.load_workshop()
 
 func load_maps_menu():
 	maps_sub_menu.hide()
@@ -102,7 +109,7 @@ func hide_maps_menu():
 func load_tutorial():
 	tutorial_sub_menu.hide()
 	self.add_child(tutorial_sub_menu)
-
+	
 	tutorial_close_button = tutorial_sub_menu.get_node("control/menu_controls/close")
 	tutorial_close_button.connect("pressed", self, "hide_tutorial")
 
@@ -112,6 +119,19 @@ func show_tutorial():
 
 func hide_tutorial():
 	tutorial_sub_menu.hide()
+	control_node.show()
+
+func load_workshop():
+	root.add_child(workshop)
+	workshop.init(root)
+	workshop.hide()
+
+func show_workshop():
+	control_node.hide()
+	workshop.show()
+
+func hide_workshop():
+	workshop.hide()
 	control_node.show()
 
 func toggle_player(player):
@@ -128,7 +148,7 @@ func toggle_player(player):
 		red_player_button_label.set_text(label)
 	
 func load_map(name):
-	root.load_map(name)
+	root.load_map(name,false)
 	root.toggle_menu()
 	self.hide_maps_menu()
 

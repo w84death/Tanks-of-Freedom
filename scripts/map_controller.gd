@@ -1,5 +1,6 @@
 extends Control
 
+export var show_blueprint = false
 export var campaign_map = true
 export var take_enemy_hq = true
 export var control_all_towers = false
@@ -34,6 +35,10 @@ var near_threshold = 0.4
 
 export var gen_grass = 7
 export var gen_flowers = 5
+const MAP_MAX_X = 64
+const MAP_MAX_Y = 64
+
+var map_file = File.new()
 
 var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
 var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn')]
@@ -44,12 +49,11 @@ var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrai
 var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
 var map_units = [preload('res://units/soldier_blue.xscn'),preload('res://units/tank_blue.xscn'),preload('res://units/helicopter_blue.xscn'),preload('res://units/soldier_red.xscn'),preload('res://units/tank_red.xscn'),preload('res://units/helicopter_red.xscn')]
 
-
 func _input(event):
 		
 	pos = terrain.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
-		if (event.button_index == BUTTON_LEFT):
+		if ((show_blueprint and event.button_index == BUTTON_RIGHT) or (not show_blueprint and event.button_index == BUTTON_LEFT)):
 			mouse_dragging = event.pressed
 			
 	if (event.type == InputEvent.MOUSE_MOTION):
@@ -123,16 +127,14 @@ func do_single_shake():
 		terrain.set_pos(shake_initial_position)
 
 func generate_map():
-	var map_max_x = 64
-	var map_max_y = 64
 	var temp = null
 	var temp2 = null
 	var cells_to_change = []
 	var cell
 	randomize()
 	
-	for x in range(map_max_x):
-		for y in range(map_max_y):
+	for x in range(MAP_MAX_X):
+		for y in range(MAP_MAX_Y):
 
 			# underground
 			if terrain.get_cell(x,y) > -1:
@@ -337,18 +339,84 @@ func generate_underground(x,y):
 		underground.set_cell(x+1,y+1,0)
 
 func set_default_zoom():
-	scale = Vector2(2,2)
+	self.scale = Vector2(2,2)
 	terrain.set_scale(scale)
 	underground.set_scale(scale)
-	self.scale = scale
 
-func _ready():
-	root = get_node("/root/game")
-	terrain = get_node("terrain")
-	underground = get_node("underground")
+func save_map(file_name):
+	var temp_data = []
+	var temp_terrain = -1
+	var temp_unit = -1
+	
+	for x in range(MAP_MAX_X):
+		for y in range(MAP_MAX_Y):
+			if terrain.get_cell(x,y) > -1:
+				temp_terrain = terrain.get_cell(x,y)
+			
+			if units.get_cell(x,y) > -1:
+				temp_unit = units.get_cell(x,y)
+			
+			if temp_terrain or temp_unit:
+				temp_data.append({
+					x=x,y=y,
+					terrain=temp_terrain,
+					unit=temp_unit
+				})
+			
+			temp_terrain = -1
+			temp_unit = -1
+	
+	if self.check_file_name(file_name):
+		map_file.open("user://"+file_name+".tof",File.WRITE)
+		map_file.store_var(temp_data)
+		map_file.close()
+		print('ToF: map saved to file')
+	else:
+		print('ToF: wrong file name')
+	return
+
+func check_file_name(name):
+	# we need to check here for unusual charracters
+	# and trim spaces, convert to lower case etc
+	# allowed: [a-z] and "-"
+	# and can not name 'settings' !!!
+	if not name == "":
+		return true
+	else:
+		return false
+
+func load_map(file_name):
+	var temp_data
+	var cell
+	self.init_nodes()
+	
+	if map_file.file_exists("user://"+file_name+".tof"):
+		map_file.open("user://"+file_name+".tof",File.READ)
+		temp_data = map_file.get_var()
+		terrain.clear()
+		units.clear()
+		for cell in temp_data:
+			if cell.terrain > -1:
+				terrain.set_cell(cell.x,cell.y,cell.terrain)
+			if cell.unit > -1:
+				units.set_cell(cell.x,cell.y,cell.unit)
+		units.raise()
+		print('ToF: map loaded from file')
+		map_file.close()
+	else:
+		print('ToF: map file not exists!')
+	return
+
+func init_nodes():
+	underground = self.get_node("underground")
+	terrain = self.get_node("terrain")
 	units = terrain.get_node("units")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
+
+func _ready():
+	root = get_node("/root/game")
+	self.init_nodes()
 	if root:
 		scale = root.scale_root.get_scale()
 	else:
@@ -361,7 +429,8 @@ func _ready():
 	self.add_child(shake_timer)
 	
 	# where the magic happens
-	self.generate_map()
+	if not show_blueprint:
+		self.generate_map()
 	
 	set_process_input(true)
 	set_process(true)
