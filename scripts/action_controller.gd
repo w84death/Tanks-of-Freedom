@@ -260,7 +260,6 @@ func deduct_ap(ap):
 	self.update_ap(player_ap[current_player] - ap)
 
 func update_ap(ap):
-	self.stats_start_time()
 	player_ap[current_player] = ap
 	hud_controller.update_ap(player_ap[current_player])
 	if player_ap[current_player] == 0:
@@ -283,6 +282,7 @@ func show_bonus_ap():
 			buildings[building].show_floating_ap()
 
 func switch_to_player(player):
+	self.stats_start_time()
 	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
@@ -352,9 +352,6 @@ func move_unit(active_field, field):
 
 	else:
 		sound_controller.play('no_moves')
-
-func get_battle_stats():
-    return self.battle_stats
 
 func stats_start_time():
 	battle_stats.start_counting_time()
