@@ -319,13 +319,13 @@ func show_win(player,stats,turns):
 	hud_game_card.hide()
 	zoom_card.hide()
 	game_card.hide()
-	self.feel_end_game_stats(stats,turns)
+	self.fill_end_game_stats(stats,turns)
 	hud_end_game.show()
 
 func show_map():
 	active_map.show()
 
-func feel_end_game_stats(stats,turns):
+func fill_end_game_stats(stats,turns):
 	#var total_turns = hud_end_game_controls.get_node("total_turns")
 	var blue_domination = hud_end_game_stats_blue.get_node("domination")
 	var blue_moves = hud_end_game_stats_blue.get_node("unit_moves")
@@ -342,6 +342,7 @@ func feel_end_game_stats(stats,turns):
 	var red_score = hud_end_game_stats_red.get_node("overall")
 	
 	hud_end_game_total_turns.set_text(str(turns))
+	hud_end_game_total_time.set_text(stats["time_total"])
 	
 	blue_domination.set_text(str(stats["domination"][0]))
 	blue_moves.set_text(str(stats["moves"][0]))

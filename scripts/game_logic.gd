@@ -149,12 +149,15 @@ func toggle_menu():
 	if is_map_loaded:
 		if menu.is_hidden():
 			is_paused = true
+			action_controller.stats_set_time()
 			menu.show()
 			hud.hide()
 		else:
 			is_paused = false
+			action_controller.stats_start_time()
 			menu.hide()
 			hud.show()
+
 			
 func show_missions():
 	self.toggle_menu()

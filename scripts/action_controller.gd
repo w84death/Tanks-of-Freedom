@@ -214,6 +214,7 @@ func attach_objects(collection):
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func end_turn():
+	self.stats_set_time()
 	if self.root_node.settings['turns_cap'] > 0:
 		if turn > self.root_node.settings['turns_cap']:
 			self.end_game()
@@ -281,6 +282,7 @@ func show_bonus_ap():
 			buildings[building].show_floating_ap()
 
 func switch_to_player(player):
+	self.stats_start_time()
 	self.clear_active_field()
 	current_player = player
 	self.reset_player_units(player)
@@ -350,6 +352,12 @@ func move_unit(active_field, field):
 
 	else:
 		sound_controller.play('no_moves')
+
+func stats_start_time():
+	battle_stats.start_counting_time()
+
+func stats_set_time():
+	battle_stats.set_counting_time()
 
 func handle_battle(active_field, field):
 	if (battle_controller.can_attack(active_field.object, field.object)):
