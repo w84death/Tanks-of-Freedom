@@ -94,12 +94,11 @@ func init(root):
 	self.root = root
 	terrain.add_child(selector)
 	map.set_default_zoom()
-	map.move_to_map(Vector2(-25,20))
 	set_process_input(true)
 
 func _input(event):
 	if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
-		map_pos = terrain.get_pos()
+		map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
 		selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
 		var position = terrain.map_to_world(selector_position)
 		selector.set_pos(position)
