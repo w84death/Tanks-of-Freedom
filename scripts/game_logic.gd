@@ -32,12 +32,13 @@ var maps = {
 }
 
 var settings = {
+	'is_ok' : true,
 	'sound_enabled' : true,
 	'music_enabled' : true,
 	'shake_enabled' : true,
 	'cpu_0' : false,
 	'cpu_1' : true,
-	'turns_cap': 0 #0==off
+	'turns_cap': 0
 }
 
 var is_map_loaded = false
@@ -181,18 +182,32 @@ func unlock_for_player():
 	selector.show()
 
 func read_settings_from_file():
+	var check
 	if settings_file.file_exists("user://settings.tof"):
 		settings_file.open("user://settings.tof",File.READ)
-		self.settings = settings_file.get_var()
-		print('ToF: settings loaded from file')
+		check = settings_file.get_var()
+		if self.check_file_data(check):
+			self.settings = check
+			print('ToF: settings loaded from file')
+		else:
+			print('ToF: filecheck filed! making new file with default settings')
+			self.write_settings_to_file()
+		settings_file.close()
 	else:
 		self.write_settings_to_file()
 	return
+
+func check_file_data(data):
+	if str(data) and data.has('is_ok'):
+		return true
+	else:
+		return false
 
 func write_settings_to_file():
 	settings_file.open("user://settings.tof",File.WRITE)
 	settings_file.store_var(self.settings)
 	print('ToF: settings saved to file')
+	settings_file.close()
 	return
 	
 func _ready():
