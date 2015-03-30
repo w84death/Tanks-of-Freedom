@@ -45,6 +45,7 @@ var is_map_loaded = false
 var is_intro = true
 var is_paused = false
 var is_locked_for_cpu = false
+var is_from_workshop = false
 var settings_file = File.new()
 var workshop_file_name
 
@@ -93,6 +94,7 @@ func load_map(template_name, workshop_file_name):
 	var map_template = maps[template_name]
 	current_map = map_template.instance()
 	if workshop_file_name:
+		self.is_from_workshop = true
 		current_map.load_map(workshop_file_name)
 		current_map.show_blueprint = false
 		current_map.generate_map()
@@ -158,7 +160,6 @@ func toggle_menu():
 			menu.hide()
 			hud.show()
 
-			
 func show_missions():
 	self.toggle_menu()
 	menu.show_maps_menu()

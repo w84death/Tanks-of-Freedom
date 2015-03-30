@@ -196,13 +196,19 @@ func select_tool(tool_type,brush_type,button):
 
 func paint(position):
 	if brush_type > -1:
-		if tool_type == "terrain":
-			terrain.set_cell(position.x,position.y,brush_type)
-		if tool_type == "units":
-			units.set_cell(position.x,position.y,brush_type)
+		if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
+			return false
+		else:
+			if tool_type == "terrain":
+				terrain.set_cell(position.x,position.y,brush_type)
+			if tool_type == "units":
+				if terrain.get_cell(position.x, position.y) > -1:
+					units.set_cell(position.x,position.y,brush_type)
+				else:
+					return false
 	units.raise()
 	selector.raise()
-	return
+	return true
 
 func init(root):
 	self.root = root
@@ -218,7 +224,8 @@ func _input(event):
 		selector.set_pos(position)
 
 	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-		self.paint(selector_position)
+		if event.x < OS.get_video_mode_size().x - 136:
+			self.paint(selector_position)
 
 func _ready():
 	init_gui()
