@@ -93,6 +93,7 @@ func load_map(template_name, workshop_file_name):
 	current_map = map_template.instance()
 	if workshop_file_name:
 		current_map.load_map(workshop_file_name)
+		current_map.show_blueprint = false
 		current_map.generate_map()
 		self.workshop_file_name = workshop_file_name
 	hud = hud_template.instance()

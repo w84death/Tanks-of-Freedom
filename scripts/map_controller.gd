@@ -53,7 +53,7 @@ func _input(event):
 		
 	pos = terrain.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
-		if (event.button_index == BUTTON_LEFT):
+		if ((show_blueprint and event.button_index == BUTTON_RIGHT) or (not show_blueprint and event.button_index == BUTTON_LEFT)):
 			mouse_dragging = event.pressed
 			
 	if (event.type == InputEvent.MOUSE_MOTION):
