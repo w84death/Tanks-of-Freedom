@@ -16,11 +16,17 @@ var hud_file_name
 
 var hud_toolset
 var hud_toolset_blocks
+var hud_toolset_blocks_pages = []
+var hud_toolset_paginator
 var hud_toolset_plain
 var hud_toolset_forest
 var hud_toolset_mountains
 var hud_toolset_river
 var hud_toolset_active
+var hud_toolset_next_button
+var hud_toolset_prev_button
+
+var toolset_active_page = 0
 var tool_type = "terrain"
 var brush_type = 1
 
@@ -32,7 +38,7 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 func init_gui():
-	hud_file = self.get_node("top/file_card")
+	hud_file = self.get_node("file_card/center")
 	hud_file_name = hud_file.get_node("name")
 	hud_file_play_button = hud_file.get_node("play")
 	hud_file_save_button = hud_file.get_node("save")
@@ -45,12 +51,23 @@ func init_gui():
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
 
-	hud_toolset = self.get_node("bottom/toolset")
+	hud_toolset = self.get_node("toolset/center")
 	hud_toolset_blocks = hud_toolset.get_node("blocks")
-	hud_toolset_plain = hud_toolset_blocks.get_node("plain")
-	hud_toolset_forest = hud_toolset_blocks.get_node("forest")
-	hud_toolset_mountains = hud_toolset_blocks.get_node("mountains")
-	hud_toolset_river = hud_toolset_blocks.get_node("river")
+	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("0"))
+	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("1"))
+	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("2"))
+	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("3"))
+	hud_toolset_paginator = hud_toolset.get_node("paginator")
+	hud_toolset_next_button = hud_toolset.get_node("next")
+	hud_toolset_prev_button = hud_toolset.get_node("prev")
+	
+	hud_toolset_next_button.connect("pressed", self, "toolset_next_page")
+	hud_toolset_prev_button.connect("pressed", self, "toolset_prev_page")
+	
+	hud_toolset_plain = hud_toolset_blocks_pages[0].get_node("plain")
+	hud_toolset_forest = hud_toolset_blocks_pages[0].get_node("forest")
+	hud_toolset_mountains = hud_toolset_blocks_pages[0].get_node("mountains")
+	hud_toolset_river = hud_toolset_blocks_pages[0].get_node("river")
 	
 	hud_toolset_active = hud_toolset_plain.get_node("active")
 	hud_toolset_active.show()
@@ -60,6 +77,23 @@ func init_gui():
 	hud_toolset_mountains.connect("pressed", self, "select_tool", ["terrain",3,hud_toolset_mountains.get_node("active")])
 	hud_toolset_river.connect("pressed", self, "select_tool", ["terrain",17,hud_toolset_river.get_node("active")])
 
+func toolset_next_page():
+	hud_toolset_blocks_pages[toolset_active_page].hide()
+	toolset_active_page += 1
+	if toolset_active_page >= hud_toolset_blocks_pages.size():
+		toolset_active_page = 0
+	hud_toolset_blocks_pages[toolset_active_page].show()
+	hud_toolset_paginator.set_frame(toolset_active_page)
+	return
+
+func toolset_prev_page():
+	hud_toolset_blocks_pages[toolset_active_page].hide()
+	toolset_active_page -= 1
+	if toolset_active_page < 0:
+		toolset_active_page = hud_toolset_blocks_pages.size()-1
+	hud_toolset_blocks_pages[toolset_active_page].show()
+	hud_toolset_paginator.set_frame(toolset_active_page)
+	return
 
 func play_map():
 	map.save_map("temp_map")
