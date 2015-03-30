@@ -214,6 +214,8 @@ func attach_objects(collection):
 		abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func end_turn():
+	#gather stats
+	battle_stats.set_counting_time()
 	if self.root_node.settings['turns_cap'] > 0:
 		if turn > self.root_node.settings['turns_cap']:
 			self.end_game()
@@ -259,6 +261,7 @@ func deduct_ap(ap):
 	self.update_ap(player_ap[current_player] - ap)
 
 func update_ap(ap):
+	battle_stats.start_counting_time()
 	player_ap[current_player] = ap
 	hud_controller.update_ap(player_ap[current_player])
 	if player_ap[current_player] == 0:
@@ -350,6 +353,9 @@ func move_unit(active_field, field):
 
 	else:
 		sound_controller.play('no_moves')
+
+func get_battle_stats():
+    return self.battle_stats
 
 func handle_battle(active_field, field):
 	if (battle_controller.can_attack(active_field.object, field.object)):
