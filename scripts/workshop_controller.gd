@@ -14,6 +14,7 @@ var hud_file_play_button
 var hud_file_save_button
 var hud_file_load_button
 var hud_file_name
+var hud_file_floppy
 
 var hud_toolset
 var hud_toolset_blocks
@@ -77,6 +78,7 @@ const MAP_MAX_Y = 64
 
 func init_gui():
 	hud_file = self.get_node("file_card/center")
+	hud_file_floppy = hud_file.get_node("floppy/anim")
 	hud_file_name = hud_file.get_node("name")
 	hud_file_play_button = hud_file.get_node("play")
 	hud_file_save_button = hud_file.get_node("save")
@@ -113,7 +115,8 @@ func init_gui():
 	#1
 	hud_toolset_city = hud_toolset_blocks_pages[1].get_node("city")
 	hud_toolset_statue = hud_toolset_blocks_pages[1].get_node("statue")
-	hud_toolset_fence = hud_toolset_blocks_pages[1].get_node("fence")
+	hud_toolset_tower = hud_toolset_blocks_pages[1].get_node("tower")
+	#hud_toolset_fence = hud_toolset_blocks_pages[1].get_node("fence")
 	hud_toolset_road_city = hud_toolset_blocks_pages[1].get_node("road_city")
 	hud_toolset_road_country = hud_toolset_blocks_pages[1].get_node("road_country")
 	hud_toolset_road_mix = hud_toolset_blocks_pages[1].get_node("road_mix")
@@ -125,7 +128,6 @@ func init_gui():
 	hud_toolset_factory = hud_toolset_blocks_pages[2].get_node("factory")
 	hud_toolset_airport = hud_toolset_blocks_pages[2].get_node("airport")
 	hud_toolset_exit = hud_toolset_blocks_pages[2].get_node("exit")
-	hud_toolset_tower = hud_toolset_blocks_pages[2].get_node("tower")
 
 	#3
 	hud_toolset_soldier_blue = hud_toolset_blocks_pages[3].get_node("soldier_blue")
@@ -151,7 +153,8 @@ func init_gui():
 	#1
 	hud_toolset_city.connect("pressed", self, "select_tool", ["terrain",4,hud_toolset_city.get_node("active")])
 	hud_toolset_statue.connect("pressed", self, "select_tool", ["terrain",5,hud_toolset_statue.get_node("active")])
-	hud_toolset_fence.connect("pressed", self, "select_tool", ["terrain",12,hud_toolset_fence.get_node("active")])
+	hud_toolset_tower.connect("pressed", self, "select_tool", ["terrain",11,hud_toolset_tower.get_node("active")])
+	#hud_toolset_fence.connect("pressed", self, "select_tool", ["terrain",12,hud_toolset_fence.get_node("active")])
 	hud_toolset_road_city.connect("pressed", self, "select_tool", ["terrain",14,hud_toolset_road_city.get_node("active")])
 	hud_toolset_road_country.connect("pressed", self, "select_tool", ["terrain",15,hud_toolset_road_country.get_node("active")])
 	hud_toolset_road_mix.connect("pressed", self, "select_tool", ["terrain",16,hud_toolset_road_mix.get_node("active")])
@@ -162,7 +165,7 @@ func init_gui():
 	hud_toolset_factory.connect("pressed", self, "select_tool", ["terrain",9,hud_toolset_factory.get_node("active")])
 	hud_toolset_airport.connect("pressed", self, "select_tool", ["terrain",10,hud_toolset_airport.get_node("active")])
 	hud_toolset_exit.connect("pressed", self, "select_tool", ["terrain",13,hud_toolset_exit.get_node("active")])
-	hud_toolset_tower.connect("pressed", self, "select_tool", ["terrain",11,hud_toolset_tower.get_node("active")])
+	
 	#3
 	hud_toolset_soldier_blue.connect("pressed", self, "select_tool", ["units",0,hud_toolset_soldier_blue.get_node("active")])
 	hud_toolset_tank_blue.connect("pressed", self, "select_tool", ["units",1,hud_toolset_tank_blue.get_node("active")])
@@ -218,6 +221,7 @@ func play_map():
 
 func save_map(name):
 	map.save_map(name)
+	hud_file_floppy.play("save")
 
 func load_map(name):
 	map.load_map(name)
