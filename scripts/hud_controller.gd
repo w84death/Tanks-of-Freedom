@@ -51,6 +51,9 @@ var menu_button
 var player_ap
 var game_card
 var turn_counter
+var total_time_counter
+var time_blue_counter
+var time_red_counter
 
 var hud_end_game
 var hud_end_game_controls
@@ -82,6 +85,9 @@ func init_root(root, action_controller_object, hud):
 	hud_turn_button_red = hud_game_card.get_node("end_turn_red")
 	hud_turn_button_red_anim = hud_turn_button_red.get_node("anim")
 	turn_counter = hud_game_card.get_node("turn_no")
+	total_time_counter = hud_game_card.get_node("total_time")
+	time_blue_counter = hud_game_card.get_node("time_blue")
+	time_red_counter = hud_game_card.get_node("time_red")
 	hud_turn_button.connect("pressed", action_controller, "end_turn")
 	hud_turn_button_red.connect("pressed", action_controller, "end_turn")
 	
