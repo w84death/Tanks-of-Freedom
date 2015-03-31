@@ -92,6 +92,8 @@ func init_gui():
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
 
+	game_scale = get_node("blueprint/center/scale")
+
 	hud_toolset = self.get_node("toolset/center")
 	hud_toolset_blocks = hud_toolset.get_node("blocks")
 	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("0"))
@@ -261,6 +263,7 @@ func init(root):
 	self.root = root
 	terrain.add_child(selector)
 	map.set_default_zoom()
+	game_scale.set_scale(map.scale)
 	set_process_input(true)
 
 func _input(event):
