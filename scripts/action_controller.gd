@@ -216,7 +216,7 @@ func attach_objects(collection):
 func end_turn():
 	self.stats_set_time()
 	if self.root_node.settings['turns_cap'] > 0:
-		if turn > self.root_node.settings['turns_cap']:
+		if turn >= self.root_node.settings['turns_cap']:
 			self.end_game()
 			return
 	
