@@ -54,6 +54,11 @@ var hud_toolset_soldier_red
 var hud_toolset_tank_red
 var hud_toolset_helicopter_red
 
+var hud_message
+var hud_message_box
+var hud_message_title
+var hud_message_message
+
 var toolset_active_page = 0
 var tool_type = "terrain"
 var brush_type = 1
@@ -61,6 +66,7 @@ var brush_type = 1
 var map
 var terrain
 var units
+var painting = false
 
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
@@ -127,6 +133,9 @@ func init_gui():
 	hud_toolset_active = hud_toolset_plain.get_node("active")
 	hud_toolset_active.show()
 	
+	# message
+	hud_message = self.get_node("message")
+	
 	#0
 	hud_toolset_plain.connect("pressed", self, "select_tool", ["terrain",1,hud_toolset_plain.get_node("active")])
 	hud_toolset_forest.connect("pressed", self, "select_tool", ["terrain",2,hud_toolset_forest.get_node("active")])
@@ -155,6 +164,7 @@ func init_gui():
 	hud_toolset_soldier_red.connect("pressed", self, "select_tool", ["units",3,hud_toolset_soldier_red.get_node("active")])
 	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
+	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 	
 func toolset_next_page():
 	hud_toolset_blocks_pages[toolset_active_page].hide()
@@ -202,9 +212,10 @@ func paint(position):
 			if tool_type == "terrain":
 				terrain.set_cell(position.x,position.y,brush_type)
 			if tool_type == "units":
-				if terrain.get_cell(position.x, position.y) > -1:
+				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
 					units.set_cell(position.x,position.y,brush_type)
 				else:
+					self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
 					return false
 	units.raise()
 	selector.raise()
@@ -217,19 +228,24 @@ func init(root):
 	set_process_input(true)
 
 func _input(event):
-	if event.type == InputEvent.MOUSE_MOTION:
+	if(event.type == InputEvent.MOUSE_BUTTON):
+		if (event.button_index == BUTTON_LEFT):
+			if event.pressed:
+				painting = true
+			else:
+				painting = false
+
+	if (event.type == InputEvent.MOUSE_MOTION):
 		map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
 		selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
 		var position = terrain.map_to_world(selector_position)
 		selector.set_pos(position)
-
-	if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-		if event.x < OS.get_video_mode_size().x - 136:
-			self.paint(selector_position)
-
+		
+	if painting and event.x < OS.get_video_mode_size().x - 136:
+		self.paint(selector_position)
+	
 func _ready():
 	init_gui()
-	
 	pass
 
 

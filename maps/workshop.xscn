@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
-	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
 	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
+	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
@@ -83,9 +83,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 0 </int>
+							<int> 7 </int>
 							<string> "sources" </string>
-							<array  len="7" shared="false">
+							<array  len="8" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
@@ -93,6 +93,7 @@
 								<string> "res://scripts/unit_control.gd" </string>
 								<string> "res://scripts/building.gd" </string>
 								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
+								<string> "res://scripts/workshop_controller.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
@@ -209,7 +210,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<int> 5 </int>
 				<real> 0.25 </real>

@@ -1,14 +1,13 @@
 
 extends EmptyControl
 
-var message
-var title
+	# message
+	hud_message = self.get_node("message")
+	hud_message_box = hud_message.get_node("CenterContainer/center/box")
+	hud_message_title = hud_message_box.get_node("title")
+	hud_message_message = hud_message_box.get_node("message")
 
 func _ready():
-	title = get_node('title')
-	message = get_node('message')
-	title.set_text('Bunker')
-	message.add_text('This is your main headquater. Enemy will try to capture this building!')
 	pass
 
 
