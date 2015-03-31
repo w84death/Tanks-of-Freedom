@@ -59,7 +59,7 @@ func _ready():
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 
 	tutorial_button.connect("pressed", self, "show_tutorial")
-	workshop_button.connect("pressed", self, "show_workshop")
+	workshop_button.connect("pressed", self, "enter_workshop")
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
 	red_player_button.connect("pressed", self, "toggle_player", [1])
 	play_button.connect("pressed", self, "show_maps_menu")
@@ -88,7 +88,7 @@ func load_maps_menu():
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
 	maps_turns_cap = maps_sub_menu.get_node("control/menu_controls/turns_cap")
 	maps_turns_cap_label = maps_turns_cap.get_node("Label")
-	
+
 	maps_1_button.connect("pressed", self, "load_map", ["map_1"])
 	maps_2_button.connect("pressed", self, "load_map", ["map_2"])
 	maps_3_button.connect("pressed", self, "load_map", ["map_3"])
@@ -109,7 +109,7 @@ func hide_maps_menu():
 func load_tutorial():
 	tutorial_sub_menu.hide()
 	self.add_child(tutorial_sub_menu)
-	
+
 	tutorial_close_button = tutorial_sub_menu.get_node("control/menu_controls/close")
 	tutorial_close_button.connect("pressed", self, "hide_tutorial")
 
@@ -126,6 +126,12 @@ func load_workshop():
 	workshop.init(root)
 	workshop.hide()
 
+func enter_workshop():
+	root.unload_map()
+	workshop.is_working = true
+	workshop.is_suspended = false
+	self.show_workshop()
+
 func show_workshop():
 	control_node.hide()
 	workshop.show()
@@ -141,16 +147,18 @@ func toggle_player(player):
 		label = "CPU"
 	else:
 		label = "Human"
-		
+
 	if player == 0:
 		blue_player_button_label.set_text(label)
 	else:
 		red_player_button_label.set_text(label)
-	
+
 func load_map(name):
 	root.load_map(name,false)
 	root.toggle_menu()
 	self.hide_maps_menu()
+	workshop.hide()
+	workshop.is_working = false
 
 func toggle_sound():
 	root.settings['sound_enabled'] = not root.settings['sound_enabled']
@@ -187,18 +195,18 @@ func refresh_buttons_labels():
 		shake_toggle_label.set_text("ON")
 	else:
 		shake_toggle_label.set_text("OFF")
-		
+
 func quit_game():
 	OS.get_main_loop().quit()
-	
+
 func toggle_turns_cap():
 	var turns_cap_modifer = 25
-	
+
 	if root.settings['turns_cap'] >= 100:
 		root.settings['turns_cap'] = 0
 	else:
 		root.settings['turns_cap'] = root.settings['turns_cap'] + turns_cap_modifer
-	
+
 	if root.settings['turns_cap'] > 0:
 		maps_turns_cap_label.set_text(str(root.settings['turns_cap']))
 	else:

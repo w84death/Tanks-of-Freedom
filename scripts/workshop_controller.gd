@@ -2,7 +2,8 @@
 extends Control
 
 var root
-var is_working = true
+var is_working = false
+var is_suspended = true
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position = Vector2(0,0)
@@ -86,7 +87,7 @@ func init_gui():
 	hud_file_play_button.connect("pressed", self, "play_map")
 	hud_file_save_button.connect("pressed", self, "save_map", [hud_file_name.get_text()])
 	hud_file_load_button.connect("pressed", self, "load_map", [hud_file_name.get_text()])
-	
+
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
@@ -100,7 +101,7 @@ func init_gui():
 	hud_toolset_paginator = hud_toolset.get_node("paginator")
 	hud_toolset_next_button = hud_toolset.get_node("next")
 	hud_toolset_prev_button = hud_toolset.get_node("prev")
-	
+
 	hud_toolset_next_button.connect("pressed", self, "toolset_next_page")
 	hud_toolset_prev_button.connect("pressed", self, "toolset_prev_page")
 
@@ -120,7 +121,7 @@ func init_gui():
 	hud_toolset_road_city = hud_toolset_blocks_pages[1].get_node("road_city")
 	hud_toolset_road_country = hud_toolset_blocks_pages[1].get_node("road_country")
 	hud_toolset_road_mix = hud_toolset_blocks_pages[1].get_node("road_mix")
-	
+
 	#2
 	hud_toolset_hq_blue = hud_toolset_blocks_pages[2].get_node("hq_blue")
 	hud_toolset_hq_red = hud_toolset_blocks_pages[2].get_node("hq_red")
@@ -136,13 +137,13 @@ func init_gui():
 	hud_toolset_soldier_red = hud_toolset_blocks_pages[3].get_node("soldier_red")
 	hud_toolset_tank_red = hud_toolset_blocks_pages[3].get_node("tank_red")
 	hud_toolset_helicopter_red = hud_toolset_blocks_pages[3].get_node("helicopter_red")
-	
+
 	hud_toolset_active = hud_toolset_plain.get_node("active")
 	hud_toolset_active.show()
-	
+
 	# message
 	hud_message = self.get_node("message")
-	
+
 	#0
 	hud_toolset_clear.connect("pressed", self, "select_tool", ["terrain",-1,hud_toolset_clear.get_node("active")])
 	hud_toolset_plain.connect("pressed", self, "select_tool", ["terrain",1,hud_toolset_plain.get_node("active")])
@@ -165,7 +166,7 @@ func init_gui():
 	hud_toolset_factory.connect("pressed", self, "select_tool", ["terrain",9,hud_toolset_factory.get_node("active")])
 	hud_toolset_airport.connect("pressed", self, "select_tool", ["terrain",10,hud_toolset_airport.get_node("active")])
 	hud_toolset_exit.connect("pressed", self, "select_tool", ["terrain",13,hud_toolset_exit.get_node("active")])
-	
+
 	#3
 	hud_toolset_soldier_blue.connect("pressed", self, "select_tool", ["units",0,hud_toolset_soldier_blue.get_node("active")])
 	hud_toolset_tank_blue.connect("pressed", self, "select_tool", ["units",1,hud_toolset_tank_blue.get_node("active")])
@@ -174,9 +175,9 @@ func init_gui():
 	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
 	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
-	
+
 	self.load_map(restore_file_name)
-	
+
 func toolset_next_page():
 	hud_toolset_blocks_pages[toolset_active_page].hide()
 	toolset_active_page += 1
@@ -198,7 +199,7 @@ func toolset_prev_page():
 func check_map_integrity():
 	var hq_red_check = false
 	var hq_blue_check = false
-	
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			if terrain.get_cell(x,y) == 6:
@@ -225,7 +226,7 @@ func save_map(name):
 
 func load_map(name):
 	map.load_map(name)
-	
+
 func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.hide()
 	hud_toolset_active = button
@@ -261,7 +262,7 @@ func init(root):
 	set_process_input(true)
 
 func _input(event):
-	if self.is_working:
+	if self.is_working && not self.is_suspended:
 		if(event.type == InputEvent.MOUSE_BUTTON):
 			if (event.button_index == BUTTON_LEFT):
 				if event.pressed:
@@ -269,16 +270,31 @@ func _input(event):
 				else:
 					painting = false
 					self.save_map(restore_file_name)
-	
+
 		if (event.type == InputEvent.MOUSE_MOTION):
 			map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
 			selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
 			var position = terrain.map_to_world(selector_position)
 			selector.set_pos(position)
-			
+
 		if painting and event.x < OS.get_video_mode_size().x - 136:
 			self.paint(selector_position)
-	
+
+	if Input.is_action_pressed('ui_cancel'):
+		self.toggle_menu()
+
+func toggle_menu():
+	if not self.is_working:
+		print('skip')
+		return
+
+	if self.is_hidden():
+		self.is_suspended = false
+		root.menu.show_workshop()
+	else:
+		self.is_suspended = true
+		root.menu.hide_workshop()
+
 func _ready():
 	init_gui()
 	pass

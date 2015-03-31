@@ -73,7 +73,7 @@ func _input(event):
 			if (event.pressed and event.button_index == BUTTON_LEFT):
 				action_controller.handle_action(selector_position)
 				action_controller.post_handle_action()
-		
+
 		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
 				hud.hide()
@@ -124,7 +124,7 @@ func load_map(template_name, workshop_file_name):
 	else:
 		self.unlock_for_player()
 	sound_controller.play_soundtrack()
-	
+
 func restart_map():
 	self.load_map(current_map_name,workshop_file_name)
 
@@ -178,7 +178,7 @@ func lock_for_cpu():
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(true)
 	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(true)
 	selector.hide()
-	
+
 func unlock_for_player():
 	is_locked_for_cpu = false
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(false)
@@ -213,7 +213,7 @@ func write_settings_to_file():
 	print('ToF: settings saved to file')
 	settings_file.close()
 	return
-	
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	self.read_settings_from_file()
