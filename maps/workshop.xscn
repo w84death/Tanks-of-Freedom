@@ -85,7 +85,7 @@
 							<string> "current" </string>
 							<int> 7 </int>
 							<string> "sources" </string>
-							<array  len="8" shared="false">
+							<array  len="9" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
@@ -94,6 +94,7 @@
 								<string> "res://scripts/building.gd" </string>
 								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
 								<string> "res://scripts/workshop_controller.gd" </string>
+								<string> "res://scripts/message.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>

@@ -63,6 +63,8 @@ var toolset_active_page = 0
 var tool_type = "terrain"
 var brush_type = 1
 
+var restore_file_name = "restore_map"
+
 var map
 var terrain
 var units
@@ -78,8 +80,8 @@ func init_gui():
 	hud_file_save_button = hud_file.get_node("save")
 	hud_file_load_button = hud_file.get_node("load")
 	hud_file_play_button.connect("pressed", self, "play_map")
-	hud_file_save_button.connect("pressed", self, "save_map")
-	hud_file_load_button.connect("pressed", self, "load_map")
+	hud_file_save_button.connect("pressed", self, "save_map", [hud_file_name.get_text()])
+	hud_file_load_button.connect("pressed", self, "load_map", [hud_file_name.get_text()])
 	
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
@@ -166,6 +168,8 @@ func init_gui():
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
 	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 	
+	self.load_map(restore_file_name)
+	
 func toolset_next_page():
 	hud_toolset_blocks_pages[toolset_active_page].hide()
 	toolset_active_page += 1
@@ -185,16 +189,16 @@ func toolset_prev_page():
 	return
 
 func play_map():
-	map.save_map("temp_map")
+	self.save_map(restore_file_name)
 	self.hide()
-	root.load_map("workshop", "temp_map")
+	root.load_map("workshop", restore_file_name)
 	return
 
-func save_map():
-	map.save_map(hud_file_name.get_text())
+func save_map(name):
+	map.save_map(name)
 
-func load_map():
-	map.load_map(hud_file_name.get_text())
+func load_map(name):
+	map.load_map(name)
 	
 func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.hide()
@@ -234,6 +238,7 @@ func _input(event):
 				painting = true
 			else:
 				painting = false
+				self.save_map(restore_file_name)
 
 	if (event.type == InputEvent.MOUSE_MOTION):
 		map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
