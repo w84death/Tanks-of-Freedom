@@ -2,6 +2,7 @@
 extends Control
 
 var root
+var is_working = true
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position = Vector2(0,0)
@@ -188,10 +189,28 @@ func toolset_prev_page():
 	hud_toolset_paginator.set_frame(toolset_active_page)
 	return
 
+func check_map_integrity():
+	var hq_red_check = false
+	var hq_blue_check = false
+	
+	for x in range(MAP_MAX_X):
+		for y in range(MAP_MAX_Y):
+			if terrain.get_cell(x,y) == 6:
+				hq_blue_check = true
+			if terrain.get_cell(x,y) == 7:
+				hq_red_check = true
+		if hq_red_check and hq_blue_check:
+			return true
+	return false
+
 func play_map():
 	self.save_map(restore_file_name)
-	self.hide()
-	root.load_map("workshop", restore_file_name)
+	if self.check_map_integrity():
+		self.is_working = false
+		self.hide()
+		root.load_map("workshop", restore_file_name)
+	else:
+		self.hud_message.show_message("HQ missing", ["In this map mode there need to be HQ building for each player. Blue and Red."])
 	return
 
 func save_map(name):
@@ -232,22 +251,23 @@ func init(root):
 	set_process_input(true)
 
 func _input(event):
-	if(event.type == InputEvent.MOUSE_BUTTON):
-		if (event.button_index == BUTTON_LEFT):
-			if event.pressed:
-				painting = true
-			else:
-				painting = false
-				self.save_map(restore_file_name)
-
-	if (event.type == InputEvent.MOUSE_MOTION):
-		map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
-		selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
-		var position = terrain.map_to_world(selector_position)
-		selector.set_pos(position)
-		
-	if painting and event.x < OS.get_video_mode_size().x - 136:
-		self.paint(selector_position)
+	if self.is_working:
+		if(event.type == InputEvent.MOUSE_BUTTON):
+			if (event.button_index == BUTTON_LEFT):
+				if event.pressed:
+					painting = true
+				else:
+					painting = false
+					self.save_map(restore_file_name)
+	
+		if (event.type == InputEvent.MOUSE_MOTION):
+			map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
+			selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
+			var position = terrain.map_to_world(selector_position)
+			selector.set_pos(position)
+			
+		if painting and event.x < OS.get_video_mode_size().x - 136:
+			self.paint(selector_position)
 	
 func _ready():
 	init_gui()
