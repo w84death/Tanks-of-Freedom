@@ -24,6 +24,7 @@ var hud_toolset_prev_button
 var hud_toolset_active
 
 #0
+var hud_toolset_clear
 var hud_toolset_plain
 var hud_toolset_forest
 var hud_toolset_mountains
@@ -102,6 +103,7 @@ func init_gui():
 	hud_toolset_prev_button.connect("pressed", self, "toolset_prev_page")
 
 	#0
+	hud_toolset_clear = hud_toolset_blocks_pages[0].get_node("clear")
 	hud_toolset_plain = hud_toolset_blocks_pages[0].get_node("plain")
 	hud_toolset_forest = hud_toolset_blocks_pages[0].get_node("forest")
 	hud_toolset_mountains = hud_toolset_blocks_pages[0].get_node("mountains")
@@ -140,6 +142,7 @@ func init_gui():
 	hud_message = self.get_node("message")
 	
 	#0
+	hud_toolset_clear.connect("pressed", self, "select_tool", ["terrain",-1,hud_toolset_clear.get_node("active")])
 	hud_toolset_plain.connect("pressed", self, "select_tool", ["terrain",1,hud_toolset_plain.get_node("active")])
 	hud_toolset_forest.connect("pressed", self, "select_tool", ["terrain",2,hud_toolset_forest.get_node("active")])
 	hud_toolset_mountains.connect("pressed", self, "select_tool", ["terrain",3,hud_toolset_mountains.get_node("active")])
@@ -228,12 +231,15 @@ func select_tool(tool_type,brush_type,button):
 	return
 
 func paint(position):
-	if brush_type > -1:
+	if brush_type:
 		if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
 			return false
 		else:
 			if tool_type == "terrain":
-				terrain.set_cell(position.x,position.y,brush_type)
+				if brush_type == -1 and units.get_cell(position.x,position.y) > -1:
+					units.set_cell(position.x,position.y,brush_type)
+				else:
+					terrain.set_cell(position.x,position.y,brush_type)
 			if tool_type == "units":
 				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
 					units.set_cell(position.x,position.y,brush_type)
