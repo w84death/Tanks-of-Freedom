@@ -17,6 +17,12 @@ var enemy_bunker
 var actionBuilder
 var cost_grid
 
+var behaviour_normal
+var behaviour_destroyer
+var behaviour_explorer
+
+var player_behaviours
+
 func _init(controller, astar_pathfinding, map, action_controller_object):
 	position_controller = controller
 	pathfinding = astar_pathfinding
@@ -24,6 +30,15 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	action_controller = action_controller_object
 	cost_grid = preload('cost_grid.gd').new(abstract_map)
 	actionBuilder = preload('actions/action_builder.gd').new(action_controller, abstract_map, position_controller)
+
+	behaviour_normal = preload('behaviours/normal.gd').new()
+	behaviour_destroyer = preload('behaviours/destroyer.gd').new()
+	behaviour_explorer = preload('behaviours/explorer.gd').new()
+
+	player_behaviours = [behaviour_normal, behaviour_destroyer]
+
+# func select_behaviour_type(player):
+#     self.
 
 func gather_available_actions(player_ap):
 	current_player = action_controller.current_player
@@ -137,7 +152,7 @@ func __add_action(unit, destination, own_units):
 			hiccup = unit.check_hiccup(path[0])
 
 
-		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost, hiccup)
+		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost, hiccup, player_behaviours)
 		var action = actionBuilder.create(action_type, unit, path)
 		self.__append_action(action, score)
 		if DEBUG:

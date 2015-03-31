@@ -6,11 +6,11 @@ const action_capture = 2
 
 var ap_cost_modifier = 4
 var path_size_modifier = 8
-var action_type_modifiers = [1, 1, 2, 1, 2, 1]
-var capture_modifiers = [5, 2, 2]
-var attack_modifiers = [4, 6, 8]
-var move_capture_modifiers = [5, 2, 3]
-var move_attack_modifiers = [2, 2, 5]
+# var action_type_modifiers = [1, 1, 2, 1, 2, 1]
+# var capture_modifiers = [5, 2, 2]
+# var attack_modifiers = [4, 6, 8]
+# var move_capture_modifiers = [5, 2, 3]
+# var move_attack_modifiers = [2, 2, 5]
 
 const ACTION_ATTACK = 0
 const ACTION_MOVE   = 1
@@ -27,25 +27,26 @@ const AP_MODIFIER = 10
 
 const SAFE_BUILDING_ZONE = 2
 
-func estimate_action(action_type, path_size, ap_cost, hiccup):
+func estimate_action(action_type, path_size, ap_cost, hiccup, player_behaviours):
 
 	var modifier = 1
 	var modifier_sign = 1
 	var apply_ap_modifier = true
+	var behaviours = player_behaviours[self.player]
 
 	if action_type == ACTION_CAPTURE:
-		modifier = capture_modifiers[type]
+		modifier = behaviours.capture_modifiers[type]
 		modifier_sign = -1
 		apply_ap_modifier = false
 	elif action_type == ACTION_ATTACK:
 		if attacks_number > 0:
-			modifier = attack_modifiers[type]
+			modifier = behaviours.attack_modifiers[type]
 			apply_ap_modifier = false
 		else:
 			modifier = 1
 	elif action_type == ACTION_MOVE_TO_ATTACK:
 		if attacks_number > 0:
-			modifier = move_attack_modifiers[type]
+			modifier = behaviours.move_attack_modifiers[type]
 		else:
 			modifier = 1
 	elif action_type == ACTION_MOVE_TO_CAPTURE:
@@ -53,7 +54,7 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 		if self.type != 0 && path_size <= self.SAFE_BUILDING_ZONE:
 			modifier = -3;
 		else:
-			modifier = move_capture_modifiers[type]
+			modifier = behaviours.move_capture_modifiers[type]
 			modifier_sign = -1
 
 	# for capturing better is having lo health an so on
@@ -61,7 +62,7 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 	if hiccup:
 		score = score - HICCUP_MODIFIER
 		
-	score = score * action_type_modifiers[action_type]
+	score = score * behaviours.action_type_modifiers[action_type]
 	score = score - ap_cost_modifier * ap_cost
 	score = score - path_size_modifier * path_size
 
