@@ -50,12 +50,12 @@ var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://
 var map_units = [preload('res://units/soldier_blue.xscn'),preload('res://units/tank_blue.xscn'),preload('res://units/helicopter_blue.xscn'),preload('res://units/soldier_red.xscn'),preload('res://units/tank_red.xscn'),preload('res://units/helicopter_red.xscn')]
 
 func _input(event):
-		
+
 	pos = terrain.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
 		if ((show_blueprint and event.button_index == BUTTON_RIGHT) or (not show_blueprint and event.button_index == BUTTON_LEFT)):
 			mouse_dragging = event.pressed
-			
+
 	if (event.type == InputEvent.MOUSE_MOTION):
 		if (mouse_dragging):
 			pos.x = pos.x + event.relative_x / scale.x
@@ -102,7 +102,7 @@ func shake_camera():
 		shakes = 0
 		shake_initial_position = terrain.get_pos()
 		self.do_single_shake()
-	
+
 func do_single_shake():
 	if shakes < shakes_max:
 		var direction_x = randf()
@@ -113,7 +113,7 @@ func do_single_shake():
 			distance_x = -distance_x
 		if direction_y <= 0.5:
 			distance_y = -distance_y
-		
+
 		pos = Vector2(shake_initial_position) + Vector2(distance_x, distance_y)
 		target = pos
 		underground.set_pos(pos)
@@ -132,7 +132,7 @@ func generate_map():
 	var cells_to_change = []
 	var cell
 	randomize()
-	
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 
@@ -146,7 +146,7 @@ func generate_map():
 					temp = map_grass[randi() % 2].instance()
 				if randi() % 10 <= gen_flowers:
 					temp2 = map_flowers[randi() % 4].instance()
-					
+
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_back.add_child(temp)
@@ -160,7 +160,7 @@ func generate_map():
 			if terrain.get_cell(x,y) == 2:
 				temp = map_forest[randi() % 2].instance()
 				cells_to_change.append({x=x,y=y,type=1})
-				
+
 			# mountains
 			if terrain.get_cell(x,y) == 3:
 				temp = map_mountain[randi() % 2].instance()
@@ -171,7 +171,7 @@ func generate_map():
 				temp = map_city[randi() % 5].instance()
 			if terrain.get_cell(x,y) == 5:
 				temp = map_statue.instance()
-			
+
 			# military buildings
 			if terrain.get_cell(x,y) == 6: # HQ blue
 				temp = map_buildings[0].instance()
@@ -185,12 +185,12 @@ func generate_map():
 				temp = map_buildings[4].instance()
 			if terrain.get_cell(x,y) == 11: # tower
 				temp = map_buildings[5].instance()
-				
+
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_front.add_child(temp)
 				temp = null
-			
+
 			# roads
 			if terrain.get_cell(x,y) == 14: # city road
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[14, 16, -1, 18])})
@@ -202,10 +202,10 @@ func generate_map():
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[17, 18])})
 			if terrain.get_cell(x,y) == 18: # bridge
 				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[18, 17])})
-			
+
 			if units.get_cell(x,y) > -1:
 				self.spawn_unit(x,y,units.get_cell(x,y))
-	
+
 	for cell in cells_to_change:
 		if(cell.type):
 			terrain.set_cell(cell.x,cell.y,cell.type)
@@ -214,7 +214,7 @@ func generate_map():
 
 func build_sprite_path(x,y,type):
 	var position = 0
-	
+
 	if terrain.get_cell(x,y-1) in type:
 		position += 2
 	if terrain.get_cell(x+1,y) in type:
@@ -223,9 +223,9 @@ func build_sprite_path(x,y,type):
 		position += 8
 	if terrain.get_cell(x-1,y) in type:
 		position += 16
-		
+
 	# road
-	if type[0] == 14: 
+	if type[0] == 14:
 		if position in [10,2,8]:
 			return 19
 		if position in [20,16,4]:
@@ -248,7 +248,7 @@ func build_sprite_path(x,y,type):
 			return 28
 		if position == 30:
 			return 29
-	
+
 	# coutry road
 	if type[0] == 15:
 		if position in [10,2,8]:
@@ -273,7 +273,7 @@ func build_sprite_path(x,y,type):
 			return 45
 		if position == 30:
 			return 46
-	
+
 	# road mix
 	if type[0] == 16:
 		if position == 2:
@@ -312,7 +312,7 @@ func build_sprite_path(x,y,type):
 			return 31
 		if position in [20,16,4]:
 			return 30
-	
+
 	# nothing to change
 	return false
 
@@ -325,7 +325,7 @@ func spawn_unit(x,y,type):
 
 func generate_underground(x,y):
 	var generate = false
-	
+
 	if terrain.get_cell(x,y-1) == -1:
 		generate = true
 	if terrain.get_cell(x+1,y) == -1:
@@ -334,7 +334,7 @@ func generate_underground(x,y):
 		generate = true
 	if terrain.get_cell(x-1,y) == -1:
 		generate = true
-	
+
 	if generate:
 		underground.set_cell(x+1,y+1,0)
 
@@ -347,25 +347,25 @@ func save_map(file_name):
 	var temp_data = []
 	var temp_terrain = -1
 	var temp_unit = -1
-	
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			if terrain.get_cell(x,y) > -1:
 				temp_terrain = terrain.get_cell(x,y)
-			
+
 			if units.get_cell(x,y) > -1:
 				temp_unit = units.get_cell(x,y)
-			
+
 			if temp_terrain or temp_unit:
 				temp_data.append({
 					x=x,y=y,
 					terrain=temp_terrain,
 					unit=temp_unit
 				})
-			
+
 			temp_terrain = -1
 			temp_unit = -1
-	
+
 	if self.check_file_name(file_name):
 		map_file.open("user://"+file_name+".tof",File.WRITE)
 		map_file.store_var(temp_data)
@@ -389,7 +389,7 @@ func load_map(file_name):
 	var temp_data
 	var cell
 	self.init_nodes()
-	
+
 	if map_file.file_exists("user://"+file_name+".tof"):
 		map_file.open("user://"+file_name+".tof",File.READ)
 		temp_data = map_file.get_var()
@@ -427,11 +427,11 @@ func _ready():
 	shake_timer.set_autostart(false)
 	shake_timer.connect('timeout', self, 'do_single_shake')
 	self.add_child(shake_timer)
-	
+
 	# where the magic happens
 	if not show_blueprint:
 		self.generate_map()
-	
+
 	set_process_input(true)
 	set_process(true)
 	pass
