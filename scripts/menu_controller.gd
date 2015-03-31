@@ -159,6 +159,7 @@ func load_map(name):
 	self.hide_maps_menu()
 	workshop.hide()
 	workshop.is_working = false
+	workshop.is_suspended = true
 
 func toggle_sound():
 	root.settings['sound_enabled'] = not root.settings['sound_enabled']

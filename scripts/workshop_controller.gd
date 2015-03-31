@@ -214,8 +214,10 @@ func play_map():
 	self.save_map(restore_file_name)
 	if self.check_map_integrity():
 		self.is_working = false
-		self.hide()
+		self.is_suspended = true
 		root.load_map("workshop", restore_file_name)
+		root.toggle_menu()
+		root.menu.hide_workshop()
 	else:
 		self.hud_message.show_message("HQ missing", ["In this map mode there need to be HQ building for each player. Blue and Red."])
 	return
