@@ -113,11 +113,9 @@ func get_life_status():
 	return self.life / (self.max_life * 1.0 )
 
 func update_healthbar():
-	var frame = health_bar.get_frame()
 	var life_status = self.get_life_status()
-
-	health_bar.set_frame(floor(life_status*10))
-	return
+	var new_frame = floor((1.0 - life_status)*10)
+	health_bar.set_frame(new_frame)
 
 func show_explosion():
 	explosion = explosion_template.instance()
