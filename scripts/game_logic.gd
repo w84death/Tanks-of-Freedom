@@ -53,26 +53,27 @@ func _input(event):
 	if is_intro:
 		self.load_menu()
 
-	if is_map_loaded && is_paused == false && is_locked_for_cpu == false:
-		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
+	if is_map_loaded && is_paused == false:
+		if is_locked_for_cpu == false:
+			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 
-			game_scale = scale_root.get_scale()
-			map_pos = current_map_terrain.get_pos()
+				game_scale = scale_root.get_scale()
+				map_pos = current_map_terrain.get_pos()
 
-			selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
-		if (event.type == InputEvent.MOUSE_MOTION):
-			var position = current_map_terrain.map_to_world(selector_position)
-			position.y += 2
-			selector.set_pos(position)
-			selector.calculate_cost()
-			if not settings['cpu_' + str(action_controller.current_player)]:
-				hud_controller.mark_potential_ap_usage(action_controller.active_field, selector.current_cost)
+				selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
+			if (event.type == InputEvent.MOUSE_MOTION):
+				var position = current_map_terrain.map_to_world(selector_position)
+				position.y += 2
+				selector.set_pos(position)
+				selector.calculate_cost()
+				if not settings['cpu_' + str(action_controller.current_player)]:
+					hud_controller.mark_potential_ap_usage(action_controller.active_field, selector.current_cost)
 
-		# MOUSE SELECT
-		if (event.type == InputEvent.MOUSE_BUTTON):
-			if (event.pressed and event.button_index == BUTTON_LEFT):
-				action_controller.handle_action(selector_position)
-				action_controller.post_handle_action()
+			# MOUSE SELECT
+			if (event.type == InputEvent.MOUSE_BUTTON):
+				if (event.pressed and event.button_index == BUTTON_LEFT):
+					action_controller.handle_action(selector_position)
+					action_controller.post_handle_action()
 
 		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
