@@ -93,11 +93,11 @@ func load_map(template_name, workshop_file_name):
 	current_map_name = template_name
 	var map_template = maps[template_name]
 	current_map = map_template.instance()
+	self.workshop_file_name = workshop_file_name
 	if workshop_file_name:
 		self.is_from_workshop = true
 		current_map.load_map(workshop_file_name)
 		current_map.show_blueprint = false
-		self.workshop_file_name = workshop_file_name
 	hud = hud_template.instance()
 
 	current_map_terrain = current_map.get_node("terrain")
