@@ -13,6 +13,7 @@ func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
 	sample_player = root.get_node("SamplePlayer")
+	sample_player.set_default_volume(0.3)
 
 func play_soundtrack():
 	self.stop_soundtrack()

@@ -73,7 +73,7 @@ func post_handle_action():
 func capture_building(active_field, field):
 	self.use_ap()
 	field.object.claim(current_player)
-	sound_controller.play('pickup_box')
+	sound_controller.play('occupy_building')
 	self.despawn_unit(active_field)
 
 	self.activate_field(field)
