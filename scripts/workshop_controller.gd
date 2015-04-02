@@ -63,6 +63,12 @@ var hud_message_box
 var hud_message_title
 var hud_message_message
 
+var hud_toolbox_show_button
+var hud_toolbox
+var hud_toolbox_close_button
+
+var toolbox_is_open = false
+
 var toolset_active_page = 0
 var tool_type = "terrain"
 var brush_type = 1
@@ -76,6 +82,8 @@ var painting = false
 
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
+const RIGHT_DEAD_ZONE = 136
+const LEFT_DEAD_ZONE = 60
 
 func init_gui():
 	hud_file = self.get_node("file_card/center")
@@ -176,9 +184,30 @@ func init_gui():
 	hud_toolset_soldier_red.connect("pressed", self, "select_tool", ["units",3,hud_toolset_soldier_red.get_node("active")])
 	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
+	
+	hud_toolbox = self.get_node("toolbox_menu")
+	hud_toolbox_show_button = self.get_node("toolbox/center/box")
+	hud_toolbox_close_button = hud_toolbox.get_node("center/toolbox/front/close")
+	
+	hud_toolbox_show_button.connect("pressed",self,"toggle_toolbox")
+	hud_toolbox_close_button.connect("pressed",self,"toggle_toolbox")
+	
 	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 
 	self.load_map(restore_file_name)
+
+func toggle_toolbox():
+	toolbox_is_open = not toolbox_is_open
+	print(toolbox_is_open)
+	if toolbox_is_open:
+		hud_toolbox_show_button.set_disabled(true)
+		hud_toolbox.show()
+		# show toolbox
+	else:
+		hud_toolbox_show_button.set_disabled(false)
+		hud_toolbox.hide()
+		# hide toolbox
+	return
 
 func toolset_next_page():
 	hud_toolset_blocks_pages[toolset_active_page].hide()
@@ -282,7 +311,7 @@ func _input(event):
 			var position = terrain.map_to_world(selector_position)
 			selector.set_pos(position)
 
-		if painting and event.x < OS.get_video_mode_size().x - 136:
+		if painting and event.x < OS.get_video_mode_size().x - RIGHT_DEAD_ZONE and event.x > LEFT_DEAD_ZONE :
 			self.paint(selector_position)
 
 	if Input.is_action_pressed('ui_cancel'):

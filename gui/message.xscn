@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="9" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize_white.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/boxy_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/card_multisize_white.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/message.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="86">
+			<string_array  len="88">
 				<string> "message" </string>
-				<string> "EmptyControl" </string>
+				<string> "Control" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
 				<string> "visibility/self_opacity" </string>
-				<string> "visibility/behind_parent" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
 				<string> "focus_neighbour/left" </string>
@@ -30,7 +29,6 @@
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
 				<string> "size_flags/stretch_ratio" </string>
-				<string> "minsize" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "center" </string>
@@ -47,6 +45,8 @@
 				<string> "transform/pos" </string>
 				<string> "transform/rot" </string>
 				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
 				<string> "offset" </string>
@@ -98,6 +98,8 @@
 				<string> "textures/disabled" </string>
 				<string> "textures/focused" </string>
 				<string> "textures/click_mask" </string>
+				<string> "params/scale" </string>
+				<string> "params/modulate" </string>
 			</string_array>
 			<string> "version" </string>
 			<int> 1 </int>
@@ -106,22 +108,23 @@
 			<string> "node_count" </string>
 			<int> 19 </int>
 			<string> "variants" </string>
-			<array  len="64" shared="false">
+			<array  len="65" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
-				<bool> False </bool>
 				<int> 1 </int>
+				<bool> False </bool>
 				<int> 2 </int>
-				<vector2> 0, 0 </vector2>
 				<resource  resource_type="Script" path="res://scripts/message.gd">  </resource>
 				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 2 </int>
+							<int> 1 </int>
 							<string> "sources" </string>
 							<array  len="4" shared="false">
 								<string> "res://scripts/tutorial_message.gd" </string>
@@ -236,8 +239,6 @@
 							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
 						<string> "custom_args" </string>
@@ -262,11 +263,12 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
+				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<vector2> 3, 3 </vector2>
+				<int> 0 </int>
 				<resource  resource_type="Texture" path="res://assets/hud/card_multisize_slim.png">  </resource>
 				<int> 3 </int>
-				<int> 0 </int>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
 				<vector2> 60, 0 </vector2>
@@ -304,7 +306,8 @@
 				<resource  resource_type="Texture" path="res://assets/hud/button_small_normal.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_small_pressed.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_small_hover.png">  </resource>
-				<resource name=""></resource>				<dictionary  shared="false">
+				<resource name=""></resource>				<vector2> 1, 1 </vector2>
+				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
@@ -313,7 +316,7 @@
 				<string> "close" </string>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="923"> 				-1, -1, 1, 0, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 8, 0, 0, 0, 22, 21, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 23, 3, 20, 9, 0, 1, 0, 1, 21, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 10, 25, 11, 26, 10, 27, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 0, 2, 0, 1, 28, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 12, 25, 13, 26, 14, 27, 15, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 0, 3, 0, 1, 29, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 20, 16, 0, 4, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 6, 33, 17, 34, 18, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 21, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 24, 33, 17, 34, 25, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 4, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 26, 33, 17, 34, 18, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 5, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 48, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 27, 33, 17, 34, 18, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 20, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 49, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 28, 33, 17, 34, 18, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 29, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 50, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 30, 33, 17, 34, 25, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 31, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 51, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 32, 33, 17, 34, 18, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 33, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 52, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 34, 33, 17, 34, 18, 35, 35, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 36, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 53, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 37, 33, 17, 34, 25, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 38, 43, 22, 44, 3, 45, 23, 0, 4, 0, 31, 54, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 34, 33, 17, 34, 18, 35, 19, 36, 3, 37, 6, 38, 3, 39, 3, 40, 20, 41, 20, 42, 36, 43, 22, 44, 3, 45, 23, 0, 3, 0, 56, 55, -1, 33, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 24, 39, 25, 40, 26, 41, 27, 42, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 57, 43, 58, 44, 59, 17, 60, 2, 61, 2, 62, 2, 63, 17, 64, 3, 65, 3, 66, 45, 67, 4, 68, 21, 69, 3, 70, 3, 71, 46, 0, 3, 0, 72, 0, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 24, 47, 25, 48, 26, 49, 27, 50, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 73, 51, 74, 44, 0, 3, 0, 76, 75, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 52, 25, 53, 26, 54, 27, 55, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 77, 3, 78, 3, 79, 3, 80, 56, 81, 57, 82, 58, 83, 59, 84, 59, 85, 59, 20, 60, 0, 17, 0, 56, 56, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 61, 25, 40, 26, 62, 27, 42, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 57, 43, 58, 22, 59, 17, 60, 2, 61, 2, 62, 2, 63, 17, 64, 3, 65, 3, 66, 63, 67, 4, 68, 21, 69, 3, 70, 3, 71, 46, 0 </int_array>
+			<int_array  len="921"> 				-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 17, 6, 18, 7, 0, 0, 0, 20, 19, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 21, 4, 18, 8, 0, 1, 0, 1, 19, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 22, 9, 23, 10, 24, 9, 25, 10, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 0, 2, 0, 1, 26, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 22, 11, 23, 12, 24, 13, 25, 14, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 0, 3, 0, 1, 27, -1, 14, 2, 0, 3, 1, 4, 2, 5, 2, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 18, 15, 0, 4, 0, 29, 28, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 16, 31, 17, 32, 18, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 19, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 46, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 24, 31, 17, 32, 25, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 3, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 47, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 26, 31, 17, 32, 18, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 5, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 48, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 27, 31, 17, 32, 18, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 21, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 49, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 28, 31, 17, 32, 18, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 29, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 50, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 30, 31, 17, 32, 25, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 31, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 51, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 32, 31, 17, 32, 18, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 33, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 52, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 34, 31, 17, 32, 18, 33, 19, 34, 1, 35, 35, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 36, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 53, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 37, 31, 17, 32, 25, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 38, 43, 22, 44, 4, 45, 23, 0, 4, 0, 29, 54, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 30, 34, 31, 17, 32, 18, 33, 19, 34, 1, 35, 20, 36, 4, 37, 16, 38, 4, 39, 4, 40, 21, 41, 21, 42, 36, 43, 22, 44, 4, 45, 23, 0, 3, 0, 56, 55, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 39, 23, 40, 24, 41, 25, 42, 8, 0, 9, 0, 10, 0, 11, 0, 12, 1, 13, 1, 14, 5, 16, 2, 57, 43, 58, 44, 59, 17, 60, 2, 61, 2, 62, 2, 63, 17, 64, 4, 65, 4, 66, 45, 67, 3, 68, 19, 69, 4, 70, 4, 71, 46, 0, 3, 0, 72, 0, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 47, 23, 48, 24, 49, 25, 50, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 73, 51, 74, 44, 0, 3, 0, 76, 75, -1, 29, 2, 0, 3, 1, 4, 2, 5, 2, 22, 52, 23, 53, 24, 54, 25, 55, 8, 0, 9, 0, 10, 0, 11, 0, 12, 4, 13, 1, 14, 5, 15, 5, 16, 2, 77, 4, 78, 4, 79, 4, 80, 56, 81, 57, 82, 58, 83, 59, 84, 59, 85, 59, 86, 60, 87, 22, 18, 61, 0, 17, 0, 56, 56, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 22, 62, 23, 40, 24, 63, 25, 42, 8, 0, 9, 0, 10, 0, 11, 0, 12, 1, 13, 1, 14, 5, 16, 2, 57, 43, 58, 22, 59, 17, 60, 2, 61, 2, 62, 2, 63, 17, 64, 4, 65, 4, 66, 64, 67, 3, 68, 19, 69, 4, 70, 4, 71, 46, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>

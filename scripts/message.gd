@@ -1,5 +1,5 @@
 
-extends EmptyControl
+extends Control
 
 var line
 var hud_title

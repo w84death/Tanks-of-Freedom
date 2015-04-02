@@ -25,7 +25,7 @@ var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
 var tutorial_close_button
 var tutorial_button
 
-var workshop = preload("res://gui/workshop.xscn").instance()
+var workshop = preload("res://gui/workshop/workshop.xscn").instance()
 var workshop_button
 
 var sound_toggle_button
