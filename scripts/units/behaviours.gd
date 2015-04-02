@@ -1,5 +1,7 @@
 extends "res://scripts/unit_control.gd"
 
+var type_name = ''
+
 const action_attack = 0
 const action_move   = 1
 const action_capture = 2
@@ -27,6 +29,7 @@ const AP_MODIFIER = 10
 
 const SAFE_BUILDING_ZONE = 2
 
+#TODO move the rest of this class somewhere else
 func estimate_action(action_type, path_size, ap_cost, hiccup, player_behaviours):
 
 	var modifier = 1

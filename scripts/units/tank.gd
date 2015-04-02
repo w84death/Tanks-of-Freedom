@@ -2,6 +2,7 @@ extends "behaviours.gd"
 
 func _init():
 	type = 1
+	type_name = 'tank'
 
 	life = 15
 	max_life = 15

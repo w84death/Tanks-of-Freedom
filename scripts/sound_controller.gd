@@ -3,6 +3,12 @@ var root
 var stream_player
 var sample_player
 
+const SOUND_SPAWN = 'spawn'
+const SOUND_MOVE = 'move'
+const SOUND_ATTACK = 'attack'
+const SOUND_DAMAGE = 'damage'
+const SOUND_DIE = 'die'
+
 func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
@@ -22,3 +28,6 @@ func stop_soundtrack():
 func play(sound):
 	if root.settings['sound_enabled']:
 		sample_player.play(sound)
+
+func play_unit_sound(unit, sound):
+	self.play(unit.type_name+'_'+sound)

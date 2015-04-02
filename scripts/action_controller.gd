@@ -193,8 +193,8 @@ func spawn_unit_from_active_building():
 		ysort.add_child(unit)
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
-		self.deduct_ap(required_ap)
-		sound_controller.play('spawn')
+		self.deduct_ap(required_ap) 
+		sound_controller.play_unit_sound(unit, sound_controller.SOUND_SPAWN)
 		self.activate_field(spawn_point)
 		self.move_camera_to_point(spawn_point.position)
 
@@ -230,8 +230,6 @@ func end_turn():
 
 	#gather stats
 	battle_stats.add_domination()
-	if current_player == 1 :
-		print(battle_stats.get_stats())
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
@@ -332,10 +330,7 @@ func camera_zoom_out():
 	abstract_map.map.scale = camera.get_scale()
 
 func play_destroy(field):
-	if (field.object.type == 0):
-		sound_controller.play('hurt')
-	else:
-		sound_controller.play('explosion')
+	sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)
 
 func update_unit(field):
 	hud_controller.update_unit_card(active_field.object)
@@ -343,7 +338,7 @@ func update_unit(field):
 
 func move_unit(active_field, field):
 	if movement_controller.move_object(active_field, field):
-		sound_controller.play('move')
+		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
 		self.use_ap()
 		self.activate_field(field)
 
@@ -364,6 +359,7 @@ func handle_battle(active_field, field):
 		self.use_ap()
 		self.clear_movement_indicators()
 
+		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
 		if (battle_controller.resolve_fight(active_field.object, field.object)):
 			#print('attacker kill defender');
 			self.play_destroy(field)
@@ -373,7 +369,7 @@ func handle_battle(active_field, field):
 			#gather stats
 			battle_stats.add_kills(current_player)
 		else:
-			sound_controller.play('not_dead')
+			sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
 			field.object.show_explosion()
 			self.update_unit(active_field)
 			# defender can deal damage
@@ -388,7 +384,7 @@ func handle_battle(active_field, field):
 					#gather stats
 					battle_stats.add_kills(abs(current_player - 1))
 				else:
-					sound_controller.play('not_dead')
+					sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
 					self.update_unit(active_field)
 					active_field.object.show_explosion()
 

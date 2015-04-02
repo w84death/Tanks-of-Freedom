@@ -382,5 +382,5 @@ func show_hud_unit(player):
 	hud_unit_card.set_margin(MARGIN_TOP,margin.top)
 	hud_unit_card.set_margin(MARGIN_BOTTOM,margin.bottom)
 	hud_unit.show()
-	print(hud_unit_expanded_positions[index])
+	#print(hud_unit_expanded_positions[index])
 	

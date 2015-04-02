@@ -2,6 +2,7 @@ extends "behaviours.gd"
 
 func _init():
 	type = 2
+	type_name = 'helicopter'
 
 	life = 12
 	max_life = 12
