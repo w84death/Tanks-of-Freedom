@@ -63,9 +63,13 @@ var hud_message_box
 var hud_message_title
 var hud_message_message
 
-var hud_toolbox_show_button
 var hud_toolbox
+var hud_toolbox_front
+var hud_toolbox_show_button
 var hud_toolbox_close_button
+var hud_toolbox_fill_x
+var hud_toolbox_fill_y
+var hud_toolbox_fill_button
 
 var toolbox_is_open = false
 
@@ -79,6 +83,13 @@ var map
 var terrain
 var units
 var painting = false
+var painting_allowed = true
+
+var settings = {
+	fill = [8,16,24,32,48,64],
+	fill_selected = [0,0],
+	turn_cap = [0,25,50,75,100]
+}
 
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
@@ -186,26 +197,59 @@ func init_gui():
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
 	
 	hud_toolbox = self.get_node("toolbox_menu")
+	hud_toolbox_front = hud_toolbox.get_node("center/toolbox/front/")
 	hud_toolbox_show_button = self.get_node("toolbox/center/box")
-	hud_toolbox_close_button = hud_toolbox.get_node("center/toolbox/front/close")
-	
+	hud_toolbox_close_button = hud_toolbox_front.get_node("close")
+	hud_toolbox_fill_x = hud_toolbox_front.get_node("x")
+	hud_toolbox_fill_x.get_node("label").set_text(str(settings.fill[settings.fill_selected[0]]))
+	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
+	hud_toolbox_fill_y.get_node("label").set_text(str(settings.fill[settings.fill_selected[1]]))
+	hud_toolbox_fill_button = hud_toolbox_front.get_node("fill")
+
 	hud_toolbox_show_button.connect("pressed",self,"toggle_toolbox")
 	hud_toolbox_close_button.connect("pressed",self,"toggle_toolbox")
+	
+	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0])
+	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1])
+	hud_toolbox_fill_button.connect("pressed",self,"toolbox_fill")
 	
 	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 
 	self.load_map(restore_file_name)
 
+func toggle_fill(axis):
+	var label
+	
+	if axis == 0:
+		label = hud_toolbox_fill_x.get_node("label")
+	else:
+		label = hud_toolbox_fill_y.get_node("label")
+	
+	if settings.fill_selected[axis] < settings.fill.size()-1:
+		settings.fill_selected[axis] += 1
+	else:
+		settings.fill_selected[axis] = 0
+	
+	label.set_text(str(settings.fill[settings.fill_selected[axis]]))
+	
+	return
+
+func toolbox_fill():
+	self.hud_message.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
+	return
+	
 func toggle_toolbox():
 	toolbox_is_open = not toolbox_is_open
 	print(toolbox_is_open)
 	if toolbox_is_open:
 		hud_toolbox_show_button.set_disabled(true)
 		hud_toolbox.show()
+		self.painting_allowed = false
 		# show toolbox
 	else:
 		hud_toolbox_show_button.set_disabled(false)
 		hud_toolbox.hide()
+		self.painting_allowed = true
 		# hide toolbox
 	return
 
@@ -296,7 +340,7 @@ func init(root):
 	set_process_input(true)
 
 func _input(event):
-	if self.is_working && not self.is_suspended:
+	if self.is_working && not self.is_suspended && self.painting_allowed:
 		if(event.type == InputEvent.MOUSE_BUTTON):
 			if (event.button_index == BUTTON_LEFT):
 				if event.pressed:

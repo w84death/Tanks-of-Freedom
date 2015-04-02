@@ -14,6 +14,7 @@ func show_message(title,message):
 		hud_message.newline()
 		hud_message.newline()
 	self.show()
+	self.raise()
 	return
 
 func close_message():
