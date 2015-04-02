@@ -70,6 +70,14 @@ var hud_toolbox_close_button
 var hud_toolbox_fill_x
 var hud_toolbox_fill_y
 var hud_toolbox_fill_button
+var hud_toolbox_clear_terrain
+var hud_toolbox_clear_units
+var hud_toolbox_turn_cap
+var hud_toolbox_start_ap
+var hud_toolbox_start_ap_set
+var hud_toolbox_win1
+var hud_toolbox_win2
+var hud_toolbox_win3
 
 var toolbox_is_open = false
 
@@ -88,7 +96,9 @@ var painting_allowed = true
 var settings = {
 	fill = [8,16,24,32,48,64],
 	fill_selected = [0,0],
-	turn_cap = [0,25,50,75,100]
+	turn_cap = [0,25,50,75,100],
+	turn_cap_selected = 0,
+	win = [true,false,false]
 }
 
 const MAP_MAX_X = 64
@@ -200,44 +210,78 @@ func init_gui():
 	hud_toolbox_front = hud_toolbox.get_node("center/toolbox/front/")
 	hud_toolbox_show_button = self.get_node("toolbox/center/box")
 	hud_toolbox_close_button = hud_toolbox_front.get_node("close")
+	
 	hud_toolbox_fill_x = hud_toolbox_front.get_node("x")
-	hud_toolbox_fill_x.get_node("label").set_text(str(settings.fill[settings.fill_selected[0]]))
 	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
-	hud_toolbox_fill_y.get_node("label").set_text(str(settings.fill[settings.fill_selected[1]]))
 	hud_toolbox_fill_button = hud_toolbox_front.get_node("fill")
+	
+	hud_toolbox_clear_terrain = hud_toolbox_front.get_node("clear_terrain")
+	hud_toolbox_clear_units = hud_toolbox_front.get_node("clear_units")
 
+	hud_toolbox_turn_cap = hud_toolbox_front.get_node("turn_cap")
+	hud_toolbox_start_ap = hud_toolbox_front.get_node("start_ap/ap")
+	hud_toolbox_start_ap_set = hud_toolbox_front.get_node("start_ap_set")
+	hud_toolbox_win1 = hud_toolbox_front.get_node("win1")
+	hud_toolbox_win2 = hud_toolbox_front.get_node("win2")
+	hud_toolbox_win3 = hud_toolbox_front.get_node("win3")
+	
 	hud_toolbox_show_button.connect("pressed",self,"toggle_toolbox")
 	hud_toolbox_close_button.connect("pressed",self,"toggle_toolbox")
 	
-	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0])
-	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1])
+	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0,hud_toolbox_fill_x.get_node("label")])
+	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1,hud_toolbox_fill_x.get_node("label")])
 	hud_toolbox_fill_button.connect("pressed",self,"toolbox_fill")
+	hud_toolbox_clear_terrain.connect("pressed",self,"toolbox_clear", [0])
+	hud_toolbox_clear_units.connect("pressed",self,"toolbox_clear", [1])
+	
+	hud_toolbox_turn_cap.connect("pressed",self,"toggle_turn_cap", [hud_toolbox_turn_cap.get_node("label")])
+	hud_toolbox_win1.connect("pressed",self,"toolbox_win", [0,hud_toolbox_win1.get_node("label")])
+	hud_toolbox_win2.connect("pressed",self,"toolbox_win", [1,hud_toolbox_win2.get_node("label")])
+	hud_toolbox_win3.connect("pressed",self,"toolbox_win", [2,hud_toolbox_win3.get_node("label")])
 	
 	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 
 	self.load_map(restore_file_name)
+	return
 
-func toggle_fill(axis):
-	var label
+func toolbox_win(option,label):
+	settings.win[option] = not settings.win[option]
+	var text = "off"
+	if settings.win[option]:
+		text = "on"
+	label.set_text(text)
+	return
 	
-	if axis == 0:
-		label = hud_toolbox_fill_x.get_node("label")
-	else:
-		label = hud_toolbox_fill_y.get_node("label")
-	
+func toggle_fill(axis,label):
 	if settings.fill_selected[axis] < settings.fill.size()-1:
 		settings.fill_selected[axis] += 1
 	else:
 		settings.fill_selected[axis] = 0
 	
 	label.set_text(str(settings.fill[settings.fill_selected[axis]]))
-	
+	return
+
+func toggle_turn_cap(label):
+	if settings.turn_cap_selected < settings.turn_cap.size()-1:
+		settings.turn_cap_selected += 1
+	else:
+		settings.turn_cap_selected = 0
+	label.set_text(str(settings.turn_cap[settings.turn_cap_selected]))
 	return
 
 func toolbox_fill():
 	self.hud_message.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
 	return
 	
+func toolbox_clear(layer):
+	if layer == 0:
+		# clear terrain and units
+		self.hud_message.show_message("Toolbox", ["Terrain and units layer cleared!"])
+	if layer == 1:
+		# clear units
+		self.hud_message.show_message("Toolbox", ["Units layer cleared!"])
+	return
+
 func toggle_toolbox():
 	toolbox_is_open = not toolbox_is_open
 	print(toolbox_is_open)
