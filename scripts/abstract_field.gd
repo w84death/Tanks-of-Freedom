@@ -1,6 +1,7 @@
 var terrain_type
 var position
 var object = null
+var damage = null
 
 func get_terrain_type():
 	return terrain_type

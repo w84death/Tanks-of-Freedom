@@ -219,7 +219,7 @@ func end_turn():
 		if turn >= self.root_node.settings['turns_cap']:
 			self.end_game()
 			return
-	
+
 	sound_controller.play('end_turn')
 	if current_player == 0:
 		self.switch_to_player(1)
@@ -361,28 +361,27 @@ func handle_battle(active_field, field):
 
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
 		if (battle_controller.resolve_fight(active_field.object, field.object)):
-			#print('attacker kill defender');
 			self.play_destroy(field)
 			self.destroy_unit(field)
 			self.update_unit(active_field)
 
 			#gather stats
 			battle_stats.add_kills(current_player)
+			self.collateral_damage(field.position)
 		else:
 			sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
 			field.object.show_explosion()
 			self.update_unit(active_field)
 			# defender can deal damage
-			#print('defend!')
 			if battle_controller.can_defend(field.object, active_field.object):
 				if (battle_controller.resolve_defend(active_field.object, field.object)):
-					#print('defender kill attacker');
 					self.play_destroy(active_field)
 					self.destroy_unit(active_field)
 					self.clear_active_field()
 
 					#gather stats
 					battle_stats.add_kills(abs(current_player - 1))
+					self.collateral_damage(active_field.position)
 				else:
 					sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
 					self.update_unit(active_field)
@@ -392,3 +391,26 @@ func handle_battle(active_field, field):
 		sound_controller.play('no_attack')
 
 	return BREAK_EVENT_LOOP
+
+func collateral_damage(center):
+	var damage_chance = 0.5
+	if randf() <= damage_chance:
+		self.damage_terrain(center + Vector2(0, 1))
+	if randf() <= damage_chance:
+		self.damage_terrain(center + Vector2(1, 0))
+	if randf() <= damage_chance:
+		self.damage_terrain(center - Vector2(0, 1))
+	if randf() <= damage_chance:
+		self.damage_terrain(center - Vector2(1, 0))
+
+	var field = abstract_map.get_field(center)
+	if field.damage == null:
+		return
+
+
+func damage_terrain(position):
+	var field = abstract_map.get_field(position)
+	if field == null || field.object == null || field.object.group != 'terrain':
+		return
+
+	field.object.set_damage()
