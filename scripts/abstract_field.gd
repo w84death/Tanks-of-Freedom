@@ -26,3 +26,7 @@ func add_damage(damage_layer):
 	var damage_position = abstract_map.tilemap.map_to_world(position)
 	damage_position.y += 8
 	damage.set_pos(damage_position)
+
+	var damage_frames = damage.get_vframes() * damage.get_hframes()
+	var damage_frame = randi() % damage_frames
+	damage.set_frame(damage_frame)
