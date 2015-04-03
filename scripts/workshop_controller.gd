@@ -357,21 +357,20 @@ func select_tool(tool_type,brush_type,button):
 	return
 
 func paint(position):
-	if brush_type:
-		if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
-			return false
-		else:
-			if tool_type == "terrain":
-				if brush_type == -1 and units.get_cell(position.x,position.y) > -1:
-					units.set_cell(position.x,position.y,brush_type)
-				else:
-					terrain.set_cell(position.x,position.y,brush_type)
-			if tool_type == "units":
-				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
-					units.set_cell(position.x,position.y,brush_type)
-				else:
-					self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
-					return false
+	if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
+		return false
+	else:
+		if tool_type == "terrain":
+			if brush_type == -1 and units.get_cell(position.x,position.y) > -1:
+				units.set_cell(position.x,position.y,brush_type)
+			else:
+				terrain.set_cell(position.x,position.y,brush_type)
+		if tool_type == "units":
+			if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
+				units.set_cell(position.x,position.y,brush_type)
+			else:
+				self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
+				return false
 	units.raise()
 	selector.raise()
 	return true
