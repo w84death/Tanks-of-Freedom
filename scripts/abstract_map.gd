@@ -52,6 +52,7 @@ func create_field(position):
 	var field = field_template.new()
 	field.position = position
 	field.terrain_type = tilemap.get_cell(position.x, position.y)
+	field.abstract_map = self
 	return field
 
 # for pathfinding

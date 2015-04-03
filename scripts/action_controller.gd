@@ -2,6 +2,7 @@
 var root_node
 var abstract_map = preload('abstract_map.gd').new()
 var ysort
+var damage_layer
 var selector
 var active_field = null
 var active_indicator = preload('res://gui/selector.xscn').instance()
@@ -88,6 +89,7 @@ func init_root(root, map, hud):
 	abstract_map.tilemap = map.get_node("terrain")
 	camera = root.scale_root
 	ysort = map.get_node('terrain/front')
+	damage_layer = map.get_node('terrain/destruction')
 	selector = root.selector
 	self.import_objects()
 	hud_controller.init_root(root, self, hud)
@@ -391,7 +393,6 @@ func handle_battle(active_field, field):
 		sound_controller.play('no_attack')
 
 	return BREAK_EVENT_LOOP
-
 func collateral_damage(center):
 	var damage_chance = 0.5
 	if randf() <= damage_chance:
@@ -405,8 +406,7 @@ func collateral_damage(center):
 
 	var field = abstract_map.get_field(center)
 	if field.damage == null:
-		return
-
+		field.add_damage(damage_layer)
 
 func damage_terrain(position):
 	var field = abstract_map.get_field(position)
