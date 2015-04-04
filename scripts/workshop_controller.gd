@@ -273,13 +273,17 @@ func add_action(params):
 		self.save_map(restore_file_name)
 		paint_count = 0
 	
+	hud_toolbox_undo_button.set_disabled(false)
+	print(history)
+	
 func undo_last_action():
 	var last_action
 	if history.size() > 0:
 		last_action = history[history.size()-1]
-		self.paint(last_action.position,last_action.tool_type,last_action.brush_type)
+		self.paint(last_action.position,last_action.tool_type,last_action.brush_type, true)
 		history.remove(history.size()-1)
-		history.remove(history.size()-1)
+	else:
+		hud_toolbox_undo_button.set_disabled(true)
 
 func toolbox_win(option,label):
 	settings.win[option] = not settings.win[option]
@@ -392,7 +396,7 @@ func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.show()
 	return
 
-func paint(position, tool_type = null,brush_type = null):
+func paint(position, tool_type = null,brush_type = null, undo_action = false):
 	if hud_message.is_visible():
 		return false
 		
@@ -407,19 +411,24 @@ func paint(position, tool_type = null,brush_type = null):
 	else:
 		if tool_type == "terrain":
 			if brush_type == -1 and units.get_cell(position.x,position.y) > -1:
-				add_action({position=Vector2(position.x,position.y),tool_type="units"})
+				if not undo_action:
+					add_action({position=Vector2(position.x,position.y),tool_type="units"})
 				units.set_cell(position.x,position.y,brush_type)
 			else:
-				add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
-				terrain.set_cell(position.x,position.y,brush_type)
+				if terrain.get_cell(position.x,position.y) != brush_type:
+					if not undo_action:
+						add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
+					terrain.set_cell(position.x,position.y,brush_type)
 				
 		if tool_type == "units":
-			if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
-				add_action({position=Vector2(position.x,position.y),tool_type="units"})
-				units.set_cell(position.x,position.y,brush_type)
-			else:
-				self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
-				return false
+			if units.get_cell(position.x,position.y) != brush_type:
+				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
+					if not undo_action:
+						add_action({position=Vector2(position.x,position.y),tool_type="units"})
+					units.set_cell(position.x,position.y,brush_type)
+				else:
+					self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
+					return false
 	units.raise()
 	selector.raise()
 	return true
