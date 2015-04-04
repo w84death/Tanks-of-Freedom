@@ -284,7 +284,6 @@ func toolbox_clear(layer):
 
 func toggle_toolbox():
 	toolbox_is_open = not toolbox_is_open
-	print(toolbox_is_open)
 	if toolbox_is_open:
 		hud_toolbox_show_button.set_disabled(true)
 		hud_toolbox.show()
@@ -357,6 +356,9 @@ func select_tool(tool_type,brush_type,button):
 	return
 
 func paint(position):
+	if hud_message.is_visible():
+		return false
+
 	if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
 		return false
 	else:
