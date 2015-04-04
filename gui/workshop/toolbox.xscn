@@ -261,7 +261,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<real> 40 </real>
 				<dictionary  shared="false">

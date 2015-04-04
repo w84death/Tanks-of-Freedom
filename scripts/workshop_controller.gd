@@ -78,6 +78,7 @@ var hud_toolbox_start_ap_set
 var hud_toolbox_win1
 var hud_toolbox_win2
 var hud_toolbox_win3
+var hud_toolbox_undo_button
 
 var toolbox_is_open = false
 
@@ -92,6 +93,10 @@ var terrain
 var units
 var painting = false
 var painting_allowed = true
+var history = []
+var paint_count = 0
+var autosave_after = 10
+var painting_motion = false
 
 var settings = {
 	fill = [8,16,24,32,48,64],
@@ -100,6 +105,8 @@ var settings = {
 	turn_cap_selected = 0,
 	win = [true,false,false]
 }
+
+
 
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
@@ -206,10 +213,12 @@ func init_gui():
 	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
 	
+	# toolbox
 	hud_toolbox = self.get_node("toolbox_menu")
 	hud_toolbox_front = hud_toolbox.get_node("center/toolbox/front/")
 	hud_toolbox_show_button = self.get_node("toolbox/center/box")
 	hud_toolbox_close_button = hud_toolbox_front.get_node("close")
+	hud_toolbox_undo_button = self.get_node("toolbox/center/undo")
 	
 	hud_toolbox_fill_x = hud_toolbox_front.get_node("x")
 	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
@@ -227,6 +236,7 @@ func init_gui():
 	
 	hud_toolbox_show_button.connect("pressed",self,"toggle_toolbox")
 	hud_toolbox_close_button.connect("pressed",self,"toggle_toolbox")
+	hud_toolbox_undo_button.connect("pressed",self,"undo_last_action")
 	
 	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0,hud_toolbox_fill_x.get_node("label")])
 	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1,hud_toolbox_fill_x.get_node("label")])
@@ -243,6 +253,33 @@ func init_gui():
 
 	self.load_map(restore_file_name)
 	return
+
+func add_action(params):
+	var last_brush
+	
+	if params.tool_type == "terrain":
+		last_brush = terrain.get_cell(params.position.x,params.position.y)
+	
+	if params.tool_type == "units":
+		last_brush = units.get_cell(params.position.x,params.position.y)
+		
+	history.append({
+		position = params.position,
+		tool_type = params.tool_type,
+		brush_type = last_brush
+		})
+	paint_count += 1
+	if not painting_motion and paint_count >= autosave_after:
+		self.save_map(restore_file_name)
+		paint_count = 0
+	
+func undo_last_action():
+	var last_action
+	if history.size() > 0:
+		last_action = history[history.size()-1]
+		self.paint(last_action.position,last_action.tool_type,last_action.brush_type)
+		history.remove(history.size()-1)
+		history.remove(history.size()-1)
 
 func toolbox_win(option,label):
 	settings.win[option] = not settings.win[option]
@@ -355,20 +392,30 @@ func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.show()
 	return
 
-func paint(position):
+func paint(position, tool_type = null,brush_type = null):
 	if hud_message.is_visible():
 		return false
-
+		
+	if tool_type == null:
+		tool_type = self.tool_type
+	if brush_type == null:
+		brush_type = self.brush_type
+	
+	
 	if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
 		return false
 	else:
 		if tool_type == "terrain":
 			if brush_type == -1 and units.get_cell(position.x,position.y) > -1:
+				add_action({position=Vector2(position.x,position.y),tool_type="units"})
 				units.set_cell(position.x,position.y,brush_type)
 			else:
+				add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
 				terrain.set_cell(position.x,position.y,brush_type)
+				
 		if tool_type == "units":
 			if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
+				add_action({position=Vector2(position.x,position.y),tool_type="units"})
 				units.set_cell(position.x,position.y,brush_type)
 			else:
 				self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
@@ -392,13 +439,14 @@ func _input(event):
 					painting = true
 				else:
 					painting = false
-					self.save_map(restore_file_name)
+					painting_motion = false
 
 		if (event.type == InputEvent.MOUSE_MOTION):
 			map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
 			selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
 			var position = terrain.map_to_world(selector_position)
 			selector.set_pos(position)
+			painting_motion = true
 
 		if painting and event.x < OS.get_video_mode_size().x - RIGHT_DEAD_ZONE and event.x > LEFT_DEAD_ZONE :
 			self.paint(selector_position)
