@@ -11,15 +11,13 @@ var close_button
 var quit_button
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
-var maps_1_button
-var maps_2_button
-var maps_3_button
-var maps_4_button
-var maps_5_button
-var maps_6_button
+var maps_play_button
+var maps_play_custom_button
 var maps_close_button
 var maps_turns_cap
 var maps_turns_cap_label
+var maps_select_map
+var maps_select_custom_map
 
 var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
 var tutorial_close_button
@@ -79,25 +77,33 @@ func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
 
-	maps_1_button = maps_sub_menu.get_node("control/menu_controls/map_1")
-	maps_2_button = maps_sub_menu.get_node("control/menu_controls/map_2")
-	maps_3_button = maps_sub_menu.get_node("control/menu_controls/map_3")
-	maps_4_button = maps_sub_menu.get_node("control/menu_controls/map_4")
-	maps_5_button = maps_sub_menu.get_node("control/menu_controls/map_5")
-	maps_6_button = maps_sub_menu.get_node("control/menu_controls/map_6")
+	maps_play_button = maps_sub_menu.get_node("control/menu_controls/play")
+	maps_play_custom_button = maps_sub_menu.get_node("control/menu_controls/play_custom")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
 	maps_turns_cap = maps_sub_menu.get_node("control/menu_controls/turns_cap")
 	maps_turns_cap_label = maps_turns_cap.get_node("Label")
-
-	maps_1_button.connect("pressed", self, "load_map", ["map_1"])
-	maps_2_button.connect("pressed", self, "load_map", ["map_2"])
-	maps_3_button.connect("pressed", self, "load_map", ["map_3"])
-	maps_4_button.connect("pressed", self, "load_map", ["map_4"])
-	maps_5_button.connect("pressed", self, "load_map", ["map_6"])
-	maps_6_button.connect("pressed", self, "load_map", ["map_5"])
+	maps_select_map = maps_sub_menu.get_node("control/menu_controls/maps")
+	maps_select_custom_map = maps_sub_menu.get_node("control/menu_controls/custom_maps")
+	
+	maps_select_map.add_item("Mission 1",1)
+	maps_select_map.add_item("Mission 2",2)
+	maps_select_map.add_item("Mission 3",3)
+	maps_select_map.add_item("Mission 4",4)
+	maps_select_map.add_item("Mission 5",5)
+	
+	maps_select_custom_map.add_item("Custom map 1",1)
+	maps_select_custom_map.add_item("Custom map 2",1)
+	maps_select_custom_map.add_item("Custom map 3",1)
+	maps_select_custom_map.add_item("Custom map 4",1)
+	
+	maps_play_button.connect("pressed", self, "load_map", [maps_select_map.get_selected_ID()])
+	maps_play_custom_button.connect("pressed", self, "load_map", [maps_select_custom_map.get_selected_ID()])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
 	maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
+	maps_select_map.connect("selected",self,"load_map", [])
 
+
+		
 func show_maps_menu():
 	control_node.hide()
 	maps_sub_menu.show()

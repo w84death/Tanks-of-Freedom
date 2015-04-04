@@ -21,15 +21,7 @@ var current_map_name
 var hud
 var ai_timer
 
-var maps = {
-	'workshop' : preload('res://maps/workshop.xscn'),
-	'map_1' : preload('res://maps/map_1.xscn'),
-	'map_2' : preload('res://maps/map_2.xscn'),
-	'map_3' : preload('res://maps/map_1.xscn'),
-	'map_4' : preload('res://maps/map_1.xscn'),
-	'map_5' : preload('res://maps/map_1.xscn'),
-	'map_6' : preload('res://maps/map_1.xscn')
-}
+var maps = [preload('res://maps/workshop.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_2.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_1.xscn')]
 
 var settings = {
 	'is_ok' : true,
