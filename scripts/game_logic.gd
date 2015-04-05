@@ -81,8 +81,10 @@ func start_ai_timer():
 	ai_timer.inject_action_controller(action_controller, hud_controller)
 	ai_timer.start()
 
-func load_map(template_name, workshop_file_name):
+func load_map(template_name, workshop_file_name = false):
 	self.unload_map()
+	if template_name == "workshop":
+		template_name = 0
 	current_map_name = template_name
 	var map_template = maps[template_name]
 	current_map = map_template.instance()

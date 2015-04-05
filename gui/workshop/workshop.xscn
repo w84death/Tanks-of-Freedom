@@ -292,7 +292,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 4 </int>
 							<string> "sources" </string>
 							<array  len="5" shared="false">
 								<string> "res://scripts/hud_controller.gd" </string>

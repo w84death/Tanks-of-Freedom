@@ -412,6 +412,13 @@ func fill(width,height):
 		for y in range(height):
 			terrain.set_cell(x,y,1)
 
+func clear_layer(layer):
+	if layer == 0:
+		units.clear()
+		terrain.clear()
+	if layer == 1:
+		units.clear()
+
 func init_nodes():
 	underground = self.get_node("underground")
 	terrain = self.get_node("terrain")

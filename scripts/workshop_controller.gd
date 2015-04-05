@@ -318,9 +318,10 @@ func toolbox_fill():
 func toolbox_clear(layer):
 	if layer == 0:
 		# clear terrain and units
+		map.clear_layer(0)
 		self.hud_message.show_message("Toolbox", ["Terrain and units layer cleared!"])
 	if layer == 1:
-		# clear units
+		map.clear_layer(1)
 		self.hud_message.show_message("Toolbox", ["Units layer cleared!"])
 	return
 
