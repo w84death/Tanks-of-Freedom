@@ -405,6 +405,13 @@ func load_map(file_name):
 		print('ToF: map file not exists!')
 	return
 
+func fill(width,height):
+	terrain.clear()
+	units.clear()
+	for x in range(width):
+		for y in range(height):
+			terrain.set_cell(x,y,1)
+
 func init_nodes():
 	underground = self.get_node("underground")
 	terrain = self.get_node("terrain")

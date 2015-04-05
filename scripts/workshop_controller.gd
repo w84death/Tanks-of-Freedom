@@ -239,7 +239,7 @@ func init_gui():
 	hud_toolbox_undo_button.connect("pressed",self,"undo_last_action")
 	
 	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0,hud_toolbox_fill_x.get_node("label")])
-	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1,hud_toolbox_fill_x.get_node("label")])
+	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1,hud_toolbox_fill_y.get_node("label")])
 	hud_toolbox_fill_button.connect("pressed",self,"toolbox_fill")
 	hud_toolbox_clear_terrain.connect("pressed",self,"toolbox_clear", [0])
 	hud_toolbox_clear_units.connect("pressed",self,"toolbox_clear", [1])
@@ -311,6 +311,7 @@ func toggle_turn_cap(label):
 	return
 
 func toolbox_fill():
+	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
 	self.hud_message.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
 	return
 	
