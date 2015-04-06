@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="94" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://gui/message.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_soldier_red_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_river_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_tank_blue_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_hq_blue_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_road_city_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_box_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_hq_blue_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_mountains_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_hq_red_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_factory_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_road_mix_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_bridge_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_airport_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_road_country_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_helicopter_red_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_plain_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_road_city_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_soldier_blue_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_river_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_soldier_blue_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_tank_red_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_clear_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_small.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_city_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_road_city_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_exit_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_fence_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_tank_blue_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_helicopter_blue_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_forest_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_box_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_city_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_road_country_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_hq_red_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_hq_blue_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_helicopter_blue_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_box_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_tank_red_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_river_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_soldier_blue_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_clear_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_factory_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/icons.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_city_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_soldier_blue_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_forest_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_hq_red_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://maps/workshop.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_helicopter_blue_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_city_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_road_city_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_bridge_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_mountains_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gui/workshop/toolbox.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_tank_blue_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_tank_red_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_road_mix_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_river_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_city_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/paginator.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_mountains_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_tank_red_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_soldier_red_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_tank_blue_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_forest_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_fence_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_tank_red_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_road_country_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_road_mix_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_exit_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/boxy_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_plain_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_helicopter_blue_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_plain_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_tower_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_box_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_tank_blue_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_bridge_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_road_country_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gui/message.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_helicopter_red_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_plain_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_road_mix_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_mountains_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/workshop/paginator.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_statue_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_soldier_red_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_helicopter_red_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_clear_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_hq_blue_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_bridge_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_helicopter_red_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_hq_red_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_river_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://scripts/workshop_controller.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_forest_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_fence_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_statue_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_fence_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_soldier_red_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_road_city_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_barracks_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_river_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_statue_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_mountains_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_soldier_blue_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_clear_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_box_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_box_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/workshop/button_fence_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_statue_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_clear_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_bridge_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_airport_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_plain_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_fence_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://scripts/workshop_controller.gd" type="Script"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_box_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gui/workshop/toolbox.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_helicopter_red_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_forest_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_helicopter_blue_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_road_country_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_barracks_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_box_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_soldier_red_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_helicopter_red_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_bridge_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_clear_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_soldier_red_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_tank_red_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_soldier_blue_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_tank_blue_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_hq_red_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_statue_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_mountains_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_hq_blue_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_statue_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://maps/workshop.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_hq_red_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_forest_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_road_mix_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_plain_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/icons.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_city_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_helicopter_blue_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/button_hq_blue_normal.png" type="Texture"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "save" </string>
 		<real name="length"> 0.5 </real>
@@ -292,7 +292,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 3 </int>
 							<string> "sources" </string>
 							<array  len="5" shared="false">
 								<string> "res://scripts/hud_controller.gd" </string>
@@ -536,22 +536,22 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
 							<string> "default_light" </string>
 							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
 							<string> "znear" </string>
 							<real> 0.1 </real>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
 							<string> "deflight_rot_x" </string>
 							<real> 0.942478 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_show_subtree" </string>
@@ -864,6 +864,8 @@
 				<resource  resource_type="Texture" path="res://assets/workshop/paginator.png">  </resource>
 				<resource  resource_type="PackedScene" path="res://gui/message.xscn">  </resource>
 				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "Script" </string>
@@ -963,26 +965,24 @@
 							</array>
 							<string> "deflight_rot_y" </string>
 							<real> 0.628319 </real>
-							<string> "default_light" </string>
-							<bool> True </bool>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 					<string> "__editor_show_subtree" </string>
@@ -1024,9 +1024,9 @@
 				<real> -270 </real>
 				<real> -200 </real>
 				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
 					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
@@ -1118,22 +1118,22 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
 							<string> "default_light" </string>
 							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
 							<string> "znear" </string>
 							<real> 0.1 </real>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
 							<string> "deflight_rot_x" </string>
 							<real> 0.942478 </real>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_show_subtree" </string>

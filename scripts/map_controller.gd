@@ -33,19 +33,19 @@ var temp_delta = 0
 var map_step = 0.01
 var near_threshold = 0.4
 
-export var gen_grass = 7
-export var gen_flowers = 5
+var gen_grass = 70
+var gen_flowers = 25
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 var map_file = File.new()
 
 var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
-var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn')]
+var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn'),preload('res://terrain/forest_3.xscn')]
 var map_city = [preload('res://terrain/city_1.xscn'),preload('res://terrain/city_2.xscn'),preload('res://terrain/city_3.xscn'),preload('res://terrain/city_4.xscn'),preload('res://terrain/city_5.xscn')]
-var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terrain/mountain_2.xscn')]
+var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terrain/mountain_2.xscn'),preload('res://terrain/mountain_3.xscn')]
 var map_statue = preload('res://terrain/city_statue.xscn')
-var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn')]
+var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn'),preload('res://terrain/flowers_5.xscn'),preload('res://terrain/flowers_6.xscn'),preload('res://terrain/flowers_7.xscn')]
 var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
 var map_units = [preload('res://units/soldier_blue.xscn'),preload('res://units/tank_blue.xscn'),preload('res://units/helicopter_blue.xscn'),preload('res://units/soldier_red.xscn'),preload('res://units/tank_red.xscn'),preload('res://units/helicopter_red.xscn')]
 
@@ -142,10 +142,10 @@ func generate_map():
 
 			# grass, flowers, log
 			if terrain.get_cell(x,y) == 1:
-				if randi() % 10 <= gen_grass:
-					temp = map_grass[randi() % 2].instance()
-				if randi() % 10 <= gen_flowers:
-					temp2 = map_flowers[randi() % 4].instance()
+				if randi() % 100 <= gen_grass:
+					temp = map_grass[randi() % map_grass.size()].instance()
+				if randi() % 100 <= gen_flowers:
+					temp2 = map_flowers[randi() % map_flowers.size()].instance()
 
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
@@ -158,17 +158,17 @@ func generate_map():
 
 			# forest
 			if terrain.get_cell(x,y) == 2:
-				temp = map_forest[randi() % 2].instance()
+				temp = map_forest[randi() % map_forest.size()].instance()
 				cells_to_change.append({x=x,y=y,type=1})
 
 			# mountains
 			if terrain.get_cell(x,y) == 3:
-				temp = map_mountain[randi() % 2].instance()
+				temp = map_mountain[randi() % map_mountain.size()].instance()
 				cells_to_change.append({x=x,y=y,type=1})
 
 			# city, statue
 			if terrain.get_cell(x,y) == 4:
-				temp = map_city[randi() % 5].instance()
+				temp = map_city[randi() % map_city.size()].instance()
 			if terrain.get_cell(x,y) == 5:
 				temp = map_statue.instance()
 
