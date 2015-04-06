@@ -99,7 +99,7 @@ var autosave_after = 10
 var painting_motion = false
 
 var settings = {
-	fill = [8,16,24,32,48,64],
+	fill = [4,6,8,12,16,20,24,32,48,64],
 	fill_selected = [0,0],
 	turn_cap = [0,25,50,75,100],
 	turn_cap_selected = 0,
@@ -307,6 +307,7 @@ func toggle_turn_cap(label):
 		settings.turn_cap_selected += 1
 	else:
 		settings.turn_cap_selected = 0
+	self.root.settings.turns_cap = settings.turn_cap[settings.turn_cap_selected]
 	label.set_text(str(settings.turn_cap[settings.turn_cap_selected]))
 	return
 
