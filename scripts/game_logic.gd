@@ -42,9 +42,6 @@ var settings_file = File.new()
 var workshop_file_name
 
 func _input(event):
-	if is_intro:
-		self.load_menu()
-
 	if is_map_loaded && is_paused == false:
 		if is_locked_for_cpu == false:
 			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
@@ -160,12 +157,12 @@ func show_missions():
 
 func load_menu():
 	is_intro = false
+	self.remove_child(intro)
+	intro.queue_free()
 	self.add_child(menu)
 	menu.close_button.hide()
 	cursor.show()
 	cursor.raise()
-	self.remove_child(intro)
-	intro.queue_free()
 
 func lock_for_cpu():
 	is_locked_for_cpu = true
@@ -215,6 +212,7 @@ func _ready():
 	ai_timer = get_node("AITimer")
 	sound_controller.init_root(self)
 	menu.init_root(self)
+	intro.init_root(self)
 	cursor.hide()
 	self.add_child(cursor)
 	self.add_child(intro)
