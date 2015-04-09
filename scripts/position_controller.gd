@@ -14,6 +14,10 @@ var units
 
 const lookout_range = 3
 
+# performance hack
+var precalculated_nearby_tiles = [[[null]]]
+const MAX_PRECALCULATED_TILES_RANGE = 11
+
 # not changable data
 var buildings
 var terrains
@@ -81,13 +85,9 @@ func get_units():
 			print('UNDEAD UNIT')
 
 func get_nearby_tiles(position, distance=2):
-	var max_distance = distance *2 -1
 	var tiles = []
-	for x in range(-distance, distance + 1):
-		for y in range(-distance, distance  + 1):
-			# we are skipping current tile
-			if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
-				tiles.append(Vector2(position.x + x, position.y + y))
+	for tile_modifier in self.precalculated_nearby_tiles[distance]:
+		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
 	return tiles
 
@@ -140,5 +140,15 @@ func get_nearby_empty_buldings(nearby_tiles):
 
 	return buildings
 
+func prepare_nearby_tiles():
+	for distance in range(1, MAX_PRECALCULATED_TILES_RANGE):
 
+		var max_distance = distance *2 -1
+		var tiles = []
 
+		for x in range(-distance, distance + 1):
+			for y in range(-distance, distance  + 1):
+				# we are skipping current tile
+				if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
+					tiles.append(Vector2(x, y))
+		precalculated_nearby_tiles.insert(distance, tiles)

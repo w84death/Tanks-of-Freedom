@@ -63,6 +63,7 @@ func gather_available_actions(player_ap):
 	return self.__execute_best_action()
 
 func __gather_unit_data(own_buildings, own_units, terrain):
+
 	if own_units.size() == 0:
 		return
 
@@ -73,6 +74,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 		if unit.get_ap() < 2:
 			return
 		var position = unit.get_pos_map()
+
 
 		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 		var destinations = []

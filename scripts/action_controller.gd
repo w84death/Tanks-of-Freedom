@@ -98,6 +98,7 @@ func init_root(root, map, hud):
 	if not root_node.settings['cpu_0']:
 		hud_controller.show_in_game_card([],current_player)
 	position_controller.init_root(root)
+	position_controller.prepare_nearby_tiles()
 	position_controller.get_player_bunker_position(current_player)
 	sound_controller = root.sound_controller
 
