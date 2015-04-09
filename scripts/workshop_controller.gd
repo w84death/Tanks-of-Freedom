@@ -127,7 +127,7 @@ func init_gui():
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
-
+	
 	game_scale = get_node("blueprint/center/scale")
 
 	hud_toolset = self.get_node("toolset/center")
@@ -277,7 +277,6 @@ func add_action(params):
 		paint_count = 0
 	
 	hud_toolbox_undo_button.set_disabled(false)
-	print(history)
 	
 func undo_last_action():
 	var last_action
