@@ -18,13 +18,15 @@ func _process(delta):
 		if state == INTRO:
 			root.load_map(1)
 			root.load_menu()
-			root.toggle_menu()
+			if !root.menu.is_hidden():
+				root.toggle_menu()
+
 			root.lock_for_demo()
 			self.reset(STATS)
 
 		else:
 			root.restart_map()
-			self.reset()
+			self.reset(INTRO)
 
 
 func inject_root(root_obj):

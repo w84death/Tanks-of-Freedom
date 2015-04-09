@@ -322,6 +322,7 @@ func end_game():
 	hud_controller.show_win(current_player, battle_stats.get_stats(), turn)
 	selector.hide()
 	if (root_node.is_demo):
+		demo_timer.reset(demo_timer.STATS)
 		demo_timer.start()
 
 func camera_zoom_in():
