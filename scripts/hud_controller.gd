@@ -54,6 +54,7 @@ var turn_counter
 var total_time_counter
 var time_blue_counter
 var time_red_counter
+var turns_limit
 
 var hud_end_game
 var hud_end_game_controls
@@ -80,6 +81,9 @@ func init_root(root, action_controller_object, hud):
 
 	active_map = root.scale_root
 
+	#
+	# HUD GAME CARD
+	#
 	hud_game_card = hud.get_node("top_center/turn_card")
 	hud_turn_button = hud_game_card.get_node("end_turn")
 	hud_turn_button_red = hud_game_card.get_node("end_turn_red")
@@ -88,9 +92,14 @@ func init_root(root, action_controller_object, hud):
 	total_time_counter = hud_game_card.get_node("total_time")
 	time_blue_counter = hud_game_card.get_node("time_blue")
 	time_red_counter = hud_game_card.get_node("time_red")
+	turns_limit = hud_game_card.get_node("limit")
 	hud_turn_button.connect("pressed", action_controller, "end_turn")
 	hud_turn_button_red.connect("pressed", action_controller, "end_turn")
 	
+	var limit = self.root_node.settings.turns_cap
+	if limit == 0:
+		limit = "off"
+	turns_limit.set_text("limit: "+str(limit))
 
 	player_ap = hud_game_card.get_node("Label")
 	game_card = hud.get_node("game_card")
