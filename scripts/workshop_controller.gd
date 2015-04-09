@@ -224,6 +224,9 @@ func init_gui():
 	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
 	hud_toolbox_fill_button = hud_toolbox_front.get_node("fill")
 	
+	hud_toolbox_fill_x.get_node('label').set_text(str(settings.fill[settings.fill_selected[0]]))
+	hud_toolbox_fill_y.get_node('label').set_text(str(settings.fill[settings.fill_selected[1]]))
+	
 	hud_toolbox_clear_terrain = hud_toolbox_front.get_node("clear_terrain")
 	hud_toolbox_clear_units = hud_toolbox_front.get_node("clear_units")
 
