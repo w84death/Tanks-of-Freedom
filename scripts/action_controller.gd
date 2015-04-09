@@ -14,7 +14,6 @@ var battle_stats = preload("battle_stats.gd").new(self, position_controller)
 var sound_controller
 var ai
 var pathfinding
-var demo_timer
 
 var current_player = 0
 var player_ap = [0,0]
@@ -109,8 +108,6 @@ func init_root(root, map, hud):
 	movement_arrow_br = movement_template.instance()
 	movement_arrow_tl = movement_template.instance()
 	movement_arrow_tr = movement_template.instance()
-
-	demo_timer = root_node.get_node("DemoTimer")
 
 func activate_field(field):
 	self.clear_active_field()
@@ -321,8 +318,6 @@ func end_game():
 	game_ended = true
 	hud_controller.show_win(current_player, battle_stats.get_stats(), turn)
 	selector.hide()
-	if (root_node.is_demo):
-		demo_timer.start()
 
 func camera_zoom_in():
 	var scale = camera.get_scale()

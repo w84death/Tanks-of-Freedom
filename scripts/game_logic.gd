@@ -35,7 +35,6 @@ var settings = {
 
 var is_map_loaded = false
 var is_intro = true
-var is_demo = false
 var is_paused = false
 var is_locked_for_cpu = false
 var is_from_workshop = false
@@ -43,10 +42,6 @@ var settings_file = File.new()
 var workshop_file_name
 
 func _input(event):
-	if is_demo == true:
-		is_demo = false
-		get_node("DemoTimer").stop()
-
 	if is_map_loaded && is_paused == false:
 		if is_locked_for_cpu == false:
 			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
@@ -112,8 +107,7 @@ func load_map(template_name, workshop_file_name = false):
 	hud_controller = action_controller.hud_controller
 	hud_controller.show_map()
 	selector.init(action_controller)
-	if (menu && menu.close_button):
-		menu.close_button.show()
+	menu.close_button.show()
 	is_map_loaded = true
 	set_process_input(true)
 	if settings['cpu_0']:
@@ -181,13 +175,6 @@ func unlock_for_player():
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(false)
 	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(false)
 	selector.show()
-
-func lock_for_demo():
-	is_demo = true
-	self.lock_for_cpu()
-
-func unlock_for_demo():
- 	is_demo = false
 
 func read_settings_from_file():
 	var check

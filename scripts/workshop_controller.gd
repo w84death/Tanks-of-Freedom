@@ -127,7 +127,7 @@ func init_gui():
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
-	
+
 	game_scale = get_node("blueprint/center/scale")
 
 	hud_toolset = self.get_node("toolset/center")
@@ -224,9 +224,6 @@ func init_gui():
 	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
 	hud_toolbox_fill_button = hud_toolbox_front.get_node("fill")
 	
-	hud_toolbox_fill_x.get_node('label').set_text(str(settings.fill[settings.fill_selected[0]]))
-	hud_toolbox_fill_y.get_node('label').set_text(str(settings.fill[settings.fill_selected[1]]))
-	
 	hud_toolbox_clear_terrain = hud_toolbox_front.get_node("clear_terrain")
 	hud_toolbox_clear_units = hud_toolbox_front.get_node("clear_units")
 
@@ -277,6 +274,7 @@ func add_action(params):
 		paint_count = 0
 	
 	hud_toolbox_undo_button.set_disabled(false)
+	print(history)
 	
 func undo_last_action():
 	var last_action
@@ -392,8 +390,6 @@ func save_map(name):
 
 func load_map(name):
 	map.load_map(name)
-	terrain.raise()
-	units.raise()
 
 func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.hide()
