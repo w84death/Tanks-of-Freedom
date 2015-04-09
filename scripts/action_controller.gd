@@ -235,6 +235,8 @@ func end_turn():
 
 	#gather stats
 	battle_stats.add_domination()
+	if turn == 1 || fmod(turn, 3) == 0:
+		ai.select_behaviour_type(current_player)
 
 func move_camera_to_active_bunker():
 	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))

@@ -20,6 +20,7 @@ var cost_grid
 var behaviour_normal
 var behaviour_destroyer
 var behaviour_explorer
+var behaviours = []
 
 var player_behaviours
 
@@ -34,11 +35,14 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	behaviour_normal = preload('behaviours/normal.gd').new()
 	behaviour_destroyer = preload('behaviours/destroyer.gd').new()
 	behaviour_explorer = preload('behaviours/explorer.gd').new()
+	behaviours = [behaviour_normal, behaviour_explorer, behaviour_destroyer]
 
-	player_behaviours = [behaviour_normal, behaviour_destroyer]
+	player_behaviours = [behaviour_normal, behaviour_normal]
 
-# func select_behaviour_type(player):
-#     self.
+func select_behaviour_type(player):
+	var rand = floor(rand_range(0, behaviours.size()))
+	player_behaviours[player] = behaviours[rand]
+	print('SELECTED BEHAVIOUR FOR PLAYER: ', player, ' IS ', rand)
 
 func gather_available_actions(player_ap):
 	current_player = action_controller.current_player
