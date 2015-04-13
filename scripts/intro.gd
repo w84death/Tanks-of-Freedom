@@ -1,5 +1,5 @@
 
-extends EmptyControl
+extends Control
 
 # zuo istnieje
 var root
