@@ -84,8 +84,6 @@ func start_ai_timer():
 
 func load_map(template_name, workshop_file_name = false):
 	self.unload_map()
-	if str(template_name) == "workshop":
-		template_name = 0
 	current_map_name = template_name
 	current_map = map_template.instance()
 	self.workshop_file_name = workshop_file_name
