@@ -2,6 +2,7 @@ var position_controller
 var pathfinding
 var abstract_map
 var action_controller
+const CLOSE_RANGE = 3
 const LOOKUP_RANGE = 10
 var actions = {}
 var current_player_ap = 0
@@ -75,15 +76,41 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 			return
 		var position = unit.get_pos_map()
 
-
-		var nearby_tiles = position_controller.get_nearby_tiles(position, LOOKUP_RANGE)
 		var destinations = []
-		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles, current_player)
-		destinations = destinations + position_controller.get_nearby_empty_buldings(nearby_tiles)
-		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
+		destinations = self.__gather_unit_destinations(position, current_player)
+		destinations = destinations + __gather_buildings_destinations(position, current_player)
+		if destinations.size() == 0:
+			return
+
 		pathfinding.set_cost_grid(cost_grids[unit.get_type()])
 		for destination in destinations:
 			self.__add_action(unit, destination, own_units)
+
+func __gather_unit_destinations(position, current_player):
+	var destinations = []
+	for lookup_range in position_controller.tiles_lookup_ranges:
+		var nearby_tiles = position_controller.get_nearby_tiles2(position, lookup_range)
+		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
+
+		if destinations.size() > 0:
+			print('RANGE OF UNIT LOOKUP', lookup_range)
+			return destinations
+	
+	return destinations
+
+#TODO this method will be rewritten to use building cache
+func __gather_buildings_destinations(position, current_player):
+	var destinations = []
+	for lookup_range in position_controller.tiles_lookup_ranges:
+		var nearby_tiles = position_controller.get_nearby_tiles2(position, lookup_range)
+		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles, current_player)
+		destinations = destinations + position_controller.get_nearby_empty_buldings(nearby_tiles)
+
+		if destinations.size() > 0:
+			print('RANGE OF BUILDING LOOKUP', lookup_range)
+			return destinations
+
+	return destinations
 
 func __gather_building_data(own_buildings, own_units):
 	if own_units.size() >= SPAWN_LIMIT:
