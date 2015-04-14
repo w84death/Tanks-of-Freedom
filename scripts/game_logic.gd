@@ -1,4 +1,4 @@
- extends Control
+extends Control
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
@@ -15,13 +15,12 @@ var intro = preload('res://intro.xscn').instance()
 var action_controller
 var sound_controller = preload("sound_controller.gd").new()
 var hud_controller
-var map_template
 var current_map
 var current_map_name
 var hud
 var ai_timer
 
-var maps = [preload('res://maps/workshop.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_2.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_1.xscn'),preload('res://maps/map_1.xscn')]
+var map_template = preload('res://maps/workshop.xscn')
 
 var settings = {
 	'is_ok' : true,
@@ -88,13 +87,15 @@ func load_map(template_name, workshop_file_name = false):
 	if str(template_name) == "workshop":
 		template_name = 0
 	current_map_name = template_name
-	var map_template = maps[template_name]
 	current_map = map_template.instance()
 	self.workshop_file_name = workshop_file_name
 	if workshop_file_name:
 		self.is_from_workshop = true
 		current_map.load_map(workshop_file_name)
-		current_map.show_blueprint = false
+	else:
+		self.is_from_workshop = false
+		current_map.load_resource_map(template_name)
+	current_map.show_blueprint = false
 	hud = hud_template.instance()
 
 	current_map_terrain = current_map.get_node("terrain")

@@ -56,7 +56,10 @@ func get_player_buildings(player):
 	return buildings_player_red
 
 func get_player_bunker_position(player):
-	return bunkers[player].get_initial_pos()
+	var bunker = bunkers[player]
+	if bunker == null:
+		return null
+	return bunker.get_initial_pos()
 
 func get_terrain_obstacles():
 	return terrain_obstacles

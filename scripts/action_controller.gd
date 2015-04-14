@@ -199,7 +199,7 @@ func spawn_unit_from_active_building():
 		ysort.add_child(unit)
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
-		self.deduct_ap(required_ap) 
+		self.deduct_ap(required_ap)
 		sound_controller.play_unit_sound(unit, sound_controller.SOUND_SPAWN)
 		self.activate_field(spawn_point)
 		self.move_camera_to_point(spawn_point.position)
@@ -240,7 +240,9 @@ func end_turn():
 		ai.select_behaviour_type(current_player)
 
 func move_camera_to_active_bunker():
-	self.move_camera_to_point(position_controller.get_player_bunker_position(current_player))
+	var bunker_position = position_controller.get_player_bunker_position(current_player)
+	if bunker_position != null:
+		self.move_camera_to_point(bunker_position)
 
 func move_camera_to_point(position):
 	abstract_map.map.move_to_map(position)

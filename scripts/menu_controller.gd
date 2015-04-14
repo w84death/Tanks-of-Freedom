@@ -84,26 +84,24 @@ func load_maps_menu():
 	maps_turns_cap_label = maps_turns_cap.get_node("Label")
 	maps_select_map = maps_sub_menu.get_node("control/menu_controls/maps")
 	maps_select_custom_map = maps_sub_menu.get_node("control/menu_controls/custom_maps")
-	
-	maps_select_map.add_item("Mission 1",1)
-	maps_select_map.add_item("Mission 2",2)
-	maps_select_map.add_item("Mission 3",3)
-	maps_select_map.add_item("Mission 4",4)
-	maps_select_map.add_item("Mission 5",5)
-	
-	maps_select_custom_map.add_item("Custom map 1",1)
-	maps_select_custom_map.add_item("Custom map 2",1)
-	maps_select_custom_map.add_item("Custom map 3",1)
-	maps_select_custom_map.add_item("Custom map 4",1)
-	
-	maps_play_button.connect("pressed", self, "load_map", [maps_select_map.get_selected_ID()])
-	maps_play_custom_button.connect("pressed", self, "load_map", [maps_select_custom_map.get_selected_ID()])
+
+	maps_select_map.add_item("river")
+	maps_select_map.add_item("city")
+	maps_select_map.add_item("country")
+
+	maps_select_custom_map.add_item("chess")
+	maps_select_custom_map.add_item("river")
+	maps_select_custom_map.add_item("city")
+	maps_select_custom_map.add_item("country")
+
+	maps_play_button.connect("pressed", self, "load_map_from_list", [maps_select_map])
+	maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
 	maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
 	maps_select_map.connect("selected",self,"load_map", [])
 
 
-		
+
 func show_maps_menu():
 	control_node.hide()
 	maps_sub_menu.show()
@@ -160,6 +158,9 @@ func toggle_player(player):
 		blue_player_button_label.set_text(label)
 	else:
 		red_player_button_label.set_text(label)
+
+func load_map_from_list(list):
+	self.load_map(list.get_item_text(list.get_selected()))
 
 func load_map(name):
 	root.load_map(name,false)

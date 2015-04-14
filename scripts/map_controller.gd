@@ -346,9 +346,9 @@ func save_map(file_name):
 	var temp_data = []
 	var temp_terrain = -1
 	var temp_unit = -1
-	
+
 	file_name = str(file_name)
-	
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			if terrain.get_cell(x,y) > -1:
@@ -389,12 +389,20 @@ func check_file_name(name):
 		return false
 
 func load_map(file_name):
+	var file_path = "user://"+file_name+".tof"
+	self.load_map_from_file(file_path)
+
+func load_resource_map(file_name):
+	var file_path = "res://maps/blueprints/"+file_name+".tof"
+	self.load_map_from_file(file_path)
+
+func load_map_from_file(file_path):
 	var temp_data
 	var cell
 	self.init_nodes()
 
-	if map_file.file_exists("user://"+file_name+".tof"):
-		map_file.open("user://"+file_name+".tof",File.READ)
+	if map_file.file_exists(file_path):
+		map_file.open(file_path, File.READ)
 		temp_data = map_file.get_var()
 		terrain.clear()
 		units.clear()
@@ -404,11 +412,10 @@ func load_map(file_name):
 			if cell.unit > -1:
 				units.set_cell(cell.x,cell.y,cell.unit)
 		units.raise()
-		print('ToF: map loaded from file')
+		print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()
 	else:
 		print('ToF: map file not exists!')
-	return
 
 func fill(width,height):
 	terrain.clear()
