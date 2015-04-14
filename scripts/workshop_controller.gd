@@ -387,8 +387,11 @@ func play_map():
 	return
 
 func save_map(name):
-	map.save_map(name)
-	hud_file_floppy.play("save")
+	if map.save_map(name):
+		self.hud_message.show_message("Map saved", ["Success","File name: "+str(name)])
+		hud_file_floppy.play("save")
+	else:
+		self.hud_message.show_message("File error", ["Failure!","File name: "+str(name)])
 
 func load_map(name):
 	map.load_map(name)

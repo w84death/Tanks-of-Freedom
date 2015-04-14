@@ -346,7 +346,9 @@ func save_map(file_name):
 	var temp_data = []
 	var temp_terrain = -1
 	var temp_unit = -1
-
+	
+	file_name = str(file_name)
+	
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			if terrain.get_cell(x,y) > -1:
@@ -366,13 +368,15 @@ func save_map(file_name):
 			temp_unit = -1
 
 	if self.check_file_name(file_name):
-		map_file.open("user://"+file_name+".tof",File.WRITE)
+		var the_file = map_file.open("user://"+file_name+".tof",File.WRITE)
+		print('the_file',the_file)
 		map_file.store_var(temp_data)
 		map_file.close()
 		print('ToF: map saved to file')
+		return true
 	else:
 		print('ToF: wrong file name')
-	return
+		return false
 
 func check_file_name(name):
 	# we need to check here for unusual charracters
