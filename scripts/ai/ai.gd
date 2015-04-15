@@ -89,7 +89,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 func __gather_unit_destinations(position, current_player):
 	var destinations = []
 	for lookup_range in position_controller.tiles_lookup_ranges:
-		var nearby_tiles = position_controller.get_nearby_tiles2(position, lookup_range)
+		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
 		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
 
 		if destinations.size() > 0:
@@ -102,7 +102,7 @@ func __gather_unit_destinations(position, current_player):
 func __gather_buildings_destinations(position, current_player):
 	var destinations = []
 	for lookup_range in position_controller.tiles_lookup_ranges:
-		var nearby_tiles = position_controller.get_nearby_tiles2(position, lookup_range)
+		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
 		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles, current_player)
 		destinations = destinations + position_controller.get_nearby_empty_buldings(nearby_tiles)
 
@@ -122,10 +122,9 @@ func __gather_building_data(own_buildings, own_units):
 		if (building.type == 4): # skip tower
 			continue
 
-		var nearby_tiles = position_controller.get_nearby_tiles(building.get_pos_map(), LOOKUP_RANGE)
-		var enemy_units = position_controller.get_nearby_enemies(nearby_tiles, current_player)
-
+		var enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player)
 		self.__add_building_action(building, enemy_units, own_units)
+
 
 func __add_action(unit, destination, own_units):
 	var path = pathfinding.pathSearch(unit.get_pos_map(), destination.get_pos_map(), own_units) #todo move cache temporary invalidation before loop
