@@ -31,7 +31,9 @@ export var shake_boundary = 5
 var shake_initial_position
 var temp_delta = 0
 var map_step = 0.01
-var near_threshold = 0.4
+var near_threshold = 0.2
+var pan_threshold = 60
+var panning = false
 
 var gen_grass = 6
 var gen_flowers = 3
@@ -72,6 +74,12 @@ func _process(delta):
 		if temp_delta > map_step:
 			var diff_x = target.x - self.sX
 			var diff_y = target.y - self.sY
+
+			if diff_x > -pan_threshold && diff_x < pan_threshold && diff_y > -pan_threshold && diff_y < pan_threshold:
+				panning = false
+			else:
+				panning = true
+
 			if diff_x > -near_threshold && diff_x < near_threshold && diff_y > -near_threshold && diff_y < near_threshold:
 				target = pos
 			else:
@@ -80,6 +88,8 @@ func _process(delta):
 				terrain.set_pos(Vector2(self.sX,self.sY))
 				underground.set_pos(Vector2(self.sX,self.sY))
 			temp_delta = 0
+	else:
+		panning = false
 
 func move_to(target):
 	if not mouse_dragging:
