@@ -89,10 +89,9 @@ func load_maps_menu():
 	maps_select_map.add_item("city")
 	maps_select_map.add_item("country")
 
-	maps_select_custom_map.add_item("chess")
-	maps_select_custom_map.add_item("river")
-	maps_select_custom_map.add_item("city")
-	maps_select_custom_map.add_item("country")
+	maps_select_custom_map.add_item("cityskirmish")
+	maps_select_custom_map.add_item("citysmall")
+	maps_select_custom_map.add_item("country2")
 
 	maps_play_button.connect("pressed", self, "load_map_from_list", [maps_select_map])
 	maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map])
