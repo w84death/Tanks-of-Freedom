@@ -361,18 +361,19 @@ func toolset_prev_page():
 	return
 
 func check_map_integrity():
-	var hq_red_check = false
-	var hq_blue_check = false
+	#var hq_red_check = false
+	#var hq_blue_check = false
 
-	for x in range(MAP_MAX_X):
-		for y in range(MAP_MAX_Y):
-			if terrain.get_cell(x,y) == 6:
-				hq_blue_check = true
-			if terrain.get_cell(x,y) == 7:
-				hq_red_check = true
-		if hq_red_check and hq_blue_check:
-			return true
-	return false
+	#for x in range(MAP_MAX_X):
+	#	for y in range(MAP_MAX_Y):
+	#		if terrain.get_cell(x,y) == 6:
+	#			hq_blue_check = true
+	#		if terrain.get_cell(x,y) == 7:
+	#			hq_red_check = true
+	#	if hq_red_check and hq_blue_check:
+	#		return true
+	#return false
+	return true
 
 func play_map():
 	self.save_map(restore_file_name)

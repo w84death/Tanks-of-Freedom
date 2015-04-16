@@ -161,6 +161,7 @@ func show_missions():
 	menu.show_maps_menu()
 
 func load_menu():
+	menu.show()
 	is_intro = false
 	self.remove_child(intro)
 	intro.queue_free()
@@ -224,6 +225,7 @@ func _ready():
 	ai_timer = get_node("AITimer")
 	sound_controller.init_root(self)
 	menu.init_root(self)
+	menu.hide()
 	intro.init_root(self)
 	cursor.hide()
 	self.add_child(cursor)
