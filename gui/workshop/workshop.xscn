@@ -292,12 +292,12 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 3 </int>
 							<string> "sources" </string>
 							<array  len="5" shared="false">
 								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/workshop_controller.gd" </string>
 								<string> "res://scripts/message.gd" </string>
+								<string> "res://scripts/workshop_controller.gd" </string>
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
 							</array>

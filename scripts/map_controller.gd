@@ -400,7 +400,7 @@ func check_file_name(name):
 
 func load_map(file_name):
 	var file_path = "user://"+file_name+".tof"
-	self.load_map_from_file(file_path)
+	return self.load_map_from_file(file_path)
 
 func load_resource_map(file_name):
 	var file_path = "res://maps/blueprints/"+file_name+".tof"
@@ -424,8 +424,10 @@ func load_map_from_file(file_path):
 		units.raise()
 		print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()
+		return true
 	else:
 		print('ToF: map file not exists!')
+		return false
 
 func fill(width,height):
 	terrain.clear()

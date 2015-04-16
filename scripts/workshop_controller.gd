@@ -398,7 +398,12 @@ func save_map(name, input = false):
 func load_map(name, input = false):
 	if input:
 		name = name.get_text()
-	map.load_map(name)
+	if map.load_map(name):
+		self.hud_message.show_message("Map loaded", ["Success","File name: "+str(name)])
+		hud_file_floppy.play("save")
+	else:
+		self.hud_message.show_message("File not found", ["Failure!","File name: "+str(name)])
+		
 
 func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.hide()
