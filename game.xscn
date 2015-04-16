@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="35" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
 	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
+	<ext_resource path="res://gui/corners.scn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/pickup_box.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/units/02.tank/tank_attack.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/units/02.tank/tank_damage.wav" type="Sample"></ext_resource>
@@ -11,7 +12,6 @@
 	<ext_resource path="res://assets/sounds/fx/units/02.tank/tank_die.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/end_turn.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/units/02.tank/tank_move.wav" type="Sample"></ext_resource>
-	<ext_resource path="res://gui/corners.scn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/units/03.helicopter/helicopter_damage.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/units/03.helicopter/helicopter_die.wav" type="Sample"></ext_resource>
 	<ext_resource path="res://assets/sounds/fx/units/01.soldier/soldier_move.wav" type="Sample"></ext_resource>
@@ -74,54 +74,6 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/explosion.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/not_dead" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/hurt" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/hurt.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/tank_move" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_move.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/no_attack" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_attack.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/spawn" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/spawn.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/tank_attack" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_attack.wav">  </resource>
-		</dictionary>
 		<dictionary name="samples/powerup" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
@@ -130,45 +82,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/powerup.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/pickup_box" shared="false">
+		<dictionary name="samples/not_dead" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/soldier_spawn" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_spawn.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/soldier_damage" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_damage.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/helicopter_move" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_move.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/occupy_building" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/11.buildings/occupy_building.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/not_dead.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/soldier_attack" shared="false">
 			<string> "db" </string>
@@ -178,6 +98,30 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_attack.wav">  </resource>
 		</dictionary>
+		<dictionary name="samples/passive_building_ap" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/11.buildings/passive_building_ap.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/tank_move" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_move.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/spawn" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/spawn.wav">  </resource>
+		</dictionary>
 		<dictionary name="samples/helicopter_damage" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
@@ -185,6 +129,30 @@
 			<real> 1 </real>
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_damage.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/hurt" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/hurt.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/tank_attack" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_attack.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/occupy_building" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/11.buildings/occupy_building.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/helicopter_attack" shared="false">
 			<string> "db" </string>
@@ -194,29 +162,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_attack.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/soldier_move" shared="false">
+		<dictionary name="samples/pickup_box" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_move.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/no_moves" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
-		</dictionary>
-		<dictionary name="samples/helicopter_spawn" shared="false">
-			<string> "db" </string>
-			<real> 0 </real>
-			<string> "pitch" </string>
-			<real> 1 </real>
-			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_spawn.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/pickup_box.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/tank_damage" shared="false">
 			<string> "db" </string>
@@ -226,13 +178,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_damage.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/tank_die" shared="false">
+		<dictionary name="samples/soldier_damage" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_die.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_damage.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/tank_spawn" shared="false">
 			<string> "db" </string>
@@ -242,6 +194,54 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_spawn.wav">  </resource>
 		</dictionary>
+		<dictionary name="samples/soldier_spawn" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_spawn.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/no_moves" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_moves.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/no_attack" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/no_attack.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/soldier_move" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/01.soldier/soldier_move.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/helicopter_move" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_move.wav">  </resource>
+		</dictionary>
+		<dictionary name="samples/helicopter_spawn" shared="false">
+			<string> "db" </string>
+			<real> 0 </real>
+			<string> "pitch" </string>
+			<real> 1 </real>
+			<string> "sample" </string>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_spawn.wav">  </resource>
+		</dictionary>
 		<dictionary name="samples/helicopter_die" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
@@ -250,13 +250,13 @@
 			<string> "sample" </string>
 			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/03.helicopter/helicopter_die.wav">  </resource>
 		</dictionary>
-		<dictionary name="samples/passive_building_ap" shared="false">
+		<dictionary name="samples/tank_die" shared="false">
 			<string> "db" </string>
 			<real> 0 </real>
 			<string> "pitch" </string>
 			<real> 1 </real>
 			<string> "sample" </string>
-			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/11.buildings/passive_building_ap.wav">  </resource>
+			<resource  resource_type="Sample" path="res://assets/sounds/fx/units/02.tank/tank_die.wav">  </resource>
 		</dictionary>
 		<dictionary name="samples/soldier_die" shared="false">
 			<string> "db" </string>
@@ -346,14 +346,16 @@
 				<int> 2 </int>
 				<resource  resource_type="Script" path="res://scripts/game_logic.gd">  </resource>
 				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 9 </int>
+							<int> 14 </int>
 							<string> "sources" </string>
-							<array  len="11" shared="false">
+							<array  len="16" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/ai_timer.gd" </string>
@@ -365,6 +367,11 @@
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/position_controller.gd" </string>
 								<string> "res://scripts/nearby_tiles_calculator.gd" </string>
+								<string> "res://scripts/movement_controller.gd" </string>
+								<string> "res://scripts/ai/a_star_pathfinding.gd" </string>
+								<string> "res://scripts/ai/cost_grid.gd" </string>
+								<string> "res://scripts/abstract_map.gd" </string>
+								<string> "res://scripts/abstract_field.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
@@ -473,8 +480,6 @@
 							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
 						<string> "custom_args" </string>
@@ -507,6 +512,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -574,12 +585,6 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
 							<string> "default_light" </string>

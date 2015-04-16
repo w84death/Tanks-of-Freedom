@@ -22,6 +22,7 @@ var behaviour_normal
 var behaviour_destroyer
 var behaviour_explorer
 var behaviours = []
+var elemental_trails_generated = false
 
 var player_behaviours
 
@@ -40,10 +41,20 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 
 	player_behaviours = [behaviour_normal, behaviour_normal]
 
+func add_elemental_trails():
+	#adding elemental trails for ant algoritmh
+	if elemental_trails_generated:
+		return
+
+	var path = pathfinding.pathSearch(position_controller.get_player_bunker_position(0), position_controller.get_player_bunker_position(1), [])
+	abstract_map.add_trails([path], 0)
+	var path = pathfinding.pathSearch(position_controller.get_player_bunker_position(1), position_controller.get_player_bunker_position(0), [])
+	abstract_map.add_trails([path], 1)
+	elemental_trails_generated = true
+
 func select_behaviour_type(player):
-	var rand = floor(rand_range(0, behaviours.size()))
-	player_behaviours[player] = behaviours[rand]
-	print('SELECTED BEHAVIOUR FOR PLAYER: ', player, ' IS ', rand)
+	player_behaviours[player] = behaviours[floor(rand_range(0, behaviours.size()))]
+	#print('SELECTED BEHAVIOUR FOR PLAYER: ', player, ' IS ', rand)
 
 func gather_available_actions(player_ap):
 	current_player = action_controller.current_player
@@ -64,36 +75,50 @@ func gather_available_actions(player_ap):
 	return self.__execute_best_action()
 
 func __gather_unit_data(own_buildings, own_units, terrain):
-
 	if own_units.size() == 0:
 		return
 
 	var cost_grids = cost_grid.prepare_cost_maps(own_buildings, own_units, terrain)
 
+	#TODO move it somewhere!!!
+	pathfinding.set_cost_grid(cost_grids[2])
+	add_elemental_trails()
+
 	for pos in own_units:
 		var unit = own_units[pos]
-		if unit.get_ap() < 2:
-			return
-		var position = unit.get_pos_map()
+		if unit.get_ap() > 2:
+			var position = unit.get_pos_map()
 
-		var destinations = []
-		destinations = self.__gather_unit_destinations(position, current_player)
-		destinations = destinations + __gather_buildings_destinations(position, current_player)
-		if destinations.size() == 0:
-			return
+			var destinations = []
+			destinations = self.__gather_unit_destinations(position, current_player)
+			destinations = destinations + __gather_buildings_destinations(position, current_player)
+			if destinations.size() == 0:
+				if current_player_ap > 3:
+					self.__wander(unit)
+			else:
+				#TODO - calculate data in units groups
+				pathfinding.set_cost_grid(cost_grids[unit.get_type()])
+				for destination in destinations:
+					self.__add_action(unit, destination, own_units)
 
-		pathfinding.set_cost_grid(cost_grids[unit.get_type()])
-		for destination in destinations:
-			self.__add_action(unit, destination, own_units)
+func __wander(unit):
+	print('wandering!!!!')
+	var position = unit.get_pos_map()
+	var current_field = abstract_map.get_field(position)
+	var new_position = current_field.next_tile_by_trail(abstract_map.get_available_directions(position))
+	if new_position != null:
+		if unit.get_ap() >= abstract_map.calculate_path_cost(unit, [position, new_position]):
+			var action = actionBuilder.create(actionBuilder.ACTION_MOVE, unit, [new_position])
+			self.__append_action(action, randi() % units.size())
 
-func __gather_unit_destinations(position, current_player):
+func __gather_unit_destinations(position, current_player, tiles_ranges=position_controller.tiles_lookup_ranges):
 	var destinations = []
-	for lookup_range in position_controller.tiles_lookup_ranges:
+	for lookup_range in tiles_ranges:
 		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
 		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
 
 		if destinations.size() > 0:
-			print('RANGE OF UNIT LOOKUP', lookup_range)
+			#print('RANGE OF UNIT LOOKUP', lookup_range)
 			return destinations
 	
 	return destinations
@@ -107,7 +132,7 @@ func __gather_buildings_destinations(position, current_player):
 		destinations = destinations + position_controller.get_nearby_empty_buldings(nearby_tiles)
 
 		if destinations.size() > 0:
-			print('RANGE OF BUILDING LOOKUP', lookup_range)
+			#print('RANGE OF BUILDING LOOKUP', lookup_range)
 			return destinations
 
 	return destinations
@@ -122,7 +147,7 @@ func __gather_building_data(own_buildings, own_units):
 		if (building.type == 4): # skip tower
 			continue
 
-		var enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player)
+		var enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player, position_controller.tiles_building_lookup_ranges)
 		self.__add_building_action(building, enemy_units, own_units)
 
 

@@ -23,13 +23,16 @@ const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
 const EXTREME_RANGE = 3 # will be not used in the future
-var tiles_lookup_ranges = [0,1,2,3,4,5]
+var tiles_lookup_ranges = [0,1,2,3]
+var tiles_building_lookup_ranges = [0,1,2]
 
 # not changable data
 var buildings
 var terrains
 
-func init_root(root):
+var pathfinding
+
+func init(root, abstract_map):
 	root_node = root
 	bunkers = {0: null, 1: null}
 
@@ -37,6 +40,9 @@ func init_root(root):
 	terrains = root_node.get_tree().get_nodes_in_group("terrain")
 	get_bunkers()
 	get_terrain()
+
+	prepare_nearby_tiles()
+	prepare_nearby_tiles_ranges()
 
 func refresh_units():
 	units_player_blue.clear()
@@ -158,7 +164,7 @@ func prepare_nearby_tiles():
 		precalculated_nearby_tiles.insert(distance, tiles)
 
 func prepare_nearby_tiles_ranges():
-	var ranges = [3, 5, 6, 7, 9, 10]
+	var ranges = [3, 5, 6, 7]
 	var i = 0
 	for val in ranges:
 		var values = precalculated_nearby_tiles[val]
@@ -176,5 +182,7 @@ func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
 		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
 	return tiles
+
+
 
 

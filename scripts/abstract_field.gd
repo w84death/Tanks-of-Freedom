@@ -4,6 +4,7 @@ var object = null
 var damage = null
 var abstract_map = null
 
+var ant_parameters = [{'up':0,'down':0,'left':0,'right':0},{'up':0,'down':0,'left':0,'right':0}]
 var destroyed_tile_template = preload("res://terrain/destroyed_tile.xscn")
 
 func get_terrain_type():
@@ -30,3 +31,53 @@ func add_damage(damage_layer):
 	var damage_frames = damage.get_vframes() * damage.get_hframes()
 	var damage_frame = randi() % damage_frames
 	damage.set_frame(damage_frame)
+
+func mark_trail(new_position, player):
+	var dx = clamp(position.x - new_position.x, -1, 1)
+	var parameters = ant_parameters[player]
+	if dx != 0:
+		if dx == -1:
+			parameters['left'] = parameters['left'] + 1
+		else:
+			parameters['right'] = parameters['right'] + 1
+	else:
+		var dy = clamp(position.y - new_position.y, -1, 1)
+		if dy == 1:
+			parameters['down'] = parameters['down'] + 1
+		else:
+			parameters['up'] = parameters['up'] + 1
+
+	#print('mark trail', player, '---', ant_parameters)
+
+
+func next_tile_by_trail(directions):
+	if directions.size() == 0:
+		print('NO DIRECTION')
+		return null
+
+	var next_tile = position
+	var player = self.object.player
+	var parameters = ant_parameters[player]
+	var val = 0
+	var direction_name = ''
+	for direction in parameters:
+		if directions.find(direction) > -1 && parameters[direction] > val:
+			val = parameters[direction]
+			direction_name = direction
+	if direction_name == '':
+		print('RANDOMIZED DIRECTION')
+		direction_name = directions[randi() % directions.size()]
+
+	if direction_name == 'right':
+		next_tile.x = next_tile.x + 1
+	elif direction_name == 'left':
+		next_tile.x = next_tile.x - 1
+	elif direction_name == 'up':
+		next_tile.y = next_tile.y - 1
+	elif direction_name == 'down':
+		next_tile.y = next_tile.y + 1
+
+
+	print ('direction:', direction_name)
+	return next_tile
+

@@ -93,5 +93,47 @@ func calculate_path_cost(unit, path):
 
 	return cost
 
+func add_trails(paths, player):
+	var count
+	var pos
+	for path in paths:
+		count = path.size() - 1
+		for idx in range(0, count):
+			pos = path[idx]
+
+			fields[pos.y][pos.x].mark_trail(path[idx + 1], 0)
+
+func get_available_directions(current_position):
+	print ('CHECKING:', current_position)
+	var directions = []
+	var tmp = current_position
+	var field
+
+	tmp = current_position
+	tmp.x = tmp.x + 1
+	field = get_field(tmp)
+	if field != null && field.object == null:
+		directions.append('right')
+
+	tmp = current_position
+	tmp.x = tmp.x - 1
+	field = get_field(tmp)
+	if tmp.x > 0 && field != null && field.object == null:
+		directions.append('left')
+
+	tmp = current_position
+	tmp.y = tmp.y - 1
+	field = get_field(tmp)
+	if tmp.y > 0 && field != null && field.object == null:
+		directions.append('up')
+
+	tmp = current_position
+	tmp.y = tmp.y + 1
+	field = get_field(tmp)
+	if field != null && field.object == null:
+		directions.append('down')
+	print(directions)
+	return directions
+
 
 

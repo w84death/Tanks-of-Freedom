@@ -18,9 +18,10 @@ func move_object(from, to):
 		from.object.set_stats(player_stats)
 
 		to.object = from.object
+		#mark ant trail
+		from.mark_trail(to.position, from.object.player)
 		from.object = null
 		to.object.set_pos_map(to.position)
-
 
 		return true
 	else:

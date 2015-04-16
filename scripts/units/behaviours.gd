@@ -8,12 +8,6 @@ const action_capture = 2
 
 var ap_cost_modifier = 4
 var path_size_modifier = 8
-# var action_type_modifiers = [1, 1, 2, 1, 2, 1]
-# var capture_modifiers = [5, 2, 2]
-# var attack_modifiers = [4, 6, 8]
-# var move_capture_modifiers = [5, 2, 3]
-# var move_attack_modifiers = [2, 2, 5]
-
 const ACTION_ATTACK = 0
 const ACTION_MOVE   = 1
 const ACTION_CAPTURE = 2
@@ -88,7 +82,6 @@ func __apply_ap_modifier(score):
 	elif (ap > 0.25):
 		modifier = 0.5
 
-	#print('MODIFIER:', modifier)
 	return ceil(score - (score * modifier))
 
 func _get_health_modifier():
