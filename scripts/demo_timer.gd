@@ -16,7 +16,7 @@ func _process(delta):
 		self.stop()
 
 		if state == INTRO:
-			root.load_map(1)
+			root.load_map(get_map_name())
 			root.load_menu()
 			if !root.menu.is_hidden():
 				root.toggle_menu()
@@ -28,6 +28,10 @@ func _process(delta):
 			root.restart_map()
 			self.reset(INTRO)
 
+func get_map_name():
+	randomize()
+	var names = ['river', 'city', 'country2']
+	return names[randi() % names.size()]
 
 func inject_root(root_obj):
 	root = root_obj
