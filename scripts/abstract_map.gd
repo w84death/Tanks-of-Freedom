@@ -20,8 +20,7 @@ func get_field(position):
 
 	if (position.x > size.x || position.y > size.y):
 		self.extend(position)
-	var field = fields[position.y][position.x]
-	return field
+	return fields[position.y][position.x]
 
 func extend(position):
 	var row
@@ -104,36 +103,35 @@ func add_trails(paths, player):
 			fields[pos.y][pos.x].mark_trail(path[idx + 1], 0)
 
 func get_available_directions(current_position):
-	print ('CHECKING:', current_position)
 	var directions = []
-	var tmp = current_position
-	var field
-
-	tmp = current_position
-	tmp.x = tmp.x + 1
-	field = get_field(tmp)
-	if field != null && field.object == null:
+	if self.__check_direction_avaibility(current_position, 1, 0):
 		directions.append('right')
-
-	tmp = current_position
-	tmp.x = tmp.x - 1
-	field = get_field(tmp)
-	if tmp.x > 0 && field != null && field.object == null:
+	if self.__check_direction_avaibility(current_position, -1, 0):
 		directions.append('left')
-
-	tmp = current_position
-	tmp.y = tmp.y - 1
-	field = get_field(tmp)
-	if tmp.y > 0 && field != null && field.object == null:
+	if self.__check_direction_avaibility(current_position, 0, -1):
 		directions.append('up')
-
-	tmp = current_position
-	tmp.y = tmp.y + 1
-	field = get_field(tmp)
-	if field != null && field.object == null:
+	if self.__check_direction_avaibility(current_position, 1, 1):
 		directions.append('down')
-	print(directions)
+
 	return directions
+
+func __check_direction_avaibility(current_position, x_mod, y_mod):
+	var tmp = current_position
+	tmp.x = tmp.x + x_mod
+	tmp.y = tmp.y + y_mod
+
+	if tmp.x < 0 || tmp.y < 0:
+		return false
+	# TODO lack of smth like isset
+	if (tmp.y > fields.size() - 1) || (tmp.x > fields[tmp.y].size() - 1):
+		return false
+
+	var field = get_field(tmp)
+	if field != null && field.object == null:
+		return true
+
+	return false
+
 
 
 

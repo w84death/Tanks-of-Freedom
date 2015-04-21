@@ -63,13 +63,11 @@ func __time_format(value):
 
 	return self.__fill(str(m))+ ':' + self.__fill(str(s))
 
-
 func __fill(value):
 	if value.length() < 2:
 		value = '0'+value
 
 	return value
-
 
 func _init(action_controller_object, position_controller_object):
 	action_controller = action_controller_object

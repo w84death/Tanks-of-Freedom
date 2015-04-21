@@ -47,12 +47,8 @@ func mark_trail(new_position, player):
 		else:
 			parameters['up'] = parameters['up'] + 1
 
-	#print('mark trail', player, '---', ant_parameters)
-
-
 func next_tile_by_trail(directions):
 	if directions.size() == 0:
-		print('NO DIRECTION')
 		return null
 
 	var next_tile = position
@@ -65,7 +61,7 @@ func next_tile_by_trail(directions):
 			val = parameters[direction]
 			direction_name = direction
 	if direction_name == '':
-		print('RANDOMIZED DIRECTION')
+		#print('RANDOMIZED DIRECTION')
 		direction_name = directions[randi() % directions.size()]
 
 	if direction_name == 'right':
@@ -77,7 +73,6 @@ func next_tile_by_trail(directions):
 	elif direction_name == 'down':
 		next_tile.y = next_tile.y + 1
 
-
-	print ('direction:', direction_name)
+	#print('DIRECTION:', direction_name)
 	return next_tile
 

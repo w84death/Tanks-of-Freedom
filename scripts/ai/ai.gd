@@ -102,14 +102,19 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 					self.__add_action(unit, destination, own_units)
 
 func __wander(unit):
-	print('wandering!!!!')
 	var position = unit.get_pos_map()
+	#print('wandering!!')
 	var current_field = abstract_map.get_field(position)
-	var new_position = current_field.next_tile_by_trail(abstract_map.get_available_directions(position))
-	if new_position != null:
-		if unit.get_ap() >= abstract_map.calculate_path_cost(unit, [position, new_position]):
-			var action = actionBuilder.create(actionBuilder.ACTION_MOVE, unit, [new_position])
-			self.__append_action(action, randi() % units.size())
+	var available_directions = abstract_map.get_available_directions(position)
+	if available_directions.size() > 0:
+		var new_position = current_field.next_tile_by_trail(available_directions)
+		var score = 0
+		if new_position != null:
+			if unit.get_ap() >= abstract_map.calculate_path_cost(unit, [position, new_position]):
+				var action = actionBuilder.create(actionBuilder.ACTION_MOVE, unit, [new_position])
+				score = available_directions.size() * 10 + randi() % units.size()
+				#TODO if on spawning point move
+				self.__append_action(action, score)
 
 func __gather_unit_destinations(position, current_player, tiles_ranges=position_controller.tiles_lookup_ranges):
 	var destinations = []
