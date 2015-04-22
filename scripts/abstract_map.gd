@@ -11,6 +11,7 @@ const nonwalkable_cost = 999
 func get_fields():
 	return fields
 
+# TODO extending should be done in diferent wa
 func get_field(position):
 	if position.x < 0 || position.y < 0:
 		return self.create_field(Vector2(-1, -1))
@@ -53,6 +54,9 @@ func create_field(position):
 	field.terrain_type = tilemap.get_cell(position.x, position.y)
 	field.abstract_map = self
 	return field
+
+func is_spawning_point(position):
+	return tilemap.get_cell(position.x, position.y) == 13
 
 # for pathfinding
 func create_tile_type_maps():
@@ -122,12 +126,9 @@ func __check_direction_avaibility(current_position, x_mod, y_mod):
 
 	if tmp.x < 0 || tmp.y < 0:
 		return false
-	# TODO lack of smth like isset
-	if (tmp.y > fields.size() - 1) || (tmp.x > fields[tmp.y].size() - 1):
-		return false
 
 	var field = get_field(tmp)
-	if field != null && field.object == null:
+	if field.terrain_type != - 1 && field.object == null:
 		return true
 
 	return false

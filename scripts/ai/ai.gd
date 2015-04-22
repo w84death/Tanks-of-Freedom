@@ -45,11 +45,11 @@ func add_elemental_trails():
 	#adding elemental trails for ant algoritmh
 	if elemental_trails_generated:
 		return
+	var bunker_0 = position_controller.get_player_bunker_position(0)
+	var bunker_1 = position_controller.get_player_bunker_position(1)
 
-	var path = pathfinding.pathSearch(position_controller.get_player_bunker_position(0), position_controller.get_player_bunker_position(1), [])
-	abstract_map.add_trails([path], 0)
-	var path = pathfinding.pathSearch(position_controller.get_player_bunker_position(1), position_controller.get_player_bunker_position(0), [])
-	abstract_map.add_trails([path], 1)
+	abstract_map.add_trails([pathfinding.pathSearch(bunker_0, bunker_1, [])], 0)
+	abstract_map.add_trails([pathfinding.pathSearch(bunker_1, bunker_0, [])], 1)
 	elemental_trails_generated = true
 
 func select_behaviour_type(player):
@@ -112,8 +112,12 @@ func __wander(unit):
 		if new_position != null:
 			if unit.get_ap() >= abstract_map.calculate_path_cost(unit, [position, new_position]):
 				var action = actionBuilder.create(actionBuilder.ACTION_MOVE, unit, [new_position])
-				score = available_directions.size() * 10 + randi() % units.size()
-				#TODO if on spawning point move
+
+				if (abstract_map.is_spawning_point(position)):
+					score = available_directions.size() * 10 + randi() % units.size()
+				elif (available_directions.size() > 0):
+					score = 100
+
 				self.__append_action(action, score)
 
 func __gather_unit_destinations(position, current_player, tiles_ranges=position_controller.tiles_lookup_ranges):
