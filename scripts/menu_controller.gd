@@ -147,6 +147,9 @@ func hide_workshop():
 
 func toggle_player(player):
 	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
+	self.set_player_button_state(player)
+
+func set_player_button_state(player):
 	var label
 	if root.settings['cpu_' + str(player)]:
 		label = "CPU"
@@ -157,6 +160,10 @@ func toggle_player(player):
 		blue_player_button_label.set_text(label)
 	else:
 		red_player_button_label.set_text(label)
+
+func reset_player_buttons():
+	self.set_player_button_state(0)
+	self.set_player_button_state(1)
 
 func load_map_from_list(list):
 	self.load_map(list.get_item_text(list.get_selected()))
@@ -215,7 +222,9 @@ func toggle_turns_cap():
 		root.settings['turns_cap'] = 0
 	else:
 		root.settings['turns_cap'] = root.settings['turns_cap'] + turns_cap_modifer
+	self.adjust_turns_cap_label()
 
+func adjust_turns_cap_label():
 	if root.settings['turns_cap'] > 0:
 		maps_turns_cap_label.set_text(str(root.settings['turns_cap']))
 	else:

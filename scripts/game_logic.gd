@@ -148,6 +148,8 @@ func toggle_menu():
 		if menu.is_hidden():
 			is_paused = true
 			action_controller.stats_set_time()
+			menu.reset_player_buttons()
+			menu.adjust_turns_cap_label()
 			menu.show()
 			hud.hide()
 		else:
