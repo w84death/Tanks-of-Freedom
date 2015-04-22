@@ -140,6 +140,7 @@ func enter_workshop():
 func show_workshop():
 	control_node.hide()
 	workshop.show()
+	workshop.units.raise()
 
 func hide_workshop():
 	workshop.hide()
