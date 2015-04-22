@@ -200,6 +200,7 @@ func generate_map():
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_front.add_child(temp)
+				self.find_spawn_for_building(x, y, temp)
 				temp = null
 
 			# roads
@@ -222,6 +223,24 @@ func generate_map():
 			terrain.set_cell(cell.x,cell.y,cell.type)
 	units.hide()
 	return
+
+func find_spawn_for_building(x, y, building):
+	if building.group != "building":
+		return
+	if building.can_spawn == false:
+		return
+	print('looking for spawn')
+	self.look_for_spawn(x, y, 1, 0, building)
+	self.look_for_spawn(x, y, 0, 1, building)
+	self.look_for_spawn(x, y, -1, 0, building)
+	self.look_for_spawn(x, y, 0, -1, building)
+
+func look_for_spawn(x, y, offset_x, offset_y, building):
+	var cell = terrain.get_cell(x + offset_x, y + offset_y)
+	print(cell);
+	if cell == 13:
+		building.spawn_point_position = Vector2(offset_x, offset_y)
+		building.spawn_point = Vector2(x + offset_x, y + offset_y)
 
 func build_sprite_path(x,y,type):
 	var position = 0
