@@ -324,6 +324,8 @@ func end_game():
 	self.root_node.ai_timer.reset_state()
 	self.clear_active_field()
 	game_ended = true
+	if root_node.hud.is_hidden():
+		root_node.hud.show()
 	hud_controller.show_win(current_player, battle_stats.get_stats(), turn)
 	selector.hide()
 	if (root_node.is_demo):
