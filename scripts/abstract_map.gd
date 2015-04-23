@@ -106,28 +106,40 @@ func add_trails(paths, player):
 
 			fields[pos.y][pos.x].mark_trail(path[idx + 1], 0)
 
-func get_available_directions(current_position):
+func get_available_directions(unit, current_position):
 	var directions = []
-	if self.__check_direction_avaibility(current_position, 1, 0):
+	var next_position
+
+	next_position = __get_next_position(current_position, 1, 0)
+	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('right')
-	if self.__check_direction_avaibility(current_position, -1, 0):
+
+	next_position = __get_next_position(current_position, -1, 0)
+	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('left')
-	if self.__check_direction_avaibility(current_position, 0, -1):
+
+	next_position = __get_next_position(current_position, 0, -1)
+	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('up')
-	if self.__check_direction_avaibility(current_position, 1, 1):
+
+	next_position = __get_next_position(current_position, 1, 1)
+	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('down')
 
 	return directions
 
-func __check_direction_avaibility(current_position, x_mod, y_mod):
+func __get_next_position(current_position, x_mod, y_mod):
 	var tmp = current_position
 	tmp.x = tmp.x + x_mod
 	tmp.y = tmp.y + y_mod
 
-	if tmp.x < 0 || tmp.y < 0:
+	return tmp
+
+func __check_direction_avaibility(next_position):
+	if next_position.x < 0 || next_position.y < 0:
 		return false
 
-	var field = get_field(tmp)
+	var field = get_field(next_position)
 	if field.terrain_type != - 1 && field.object == null:
 		return true
 

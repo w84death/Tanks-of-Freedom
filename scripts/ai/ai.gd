@@ -41,6 +41,7 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 
 	player_behaviours = [behaviour_normal, behaviour_normal]
 
+# TODO move this to separate file - this method should be rewritten if no hq
 func add_elemental_trails():
 	#adding elemental trails for ant algoritmh
 	if elemental_trails_generated:
@@ -50,6 +51,13 @@ func add_elemental_trails():
 
 	abstract_map.add_trails([pathfinding.pathSearch(bunker_0, bunker_1, [])], 0)
 	abstract_map.add_trails([pathfinding.pathSearch(bunker_1, bunker_0, [])], 1)
+
+	var empty_building_positions = position_controller.buildings_player_none
+	if empty_building_positions.size() > 0:
+		for building_pos in empty_building_positions:
+			abstract_map.add_trails([pathfinding.pathSearch(bunker_0, building_pos, [])], 0)
+			abstract_map.add_trails([pathfinding.pathSearch(bunker_1, building_pos, [])], 1)
+
 	elemental_trails_generated = true
 
 func select_behaviour_type(player):
@@ -103,20 +111,21 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 
 func __wander(unit):
 	var position = unit.get_pos_map()
-	#print('wandering!!')
+	print('wandering!!')
 	var current_field = abstract_map.get_field(position)
-	var available_directions = abstract_map.get_available_directions(position)
+	var available_directions = abstract_map.get_available_directions(unit, position)
 	if available_directions.size() > 0:
 		var new_position = current_field.next_tile_by_trail(available_directions)
 		var score = 0
 		if new_position != null:
 			if unit.get_ap() >= abstract_map.calculate_path_cost(unit, [position, new_position]):
 				var action = actionBuilder.create(actionBuilder.ACTION_MOVE, unit, [new_position])
-
-				if (abstract_map.is_spawning_point(position)):
-					score = available_directions.size() * 10 + randi() % units.size()
-				elif (available_directions.size() > 0):
-					score = 100
+				var available_directions_size = available_directions.size()
+				if (available_directions_size > 0):
+					if (abstract_map.is_spawning_point(position)):
+						score = 100
+					else:
+						score = available_directions.size() * 10 + randi() % units.size()
 
 				self.__append_action(action, score)
 

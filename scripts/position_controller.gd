@@ -183,6 +183,9 @@ func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
 
 	return tiles
 
+func get_distance_from_zero(position):
+	return position.x + position.y
+
 
 
 
