@@ -5,6 +5,7 @@ extends Control
 var root
 var anim
 var demo_timer
+var audio
 
 func _input(event):
 	if ( event.type == InputEvent.KEY and event.pressed ) or (event.type == InputEvent.MOUSE_BUTTON):
@@ -15,9 +16,12 @@ func _input(event):
 
 func init_root(root):
 	self.root = root
-	
+
 func _ready():
 	anim = self.get_node("anim")
+	audio = self.get_node('audio')
+	if self.root != null && self.root.settings['music_enabled']:
+		audio.play()
 	self.demo_timer = root.get_node("DemoTimer")
 	self.demo_timer.inject_root(root)
 	set_process_input(true)
