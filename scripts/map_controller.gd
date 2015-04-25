@@ -9,6 +9,7 @@ export var multiplayer_map = false
 var terrain
 var underground
 var units
+var fog_of_war
 var map_layer_back
 var map_layer_front
 
@@ -66,6 +67,7 @@ func _input(event):
 			target = pos
 			underground.set_pos(target)
 			terrain.set_pos(target)
+			fog_of_war.set_pos(target)
 
 
 func _process(delta):
@@ -87,6 +89,7 @@ func _process(delta):
 				self.sY = self.sY + (diff_y) * temp_delta;
 				terrain.set_pos(Vector2(self.sX,self.sY))
 				underground.set_pos(Vector2(self.sX,self.sY))
+				fog_of_war.set_pos(Vector2(self.sX,self.sY))
 			temp_delta = 0
 	else:
 		panning = false
@@ -143,6 +146,11 @@ func generate_map():
 	var cells_to_change = []
 	var cell
 	randomize()
+
+		# FOG OF WAR
+	for x in range(-MAP_MAX_X,MAP_MAX_X):
+		for y in range(-MAP_MAX_Y,MAP_MAX_Y):
+			fog_of_war.set_cell(x,y,0)
 
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
@@ -222,6 +230,21 @@ func generate_map():
 		if(cell.type):
 			terrain.set_cell(cell.x,cell.y,cell.type)
 	units.hide()
+	
+	return
+
+func clear_fog(center_x,center_y,size):
+	var x_min = center_x-size
+	var x_max = center_x+size
+	var y_min = center_y-size
+	var y_max = center_y+size
+	
+	for x in range(x_min,x_max):
+		for y in range(y_min,y_max):
+			fog_of_war.set_cell(x,y,-1)
+			#if x == x_min and y == y_min:
+			#	fog_of_war.set_cell(x,y,2)
+			
 	return
 
 func find_spawn_for_building(x, y, building):
@@ -351,6 +374,7 @@ func spawn_unit(x,y,type):
 	temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 	map_layer_front.add_child(temp)
 	temp = null
+	self.clear_fog(x,y,3)
 	return
 
 func generate_underground(x,y):
@@ -466,6 +490,7 @@ func init_nodes():
 	underground = self.get_node("underground")
 	terrain = self.get_node("terrain")
 	units = terrain.get_node("units")
+	fog_of_war = self.get_node("fog_of_war")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
 
