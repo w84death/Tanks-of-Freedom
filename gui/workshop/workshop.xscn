@@ -298,7 +298,7 @@
 							<string> "current" </string>
 							<int> 3 </int>
 							<string> "sources" </string>
-							<array  len="9" shared="false">
+							<array  len="11" shared="false">
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/message.gd" </string>
 								<string> "res://scripts/workshop_controller.gd" </string>
@@ -308,6 +308,8 @@
 								<string> "res://scripts/abstract_map.gd" </string>
 								<string> "res://scripts/battle_stats.gd" </string>
 								<string> "res://scripts/position_controller.gd" </string>
+								<string> "res://scripts/abstract_field.gd" </string>
+								<string> "res://scripts/unit_control.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>

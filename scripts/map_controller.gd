@@ -229,12 +229,20 @@ func generate_map():
 	return
 
 func fill_fog():
-	for x in range(-MAP_MAX_X*0.5,MAP_MAX_X*1.5):
-		for y in range(-MAP_MAX_Y*0.5,MAP_MAX_Y*1.5):
-			fog_of_war.set_cell(x,y,0)
-
+	var sprite = 0
+	for x in range(0,MAP_MAX_X):
+		for y in range(0,MAP_MAX_Y):
+			if terrain.get_cell(x,y) > -1:
+				if rand_seed(x)[0] % 2 == 0:
+					sprite = 0
+				else:
+					sprite = 1
+			fog_of_war.set_cell(x,y,sprite)
+	print('fog fill')
+	randomize()
+	
 func clear_fog_range(center,size):
-	print(center.x,' | ',center.y)
+	print(center.x,' | ',center.y,' | ', size)
 	var x_min = center.x-size
 	var x_max = center.x+size
 	var y_min = center.y-size
@@ -251,8 +259,13 @@ func clear_fog():
 	print('clear fog')
 	self.fill_fog()
 	var units = root.get_tree().get_nodes_in_group("units")
+	var buildings = root.get_tree().get_nodes_in_group("buildings")
+	
 	for unit in units:
-		self.clear_fog_range(unit.get_pos(),3)
+		self.clear_fog_range(unit.position_on_map,2)
+	
+	for building in buildings:
+		self.clear_fog_range(building.position_on_map,4)
 	return
 
 func find_spawn_for_building(x, y, building):
