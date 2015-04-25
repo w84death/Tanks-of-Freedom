@@ -296,9 +296,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 5 </int>
+							<int> 3 </int>
 							<string> "sources" </string>
-							<array  len="7" shared="false">
+							<array  len="9" shared="false">
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/message.gd" </string>
 								<string> "res://scripts/workshop_controller.gd" </string>
@@ -306,6 +306,8 @@
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/abstract_map.gd" </string>
+								<string> "res://scripts/battle_stats.gd" </string>
+								<string> "res://scripts/position_controller.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>

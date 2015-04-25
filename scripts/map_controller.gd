@@ -147,11 +147,6 @@ func generate_map():
 	var cell
 	randomize()
 
-		# FOG OF WAR
-	for x in range(-MAP_MAX_X,MAP_MAX_X):
-		for y in range(-MAP_MAX_Y,MAP_MAX_Y):
-			fog_of_war.set_cell(x,y,0)
-
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 
@@ -230,21 +225,34 @@ func generate_map():
 		if(cell.type):
 			terrain.set_cell(cell.x,cell.y,cell.type)
 	units.hide()
-	
+	self.clear_fog()
 	return
 
-func clear_fog(center_x,center_y,size):
-	var x_min = center_x-size
-	var x_max = center_x+size
-	var y_min = center_y-size
-	var y_max = center_y+size
+func fill_fog():
+	for x in range(-MAP_MAX_X*0.5,MAP_MAX_X*1.5):
+		for y in range(-MAP_MAX_Y*0.5,MAP_MAX_Y*1.5):
+			fog_of_war.set_cell(x,y,0)
+
+func clear_fog_range(center,size):
+	print(center.x,' | ',center.y)
+	var x_min = center.x-size
+	var x_max = center.x+size
+	var y_min = center.y-size
+	var y_max = center.y+size
 	
 	for x in range(x_min,x_max):
 		for y in range(y_min,y_max):
 			fog_of_war.set_cell(x,y,-1)
 			#if x == x_min and y == y_min:
 			#	fog_of_war.set_cell(x,y,2)
-			
+	return
+
+func clear_fog():
+	print('clear fog')
+	self.fill_fog()
+	var units = root.get_tree().get_nodes_in_group("units")
+	for unit in units:
+		self.clear_fog_range(unit.get_pos(),3)
 	return
 
 func find_spawn_for_building(x, y, building):
@@ -374,7 +382,6 @@ func spawn_unit(x,y,type):
 	temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 	map_layer_front.add_child(temp)
 	temp = null
-	self.clear_fog(x,y,3)
 	return
 
 func generate_underground(x,y):

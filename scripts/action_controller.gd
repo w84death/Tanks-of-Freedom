@@ -356,7 +356,7 @@ func move_unit(active_field, field):
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
 		self.use_ap()
 		self.activate_field(field)
-		##abstract_map.map.clear_fog(field[0].x,field[0].y,3) 
+		abstract_map.map.clear_fog() 
 		#gather stats
 		battle_stats.add_moves()
 
