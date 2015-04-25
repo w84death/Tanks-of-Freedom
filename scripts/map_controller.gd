@@ -253,6 +253,7 @@ func clear_fog():
 	var units = root.get_tree().get_nodes_in_group("units")
 	for unit in units:
 		self.clear_fog_range(unit.get_pos(),3)
+		print('clear_fog!!')
 	return
 
 func find_spawn_for_building(x, y, building):

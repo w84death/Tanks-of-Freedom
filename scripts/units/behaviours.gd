@@ -1,4 +1,4 @@
-extends "res://scripts/unit_control.gd"
+extends "res://scripts/units/unit_control.gd"
 
 var type_name = ''
 

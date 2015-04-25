@@ -52,7 +52,6 @@ func __calculate_score():
 
 func get_stats():
 	score = self.__calculate_score()
-	print('timeeee', total_time)
 	var time = [__time_format(total_time[0]), __time_format(total_time[1])]
 	var time_total = __time_format(total_time[0] + total_time[1])
 	return {"domination": domination, "kills": kills, "time": time, "moves": moves, "spawns": spawns, "score" : score, "time_total": time_total};
