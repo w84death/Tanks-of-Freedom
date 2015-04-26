@@ -229,12 +229,19 @@ func generate_map():
 	return
 
 func fill_fog():
-	for x in range(-MAP_MAX_X*0.5,MAP_MAX_X*1.5):
-		for y in range(-MAP_MAX_Y*0.5,MAP_MAX_Y*1.5):
-			fog_of_war.set_cell(x,y,0)
-
+	fog_of_war.clear()
+	var sprite = 0
+	for x in range(0,MAP_MAX_X):
+		for y in range(0,MAP_MAX_Y):
+			if terrain.get_cell(x,y) > -1:
+				if rand_seed(x)[0] % 2 == 0:
+					sprite = 0
+				else:
+					sprite = 1
+				fog_of_war.set_cell(x,y,sprite)
+	randomize()
+	
 func clear_fog_range(center,size):
-	print(center.x,' | ',center.y)
 	var x_min = center.x-size
 	var x_max = center.x+size
 	var y_min = center.y-size
@@ -248,12 +255,16 @@ func clear_fog_range(center,size):
 	return
 
 func clear_fog():
-	print('clear fog')
 	self.fill_fog()
 	var units = root.get_tree().get_nodes_in_group("units")
+	var buildings = root.get_tree().get_nodes_in_group("buildings")
 	for unit in units:
-		self.clear_fog_range(unit.get_pos(),3)
-		print('clear_fog!!')
+		# TODO: check for active team or if cpu vs cpu then show both
+		self.clear_fog_range(unit.position_on_map,2)
+	
+	for building in buildings:
+		# TODO: check for active team or if cpu vs cpu then show both
+		self.clear_fog_range(building.position_on_map,3)
 	return
 
 func find_spawn_for_building(x, y, building):
@@ -261,7 +272,6 @@ func find_spawn_for_building(x, y, building):
 		return
 	if building.can_spawn == false:
 		return
-	print('looking for spawn')
 	self.look_for_spawn(x, y, 1, 0, building)
 	self.look_for_spawn(x, y, 0, 1, building)
 	self.look_for_spawn(x, y, -1, 0, building)
@@ -269,7 +279,6 @@ func find_spawn_for_building(x, y, building):
 
 func look_for_spawn(x, y, offset_x, offset_y, building):
 	var cell = terrain.get_cell(x + offset_x, y + offset_y)
-	print(cell);
 	if cell == 13:
 		building.spawn_point_position = Vector2(offset_x, offset_y)
 		building.spawn_point = Vector2(x + offset_x, y + offset_y)
@@ -430,7 +439,6 @@ func save_map(file_name):
 
 	if self.check_file_name(file_name):
 		var the_file = map_file.open("user://"+file_name+".tof",File.WRITE)
-		print('the_file',the_file)
 		map_file.store_var(temp_data)
 		map_file.close()
 		print('ToF: map saved to file')

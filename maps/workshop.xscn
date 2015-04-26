@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.beta1.custom_build">
 	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
-	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://maps/fog_of_war.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -104,7 +104,7 @@
 							<string> "snap_rotation_step" </string>
 							<real> 0.261799 </real>
 							<string> "zoom" </string>
-							<real> 1.796206 </real>
+							<real> 1.320376 </real>
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "snap_relative" </string>
@@ -118,7 +118,7 @@
 							<string> "snap_offset" </string>
 							<vector2> 0, 0 </vector2>
 							<string> "ofs" </string>
-							<vector2> 130.811, 57.2378 </vector2>
+							<vector2> -362.208, -99.8428 </vector2>
 							<string> "snap_rotation" </string>
 							<bool> False </bool>
 						</dictionary>
@@ -223,7 +223,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<int> 5 </int>
 				<real> 0.25 </real>

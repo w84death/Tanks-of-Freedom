@@ -206,6 +206,7 @@ func spawn_unit_from_active_building():
 
 		#gather stats
 		battle_stats.add_spawn()
+		abstract_map.map.clear_fog()
 
 func toggle_unit_details_view():
 	hud_controller.toggle_unit_details_view(current_player)
