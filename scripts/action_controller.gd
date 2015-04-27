@@ -296,6 +296,7 @@ func switch_to_player(player):
 	current_player = player
 	self.reset_player_units(player)
 	selector.set_player(player);
+	abstract_map.map.current_player = player
 	self.refill_ap()
 	if root_node.settings['cpu_' + str(player)]:
 		root_node.start_ai_timer()
@@ -305,7 +306,7 @@ func switch_to_player(player):
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card([], current_player)
-
+	abstract_map.map.clear_fog()
 
 func perform_ai_stuff():
 	var success = false
