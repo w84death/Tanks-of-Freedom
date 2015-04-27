@@ -258,7 +258,7 @@ func clear_fog():
 	var buildings = root.get_tree().get_nodes_in_group("buildings")
 	for unit in units:
 		# cpu vs cpu mode
-		# show everything aka visitor mode
+		# show everything aka spectator mode
 		if root.settings['cpu_0'] and root.settings['cpu_1']:
 			self.clear_fog_range(unit.position_on_map,2)
 		else:
