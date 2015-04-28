@@ -1,6 +1,6 @@
 var abstract_map
 var grids = []
-var tileObject = preload('res://scripts/ai/pathfinding/tile_object.gd')
+var tileObject = preload('pathfinding/tile_object.gd')
 
 #rearrange
 func _init(abstract_map_new):

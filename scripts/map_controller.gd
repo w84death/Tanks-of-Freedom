@@ -417,7 +417,6 @@ func save_map(file_name):
 		var the_file = map_file.open("user://"+file_name+".tof",File.WRITE)
 		map_file.store_var(temp_data)
 		map_file.close()
-		self.root.dependency_container.map_list.store_map(file_name)
 		print('ToF: map saved to file')
 		return true
 	else:
