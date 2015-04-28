@@ -9,8 +9,8 @@ var active_indicator = preload('res://gui/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
-var position_controller = preload("position_controller.gd").new()
-var battle_stats = preload("battle_stats.gd").new(self, position_controller)
+var position_controller
+var battle_stats
 var sound_controller
 var ai
 var pathfinding
@@ -97,8 +97,10 @@ func init_root(root, map, hud):
 	hud_controller.set_turn(turn)
 	if not root_node.settings['cpu_0']:
 		hud_controller.show_in_game_card([], current_player)
-	position_controller.init(root, abstract_map)
+
+	position_controller = preload("position_controller.gd").new(root)
 	position_controller.get_player_bunker_position(current_player)
+	battle_stats = preload("battle_stats.gd").new(self, position_controller)
 
 	sound_controller = root.sound_controller
 

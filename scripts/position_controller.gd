@@ -32,7 +32,7 @@ var terrains
 
 var pathfinding
 
-func init(root, abstract_map):
+func _init(root):
 	root_node = root
 	bunkers = {0: null, 1: null}
 
