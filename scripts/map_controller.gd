@@ -82,11 +82,7 @@ func _process(delta):
 			var diff_x = target.x - self.sX
 			var diff_y = target.y - self.sY
 
-			# TODO [K] this code is dead?
-			# if diff_x > -pan_threshold && diff_x < pan_threshold && diff_y > -pan_threshold && diff_y < pan_threshold:
-			# 	panning = false
-			# else:
-			# 	panning = true
+			panning = self.__do_panning(diff_x, diff_y)
 
 			if diff_x > -near_threshold && diff_x < near_threshold && diff_y > -near_threshold && diff_y < near_threshold:
 				target = pos
@@ -96,8 +92,9 @@ func _process(delta):
 				var new_pos = Vector2(self.sX, self.sY)
 
 				terrain.set_pos(new_pos)
+				fog_controller.move_cloud(new_pos)
 				underground.set_pos(new_pos)
-				fog_controller.move_cloud(pos)
+
 			temp_delta = 0
 	else:
 		panning = false
