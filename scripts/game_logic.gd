@@ -20,6 +20,8 @@ var current_map_name
 var hud
 var ai_timer
 
+var dependency_container = preload('res://scripts/dependency_container.gd').new()
+
 var map_template = preload('res://maps/workshop.xscn')
 
 var settings = {
@@ -222,6 +224,7 @@ func write_settings_to_file():
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	self.dependency_container.init_root(self)
 	self.read_settings_from_file()
 	scale_root = get_node("/root/game/pixel_scale")
 	ai_timer = get_node("AITimer")
