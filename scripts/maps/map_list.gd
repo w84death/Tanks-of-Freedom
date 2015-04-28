@@ -7,7 +7,7 @@ func init():
     if list_file.file_exists(self.list_file_path):
         self.load_list()
     else:
-        self.init_save()
+        self.save_list()
 
 func load_list():
     self.list_file.open(self.list_file_path, File.READ)
