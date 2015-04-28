@@ -50,7 +50,6 @@ func refresh_units():
 
 	get_units()
 
-
 func refresh_buildings():
 	buildings_player_none.clear()
 	buildings_player_blue.clear()
@@ -97,10 +96,7 @@ func get_units():
 				units_player_red[unit.get_pos_map()] = unit
 			else:
 				units_player_blue[unit.get_pos_map()] = unit
-		else:
-			print('UNDEAD UNIT')
 
-# for red
 func get_nearby_enemies(nearby_tiles, current_player):
 	var enemy_units_collection
 	if current_player == 0:
@@ -149,7 +145,6 @@ func get_nearby_empty_buldings(nearby_tiles):
 
 	return buildings
 
-#TODO - this functions are tested
 func prepare_nearby_tiles():
 	for distance in range(1, MAX_PRECALCULATED_TILES_RANGE):
 
@@ -182,9 +177,6 @@ func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
 		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
 	return tiles
-
-func get_distance_from_zero(position):
-	return position.x + position.y
 
 
 

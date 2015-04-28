@@ -9,7 +9,7 @@ export var multiplayer_map = false
 var terrain
 var underground
 var units
-var fog_of_war
+var fog_controller
 var map_layer_back
 var map_layer_front
 
@@ -67,8 +67,13 @@ func _input(event):
 			target = pos
 			underground.set_pos(target)
 			terrain.set_pos(target)
-			fog_of_war.set_pos(target)
+			fog_controller.move_cloud(pos)
 
+func __do_panning(diff_x, diff_y):
+	if diff_x > -pan_threshold && diff_x < pan_threshold && diff_y > -pan_threshold && diff_y < pan_threshold:
+		return false
+
+	return true
 
 func _process(delta):
 	if not pos == target:
@@ -77,19 +82,22 @@ func _process(delta):
 			var diff_x = target.x - self.sX
 			var diff_y = target.y - self.sY
 
-			if diff_x > -pan_threshold && diff_x < pan_threshold && diff_y > -pan_threshold && diff_y < pan_threshold:
-				panning = false
-			else:
-				panning = true
+			# TODO [K] this code is dead?
+			# if diff_x > -pan_threshold && diff_x < pan_threshold && diff_y > -pan_threshold && diff_y < pan_threshold:
+			# 	panning = false
+			# else:
+			# 	panning = true
 
 			if diff_x > -near_threshold && diff_x < near_threshold && diff_y > -near_threshold && diff_y < near_threshold:
 				target = pos
 			else:
-				self.sX = self.sX + (diff_x) * temp_delta;
-				self.sY = self.sY + (diff_y) * temp_delta;
-				terrain.set_pos(Vector2(self.sX,self.sY))
-				underground.set_pos(Vector2(self.sX,self.sY))
-				fog_of_war.set_pos(Vector2(self.sX,self.sY))
+				self.sX = self.sX + diff_x * temp_delta;
+				self.sY = self.sY + diff_y * temp_delta;
+				var new_pos = Vector2(self.sX, self.sY)
+
+				terrain.set_pos(new_pos)
+				underground.set_pos(new_pos)
+				fog_controller.move_cloud(pos)
 			temp_delta = 0
 	else:
 		panning = false
@@ -140,6 +148,7 @@ func do_single_shake():
 		underground.set_pos(shake_initial_position)
 		terrain.set_pos(shake_initial_position)
 
+
 func generate_map():
 	var temp = null
 	var temp2 = null
@@ -147,19 +156,27 @@ func generate_map():
 	var cell
 	randomize()
 
+	#map elements count
+	var grass_elements_count = map_grass.size()
+	var flowers_elements_count = map_flowers.size()
+	var forest_elements_count = map_forest.size()
+	var mountain_elements_count = map_mountain.size()
+	var city_elements_count = map_city.size()
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 
+			var terrain_cell = terrain.get_cell(x,y)
 			# underground
-			if terrain.get_cell(x,y) > -1:
+			if terrain_cell > -1:
 				self.generate_underground(x,y)
 
 			# grass, flowers, log
-			if terrain.get_cell(x,y) == 1:
+			if terrain_cell == 1:
 				if ( randi() % 10 ) <= gen_grass:
-					temp = map_grass[randi() % map_grass.size()].instance()
+					temp = map_grass[randi() % grass_elements_count].instance()
 				if ( randi() % 10 ) <= gen_flowers:
-					temp2 = map_flowers[randi() % map_flowers.size()].instance()
+					temp2 = map_flowers[randi() % flowers_elements_count].instance()
 
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
@@ -171,33 +188,34 @@ func generate_map():
 				temp2 = null
 
 			# forest
-			if terrain.get_cell(x,y) == 2:
-				temp = map_forest[randi() % map_forest.size()].instance()
+			if terrain_cell == 2:
+				temp = map_forest[randi() % forest_elements_count].instance()
 				cells_to_change.append({x=x,y=y,type=1})
 
 			# mountains
-			if terrain.get_cell(x,y) == 3:
-				temp = map_mountain[randi() % map_mountain.size()].instance()
+			if terrain_cell == 3:
+				temp = map_mountain[randi() % mountain_elements_count].instance()
 				cells_to_change.append({x=x,y=y,type=1})
 
 			# city, statue
-			if terrain.get_cell(x,y) == 4:
-				temp = map_city[randi() % map_city.size()].instance()
-			if terrain.get_cell(x,y) == 5:
+			if terrain_cell == 4:
+				temp = map_city[randi() % city_elements_count].instance()
+
+			if terrain_cell == 5:
 				temp = map_statue.instance()
 
 			# military buildings
-			if terrain.get_cell(x,y) == 6: # HQ blue
+			if terrain_cell == 6: # HQ blue
 				temp = map_buildings[0].instance()
-			if terrain.get_cell(x,y) == 7: # HQ red
+			if terrain_cell == 7: # HQ red
 				temp = map_buildings[1].instance()
-			if terrain.get_cell(x,y) == 8: # barrack
+			if terrain_cell == 8: # barrack
 				temp = map_buildings[2].instance()
-			if terrain.get_cell(x,y) == 9: # factory
+			if terrain_cell == 9: # factory
 				temp = map_buildings[3].instance()
-			if terrain.get_cell(x,y) == 10: # airport
+			if terrain_cell == 10: # airport
 				temp = map_buildings[4].instance()
-			if terrain.get_cell(x,y) == 11: # tower
+			if terrain_cell == 11: # tower
 				temp = map_buildings[5].instance()
 
 			if temp:
@@ -207,16 +225,16 @@ func generate_map():
 				temp = null
 
 			# roads
-			if terrain.get_cell(x,y) == 14: # city road
-				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[14, 16, -1, 18])})
-			if terrain.get_cell(x,y) == 15: # country road
-				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[15, 16, -1, 18])})
-			if terrain.get_cell(x,y) == 16: # road mix
-				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[16, 14])})
-			if terrain.get_cell(x,y) == 17: # river
-				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[17, 18])})
-			if terrain.get_cell(x,y) == 18: # bridge
-				cells_to_change.append({x=x,y=y,type=self.build_sprite_path(x,y,[18, 17])})
+			if terrain_cell == 14: # city road
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, -1, 18])})
+			if terrain_cell == 15: # country road
+				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, -1, 18])})
+			if terrain_cell == 16: # road mix
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [16, 14])})
+			if terrain_cell == 17: # river
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [17, 18])})
+			if terrain_cell == 18: # bridge
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [18, 17])})
 
 			if units.get_cell(x,y) > -1:
 				self.spawn_unit(x,y,units.get_cell(x,y))
@@ -225,55 +243,7 @@ func generate_map():
 		if(cell.type):
 			terrain.set_cell(cell.x,cell.y,cell.type)
 	units.hide()
-	self.clear_fog()
-	return
-
-func fill_fog():
-	fog_of_war.clear()
-	var sprite = 0
-	for x in range(0,MAP_MAX_X):
-		for y in range(0,MAP_MAX_Y):
-			if terrain.get_cell(x,y) > -1:
-				if rand_seed(x)[0] % 2 == 0:
-					sprite = 0
-				else:
-					sprite = 1
-				fog_of_war.set_cell(x,y,sprite)
-	randomize()
-
-func clear_fog_range(center,size):
-	var x_min = center.x-size
-	var x_max = center.x+size+1
-	var y_min = center.y-size
-	var y_max = center.y+size+1
-
-	for x in range(x_min,x_max):
-		for y in range(y_min,y_max):
-			fog_of_war.set_cell(x,y,-1)
-	return
-
-func clear_fog():
-	self.fill_fog()
-	var units = root.get_tree().get_nodes_in_group("units")
-	var buildings = root.get_tree().get_nodes_in_group("buildings")
-	for unit in units:
-		# cpu vs cpu mode
-		# show everything aka spectator mode
-		if root.settings['cpu_0'] && root.settings['cpu_1']:
-			self.clear_fog_range(unit.position_on_map,2)
-		else:
-			if ( unit.player == 0 and not root.settings['cpu_0'] ) or (unit.player == 1 and not root.settings['cpu_1']):
-				self.clear_fog_range(unit.position_on_map,2)
-
-	for building in buildings:
-		# cpu vs cpu mode
-		# show everything aka visitor mode
-		if root.settings['cpu_0'] && root.settings['cpu_1']:
-			self.clear_fog_range(building.position_on_map,3)
-		else:
-			if building.player > -1: # ocupy
-				if ( building.player == 0 and not root.settings['cpu_0'] ) or (building.player == 1 and not root.settings['cpu_1']):
-					self.clear_fog_range(building.position_on_map,3)
+	fog_controller.clear_fog()
 	return
 
 func find_spawn_for_building(x, y, building):
@@ -406,20 +376,20 @@ func spawn_unit(x,y,type):
 func generate_underground(x,y):
 	var generate = false
 
-	if terrain.get_cell(x,y-1) == -1:
+	if terrain.get_cell(x, y-1) == -1:
 		generate = true
-	if terrain.get_cell(x+1,y) == -1:
+	if terrain.get_cell(x+1, y) == -1:
 		generate = true
-	if terrain.get_cell(x,y+1) == -1:
+	if terrain.get_cell(x, y+1) == -1:
 		generate = true
-	if terrain.get_cell(x-1,y) == -1:
+	if terrain.get_cell(x-1, y) == -1:
 		generate = true
 
 	if generate:
-		underground.set_cell(x+1,y+1,0)
+		underground.set_cell(x+1, y+1, 0)
 
 func set_default_zoom():
-	self.scale = Vector2(2,2)
+	self.scale = Vector2(2, 2)
 
 func save_map(file_name):
 	var temp_data = []
@@ -431,10 +401,10 @@ func save_map(file_name):
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			if terrain.get_cell(x,y) > -1:
-				temp_terrain = terrain.get_cell(x,y)
+				temp_terrain = terrain.get_cell(x, y)
 
 			if units.get_cell(x,y) > -1:
-				temp_unit = units.get_cell(x,y)
+				temp_unit = units.get_cell(x, y)
 
 			if temp_terrain or temp_unit:
 				temp_data.append({
@@ -503,7 +473,7 @@ func fill(width,height):
 	units.clear()
 	for x in range(width):
 		for y in range(height):
-			terrain.set_cell(x,y,1)
+			terrain.set_cell(x, y, 1)
 
 func clear_layer(layer):
 	if layer == 0:
@@ -516,13 +486,15 @@ func init_nodes():
 	underground = self.get_node("underground")
 	terrain = self.get_node("terrain")
 	units = terrain.get_node("units")
-	fog_of_war = self.get_node("fog_of_war")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
 
 func _ready():
 	root = get_node("/root/game")
 	self.init_nodes()
+	fog_controller = preload('fog_controller.gd').new(self, terrain)
+	fog_controller.init_node()
+
 	if root:
 		scale = root.scale_root.get_scale()
 	else:

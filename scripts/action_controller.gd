@@ -102,7 +102,7 @@ func init_root(root, map, hud):
 
 	sound_controller = root.sound_controller
 
-	pathfinding = preload('ai/a_star_pathfinding.gd').new()
+	pathfinding = preload('ai/pathfinding/a_star_pathfinding.gd').new()
 	ai = preload("ai/ai.gd").new(position_controller, pathfinding, abstract_map, self)
 
 	var movement_template = preload('res://gui/movement.xscn')
@@ -206,7 +206,7 @@ func spawn_unit_from_active_building():
 
 		#gather stats
 		battle_stats.add_spawn()
-		abstract_map.map.clear_fog()
+		abstract_map.map.fog_controller.clear_fog()
 
 func toggle_unit_details_view():
 	hud_controller.toggle_unit_details_view(current_player)
@@ -306,7 +306,7 @@ func switch_to_player(player):
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card([], current_player)
-	abstract_map.map.clear_fog()
+	abstract_map.map.fog_controller.clear_fog()
 
 func perform_ai_stuff():
 	var success = false
@@ -358,7 +358,7 @@ func move_unit(active_field, field):
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
 		self.use_ap()
 		self.activate_field(field)
-		abstract_map.map.clear_fog() 
+		abstract_map.map.fog_controller.clear_fog()
 		#gather stats
 		battle_stats.add_moves()
 
@@ -408,6 +408,7 @@ func handle_battle(active_field, field):
 		sound_controller.play('no_attack')
 
 	return BREAK_EVENT_LOOP
+
 func collateral_damage(center):
 	var damage_chance = 0.5
 	if randf() <= damage_chance:

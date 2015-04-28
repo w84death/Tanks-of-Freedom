@@ -31,7 +31,7 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	pathfinding = astar_pathfinding
 	abstract_map = map
 	action_controller = action_controller_object
-	cost_grid = preload('cost_grid.gd').new(abstract_map)
+	cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
 	actionBuilder = preload('actions/action_builder.gd').new(action_controller, abstract_map, position_controller)
 
 	behaviour_normal = preload('behaviours/normal.gd').new()
