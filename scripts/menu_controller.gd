@@ -89,19 +89,26 @@ func load_maps_menu():
 	maps_select_map.add_item("city")
 	maps_select_map.add_item("country")
 
-	maps_select_custom_map.add_item("cityskirmish")
-	maps_select_custom_map.add_item("citysmall")
-	maps_select_custom_map.add_item("country2")
+	self.load_custom_maps_list(maps_select_custom_map)
 
-	maps_play_button.connect("pressed", self, "load_map_from_list", [maps_select_map])
-	maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map])
+	maps_play_button.connect("pressed", self, "load_map_from_list", [maps_select_map, false])
+	maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map, true])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
 	maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
 	maps_select_map.connect("selected",self,"load_map", [])
 
+func load_custom_maps_list(dropdown):
+	var map_list = root.dependency_container.map_list.maps
 
+	for map in map_list:
+		dropdown.add_item(map)
+
+func refresh_custom_maps_list():
+	self.maps_select_custom_map.clear()
+	self.load_custom_maps_list(self.maps_select_custom_map)
 
 func show_maps_menu():
+	self.refresh_custom_maps_list()
 	control_node.hide()
 	maps_sub_menu.show()
 
@@ -166,11 +173,14 @@ func reset_player_buttons():
 	self.set_player_button_state(0)
 	self.set_player_button_state(1)
 
-func load_map_from_list(list):
-	self.load_map(list.get_item_text(list.get_selected()))
+func load_map_from_list(list, from_workshop):
+	self.load_map(list.get_item_text(list.get_selected()), from_workshop)
 
-func load_map(name):
-	root.load_map(name,false)
+func load_map(name, from_workshop):
+	if from_workshop:
+		root.load_map('workshop', name)
+	else:
+		root.load_map(name, false)
 	root.toggle_menu()
 	self.hide_maps_menu()
 	workshop.hide()

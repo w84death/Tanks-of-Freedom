@@ -240,13 +240,13 @@ func fill_fog():
 					sprite = 1
 				fog_of_war.set_cell(x,y,sprite)
 	randomize()
-	
+
 func clear_fog_range(center,size):
 	var x_min = center.x-size
 	var x_max = center.x+size+1
 	var y_min = center.y-size
 	var y_max = center.y+size+1
-	
+
 	for x in range(x_min,x_max):
 		for y in range(y_min,y_max):
 			fog_of_war.set_cell(x,y,-1)
@@ -264,7 +264,7 @@ func clear_fog():
 		else:
 			if ( unit.player == 0 and not root.settings['cpu_0'] ) or (unit.player == 1 and not root.settings['cpu_1']):
 				self.clear_fog_range(unit.position_on_map,2)
-				
+
 	for building in buildings:
 		# cpu vs cpu mode
 		# show everything aka visitor mode
@@ -450,6 +450,7 @@ func save_map(file_name):
 		var the_file = map_file.open("user://"+file_name+".tof",File.WRITE)
 		map_file.store_var(temp_data)
 		map_file.close()
+		self.root.dependency_container.map_list.store_map(file_name)
 		print('ToF: map saved to file')
 		return true
 	else:
