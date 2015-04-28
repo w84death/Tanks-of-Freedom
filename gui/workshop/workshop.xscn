@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="94" version="1.1" version_name="Godot Engine v1.1.beta1.custom_build">
+<resource_file type="PackedScene" subresource_count="94" version="1.0" version_name="Godot Engine v1.1.beta1.custom_build">
 	<ext_resource path="res://assets/workshop/button_tank_red_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_helicopter_blue_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_city_normal.png" type="Texture"></ext_resource>
