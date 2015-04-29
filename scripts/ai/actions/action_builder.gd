@@ -5,7 +5,7 @@ var action_spawn
 var action_move_attack
 var action_move_capture
 var action_controller
-var position_controller
+var positions
 var abstract_map
 
 const ACTION_ATTACK = 0
@@ -15,7 +15,7 @@ const ACTION_SPAWN = 3
 const ACTION_MOVE_TO_ATTACK = 4
 const ACTION_MOVE_TO_CAPTURE = 5
 
-func _init(action_controller_object, abstract_map_object, position_controller_object):
+func _init(action_controller_object, abstract_map_object, positions_object):
 	action_move = preload('res://scripts/ai/actions/types/move.gd')
 	action_attack = preload('res://scripts/ai/actions/types/attack.gd')
 	action_capture = preload('res://scripts/ai/actions/types/capture.gd')
@@ -24,7 +24,7 @@ func _init(action_controller_object, abstract_map_object, position_controller_ob
 	action_move_capture = preload('res://scripts/ai/actions/types/move_capture.gd')
 
 	action_controller = action_controller_object
-	position_controller = position_controller_object
+	positions = positions_object
 	abstract_map = abstract_map_object
 
 func create(action_type, obj, path):
@@ -48,6 +48,6 @@ func create(action_type, obj, path):
 	if set_abstract_map:
 		action.set_abstract_map(abstract_map)
 	action.set_action_controller(action_controller)
-	action.set_position_controller(position_controller)
+	action.set_positions(positions)
 
 	return action

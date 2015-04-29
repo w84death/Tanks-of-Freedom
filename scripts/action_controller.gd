@@ -9,12 +9,12 @@ var active_indicator = preload('res://gui/selector.xscn').instance()
 var battle_controller = preload('battle_controller.gd').new()
 var movement_controller = preload('movement_controller.gd').new()
 var hud_controller = preload('hud_controller.gd').new()
-var position_controller
 var battle_stats
 var sound_controller
 var ai
 var pathfinding
 var demo_timer
+var positions
 
 var current_player = 0
 var player_ap = [0,0]
@@ -32,6 +32,40 @@ var movement_arrow_tl
 var movement_arrow_tr
 
 const BREAK_EVENT_LOOP = 1
+
+func init_root(root, map, hud):
+	root_node = root
+	var dependency_container = root.dependency_container
+
+	abstract_map.map = map
+	abstract_map.tilemap = map.get_node("terrain")
+	camera = root.scale_root
+	ysort = map.get_node('terrain/front')
+	damage_layer = map.get_node('terrain/destruction')
+	selector = root.selector
+	self.import_objects()
+	hud_controller.init_root(root, self, hud)
+	hud_controller.set_turn(turn)
+	if not root_node.settings['cpu_0']:
+		hud_controller.show_in_game_card([], current_player)
+
+	positions = dependency_container.positions
+	positions.get_player_bunker_position(current_player)
+	positions.bootstrap()
+	battle_stats = preload("battle_stats.gd").new(self, positions)
+
+	sound_controller = root.sound_controller
+
+	pathfinding = preload('ai/pathfinding/a_star_pathfinding.gd').new()
+	ai = preload("ai/ai.gd").new(positions, pathfinding, abstract_map, self)
+
+	var movement_template = preload('res://gui/movement.xscn')
+	movement_arrow_bl = movement_template.instance()
+	movement_arrow_br = movement_template.instance()
+	movement_arrow_tl = movement_template.instance()
+	movement_arrow_tr = movement_template.instance()
+
+	demo_timer = root_node.get_node("DemoTimer")
 
 func set_active_field(position):
 	var field = abstract_map.get_field(position)
@@ -70,7 +104,7 @@ func handle_action(position):
 				self.move_unit(active_field, field)
 
 func post_handle_action():
-	position_controller.refresh_units()
+	positions.refresh_units()
 
 func capture_building(active_field, field):
 	self.use_ap()
@@ -82,38 +116,6 @@ func capture_building(active_field, field):
 	if field.object.type == 0:
 		self.end_game()
 		return 1
-
-
-func init_root(root, map, hud):
-	root_node = root
-	abstract_map.map = map
-	abstract_map.tilemap = map.get_node("terrain")
-	camera = root.scale_root
-	ysort = map.get_node('terrain/front')
-	damage_layer = map.get_node('terrain/destruction')
-	selector = root.selector
-	self.import_objects()
-	hud_controller.init_root(root, self, hud)
-	hud_controller.set_turn(turn)
-	if not root_node.settings['cpu_0']:
-		hud_controller.show_in_game_card([], current_player)
-
-	position_controller = preload("position_controller.gd").new(root)
-	position_controller.get_player_bunker_position(current_player)
-	battle_stats = preload("battle_stats.gd").new(self, position_controller)
-
-	sound_controller = root.sound_controller
-
-	pathfinding = preload('ai/pathfinding/a_star_pathfinding.gd').new()
-	ai = preload("ai/ai.gd").new(position_controller, pathfinding, abstract_map, self)
-
-	var movement_template = preload('res://gui/movement.xscn')
-	movement_arrow_bl = movement_template.instance()
-	movement_arrow_br = movement_template.instance()
-	movement_arrow_tl = movement_template.instance()
-	movement_arrow_tr = movement_template.instance()
-
-	demo_timer = root_node.get_node("DemoTimer")
 
 func activate_field(field):
 	self.clear_active_field()
@@ -243,7 +245,7 @@ func end_turn():
 		ai.select_behaviour_type(current_player)
 
 func move_camera_to_active_bunker():
-	var bunker_position = position_controller.get_player_bunker_position(current_player)
+	var bunker_position = positions.get_player_bunker_position(current_player)
 	if bunker_position != null:
 		self.move_camera_to_point(bunker_position)
 
@@ -277,17 +279,17 @@ func update_ap(ap):
 		hud_controller.warn_end_turn()
 
 func refill_ap():
-	position_controller.refresh_units()
-	position_controller.refresh_buildings()
+	positions.refresh_units()
+	positions.refresh_buildings()
 
 	var total_ap = player_ap[current_player]
-	var buildings = position_controller.get_player_buildings(current_player)
+	var buildings = positions.get_player_buildings(current_player)
 	for building in buildings:
 		total_ap = total_ap + buildings[building].bonus_ap
 	self.update_ap(total_ap)
 
 func show_bonus_ap():
-	var buildings = position_controller.get_player_buildings(current_player)
+	var buildings = positions.get_player_buildings(current_player)
 	for building in buildings:
 		if buildings[building].bonus_ap > 0:
 			buildings[building].show_floating_ap()

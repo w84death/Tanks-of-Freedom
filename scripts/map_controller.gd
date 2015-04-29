@@ -56,7 +56,6 @@ var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://
 var map_units = [preload('res://units/soldier_blue.xscn'),preload('res://units/tank_blue.xscn'),preload('res://units/helicopter_blue.xscn'),preload('res://units/soldier_red.xscn'),preload('res://units/tank_red.xscn'),preload('res://units/helicopter_red.xscn')]
 
 func _input(event):
-
 	pos = terrain.get_pos()
 	if(event.type == InputEvent.MOUSE_BUTTON):
 		if ((show_blueprint and event.button_index == BUTTON_RIGHT) or (not show_blueprint and event.button_index == BUTTON_LEFT)):
@@ -66,9 +65,9 @@ func _input(event):
 		if (mouse_dragging):
 			pos.x = pos.x + event.relative_x / scale.x
 			pos.y = pos.y + event.relative_y / scale.y
-
-			underground.set_pos(pos)
-			terrain.set_pos(pos)
+			target = pos
+			underground.set_pos(target)
+			terrain.set_pos(target)
 			fog_controller.move_cloud(pos)
 
 func __do_panning(diff_x, diff_y):

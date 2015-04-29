@@ -3,7 +3,7 @@ var path
 var type
 var abstract_map
 var action_controller
-var position_controller
+var positions
 
 const ACTION_ATTACK = 0
 const ACTION_MOVE   = 1
@@ -21,8 +21,8 @@ func __get_next_tile_from_action():
 func set_action_controller(controller):
 	self.action_controller = controller
 
-func set_position_controller(controller):
-	self.position_controller = controller
+func set_positions(controller):
+	self.positions = controller
 
 func set_abstract_map(abs_map):
 	self.abstract_map = abs_map

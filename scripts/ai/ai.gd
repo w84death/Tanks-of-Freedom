@@ -1,4 +1,4 @@
-var position_controller
+var positions
 var pathfinding
 var abstract_map
 var action_controller
@@ -27,12 +27,12 @@ var elemental_trails_generated = false
 var player_behaviours
 
 func _init(controller, astar_pathfinding, map, action_controller_object):
-	position_controller = controller
+	positions = controller
 	pathfinding = astar_pathfinding
 	abstract_map = map
 	action_controller = action_controller_object
 	cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
-	actionBuilder = preload('actions/action_builder.gd').new(action_controller, abstract_map, position_controller)
+	actionBuilder = preload('actions/action_builder.gd').new(action_controller, abstract_map, positions)
 
 	behaviour_normal = preload('behaviours/normal.gd').new()
 	behaviour_destroyer = preload('behaviours/destroyer.gd').new()
@@ -46,13 +46,13 @@ func add_elemental_trails():
 	#adding elemental trails for ant algoritmh
 	if elemental_trails_generated:
 		return
-	var bunker_0 = position_controller.get_player_bunker_position(0)
-	var bunker_1 = position_controller.get_player_bunker_position(1)
+	var bunker_0 = positions.get_player_bunker_position(0)
+	var bunker_1 = positions.get_player_bunker_position(1)
 
 	abstract_map.add_trails([pathfinding.pathSearch(bunker_0, bunker_1, [])], 0)
 	abstract_map.add_trails([pathfinding.pathSearch(bunker_1, bunker_0, [])], 1)
 
-	var empty_building_positions = position_controller.buildings_player_none
+	var empty_building_positions = positions.buildings_player_none
 	if empty_building_positions.size() > 0:
 		for building_pos in empty_building_positions:
 			abstract_map.add_trails([pathfinding.pathSearch(bunker_0, building_pos, [])], 0)
@@ -69,13 +69,13 @@ func gather_available_actions(player_ap):
 	current_player_ap = player_ap
 	actions = {}
 	# refreshing unit and building data
-	position_controller.refresh_units()
-	#position_controller.refresh_buildings()
+	positions.refresh_units()
+	#positions.refresh_buildings()
 	if DEBUG:
 		print('DEBUG -------------------- ')
-	buildings = position_controller.get_player_buildings(current_player)
-	units     = position_controller.get_player_units(current_player)
-	terrain   = position_controller.get_terrain_obstacles()
+	buildings = positions.get_player_buildings(current_player)
+	units     = positions.get_player_units(current_player)
+	terrain   = positions.get_terrain_obstacles()
 
 	self.__gather_building_data(buildings, units)
 	self.__gather_unit_data(buildings, units, terrain)
@@ -129,11 +129,11 @@ func __wander(unit):
 
 				self.__append_action(action, score)
 
-func __gather_unit_destinations(position, current_player, tiles_ranges=position_controller.tiles_lookup_ranges):
+func __gather_unit_destinations(position, current_player, tiles_ranges=positions.tiles_lookup_ranges):
 	var destinations = []
 	for lookup_range in tiles_ranges:
-		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
-		destinations = destinations + position_controller.get_nearby_enemies(nearby_tiles, current_player)
+		var nearby_tiles = positions.get_nearby_tiles(position, lookup_range)
+		destinations = destinations + positions.get_nearby_enemies(nearby_tiles, current_player)
 
 		if destinations.size() > 0:
 			#print('RANGE OF UNIT LOOKUP', lookup_range)
@@ -144,10 +144,10 @@ func __gather_unit_destinations(position, current_player, tiles_ranges=position_
 #TODO this method will be rewritten to use building cache
 func __gather_buildings_destinations(position, current_player):
 	var destinations = []
-	for lookup_range in position_controller.tiles_lookup_ranges:
-		var nearby_tiles = position_controller.get_nearby_tiles(position, lookup_range)
-		destinations = position_controller.get_nearby_enemy_buldings(nearby_tiles, current_player)
-		destinations = destinations + position_controller.get_nearby_empty_buldings(nearby_tiles)
+	for lookup_range in positions.tiles_lookup_ranges:
+		var nearby_tiles = positions.get_nearby_tiles(position, lookup_range)
+		destinations = positions.get_nearby_enemy_buldings(nearby_tiles, current_player)
+		destinations = destinations + positions.get_nearby_empty_buldings(nearby_tiles)
 
 		if destinations.size() > 0:
 			#print('RANGE OF BUILDING LOOKUP', lookup_range)
@@ -158,14 +158,14 @@ func __gather_buildings_destinations(position, current_player):
 func __gather_building_data(own_buildings, own_units):
 	if own_units.size() >= SPAWN_LIMIT:
 		return
-	#var buildings = position_controller.get_player_buildings(current_player)
+	#var buildings = positions.get_player_buildings(current_player)
 	for pos in own_buildings:
 		var building = own_buildings[pos]
 
 		if (building.type == 4): # skip tower
 			continue
 
-		var enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player, position_controller.tiles_building_lookup_ranges)
+		var enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player, positions.tiles_building_lookup_ranges)
 		self.__add_building_action(building, enemy_units, own_units)
 
 

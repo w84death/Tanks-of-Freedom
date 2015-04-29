@@ -5,7 +5,7 @@
 
 # overall scores
 var action_controller
-var position_controller
+var positions
 
 var domination = [0, 0]
 var moves = [0, 0]
@@ -19,7 +19,7 @@ var start_time
 
 func add_domination():
 	var current_player = action_controller.current_player
-	domination[current_player] = domination[current_player] + position_controller.get_player_buildings(current_player).size()
+	domination[current_player] = domination[current_player] + positions.get_player_buildings(current_player).size()
 
 func add_spawn():
 	var current_player = action_controller.current_player
@@ -68,7 +68,7 @@ func __fill(value):
 
 	return value
 
-func _init(action_controller_object, position_controller_object):
+func _init(action_controller_object, positions_object):
 	action_controller = action_controller_object
-	position_controller = position_controller_object
+	positions = positions_object
 
