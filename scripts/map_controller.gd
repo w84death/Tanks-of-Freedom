@@ -63,6 +63,7 @@ func _input(event):
 
 	if (event.type == InputEvent.MOUSE_MOTION):
 		if (mouse_dragging):
+			target = pos
 			pos.x = pos.x + event.relative_x / scale.x
 			pos.y = pos.y + event.relative_y / scale.y
 			target = pos
