@@ -17,18 +17,19 @@ func fill_fog():
 	for x in range(0, map_controller.MAP_MAX_X):
 		for y in range(0, map_controller.MAP_MAX_Y):
 			if terrain.get_cell(x,y) > -1:
-				var seed = rand_seed(x+y)[0]
-				print(seed)
-				if  seed % 2 == 0:
-					sprite = 0
-				if  seed % 3 == 0:
-					sprite = 1
-				if  seed % 7 == 0:
-					sprite = 2
+				var uniq_num = int(sin(x+y)+cos(x*y))
+				print(uniq_num)
+				if  uniq_num % 2 == 0:
+					if uniq_num % 8 == 0:
+						sprite = 0
+					else:
+						sprite = 1
 				else:
-					sprite = 3
+					if uniq_num % 3 == 0:
+						sprite = 2
+					else:
+						sprite = 3
 				fog_of_war.set_cell(x,y,sprite)
-	randomize()
 
 func clear_fog_range(center, size):
 	var x_min = center.x-size

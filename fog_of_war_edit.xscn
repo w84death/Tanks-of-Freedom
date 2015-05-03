@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="2" version="1.0" version_name="Godot Engine v1.1.beta1.custom_build">
+<resource_file type="PackedScene" subresource_count="2" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/terrain/clouds.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="30">
+			<string_array  len="28">
 				<string> "fog_of_war" </string>
 				<string> "Node2D" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
 				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
+				<string> "visibility/behind_parent" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/rot" </string>
 				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "__meta__" </string>
 				<string> "cloud" </string>
 				<string> "Sprite" </string>
@@ -47,38 +45,25 @@
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
-				<int> 1 </int>
+				<bool> False </bool>
 				<vector2> 0, 0 </vector2>
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
-							<string> "snap_pixel" </string>
+							<string> "pixel_snap" </string>
 							<bool> False </bool>
-							<string> "snap_rotation_step" </string>
-							<real> 0.261799 </real>
 							<string> "zoom" </string>
 							<real> 1.479486 </real>
-							<string> "snap_step" </string>
-							<vector2> 10, 10 </vector2>
-							<string> "snap_relative" </string>
+							<string> "use_snap" </string>
 							<bool> False </bool>
-							<string> "snap_grid" </string>
-							<bool> False </bool>
-							<string> "snap_rotation_offset" </string>
-							<real> 0 </real>
-							<string> "snap_show_grid" </string>
-							<bool> False </bool>
-							<string> "snap_offset" </string>
-							<vector2> 0, 0 </vector2>
 							<string> "ofs" </string>
 							<vector2> -96.9265, -69.8452 </vector2>
-							<string> "snap_rotation" </string>
-							<bool> False </bool>
+							<string> "snap" </string>
+							<int> 10 </int>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -186,7 +171,8 @@
 				<vector2> 17.3518, 34.0555 </vector2>
 				<resource  resource_type="Texture" path="res://assets/terrain/clouds.png">  </resource>
 				<vector2> 0, -14 </vector2>
-				<bool> False </bool>
+				<int> 1 </int>
+				<int> 0 </int>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 32, 32 </rect2>
 				<vector2> 71.4246, 35.4073 </vector2>
@@ -199,7 +185,7 @@
 				<rect2> 0, 32, 32, 32 </rect2>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="274"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 0, 0, 0, 14, 13, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 9, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 14, 0, 0, 0, 14, 26, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 15, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 16, 0, 0, 0, 14, 27, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 17, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 18, 0, 0, 0, 14, 28, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 19, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 20, 0, 0, 0, 14, 29, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 21, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 22, 0 </int_array>
+			<int_array  len="250"> 				-1, -1, 1, 0, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 0, 0, 0, 12, 11, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 8, 8, 5, 9, 6, 13, 9, 14, 1, 15, 10, 16, 3, 17, 3, 18, 11, 19, 11, 20, 12, 21, 13, 22, 1, 23, 14, 0, 0, 0, 12, 24, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 15, 8, 5, 9, 6, 13, 9, 14, 1, 15, 10, 16, 3, 17, 3, 18, 11, 19, 11, 20, 12, 21, 13, 22, 1, 23, 16, 0, 0, 0, 12, 25, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 17, 8, 5, 9, 6, 13, 9, 14, 1, 15, 10, 16, 3, 17, 3, 18, 11, 19, 11, 20, 12, 21, 13, 22, 1, 23, 18, 0, 0, 0, 12, 26, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 19, 8, 5, 9, 6, 13, 9, 14, 1, 15, 10, 16, 3, 17, 3, 18, 11, 19, 11, 20, 12, 21, 13, 22, 1, 23, 20, 0, 0, 0, 12, 27, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 21, 8, 5, 9, 6, 13, 9, 14, 1, 15, 10, 16, 3, 17, 3, 18, 11, 19, 11, 20, 12, 21, 13, 22, 1, 23, 22, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
