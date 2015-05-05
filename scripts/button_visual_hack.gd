@@ -1,4 +1,3 @@
-
 extends TextureButton
 
 export var offset_x = 0
