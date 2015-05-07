@@ -34,6 +34,7 @@ var temp_delta = 0
 
 var panning = false
 var current_player = 0
+var camera_follow = true
 
 const MAP_STEP = 0.01
 const NEAR_THRESHOLD = 0.2
@@ -63,10 +64,11 @@ func _input(event):
 
 	if (event.type == InputEvent.MOUSE_MOTION):
 		if (mouse_dragging):
-			target = pos
 			pos.x = pos.x + event.relative_x / scale.x
 			pos.y = pos.y + event.relative_y / scale.y
 			target = pos
+			self.sX = pos.x
+			self.sY = pos.y
 			underground.set_pos(target)
 			terrain.set_pos(target)
 			fog_controller.move_cloud(pos)
@@ -106,8 +108,14 @@ func move_to(target):
 		self.target = target;
 
 func move_to_map(target):
+	if not root.settings['camera_follow']:
+		return
+
+	if not self.camera_follow:
+		return
+
 	if not mouse_dragging:
-		game_size = get_node("/root/game").get_size()
+		game_size = root.get_size()
 		var target_position = terrain.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY

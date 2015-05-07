@@ -31,7 +31,8 @@ var settings = {
 	'shake_enabled' : true,
 	'cpu_0' : false,
 	'cpu_1' : true,
-	'turns_cap': 0
+	'turns_cap': 0,
+	'camera_follow': true
 }
 
 var is_map_loaded = false
@@ -179,12 +180,15 @@ func lock_for_cpu():
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(true)
 	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(true)
 	selector.hide()
+	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
+		self.current_map.camera_follow = false
 
 func unlock_for_player():
 	is_locked_for_cpu = false
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(false)
 	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(false)
 	selector.show()
+	self.current_map.camera_follow = true
 
 func lock_for_demo():
 	is_demo = true
@@ -199,7 +203,8 @@ func read_settings_from_file():
 		settings_file.open("user://settings.tof",File.READ)
 		check = settings_file.get_var()
 		if self.check_file_data(check):
-			self.settings = check
+			for option in check:
+				self.settings[option] = check[option]
 			print('ToF: settings loaded from file')
 		else:
 			print('ToF: filecheck filed! making new file with default settings')
