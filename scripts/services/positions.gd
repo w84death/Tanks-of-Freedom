@@ -1,6 +1,7 @@
 var root_node
 var bunkers
 var center
+var root_tree
 
 # dictionaries with encoded positions
 var units_player_blue = {}
@@ -34,11 +35,12 @@ var pathfinding
 
 func _init(root):
 	root_node = root
+	self.root_tree = root_node.get_tree()
 	bunkers = {0: null, 1: null}
 
 func bootstrap():
-	buildings = root_node.get_tree().get_nodes_in_group("buildings")
-	terrains = root_node.get_tree().get_nodes_in_group("terrain")
+	buildings = self.root_tree.get_nodes_in_group("buildings")
+	terrains = self.root_tree.get_nodes_in_group("terrain")
 	get_bunkers()
 	get_terrain()
 
@@ -87,9 +89,7 @@ func get_terrain():
 		terrain_obstacles[terrain.get_pos_map()] = terrain
 
 func get_units():
-	units = root_node.get_tree().get_nodes_in_group("units")
-	units_player_blue.clear()
-	units_player_red.clear()
+	units = self.root_tree.get_nodes_in_group("units")
 
 	for unit in units:
 		if unit.life > 0: # skip undead units (despawn bug)
@@ -115,9 +115,10 @@ func get_nearby_enemies(nearby_tiles, current_player):
 func get_buildings():
 	for building in buildings:
 		var pos = building.get_pos_map()
-		if (building.get_player() == 0):
+		var owner = building.get_player()
+		if (owner == 0):
 			buildings_player_blue[pos] = building
-		elif(building.get_player() == 1):
+		elif(owner == 1):
 			buildings_player_red[pos] = building
 		else:
 			buildings_player_none[pos] = building
