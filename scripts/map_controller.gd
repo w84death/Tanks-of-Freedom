@@ -428,10 +428,18 @@ func check_file_name(name):
 	# and trim spaces, convert to lower case etc
 	# allowed: [a-z] and "-"
 	# and can not name 'settings' !!!
-	if not name == "":
-		return true
-	else:
+	if name == "" || name == "settings":
 		return false
+
+	var validator = RegEx.new()
+	validator.compile("^([a-zA-Z0-9-]*)$")
+	validator.find(name)
+	var matches = validator.get_captures()
+
+	if matches[1] != name:
+		return false
+
+	return true
 
 func load_map(file_name):
 	var file_path = "user://"+file_name+".tof"
