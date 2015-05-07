@@ -24,7 +24,7 @@ func is_adjacent(field):
 func add_damage(damage_layer):
 	damage = destroyed_tile_template.instance()
 	damage_layer.add_child(damage)
-	var damage_position = abstract_map.tilemap.map_to_world(position)
+	var damage_position = abstract_map.tilemap.map_to_world(self.position)
 	damage_position.y += 8
 	damage.set_pos(damage_position)
 
@@ -61,7 +61,6 @@ func next_tile_by_trail(directions):
 			val = parameters[direction]
 			direction_name = direction
 	if direction_name == '':
-		#print('RANDOMIZED DIRECTION')
 		direction_name = directions[randi() % directions.size()]
 
 	if direction_name == 'right':
@@ -73,6 +72,5 @@ func next_tile_by_trail(directions):
 	elif direction_name == 'down':
 		next_tile.y = next_tile.y + 1
 
-	#print('DIRECTION:', direction_name)
 	return next_tile
 

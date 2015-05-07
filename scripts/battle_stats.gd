@@ -1,12 +1,3 @@
-# domination score
-# unit moves
-# turn time
-# kills
-
-# overall scores
-var action_controller
-var positions
-
 var domination = [0, 0]
 var moves = [0, 0]
 var time = [0, 0]
@@ -17,29 +8,24 @@ var score = [0, 0]
 
 var start_time
 
-func add_domination():
-	var current_player = action_controller.current_player
-	domination[current_player] = domination[current_player] + positions.get_player_buildings(current_player).size()
+func add_domination(current_player, value):
+	domination[current_player] = domination[current_player] + value
 
-func add_spawn():
-	var current_player = action_controller.current_player
+func add_spawn(current_player):
 	spawns[current_player] = spawns[current_player] + 1
 
 func add_kills(current_player):
-	action_controller.current_player
 	kills[current_player] = kills[current_player] + 1
 
-func add_moves():
-	var current_player = action_controller.current_player
+func add_moves(current_player):
 	moves[current_player] = moves[current_player] + 1
 
 func start_counting_time():
 	start_time = OS.get_unix_time()
 
-func set_counting_time():
+func set_counting_time(current_player):
 	var time_now = OS.get_unix_time()
 
-	var current_player = action_controller.current_player
 	total_time[current_player] = total_time[current_player] + time_now - start_time
 	start_time = time_now
 	self.__time_format(total_time[current_player])
@@ -67,8 +53,4 @@ func __fill(value):
 		value = '0'+value
 
 	return value
-
-func _init(action_controller_object, positions_object):
-	action_controller = action_controller_object
-	positions = positions_object
 

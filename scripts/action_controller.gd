@@ -1,5 +1,6 @@
 
 var root_node
+var root_tree
 var abstract_map = preload('abstract_map.gd').new()
 var ysort
 var damage_layer
@@ -34,7 +35,8 @@ var movement_arrow_tr
 const BREAK_EVENT_LOOP = 1
 
 func init_root(root, map, hud):
-	root_node = root
+	self.root_node = root
+	self.root_tree = self.root_node.get_tree()
 	var dependency_container = root.dependency_container
 
 	abstract_map.map = map
@@ -52,7 +54,7 @@ func init_root(root, map, hud):
 	positions = dependency_container.positions
 	positions.get_player_bunker_position(current_player)
 	positions.bootstrap()
-	battle_stats = preload("battle_stats.gd").new(self, positions)
+	battle_stats = preload("battle_stats.gd").new()
 
 	sound_controller = root.sound_controller
 
@@ -123,7 +125,7 @@ func activate_field(field):
 		print("FAIL to activate field: ", field.position)
 	active_field = field
 	abstract_map.tilemap.add_child(active_indicator)
-	abstract_map.tilemap.move_child(active_indicator,0)
+	abstract_map.tilemap.move_child(active_indicator, 0)
 	var position = Vector2(abstract_map.tilemap.map_to_world(field.position))
 	position.y += 2
 	active_indicator.set_pos(position)
@@ -194,12 +196,13 @@ func destroy_unit(field):
 	field.object = null
 
 func spawn_unit_from_active_building():
-	if active_field == null || active_field.object.group != 'building' || active_field.object.can_spawn == false:
+	var active_object = active_field.object
+	if active_field == null || active_object.group != 'building' || active_object.can_spawn == false:
 		return
-	var spawn_point = abstract_map.get_field(active_field.object.spawn_point)
-	var required_ap = active_field.object.get_required_ap()
+	var spawn_point = abstract_map.get_field(active_object.spawn_point)
+	var required_ap = active_object.get_required_ap()
 	if spawn_point.object == null && self.has_enough_ap(required_ap):
-		var unit = active_field.object.spawn_unit(current_player)
+		var unit = active_object.spawn_unit(current_player)
 		ysort.add_child(unit)
 		unit.set_pos_map(spawn_point.position)
 		spawn_point.object = unit
@@ -209,16 +212,16 @@ func spawn_unit_from_active_building():
 		self.move_camera_to_point(spawn_point.position)
 
 		#gather stats
-		battle_stats.add_spawn()
+		battle_stats.add_spawn(self.current_player)
 		abstract_map.map.fog_controller.clear_fog()
 
 func toggle_unit_details_view():
 	hud_controller.toggle_unit_details_view(current_player)
 
 func import_objects():
-	self.attach_objects(root_node.get_tree().get_nodes_in_group("units"))
-	self.attach_objects(root_node.get_tree().get_nodes_in_group("buildings"))
-	self.attach_objects(root_node.get_tree().get_nodes_in_group("terrain"))
+	self.attach_objects(self.root_tree.get_nodes_in_group("units"))
+	self.attach_objects(self.root_tree.get_nodes_in_group("buildings"))
+	self.attach_objects(self.root_tree.get_nodes_in_group("terrain"))
 
 func attach_objects(collection):
 	for entity in collection:
@@ -240,7 +243,7 @@ func end_turn():
 	hud_controller.set_turn(turn)
 
 	#gather stats
-	battle_stats.add_domination()
+	battle_stats.add_domination(self.current_player, positions.get_player_buildings(self.current_player).size())
 	if turn == 1 || fmod(turn, 3) == 0:
 		ai.select_behaviour_type(current_player)
 
@@ -321,7 +324,7 @@ func perform_ai_stuff():
 	return player_ap[current_player] > 0 && success
 
 func reset_player_units(player):
-	var units = root_node.get_tree().get_nodes_in_group("units")
+	var units = self.root_tree.get_nodes_in_group("units")
 	for unit in units:
 		if unit.player == player:
 			unit.reset_ap()
@@ -364,7 +367,7 @@ func move_unit(active_field, field):
 		self.activate_field(field)
 		abstract_map.map.fog_controller.clear_fog()
 		#gather stats
-		battle_stats.add_moves()
+		battle_stats.add_moves(self.current_player)
 
 	else:
 		sound_controller.play('no_moves')
@@ -373,7 +376,7 @@ func stats_start_time():
 	battle_stats.start_counting_time()
 
 func stats_set_time():
-	battle_stats.set_counting_time()
+	battle_stats.set_counting_time(self.current_player)
 
 func handle_battle(active_field, field):
 	if (battle_controller.can_attack(active_field.object, field.object)):

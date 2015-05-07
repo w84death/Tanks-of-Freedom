@@ -31,10 +31,11 @@ func set_damage():
 		if smoke:
 			smoke.show()
 			smoke.set_lifetime(smoke_lifetime)
-			smoke.set_amount(smoke_particles*damage)
+			smoke.set_amount(smoke_particles * damage)
 			smoke.set_emitting(true)
+
 		var region = self.get_region_rect()
-		self.set_region_rect(Rect2(Vector2(region.pos.x,region.pos.y + 32),Vector2(region.size.x,region.size.y)))
+		self.set_region_rect(Rect2(Vector2(region.pos.x, region.pos.y + 32), Vector2(region.size.x, region.size.y)))
 		self.show_explosion()
 
 func show_explosion():

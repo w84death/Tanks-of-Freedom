@@ -17,13 +17,13 @@ var object_factory = preload('object_factory.gd').new()
 var floating_ap_template = preload('res://particle/hit_points.xscn')
 var floating_ap 
 
-var TYPE_BUNKER = 0;
-var TYPE_BARRACKS = 1;
-var TYPE_FACTORY = 2;
-var TYPE_AIRPORT = 3;
-var TYPE_TOWER = 4;
+var TYPE_BUNKER = 0
+var TYPE_BARRACKS = 1
+var TYPE_FACTORY = 2
+var TYPE_AIRPORT = 3
+var TYPE_TOWER = 4
 
-const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3;
+const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3
 const IN_DANGER_MODIFIER  = 5
 
 func get_pos_map():
@@ -106,7 +106,6 @@ func get_cost():
 func estimate_action(action_type, enemy_units_nearby, own_units):
 	var score = 120
 	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER
-	#score = score - get_required_ap()
 	score = score - own_units.size() * 10
 
 	var spawn_unit_type = self.get_spawn_type()

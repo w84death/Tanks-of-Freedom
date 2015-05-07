@@ -20,18 +20,18 @@ func build_unit(type, player):
 	
 func build_tank(player):
 	if (player == player_blue):
-		return blue_tank_template.instance();
+		return blue_tank_template.instance()
 	if (player == player_red):
 		return red_tank_template.instance()
 		
 func build_soldier(player):
 	if (player == player_blue):
-		return blue_soldier_template.instance();
+		return blue_soldier_template.instance()
 	if (player == player_red):
 		return red_soldier_template.instance()
 
 func build_helicopter(player):
 	if (player == player_blue):
-		return blue_helicopter_template.instance();
+		return blue_helicopter_template.instance()
 	if (player == player_red):
 		return red_helicopter_template.instance()
