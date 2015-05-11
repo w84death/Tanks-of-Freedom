@@ -411,7 +411,7 @@ func save_map(file_name):
 			if units.get_cell(x, y) > -1:
 				temp_unit = units.get_cell(x, y)
 
-			if temp_terrain or temp_unit:
+			if temp_terrain > -1 or temp_unit > -1:
 				temp_data.append({
 					x=x,y=y,
 					terrain=temp_terrain,
@@ -422,15 +422,33 @@ func save_map(file_name):
 			temp_unit = -1
 
 	if self.check_file_name(file_name):
-		var the_file = map_file.open("user://"+file_name+".tof",File.WRITE)
-		map_file.store_var(temp_data)
-		map_file.close()
-		self.root.dependency_container.map_list.store_map(file_name)
+		self.store_map_in_binary_file(file_name, temp_data)
+		self.store_map_in_plain_file(file_name, temp_data)
 		print('ToF: map saved to file')
 		return true
 	else:
 		print('ToF: wrong file name')
 		return false
+
+func store_map_in_binary_file(file_name, data):
+	var the_file = map_file.open("user://" + file_name + ".tof", File.WRITE)
+	map_file.store_var(data)
+	map_file.close()
+	self.root.dependency_container.map_list.store_map(file_name)
+
+func store_map_in_plain_file(file_name, data):
+	var the_file = map_file.open("user://" + file_name + ".gd", File.WRITE)
+	map_file.store_line("map_data = [")
+	var cell_line
+	var cell
+	for cell in data:
+		cell_line = "x: " + str(cell.x) + ", "
+		cell_line += "y: " + str(cell.y) + ", "
+		cell_line += "terrain: " + str(cell.terrain) + ", "
+		cell_line += "unit: " + str(cell.unit)
+		map_file.store_line("	{" + cell_line + "},")
+	map_file.store_line("]")
+	map_file.close()
 
 func check_file_name(name):
 	# we need to check here for unusual charracters
