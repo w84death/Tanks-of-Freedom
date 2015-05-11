@@ -95,7 +95,7 @@ func load_map(template_name, workshop_file_name = false):
 		current_map.load_map(workshop_file_name)
 	else:
 		self.is_from_workshop = false
-		current_map.load_resource_map(template_name)
+		current_map.load_campaign_map(template_name)
 	current_map.show_blueprint = false
 	hud = hud_template.instance()
 

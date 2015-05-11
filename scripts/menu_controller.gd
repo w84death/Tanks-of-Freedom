@@ -85,6 +85,7 @@ func load_maps_menu():
 	maps_select_map = maps_sub_menu.get_node("control/menu_controls/maps")
 	maps_select_custom_map = maps_sub_menu.get_node("control/menu_controls/custom_maps")
 
+	maps_select_map.add_item("border")
 	maps_select_map.add_item("river")
 	maps_select_map.add_item("city")
 	maps_select_map.add_item("country")

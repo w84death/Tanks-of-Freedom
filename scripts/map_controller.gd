@@ -46,6 +46,7 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 var map_file = File.new()
+var campaign = preload("res://maps/campaign.gd").new()
 
 var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
 var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn'),preload('res://terrain/forest_3.xscn'),preload('res://terrain/forest_4.xscn'),preload('res://terrain/forest_5.xscn')]
@@ -438,14 +439,14 @@ func store_map_in_binary_file(file_name, data):
 
 func store_map_in_plain_file(file_name, data):
 	var the_file = map_file.open("user://" + file_name + ".gd", File.WRITE)
-	map_file.store_line("map_data = [")
+	map_file.store_line("var map_data = [")
 	var cell_line
 	var cell
 	for cell in data:
-		cell_line = "x: " + str(cell.x) + ", "
-		cell_line += "y: " + str(cell.y) + ", "
-		cell_line += "terrain: " + str(cell.terrain) + ", "
-		cell_line += "unit: " + str(cell.unit)
+		cell_line = "'x': " + str(cell.x) + ", "
+		cell_line += "'y': " + str(cell.y) + ", "
+		cell_line += "'terrain': " + str(cell.terrain) + ", "
+		cell_line += "'unit': " + str(cell.unit)
 		map_file.store_line("	{" + cell_line + "},")
 	map_file.store_line("]")
 	map_file.close()
@@ -472,34 +473,36 @@ func load_map(file_name):
 	var file_path = "user://"+file_name+".tof"
 	return self.load_map_from_file(file_path)
 
-func load_resource_map(file_name):
-	var file_path = "res://maps/blueprints/"+file_name+".tof"
-	self.load_map_from_file(file_path)
+func load_campaign_map(file_name):
+	var campaign_map = self.campaign.get_map_data(file_name)
+	self.fill_map_from_data_array(campaign_map.map_data)
 
 func load_map_from_file(file_path):
 	var temp_data
-	var cell
-	self.init_nodes()
 
 	if map_file.file_exists(file_path):
 		map_file.open(file_path, File.READ)
 		temp_data = map_file.get_var()
-		terrain.clear()
-		units.clear()
-
-		for cell in temp_data:
-			if cell.terrain > -1:
-				terrain.set_cell(cell.x, cell.y, cell.terrain)
-
-			if cell.unit > -1:
-				units.set_cell(cell.x, cell.y, cell.unit)
-		units.raise()
+		self.fill_map_from_data_array(temp_data)
 		print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()
 		return true
 	else:
 		print('ToF: map file not exists!')
 		return false
+
+func fill_map_from_data_array(data):
+	var cell
+	self.init_nodes()
+	terrain.clear()
+	units.clear()
+	for cell in data:
+		if cell.terrain > -1:
+			terrain.set_cell(cell.x, cell.y, cell.terrain)
+
+		if cell.unit > -1:
+			units.set_cell(cell.x, cell.y, cell.unit)
+	units.raise()
 
 func fill(width,height):
 	terrain.clear()
