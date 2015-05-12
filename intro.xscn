@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="12" version="1.0" version_name="Godot Engine v1.0.stable.7eb5d049c2">
-	<ext_resource path="res://assets/boxy_small.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
+<resource_file type="PackedScene" subresource_count="12" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/sounds/soundtrack/intro.ogg" type="AudioStream"></ext_resource>
-	<ext_resource path="res://assets/boxy_nano.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/boxy_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/corners.scn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/tof_logo_big.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://scripts/intro.gd" type="Script"></ext_resource>
-	<resource type="Animation" path="local://1">
+	<ext_resource path="res://assets/tof_logo_big.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_nano.fnt" type="Font"></ext_resource>
+	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "idle" </string>
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
@@ -34,7 +34,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://2">
+	<resource type="Animation" path="local://1">
 		<real name="length"> 7 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
@@ -271,10 +271,9 @@
 							<string> "current" </string>
 							<int> 1 </int>
 							<string> "sources" </string>
-							<array  len="3" shared="false">
+							<array  len="2" shared="false">
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/intro.gd" </string>
-								<string> "res://scripts/unit_control.gd" </string>
 							</array>
 						</dictionary>
 						<string> "2D" </string>
@@ -391,7 +390,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Help" </string>
+					<string> "2D" </string>
 				</dictionary>
 				<real> 400 </real>
 				<real> 240 </real>
@@ -405,8 +404,8 @@
 				<real> -22 </real>
 				<real> 130 </real>
 				<real> 23 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_big.fnt">  </resource>
-				<string> "presents" </string>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+				<string> "PRESENTS" </string>
 				<real> -1 </real>
 				<real> 512 </real>
 				<real> -62 </real>
@@ -421,20 +420,20 @@
 				<real> 160 </real>
 				<real> 97 </real>
 				<real> 181 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_normal.fnt">  </resource>
-				<string> "press start" </string>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<string> "PRESS START" </string>
 				<real> -280 </real>
 				<real> 80 </real>
 				<real> 281 </real>
 				<real> 92 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_small.fnt">  </resource>
-				<string> "czlowiekimadlo - wrmz - w84death - Mathias Nova - QmYaan" </string>
-				<real> 178 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+				<string> "CZLOWIEKIMADLO - WRMZ - W84DEATH - MATHIAS NOVA - QMYAAN" </string>
+				<real> 137 </real>
 				<real> 95 </real>
-				<real> 311 </real>
+				<real> 270 </real>
 				<real> 107 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_nano.fnt">  </resource>
-				<string> "Grand Beats" </string>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_nano.fnt">  </resource>
+				<string> "GRAND BEATS" </string>
 				<resource  resource_type="PackedScene" path="res://gui/corners.scn">  </resource>
 				<real> -2 </real>
 				<real> 2 </real>
@@ -456,12 +455,6 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -529,22 +522,28 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "default_light" </string>
-							<bool> True </bool>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -559,8 +558,8 @@
 				</dictionary>
 				<resource  resource_type="AudioStream" path="res://assets/sounds/soundtrack/intro.ogg">  </resource>
 				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<resource  resource_type="Animation" path="local://1">  </resource>
-				<resource  resource_type="Animation" path="local://2">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "intro" </string>

@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="36" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/hud/button_red_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/units_to_buy.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_question_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gui/stats.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/progress_xp.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/progress_ap_unit.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/progress_xp_background.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/progress_attack.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_nano.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/hud/button_question_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_big.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/boxy_small.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/hud/progress_ap_unit_blank.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
-	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/hud/progress_ap_unit_background.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_question_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/terrain_icons.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/help_labels.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gui/stats.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/hud/button_question_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_nano.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/progress_ap_unit_background.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/progress_ap_unit.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/progress_xp_background.png" type="Texture"></ext_resource>
+	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/hud/units_to_buy.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/progress_xp.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_question_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/progress_ap_unit_blank.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_question_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/progress_attack.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/boxy_huge.fnt" type="Font"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "jump" </string>
 		<real name="length"> 0.8 </real>
@@ -61,7 +61,7 @@
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
-			<string_array  len="171">
+			<string_array  len="169">
 				<string> "GUI" </string>
 				<string> "Control" </string>
 				<string> "_import_path" </string>
@@ -153,8 +153,6 @@
 				<string> "turn_no" </string>
 				<string> "Sprite 2" </string>
 				<string> "total_time" </string>
-				<string> "time_blue" </string>
-				<string> "time_red" </string>
 				<string> "limit" </string>
 				<string> "bottom_center" </string>
 				<string> "anchor/top" </string>
@@ -239,9 +237,9 @@
 			<string> "conn_count" </string>
 			<int> 0 </int>
 			<string> "node_count" </string>
-			<int> 150 </int>
+			<int> 148 </int>
 			<string> "variants" </string>
-			<array  len="301" shared="false">
+			<array  len="308" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -254,16 +252,15 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 2 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
-							<array  len="8" shared="false">
+							<array  len="7" shared="false">
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/action_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/building.gd" </string>
 								<string> "res://scripts/units/behaviours.gd" </string>
 								<string> "res://scripts/units/helicopter.gd" </string>
-								<string> "res://scripts/unit_control.gd" </string>
 								<string> "res://scripts/battle_stats.gd" </string>
 							</array>
 						</dictionary>
@@ -272,11 +269,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.983384 </real>
+							<real> 0.787828 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> 262.593, -28.0217 </vector2>
+							<vector2> -189.868, -85.9288 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -383,7 +380,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 				</dictionary>
 				<real> 94 </real>
 				<real> 400 </real>
@@ -408,9 +405,9 @@
 				<vector2> 14, 3 </vector2>
 				<int> 7 </int>
 				<real> -63 </real>
-				<real> -4 </real>
+				<real> -23 </real>
 				<real> 63 </real>
-				<real> 44 </real>
+				<real> 25 </real>
 				<resource  resource_type="Texture" path="res://assets/hud/button_small_normal.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_small_pressed.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_small_hover.png">  </resource>
@@ -421,10 +418,10 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 32 </real>
-				<real> 8 </real>
+				<real> 15 </real>
 				<real> 121 </real>
-				<real> 35 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_small.fnt">  </resource>
+				<real> 30 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
 				<string> "END TURN" </string>
 				<real> -1 </real>
 				<vector2> 23, 24 </vector2>
@@ -439,39 +436,36 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
+				<real> 8 </real>
+				<real> 35 </real>
 				<node_path> ".." </node_path>
 				<resource  resource_type="Animation" path="local://0">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "jump" </string>
-				<real> -152 </real>
-				<real> -47 </real>
-				<real> -74 </real>
-				<real> -2 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_big.fnt">  </resource>
+				<real> -153 </real>
+				<real> -38 </real>
+				<real> -83 </real>
+				<real> -5 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_huge.fnt">  </resource>
 				<color> 0.286275, 0.231373, 0.164706, 1 </color>
 				<string> "99" </string>
 				<vector2> -172, -24 </vector2>
-				<real> 161 </real>
+				<real> 67 </real>
+				<real> -39 </real>
+				<real> 157 </real>
+				<real> -6 </real>
 				<string> "188" </string>
 				<vector2> 176, -23 </vector2>
 				<real> -54 </real>
-				<real> -46 </real>
+				<real> -44 </real>
 				<real> 60 </real>
-				<real> -25 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_normal.fnt">  </resource>
+				<real> -26 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
 				<string> "00:00" </string>
-				<real> -64 </real>
-				<real> -23 </real>
-				<real> -8 </real>
-				<color> 0.192157, 0.635294, 0.94902, 1 </color>
-				<real> 66 </real>
-				<real> -9 </real>
-				<color> 0.745098, 0.14902, 0.2, 1 </color>
-				<real> 67 </real>
 				<real> -10 </real>
 				<real> 178 </real>
-				<real> 2 </real>
+				<real> 5 </real>
 				<string> "limit: off" </string>
 				<real> 42 </real>
 				<dictionary  shared="false">
@@ -479,9 +473,9 @@
 					<bool> True </bool>
 				</dictionary>
 				<dictionary  shared="false">
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
 					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
 				<vector2> 0, -10 </vector2>
@@ -503,7 +497,10 @@
 				<real> 7 </real>
 				<real> 188 </real>
 				<real> 28 </real>
+				<color> 0.745098, 0.14902, 0.2, 1 </color>
 				<string> "00" </string>
+				<real> -25 </real>
+				<real> -4 </real>
 				<color> 0, 0.341176, 0.517647, 1 </color>
 				<vector2> 78, 69 </vector2>
 				<resource  resource_type="Texture" path="res://assets/hud/units_to_buy.png">  </resource>
@@ -520,11 +517,12 @@
 				<real> -21 </real>
 				<real> 65 </real>
 				<color> 0, 0, 0, 1 </color>
+				<real> 44 </real>
 				<real> -133 </real>
 				<real> -85 </real>
 				<vector2> 68, -13 </vector2>
-				<real> -148 </real>
-				<real> -83 </real>
+				<real> 10 </real>
+				<real> -86 </real>
 				<string> "12" </string>
 				<vector2> -110, 79 </vector2>
 				<resource  resource_type="Texture" path="res://assets/hud/terrain_icons.png">  </resource>
@@ -534,20 +532,22 @@
 				<real> -137 </real>
 				<real> -50 </real>
 				<real> -89 </real>
+				<real> -2 </real>
 				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_normal.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_pressed.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_hover.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_focused.png">  </resource>
 				<real> 6 </real>
-				<real> 10 </real>
 				<real> 34 </real>
-				<resource  resource_type="Font" path="res://assets/boxy_nano.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/boxy_nano.fnt">  </resource>
+				<real> 2 </real>
 				<string> "show&#000a;more" </string>
 				<vector2> 140, 84 </vector2>
 				<resource  resource_type="Texture" path="res://assets/hud/progress_xp_background.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/hud/progress_xp.png">  </resource>
 				<int> 9 </int>
 				<vector2> 122, 54 </vector2>
+				<real> 66 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
@@ -587,7 +587,9 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<real> 120 </real>
+				<real> 16 </real>
+				<real> 119 </real>
+				<real> 31 </real>
 				<string> "MENU" </string>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
@@ -619,6 +621,7 @@
 				<real> 12 </real>
 				<real> 33 </real>
 				<string> "OK" </string>
+				<real> -148 </real>
 				<real> -95 </real>
 				<real> 146 </real>
 				<string> "TOP SECRET TRANSMISSION" </string>
@@ -658,10 +661,6 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "zfar" </string>
-							<real> 500 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -729,24 +728,28 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
+							<string> "zfar" </string>
+							<real> 500 </real>
 							<string> "deflight_rot_y" </string>
 							<real> 0.628319 </real>
-							<string> "default_light" </string>
-							<bool> True </bool>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -763,6 +766,7 @@
 				<real> 20 </real>
 				<real> 156 </real>
 				<real> 62 </real>
+				<color> 0.192157, 0.635294, 0.94902, 1 </color>
 				<string> "BLUE PLAYER TURN" </string>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
@@ -771,7 +775,6 @@
 				<vector2> 6.99998, -28 </vector2>
 				<int> 11 </int>
 				<real> -154 </real>
-				<real> 157 </real>
 				<real> 73 </real>
 				<string> "RED PLAYER TURN" </string>
 				<dictionary  shared="false">
@@ -794,17 +797,16 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<string> "zoom in" </string>
-				<real> -26 </real>
+				<real> 120 </real>
+				<string> "ZOOM IN" </string>
+				<real> -74 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<real> 5 </real>
-				<real> 9 </real>
-				<real> 125 </real>
-				<real> 36 </real>
-				<string> "zoom out" </string>
+				<real> 14 </real>
+				<real> 29 </real>
+				<string> "ZOOM OUT" </string>
 				<resource  resource_type="PackedScene" path="res://gui/stats.xscn">  </resource>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
@@ -840,6 +842,12 @@
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
 							<string> "viewports" </string>
 							<array  len="4" shared="false">
 								<dictionary  shared="false">
@@ -907,28 +915,22 @@
 									<vector3> 0, 0, 0 </vector3>
 								</dictionary>
 							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "default_light" </string>
-							<bool> True </bool>
 							<string> "viewport_mode" </string>
 							<int> 1 </int>
+							<string> "default_light" </string>
+							<bool> True </bool>
 							<string> "ambient_light_color" </string>
 							<color> 0.15, 0.15, 0.15, 1 </color>
 							<string> "show_grid" </string>
 							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
 							<string> "show_origin" </string>
 							<bool> True </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
 							<string> "default_srgb" </string>
 							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_show_subtree" </string>
@@ -969,6 +971,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> -168 </real>
+				<real> -64 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
@@ -981,6 +984,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> -17 </real>
+				<real> 9 </real>
 				<string> "attacks for&#000a;this turn" </string>
 				<real> 215 </real>
 				<dictionary  shared="false">
@@ -1028,7 +1032,7 @@
 				<string> "indie turn based&#000a;strategy game" </string>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="7640"> 				-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 0, 0, 0, 20, 19, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 21, 7, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 0, 1, 0, 24, 23, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 26, 9, 27, 8, 21, 9, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 2, 0, 24, 29, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 12, 0, 3, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 13, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 3, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 21, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 3, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 23, 33, 14, 34, 24, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 2, 0, 49, 48, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 27, 27, 28, 21, 29, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 33, 57, 34, 58, 35, 18, 36, 0, 7, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 37, 26, 38, 27, 39, 21, 40, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 42, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 7, 0, 31, 75, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 44, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 2, 0, 49, 76, -1, 28, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 26, 26, 47, 27, 28, 21, 48, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 49, 54, 50, 55, 51, 56, 33, 57, 35, 58, 35, 18, 52, 0, 10, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 37, 26, 38, 27, 39, 21, 40, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 42, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 10, 0, 31, 77, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 44, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 10, 0, 79, 78, -1, 9, 2, 0, 80, 4, 81, 14, 82, 53, 83, 54, 84, 1, 85, 2, 86, 55, 87, 56, 0, 2, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 57, 26, 58, 27, 59, 21, 60, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 61, 61, 62, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 63, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 64, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 2, 0, 59, 88, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 9, 26, 58, 27, 65, 21, 60, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 61, 61, 62, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 66, 70, 5, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 67, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 2, 0, 59, 90, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 68, 26, 69, 27, 70, 21, 71, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 62, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 73, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 59, 91, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 74, 26, 75, 27, 2, 21, 76, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 77, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 73, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 59, 92, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 2, 26, 75, 27, 78, 21, 79, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 80, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 73, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 59, 93, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 81, 26, 82, 27, 83, 21, 84, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 62, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 85, 70, 5, 71, 46, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 94, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 95, 4, 7, 4, 8, 4, 26, 86, 21, 86, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 0, 22, 0, 24, 96, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 87, 0, 23, 0, 24, 29, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 88, 0, 24, 0, 31, 97, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 89, 33, 14, 34, 90, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 98, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 91, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 29, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 92, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 93, 33, 14, 34, 94, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 17, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 99, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 95, 33, 14, 34, 96, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 97, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 100, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 98, 33, 14, 34, 94, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 99, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 101, -1, 19, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 32, 100, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 24, 0, 31, 102, -1, 19, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 32, 101, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 23, 0, 31, 103, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 102, 33, 14, 34, 15, 35, 103, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 23, 0, 59, 104, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 104, 26, 105, 27, 106, 21, 107, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 80, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 108, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 23, 0, 59, 105, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 104, 26, 71, 27, 106, 21, 27, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 109, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 108, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 23, 0, 31, 106, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 110, 33, 14, 34, 15, 35, 111, 36, 1, 37, 10, 38, 1, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 1, 45, 112, 0, 23, 0, 31, 107, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 113, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 112, 0, 23, 0, 31, 108, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 102, 33, 14, 34, 15, 35, 114, 36, 1, 37, 10, 38, 3, 39, 3, 40, 115, 41, 4, 42, 116, 43, 19, 44, 3, 45, 20, 0, 23, 0, 31, 109, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 102, 33, 14, 34, 15, 35, 117, 36, 1, 37, 10, 38, 3, 39, 3, 40, 115, 41, 4, 42, 22, 43, 19, 44, 3, 45, 20, 0, 23, 0, 31, 110, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 118, 33, 14, 34, 15, 35, 119, 36, 1, 37, 10, 38, 3, 39, 3, 40, 99, 41, 4, 42, 4, 43, 19, 44, 3, 45, 20, 0, 23, 0, 59, 111, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 120, 26, 121, 27, 122, 21, 123, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 63, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 23, 0, 59, 112, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 27, 26, 121, 27, 29, 21, 123, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 63, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 23, 0, 59, 113, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 125, 26, 121, 27, 126, 21, 123, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 63, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 23, 0, 31, 114, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 127, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 23, 0, 59, 115, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 128, 26, 38, 27, 129, 21, 37, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 62, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 130, 70, 5, 71, 46, 72, 3, 73, 3, 74, 43, 0, 23, 0, 31, 116, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 131, 33, 14, 34, 15, 35, 132, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 4, 42, 46, 43, 19, 44, 3, 45, 112, 0, 23, 0, 31, 117, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 133, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 112, 0, 23, 0, 31, 118, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 134, 33, 14, 34, 15, 35, 132, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 4, 42, 4, 43, 19, 44, 3, 45, 112, 0, 23, 0, 31, 119, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 135, 33, 14, 34, 15, 35, 132, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 4, 42, 5, 43, 19, 44, 3, 45, 112, 0, 23, 0, 49, 120, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 136, 26, 137, 27, 138, 21, 60, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 139, 54, 140, 55, 141, 56, 35, 57, 142, 58, 35, 0, 50, 0, 59, 59, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 143, 26, 144, 27, 86, 21, 145, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 146, 62, 14, 63, 84, 64, 2, 65, 84, 66, 14, 67, 3, 68, 3, 69, 147, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 23, 0, 31, 121, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 148, 33, 14, 34, 15, 35, 149, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 23, 0, 31, 122, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 148, 33, 14, 34, 15, 35, 150, 36, 1, 37, 10, 38, 3, 39, 3, 40, 151, 41, 4, 42, 97, 43, 19, 44, 3, 45, 20, 0, 23, 0, 31, 123, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 152, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 23, 0, 59, 124, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 104, 26, 86, 27, 106, 21, 78, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 108, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 22, 0, 24, 125, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 153, 0, 56, 0, 24, 29, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 57, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 154, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 57, 0, 31, 29, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 156, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 57, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 157, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 57, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 158, 33, 14, 34, 159, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 57, 0, 31, 97, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 160, 33, 14, 34, 159, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 57, 0, 31, 98, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 161, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 57, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 162, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 112, 0, 56, 0, 31, 126, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 163, 33, 14, 34, 15, 35, 164, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 1, 45, 112, 0, 56, 0, 59, 127, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 165, 26, 166, 27, 167, 21, 168, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 169, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 170, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 56, 0, 49, 128, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 171, 26, 172, 27, 173, 21, 174, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 33, 57, 35, 58, 35, 0, 67, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 84, 26, 2, 27, 175, 21, 176, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 177, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 56, 0, 59, 129, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 178, 26, 179, 27, 180, 21, 27, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 61, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 63, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 56, 0, 31, 106, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 181, 33, 14, 34, 15, 35, 111, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 1, 45, 112, 0, 0, 0, 24, 130, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 95, 4, 8, 4, 25, 182, 26, 40, 27, 182, 21, 40, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 71, 0, 49, 131, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 183, 27, 28, 21, 184, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 34, 58, 35, 18, 185, 0, 72, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 84, 26, 38, 27, 186, 21, 40, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 187, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 132, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 18, 188, 0, 74, 0, 24, 133, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 26, 189, 27, 8, 21, 189, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 75, 0, 24, 134, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 190, 0, 76, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 191, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 192, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 75, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 193, 33, 14, 34, 194, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 77, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 195, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 135, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 196, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 136, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 197, 33, 14, 34, 198, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 99, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 137, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 199, 33, 14, 34, 198, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 17, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 138, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 89, 33, 14, 34, 200, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 97, 43, 19, 44, 3, 45, 20, 0, 76, 0, 31, 139, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 201, 33, 14, 34, 194, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 75, 0, 49, 140, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 202, 26, 70, 27, 78, 21, 203, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 35, 58, 35, 18, 204, 0, 86, 0, 59, 141, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 205, 26, 206, 27, 175, 21, 207, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 208, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 75, 0, 59, 142, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 128, 26, 209, 27, 210, 21, 26, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 211, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 75, 0, 24, 143, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 212, 0, 89, 0, 31, 144, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 213, 33, 14, 34, 15, 35, 164, 36, 1, 37, 10, 38, 3, 39, 3, 40, 99, 41, 17, 42, 116, 43, 19, 44, 3, 45, 20, 0, 89, 0, 146, 145, -1, 8, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 214, 33, 14, 34, 15, 0, 91, 0, 148, 147, 215, 4, 2, 0, 32, 216, 18, 217, 149, 46, 0, 89, 0, 59, 150, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 218, 26, 219, 27, 220, 21, 221, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 77, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 222, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 75, 0, 24, 151, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 223, 0, 94, 0, 31, 152, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 224, 33, 14, 34, 15, 35, 164, 36, 1, 37, 10, 38, 3, 39, 3, 40, 99, 41, 17, 42, 225, 43, 19, 44, 3, 45, 20, 0, 94, 0, 146, 153, -1, 8, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 214, 33, 14, 34, 15, 0, 96, 0, 148, 154, 215, 4, 2, 0, 32, 216, 18, 217, 149, 4, 0, 94, 0, 59, 155, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 226, 26, 219, 27, 227, 21, 228, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 72, 61, 80, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 229, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 24, 156, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 157, 4, 95, 4, 7, 4, 8, 4, 25, 182, 26, 40, 27, 182, 21, 40, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 230, 0, 99, 0, 24, 29, -1, 19, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 26, 231, 27, 11, 21, 232, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 233, 0, 100, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 234, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 100, 0, 31, 29, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 235, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 100, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 236, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 100, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 237, 33, 14, 34, 159, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 100, 0, 31, 97, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 238, 33, 14, 34, 159, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 100, 0, 31, 98, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 239, 33, 14, 34, 15, 35, 155, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 99, 0, 49, 158, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 183, 27, 28, 21, 184, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 34, 58, 35, 18, 240, 0, 107, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 38, 26, 38, 27, 186, 21, 174, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 241, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 99, 0, 49, 159, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 59, 27, 28, 21, 242, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 34, 58, 35, 18, 243, 0, 109, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 244, 26, 245, 27, 246, 21, 247, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 248, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 160, 249, 3, 2, 0, 3, 3, 18, 250, 0, 0, 0, 20, 161, -1, 17, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 7, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 18, 251, 0, 112, 0, 24, 133, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 113, 0, 24, 115, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 252, 26, 253, 27, 252, 21, 253, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 254, 0, 114, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 17, 43, 19, 44, 3, 45, 20, 0, 114, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 256, 27, 257, 21, 258, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 84, 64, 2, 65, 84, 66, 14, 67, 3, 68, 3, 69, 259, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 113, 0, 24, 162, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 260, 26, 253, 27, 260, 21, 253, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 261, 0, 117, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 4, 43, 19, 44, 3, 45, 20, 0, 117, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 256, 27, 257, 21, 258, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 262, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 163, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 95, 4, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 0, 120, 0, 24, 96, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 263, 0, 121, 0, 24, 164, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 264, 26, 74, 27, 264, 21, 74, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 265, 0, 122, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 5, 43, 19, 44, 3, 45, 20, 0, 122, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 266, 27, 257, 21, 144, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 84, 64, 2, 65, 84, 66, 14, 67, 3, 68, 3, 69, 267, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 121, 0, 24, 105, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 206, 26, 268, 27, 206, 21, 268, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 269, 0, 125, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 125, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 270, 27, 257, 21, 245, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 84, 64, 2, 65, 84, 66, 14, 67, 3, 68, 3, 69, 271, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 121, 0, 24, 165, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 272, 26, 268, 27, 272, 21, 268, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 273, 0, 128, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 128, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 270, 27, 257, 21, 245, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 274, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 121, 0, 24, 166, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 275, 26, 276, 27, 275, 21, 276, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 277, 0, 131, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 278, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 5, 42, 279, 43, 19, 44, 3, 45, 20, 0, 131, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 280, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 5, 42, 115, 43, 19, 44, 3, 45, 20, 0, 131, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 202, 26, 281, 27, 184, 21, 105, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 84, 64, 2, 65, 84, 66, 14, 67, 3, 68, 3, 69, 282, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 120, 0, 24, 125, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 283, 0, 135, 0, 24, 129, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 284, 26, 285, 27, 284, 21, 285, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 136, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 136, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 266, 27, 257, 21, 144, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 286, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 135, 0, 24, 167, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 285, 26, 287, 27, 285, 21, 287, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 139, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 5, 43, 19, 44, 3, 45, 20, 0, 139, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 266, 27, 257, 21, 144, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 288, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 24, 168, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 157, 4, 7, 4, 25, 253, 26, 206, 27, 253, 21, 206, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 289, 0, 142, 0, 49, 169, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 231, 21, 290, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 291, 54, 292, 55, 35, 56, 35, 57, 293, 58, 35, 0, 0, 0, 20, 170, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 18, 294, 0, 144, 0, 24, 133, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 26, 189, 27, 8, 21, 189, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 145, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 295, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 145, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 296, 33, 14, 34, 297, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 145, 0, 31, 75, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 298, 33, 14, 34, 15, 35, 255, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 145, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 299, 26, 270, 27, 175, 21, 245, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 84, 64, 2, 65, 84, 66, 14, 67, 3, 68, 3, 69, 300, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0 </int_array>
+			<int_array  len="7496"> 				-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 0, 0, 0, 20, 19, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 21, 7, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 0, 1, 0, 24, 23, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 26, 9, 27, 8, 21, 9, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 2, 0, 24, 29, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 12, 0, 3, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 13, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 3, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 21, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 3, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 23, 33, 14, 34, 24, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 2, 0, 49, 48, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 27, 27, 28, 21, 29, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 33, 57, 34, 58, 35, 18, 36, 0, 7, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 37, 26, 38, 27, 39, 21, 40, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 42, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 7, 0, 31, 75, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 44, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 2, 0, 49, 76, -1, 28, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 26, 26, 47, 27, 28, 21, 48, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 49, 54, 50, 55, 51, 56, 33, 57, 35, 58, 35, 18, 52, 0, 10, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 37, 26, 53, 27, 39, 21, 54, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 42, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 10, 0, 31, 77, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 44, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 10, 0, 79, 78, -1, 9, 2, 0, 80, 4, 81, 14, 82, 55, 83, 56, 84, 1, 85, 2, 86, 57, 87, 58, 0, 2, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 59, 26, 60, 27, 61, 21, 62, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 63, 61, 64, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 65, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 66, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 2, 0, 59, 88, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 67, 26, 68, 27, 69, 21, 70, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 63, 61, 64, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 71, 70, 5, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 72, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 2, 0, 59, 90, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 73, 26, 74, 27, 75, 21, 76, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 64, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 78, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 2, 0, 59, 91, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 67, 26, 79, 27, 80, 21, 81, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 64, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 82, 70, 5, 71, 46, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 92, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 93, 4, 7, 4, 8, 4, 26, 83, 21, 83, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 0, 20, 0, 24, 94, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 84, 0, 21, 0, 24, 29, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 85, 0, 22, 0, 31, 95, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 86, 33, 14, 34, 87, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 96, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 88, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 29, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 89, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 90, 33, 14, 34, 91, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 17, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 97, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 92, 33, 14, 34, 93, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 94, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 98, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 95, 33, 14, 34, 91, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 96, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 99, -1, 19, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 32, 97, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 22, 0, 31, 100, -1, 19, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 32, 98, 33, 14, 34, 15, 35, 16, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 21, 0, 31, 101, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 99, 33, 14, 34, 15, 35, 100, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 21, 0, 59, 102, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 101, 26, 102, 27, 103, 21, 104, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 105, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 106, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 21, 0, 59, 103, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 101, 26, 107, 27, 103, 21, 108, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 109, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 106, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 21, 0, 31, 104, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 110, 33, 14, 34, 15, 35, 111, 36, 1, 37, 10, 38, 1, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 1, 45, 112, 0, 21, 0, 31, 105, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 113, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 112, 0, 21, 0, 31, 106, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 99, 33, 14, 34, 15, 35, 114, 36, 1, 37, 10, 38, 3, 39, 3, 40, 115, 41, 4, 42, 116, 43, 19, 44, 3, 45, 20, 0, 21, 0, 31, 107, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 99, 33, 14, 34, 15, 35, 117, 36, 1, 37, 10, 38, 3, 39, 3, 40, 115, 41, 4, 42, 22, 43, 19, 44, 3, 45, 20, 0, 21, 0, 31, 108, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 118, 33, 14, 34, 15, 35, 119, 36, 1, 37, 10, 38, 3, 39, 3, 40, 96, 41, 4, 42, 4, 43, 19, 44, 3, 45, 20, 0, 21, 0, 59, 109, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 120, 26, 121, 27, 122, 21, 123, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 65, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 21, 0, 59, 110, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 108, 26, 121, 27, 125, 21, 123, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 65, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 21, 0, 59, 111, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 126, 26, 121, 27, 127, 21, 123, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 65, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 21, 0, 31, 112, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 128, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 21, 0, 59, 113, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 126, 26, 129, 27, 130, 21, 104, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 64, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 131, 70, 5, 71, 46, 72, 3, 73, 3, 74, 43, 0, 21, 0, 31, 114, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 132, 33, 14, 34, 15, 35, 133, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 4, 42, 46, 43, 19, 44, 3, 45, 112, 0, 21, 0, 31, 115, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 134, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 112, 0, 21, 0, 31, 116, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 135, 33, 14, 34, 15, 35, 133, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 4, 42, 4, 43, 19, 44, 3, 45, 112, 0, 21, 0, 31, 117, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 136, 33, 14, 34, 15, 35, 133, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 4, 42, 5, 43, 19, 44, 3, 45, 112, 0, 21, 0, 49, 118, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 137, 26, 138, 27, 139, 21, 140, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 141, 54, 142, 55, 143, 56, 35, 57, 144, 58, 35, 0, 48, 0, 59, 59, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 145, 26, 129, 27, 83, 21, 146, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 147, 62, 14, 63, 148, 64, 2, 65, 148, 66, 14, 67, 3, 68, 3, 69, 149, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 21, 0, 31, 119, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 150, 33, 14, 34, 15, 35, 151, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 21, 0, 31, 120, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 150, 33, 14, 34, 15, 35, 152, 36, 1, 37, 10, 38, 3, 39, 3, 40, 153, 41, 4, 42, 94, 43, 19, 44, 3, 45, 20, 0, 21, 0, 31, 121, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 154, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 21, 0, 59, 122, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 101, 26, 83, 27, 103, 21, 155, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 106, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 20, 0, 24, 123, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 156, 0, 54, 0, 24, 29, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 55, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 157, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 55, 0, 31, 29, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 159, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 55, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 160, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 55, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 161, 33, 14, 34, 162, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 55, 0, 31, 95, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 163, 33, 14, 34, 162, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 55, 0, 31, 96, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 164, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 55, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 165, 33, 14, 34, 15, 35, 45, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 112, 0, 54, 0, 31, 124, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 166, 33, 14, 34, 15, 35, 167, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 1, 45, 112, 0, 54, 0, 59, 125, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 168, 26, 169, 27, 170, 21, 171, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 172, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 173, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0, 54, 0, 49, 126, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 174, 26, 175, 27, 176, 21, 177, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 33, 57, 35, 58, 35, 0, 65, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 148, 26, 2, 27, 178, 21, 179, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 180, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 54, 0, 59, 127, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 181, 26, 182, 27, 183, 21, 108, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 65, 70, 46, 71, 46, 72, 3, 73, 3, 74, 43, 0, 54, 0, 31, 104, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 184, 33, 14, 34, 15, 35, 111, 36, 1, 37, 10, 38, 3, 39, 3, 40, 4, 41, 4, 42, 46, 43, 19, 44, 1, 45, 112, 0, 0, 0, 24, 128, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 93, 4, 8, 4, 25, 185, 26, 54, 27, 185, 21, 54, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 69, 0, 49, 129, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 186, 27, 28, 21, 187, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 34, 58, 35, 18, 188, 0, 70, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 102, 26, 189, 27, 190, 21, 191, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 192, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 130, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 18, 193, 0, 72, 0, 24, 131, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 26, 194, 27, 8, 21, 194, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 73, 0, 24, 132, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 195, 0, 74, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 196, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 197, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 75, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 198, 33, 14, 34, 199, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 77, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 200, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 133, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 201, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 134, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 202, 33, 14, 34, 203, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 96, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 135, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 204, 33, 14, 34, 203, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 17, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 136, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 86, 33, 14, 34, 205, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 94, 43, 19, 44, 3, 45, 20, 0, 74, 0, 31, 137, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 206, 33, 14, 34, 199, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 73, 0, 49, 138, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 207, 26, 75, 27, 155, 21, 208, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 35, 58, 35, 18, 209, 0, 84, 0, 59, 139, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 210, 26, 211, 27, 178, 21, 212, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 213, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 73, 0, 59, 140, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 214, 26, 215, 27, 216, 21, 26, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 217, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 73, 0, 24, 141, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 218, 0, 87, 0, 31, 142, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 219, 33, 14, 34, 15, 35, 167, 36, 1, 37, 10, 38, 3, 39, 3, 40, 96, 41, 17, 42, 116, 43, 19, 44, 3, 45, 20, 0, 87, 0, 144, 143, -1, 8, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 220, 33, 14, 34, 15, 0, 89, 0, 146, 145, 221, 4, 2, 0, 32, 222, 18, 223, 147, 46, 0, 87, 0, 59, 148, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 224, 26, 225, 27, 226, 21, 227, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 228, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 229, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 73, 0, 24, 149, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 27, 11, 21, 11, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 230, 0, 92, 0, 31, 150, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 231, 33, 14, 34, 15, 35, 167, 36, 1, 37, 10, 38, 3, 39, 3, 40, 96, 41, 17, 42, 232, 43, 19, 44, 3, 45, 20, 0, 92, 0, 144, 151, -1, 8, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 220, 33, 14, 34, 15, 0, 94, 0, 146, 152, 221, 4, 2, 0, 32, 222, 18, 223, 147, 4, 0, 92, 0, 59, 153, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 233, 26, 225, 27, 69, 21, 234, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 77, 61, 105, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 235, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 24, 154, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 155, 4, 93, 4, 7, 4, 8, 4, 25, 185, 26, 54, 27, 185, 21, 54, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 236, 0, 97, 0, 24, 29, -1, 19, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 26, 237, 27, 11, 21, 238, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 239, 0, 98, 0, 31, 30, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 240, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 18, 43, 19, 44, 3, 45, 20, 0, 98, 0, 31, 29, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 241, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 98, 0, 31, 46, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 242, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 22, 43, 19, 44, 3, 45, 20, 0, 98, 0, 31, 47, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 243, 33, 14, 34, 162, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 25, 43, 19, 44, 3, 45, 20, 0, 98, 0, 31, 95, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 244, 33, 14, 34, 162, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 98, 0, 31, 96, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 245, 33, 14, 34, 15, 35, 158, 36, 1, 37, 10, 38, 3, 39, 3, 40, 17, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 97, 0, 49, 156, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 186, 27, 28, 21, 187, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 34, 58, 35, 18, 246, 0, 105, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 53, 26, 189, 27, 247, 21, 191, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 248, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 97, 0, 49, 157, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 26, 26, 249, 27, 28, 21, 76, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 30, 54, 31, 55, 32, 56, 35, 57, 34, 58, 35, 18, 250, 0, 107, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 81, 26, 251, 27, 190, 21, 252, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 19, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 253, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 158, 254, 3, 2, 0, 3, 3, 18, 255, 0, 0, 0, 20, 159, -1, 17, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 7, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 18, 256, 0, 110, 0, 24, 131, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 111, 0, 24, 113, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 257, 26, 258, 27, 257, 21, 258, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 259, 0, 112, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 17, 43, 19, 44, 3, 45, 20, 0, 112, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 261, 27, 262, 21, 263, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 148, 64, 2, 65, 148, 66, 14, 67, 3, 68, 3, 69, 264, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 111, 0, 24, 160, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 265, 26, 258, 27, 265, 21, 258, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 266, 0, 115, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 4, 43, 19, 44, 3, 45, 20, 0, 115, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 261, 27, 262, 21, 263, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 267, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 20, 161, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 93, 4, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 0, 118, 0, 24, 94, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 268, 0, 119, 0, 24, 162, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 269, 26, 270, 27, 269, 21, 270, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 271, 0, 120, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 5, 43, 19, 44, 3, 45, 20, 0, 120, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 272, 27, 262, 21, 129, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 148, 64, 2, 65, 148, 66, 14, 67, 3, 68, 3, 69, 273, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 119, 0, 24, 103, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 211, 26, 274, 27, 211, 21, 274, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 275, 0, 123, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 123, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 276, 27, 262, 21, 277, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 148, 64, 2, 65, 148, 66, 14, 67, 3, 68, 3, 69, 278, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 119, 0, 24, 163, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 279, 26, 274, 27, 279, 21, 274, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 280, 0, 126, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 126, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 276, 27, 262, 21, 277, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 281, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 119, 0, 24, 164, -1, 20, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 282, 26, 283, 27, 282, 21, 283, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 284, 0, 129, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 285, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 5, 42, 286, 43, 19, 44, 3, 45, 20, 0, 129, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 287, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 5, 42, 115, 43, 19, 44, 3, 45, 20, 0, 129, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 207, 26, 288, 27, 187, 21, 102, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 148, 64, 2, 65, 148, 66, 14, 67, 3, 68, 3, 69, 289, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 118, 0, 24, 123, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 25, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 290, 0, 133, 0, 24, 127, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 291, 26, 292, 27, 291, 21, 292, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 134, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 46, 43, 19, 44, 3, 45, 20, 0, 134, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 272, 27, 262, 21, 129, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 293, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 133, 0, 24, 165, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 292, 26, 294, 27, 292, 21, 294, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 137, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 10, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 4, 42, 5, 43, 19, 44, 3, 45, 20, 0, 137, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 249, 26, 272, 27, 262, 21, 129, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 2, 64, 2, 65, 2, 66, 14, 67, 3, 68, 3, 69, 295, 70, 4, 71, 4, 72, 3, 73, 3, 74, 43, 0, 0, 0, 24, 166, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 155, 4, 7, 4, 25, 258, 26, 211, 27, 258, 21, 211, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 18, 296, 0, 140, 0, 49, 167, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 237, 21, 297, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 50, 3, 51, 3, 52, 3, 53, 298, 54, 299, 55, 35, 56, 35, 57, 300, 58, 35, 0, 0, 0, 20, 168, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 22, 3, 18, 301, 0, 142, 0, 24, 131, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 8, 26, 194, 27, 8, 21, 194, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 28, 10, 0, 143, 0, 31, 31, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 302, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 17, 42, 46, 43, 19, 44, 3, 45, 20, 0, 143, 0, 31, 89, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 303, 33, 14, 34, 304, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 17, 42, 4, 43, 19, 44, 3, 45, 20, 0, 143, 0, 31, 75, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 305, 33, 14, 34, 15, 35, 260, 36, 1, 37, 10, 38, 3, 39, 3, 40, 25, 41, 17, 42, 5, 43, 19, 44, 3, 45, 20, 0, 143, 0, 59, 59, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 25, 306, 26, 276, 27, 178, 21, 277, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 60, 41, 61, 124, 62, 14, 63, 148, 64, 2, 65, 148, 66, 14, 67, 3, 68, 3, 69, 307, 70, 4, 71, 46, 72, 3, 73, 3, 74, 43, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
