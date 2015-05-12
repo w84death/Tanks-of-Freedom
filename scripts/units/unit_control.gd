@@ -3,7 +3,8 @@ extends AnimatedSprite
 
 export var player = -1
 export var position_on_map = Vector2(0,0)
-var last_position_on_map = Vector2(0,0)
+const MAX_HICCUP_DEPTH = 5
+var move_positions = []
 var current_map_terrain
 var current_map
 var health_bar
@@ -49,9 +50,12 @@ func get_type():
 func get_pos_map():
 	return position_on_map
 
+func add_move(position):
+	self.move_positions.append(position)
+
 func get_initial_pos():
 	position_on_map = current_map_terrain.world_to_map(self.get_pos())
-	last_position_on_map = position_on_map
+	self.add_move(position_on_map)
 	return position_on_map
 
 func get_stats():
@@ -84,12 +88,26 @@ func set_pos_map(new_position):
 		self.set_flip_h(false)
 
 	self.set_pos(current_map_terrain.map_to_world(new_position))
-	last_position_on_map = position_on_map
+	self.add_move(position_on_map)
 	position_on_map = new_position
 
 func check_hiccup(new_position):
-	if new_position == last_position_on_map:
-		return true
+	var depth = MAX_HICCUP_DEPTH
+	var count = move_positions.size()
+	if count == 0:
+		return false
+
+	if MAX_HICCUP_DEPTH > count:
+		depth = count
+
+	var start = count - depth - 1
+	if start < 0:
+		start = 0
+
+	for index in range(start, count - 1):
+		if new_position == move_positions[index]:
+			return true
+
 	return false
 
 func can_attack():
