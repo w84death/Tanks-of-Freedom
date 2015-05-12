@@ -32,7 +32,9 @@ var settings = {
 	'cpu_0' : false,
 	'cpu_1' : true,
 	'turns_cap': 0,
-	'camera_follow': true
+	'camera_follow': true,
+	'music_volume': 0.4,
+	'sound_volume': 0.8
 }
 
 var is_map_loaded = false
@@ -89,6 +91,7 @@ func load_map(template_name, workshop_file_name = false):
 	self.unload_map()
 	current_map_name = template_name
 	current_map = map_template.instance()
+	current_map.campaign = dependency_container.campaign
 	self.workshop_file_name = workshop_file_name
 	if workshop_file_name:
 		self.is_from_workshop = true

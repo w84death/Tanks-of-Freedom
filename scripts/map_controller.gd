@@ -46,7 +46,7 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 var map_file = File.new()
-var campaign = preload("res://maps/campaign.gd").new()
+var campaign
 
 var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
 var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn'),preload('res://terrain/forest_3.xscn'),preload('res://terrain/forest_4.xscn'),preload('res://terrain/forest_5.xscn')]
