@@ -60,8 +60,8 @@
 	<ext_resource path="res://assets/workshop/button_hq_red_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_forest_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_road_country_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_city_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_fence_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/workshop/button_clear_hover.png" type="Texture"></ext_resource>
@@ -615,7 +615,7 @@
 				<real> 14 </real>
 				<real> 121 </real>
 				<real> 29 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
 				<string> "LOAD MAP" </string>
 				<real> -1 </real>
 				<vector2> 21.3718, 24 </vector2>
@@ -647,7 +647,7 @@
 				<real> -156 </real>
 				<real> -32 </real>
 				<real> 189 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<string> "SAMPLE_MAP_NAME" </string>
 				<vector2> -176, -19 </vector2>
 				<node_path> ".." </node_path>

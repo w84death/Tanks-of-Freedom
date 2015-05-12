@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="9" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://scripts/message.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize_white.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
 	<main_resource>
@@ -287,7 +287,7 @@
 				<real> 11 </real>
 				<real> -276 </real>
 				<real> 29 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "sample title" </string>
 				<real> -1 </real>
@@ -295,7 +295,7 @@
 				<real> 35 </real>
 				<real> -269 </real>
 				<real> 150 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
 				<real> 96 </real>
 				<real> 153 </real>
 				<real> 222 </real>

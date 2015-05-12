@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="24" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/hud/button_red_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize_white.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://scripts/button_visual_hack.gd" type="Script"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/tank_red_0.png" type="Texture"></ext_resource>
-	<ext_resource path="res://scripts/menu_controller.gd" type="Script"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/animations/tank_blue_0.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://scripts/button_visual_hack.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://scripts/menu_controller.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/animations/tank_red_0.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_hover.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/card_multisize_white.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/hud/button_red_small_focused.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
@@ -166,11 +166,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.108033 </real>
+							<real> 0.598737 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -21.9434, -28.5666 </vector2>
+							<vector2> -498.258, -267.041 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -291,9 +291,9 @@
 				<real> 200 </real>
 				<real> -25 </real>
 				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
 					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<vector2> 150, -83 </vector2>
@@ -325,9 +325,9 @@
 				<real> -90 </real>
 				<real> 20 </real>
 				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
 					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<vector2> -150, -128 </vector2>
@@ -335,7 +335,7 @@
 				<vector2> 150, -128 </vector2>
 				<vector2> 0, -128 </vector2>
 				<vector2> 12, 3 </vector2>
-				<vector2> -0.999985, 26.5 </vector2>
+				<vector2> 1.12057e-05, 26.5 </vector2>
 				<vector2> 12, 12.65 </vector2>
 				<vector2> 150, 26.5 </vector2>
 				<vector2> 3, 12.45 </vector2>
@@ -360,7 +360,7 @@
 				<real> 13 </real>
 				<real> 120 </real>
 				<real> 31 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<string> "HUMAN" </string>
 				<real> -1 </real>
 				<real> -113 </real>
@@ -381,7 +381,7 @@
 				<real> 135 </real>
 				<real> 146 </real>
 				<real> 165 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
 				<color> 0.184314, 0.282353, 0.301961, 1 </color>
 				<real> 2 </real>
 				<string> "BETA VERSION&#000a;COPYRIGHT P1X 2015" </string>

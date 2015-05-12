@@ -4,14 +4,14 @@
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
@@ -312,14 +312,14 @@
 				<real> 12 </real>
 				<real> 118 </real>
 				<real> 30 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<string> "FILL" </string>
 				<real> -1 </real>
 				<real> 3 </real>
 				<real> 11 </real>
 				<real> 535 </real>
 				<real> 45 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "-TOOLBOX-" </string>
 				<real> 58 </real>

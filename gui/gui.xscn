@@ -6,16 +6,16 @@
 	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/terrain_icons.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/help_labels.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/stats.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/hud/button_question_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_nano.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_nano.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/progress_ap_unit_background.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
@@ -33,7 +33,7 @@
 	<ext_resource path="res://assets/hud/button_question_focused.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/progress_attack.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_huge.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_huge.fnt" type="Font"></ext_resource>
 	<resource type="Animation" path="local://0">
 		<string name="resource/name"> "jump" </string>
 		<real name="length"> 0.8 </real>
@@ -421,7 +421,7 @@
 				<real> 15 </real>
 				<real> 121 </real>
 				<real> 30 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
 				<string> "END TURN" </string>
 				<real> -1 </real>
 				<vector2> 23, 24 </vector2>
@@ -447,7 +447,7 @@
 				<real> -38 </real>
 				<real> -83 </real>
 				<real> -5 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_huge.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_huge.fnt">  </resource>
 				<color> 0.286275, 0.231373, 0.164706, 1 </color>
 				<string> "99" </string>
 				<vector2> -172, -24 </vector2>
@@ -461,7 +461,7 @@
 				<real> -44 </real>
 				<real> 60 </real>
 				<real> -26 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<string> "00:00" </string>
 				<real> -10 </real>
 				<real> 178 </real>
@@ -539,7 +539,7 @@
 				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_focused.png">  </resource>
 				<real> 6 </real>
 				<real> 34 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_nano.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_nano.fnt">  </resource>
 				<real> 2 </real>
 				<string> "show&#000a;more" </string>
 				<vector2> 140, 84 </vector2>

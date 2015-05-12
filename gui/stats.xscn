@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="16" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
@@ -10,7 +10,7 @@
 	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/pixel_green.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
@@ -326,7 +326,7 @@
 				<real> 10 </real>
 				<real> 211 </real>
 				<real> 31 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<string> "restart" </string>
 				<real> -1 </real>
 				<real> -260 </real>
@@ -351,7 +351,7 @@
 				<real> 118 </real>
 				<real> -51 </real>
 				<real> 171 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
 				<string> "total:" </string>
 				<real> -302 </real>
 				<real> 20 </real>

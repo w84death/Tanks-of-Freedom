@@ -1,0 +1,343 @@
+Searching 409 files for "boxy_"
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/.fscache:
+   10  tileset_edit.xscn::PackedScene::1427633255::
+   11  ::res://assets::1431360005
+   12: boxy_big.fnt::Font::1422564998::font<>../../Documents/fonts/Early GameBoy.ttf<>3ada9815c06d2619d52d16a5601c96b2<>1388857166
+   13: boxy_normal.fnt::Font::1431360005::font<>../../Documents/fonts/Early GameBoy.ttf<>3ada9815c06d2619d52d16a5601c96b2<>1388857166
+   14  buildings.png::ImageTexture::1427046310::
+   15  corner.png::ImageTexture::1402833119::
+   ..
+  103  fence.png::ImageTexture::1423849341::
+  104  ::res://assets/fonts::1431359960
+  105: boxy_huge.fnt::Font::1423760265::font<>../../Documents/fonts/Early GameBoy.ttf<>3ada9815c06d2619d52d16a5601c96b2<>1388857166
+  106: boxy_nano.fnt::Font::1431360006::font<>../../Documents/fonts/Early GameBoy.ttf<>3ada9815c06d2619d52d16a5601c96b2<>1388857166
+  107: boxy_normal.fnt::Font::1423507412::font<>../../Documents/fonts/Early GameBoy.ttf<>3ada9815c06d2619d52d16a5601c96b2<>1388857166
+  108: boxy_small.fnt::Font::1423507369::font<>../../Documents/fonts/Early GameBoy.ttf<>3ada9815c06d2619d52d16a5601c96b2<>1388857166
+  109  ::res://assets/hud::1428153043
+  110  button_blue_small_hover.png::ImageTexture::1425407463::
+
+~/Dropbox/Gamedev/Projects/BitTanksTest/assets/fonts/boxy_big.fnt:
+    <binary>
+
+~/Dropbox/Gamedev/Projects/BitTanksTest/assets/fonts/boxy_huge.fnt:
+    <binary>
+
+~/Dropbox/Gamedev/Projects/BitTanksTest/assets/fonts/boxy_nano.fnt:
+    <binary>
+
+~/Dropbox/Gamedev/Projects/BitTanksTest/assets/fonts/boxy_normal.fnt:
+    <binary>
+
+~/Dropbox/Gamedev/Projects/BitTanksTest/assets/fonts/boxy_small.fnt:
+    <binary>
+
+~/Dropbox/Gamedev/Projects/BitTanksTest/assets/fonts/courier_prime_big.fnt:
+    <binary>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/button_long.xscn:
+    3  	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
+    4  	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
+    5: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+    6  	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
+    7  	<ext_resource path="res://assets/hud/button_long_disabled.png" type="Texture"></ext_resource>
+    .
+  193  				<real> 216 </real>
+  194  				<real> 45 </real>
+  195: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  196  				<real> 0 </real>
+  197  				<string> "button long" </string>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/credits.xscn:
+    2  <resource_file type="PackedScene" subresource_count="4" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+    3  	<ext_resource path="res://assets/logo.png" type="Texture"></ext_resource>
+    4: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+    5  	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+    6  	<main_resource>
+    .
+  213  				<real> 141 </real>
+  214  				<real> 182 </real>
+  215: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  216  				<real> 0 </real>
+  217  				<real> 12 </real>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/gui.xscn:
+    7  	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
+    8  	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
+    9: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+   10  	<ext_resource path="res://assets/hud/terrain_icons.png" type="Texture"></ext_resource>
+   11  	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+   ..
+   14  	<ext_resource path="res://gui/stats.xscn" type="PackedScene"></ext_resource>
+   15  	<ext_resource path="res://assets/hud/button_question_normal.png" type="Texture"></ext_resource>
+   16: 	<ext_resource path="res://assets/fonts/boxy_nano.fnt" type="Font"></ext_resource>
+   17  	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
+   18: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+   19  	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+   20  	<ext_resource path="res://assets/hud/progress_ap_unit_background.png" type="Texture"></ext_resource>
+   ..
+   34  	<ext_resource path="res://assets/hud/progress_attack.png" type="Texture"></ext_resource>
+   35  	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+   36: 	<ext_resource path="res://assets/fonts/boxy_huge.fnt" type="Font"></ext_resource>
+   37  	<resource type="Animation" path="local://0">
+   38  		<string name="resource/name"> "jump" </string>
+   ..
+  422  				<real> 121 </real>
+  423  				<real> 30 </real>
+  424: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  425  				<string> "END TURN" </string>
+  426  				<real> -1 </real>
+  ...
+  448  				<real> -83 </real>
+  449  				<real> -5 </real>
+  450: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_huge.fnt">  </resource>
+  451  				<color> 0.286275, 0.231373, 0.164706, 1 </color>
+  452  				<string> "99" </string>
+  ...
+  462  				<real> 60 </real>
+  463  				<real> -26 </real>
+  464: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  465  				<string> "00:00" </string>
+  466  				<real> -10 </real>
+  ...
+  540  				<real> 6 </real>
+  541  				<real> 34 </real>
+  542: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_nano.fnt">  </resource>
+  543  				<real> 2 </real>
+  544  				<string> "show&#000a;more" </string>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/menu.xscn:
+    6  	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+    7  	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
+    8: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+    9  	<ext_resource path="res://assets/hud/button_red_small_focused.png" type="Texture"></ext_resource>
+   10  	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+   ..
+   15  	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
+   16  	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+   17: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+   18  	<ext_resource path="res://scripts/button_visual_hack.gd" type="Script"></ext_resource>
+   19  	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
+   ..
+  361  				<real> 120 </real>
+  362  				<real> 31 </real>
+  363: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  364  				<string> "HUMAN" </string>
+  365  				<real> -1 </real>
+  ...
+  382  				<real> 146 </real>
+  383  				<real> 165 </real>
+  384: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  385  				<color> 0.184314, 0.282353, 0.301961, 1 </color>
+  386  				<real> 2 </real>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/menu_maps.xscn:
+   11  	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+   12  	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
+   13: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+   14  	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
+   15  	<resource type="GDScript" path="local://0">
+   ..
+  327  				<real> 123 </real>
+  328  				<real> 32 </real>
+  329: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  330  				<string> "BACK" </string>
+  331  				<real> -1 </real>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/menu_team.xscn:
+   14  	<ext_resource path="res://assets/hud/button_red_small_normal.png" type="Texture"></ext_resource>
+   15  	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+   16: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+   17  	<resource type="GDScript" path="local://0">
+   18  		<string name="script/source"> "&#000a;func load_map(name):&#000a;&#0009;get_parent().load_map(name)&#000a;" </string>
+   ..
+  303  				<real> 169 </real>
+  304  				<real> -11 </real>
+  305: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  306  				<color> 0.184314, 0.282353, 0.301961, 1 </color>
+  307  				<string> "select team" </string>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/message.xscn:
+    2  <resource_file type="PackedScene" subresource_count="9" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+    3  	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
+    4: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+    5  	<ext_resource path="res://scripts/message.gd" type="Script"></ext_resource>
+    6  	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+    7  	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+    8: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+    9  	<ext_resource path="res://assets/hud/card_multisize_white.png" type="Texture"></ext_resource>
+   10  	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
+   ..
+  288  				<real> -276 </real>
+  289  				<real> 29 </real>
+  290: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  291  				<color> 0, 0, 0, 1 </color>
+  292  				<string> "sample title" </string>
+  ...
+  296  				<real> -269 </real>
+  297  				<real> 150 </real>
+  298: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  299  				<real> 96 </real>
+  300  				<real> 153 </real>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/stats.xscn:
+    1  <?xml version="1.0" encoding="UTF-8" ?>
+    2  <resource_file type="PackedScene" subresource_count="16" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+    3: 	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
+    4  	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
+    5  	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
+    .
+   11  	<ext_resource path="res://assets/hud/pixel_green.png" type="Texture"></ext_resource>
+   12  	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+   13: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+   14  	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
+   15  	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
+   ..
+  327  				<real> 211 </real>
+  328  				<real> 31 </real>
+  329: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  330  				<string> "restart" </string>
+  331  				<real> -1 </real>
+  ...
+  352  				<real> -51 </real>
+  353  				<real> 171 </real>
+  354: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+  355  				<string> "total:" </string>
+  356  				<real> -302 </real>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/tutorial.xscn:
+    1  <?xml version="1.0" encoding="UTF-8" ?>
+    2  <resource_file type="PackedScene" subresource_count="22" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+    3: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+    4: 	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
+    5  	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
+    6  	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
+    .
+   18  	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
+   19  	<ext_resource path="res://assets/animations/helicopter_blue_0.png" type="Texture"></ext_resource>
+   20: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+   21: 	<ext_resource path="res://assets/fonts/boxy_huge.fnt" type="Font"></ext_resource>
+   22  	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
+   23  	<ext_resource path="res://assets/animations/soldier_red_0.png" type="Texture"></ext_resource>
+   ..
+  410  				<real> 123 </real>
+  411  				<real> 31 </real>
+  412: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  413  				<string> "back" </string>
+  414  				<real> -1 </real>
+  ...
+  431  				<real> 297 </real>
+  432  				<real> -58 </real>
+  433: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_huge.fnt">  </resource>
+  434  				<color> 0.184314, 0.282353, 0.301961, 1 </color>
+  435  				<string> "Welcome to tutorial" </string>
+  ...
+  438  				<real> 285 </real>
+  439  				<real> 65 </real>
+  440: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  441  				<real> 5 </real>
+  442  				<string> "Tanks of Freedom is still in development. &#000a;The game is sponsored by players.&#000a;&#000a;To keep the game free for everyone&#000a;please support us at itch.io" </string>
+  ...
+  729  				<real> -65 </real>
+  730  				<real> 220 </real>
+  731: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+  732  				<color> 0.286275, 0.235294, 0.164706, 1 </color>
+  733  				<string> "win" </string>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/workshop/toolbox.xscn:
+    5  	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
+    6  	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+    7: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+    8  	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
+    9  	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
+   ..
+   12  	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
+   13  	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
+   14: 	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
+   15  	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
+   16  	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
+   ..
+  313  				<real> 118 </real>
+  314  				<real> 30 </real>
+  315: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  316  				<string> "FILL" </string>
+  317  				<real> -1 </real>
+  ...
+  320  				<real> 535 </real>
+  321  				<real> 45 </real>
+  322: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+  323  				<color> 0, 0, 0, 1 </color>
+  324  				<string> "-TOOLBOX-" </string>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/gui/workshop/workshop.xscn:
+   61  	<ext_resource path="res://assets/workshop/button_forest_normal.png" type="Texture"></ext_resource>
+   62  	<ext_resource path="res://assets/workshop/button_road_country_normal.png" type="Texture"></ext_resource>
+   63: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+   64: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+   65  	<ext_resource path="res://assets/workshop/button_city_normal.png" type="Texture"></ext_resource>
+   66  	<ext_resource path="res://assets/workshop/button_fence_hover.png" type="Texture"></ext_resource>
+   ..
+  616  				<real> 121 </real>
+  617  				<real> 29 </real>
+  618: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  619  				<string> "LOAD MAP" </string>
+  620  				<real> -1 </real>
+  ...
+  648  				<real> -32 </real>
+  649  				<real> 189 </real>
+  650: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  651  				<string> "SAMPLE_MAP_NAME" </string>
+  652  				<vector2> -176, -19 </vector2>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/intro.xscn:
+    2  <resource_file type="PackedScene" subresource_count="12" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+    3  	<ext_resource path="res://assets/sounds/soundtrack/intro.ogg" type="AudioStream"></ext_resource>
+    4: 	<ext_resource path="res://assets/fonts/boxy_normal.fnt" type="Font"></ext_resource>
+    5: 	<ext_resource path="res://assets/fonts/boxy_big.fnt" type="Font"></ext_resource>
+    6  	<ext_resource path="res://assets/logo.png" type="Texture"></ext_resource>
+    7  	<ext_resource path="res://gui/corners.scn" type="PackedScene"></ext_resource>
+    8: 	<ext_resource path="res://assets/fonts/boxy_small.fnt" type="Font"></ext_resource>
+    9  	<ext_resource path="res://scripts/intro.gd" type="Script"></ext_resource>
+   10  	<ext_resource path="res://assets/tof_logo_big.png" type="Texture"></ext_resource>
+   11: 	<ext_resource path="res://assets/fonts/boxy_nano.fnt" type="Font"></ext_resource>
+   12  	<resource type="Animation" path="local://0">
+   13  		<string name="resource/name"> "idle" </string>
+   ..
+  405  				<real> 130 </real>
+  406  				<real> 23 </real>
+  407: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_big.fnt">  </resource>
+  408  				<string> "PRESENTS" </string>
+  409  				<real> -1 </real>
+  ...
+  421  				<real> 97 </real>
+  422  				<real> 181 </real>
+  423: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_normal.fnt">  </resource>
+  424  				<string> "PRESS START" </string>
+  425  				<real> -280 </real>
+  ...
+  427  				<real> 281 </real>
+  428  				<real> 92 </real>
+  429: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_small.fnt">  </resource>
+  430  				<string> "CZLOWIEKIMADLO - WRMZ - W84DEATH - MATHIAS NOVA - QMYAAN" </string>
+  431  				<real> 137 </real>
+  ...
+  433  				<real> 270 </real>
+  434  				<real> 107 </real>
+  435: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_nano.fnt">  </resource>
+  436  				<string> "GRAND BEATS" </string>
+  437  				<resource  resource_type="PackedScene" path="res://gui/corners.scn">  </resource>
+
+/Users/krzysztofjankowski/Dropbox/Gamedev/Projects/BitTanksTest/particle/hit_points.xscn:
+    1  <?xml version="1.0" encoding="UTF-8" ?>
+    2  <resource_file type="PackedScene" subresource_count="5" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+    3: 	<ext_resource path="res://assets/fonts/boxy_nano.fnt" type="Font"></ext_resource>
+    4  	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
+    5  	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
+    .
+  146  				<real> -24 </real>
+  147  				<int> 2 </int>
+  148: 				<resource  resource_type="Font" path="res://assets/fonts/boxy_nano.fnt">  </resource>
+  149  				<color> 0, 0, 0, 1 </color>
+  150  				<int> 1 </int>
+
+66 matches across 20 files
