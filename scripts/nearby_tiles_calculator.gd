@@ -12,6 +12,6 @@ func get_calculated_nearby_tiles():
 				if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
 					tiles.append(Vector2(x, y))
 
-		print(tiles)
+		#print(tiles)
 
 	return [[[]]]

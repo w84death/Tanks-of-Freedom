@@ -18,7 +18,7 @@ func fill_fog():
 		for y in range(0, map_controller.MAP_MAX_Y):
 			if terrain.get_cell(x,y) > -1:
 				var uniq_num = int(sin(x+y)+cos(x*y))
-				print(uniq_num)
+				#print(uniq_num)
 				if  uniq_num % 2 == 0:
 					if uniq_num % 8 == 0:
 						sprite = 0

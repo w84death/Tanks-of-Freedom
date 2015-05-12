@@ -136,10 +136,13 @@ func __get_next_position(current_position, x_mod, y_mod):
 	return tmp
 
 func __check_direction_avaibility(next_position):
+	# we can assume that if building can be catchable it will be handled by standard ai
+
 	if next_position.x < 0 || next_position.y < 0:
 		return false
 
 	var field = get_field(next_position)
+	#print('position check', next_position)
 	if field.terrain_type != - 1 && field.object == null:
 		return true
 

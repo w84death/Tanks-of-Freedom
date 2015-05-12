@@ -44,8 +44,8 @@ func wander(unit, units):
 			var available_directions_size = available_directions.size()
 			if (available_directions_size > 0):
 				if (self.abstract_map.is_spawning_point(position)):
-					score = 100
+					score = 80
 				else:
-					score = available_directions.size() * 10 + randi() % units.size()
+					score = available_directions.size() * 5 + randi() % units.size()
 
 			self.actions.append_action(action, score)

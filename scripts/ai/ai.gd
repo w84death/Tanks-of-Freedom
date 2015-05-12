@@ -83,9 +83,8 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 			var destinations = []
 			destinations = self.__gather_unit_destinations(position, current_player)
 			destinations = destinations + __gather_buildings_destinations(position, current_player)
-			if destinations.size() == 0:
-				if current_player_ap > 3:
-					self.wandering.wander(unit, self.units)
+			if current_player_ap > 5:
+				self.wandering.wander(unit, self.units)
 			else:
 				#TODO - calculate data in units groups
 				pathfinding.set_cost_grid(cost_grids[unit.get_type()])
