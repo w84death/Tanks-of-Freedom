@@ -48,14 +48,52 @@ const MAP_MAX_Y = 64
 var map_file = File.new()
 var campaign
 
-var map_grass = [preload('res://terrain/grass_1.xscn'),preload('res://terrain/grass_2.xscn')]
-var map_forest = [preload('res://terrain/forest_1.xscn'),preload('res://terrain/forest_2.xscn'),preload('res://terrain/forest_3.xscn'),preload('res://terrain/forest_4.xscn'),preload('res://terrain/forest_5.xscn')]
-var map_city = [preload('res://terrain/city_1.xscn'),preload('res://terrain/city_2.xscn'),preload('res://terrain/city_3.xscn'),preload('res://terrain/city_4.xscn'),preload('res://terrain/city_5.xscn')]
-var map_mountain = [preload('res://terrain/mountain_1.xscn'),preload('res://terrain/mountain_2.xscn'),preload('res://terrain/mountain_3.xscn'),preload('res://terrain/mountain_4.xscn')]
+var map_grass = [
+	preload('res://terrain/grass_1.xscn'),
+	preload('res://terrain/grass_2.xscn')]
+var map_forest = [
+	preload('res://terrain/forest_1.xscn'),
+	preload('res://terrain/forest_2.xscn'),
+	preload('res://terrain/forest_3.xscn'),
+	preload('res://terrain/forest_4.xscn'),
+	preload('res://terrain/forest_5.xscn'),
+	preload('res://terrain/forest_6.xscn')]
+var map_city = [
+	preload('res://terrain/city_1.xscn'),
+	preload('res://terrain/city_2.xscn'),
+	preload('res://terrain/city_3.xscn'),
+	preload('res://terrain/city_4.xscn'),
+	preload('res://terrain/city_5.xscn')]
+var map_mountain = [
+	preload('res://terrain/mountain_1.xscn'),
+	preload('res://terrain/mountain_2.xscn'),
+	preload('res://terrain/mountain_3.xscn'),
+	preload('res://terrain/mountain_4.xscn')]
 var map_statue = preload('res://terrain/city_statue.xscn')
-var map_flowers = [preload('res://terrain/flowers_1.xscn'),preload('res://terrain/flowers_2.xscn'),preload('res://terrain/flowers_3.xscn'),preload('res://terrain/flowers_4.xscn'),preload('res://terrain/log.xscn'),preload('res://terrain/flowers_5.xscn'),preload('res://terrain/flowers_6.xscn'),preload('res://terrain/flowers_7.xscn')]
-var map_buildings = [preload('res://buildings/bunker_blue.xscn'),preload('res://buildings/bunker_red.xscn'),preload('res://buildings/barrack.xscn'),preload('res://buildings/factory.xscn'),preload('res://buildings/airport.xscn'),preload('res://buildings/tower.xscn'),preload('res://buildings/fence.xscn')]
-var map_units = [preload('res://units/soldier_blue.xscn'),preload('res://units/tank_blue.xscn'),preload('res://units/helicopter_blue.xscn'),preload('res://units/soldier_red.xscn'),preload('res://units/tank_red.xscn'),preload('res://units/helicopter_red.xscn')]
+var map_flowers = [
+	preload('res://terrain/flowers_1.xscn'),
+	preload('res://terrain/flowers_2.xscn'),
+	preload('res://terrain/flowers_3.xscn'),
+	preload('res://terrain/flowers_4.xscn'),
+	preload('res://terrain/log.xscn'),
+	preload('res://terrain/flowers_5.xscn'),
+	preload('res://terrain/flowers_6.xscn'),
+	preload('res://terrain/flowers_7.xscn')]
+var map_buildings = [
+	preload('res://buildings/bunker_blue.xscn'),
+	preload('res://buildings/bunker_red.xscn'),
+	preload('res://buildings/barrack.xscn'),
+	preload('res://buildings/factory.xscn'),
+	preload('res://buildings/airport.xscn'),
+	preload('res://buildings/tower.xscn'),
+	preload('res://buildings/fence.xscn')]
+var map_units = [
+	preload('res://units/soldier_blue.xscn'),
+	preload('res://units/tank_blue.xscn'),
+	preload('res://units/helicopter_blue.xscn'),
+	preload('res://units/soldier_red.xscn'),
+	preload('res://units/tank_red.xscn'),
+	preload('res://units/helicopter_red.xscn')]
 
 func _input(event):
 	pos = terrain.get_pos()
