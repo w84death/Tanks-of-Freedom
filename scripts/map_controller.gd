@@ -473,7 +473,8 @@ func store_map_in_binary_file(file_name, data):
 	var the_file = map_file.open("user://" + file_name + ".tof", File.WRITE)
 	map_file.store_var(data)
 	map_file.close()
-	self.root.dependency_container.map_list.store_map(file_name)
+	if file_name != "restore_map":
+		self.root.dependency_container.map_list.store_map(file_name)
 
 func store_map_in_plain_file(file_name, data):
 	var the_file = map_file.open("user://" + file_name + ".gd", File.WRITE)
@@ -498,7 +499,7 @@ func check_file_name(name):
 		return false
 
 	var validator = RegEx.new()
-	validator.compile("^([a-zA-Z0-9-]*)$")
+	validator.compile("^([a-zA-Z0-9-_]*)$")
 	validator.find(name)
 	var matches = validator.get_captures()
 
