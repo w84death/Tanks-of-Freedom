@@ -6,7 +6,7 @@ var root
 func _init(map_controller_object, terrain_node):
 	map_controller = map_controller_object
 	terrain = terrain_node
-	root = map_controller.root
+	root = map_controller_object.root
 
 func init_node():
     fog_of_war = map_controller.get_node("fog_of_war")
@@ -58,13 +58,18 @@ func clear_fog():
 	self.fill_fog()
 	var units = root.get_tree().get_nodes_in_group("units")
 	var buildings = root.get_tree().get_nodes_in_group("buildings")
+	var current_player = 0
+
+	if root.action_controller != null:
+		current_player = root.action_controller.current_player
+
 	for unit in units:
 		# cpu vs cpu mode
 		# show everything aka spectator mode
 		if root.settings['cpu_0'] && root.settings['cpu_1']:
 			self.clear_fog_range(unit.position_on_map,2)
 		else:
-			if ( unit.player == 0 and not root.settings['cpu_0'] ) or (unit.player == 1 and not root.settings['cpu_1']):
+			if unit.player == current_player:
 				self.clear_fog_range(unit.position_on_map,2)
 
 	for building in buildings:
@@ -73,7 +78,6 @@ func clear_fog():
 		if root.settings['cpu_0'] && root.settings['cpu_1']:
 			self.clear_fog_range(building.position_on_map,3)
 		else:
-			if building.player > -1: # ocupy
-				if ( building.player == 0 and not root.settings['cpu_0'] ) or (building.player == 1 and not root.settings['cpu_1']):
-					self.clear_fog_range(building.position_on_map,3)
+			if building.player == current_player:
+				self.clear_fog_range(building.position_on_map,3)
 	return

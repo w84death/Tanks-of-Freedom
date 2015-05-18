@@ -113,7 +113,7 @@ func capture_building(active_field, field):
 	field.object.claim(current_player)
 	sound_controller.play('occupy_building')
 	self.despawn_unit(active_field)
-
+	abstract_map.map.fog_controller.clear_fog()
 	self.activate_field(field)
 	if field.object.type == 0:
 		self.end_game()
@@ -410,7 +410,7 @@ func handle_battle(active_field, field):
 					sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
 					self.update_unit(active_field)
 					active_field.object.show_explosion()
-
+		abstract_map.map.fog_controller.clear_fog()
 	else:
 		sound_controller.play('no_attack')
 
