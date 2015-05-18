@@ -6,3 +6,4 @@ BitTanksTest.iml
 .fscache
 
 export.cfg
+*.tmp
