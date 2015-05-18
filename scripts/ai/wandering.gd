@@ -32,7 +32,7 @@ func add_elemental_trails():
 	self.elemental_trails_generated = true
 
 func wander(unit, units):
-	print('wandering!!')
+	# print('wandering!!')
 	var position = unit.get_pos_map()
 	var current_field = self.abstract_map.get_field(position)
 	var available_directions = self.abstract_map.get_available_directions(unit, position)

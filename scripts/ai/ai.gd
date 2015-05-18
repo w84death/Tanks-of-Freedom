@@ -201,6 +201,12 @@ func __add_building_action(building, enemy_units_nearby, own_units):
 	var spawn_point = abstract_map.get_field(building.spawn_point)
 	if (spawn_point.object == null && building.get_required_ap() <= current_player_ap):
 		var score = building.estimate_action(action_type, enemy_units_nearby, own_units)
+		var claim_modifier = 15 - (action_controller.turn - building.turn_claimed)
+		if claim_modifier < 0:
+			claim_modifier = 0
+
+		if building.type == building.TYPE_BARRACKS:
+			score = score + claim_modifier
 
 		var action = self.action_builder.create(action_type, building, null)
 		actions.append_action(action, score)

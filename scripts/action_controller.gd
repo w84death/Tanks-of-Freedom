@@ -110,7 +110,7 @@ func post_handle_action():
 
 func capture_building(active_field, field):
 	self.use_ap()
-	field.object.claim(current_player)
+	field.object.claim(current_player, self.turn)
 	sound_controller.play('occupy_building')
 	self.despawn_unit(active_field)
 	abstract_map.map.fog_controller.clear_fog()

@@ -57,7 +57,7 @@ func next_tile_by_trail(directions):
 	var val = 0
 	var direction_name = ''
 	# TODO this directions can be not valid
-	print('AVAILABLE', directions)
+	# print('AVAILABLE', directions)
 	for direction in parameters:
 		if directions.find(direction) > -1 && parameters[direction] > val:
 			val = parameters[direction]

@@ -11,6 +11,7 @@ var group = 'building'
 var spawn_point = Vector2(0, 0)
 export var spawn_point_position = Vector2(0, 1)
 var flag
+var turn_claimed = null
 
 var object_factory = preload('object_factory.gd').new()
 
@@ -42,7 +43,7 @@ func set_pos_map(new_position):
 	position_on_map = new_position
 	spawn_point = Vector2(position_on_map) + spawn_point_position
 
-func claim(new_player):
+func claim(new_player, turn):
 	if new_player == -1:
 		self.set_frame(0)
 	if new_player == 0:
@@ -51,6 +52,7 @@ func claim(new_player):
 		self.set_frame(2)
 
 	player = new_player
+	self.turn_claimed = turn
 	flag.change_flag(new_player)
 
 func get_player():
