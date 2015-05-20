@@ -33,8 +33,7 @@ func _process(delta):
 
 func get_map_name():
 	randomize()
-	var names = ['river', 'city', 'country2']
-	return names[randi() % names.size()]
+	return randi() % 4
 
 func inject_root(root_obj):
 	root = root_obj
