@@ -11,12 +11,12 @@ var group = 'building'
 var spawn_point = Vector2(0, 0)
 export var spawn_point_position = Vector2(0, 1)
 var flag
-var turn_claimed = null
+var turn_claimed = 0
 
 var object_factory = preload('object_factory.gd').new()
 
 var floating_ap_template = preload('res://particle/hit_points.xscn')
-var floating_ap 
+var floating_ap
 
 var TYPE_BUNKER = 0
 var TYPE_BARRACKS = 1
@@ -101,7 +101,7 @@ func get_building_name():
 		return "AIRPORT"
 	if type == TYPE_TOWER:
 		return "GSM TOWER"
-		
+
 func get_cost():
 	return get_required_ap()
 
