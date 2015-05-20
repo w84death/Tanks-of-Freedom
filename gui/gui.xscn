@@ -251,6 +251,8 @@
 				<int> 1 </int>
 				<int> 2 </int>
 				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "Script" </string>
@@ -375,8 +377,6 @@
 							<real> 0.942478 </real>
 						</dictionary>
 					</dictionary>
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
 						<string> "custom_args" </string>
@@ -385,7 +385,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<real> -4 </real>
 				<real> -5 </real>

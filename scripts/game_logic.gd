@@ -185,8 +185,11 @@ func lock_for_cpu():
 	selector.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
 		self.current_map.camera_follow = false
-		#hud_controller.show_hourglasses()
+		#hud_controller.show_hourglasses() <- why this do not work?
 		hud.get_node("hourglasses").show()
+	else:
+		#hud_controller.hide_hourglasses()
+		hud.get_node("hourglasses").hide()
 		
 func unlock_for_player():
 	is_locked_for_cpu = false

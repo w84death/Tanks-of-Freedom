@@ -100,8 +100,8 @@ func init_root(root, action_controller_object, hud):
 	
 	var limit = self.root_node.settings.turns_cap
 	if limit == 0:
-		limit = "off"
-	turns_limit.set_text("limit: "+str(limit))
+		limit = "OFF"
+	turns_limit.set_text("LIMIT: "+str(limit))
 
 	player_ap = hud_game_card.get_node("Label")
 	game_card = hud.get_node("game_card")
