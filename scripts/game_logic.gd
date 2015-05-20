@@ -185,13 +185,17 @@ func lock_for_cpu():
 	selector.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
 		self.current_map.camera_follow = false
-
+		#hud_controller.show_hourglasses()
+		hud.get_node("hourglasses").show()
+		
 func unlock_for_player():
 	is_locked_for_cpu = false
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(false)
 	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(false)
 	selector.show()
 	self.current_map.camera_follow = true
+	#hud_controller.hide_hourglasses()
+	hud.get_node("hourglasses").hide()
 
 func lock_for_demo():
 	is_demo = true

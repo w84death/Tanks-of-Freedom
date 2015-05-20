@@ -403,7 +403,5 @@ func show_hud_unit(player):
 func show_hourglasses():
 	hourglasses_card.show()
 
-
 func hide_hourglasses():
 	hourglasses_card.hide()
-
