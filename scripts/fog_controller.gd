@@ -93,8 +93,12 @@ func clear_fog():
 		if root.settings['cpu_0'] && root.settings['cpu_1']:
 			self.clear_fog_range(unit.position_on_map,2)
 		else:
-			if unit.player == current_player:
-				self.clear_fog_range(unit.position_on_map,2)
+			if not (root.settings['cpu_0'] || root.settings['cpu_1']):
+				if unit.player == current_player:
+					self.clear_fog_range(unit.position_on_map,2)
+			else:
+				if (unit.player == 0 && not root.settings['cpu_0']) || (unit.player == 1 && not root.settings['cpu_1']):
+					self.clear_fog_range(unit.position_on_map,2)
 
 	for building in buildings:
 		# cpu vs cpu mode
@@ -102,6 +106,10 @@ func clear_fog():
 		if root.settings['cpu_0'] && root.settings['cpu_1']:
 			self.clear_fog_range(building.position_on_map,3)
 		else:
-			if building.player == current_player:
-				self.clear_fog_range(building.position_on_map,3)
+			if not (root.settings['cpu_0'] || root.settings['cpu_1']):
+				if building.player == current_player:
+					self.clear_fog_range(building.position_on_map,2)
+			else:
+				if (building.player == 0 && not root.settings['cpu_0']) || (building.player == 1 && not root.settings['cpu_1']):
+					self.clear_fog_range(building.position_on_map,2)
 	self.apply_fog()
