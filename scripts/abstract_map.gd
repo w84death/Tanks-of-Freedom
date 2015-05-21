@@ -123,7 +123,7 @@ func get_available_directions(unit, current_position):
 	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('up')
 
-	next_position = __get_next_position(current_position, 1, 1)
+	next_position = __get_next_position(current_position, 0, 1)
 	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('down')
 

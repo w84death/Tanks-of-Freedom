@@ -59,7 +59,13 @@ func next_tile_by_trail(directions):
 	# TODO this directions can be not valid
 	# print('AVAILABLE', directions)
 	for direction in parameters:
-		if directions.find(direction) > -1 && parameters[direction] > val:
+		randomize()
+		if directions.find(direction) > -1:
+			if  parameters[direction] > val:
+				val = parameters[direction]
+			elif parameters[direction] == val && randf() > 0.3 : #we have two equals directions)
+				val = parameters[direction]
+
 			val = parameters[direction]
 			direction_name = direction
 
@@ -76,5 +82,6 @@ func next_tile_by_trail(directions):
 	elif direction_name == 'down':
 		next_tile.y = next_tile.y + 1
 
+	print('!', direction_name)
 	return next_tile
 

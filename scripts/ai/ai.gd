@@ -100,7 +100,7 @@ func __gather_unit_destinations(position, current_player, tiles_ranges=self.posi
 		if destinations.size() > 0:
 			#print('RANGE OF UNIT LOOKUP', lookup_range)
 			return destinations
-
+	
 	return destinations
 
 #TODO this method will be rewritten to use building cache
