@@ -144,7 +144,6 @@ func enter_workshop():
 	workshop.is_suspended = false
 	self.show_workshop()
 	workshop.raise()
-	root.cursor.raise()
 
 func show_workshop():
 	control_node.hide()

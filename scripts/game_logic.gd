@@ -8,7 +8,6 @@ var game_scale
 var scale_root
 var hud_template = preload('res://gui/gui.xscn')
 var menu = preload('res://gui/menu.xscn').instance()
-var cursor = preload('res://gui/cursor.xscn').instance()
 
 var intro = preload('res://intro.xscn').instance()
 
@@ -108,7 +107,6 @@ func load_map(template_name, workshop_file_name = false):
 	scale_root.add_child(current_map)
 	menu.raise()
 	self.add_child(hud)
-	cursor.raise()
 
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
@@ -175,8 +173,6 @@ func load_menu():
 	intro.queue_free()
 	self.add_child(menu)
 	menu.close_button.hide()
-	cursor.show()
-	cursor.raise()
 
 func lock_for_cpu():
 	is_locked_for_cpu = true
@@ -190,7 +186,7 @@ func lock_for_cpu():
 	else:
 		#hud_controller.hide_hourglasses()
 		hud.get_node("hourglasses").hide()
-		
+
 func unlock_for_player():
 	is_locked_for_cpu = false
 	hud.get_node("top_center/turn_card/end_turn").set_disabled(false)
@@ -238,7 +234,6 @@ func write_settings_to_file():
 	return
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	self.dependency_container.init_root(self)
 	self.read_settings_from_file()
 	scale_root = get_node("/root/game/pixel_scale")
@@ -247,7 +242,5 @@ func _ready():
 	menu.init_root(self)
 	menu.hide()
 	intro.init_root(self)
-	cursor.hide()
-	self.add_child(cursor)
 	self.add_child(intro)
 	pass
