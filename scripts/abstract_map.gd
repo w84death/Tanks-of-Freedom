@@ -69,10 +69,10 @@ func create_tile_type_map_for_unit(unit):
 
 	var row
 	var tiles_type = []
-	for x in range(64):
+	for x in range(32):
 		row = []
-		for y in range(64):
-			var type = fields[y][x].get_terrain_type()
+		for y in range(32):
+			var type = self.get_field(Vector2(x, y)).get_terrain_type()
 			if (type == -1):
 				row.insert(y, nonwalkable_cost)
 			else:
