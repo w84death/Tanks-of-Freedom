@@ -2,8 +2,8 @@ var positions
 var pathfinding
 var abstract_map
 var action_controller
-const CLOSE_RANGE = 3
-const LOOKUP_RANGE = 10
+const CLOSE_RANGE = 8
+const LOOKUP_RANGE = 20
 var actions
 var wandering
 var current_player_ap = 0
@@ -39,9 +39,9 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	behaviour_normal = preload('behaviours/normal.gd').new()
 	behaviour_destroyer = preload('behaviours/destroyer.gd').new()
 	behaviour_explorer = preload('behaviours/explorer.gd').new()
-	behaviours = [behaviour_normal, behaviour_explorer, behaviour_destroyer]
+	behaviours = [behaviour_destroyer]
 
-	player_behaviours = [behaviour_normal, behaviour_normal]
+	player_behaviours = [behaviour_destroyer, behaviour_destroyer]
 
 func select_behaviour_type(player):
 	player_behaviours[player] = behaviours[floor(rand_range(0, behaviours.size()))]
@@ -100,7 +100,7 @@ func __gather_unit_destinations(position, current_player, tiles_ranges=self.posi
 		if destinations.size() > 0:
 			#print('RANGE OF UNIT LOOKUP', lookup_range)
 			return destinations
-	
+
 	return destinations
 
 #TODO this method will be rewritten to use building cache
