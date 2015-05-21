@@ -97,6 +97,9 @@ func load_map(template_name, workshop_file_name = false):
 		current_map.load_map(workshop_file_name)
 	else:
 		self.is_from_workshop = false
+		self.settings['cpu_0'] = true
+		self.settings['cpu_1'] = true
+		self.settings['cpu_' + str(self.dependency_container.campaign.get_map_player(template_name))] = false
 		current_map.load_campaign_map(template_name)
 	current_map.show_blueprint = false
 	hud = hud_template.instance()
