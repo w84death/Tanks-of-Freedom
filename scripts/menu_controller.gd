@@ -163,7 +163,7 @@ func set_player_button_state(player):
 	if root.settings['cpu_' + str(player)]:
 		label = "CPU"
 	else:
-		label = "Human"
+		label = "HUMAN"
 
 	if player == 0:
 		blue_player_button_label.set_text(label)
