@@ -243,7 +243,7 @@ var map_data = [
 	{'x': 16, 'y': 5, 'terrain': 1, 'unit': -1},
 	{'x': 16, 'y': 6, 'terrain': 1, 'unit': -1},
 	{'x': 16, 'y': 7, 'terrain': 1, 'unit': -1},
-	{'x': 16, 'y': 8, 'terrain': 1, 'unit': -1},
+	{'x': 16, 'y': 8, 'terrain': 4, 'unit': -1},
 	{'x': 16, 'y': 9, 'terrain': 4, 'unit': -1},
 	{'x': 16, 'y': 10, 'terrain': 4, 'unit': -1},
 	{'x': 16, 'y': 11, 'terrain': 9, 'unit': -1},
