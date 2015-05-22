@@ -87,6 +87,7 @@ func start_ai_timer():
 	ai_timer.start()
 
 func load_map(template_name, workshop_file_name = false):
+	var human_player = 'cpu_0'
 	self.unload_map()
 	current_map_name = template_name
 	current_map = map_template.instance()
@@ -96,10 +97,11 @@ func load_map(template_name, workshop_file_name = false):
 		self.is_from_workshop = true
 		current_map.load_map(workshop_file_name)
 	else:
+		human_player = 'cpu_' + str(self.dependency_container.campaign.get_map_player(template_name))
 		self.is_from_workshop = false
 		self.settings['cpu_0'] = true
 		self.settings['cpu_1'] = true
-		self.settings['cpu_' + str(self.dependency_container.campaign.get_map_player(template_name))] = false
+		self.settings[human_player] = false
 		current_map.load_campaign_map(template_name)
 	current_map.show_blueprint = false
 	hud = hud_template.instance()
@@ -114,7 +116,10 @@ func load_map(template_name, workshop_file_name = false):
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
 	action_controller.init_root(self, current_map, hud)
-	action_controller.switch_to_player(0)
+	if workshop_file_name:
+		action_controller.switch_to_player(0)
+	else:
+		action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
 	hud_controller = action_controller.hud_controller
 	hud_controller.show_map()
 	selector.init(action_controller)
@@ -122,7 +127,8 @@ func load_map(template_name, workshop_file_name = false):
 		menu.close_button.show()
 	is_map_loaded = true
 	set_process_input(true)
-	if settings['cpu_0']:
+
+	if settings[human_player]:
 		self.lock_for_cpu()
 	else:
 		self.unlock_for_player()
