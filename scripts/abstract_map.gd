@@ -97,7 +97,7 @@ func calculate_path_cost(unit, path):
 
 	return cost
 
-func add_trails(paths, player):
+func add_trails(paths, player, value=1):
 	var count
 	var pos
 	for path in paths:
