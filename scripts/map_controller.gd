@@ -150,7 +150,7 @@ func move_to_map(target):
 	if not root.settings['camera_follow']:
 		return
 
-	if not self.camera_follow:
+	if not self.camera_follow && fog_controller.is_fogged(target.x, target.y):
 		return
 
 	if not mouse_dragging:

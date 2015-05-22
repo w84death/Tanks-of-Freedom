@@ -15,6 +15,9 @@ func init_node():
     fog_of_war = map_controller.get_node("fog_of_war")
     self.build_fog_pattern()
 
+func is_fogged(x, y):
+	return current_fog_state[y][x] > -1
+
 func build_fog_pattern():
 	var sprite = 0
 	var uniq_num
