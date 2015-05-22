@@ -11,7 +11,7 @@ func _init():
 	road = 1
 	river = 6
 	max_ap = 8
-	attack_ap = 3
+	attack_ap = 2
 	max_attacks_number = 1
 	ap = 8
 	attacks_number = 1

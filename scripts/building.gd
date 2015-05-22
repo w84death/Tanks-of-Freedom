@@ -11,7 +11,7 @@ var group = 'building'
 var spawn_point = Vector2(0, 0)
 export var spawn_point_position = Vector2(0, 1)
 var flag
-var turn_claimed = 0
+var turn_claimed = -1
 
 var object_factory = preload('object_factory.gd').new()
 

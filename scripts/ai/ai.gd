@@ -2,14 +2,14 @@ var positions
 var pathfinding
 var abstract_map
 var action_controller
-const CLOSE_RANGE = 8
+const CLOSE_RANGE = 6
 const LOOKUP_RANGE = 20
 var actions
 var wandering
 var current_player_ap = 0
 var current_player
 
-const SPAWN_LIMIT = 25
+const SPAWN_LIMIT = 12
 const DEBUG = false
 var terrain
 var units
