@@ -42,12 +42,14 @@ const PAN_THRESHOLD = 60
 const GEN_GRASS = 6
 const GEN_FLOWERS = 3
 
-const MAP_MAX_X = 64
-const MAP_MAX_Y = 64
+const MAP_MAX_X = 32
+const MAP_MAX_Y = 32
 
 var map_file = File.new()
 var campaign
 
+var wave = preload('res://terrain/wave.xscn')
+var underground_rock = preload('res://terrain/underground.xscn')
 var map_grass = [
 	preload('res://terrain/grass_1.xscn'),
 	preload('res://terrain/grass_2.xscn')]
@@ -214,6 +216,8 @@ func generate_map():
 			# underground
 			if terrain_cell > -1:
 				self.generate_underground(x, y)
+			else:
+				self.generate_wave(x, y)
 
 			# grass, flowers, log
 			if terrain_cell == 1:
@@ -419,7 +423,8 @@ func spawn_unit(x, y, type):
 
 func generate_underground(x, y):
 	var generate = false
-
+	var temp = null
+	
 	if terrain.get_cell(x, y-1) == -1:
 		generate = true
 	if terrain.get_cell(x+1, y) == -1:
@@ -428,9 +433,29 @@ func generate_underground(x, y):
 		generate = true
 	if terrain.get_cell(x-1, y) == -1:
 		generate = true
+		
+	if generate:
+		temp = underground_rock.instance()
+		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
+		underground.add_child(temp)
+		temp = null
+
+func generate_wave(x, y):
+	var generate = false
+	var temp = null
+	
+	for cx in range(x-2, x+2):
+		for cy in range(y-2, y+2):
+			if terrain.get_cell(cx, cy) > -1:
+				generate = true
 
 	if generate:
-		underground.set_cell(x+1, y+1, 0)
+		temp = wave.instance()
+		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
+		underground.add_child(temp)
+		temp = null
+
+	return
 
 func set_default_zoom():
 	self.scale = Vector2(2, 2)
