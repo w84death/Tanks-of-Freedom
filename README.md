@@ -18,7 +18,9 @@ Each 32x32 sprite was handcrafted in gorgeous, 16 colour pixel art. Original sou
 Available at game page: [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 
 ### Unofficial ports:
-- F-Droid https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom
+- F-Droid 
+Download at [https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom](f-droid.org)
+Thanks to [https://github.com/est31](est31)
 
 ### Build from sources
 To get latest and greatest version of the game you'll need to use our source code and Godot Engine)
