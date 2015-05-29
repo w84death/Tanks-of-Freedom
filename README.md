@@ -15,25 +15,25 @@ Each 32x32 sprite was handcrafted in gorgeous, 16 colour pixel art. Original sou
 - OSX
 - Android (works on Blackberry and OUYA)
 
-Available at game page: [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 
 ### Unofficial ports:
 - F-Droid
 
-Download at [https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom](f-droid.org)
+Download at [f-droid.org](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom)
 
-Thanks to [https://github.com/est31](est31)!
+Thanks to [est31](https://github.com/est31)!
 
 ### Build from sources
 To get latest and greatest version of the game you'll need to use our source code and Godot Engine)
 
-- downlaod & install [http://www.godotengine.org/wp/download/](Godot Engine)
-- download our sources [https://github.com/w84death/Tanks-of-Freedom/archive/master.zip](master.zip)
+- downlaod & install [Godot Engine](http://www.godotengine.org/wp/download/)
+- download our sources [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip)
 - unzip
 - open Godot and import our game
 - run :)
 
-Follow [https://github.com/okamstudio/godot/wiki/export](this tutorial) on learn how to export game for each platform.
+Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn how to export game for each platform.
 
 ## Media
 ![Imgur](http://i.imgur.com/pyDr87G.png)
