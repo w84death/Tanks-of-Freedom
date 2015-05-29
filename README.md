@@ -9,8 +9,27 @@ Classic turn-based strategy game with two armies fighting against each other. Ch
 Each 32x32 sprite was handcrafted in gorgeous, 16 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
 
 ## Download
-Windows, Linux, OSX, Android, Blackberry:
-- [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+### Official builds:
+- Windows
+- Linux
+- OSX
+- Android (works on Blackberry and OUYA)
+
+Available at game page: [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+
+### Unofficial ports:
+- F-Droid https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom
+
+### Build from sources
+To get latest and greatest version of the game you'll need to use our source code and Godot Engine)
+
+- downlaod & install [http://www.godotengine.org/wp/download/](Godot Engine)
+- download our sources [https://github.com/w84death/Tanks-of-Freedom/archive/master.zip](master.zip)
+- unzip
+- open Godot and import our game
+- run :)
+
+Follow [https://github.com/okamstudio/godot/wiki/export](this tutorial) on learn how to export game for each platform.
 
 ## Media
 ![Imgur](http://i.imgur.com/pyDr87G.png)
