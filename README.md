@@ -4,20 +4,9 @@
 
 ## Indie Turn Based Strategy in Isometric Pixel Art
 
-Push the frontline with your tanks, support with your helicopters, and claim strategic buildings with your infantry! Issue orders and fight for freedom!
+Classic turn-based strategy game with two armies fighting against each other. Challenge yourself in campaign against AI or hot-seat battle with a friend. Using easy map editor you can create any imaginable scenario to play and share online for others to discover!
 
-Use roads to move the front forward with your armed forces. Break through the enemy lines and take control of your opponent's bunker to win the battle.
-
-## Why should you play Tanks of Freedom?
-
-hand-made pixel art assets in 16 colours!
-original soundtrack made on Access Virus C and Korg Electribe
-modern theme of real world events
-free (if you want to)
-great performance provided by Godot Engine
-available for Windows, Linux, OSX, Android and BlackBerry OS 10
-constantly updated with new features and bugfixes
-by gamers for gamers
+Each 32x32 sprite was handcrafted in gorgeous, 16 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
 
 ## Download
 Windows, Linux, OSX, Android, Blackberry:
