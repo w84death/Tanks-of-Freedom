@@ -454,8 +454,9 @@ func generate_wave(x, y):
 		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
 		underground.add_child(temp)
 		temp = null
+		return true
 
-	return
+	return false
 
 func set_default_zoom():
 	self.scale = Vector2(2, 2)
@@ -558,6 +559,8 @@ func load_map_from_file(file_path):
 func fill_map_from_data_array(data):
 	var cell
 	self.init_nodes()
+	if not self.show_blueprint:
+		underground.clear()
 	terrain.clear()
 	units.clear()
 	for cell in data:
@@ -582,13 +585,19 @@ func clear_layer(layer):
 	if layer == 1:
 		units.clear()
 
+func init_background():
+	print('background generate..')
+	for x in range(MAP_MAX_X):
+		for y in range(MAP_MAX_Y):
+			underground.set_cell(x,y,1)
+
 func init_nodes():
 	underground = self.get_node("underground")
 	terrain = self.get_node("terrain")
 	units = terrain.get_node("units")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
-
+	
 func _ready():
 	root = get_node("/root/game")
 	self.init_nodes()
@@ -608,7 +617,9 @@ func _ready():
 	self.add_child(shake_timer)
 
 	# where the magic happens
-	if not show_blueprint:
+	if show_blueprint:
+		self.init_background()
+	else:
 		self.generate_map()
 
 	set_process_input(true)

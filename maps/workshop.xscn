@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="7" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
+	<ext_resource path="res://maps/underground_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://maps/fog_of_war.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
 	<ext_resource path="res://maps/action_tiles_tileset.xml" type="TileSet"></ext_resource>
-	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
-	<ext_resource path="res://maps/fog_of_war.xml" type="TileSet"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "names" </string>
@@ -69,7 +70,7 @@
 			<string> "node_count" </string>
 			<int> 9 </int>
 			<string> "variants" </string>
-			<array  len="24" shared="false">
+			<array  len="27" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -83,7 +84,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 4 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="5" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
@@ -98,11 +99,11 @@
 							<string> "pixel_snap" </string>
 							<bool> True </bool>
 							<string> "zoom" </string>
-							<real> 1.463021 </real>
+							<real> 0.713479 </real>
 							<string> "use_snap" </string>
 							<bool> False </bool>
 							<string> "ofs" </string>
-							<vector2> -415.773, -85.0596 </vector2>
+							<vector2> -792.126, -106.383 </vector2>
 							<string> "snap" </string>
 							<int> 1 </int>
 						</dictionary>
@@ -207,7 +208,7 @@
 						<int> 0 </int>
 					</dictionary>
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 				</dictionary>
 				<int> 5 </int>
 				<real> 0.25 </real>
@@ -215,19 +216,28 @@
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
 				<int> 1 </int>
-				<resource  resource_type="TileSet" path="res://maps/map_tileset.xml">  </resource>
+				<resource  resource_type="TileSet" path="res://maps/underground_tileset.xml">  </resource>
 				<vector2> 32, 16 </vector2>
 				<int> 16 </int>
 				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
 				<int_array  len="0"> 					 </int_array>
-				<int_array  len="2"> 					0, 1 </int_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
+				<resource  resource_type="TileSet" path="res://maps/map_tileset.xml">  </resource>
+				<int_array  len="8"> 					524295, 1, 524296, 1, 589831, 1, 589832, 1 </int_array>
+				<dictionary  shared="false">
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
+				</dictionary>
 				<resource  resource_type="TileSet" path="res://maps/action_tiles_tileset.xml">  </resource>
 				<int_array  len="40"> 					458759, 2, 524294, 2, 524295, 1, 524296, 1, 524297, 1, 524298, 2, 589829, 2, 589830, 3, 589831, 1, 589832, 0, 589833, 1, 589834, 1, 589835, 2, 655367, 1, 655368, 1, 655369, 1, 655370, 2, 720904, 1, 720905, 2, 786440, 3 </int_array>
 				<resource  resource_type="TileSet" path="res://maps/blueprint_units_tileset.xml">  </resource>
 				<resource  resource_type="TileSet" path="res://maps/fog_of_war.xml">  </resource>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="349"> 				-1, -1, 1, 0, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 1, 21, 1, 22, 1, 23, 3, 24, 3, 25, 8, 26, 9, 27, 8, 0, 0, 0, 29, 28, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 14, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 18, 0, 0, 0, 29, 43, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 14, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 19, 0, 2, 0, 45, 44, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 46, 1, 0, 2, 0, 45, 47, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 46, 1, 0, 2, 0, 29, 48, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 20, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 21, 0, 2, 0, 45, 49, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 46, 1, 0, 2, 0, 29, 50, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 22, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 18, 0, 0, 0, 29, 51, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 23, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 18, 0 </int_array>
+			<int_array  len="353"> 				-1, -1, 1, 0, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 3, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 20, 1, 21, 1, 22, 1, 23, 3, 24, 3, 25, 8, 26, 9, 27, 8, 0, 0, 0, 29, 28, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 14, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 18, 19, 19, 0, 0, 0, 29, 43, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 20, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 21, 19, 22, 0, 2, 0, 45, 44, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 46, 1, 0, 2, 0, 45, 47, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 46, 1, 0, 2, 0, 29, 48, -1, 18, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 23, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 24, 0, 2, 0, 45, 49, -1, 9, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 46, 1, 0, 2, 0, 29, 50, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 25, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 18, 0, 0, 0, 29, 51, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 10, 31, 11, 32, 12, 33, 13, 34, 26, 35, 15, 36, 16, 37, 17, 38, 5, 39, 2, 40, 11, 41, 13, 42, 18, 0 </int_array>
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 		</dictionary>
