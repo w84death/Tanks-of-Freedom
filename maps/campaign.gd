@@ -5,6 +5,7 @@ var maps = [
     {'label': 'Riots', 'player': 1, 'file': preload("res://maps/campaign/administration_riot.gd").new()},
     {'label': 'Base Assault', 'player': 1, 'file': preload("res://maps/campaign/base_assault.gd").new()},
     {'label': 'Peninsula', 'player': 1, 'file': preload("res://maps/campaign/peninsula.gd").new()},
+    {'label': 'Recapture', 'player': 0, 'file': preload("res://maps/campaign/administration_recapture.gd").new()},
 ]
 
 func get_map_data(map_name):
