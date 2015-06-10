@@ -126,27 +126,27 @@ func init_root(root, action_controller_object, hud):
 	#
 	# HUD UNIT CARD
 	#
-	hud_unit_card = hud.get_node("bottom_center")
+	hud_unit_card = hud.get_node("left_panel")
 	hud_unit = hud_unit_card.get_node("unit_card")
-	hud_unit_life = hud_unit.get_node("life")
-	hud_unit_attack = hud_unit.get_node("attack")
-	hud_unit_ap = hud_unit.get_node("action_points")
-	hud_unit_plain = hud_unit.get_node("plain")
-	hud_unit_road = hud_unit.get_node("road")
-	hud_unit_river = hud_unit.get_node("river")
-	hud_unit_icon = hud_unit.get_node("unit_icon")
-	hud_unit_progress_ap = hud_unit.get_node("progress_ap")
-	hud_unit_progress_ap_blank = hud_unit.get_node("progress_ap_blank")
-	hud_unit_progress_attack = hud_unit.get_node("progress_attack")
-	hud_unit_shield = hud_unit.get_node("shield")
-	hud_unit_details_toggle = hud_unit.get_node("details_toggle")
+	hud_unit_life = hud_unit.get_node("controls/life")
+	hud_unit_attack = hud_unit.get_node("controls/attack")
+	hud_unit_ap = hud_unit.get_node("controls/action_points")
+	hud_unit_plain = hud_unit.get_node("controls/plain")
+	hud_unit_road = hud_unit.get_node("controls/road")
+	hud_unit_river = hud_unit.get_node("controls/river")
+	hud_unit_icon = hud_unit.get_node("controls/unit_icon")
+	hud_unit_progress_ap = hud_unit.get_node("controls/progress_ap")
+	hud_unit_progress_ap_blank = hud_unit.get_node("controls/progress_ap_blank")
+	hud_unit_progress_attack = hud_unit.get_node("controls/progress_attack")
+	hud_unit_shield = hud_unit.get_node("controls/shield")
+	hud_unit_details_toggle = hud_unit.get_node("controls/details_toggle")
 	hud_unit_details_toggle_label = hud_unit_details_toggle.get_node("Label")
 	hud_unit_details_toggle.connect("pressed", action_controller, "toggle_unit_details_view")
 	
 	#
 	# HUD BUILDING
 	#
-	hud_building = hud.get_node("bottom_center/building_card")
+	hud_building = hud.get_node("left_panel/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
 	hud_building_label = hud_building.get_node("name")
 	hud_building_spawn_button = hud_building.get_node("buy")
