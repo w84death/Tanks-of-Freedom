@@ -10,6 +10,11 @@ var play_button
 var close_button
 var quit_button
 
+var main_menu
+var settings
+var menu_button
+var settings_button
+
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_play_button
 var maps_play_custom_button
@@ -45,9 +50,15 @@ func _ready():
 	red_player_button_label = red_player_button.get_node("Label")
 
 	play_button = get_node("control/game_controls/play")
-	close_button = get_node("control/game_controls/close")
+	close_button = get_node("control/close")
 	quit_button = get_node("control/game_controls/quit")
 
+	main_menu = get_node("control/game_controls")
+	settings = get_node("control/settings_controls")
+
+	menu_button = get_node("control/main_menu")
+	settings_button = get_node("control/settings")
+	
 	sound_toggle_button = get_node("control/settings_controls/sound_toggle")
 	music_toggle_button = get_node("control/settings_controls/music_toggle")
 	shake_toggle_button = get_node("control/settings_controls/shake_toggle")
@@ -68,6 +79,9 @@ func _ready():
 
 	close_button.connect("pressed", root, "toggle_menu")
 	quit_button.connect("pressed", self, "quit_game")
+	menu_button.connect("pressed", self, "show_main_menu")
+	settings_button.connect("pressed", self, "show_settings")
+	
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
 	self.load_tutorial()
@@ -118,6 +132,14 @@ func hide_maps_menu():
 	control_node.show()
 	maps_sub_menu.hide()
 
+func show_main_menu():
+	main_menu.show()
+	settings.hide()
+
+func show_settings():
+	main_menu.hide()
+	settings.show()
+	
 func load_tutorial():
 	tutorial_sub_menu.hide()
 	self.add_child(tutorial_sub_menu)
