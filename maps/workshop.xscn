@@ -254,13 +254,13 @@
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<int> -140 </int>
-				<int> -130 </int>
-				<int> -120 </int>
+				<int> 10 </int>
+				<int> 20 </int>
+				<int> 30 </int>
 				<resource  resource_type="TileSet" path="res://maps/action_tiles_tileset.xml">  </resource>
 				<int_array  len="40"> 					458759, 2, 524294, 2, 524295, 1, 524296, 1, 524297, 1, 524298, 2, 589829, 2, 589830, 3, 589831, 1, 589832, 0, 589833, 1, 589834, 1, 589835, 2, 655367, 1, 655368, 1, 655369, 1, 655370, 2, 720904, 1, 720905, 2, 786440, 3 </int_array>
-				<int> -110 </int>
-				<int> -100 </int>
+				<int> 40 </int>
+				<int> 50 </int>
 				<resource  resource_type="TileSet" path="res://maps/blueprint_units_tileset.xml">  </resource>
 				<int> -10 </int>
 				<resource  resource_type="TileSet" path="res://maps/fog_of_war.xml">  </resource>
