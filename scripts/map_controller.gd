@@ -51,36 +51,42 @@ var campaign
 var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
 var map_grass = [
-	preload('res://terrain/grass_1.xscn'),
-	preload('res://terrain/grass_2.xscn')]
+	preload('res://terrain/land/grass_1.xscn'),
+	preload('res://terrain/land/grass_2.xscn')]
 var map_forest = [
-	preload('res://terrain/forest_1.xscn'),
-	preload('res://terrain/forest_2.xscn'),
-	preload('res://terrain/forest_3.xscn'),
-	preload('res://terrain/forest_4.xscn'),
-	preload('res://terrain/forest_5.xscn'),
-	preload('res://terrain/forest_6.xscn')]
-var map_city = [
-	preload('res://terrain/city_1.xscn'),
-	preload('res://terrain/city_2.xscn'),
-	preload('res://terrain/city_3.xscn'),
-	preload('res://terrain/city_4.xscn'),
-	preload('res://terrain/city_5.xscn')]
+	preload('res://terrain/forest/forest_1.xscn'),
+	preload('res://terrain/forest/forest_2.xscn'),
+	preload('res://terrain/forest/forest_3.xscn'),
+	preload('res://terrain/forest/forest_4.xscn'),
+	preload('res://terrain/forest/forest_5.xscn'),
+	preload('res://terrain/forest/forest_6.xscn')]
+var map_city_small = [
+	preload('res://terrain/city/city_small_1.xscn'),
+	preload('res://terrain/city/city_small_2.xscn'),
+	preload('res://terrain/city/city_small_3.xscn'),
+	preload('res://terrain/city/city_small_4.xscn'),
+	preload('res://terrain/city/city_small_5.xscn'),
+	preload('res://terrain/city/city_small_6.xscn')]
+var map_city_big = [
+	preload('res://terrain/city/city_big_1.xscn'),
+	preload('res://terrain/city/city_big_2.xscn'),
+	preload('res://terrain/city/city_big_3.xscn'),
+	preload('res://terrain/city/city_big_4.xscn')]
 var map_mountain = [
-	preload('res://terrain/mountain_1.xscn'),
-	preload('res://terrain/mountain_2.xscn'),
-	preload('res://terrain/mountain_3.xscn'),
-	preload('res://terrain/mountain_4.xscn')]
-var map_statue = preload('res://terrain/city_statue.xscn')
+	preload('res://terrain/mountains/mountain_1.xscn'),
+	preload('res://terrain/mountains/mountain_2.xscn'),
+	preload('res://terrain/mountains/mountain_3.xscn'),
+	preload('res://terrain/mountains/mountain_4.xscn')]
+var map_statue = preload('res://terrain/city/city_statue.xscn')
 var map_flowers = [
-	preload('res://terrain/flowers_1.xscn'),
-	preload('res://terrain/flowers_2.xscn'),
-	preload('res://terrain/flowers_3.xscn'),
-	preload('res://terrain/flowers_4.xscn'),
-	preload('res://terrain/log.xscn'),
-	preload('res://terrain/flowers_5.xscn'),
-	preload('res://terrain/flowers_6.xscn'),
-	preload('res://terrain/flowers_7.xscn')]
+	preload('res://terrain/land/flowers_1.xscn'),
+	preload('res://terrain/land/flowers_2.xscn'),
+	preload('res://terrain/land/flowers_3.xscn'),
+	preload('res://terrain/land/flowers_4.xscn'),
+	preload('res://terrain/land/log.xscn'),
+	preload('res://terrain/land/flowers_5.xscn'),
+	preload('res://terrain/land/flowers_6.xscn'),
+	preload('res://terrain/land/flowers_7.xscn')]
 var map_buildings = [
 	preload('res://buildings/bunker_blue.xscn'),
 	preload('res://buildings/bunker_red.xscn'),
@@ -207,7 +213,8 @@ func generate_map():
 	var flowers_elements_count = map_flowers.size()
 	var forest_elements_count = map_forest.size()
 	var mountain_elements_count = map_mountain.size()
-	var city_elements_count = map_city.size()
+	var city_small_elements_count = map_city_small.size()
+	var city_big_elements_count = map_city_big.size()
 
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
@@ -245,10 +252,16 @@ func generate_map():
 				temp = map_mountain[randi() % mountain_elements_count].instance()
 				cells_to_change.append({x=x, y=y, type=1})
 
-			# city, statue
+			# city
 			if terrain_cell == 4:
-				temp = map_city[randi() % city_elements_count].instance()
+				# have road near or have less than 5 neighbours
+				if count_neighbours(x,y,[14,15,16,17,18]) > 0 or count_neighbours(x,y,[4]) < 5:
+					temp = map_city_small[randi() % city_small_elements_count].instance()
+				else:
+					# no roads and not alone
+					temp = map_city_big[randi() % city_big_elements_count].instance()
 
+			# special buildings
 			if terrain_cell == 5:
 				temp = map_statue.instance()
 
@@ -293,6 +306,19 @@ func generate_map():
 	units.hide()
 	fog_controller.clear_fog()
 	return
+
+func count_neighbours(x, y, type):
+	var counted = 0
+	var tiles = 1
+
+	for cx in range(x-tiles, x+tiles+1):
+		for cy in range(y-tiles, y+tiles+1):
+			for t in type:
+				if terrain.get_cell(cx,cy) == t:
+					counted = counted + 1
+
+	return counted
+
 
 func find_spawn_for_building(x, y, building):
 	if building.group != "building":
@@ -424,7 +450,7 @@ func spawn_unit(x, y, type):
 func generate_underground(x, y):
 	var generate = false
 	var temp = null
-	
+
 	if terrain.get_cell(x, y-1) == -1:
 		generate = true
 	if terrain.get_cell(x+1, y) == -1:
@@ -433,7 +459,7 @@ func generate_underground(x, y):
 		generate = true
 	if terrain.get_cell(x-1, y) == -1:
 		generate = true
-		
+
 	if generate:
 		temp = underground_rock.instance()
 		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
@@ -443,7 +469,7 @@ func generate_underground(x, y):
 func generate_wave(x, y):
 	var generate = false
 	var temp = null
-	
+
 	for cx in range(x-2, x+2):
 		for cy in range(y-2, y+2):
 			if terrain.get_cell(cx, cy) > -1:
@@ -597,7 +623,7 @@ func init_nodes():
 	units = terrain.get_node("units")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
-	
+
 func _ready():
 	root = get_node("/root/game")
 	self.init_nodes()
