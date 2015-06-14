@@ -116,7 +116,8 @@ func capture_building(active_field, field):
 
 	field.object.claim(current_player, self.turn)
 	sound_controller.play('occupy_building')
-	self.despawn_unit(active_field)
+	if field.object.type != 4:
+		self.despawn_unit(active_field)
 	abstract_map.map.fog_controller.clear_fog()
 	self.activate_field(field)
 	if field.object.type == 0:
