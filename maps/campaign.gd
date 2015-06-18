@@ -8,6 +8,7 @@ var maps = [
     {'label': 'Recapture', 'player': 0, 'file': preload("res://maps/campaign/administration_recapture.gd").new()},
     {'label': 'Base Defence', 'player': 0, 'file': preload("res://maps/campaign/base_defence.gd").new()},
     {'label': 'Airport Pt.1', 'player': 1, 'file': preload("res://maps/campaign/airport_part_1.gd").new()},
+    {'label': 'Airplane', 'player': 1, 'file': preload("res://maps/campaign/airplane.gd").new()},
 ]
 
 func get_map_data(map_name):
