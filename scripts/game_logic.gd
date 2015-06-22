@@ -116,11 +116,12 @@ func load_map(template_name, workshop_file_name = false):
 	game_scale = scale_root.get_scale()
 	action_controller = preload("action_controller.gd").new()
 	action_controller.init_root(self, current_map, hud)
+	hud_controller = action_controller.hud_controller
 	if workshop_file_name:
 		action_controller.switch_to_player(0)
 	else:
 		action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
-	hud_controller = action_controller.hud_controller
+		hud_controller.show_story_card(self.dependency_container.campaign.get_map_description(template_name))
 	hud_controller.show_map()
 	selector.init(action_controller)
 	if (menu && menu.close_button):

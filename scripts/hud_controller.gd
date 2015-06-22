@@ -42,6 +42,10 @@ var hud_in_game_card_player_blue_turn
 var hud_in_game_card_player_red_turn
 var hud_in_game_card_button
 
+var hud_story_card
+var hud_story_card_text
+var hud_story_card_button
+
 var zoom_card
 var zoom_in_button
 var zoom_out_button
@@ -97,7 +101,7 @@ func init_root(root, action_controller_object, hud):
 	turns_limit = hud_game_card.get_node("limit")
 	hud_turn_button.connect("pressed", action_controller, "end_turn")
 	hud_turn_button_red.connect("pressed", action_controller, "end_turn")
-	
+
 	var limit = self.root_node.settings.turns_cap
 	if limit == 0:
 		limit = "OFF"
@@ -105,7 +109,7 @@ func init_root(root, action_controller_object, hud):
 
 	player_ap = hud_game_card.get_node("Label")
 	game_card = hud.get_node("game_card")
-	
+
 	#
 	# HUD END GAME
 	#
@@ -118,7 +122,7 @@ func init_root(root, action_controller_object, hud):
 	hud_end_game_missions_button = hud_end_game_controls.get_node("select_mission")
 	hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
 	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
-	
+
 	hud_end_game_missions_button.connect("pressed", root, "show_missions")
 	hud_end_game_restart_button.connect("pressed", root, "restart_map")
 	hud_end_game_menu_button.connect("pressed", root, "toggle_menu")
@@ -142,7 +146,7 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_details_toggle = hud_unit.get_node("controls/details_toggle")
 	hud_unit_details_toggle_label = hud_unit_details_toggle.get_node("Label")
 	hud_unit_details_toggle.connect("pressed", action_controller, "toggle_unit_details_view")
-	
+
 	#
 	# HUD BUILDING
 	#
@@ -164,6 +168,11 @@ func init_root(root, action_controller_object, hud):
 	hud_in_game_card_button = hud_in_game_card_body.get_node("button")
 	hud_in_game_card_button.connect("pressed", action_controller, "in_game_menu_pressed")
 
+	hud_story_card = hud.get_node("briefing_card")
+	hud_story_card_text = hud_story_card.get_node("center/content")
+	hud_story_card_button = hud_story_card.get_node("center/button")
+	hud_story_card_button.connect("pressed", self, "close_story_card")
+
 	#
 	# HUD ZOOM CARD
 	#
@@ -172,7 +181,7 @@ func init_root(root, action_controller_object, hud):
 	zoom_out_button = zoom_card.get_node("zoom_out")
 	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
 	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
-	
+
 	#
 	# HUD HELP
 	#
@@ -181,14 +190,14 @@ func init_root(root, action_controller_object, hud):
 	hud_help_bottom = hud.get_node("help_bottom")
 	hud_help_unit = hud_help_bottom.get_node("unit_card")
 	hud_help_building = hud_help_bottom.get_node("building_card")
-	
+
 	hud_help_button.connect("pressed", self, "toggle_help")
-	
+
 	#
 	# HOUR GLASSES
 	#
 	hourglasses_card = hud.get_node("hourglasses")
-	
+
 	menu_button = hud.get_node("game_card/escape")
 	menu_button.connect("pressed", root, "toggle_menu")
 
@@ -251,14 +260,14 @@ func mark_potential_ap_usage(active, required_ap):
 		return
 	if hud_unit_progress_ap == null:
 		return
-	
+
 	var ap_left = active.object.ap - required_ap
 	if ap_left < 0:
 		ap_left = 0
 	if ap_left > 8:
 		ap_left = 8
 	hud_unit_progress_ap.set_frame(ap_left)
-	
+
 func set_ap_progress(ap):
 	if ap > 8:
 		ap = 8
@@ -267,7 +276,7 @@ func set_ap_progress(ap):
 func show_building_card(building, player_ap):
 	if not building.can_spawn:
 		return
-	
+
 	hud_building_icon.set_region_rect(building.get_region_rect())
 	hud_building_unit_icon.set_region_rect(building.get_region_rect())
 	hud_building_label.set_text(building.get_building_name())
@@ -284,15 +293,7 @@ func clear_building_card():
 	self.refresh_help()
 
 func show_in_game_card(messages, current_player):
-	active_map.hide()
-	hud_turn_button.set_disabled(true)
-	hud_turn_button_red.set_disabled(true)
-	hud_game_card.hide()
-	hud_end_game.hide()
-	zoom_card.hide()
-	game_card.hide()
-	self.clear_building_card()
-	self.clear_unit_card()
+	self.lock_hud()
 	if current_player == 1:
 		hud_in_game_card_player_blue_turn.hide()
 		hud_in_game_card_player_red_turn.show()
@@ -303,15 +304,38 @@ func show_in_game_card(messages, current_player):
 	hud_in_game_card.show()
 
 func close_in_game_card():
+	hud_in_game_card.hide()
+	self.unlock_hud()
+	action_controller.move_camera_to_active_bunker()
+	action_controller.show_bonus_ap()
+
+func show_story_card(message):
+	self.lock_hud()
+	hud_story_card_text.set_text(message)
+	hud_story_card.show()
+
+func close_story_card():
+	hud_story_card.hide()
+	self.unlock_hud()
+
+func lock_hud():
+	active_map.hide()
+	hud_turn_button.set_disabled(true)
+	hud_turn_button_red.set_disabled(true)
+	hud_game_card.hide()
+	hud_end_game.hide()
+	zoom_card.hide()
+	game_card.hide()
+	self.clear_building_card()
+	self.clear_unit_card()
+
+func unlock_hud():
 	hud_turn_button.set_disabled(false)
 	hud_turn_button_red.set_disabled(false)
-	hud_in_game_card.hide()
 	active_map.show()
 	hud_game_card.show()
 	game_card.show()
 	zoom_card.show()
-	action_controller.move_camera_to_active_bunker()
-	action_controller.show_bonus_ap()
 
 func update_ap(ap):
 	player_ap.set_text(str(ap))
@@ -362,17 +386,17 @@ func fill_end_game_stats(stats,turns):
 	var red_kills = hud_end_game_stats_red.get_node("kills")
 	var red_spawns = hud_end_game_stats_red.get_node("spawn_count")
 	var red_score = hud_end_game_stats_red.get_node("overall")
-	
+
 	hud_end_game_total_turns.set_text(str(turns))
 	hud_end_game_total_time.set_text(stats["time_total"])
-	
+
 	blue_domination.set_text(str(stats["domination"][0]))
 	blue_moves.set_text(str(stats["moves"][0]))
 	blue_turn_time.set_text(str(stats["time"][0]))
 	blue_kills.set_text(str(stats["kills"][0]))
 	blue_spawns.set_text(str(stats["spawns"][0]))
 	blue_score.set_text(str(stats["score"][0]))
-	
+
 	red_domination.set_text(str(stats["domination"][1]))
 	red_moves.set_text(str(stats["moves"][1]))
 	red_turn_time.set_text(str(stats["time"][1]))
@@ -383,12 +407,12 @@ func fill_end_game_stats(stats,turns):
 func toggle_unit_details_view(player):
 	hud_unit_expanded[player] = not hud_unit_expanded[player]
 	self.show_hud_unit(player)
-	
+
 func show_hud_unit(player):
 	var index = 0
 	var margin
-	var label = "SHOW\nMORE" 
-		
+	var label = "SHOW\nMORE"
+
 	if hud_unit_expanded[player]:
 		index = 1
 		label = "SHOW\nLESS"
@@ -399,7 +423,7 @@ func show_hud_unit(player):
 	hud_unit_card.set_margin(MARGIN_BOTTOM,margin.bottom)
 	hud_unit.show()
 	#print(hud_unit_expanded_positions[index])
-	
+
 func show_hourglasses():
 	hourglasses_card.show()
 
