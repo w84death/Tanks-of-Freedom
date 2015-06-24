@@ -66,6 +66,12 @@ var maps = [
         'file': preload("res://maps/campaign/airport_part_2.gd").new(),
         'description': 'Rebel forces are in chaos after loosing their local HQ. Airport is still heavily guarded, but they will not recieve new reinforcements anytime soon. We managed to set up a small base. We have to attack before they can pick themselves up.'
     },
+    {
+        'label': 'Convoy',
+        'player': 1,
+        'file': preload("res://maps/campaign/convoy.gd").new(),
+        'description': 'In this time of war many people are suffering. Our kind neighbour offered to send us humanitarian convoy with food, water and medicine. Government does not believe in our good intentions, not allowing the trucks to pass. We have to clear the way!'
+    },
 ]
 
 func get_map_data(map_name):
