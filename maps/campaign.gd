@@ -54,6 +54,12 @@ var maps = [
         'file': preload("res://maps/campaign/airplane.gd").new(),
         'description': 'We have intercepted a transmission about important military airplane, that will be flying over the area. We have identified perfect spot to launch missiles from, but it is guarded by the enemy. Muster your forces and get into position to shoot down the transport.'
     },
+    {
+        'label': 'Field Command',
+        'player': 0,
+        'file': preload("res://maps/campaign/field_command.gd").new(),
+        'description': 'These separatists just shot down a civilian airplane, hundreds of people died. Their violence has to stop! Our scouts found the enemy field command center for this region. Our forces are small, but we should be able to gather more men and tanks in the nearby city.'
+    },
 ]
 
 func get_map_data(map_name):
