@@ -78,6 +78,12 @@ var maps = [
         'file': preload("res://maps/campaign/crash_site.gd").new(),
         'description': 'Plane we attacked went down deep within the forest. We must not allow anyone to reach the crash site. Without the wreckage, no one will be able to proove who and how destroyed it. International investigators are on their way, we have to stop them.'
     },
+    {
+        'label': 'Airport Pt.3',
+        'player': 1,
+        'file': preload("res://maps/campaign/airport_part_3.gd").new(),
+        'description': 'It has been months since we started fighting over the airport. It is hardly an airport anymore, everything reduced to rubble - the terminal, the tower, surrounding city. Even so, side that is able to controll it will show others who is the strongest.'
+    },
 ]
 
 func get_map_data(map_name):
