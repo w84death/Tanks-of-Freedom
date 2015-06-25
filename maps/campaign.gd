@@ -72,6 +72,12 @@ var maps = [
         'file': preload("res://maps/campaign/convoy.gd").new(),
         'description': 'In this time of war many people are suffering. Our kind neighbour offered to send us humanitarian convoy with food, water and medicine. Government does not believe in our good intentions, not allowing the trucks to pass. We have to clear the way!'
     },
+    {
+        'label': 'Crash Site',
+        'player': 1,
+        'file': preload("res://maps/campaign/crash_site.gd").new(),
+        'description': 'Plane we attacked went down deep within the forest. We must not allow anyone to reach the crash site. Without the wreckage, no one will be able to proove who and how destroyed it. International investigators are on their way, we have to stop them.'
+    },
 ]
 
 func get_map_data(map_name):
