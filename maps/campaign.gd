@@ -22,7 +22,7 @@ var maps = [
         'label': 'Base Assault',
         'player': 1,
         'file': preload("res://maps/campaign/base_assault.gd").new(),
-        'description': 'Our recent victory gave us a foothold, but we can not stop there. Nearby military base has a lot of equipment we could use! We have to attack before they realise, that they are no longer in controll of this region.'
+        'description': 'Our recent victory gave us a foothold, but we can not stop there. Nearby military base has a lot of equipment we could use! We have to attack before they realise, that they are no longer in control of this region.'
     },
     {
         'label': 'Peninsula',
@@ -82,7 +82,7 @@ var maps = [
         'label': 'Airport Pt.3',
         'player': 1,
         'file': preload("res://maps/campaign/airport_part_3.gd").new(),
-        'description': 'It has been months since we started fighting over the airport. It is hardly an airport anymore, everything reduced to rubble - the terminal, the tower, surrounding city. Even so, side that is able to controll it will show others who is the strongest.'
+        'description': 'It has been months since we started fighting over the airport. It is hardly an airport anymore, everything reduced to rubble - the terminal, the tower, surrounding city. Even so, side that is able to control it will show others who is the strongest.'
     },
 ]
 
