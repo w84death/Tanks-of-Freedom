@@ -1,5 +1,4 @@
 var abstract_map
-var grids = []
 var tileObject = preload('tile_object.gd')
 
 #rearrange
@@ -7,11 +6,8 @@ func _init(abstract_map_new):
 	abstract_map = abstract_map_new
 
 func prepare_cost_maps(own_buildings, own_units, terrain):
-	grids.clear()
-	for unit_type in range(0,3):
-		var cost_map = self.__fillCostMap(abstract_map.tiles_cost_map[unit_type], own_units, own_buildings, terrain)
-		grids.insert(unit_type, self.__prepareGrid(cost_map))
-	return grids
+	var cost_map = self.__fillCostMap(abstract_map.cost_map, own_units, own_buildings, terrain)
+	return self.__prepareGrid(cost_map)
 
 func __fillCostMap(cost_map, units, ownBuildings, terrain):
 	for pos in units:
@@ -22,6 +18,7 @@ func __fillCostMap(cost_map, units, ownBuildings, terrain):
 		var unit_pos = ownBuildings[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = tileObject.NON_WALKABLE
 
+	#TODO this should be done once!
 	for pos in terrain:
 		var unit_pos = terrain[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = tileObject.NON_WALKABLE
@@ -30,7 +27,7 @@ func __fillCostMap(cost_map, units, ownBuildings, terrain):
 
 func __prepareGrid(cost_map):
 	var grid = {}
-	for x in range(cost_map.size()):
-		for y in range(cost_map[x].size()):
+	for x in range(32):
+		for y in range(32):
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
 	return grid

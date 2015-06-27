@@ -7,9 +7,9 @@ func _init():
 	life = 8
 	max_life = 8
 	attack = 5
-	plain = 2
+	plain = 1
 	road = 1
-	river = 4
+	river = 1
 	max_ap = 8
 	attack_ap = 2
 	max_attacks_number = 1

@@ -5,7 +5,7 @@ var map
 var tilemap
 var field_template = preload('abstract_field.gd')
 var movement_controller = preload('movement_controller.gd').new()
-var tiles_cost_map = [[[null]]]
+var cost_map = [[null]]
 const nonwalkable_cost = 999
 
 func get_fields():
@@ -58,41 +58,27 @@ func create_field(position):
 func is_spawning_point(position):
 	return tilemap.get_cell(position.x, position.y) == 13
 
-# for pathfinding
-func create_tile_type_maps():
-	self.create_tile_type_map_for_unit(preload('units/soldier.gd').new())
-	self.create_tile_type_map_for_unit(preload('units/tank.gd').new())
-	self.create_tile_type_map_for_unit(preload('units/helicopter.gd').new())
-
-func create_tile_type_map_for_unit(unit):
-	var stats = unit.get_stats();
-
+func create_tile_type_map():
 	var row
-	var tiles_type = []
+	self.cost_map = []
 	for x in range(32):
 		row = []
 		for y in range(32):
 			var type = self.get_field(Vector2(x, y)).get_terrain_type()
 			if (type == -1):
-				row.insert(y, nonwalkable_cost)
+				row.insert(y, self.nonwalkable_cost)
 			else:
-				row.insert(y, self.calculate_cost(stats, type))
-		tiles_type.insert(x, row)
-	tiles_cost_map.insert(unit.get_type(), tiles_type)
-
-func calculate_cost(stats, type):
-	var tile_type_name = movement_controller.get_type_name(type)
-	return stats[tile_type_name]
+				row.insert(y, 1)
+		self.cost_map.insert(x, row)
 
 func calculate_path_cost(unit, path):
 	#start element
 	var cost = 0
 	var skip = true
-	var cost_map = tiles_cost_map[unit.get_type()]
 	for pos in path:
 		if !skip:
-			if cost_map[pos.x][pos.y]:
-				cost = cost + cost_map[pos.x][pos.y]
+			if self.cost_map[pos.x][pos.y]:
+				cost = cost + self.cost_map[pos.x][pos.y]
 		skip = false
 
 	return cost

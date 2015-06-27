@@ -69,10 +69,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
 		return
 
-	var cost_grids = cost_grid.prepare_cost_maps(own_buildings, own_units, terrain)
-
-	#TODO move it somewhere!!!
-	self.pathfinding.set_cost_grid(cost_grids[2])
+	self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps(own_buildings, own_units, terrain))
 	self.wandering.add_elemental_trails()
 
 	for pos in own_units:
@@ -87,7 +84,6 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 				self.wandering.wander(unit, self.units)
 			else:
 				#TODO - calculate data in units groups
-				pathfinding.set_cost_grid(cost_grids[unit.get_type()])
 				for destination in destinations:
 					self.__add_action(unit, destination, own_units)
 

@@ -324,7 +324,7 @@ func switch_to_player(player):
 func perform_ai_stuff():
 	var success = false
 	if root_node.settings['cpu_' + str(current_player)] && player_ap[current_player] > 0:
-		abstract_map.create_tile_type_maps()
+		abstract_map.create_tile_type_map()
 		success = ai.gather_available_actions(player_ap[current_player])
 
 	return player_ap[current_player] > 0 && success
