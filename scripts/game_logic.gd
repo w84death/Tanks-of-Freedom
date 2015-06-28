@@ -114,7 +114,7 @@ func load_map(template_name, workshop_file_name = false):
 	self.add_child(hud)
 
 	game_scale = scale_root.get_scale()
-	action_controller = preload("action_controller.gd").new()
+	action_controller = self.dependency_container.controllers.action_controller
 	action_controller.init_root(self, current_map, hud)
 	hud_controller = action_controller.hud_controller
 	if workshop_file_name:
