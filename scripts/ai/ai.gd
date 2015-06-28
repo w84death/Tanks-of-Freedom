@@ -1,3 +1,4 @@
+var root
 var positions
 var pathfinding
 var abstract_map
@@ -27,9 +28,10 @@ var behaviours = []
 var player_behaviours
 
 func _init(controller, astar_pathfinding, map, action_controller_object):
+	self.root = action_controller_object.root_node
 	positions = controller
 	pathfinding = astar_pathfinding
-	abstract_map = map
+	abstract_map = self.root.dependency_container.abstract_map
 	action_controller = action_controller_object
 	cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
 	actions = preload('actions.gd').new()
@@ -96,7 +98,7 @@ func __gather_unit_destinations(position, current_player, tiles_ranges=self.posi
 		if destinations.size() > 0:
 			#print('RANGE OF UNIT LOOKUP', lookup_range)
 			return destinations
-	
+
 	return destinations
 
 #TODO this method will be rewritten to use building cache
@@ -160,12 +162,12 @@ func __add_action(unit, destination, own_units):
 			# elif next_tile.object.group == "terrain":
 			# 	return # no tresspassing
 		else:
-			var from = action_controller.abstract_map.get_field(unit.get_pos_map())
+			var from = self.abstract_map.get_field(unit.get_pos_map())
 			# todo - check why this still counts as action
 			if not from.object:
 				return
 
-			var to = action_controller.abstract_map.get_field(path[0])
+			var to = self.abstract_map.get_field(path[0])
 			if not action_controller.movement_controller.can_move(from, to):
 				return
 

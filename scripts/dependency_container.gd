@@ -3,6 +3,7 @@ var root
 
 var map_list = preload("res://scripts/maps/map_list.gd").new()
 var campaign = preload("res://maps/campaign.gd").new()
+var abstract_map = preload('res://scripts/abstract_map.gd').new()
 var positions
 
 func init_root(root_node):

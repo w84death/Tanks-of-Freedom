@@ -123,7 +123,7 @@ func load_map(template_name, workshop_file_name = false):
 		action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
 		hud_controller.show_story_card(self.dependency_container.campaign.get_map_description(template_name))
 	hud_controller.show_map()
-	selector.init(action_controller)
+	selector.init(self)
 	if (menu && menu.close_button):
 		menu.close_button.show()
 	is_map_loaded = true

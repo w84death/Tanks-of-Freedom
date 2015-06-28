@@ -4,8 +4,16 @@ var fields = [[null]]
 var map
 var tilemap
 var field_template = preload('abstract_field.gd')
-var movement_controller = preload('movement_controller.gd').new()
 var cost_map = [[null]]
+
+func reset():
+	self.size = Vector2(0, 0)
+	self.fields = [[null]]
+	self.cost_map = [[null]]
+
+func init_map(map_node):
+	self.map = map_node
+	self.tilemap = self.map.get_node("terrain")
 
 func get_fields():
 	return fields

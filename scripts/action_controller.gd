@@ -1,7 +1,6 @@
 
 var root_node
 var root_tree
-var abstract_map = preload('abstract_map.gd').new()
 var ysort
 var damage_layer
 var selector
@@ -37,10 +36,9 @@ const BREAK_EVENT_LOOP = 1
 func init_root(root, map, hud):
 	self.root_node = root
 	self.root_tree = self.root_node.get_tree()
-	var dependency_container = root.dependency_container
 
-	self.abstract_map.map = map
-	self.abstract_map.tilemap = map.get_node("terrain")
+	self.root_node.dependency_container.abstract_map.reset()
+	self.root_node.dependency_container.abstract_map.init_map(map)
 	camera = root.scale_root
 	ysort = map.get_node('terrain/front')
 	damage_layer = map.get_node('terrain/destruction')
@@ -51,7 +49,7 @@ func init_root(root, map, hud):
 	if not root_node.settings['cpu_0']:
 		hud_controller.show_in_game_card([], current_player)
 
-	self.positions = dependency_container.positions
+	self.positions = root.dependency_container.positions
 	self.positions.get_player_bunker_position(current_player)
 	self.positions.bootstrap()
 
@@ -59,11 +57,11 @@ func init_root(root, map, hud):
 
 	sound_controller = root.sound_controller
 
-	self.abstract_map.create_tile_type_map()
-	self.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
+	self.root_node.dependency_container.abstract_map.create_tile_type_map()
+	self.root_node.dependency_container.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
 
 	pathfinding = preload('ai/pathfinding/a_star_pathfinding.gd').new()
-	ai = preload("ai/ai.gd").new(self.positions, pathfinding, self.abstract_map, self)
+	ai = preload("ai/ai.gd").new(self.positions, pathfinding, self.root_node.dependency_container.abstract_map, self)
 
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
@@ -74,7 +72,7 @@ func init_root(root, map, hud):
 	demo_timer = root_node.get_node("DemoTimer")
 
 func set_active_field(position):
-	var field = self.abstract_map.get_field(position)
+	var field = self.root_node.dependency_container.abstract_map.get_field(position)
 	self.clear_active_field()
 	self.activate_field(field)
 
@@ -86,7 +84,7 @@ func handle_action(position):
 	if game_ended:
 		return
 
-	var field = abstract_map.get_field(position)
+	var field = self.root_node.dependency_container.abstract_map.get_field(position)
 
 	if field.object != null:
 		if active_field != null:
@@ -114,15 +112,15 @@ func post_handle_action():
 
 func capture_building(active_field, field):
 	self.use_ap()
-	
+
 	#adding trail
-	self.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
+	self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
 
 	field.object.claim(current_player, self.turn)
 	sound_controller.play('occupy_building')
 	if field.object.type != 4:
 		self.despawn_unit(active_field)
-	abstract_map.map.fog_controller.clear_fog()
+	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 	self.activate_field(field)
 	if field.object.type == 0:
 		self.end_game()
@@ -134,9 +132,9 @@ func activate_field(field):
 	if !field.object: #todo - investigate why there is no object
 		print("FAIL to activate field: ", field.position)
 	active_field = field
-	abstract_map.tilemap.add_child(active_indicator)
-	abstract_map.tilemap.move_child(active_indicator, 0)
-	var position = Vector2(abstract_map.tilemap.map_to_world(field.position))
+	self.root_node.dependency_container.abstract_map.tilemap.add_child(active_indicator)
+	self.root_node.dependency_container.abstract_map.tilemap.move_child(active_indicator, 0)
+	var position = Vector2(self.root_node.dependency_container.abstract_map.tilemap.map_to_world(field.position))
 	position.y += 2
 	active_indicator.set_pos(position)
 	sound_controller.play('select')
@@ -148,16 +146,16 @@ func activate_field(field):
 
 func clear_active_field():
 	active_field = null
-	abstract_map.tilemap.remove_child(active_indicator)
+	self.root_node.dependency_container.abstract_map.tilemap.remove_child(active_indicator)
 	hud_controller.clear_unit_card()
 	hud_controller.clear_building_card()
 	self.clear_movement_indicators()
 
 func add_movement_indicators(field):
-	var top_left = abstract_map.get_field(Vector2(field.position) + Vector2(-1, 0))
-	var top_right = abstract_map.get_field(Vector2(field.position) + Vector2(0, -1))
-	var bottom_left = abstract_map.get_field(Vector2(field.position) + Vector2(0, 1))
-	var bottom_right = abstract_map.get_field(Vector2(field.position) + Vector2(1, 0))
+	var top_left = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(-1, 0))
+	var top_right = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(0, -1))
+	var bottom_left = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(0, 1))
+	var bottom_right = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(1, 0))
 	self.mark_field(field, top_left, movement_arrow_tl, 'tl')
 	self.mark_field(field, top_right, movement_arrow_tr, 'tr')
 	self.mark_field(field, bottom_left, movement_arrow_bl, 'bl')
@@ -168,7 +166,7 @@ func mark_field(source, target, indicator, direction):
 		return
 
 	if player_ap[current_player] > 0:
-		var position = Vector2(abstract_map.tilemap.map_to_world(target.position))
+		var position = Vector2(self.root_node.dependency_container.abstract_map.tilemap.map_to_world(target.position))
 		if target.object == null:
 			if movement_controller.can_move(source, target):
 				indicator.set_pos(position)
@@ -209,7 +207,7 @@ func spawn_unit_from_active_building():
 	var active_object = active_field.object
 	if active_field == null || active_object.group != 'building' || active_object.can_spawn == false:
 		return
-	var spawn_point = abstract_map.get_field(active_object.spawn_point)
+	var spawn_point = self.root_node.dependency_container.abstract_map.get_field(active_object.spawn_point)
 	var required_ap = active_object.get_required_ap()
 	if spawn_point.object == null && self.has_enough_ap(required_ap):
 		var unit = active_object.spawn_unit(current_player)
@@ -223,7 +221,7 @@ func spawn_unit_from_active_building():
 
 		#gather stats
 		battle_stats.add_spawn(self.current_player)
-		abstract_map.map.fog_controller.clear_fog()
+		self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 
 func toggle_unit_details_view():
 	hud_controller.toggle_unit_details_view(current_player)
@@ -235,7 +233,7 @@ func import_objects():
 
 func attach_objects(collection):
 	for entity in collection:
-		abstract_map.get_field(entity.get_initial_pos()).object = entity
+		self.root_node.dependency_container.abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func end_turn():
 	self.stats_set_time()
@@ -263,7 +261,7 @@ func move_camera_to_active_bunker():
 		self.move_camera_to_point(bunker_position)
 
 func move_camera_to_point(position):
-	abstract_map.map.move_to_map(position)
+	self.root_node.dependency_container.abstract_map.map.move_to_map(position)
 
 func in_game_menu_pressed():
 	hud_controller.close_in_game_card()
@@ -313,7 +311,7 @@ func switch_to_player(player):
 	current_player = player
 	self.reset_player_units(player)
 	selector.set_player(player);
-	abstract_map.map.current_player = player
+	self.root_node.dependency_container.abstract_map.map.current_player = player
 	self.refill_ap()
 	if root_node.settings['cpu_' + str(player)]:
 		root_node.start_ai_timer()
@@ -323,7 +321,7 @@ func switch_to_player(player):
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card([], current_player)
-	abstract_map.map.fog_controller.clear_fog()
+	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 
 func perform_ai_stuff():
 	var success = false
@@ -354,13 +352,13 @@ func camera_zoom_in():
 	var scale = camera.get_scale()
 	if scale.x < camera_zoom_range[1]:
 		camera.set_scale(scale + Vector2(1,1))
-	abstract_map.map.scale = camera.get_scale()
+	self.root_node.dependency_container.abstract_map.map.scale = camera.get_scale()
 
 func camera_zoom_out():
 	var scale = camera.get_scale()
 	if scale.x > camera_zoom_range[0]:
 		camera.set_scale(scale - Vector2(1,1))
-	abstract_map.map.scale = camera.get_scale()
+	self.root_node.dependency_container.abstract_map.map.scale = camera.get_scale()
 
 func play_destroy(field):
 	sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)
@@ -374,7 +372,7 @@ func move_unit(active_field, field):
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
 		self.use_ap()
 		self.activate_field(field)
-		abstract_map.map.fog_controller.clear_fog()
+		self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 		#gather stats
 		battle_stats.add_moves(self.current_player)
 
@@ -394,7 +392,7 @@ func handle_battle(active_field, field):
 
 		print('MARK TRAIL!!')
 		#TODO rewrite it to use pathfinding
-		self.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
+		self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
 
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
 		if (battle_controller.resolve_fight(active_field.object, field.object)):
@@ -423,7 +421,7 @@ func handle_battle(active_field, field):
 					sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
 					self.update_unit(active_field)
 					active_field.object.show_explosion()
-		abstract_map.map.fog_controller.clear_fog()
+		self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 	else:
 		sound_controller.play('no_attack')
 
@@ -440,12 +438,12 @@ func collateral_damage(center):
 	if randf() <= damage_chance:
 		self.damage_terrain(center - Vector2(1, 0))
 
-	var field = abstract_map.get_field(center)
+	var field = self.root_node.dependency_container.abstract_map.get_field(center)
 	if field.damage == null:
 		field.add_damage(damage_layer)
 
 func damage_terrain(position):
-	var field = abstract_map.get_field(position)
+	var field = self.root_node.dependency_container.abstract_map.get_field(position)
 	if field == null || field.object == null || field.object.group != 'terrain':
 		return
 

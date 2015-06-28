@@ -11,6 +11,7 @@ const END_TURN_INTERVAL = 0.25
 const AI_STUFF = 1
 const END_TURN = 2
 
+var root
 var action_controller
 var hud_controller
 
@@ -18,7 +19,7 @@ func _process(delta):
 	if get_parent().is_paused:
 		return
 
-	if action_controller.abstract_map.map.panning:
+	if root.dependency_container.abstract_map.map.panning:
 		return
 
 	timeout += delta
@@ -35,8 +36,9 @@ func _process(delta):
 		timeout = 0
 
 func inject_action_controller(controller, hud):
-	action_controller = controller
-	hud_controller = hud
+	self.root = controller.root_node
+	self.action_controller = controller
+	self.hud_controller = hud
 
 func reset():
 	state = AI_STUFF
