@@ -69,7 +69,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
 		return
 
-	self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps(own_buildings, own_units, terrain))
+	self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps(own_buildings, own_units))
 	self.wandering.add_elemental_trails()
 
 	for pos in own_units:

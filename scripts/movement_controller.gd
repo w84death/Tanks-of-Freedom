@@ -37,7 +37,6 @@ func can_move(from, to):
 		return false
 
 func get_terrain_type(to):
-	#print(to)
 	return tile_types[to.terrain_type]
 
 # todo make consistent method (look above)

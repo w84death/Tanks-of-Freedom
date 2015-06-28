@@ -56,7 +56,7 @@ func pathSearch(startTile, endTile, own_units):
 	return result
 
 func set_cost_grid(cost_grid):
-	grid = cost_grid
+	self.grid = cost_grid
 
 func __invalid_check(cached, own_units):
 	# temp cache invalidation

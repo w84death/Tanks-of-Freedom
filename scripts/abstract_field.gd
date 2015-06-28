@@ -7,8 +7,6 @@ var abstract_map = null
 var ant_parameters = [{'up':0,'down':0,'left':0,'right':0},{'up':0,'down':0,'left':0,'right':0}]
 var destroyed_tile_template = preload("res://terrain/destroyed_tile.xscn")
 
-func get_terrain_type():
-	return terrain_type
 
 func is_adjacent(field):
 	var diff_x = self.position.x - field.position.x
@@ -82,6 +80,5 @@ func next_tile_by_trail(directions):
 	elif direction_name == 'down':
 		next_tile.y = next_tile.y + 1
 
-	print('!', direction_name)
 	return next_tile
 

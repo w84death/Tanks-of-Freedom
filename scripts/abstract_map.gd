@@ -6,7 +6,6 @@ var tilemap
 var field_template = preload('abstract_field.gd')
 var movement_controller = preload('movement_controller.gd').new()
 var cost_map = [[null]]
-const nonwalkable_cost = 999
 
 func get_fields():
 	return fields
@@ -64,12 +63,17 @@ func create_tile_type_map():
 	for x in range(32):
 		row = []
 		for y in range(32):
-			var type = self.get_field(Vector2(x, y)).get_terrain_type()
+			var type = self.get_field(Vector2(x, y)).terrain_type
 			if (type == -1):
-				row.insert(y, self.nonwalkable_cost)
+				row.insert(y, 999)
 			else:
 				row.insert(y, 1)
 		self.cost_map.insert(x, row)
+
+func update_terrain_tile_type_map(terrain):
+	for pos in terrain:
+ 		var unit_pos = terrain[pos].get_pos_map()
+ 		self.cost_map[unit_pos.x][unit_pos.y] = 999
 
 func calculate_path_cost(unit, path):
 	#start element

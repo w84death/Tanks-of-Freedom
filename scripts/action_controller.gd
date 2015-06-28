@@ -39,8 +39,8 @@ func init_root(root, map, hud):
 	self.root_tree = self.root_node.get_tree()
 	var dependency_container = root.dependency_container
 
-	abstract_map.map = map
-	abstract_map.tilemap = map.get_node("terrain")
+	self.abstract_map.map = map
+	self.abstract_map.tilemap = map.get_node("terrain")
 	camera = root.scale_root
 	ysort = map.get_node('terrain/front')
 	damage_layer = map.get_node('terrain/destruction')
@@ -51,15 +51,19 @@ func init_root(root, map, hud):
 	if not root_node.settings['cpu_0']:
 		hud_controller.show_in_game_card([], current_player)
 
-	positions = dependency_container.positions
-	positions.get_player_bunker_position(current_player)
-	positions.bootstrap()
+	self.positions = dependency_container.positions
+	self.positions.get_player_bunker_position(current_player)
+	self.positions.bootstrap()
+
 	battle_stats = preload("battle_stats.gd").new()
 
 	sound_controller = root.sound_controller
 
+	self.abstract_map.create_tile_type_map()
+	self.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
+
 	pathfinding = preload('ai/pathfinding/a_star_pathfinding.gd').new()
-	ai = preload("ai/ai.gd").new(positions, pathfinding, abstract_map, self)
+	ai = preload("ai/ai.gd").new(self.positions, pathfinding, self.abstract_map, self)
 
 	var movement_template = preload('res://gui/movement.xscn')
 	movement_arrow_bl = movement_template.instance()
@@ -70,7 +74,7 @@ func init_root(root, map, hud):
 	demo_timer = root_node.get_node("DemoTimer")
 
 func set_active_field(position):
-	var field = abstract_map.get_field(position)
+	var field = self.abstract_map.get_field(position)
 	self.clear_active_field()
 	self.activate_field(field)
 
@@ -106,7 +110,7 @@ func handle_action(position):
 				self.move_unit(active_field, field)
 
 func post_handle_action():
-	positions.refresh_units()
+	self.positions.refresh_units()
 
 func capture_building(active_field, field):
 	self.use_ap()
@@ -249,12 +253,12 @@ func end_turn():
 	hud_controller.set_turn(turn)
 
 	#gather stats
-	battle_stats.add_domination(self.current_player, positions.get_player_buildings(self.current_player).size())
+	battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 	if turn == 1 || fmod(turn, 3) == 0:
 		ai.select_behaviour_type(current_player)
 
 func move_camera_to_active_bunker():
-	var bunker_position = positions.get_player_bunker_position(current_player)
+	var bunker_position = self.positions.get_player_bunker_position(current_player)
 	if bunker_position != null:
 		self.move_camera_to_point(bunker_position)
 
@@ -288,17 +292,17 @@ func update_ap(ap):
 		hud_controller.warn_end_turn()
 
 func refill_ap():
-	positions.refresh_units()
-	positions.refresh_buildings()
+	self.positions.refresh_units()
+	self.positions.refresh_buildings()
 
 	var total_ap = player_ap[current_player]
-	var buildings = positions.get_player_buildings(current_player)
+	var buildings = self.positions.get_player_buildings(current_player)
 	for building in buildings:
 		total_ap = total_ap + buildings[building].bonus_ap
 	self.update_ap(total_ap)
 
 func show_bonus_ap():
-	var buildings = positions.get_player_buildings(current_player)
+	var buildings = self.positions.get_player_buildings(current_player)
 	for building in buildings:
 		if buildings[building].bonus_ap > 0:
 			buildings[building].show_floating_ap()
@@ -324,7 +328,6 @@ func switch_to_player(player):
 func perform_ai_stuff():
 	var success = false
 	if root_node.settings['cpu_' + str(current_player)] && player_ap[current_player] > 0:
-		abstract_map.create_tile_type_map()
 		success = ai.gather_available_actions(player_ap[current_player])
 
 	return player_ap[current_player] > 0 && success
