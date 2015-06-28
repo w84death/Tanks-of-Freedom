@@ -15,13 +15,6 @@ var hud_unit
 var hud_unit_life
 var hud_unit_attack
 var hud_unit_ap
-var hud_unit_plain
-var hud_unit_road
-var hud_unit_river
-var hud_unit_icon
-var hud_unit_progress_ap
-var hud_unit_progress_ap_blank
-var hud_unit_progress_attack
 var hud_unit_shield
 var hud_unit_details_toggle
 var hud_unit_details_toggle_label
@@ -71,14 +64,6 @@ var hud_end_game_stats_red
 var hud_end_game_missions_button
 var hud_end_game_restart_button
 var hud_end_game_menu_button
-
-
-var show_help = false
-var hud_help_button
-var hud_help_top
-var hud_help_bottom
-var hud_help_unit
-var hud_help_building
 
 func init_root(root, action_controller_object, hud):
 	root_node = root
@@ -135,17 +120,7 @@ func init_root(root, action_controller_object, hud):
 	hud_unit_life = hud_unit.get_node("controls/life")
 	hud_unit_attack = hud_unit.get_node("controls/attack")
 	hud_unit_ap = hud_unit.get_node("controls/action_points")
-	hud_unit_plain = hud_unit.get_node("controls/plain")
-	hud_unit_road = hud_unit.get_node("controls/road")
-	hud_unit_river = hud_unit.get_node("controls/river")
-	hud_unit_icon = hud_unit.get_node("controls/unit_icon")
-	hud_unit_progress_ap = hud_unit.get_node("controls/progress_ap")
-	hud_unit_progress_ap_blank = hud_unit.get_node("controls/progress_ap_blank")
-	hud_unit_progress_attack = hud_unit.get_node("controls/progress_attack")
 	hud_unit_shield = hud_unit.get_node("controls/shield")
-	hud_unit_details_toggle = hud_unit.get_node("controls/details_toggle")
-	hud_unit_details_toggle_label = hud_unit_details_toggle.get_node("Label")
-	hud_unit_details_toggle.connect("pressed", action_controller, "toggle_unit_details_view")
 
 	#
 	# HUD BUILDING
@@ -181,18 +156,7 @@ func init_root(root, action_controller_object, hud):
 	zoom_out_button = zoom_card.get_node("zoom_out")
 	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
 	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
-
-	#
-	# HUD HELP
-	#
-	hud_help_button = hud.get_node("help_button/help")
-	hud_help_top = hud.get_node("help_top")
-	hud_help_bottom = hud.get_node("help_bottom")
-	hud_help_unit = hud_help_bottom.get_node("unit_card")
-	hud_help_building = hud_help_bottom.get_node("building_card")
-
-	hud_help_button.connect("pressed", self, "toggle_help")
-
+	
 	#
 	# HOUR GLASSES
 	#
@@ -200,78 +164,26 @@ func init_root(root, action_controller_object, hud):
 
 	menu_button = hud.get_node("game_card/escape")
 	menu_button.connect("pressed", root, "toggle_menu")
-
-func toggle_help():
-	show_help = not show_help
-	self.refresh_help()
-
-func refresh_help():
-	if show_help:
-		hud_help_top.show()
-		hud_help_bottom.show()
-		if not hud_unit.is_hidden():
-			hud_help_unit.show()
-		else:
-			hud_help_unit.hide()
-		if not hud_building.is_hidden():
-			hud_help_building.show()
-		else:
-			hud_help_building.hide()
-	else:
-		hud_help_top.hide()
-		hud_help_bottom.hide()
-
+	
 func show_unit_card(unit, player):
 	self.update_unit_card(unit)
-	self.set_unit_card_icon(unit)
 	self.show_hud_unit(player)
-	self.refresh_help()
 
 func update_unit_card(unit):
 	var stats = unit.get_stats()
 	hud_unit_life.set_text(str(stats.life))
 	hud_unit_attack.set_text(str(stats.attack))
-	hud_unit_ap.set_text(str(stats.ap))
-	sync_ap_progress(stats.ap)
-	hud_unit_plain.set_text(str(stats.plain))
-	hud_unit_road.set_text(str(stats.road))
-	hud_unit_river.set_text(str(stats.river))
-	hud_unit_progress_attack.set_frame(stats.attacks_number)
+
 	if unit.can_defend():
 		hud_unit_shield.show()
 	else:
 		hud_unit_shield.hide()
 
-func set_unit_card_icon(unit):
-	hud_unit_icon.set_region_rect(Rect2((unit.player + 1) * 32, unit.type * 32, 32, 32))
-
 func clear_unit_card():
 	hud_unit.hide()
-	self.refresh_help()
-
-func sync_ap_progress(ap):
-	if ap > 8:
-		ap = 8
-	hud_unit_progress_ap_blank.set_frame(ap)
-	hud_unit_progress_ap.set_frame(ap)
 
 func mark_potential_ap_usage(active, required_ap):
-	if active == null || active.object == null || active.object.group != 'unit':
-		return
-	if hud_unit_progress_ap == null:
-		return
-
-	var ap_left = active.object.ap - required_ap
-	if ap_left < 0:
-		ap_left = 0
-	if ap_left > 8:
-		ap_left = 8
-	hud_unit_progress_ap.set_frame(ap_left)
-
-func set_ap_progress(ap):
-	if ap > 8:
-		ap = 8
-	hud_unit_progress_ap.set_frame(ap)
+	return
 
 func show_building_card(building, player_ap):
 	if not building.can_spawn:
@@ -286,11 +198,9 @@ func show_building_card(building, player_ap):
 	else:
 		hud_building_spawn_button.set_disabled(true)
 	hud_building.show()
-	self.refresh_help()
 
 func clear_building_card():
 	hud_building.hide()
-	self.refresh_help()
 
 func show_in_game_card(messages, current_player):
 	self.lock_hud()
@@ -409,20 +319,7 @@ func toggle_unit_details_view(player):
 	self.show_hud_unit(player)
 
 func show_hud_unit(player):
-	var index = 0
-	var margin
-	var label = "SHOW\nMORE"
-
-	if hud_unit_expanded[player]:
-		index = 1
-		label = "SHOW\nLESS"
-
-	hud_unit_details_toggle_label.set_text(label)
-	margin = hud_unit_expanded_positions[index]
-	hud_unit_card.set_margin(MARGIN_TOP,margin.top)
-	hud_unit_card.set_margin(MARGIN_BOTTOM,margin.bottom)
 	hud_unit.show()
-	#print(hud_unit_expanded_positions[index])
 
 func show_hourglasses():
 	hourglasses_card.show()
