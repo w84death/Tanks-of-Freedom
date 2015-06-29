@@ -4,6 +4,7 @@
 
 ### 0.3.5-beta
 
+- removed terrain movement costs
 - code cleanup
 - added CHANGELOG file
 
