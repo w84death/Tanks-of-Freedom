@@ -18,11 +18,6 @@ func __fillCostMap(cost_map, units, ownBuildings):
 		var unit_pos = ownBuildings[pos].get_pos_map()
 		cost_map[unit_pos.x][unit_pos.y] = tileObject.NON_WALKABLE
 
-	# #TODO this should be done once!
-	# for pos in terrain:
-	# 	var unit_pos = terrain[pos].get_pos_map()
-	# 	cost_map[unit_pos.x][unit_pos.y] = tileObject.NON_WALKABLE
-
 	return cost_map
 
 func __prepareGrid(cost_map):

@@ -9,8 +9,10 @@ var tile_types = [
 	'river','river','river','river','river','river','river','river'
 ]
 
+const TERRAIN_COST = 1
+
 func move_object(from, to):
-	var action_cost = self.get_terrain_cost(from, self.get_terrain_type(to))
+	var action_cost = self.get_terrain_cost()
 	var player_stats = from.object.get_stats()
 
 	if self.can_move(from, to):
@@ -30,20 +32,11 @@ func move_object(from, to):
 
 func can_move(from, to):
 	var unit_stats = from.object.get_stats()
-	var action_cost = self.get_terrain_cost(from, self.get_terrain_type(to))
+	var action_cost = self.get_terrain_cost()
 	if unit_stats.ap >= action_cost:
 		return true
 	else:
 		return false
 
-func get_terrain_type(to):
-	return tile_types[to.terrain_type]
-
-# todo make consistent method (look above)
-func get_type_name(terrain_type):
-	return tile_types[terrain_type]
-
-
-func get_terrain_cost(unit, terrain_type):
-	var stats = unit.object.get_stats()
-	return stats[terrain_type]
+func get_terrain_cost():
+	return TERRAIN_COST

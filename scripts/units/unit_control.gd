@@ -59,7 +59,7 @@ func get_initial_pos():
 	return position_on_map
 
 func get_stats():
-	return {'life' : life, 'attack' : attack, 'plain' : plain, 'road' : road, 'river' : river, 'ap' : get_ap(), 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
+	return {'life' : life, 'attack' : attack, 'ap' : get_ap(), 'attack_ap': attack_ap, 'attacks_number' : attacks_number}
 
 func set_stats(new_stats):
 	life = new_stats.life

@@ -55,9 +55,9 @@ func calculate_cost():
 		if target.group == 'unit' && unit.can_attack():
 			current_cost = unit.attack_ap
 		if target.group == 'building':
-			current_cost = movement_controller.get_terrain_cost(active_field, movement_controller.get_terrain_type(marked_field))
+			current_cost = movement_controller.get_terrain_cost()
 	else:
-		current_cost = movement_controller.get_terrain_cost(active_field, movement_controller.get_terrain_type(marked_field))
+		current_cost = movement_controller.get_terrain_cost()
 
 
 func _ready():
