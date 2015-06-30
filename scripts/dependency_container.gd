@@ -10,6 +10,7 @@ var positions
 
 func init_root(root_node):
 	self.root = root_node
-	positions = preload("services/positions.gd").new(self.root)
+	self.positions = preload("services/positions.gd").new(self.root)
+	self.controllers.campaign_menu_controller.init_root(root_node)
 
 	map_list.init()

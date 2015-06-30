@@ -15,6 +15,8 @@ var settings
 var menu_button
 var settings_button
 
+var campaign_button
+
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_play_button
 var maps_play_custom_button
@@ -45,6 +47,8 @@ func _ready():
 	tutorial_button = get_node("control/game_controls/tutorial")
 	workshop_button = get_node("control/game_controls/workshop")
 
+	campaign_button = get_node("control/game_controls/start_campaign")
+
 	play_button = get_node("control/game_controls/play")
 	close_button = get_node("control/close")
 	quit_button = get_node("control/game_controls/quit")
@@ -63,6 +67,7 @@ func _ready():
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 
+	campaign_button.connect("pressed", self, "show_campaign_menu")
 	tutorial_button.connect("pressed", self, "show_tutorial")
 	workshop_button.connect("pressed", self, "enter_workshop")
 	play_button.connect("pressed", self, "show_maps_menu")
@@ -124,6 +129,9 @@ func load_custom_maps_list(dropdown):
 func refresh_custom_maps_list():
 	self.maps_select_custom_map.clear()
 	self.load_custom_maps_list(self.maps_select_custom_map)
+
+func show_campaign_menu():
+	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
 
 func show_maps_menu():
 	self.refresh_custom_maps_list()
