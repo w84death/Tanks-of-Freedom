@@ -86,11 +86,14 @@ var maps = [
     },
 ]
 
-func get_map_data(map_name):
-    return maps[map_name]['file']
+func get_map_data(map_number):
+    return maps[map_number]['file']
 
-func get_map_player(map_name):
-    return maps[map_name]['player']
+func get_map_player(map_number):
+    return maps[map_number]['player']
 
-func get_map_description(map_name):
-    return maps[map_name]['description']
+func get_map_description(map_number):
+    return maps[map_number]['description']
+
+func get_map_name(map_number):
+    return maps[map_number]['label']

@@ -7,7 +7,7 @@ var map_pos
 var game_scale
 var scale_root
 var hud_template = preload('res://gui/gui.xscn')
-var menu = preload('res://gui/menu.xscn').instance()
+var menu
 
 var intro = preload('res://intro.xscn').instance()
 
@@ -121,7 +121,6 @@ func load_map(template_name, workshop_file_name = false):
 		action_controller.switch_to_player(0)
 	else:
 		action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
-		hud_controller.show_story_card(self.dependency_container.campaign.get_map_description(template_name))
 	hud_controller.show_map()
 	selector.init(self)
 	if (menu && menu.close_button):
@@ -248,6 +247,7 @@ func _ready():
 	self.read_settings_from_file()
 	scale_root = get_node("/root/game/pixel_scale")
 	ai_timer = get_node("AITimer")
+	self.menu = self.dependency_container.controllers.menu_controller
 	sound_controller.init_root(self)
 	menu.init_root(self)
 	menu.hide()

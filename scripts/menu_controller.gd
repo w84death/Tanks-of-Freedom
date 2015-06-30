@@ -132,6 +132,7 @@ func refresh_custom_maps_list():
 
 func show_campaign_menu():
 	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+	control_node.hide()
 
 func show_maps_menu():
 	self.refresh_custom_maps_list()
