@@ -330,7 +330,7 @@ func refill_ap():
 func show_bonus_ap():
 	var buildings = self.positions.get_player_buildings(current_player)
 	for building in buildings:
-		if buildings[building].bonus_ap > 0:
+		if buildings[building].bonus_ap > 0 && not self.root_node.dependency_container.abstract_map.map.fog_controller.is_fogged(buildings[building].position_on_map.x, buildings[building].position_on_map.y):
 			buildings[building].show_floating_ap()
 
 func switch_to_player(player):

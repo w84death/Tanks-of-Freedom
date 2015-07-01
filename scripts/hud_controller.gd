@@ -64,6 +64,8 @@ var hud_end_game_missions_button
 var hud_end_game_restart_button
 var hud_end_game_menu_button
 
+var hud_locked = false
+
 func init_root(root, action_controller_object, hud):
 	root_node = root
 	action_controller = action_controller_object
@@ -155,7 +157,7 @@ func init_root(root, action_controller_object, hud):
 	zoom_out_button = zoom_card.get_node("zoom_out")
 	zoom_in_button.connect("pressed", action_controller, "camera_zoom_in")
 	zoom_out_button.connect("pressed", action_controller, "camera_zoom_out")
-	
+
 	#
 	# HOUR GLASSES
 	#
@@ -163,8 +165,10 @@ func init_root(root, action_controller_object, hud):
 
 	menu_button = hud.get_node("game_card/escape")
 	menu_button.connect("pressed", root, "toggle_menu")
-	
+
 func show_unit_card(unit, player):
+	if self.hud_locked:
+		return
 	self.update_unit_card(unit)
 	self.show_hud_unit(player)
 
@@ -185,7 +189,7 @@ func mark_potential_ap_usage(active, required_ap):
 	return
 
 func show_building_card(building, player_ap):
-	if not building.can_spawn:
+	if not building.can_spawn || self.hud_locked:
 		return
 
 	hud_building_icon.set_region_rect(building.get_region_rect())
@@ -228,6 +232,7 @@ func close_story_card():
 	self.unlock_hud()
 
 func lock_hud():
+	self.hud_locked = true
 	active_map.hide()
 	hud_turn_button.set_disabled(true)
 	hud_turn_button_red.set_disabled(true)
@@ -239,6 +244,7 @@ func lock_hud():
 	self.clear_unit_card()
 
 func unlock_hud():
+	self.hud_locked = false
 	hud_turn_button.set_disabled(false)
 	hud_turn_button_red.set_disabled(false)
 	active_map.show()

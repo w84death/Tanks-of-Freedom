@@ -190,6 +190,8 @@ func lock_for_cpu():
 	hud.get_node("bottom_panel/center/turn_card/end_turn").set_disabled(true)
 	hud.get_node("bottom_panel/center/turn_card/end_turn_red").set_disabled(true)
 	selector.hide()
+	self.hud_controller.hud_locked = true
+	self.hud_controller.hud_game_card.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
 		self.current_map.camera_follow = false
 		#hud_controller.show_hourglasses() <- why this do not work?
@@ -206,6 +208,8 @@ func unlock_for_player():
 	self.current_map.camera_follow = true
 	#hud_controller.hide_hourglasses()
 	hud.get_node("hourglasses").hide()
+	self.hud_controller.hud_locked = false
+	self.hud_controller.hud_game_card.show()
 
 func lock_for_demo():
 	is_demo = true
