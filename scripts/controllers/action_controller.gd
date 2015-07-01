@@ -60,7 +60,6 @@ func reset():
 
 func init_root(root, map, hud):
 	self.reset()
-
 	self.root_node = root
 	self.root_tree = self.root_node.get_tree()
 
@@ -145,7 +144,9 @@ func capture_building(active_field, field):
 
 	field.object.claim(current_player, self.turn)
 	sound_controller.play('occupy_building')
-	if field.object.type != 4:
+	if field.object.type == 4:
+		active_field.object.takeAllAP()
+	else:
 		self.despawn_unit(active_field)
 	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 	self.activate_field(field)
@@ -374,9 +375,6 @@ func end_game():
 	if (root_node.is_demo):
 		demo_timer.reset(demo_timer.STATS)
 		demo_timer.start()
-	if (self.root_node.dependency_container.match_state.is_campaign()):
-		self.root_node.dependency_container.campaign.update_campaign_progress(self.root_node.dependency_container.match_state.get_map_number())
-		self.root_node.dependency_container.match_state.reset()
 
 func camera_zoom_in():
 	var scale = camera.get_scale()
