@@ -375,6 +375,9 @@ func end_game():
 	if (root_node.is_demo):
 		demo_timer.reset(demo_timer.STATS)
 		demo_timer.start()
+	if (self.root_node.dependency_container.match_state.is_campaign()):
+               self.root_node.dependency_container.campaign.update_campaign_progress(self.root_node.dependency_container.match_state.get_map_number())
+               self.root_node.dependency_container.match_state.reset()
 
 func camera_zoom_in():
 	var scale = camera.get_scale()
