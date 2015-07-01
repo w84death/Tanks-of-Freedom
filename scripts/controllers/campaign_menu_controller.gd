@@ -42,6 +42,7 @@ func attach_campaign_menu():
     self.campaign_menu.hide()
 
 func show_campaign_menu():
+    self.manage_switch_buttons()
     self.campaign_menu.show()
 
 func hide_campaign_menu():
@@ -86,11 +87,13 @@ func switch_to_next():
         self.fill_mission_data(self.current_campaign_map)
 
 func manage_switch_buttons():
+    var campaign_progression = self.root.dependency_container.campaign.get_campaign_progress()
+
     if self.current_campaign_map == 0:
         self.prev_button.hide()
     else:
         self.prev_button.show()
-    if (self.current_campaign_map + 1) == self.root.dependency_container.campaign.maps.size():
+    if (self.current_campaign_map + 1) == self.root.dependency_container.campaign.maps.size() || self.current_campaign_map == (campaign_progression + 1):
         self.next_button.hide()
     else:
         self.next_button.show()

@@ -1,4 +1,7 @@
 
+var progress_file = File.new()
+var campaign_progression = -1
+
 var maps = [
     {
         'label': 'MayDay Square',
@@ -97,3 +100,19 @@ func get_map_description(map_number):
 
 func get_map_name(map_number):
     return maps[map_number]['label']
+
+func load_campaign_progress():
+    if progress_file.file_exists("user://campaign_progress.tof"):
+        progress_file.open("user://campaign_progress.tof",File.READ)
+        self.campaign_progression = progress_file.get_var()
+    else:
+        self.update_campaign_progress(self.campaign_progression)
+
+func get_campaign_progress():
+    return self.campaign_progression
+
+func update_campaign_progress(map_number):
+    self.campaign_progression = map_number
+    progress_file.open("user://campaign_progress.tof",File.WRITE)
+    progress_file.store_var(map_number)
+    progress_file.close()

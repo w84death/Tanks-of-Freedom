@@ -119,8 +119,10 @@ func load_map(template_name, workshop_file_name = false):
 	hud_controller = action_controller.hud_controller
 	if workshop_file_name:
 		action_controller.switch_to_player(0)
+		self.dependency_container.match_state.reset()
 	else:
 		action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
+		self.dependency_container.match_state.set_campaign_map(template_name)
 	hud_controller.show_map()
 	selector.init(self)
 	if (menu && menu.close_button):
