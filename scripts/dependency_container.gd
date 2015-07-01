@@ -13,6 +13,7 @@ func init_root(root_node):
 	self.root = root_node
 	self.positions = preload("services/positions.gd").new(self.root)
 	self.campaign.load_campaign_progress()
+	self.positions.prepare_nearby_tiles()
 	self.controllers.campaign_menu_controller.init_root(root_node)
 
 	map_list.init()

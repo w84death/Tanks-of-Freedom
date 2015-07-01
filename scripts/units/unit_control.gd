@@ -24,6 +24,7 @@ var attack_ap
 var max_attacks_number
 var ap
 var attacks_number
+var visibility
 
 var group = 'unit'
 
