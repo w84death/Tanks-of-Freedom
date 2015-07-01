@@ -4,8 +4,8 @@ func _init():
 	type = 0
 	type_name = 'soldier'
 
-	life = 8
-	max_life = 8
+	life = 10
+	max_life = 10
 	attack = 5
 	max_ap = 4
 	attack_ap = 2
