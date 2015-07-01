@@ -185,8 +185,8 @@ func load_menu():
 
 func lock_for_cpu():
 	is_locked_for_cpu = true
-	hud.get_node("top_center/turn_card/end_turn").set_disabled(true)
-	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(true)
+	hud.get_node("bottom_panel/center/turn_card/end_turn").set_disabled(true)
+	hud.get_node("bottom_panel/center/turn_card/end_turn_red").set_disabled(true)
 	selector.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
 		self.current_map.camera_follow = false
@@ -198,8 +198,8 @@ func lock_for_cpu():
 
 func unlock_for_player():
 	is_locked_for_cpu = false
-	hud.get_node("top_center/turn_card/end_turn").set_disabled(false)
-	hud.get_node("top_center/turn_card/end_turn_red").set_disabled(false)
+	hud.get_node("bottom_panel/center/turn_card/end_turn").set_disabled(false)
+	hud.get_node("bottom_panel/center/turn_card/end_turn_red").set_disabled(false)
 	selector.show()
 	self.current_map.camera_follow = true
 	#hud_controller.hide_hourglasses()

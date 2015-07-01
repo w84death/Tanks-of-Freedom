@@ -1,4 +1,3 @@
-
 var root_node
 var action_controller
 var active_map
@@ -75,7 +74,7 @@ func init_root(root, action_controller_object, hud):
 	#
 	# HUD GAME CARD
 	#
-	hud_game_card = hud.get_node("top_center/turn_card")
+	hud_game_card = hud.get_node("bottom_panel/center/turn_card")
 	hud_turn_button = hud_game_card.get_node("end_turn")
 	hud_turn_button_red = hud_game_card.get_node("end_turn_red")
 	hud_turn_button_red_anim = hud_turn_button_red.get_node("anim")
@@ -115,7 +114,7 @@ func init_root(root, action_controller_object, hud):
 	#
 	# HUD UNIT CARD
 	#
-	hud_unit_card = hud.get_node("left_panel")
+	hud_unit_card = hud.get_node("bottom_panel/center")
 	hud_unit = hud_unit_card.get_node("unit_card")
 	hud_unit_life = hud_unit.get_node("controls/life")
 	hud_unit_attack = hud_unit.get_node("controls/attack")
@@ -125,7 +124,7 @@ func init_root(root, action_controller_object, hud):
 	#
 	# HUD BUILDING
 	#
-	hud_building = hud.get_node("left_panel/building_card")
+	hud_building = hud.get_node("bottom_panel/center/building_card")
 	hud_building_icon = hud_building.get_node("building_icon")
 	hud_building_label = hud_building.get_node("name")
 	hud_building_spawn_button = hud_building.get_node("buy")
