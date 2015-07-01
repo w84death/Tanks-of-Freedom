@@ -184,6 +184,9 @@ func update_ap_left():
 func score_kill():
 	kills = kills + 1
 
+func takeAllAP():
+	self.ap = 0
+
 func _ready():
 	add_to_group("units")
 	get_node('anim').play("move")
