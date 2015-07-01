@@ -18,6 +18,9 @@ func init_root(root_node):
     self.root = root_node
     self.bind_campaign_menu()
     self.attach_campaign_menu()
+    self.current_campaign_map = self.root.dependency_container.campaign.get_campaign_progress() + 1
+    if self.current_campaign_map == self.root.dependency_container.campaign.maps.size():
+        self.current_campaign_map = self.current_campaign_map - 1
     self.fill_mission_data(self.current_campaign_map)
     self.manage_switch_buttons()
 
