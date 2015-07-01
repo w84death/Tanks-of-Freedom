@@ -11,7 +11,7 @@ var current_player_ap = 0
 var current_player
 
 const SPAWN_LIMIT = 12
-const DEBUG = false
+const DEBUG =true
 var terrain
 var units
 var buildings
@@ -82,7 +82,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 			var destinations = []
 			destinations = self.__gather_unit_destinations(position, current_player)
 			destinations = destinations + __gather_buildings_destinations(position, current_player)
-			if current_player_ap > 5:
+			if destinations.size() == 0 && current_player_ap > 5:
 				self.wandering.wander(unit, self.units)
 			else:
 				#TODO - calculate data in units groups
@@ -134,6 +134,7 @@ func __add_action(unit, destination, own_units):
 
 	var action_type = self.action_builder.ACTION_MOVE
 	var hiccup = false
+
 	if path.size() == 0:
 		return
 
@@ -159,8 +160,6 @@ func __add_action(unit, destination, own_units):
 					action_type = self.action_builder.ACTION_ATTACK
 				else:
 					return
-			# elif next_tile.object.group == "terrain":
-			# 	return # no tresspassing
 		else:
 			var from = self.abstract_map.get_field(unit.get_pos_map())
 			# todo - check why this still counts as action
