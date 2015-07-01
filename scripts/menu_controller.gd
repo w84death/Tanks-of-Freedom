@@ -18,12 +18,10 @@ var settings_button
 var campaign_button
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
-var maps_play_button
 var maps_play_custom_button
 var maps_close_button
 var maps_turns_cap
 var maps_turns_cap_label
-var maps_select_map
 var maps_select_custom_map
 
 var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
@@ -98,27 +96,17 @@ func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
 
-	maps_play_button = maps_sub_menu.get_node("control/menu_controls/play")
 	maps_play_custom_button = maps_sub_menu.get_node("control/menu_controls/play_custom")
 	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
 	maps_turns_cap = maps_sub_menu.get_node("control/menu_controls/turns_cap")
 	maps_turns_cap_label = maps_turns_cap.get_node("Label")
-	maps_select_map = maps_sub_menu.get_node("control/menu_controls/maps")
 	maps_select_custom_map = maps_sub_menu.get_node("control/menu_controls/custom_maps")
 
-	self.load_campaign_maps_list(maps_select_map)
 	self.load_custom_maps_list(maps_select_custom_map)
 
-	maps_play_button.connect("pressed", self, "load_map_from_list", [maps_select_map, false])
 	maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map, true])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
 	maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
-	maps_select_map.connect("selected",self,"load_map", [])
-
-func load_campaign_maps_list(dropdown):
-	var map_list = root.dependency_container.campaign.maps
-	for map in map_list:
-		dropdown.add_item(map['label'])
 
 func load_custom_maps_list(dropdown):
 	var map_list = root.dependency_container.map_list.maps
