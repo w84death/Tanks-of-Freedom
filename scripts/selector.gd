@@ -1,4 +1,3 @@
-
 extends AnimatedSprite
 
 var anim
