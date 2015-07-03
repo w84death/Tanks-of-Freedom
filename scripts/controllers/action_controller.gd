@@ -142,7 +142,7 @@ func capture_building(active_field, field):
 	#adding trail
 	self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
 
-	field.object.claim(current_player, self.turn)
+	field.object.claim(self.current_player, self.turn)
 	sound_controller.play('occupy_building')
 	if field.object.type == 4:
 		active_field.object.takeAllAP()
@@ -151,7 +151,7 @@ func capture_building(active_field, field):
 	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 	self.activate_field(field)
 	if field.object.type == 0:
-		self.end_game()
+		self.end_game(self.current_player)
 		return 1
 
 
@@ -267,7 +267,7 @@ func end_turn():
 	self.stats_set_time()
 	if self.root_node.settings['turns_cap'] > 0:
 		if turn >= self.root_node.settings['turns_cap']:
-			self.end_game()
+			self.end_game(-1)
 			return
 
 	sound_controller.play('end_turn')
@@ -364,20 +364,21 @@ func reset_player_units(player):
 		if unit.player == player:
 			unit.reset_ap()
 
-func end_game():
+func end_game(winning_player):
 	self.root_node.ai_timer.reset_state()
 	self.clear_active_field()
 	game_ended = true
 	if root_node.hud.is_hidden():
 		root_node.hud.show()
-	hud_controller.show_win(current_player, battle_stats.get_stats(), turn)
+	hud_controller.show_win(winning_player, battle_stats.get_stats(), turn)
 	selector.hide()
 	if (root_node.is_demo):
 		demo_timer.reset(demo_timer.STATS)
 		demo_timer.start()
-	if (self.root_node.dependency_container.match_state.is_campaign()):
-               self.root_node.dependency_container.campaign.update_campaign_progress(self.root_node.dependency_container.match_state.get_map_number())
-               self.root_node.dependency_container.match_state.reset()
+	if (self.root_node.dependency_container.match_state.is_campaign()) && winning_player > -1:
+		if not self.root_node.settings['cpu_' + str(winning_player)]:
+			self.root_node.dependency_container.campaign.update_campaign_progress(self.root_node.dependency_container.match_state.get_map_number())
+			self.root_node.dependency_container.match_state.reset()
 
 func camera_zoom_in():
 	var scale = camera.get_scale()
