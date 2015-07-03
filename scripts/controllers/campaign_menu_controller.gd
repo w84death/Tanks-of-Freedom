@@ -53,6 +53,10 @@ func hide_campaign_menu():
     self.root.dependency_container.controllers.menu_controller.control_node.show()
 
 func fill_mission_data(mission_num):
+    if mission_num < 0 || mission_num > self.root.dependency_container.campaign.maps.size() - 1:
+        return
+
+    self.current_campaign_map = mission_num
     self.set_mission_num(mission_num + 1)
     self.set_mission_name(self.root.dependency_container.campaign.get_map_name(mission_num))
     self.set_mission_description(self.root.dependency_container.campaign.get_map_description(mission_num))

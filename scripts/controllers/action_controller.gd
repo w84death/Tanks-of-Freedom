@@ -377,8 +377,11 @@ func end_game(winning_player):
 		demo_timer.start()
 	if (self.root_node.dependency_container.match_state.is_campaign()) && winning_player > -1:
 		if not self.root_node.settings['cpu_' + str(winning_player)]:
-			self.root_node.dependency_container.campaign.update_campaign_progress(self.root_node.dependency_container.match_state.get_map_number())
-			self.root_node.dependency_container.match_state.reset()
+			var mission_num = self.root_node.dependency_container.match_state.get_map_number()
+			if mission_num > self.root_node.dependency_container.campaign.get_campaign_progress():
+				self.root_node.dependency_container.campaign.update_campaign_progress(mission_num)
+				self.root_node.dependency_container.controllers.campaign_menu_controller.fill_mission_data(mission_num + 1)
+	self.root_node.dependency_container.match_state.reset()
 
 func camera_zoom_in():
 	var scale = camera.get_scale()
