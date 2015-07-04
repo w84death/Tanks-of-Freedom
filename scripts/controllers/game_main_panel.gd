@@ -4,19 +4,31 @@ extends Control
 var root
 var background
 var background_extra_unit
-var background_extra_building
+var background_extra_building_units
+var background_extra_building_upgrades
 
 var default_panel
 
 var unit_panel
 var unit_panel_extras
+var unit_panel_extras_button
+var unit_panel_name
+var unit_panel_attack
+var unit_panel_health
+var unit_panel_action1
+var unit_panel_action2
 
 var building_panel
-var building_panel_extras
+var building_panel_open_button
+var building_panel_open_button_label
+var building_panel_units_panel
+var building_panel_upgrades_panel
+var building_panel_units_panel_button
+var building_panel_upgrades_panel_button
 
 var info_panel
 var info_panel_end_button
-var info_panel_blink_text
+var info_panel_blink_label
 var info_panel_blink_led
 var info_panel_blink_led_anim
 var info_panel_turn
@@ -39,7 +51,7 @@ func init_nodes(root_node):
 	#
 	info_panel = root.get_node('info_panel')
 	info_panel_end_button = info_panel.get_node('end_turn_button')
-	info_panel_blink_text = info_panel.get_node('end_turn_text')
+	info_panel_blink_label = info_panel.get_node('end_turn_text')
 	info_panel_blink_led = info_panel.get_node('end_turn_led')
 	info_panel_blink_led_anim = info_panel_blink_led.get_node('anim')
 	info_panel_end_button.connect('pressed',self,'end_button_pressed')
@@ -52,8 +64,8 @@ func init_nodes(root_node):
 	#
 	background = root.get_node('background')
 	background_extra_unit = background.get_node('unit_extra_panel')
-	background_extra_building = background.get_node('building_extra_panel')
-	
+	background_extra_building_units = background.get_node('building_extra_panel/units')
+	background_extra_building_upgrades = background.get_node('building_extra_panel/upgrades')
 	
 	#
 	# DEFAULT PANEL
@@ -70,7 +82,23 @@ func init_nodes(root_node):
 	# BUILDING PANEL
 	#
 	building_panel = root.get_node('building_panel')
+	building_panel_units_panel = building_panel.get_node('extras/units')
+	building_panel_upgrades_panel = building_panel.get_node('extras/upgrades')
+	building_panel_units_panel_button = building_panel.get_node('units_button')
+	building_panel_units_panel_button.connect('pressed',self,'building_panel_units_switch')
+	building_panel_upgrades_panel_button = building_panel.get_node('upgrades_button')
+	building_panel_upgrades_panel_button.connect('pressed',self,'building_panel_upgrades_switch')	
 	
+	#
+	# UNIT PANEL
+	#
+	unit_panel = root.get_node('unit_panel')
+	unit_panel_extras = unit_panel.get_node('extras')
+	unit_panel_extras_button = unit_panel.get_node('extras_button')
+	unit_panel_extras_button.connect('pressed',self,'unit_panel_extras_switch')
+	unit_panel_name = unit_panel.get_node('name')
+	unit_panel_attack = unit_panel.get_node('attack')
+	unit_panel_health = unit_panel.get_node('health')
 	#
 	# DEBUG
 	#
@@ -125,9 +153,9 @@ func info_panel_blink_message(blink,msg=false):
 		self.end_button_blink_animation(false)
 	
 	if msg:
-		info_panel_blink_text.set_text(msg)
+		info_panel_blink_label.set_text(msg)
 	else:
-		info_panel_blink_text.set_text('')
+		info_panel_blink_label.set_text('')
 
 func end_button_blink_animation(run):
 	if run:
@@ -142,21 +170,85 @@ func default_panel_visible(show):
 	else:
 		default_panel.hide()
 
+#
+# BUILDING PANEL
+#
+func building_panel_visible(show):
+	self.building_panel_units_visible(false)
+	self.building_panel_upgrades_visible(false)
+	if show:
+		building_panel.show()
+	else:
+		building_panel.hide()
+
+func building_panel_units_visible(show):
+	if show:
+		building_panel_units_panel.show()
+		background_extra_building_units.show()
+	else:
+		building_panel_units_panel.hide()
+		background_extra_building_units.hide()
+
+func building_panel_upgrades_visible(show):
+	if show:
+		building_panel_upgrades_panel.show()
+		background_extra_building_upgrades.show()
+	else:
+		building_panel_upgrades_panel.hide()
+		background_extra_building_upgrades.hide()
+		
+func building_panel_units_switch():
+	if building_panel_units_panel.is_visible():
+		self.building_panel_units_visible(false)
+	else:
+		self.building_panel_units_visible(true)
+
+func building_panel_upgrades_switch():
+	if building_panel_upgrades_panel.is_visible():
+		self.building_panel_upgrades_visible(false)
+	else:
+		self.building_panel_upgrades_visible(true)
+
+
+#
+# UNIT PANEL
+#
+func unit_panel_init():
+	self.unit_panel_set_attack('5')
+	self.unit_panel_set_health('3','8')
+	self.unit_panel_set_name('INANTRY')
+
 func unit_panel_visible(show):
 	if show:
 		unit_panel.show()
-		background_extra_unit.show()
+		self.unit_panel_extras_visible(false)
 	else:
 		unit_panel.hide()
+		self.unit_panel_extras_visible(false)
+		
+func unit_panel_extras_visible(show):
+	if show:
+		unit_panel_extras.show()
+		background_extra_unit.show()
+	else:
+		unit_panel_extras.hide()
 		background_extra_unit.hide()
 		
-func building_panel_visible(show):
-	if show:
-		building_panel.show()
-		background_extra_building.show()
+func unit_panel_extras_switch():
+	if unit_panel_extras.is_visible():
+		self.unit_panel_extras_visible(false)
 	else:
-		building_panel.hide()
-		background_extra_building.hide()
+		self.unit_panel_extras_visible(true)
+
+func unit_panel_set_attack(value):
+	unit_panel_attack.set_text(value)
+
+func unit_panel_set_health(hp,max_hp):
+	unit_panel_health.set_text(hp+'/'+max_hp)
+
+func unit_panel_set_name(value):
+	unit_panel_name.set_text(value)
+
 
 #
 # DEBUG
@@ -194,6 +286,7 @@ func _ready():
 	
 	self.init_nodes(self)
 	self.init_info_panel()
+	self.unit_panel_init()
 	pass
 
 #
