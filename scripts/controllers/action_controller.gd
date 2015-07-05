@@ -346,6 +346,7 @@ func switch_to_player(player):
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card([], current_player)
+		self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
 	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 
 func perform_ai_stuff():

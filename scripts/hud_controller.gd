@@ -137,7 +137,7 @@ func set_turn(no):
 	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.set_turn(no, self.root_node.settings['turns_cap'])
 
 func warn_end_turn():
-	return
+	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_flash()
 
 func show_win(player, stats, turns):
 	self.lock_hud()
