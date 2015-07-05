@@ -33,9 +33,10 @@ func bind_unit(unit_object):
     self.update_hud()
 
 func update_hud():
-    self.set_attack(self.unit.attack)
-    self.set_health(self.unit.life, self.unit.max_life)
-    self.set_name(self.unit.type_name)
+	if self.unit and self.unit.attack:
+	    self.set_attack(self.unit.attack)
+    	self.set_health(self.unit.life, self.unit.max_life)
+    	self.set_name(self.unit.type_name)
 
 func unbind_unit():
     self.hide_skills()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="24" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="24" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/button_end_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/button_end_1.png" type="Texture"></ext_resource>
@@ -20,7 +20,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
-	<resource type="Animation" path="local://1">
+	<resource type="Animation" path="local://0">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
@@ -60,7 +60,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://2">
+	<resource type="Animation" path="local://1">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
@@ -100,7 +100,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://3">
+	<resource type="Animation" path="local://2">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
@@ -314,13 +314,13 @@
 				<int> 2 </int>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -655.707, -617.035 </vector2>
+							<vector2> -395.446, -350.632 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -340,7 +340,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.522661 </real>
+							<real> 0.872939 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -433,6 +433,15 @@
 							<real> 500 </real>
 							<string> "znear" </string>
 							<real> 0.1 </real>
+						</dictionary>
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 0 </int>
+							<string> "sources" </string>
+							<array  len="1" shared="false">
+								<string> "res://gui/hud/unit_panel.gd" </string>
+							</array>
 						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
@@ -554,9 +563,9 @@
 				<vector2> 264, -44 </vector2>
 				<resource  resource_type="Texture" path="res://assets/gui/dialogs/mini_led_icons.png">  </resource>
 				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<resource  resource_type="Animation" path="local://1">  </resource>
 				<resource  resource_type="Animation" path="local://2">  </resource>
-				<resource  resource_type="Animation" path="local://3">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>
