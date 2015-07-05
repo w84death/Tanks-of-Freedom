@@ -30,10 +30,11 @@ func hide():
     self.info_panel.hide()
 
 func reset():
-    self.end_button_enable(true)
+    self.end_button_enable()
     self.set_turn(1)
     self.set_ap(0)
     self.set_ap_gain(0)
+    self.end_button_enable()
 
 func set_ap(ap):
     self.info_panel_ap.set_text(str(ap))
@@ -63,6 +64,10 @@ func end_button_enable():
 func end_button_disable():
     self.info_panel_end_button.set_disabled(true)
     self.info_panel_blink_message(true, 'WAIT', 'blue')
+
+func end_button_flash():
+    info_panel_end_button.set_disabled(false)
+    self.info_panel_blink_message(true, 'END', 'red')
 
 func info_panel_blink_message(blink, msg=false, colour=false):
     if blink:

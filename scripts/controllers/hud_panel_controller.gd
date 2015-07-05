@@ -53,3 +53,7 @@ func show_panel():
 func clear_panels():
 	self.hide_unit_panel()
 	self.hide_building_panel()
+
+func reset():
+	self.info_panel.reset()
+	self.clear_panels()

@@ -147,6 +147,7 @@ func unload_map():
 	current_map.queue_free()
 	current_map = null
 	current_map_terrain = null
+	self.hud_controller.detach_hud_panel()
 	self.remove_child(hud)
 	hud.queue_free()
 	hud = null

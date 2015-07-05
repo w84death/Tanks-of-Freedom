@@ -72,11 +72,15 @@ func init_root(root, action_controller_object, hud):
 
 	self.menu_button = hud.get_node("top_panel/center/game_card/escape")
 	self.menu_button.connect("pressed", root, "toggle_menu")
+	self.root_node.dependency_container.controllers.hud_panel_controller.reset()
 
 func attach_hud_panel():
 	self.hud_panel_anchor = self.hud_root.get_node('bottom_panel/center')
 	self.hud_panel_anchor.add_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
 	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.bind_end_turn(self.action_controller, 'end_turn')
+
+func detach_hud_panel():
+	self.hud_panel_anchor.remove_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
 
 func show_unit_card(unit, player):
 	if self.hud_locked:
