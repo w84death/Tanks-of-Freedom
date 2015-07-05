@@ -47,7 +47,7 @@ func init_root(root, action_controller_object, hud):
 	hud_end_game_total_time = hud_end_game_controls.get_node("labels/total_time")
 	hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
 	hud_end_game_stats_red = hud_end_game_controls.get_node("red")
-	hud_end_game_missions_button = hud_end_game_controls.get_node("select_mission")
+	hud_end_game_missions_button = hud_end_game_controls.get_node("campaign")
 	hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
 	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
 
@@ -62,7 +62,7 @@ func init_root(root, action_controller_object, hud):
 	hud_message_card = hud.get_node("message_card")
 	hud_message_card_player_blue_turn = hud_message_card.get_node("center/blue")
 	hud_message_card_player_red_turn = hud_message_card.get_node("center/red")
-	hud_message_card_button = hud_message_card.get_node("center/button")
+	hud_message_card_button = hud_message_card.get_node("center/message/button")
 	hud_message_card_button.connect("pressed", self, "close_message_card")
 
 	#

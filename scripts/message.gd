@@ -15,13 +15,13 @@ func show_message(title,message):
 		hud_message.add_text(line)
 		hud_message.newline()
 		hud_message.newline()
-	self.show()
+	#self.show()
 	self.raise()
 	return
 
 func close_message():
 	self.active = false
-	self.hide()
+	#self.hide()
 
 func is_visible():
 	return self.active
