@@ -27,9 +27,9 @@ func is_visible():
 	return self.active
 
 func _ready():
-	hud_title = self.get_node("center/center/box/title")
-	hud_message = self.get_node("center/center/box/message")
-	hud_button_close = self.get_node("center/center/box/close")
+	hud_title = self.get_node("title")
+	hud_message = self.get_node("message")
+	hud_button_close = self.get_node("button")
 	hud_button_close.connect("pressed",self,"close_message")
 	pass
 

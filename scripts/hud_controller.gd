@@ -141,7 +141,7 @@ func init_root(root, action_controller_object, hud):
 	hud_message_card =  hud.get_node("message_card")
 	hud_message_card_player_blue_turn = hud_message_card.get_node("center/blue")
 	hud_message_card_player_red_turn = hud_message_card.get_node("center/red")
-	hud_message_card_button = hud_message_card.get_node("center/button")
+	hud_message_card_button = hud_message_card.get_node("center/message/button")
 	hud_message_card_button.connect("pressed", self, "close_message_card")
 
 	#
