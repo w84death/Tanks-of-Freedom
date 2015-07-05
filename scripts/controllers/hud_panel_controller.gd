@@ -24,9 +24,9 @@ func show_default_panel():
 func hide_default_panel():
 	default_panel.hide()
 
-func show_building_panel(building):
+func show_building_panel(building, player_ap):
 	self.hide_default_panel()
-	self.building_panel.bind_building(building)
+	self.building_panel.bind_building(building, player_ap)
 	self.building_panel.show()
 
 func hide_building_panel():

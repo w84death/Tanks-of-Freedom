@@ -92,7 +92,8 @@ func clear_unit_card():
 func show_building_card(building, player_ap):
 	if not building.can_spawn || self.hud_locked:
 		return
-	self.root_node.dependency_container.controllers.hud_panel_controller.show_building_panel(building)
+	self.root_node.dependency_container.controllers.hud_panel_controller.show_building_panel(building, player_ap)
+	self.root_node.dependency_container.controllers.hud_panel_controller.building_panel.bind_spawn_unit(self.action_controller, "spawn_unit_from_active_building")
 
 func clear_building_card():
 	self.root_node.dependency_container.controllers.hud_panel_controller.hide_building_panel()
