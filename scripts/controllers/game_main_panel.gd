@@ -139,15 +139,15 @@ func info_panel_set_turn(turn):
 	
 func end_button_pressed():
 	info_panel_end_button.set_disabled(true)
-	self.info_panel_blink_message(true,'WAIT','blue')
+	self.info_panel_blink_message('WAIT','blue')
 
 func end_button_enable(unlock):
 	if unlock:
 		info_panel_end_button.set_disabled(false)
-		self.info_panel_blink_message(false,'PLAY')
+		self.info_panel_blink_message('PLAY')
 
-func info_panel_blink_message(blink,msg=false, colour=false):
-	if blink:
+func info_panel_blink_message(msg=false, colour=false):
+	if colour:
 		self.end_button_blink_animation(true,colour)
 	else:
 		self.end_button_blink_animation(false)
@@ -279,7 +279,7 @@ func debug_button3_pressed():
 
 func debug_button4_pressed():
 	self.info_panel_set_ap('0')
-	self.info_panel_blink_message(true,'NO AP','red')
+	self.info_panel_blink_message('NO AP','red')
 
 #
 # ///// END OF HELPERS /////
