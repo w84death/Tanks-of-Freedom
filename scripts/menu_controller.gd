@@ -42,31 +42,31 @@ var shake_toggle_label
 func _ready():
 	control_node = get_node("control")
 
-	tutorial_button = get_node("control/game_controls/tutorial")
-	workshop_button = get_node("control/game_controls/workshop")
+	#tutorial_button = get_node("control/game_panel/tutorial")
+	workshop_button = get_node("control/workshop")
 
-	campaign_button = get_node("control/game_controls/start_campaign")
+	campaign_button = get_node("control/start_campaign")
 
-	play_button = get_node("control/game_controls/play")
+	play_button = get_node("control/play")
 	close_button = get_node("control/close")
-	quit_button = get_node("control/game_controls/quit")
+	quit_button = get_node("control/quit")
 
-	main_menu = get_node("control/game_controls")
-	settings = get_node("control/settings_controls")
+	main_menu = get_node("control/game_panel")
+	settings = get_node("control/settings_panel")
 
 	menu_button = get_node("control/main_menu")
 	settings_button = get_node("control/settings")
 
-	sound_toggle_button = get_node("control/settings_controls/sound_toggle")
-	music_toggle_button = get_node("control/settings_controls/music_toggle")
-	shake_toggle_button = get_node("control/settings_controls/shake_toggle")
+	sound_toggle_button = get_node("control/settings_panel/sound_toggle")
+	music_toggle_button = get_node("control/settings_panel/music_toggle")
+	shake_toggle_button = get_node("control/settings_panel/shake_toggle")
 
 	sound_toggle_label = sound_toggle_button.get_node("Label")
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 
 	campaign_button.connect("pressed", self, "show_campaign_menu")
-	tutorial_button.connect("pressed", self, "show_tutorial")
+	#tutorial_button.connect("pressed", self, "show_tutorial")
 	workshop_button.connect("pressed", self, "enter_workshop")
 	play_button.connect("pressed", self, "show_maps_menu")
 
