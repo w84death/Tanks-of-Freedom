@@ -97,10 +97,20 @@ func manage_switch_buttons():
     var campaign_progression = self.root.dependency_container.campaign.get_campaign_progress()
 
     if self.current_campaign_map == 0:
-        self.prev_button.hide()
+        self.button_enable_switch(prev_button,false)
     else:
-        self.prev_button.show()
+        self.button_enable_switch(prev_button,true)
     if (self.current_campaign_map + 1) == self.root.dependency_container.campaign.maps.size() || self.current_campaign_map == (campaign_progression + 1):
-        self.next_button.hide()
+        self.button_enable_switch(next_button,false)
     else:
-        self.next_button.show()
+        self.button_enable_switch(next_button,true)
+
+func button_enable_switch(button, show):
+	var temp = null
+	
+	if show:
+		button.set_disabled(false)
+		button.get_node('title').show()
+	else:
+		button.set_disabled(true)
+		button.get_node('title').hide()
