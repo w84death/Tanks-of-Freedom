@@ -251,9 +251,6 @@ func spawn_unit_from_active_building():
 		battle_stats.add_spawn(self.current_player)
 		self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 
-func toggle_unit_details_view():
-	hud_controller.toggle_unit_details_view(current_player)
-
 func import_objects():
 	self.attach_objects(self.root_tree.get_nodes_in_group("units"))
 	self.attach_objects(self.root_tree.get_nodes_in_group("buildings"))

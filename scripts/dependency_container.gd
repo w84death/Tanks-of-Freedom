@@ -15,5 +15,6 @@ func init_root(root_node):
 	self.campaign.load_campaign_progress()
 	self.positions.prepare_nearby_tiles()
 	self.controllers.campaign_menu_controller.init_root(root_node)
+	self.controllers.hud_panel_controller.init_root(root_node)
 
 	map_list.init()

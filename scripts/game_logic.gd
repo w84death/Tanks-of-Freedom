@@ -63,8 +63,6 @@ func _input(event):
 				position.y += 2
 				selector.set_pos(position)
 				selector.calculate_cost()
-				if not settings['cpu_' + str(action_controller.current_player)]:
-					hud_controller.mark_potential_ap_usage(action_controller.active_field, selector.current_cost)
 
 			# MOUSE SELECT
 			if (event.type == InputEvent.MOUSE_BUTTON):
@@ -186,30 +184,21 @@ func load_menu():
 	menu.close_button.hide()
 
 func lock_for_cpu():
-	is_locked_for_cpu = true
-	hud.get_node("bottom_panel/center/turn_card/end_turn").set_disabled(true)
-	hud.get_node("bottom_panel/center/turn_card/end_turn_red").set_disabled(true)
-	selector.hide()
-	self.hud_controller.hud_locked = true
-	self.hud_controller.hud_game_card.hide()
+	self.is_locked_for_cpu = true
+	self.hud_controller.lock_hud()
+	self.selector.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
 		self.current_map.camera_follow = false
-		#hud_controller.show_hourglasses() <- why this do not work?
-		hud.get_node("hourglasses").show()
+		self.hud_controller.show_hourglasses()
 	else:
-		#hud_controller.hide_hourglasses()
-		hud.get_node("hourglasses").hide()
+		self.hud_controller.hide_hourglasses()
 
 func unlock_for_player():
-	is_locked_for_cpu = false
-	hud.get_node("bottom_panel/center/turn_card/end_turn").set_disabled(false)
-	hud.get_node("bottom_panel/center/turn_card/end_turn_red").set_disabled(false)
-	selector.show()
+	self.is_locked_for_cpu = false
+	self.hud_controller.unlock_hud()
+	self.selector.show()
 	self.current_map.camera_follow = true
-	#hud_controller.hide_hourglasses()
-	hud.get_node("hourglasses").hide()
-	self.hud_controller.hud_locked = false
-	self.hud_controller.hud_game_card.show()
+	self.hud_controller.hide_hourglasses()
 
 func lock_for_demo():
 	is_demo = true
