@@ -73,10 +73,7 @@ func set_mission_description(description):
     self.mission_description.set_text(description)
 
 func set_team(team):
-    if team == 0:
-        self.team.set_frame(1)
-    else:
-        self.team.set_frame(0)
+	self.team.set_frame(team)
 
 func start_mission():
     self.root.load_map(self.current_campaign_map, false)
