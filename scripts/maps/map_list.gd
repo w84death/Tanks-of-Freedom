@@ -1,23 +1,39 @@
 
-var list_file = File.new()
+var file_handler = File.new()
 var maps = {}
 var list_file_path = "user://maps_list.tof"
 
+var default_custom_maps = [
+    {
+        'name' : 'crossroad',
+        'file' : preload('res://maps/custom/crossroad.gd').new()
+    },
+    {
+        'name' : 'hearth_of_wild',
+        'file' : preload('res://maps/custom/hearth_of_wild.gd').new()
+    },
+    {
+        'name' : 'king_of_the_hill',
+        'file' : preload('res://maps/custom/king_of_the_hill.gd').new()
+    },
+]
+
 func init():
-    if list_file.file_exists(self.list_file_path):
+    if file_handler.file_exists(self.list_file_path):
         self.load_list()
     else:
         self.save_list()
+    self.add_default_maps()
 
 func load_list():
-    self.list_file.open(self.list_file_path, File.READ)
-    self.maps = self.list_file.get_var()
-    self.list_file.close()
+    self.file_handler.open(self.list_file_path, File.READ)
+    self.maps = self.file_handler.get_var()
+    self.file_handler.close()
 
 func save_list():
-    self.list_file.open(self.list_file_path, File.WRITE)
-    self.list_file.store_var(self.maps)
-    self.list_file.close()
+    self.file_handler.open(self.list_file_path, File.WRITE)
+    self.file_handler.store_var(self.maps)
+    self.file_handler.close()
 
 func add_map(map_name):
     self.maps[map_name] = map_name
@@ -25,3 +41,13 @@ func add_map(map_name):
 func store_map(map_name):
     self.add_map(map_name)
     self.save_list()
+
+func add_default_maps():
+    var file_name
+    for map in self.default_custom_maps:
+        file_name = 'user://' + map['name'] + '.tof'
+        if not file_handler.file_exists(file_name):
+            self.file_handler.open(file_name, File.WRITE)
+            self.file_handler.store_var(map['file'].map_data)
+            self.file_handler.close()
+            self.store_map(map['name'])
