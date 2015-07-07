@@ -16,24 +16,12 @@ func _process(delta):
 		self.stop()
 
 		if state == INTRO:
-			root.settings['turns_cap'] = 50
-			root.settings['cpu_0'] = true
-			root.settings['cpu_1'] = true
-			root.load_map(get_map_name())
-			root.load_menu()
-			if !root.menu.is_hidden():
-				root.toggle_menu()
-
-			root.lock_for_demo()
+			if self.root.is_intro:
+				self.root.load_menu()
 			self.reset(STATS)
-
 		else:
-			root.restart_map()
 			self.reset(INTRO)
-
-func get_map_name():
-	randomize()
-	return randi() % 4
+		self.root.dependency_container.demo_mode.start_map()
 
 func inject_root(root_obj):
 	root = root_obj

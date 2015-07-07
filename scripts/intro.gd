@@ -22,13 +22,10 @@ func _ready():
 	audio = self.get_node('audio')
 	if self.root != null && self.root.settings['music_enabled']:
 		audio.play()
-	self.demo_timer = root.get_node("DemoTimer")
-	self.demo_timer.inject_root(root)
 	set_process_input(true)
 	pass
 
 func _on_idle_timer_timeout():
 	anim.play("idle")
-	self.demo_timer.reset()
-	self.demo_timer.start()
+	self.root.dependency_container.demo_mode.start_demo_mode()
 	pass # replace with function body
