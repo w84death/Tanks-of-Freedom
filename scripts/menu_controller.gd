@@ -15,8 +15,11 @@ var main_menu
 var settings
 var menu_button
 var settings_button
-
 var campaign_button
+
+var label_completed
+var label_wins
+var label_maps_created
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_play_custom_button
@@ -81,6 +84,11 @@ func _ready():
 	menu_button.connect("pressed", self, "show_main_menu")
 	settings_button.connect("pressed", self, "show_settings")
 	demo_button.connect("pressed", self, "start_demo_mode")
+
+	
+	self.label_completed = get_node("control/completed")
+	self.label_wins = get_node("control/wins")
+	self.label_maps_created = get_node("control/maps_created")
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
