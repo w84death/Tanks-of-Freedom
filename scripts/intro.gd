@@ -9,7 +9,7 @@ var audio
 
 func _input(event):
 	if ( event.type == InputEvent.KEY and event.pressed ) or (event.type == InputEvent.MOUSE_BUTTON):
-		self.demo_timer.stop()
+		self.root.dependency_container.demo_mode.demo_timer.stop()
 		self.root.unlock_for_demo()
 		self.root.load_menu()
 
