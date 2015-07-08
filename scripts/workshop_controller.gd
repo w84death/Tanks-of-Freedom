@@ -128,7 +128,7 @@ func init_gui():
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
-	
+
 	game_scale = get_node("blueprint/center/scale")
 
 	hud_toolset = self.get_node("toolset/center")
@@ -216,21 +216,21 @@ func init_gui():
 	hud_toolset_soldier_red.connect("pressed", self, "select_tool", ["units",3,hud_toolset_soldier_red.get_node("active")])
 	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
-	
+
 	# toolbox
 	hud_toolbox = self.get_node("toolbox_menu")
 	hud_toolbox_front = hud_toolbox.get_node("center/toolbox/front/")
 	hud_toolbox_show_button = self.get_node("toolbox/center/box")
 	hud_toolbox_close_button = hud_toolbox_front.get_node("close")
 	hud_toolbox_undo_button = self.get_node("toolbox/center/undo")
-	
+
 	hud_toolbox_fill_x = hud_toolbox_front.get_node("x")
 	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
 	hud_toolbox_fill_button = hud_toolbox_front.get_node("fill")
-	
+
 	hud_toolbox_fill_x.get_node('label').set_text(str(settings.fill[settings.fill_selected[0]]))
 	hud_toolbox_fill_y.get_node('label').set_text(str(settings.fill[settings.fill_selected[1]]))
-	
+
 	hud_toolbox_clear_terrain = hud_toolbox_front.get_node("clear_terrain")
 	hud_toolbox_clear_units = hud_toolbox_front.get_node("clear_units")
 
@@ -240,22 +240,22 @@ func init_gui():
 	hud_toolbox_win1 = hud_toolbox_front.get_node("win1")
 	hud_toolbox_win2 = hud_toolbox_front.get_node("win2")
 	hud_toolbox_win3 = hud_toolbox_front.get_node("win3")
-	
+
 	hud_toolbox_show_button.connect("pressed",self,"toggle_toolbox")
 	hud_toolbox_close_button.connect("pressed",self,"toggle_toolbox")
 	hud_toolbox_undo_button.connect("pressed",self,"undo_last_action")
-	
+
 	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0,hud_toolbox_fill_x.get_node("label")])
 	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1,hud_toolbox_fill_y.get_node("label")])
 	hud_toolbox_fill_button.connect("pressed",self,"toolbox_fill")
 	hud_toolbox_clear_terrain.connect("pressed",self,"toolbox_clear", [0])
 	hud_toolbox_clear_units.connect("pressed",self,"toolbox_clear", [1])
-	
+
 	hud_toolbox_turn_cap.connect("pressed",self,"toggle_turn_cap", [hud_toolbox_turn_cap.get_node("label")])
 	hud_toolbox_win1.connect("pressed",self,"toolbox_win", [0,hud_toolbox_win1.get_node("label")])
 	hud_toolbox_win2.connect("pressed",self,"toolbox_win", [1,hud_toolbox_win2.get_node("label")])
 	hud_toolbox_win3.connect("pressed",self,"toolbox_win", [2,hud_toolbox_win3.get_node("label")])
-	
+
 	self.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 
 	self.load_map(restore_file_name)
@@ -263,13 +263,13 @@ func init_gui():
 
 func add_action(params):
 	var last_brush
-	
+
 	if params.tool_type == "terrain":
 		last_brush = terrain.get_cell(params.position.x,params.position.y)
-	
+
 	if params.tool_type == "units":
 		last_brush = units.get_cell(params.position.x,params.position.y)
-		
+
 	history.append({
 		position = params.position,
 		tool_type = params.tool_type,
@@ -279,9 +279,9 @@ func add_action(params):
 	if not painting_motion and paint_count >= autosave_after:
 		self.save_map(restore_file_name)
 		paint_count = 0
-	
+
 	hud_toolbox_undo_button.set_disabled(false)
-	
+
 func undo_last_action():
 	var last_action
 	if history.size() > 0:
@@ -298,13 +298,13 @@ func toolbox_win(option,label):
 		text = "on"
 	label.set_text(text)
 	return
-	
+
 func toggle_fill(axis,label):
 	if settings.fill_selected[axis] < settings.fill.size()-1:
 		settings.fill_selected[axis] += 1
 	else:
 		settings.fill_selected[axis] = 0
-	
+
 	label.set_text(str(settings.fill[settings.fill_selected[axis]]))
 	return
 
@@ -321,7 +321,7 @@ func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
 	self.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
 	return
-	
+
 func toolbox_clear(layer):
 	if layer == 0:
 		# clear terrain and units
@@ -385,8 +385,8 @@ func play_map():
 		self.is_working = false
 		self.is_suspended = true
 		root.load_map("workshop", restore_file_name)
-		root.toggle_menu()
 		root.menu.hide_workshop()
+		root.toggle_menu()
 	else:
 		self.show_message("HQ missing", ["In this map mode there need to be HQ building for each player. Blue and Red."])
 	return
@@ -408,7 +408,7 @@ func load_map(name, input = false):
 		hud_file_floppy.play("save")
 	else:
 		self.show_message("File not found", ["Failure!","File name: "+str(name)])
-		
+
 
 func select_tool(tool_type,brush_type,button):
 	hud_toolset_active.hide()
@@ -421,13 +421,13 @@ func select_tool(tool_type,brush_type,button):
 func paint(position, tool_type = null,brush_type = null, undo_action = false):
 	if hud_message_box.is_visible():
 		return false
-		
+
 	if tool_type == null:
 		tool_type = self.tool_type
 	if brush_type == null:
 		brush_type = self.brush_type
-	
-	
+
+
 	if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
 		return false
 	else:
@@ -441,7 +441,7 @@ func paint(position, tool_type = null,brush_type = null, undo_action = false):
 					if not undo_action:
 						add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
 					terrain.set_cell(position.x,position.y,brush_type)
-				
+
 		if tool_type == "units":
 			if units.get_cell(position.x,position.y) != brush_type:
 				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
@@ -500,7 +500,7 @@ func toggle_menu():
 func show_message(title, msg):
 	self.hud_message_box.show_message(title, msg)
 	self.hud_message.show()
-	
+
 func close_message():
 	self.hud_message.hide()
 

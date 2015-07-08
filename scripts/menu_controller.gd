@@ -41,7 +41,7 @@ var music_toggle_label
 var shake_toggle_label
 
 func _ready():
-	control_node = get_node("control")
+	self.control_node = self.get_node("control")
 
 	#tutorial_button = get_node("control/game_panel/tutorial")
 	workshop_button = get_node("control/workshop")
@@ -163,7 +163,7 @@ func hide_tutorial():
 	control_node.show()
 
 func load_workshop():
-	root.add_child(workshop)
+	root.add_child(self.workshop)
 	workshop.init(root)
 	workshop.hide()
 
@@ -172,16 +172,16 @@ func enter_workshop():
 	workshop.is_working = true
 	workshop.is_suspended = false
 	self.show_workshop()
-	workshop.raise()
 
 func show_workshop():
-	control_node.hide()
+	self.hide()
+	self.root.toggle_menu()
 	workshop.show()
 	workshop.units.raise()
 
 func hide_workshop():
 	workshop.hide()
-	control_node.show()
+	self.show()
 
 func toggle_player(player):
 	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
