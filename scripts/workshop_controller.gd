@@ -60,8 +60,9 @@ var hud_toolset_helicopter_red
 
 var hud_message
 var hud_message_box
-var hud_message_title
-var hud_message_message
+var hud_message_box_button
+var hud_message_box_title
+var hud_message_box_message
 
 var hud_toolbox
 var hud_toolbox_front
@@ -181,6 +182,9 @@ func init_gui():
 
 	# message
 	hud_message = self.get_node("message")
+	hud_message_box = hud_message.get_node("center/message")
+	hud_message_box_button = hud_message_box.get_node("button")
+	hud_message_box_button.connect("pressed", self, "close_message")
 
 	#0
 	hud_toolset_clear.connect("pressed", self, "select_tool", ["terrain",-1,hud_toolset_clear.get_node("active")])
@@ -252,7 +256,7 @@ func init_gui():
 	hud_toolbox_win2.connect("pressed",self,"toolbox_win", [1,hud_toolbox_win2.get_node("label")])
 	hud_toolbox_win3.connect("pressed",self,"toolbox_win", [2,hud_toolbox_win3.get_node("label")])
 	
-	self.hud_message.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
+	self.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 
 	self.load_map(restore_file_name)
 	return
@@ -315,17 +319,17 @@ func toggle_turn_cap(label):
 
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
-	self.hud_message.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
+	self.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
 	return
 	
 func toolbox_clear(layer):
 	if layer == 0:
 		# clear terrain and units
 		map.clear_layer(0)
-		self.hud_message.show_message("Toolbox", ["Terrain and units layer cleared!"])
+		self.show_message("Toolbox", ["Terrain and units layer cleared!"])
 	if layer == 1:
 		map.clear_layer(1)
-		self.hud_message.show_message("Toolbox", ["Units layer cleared!"])
+		self.show_message("Toolbox", ["Units layer cleared!"])
 	return
 
 func toggle_toolbox():
@@ -384,26 +388,26 @@ func play_map():
 		root.toggle_menu()
 		root.menu.hide_workshop()
 	else:
-		self.hud_message.show_message("HQ missing", ["In this map mode there need to be HQ building for each player. Blue and Red."])
+		self.show_message("HQ missing", ["In this map mode there need to be HQ building for each player. Blue and Red."])
 	return
 
 func save_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if map.save_map(name):
-		self.hud_message.show_message("Map saved", ["Success","File name: "+str(name)])
+		self.show_message("Map saved", ["Success","File name: "+str(name)])
 		hud_file_floppy.play("save")
 	else:
-		self.hud_message.show_message("File error", ["Failure!","File name: "+str(name)])
+		self.show_message("File error", ["Failure!","File name: "+str(name)])
 
 func load_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if map.load_map(name):
-		self.hud_message.show_message("Map loaded", ["Success","File name: "+str(name)])
+		self.show_message("Map loaded", ["Success","File name: "+str(name)])
 		hud_file_floppy.play("save")
 	else:
-		self.hud_message.show_message("File not found", ["Failure!","File name: "+str(name)])
+		self.show_message("File not found", ["Failure!","File name: "+str(name)])
 		
 
 func select_tool(tool_type,brush_type,button):
@@ -415,7 +419,7 @@ func select_tool(tool_type,brush_type,button):
 	return
 
 func paint(position, tool_type = null,brush_type = null, undo_action = false):
-	if hud_message.is_visible():
+	if hud_message_box.is_visible():
 		return false
 		
 	if tool_type == null:
@@ -445,7 +449,7 @@ func paint(position, tool_type = null,brush_type = null, undo_action = false):
 						add_action({position=Vector2(position.x,position.y),tool_type="units"})
 					units.set_cell(position.x,position.y,brush_type)
 				else:
-					self.hud_message.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
+					self.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
 					return false
 	units.raise()
 	selector.raise()
@@ -492,6 +496,13 @@ func toggle_menu():
 	else:
 		self.is_suspended = true
 		root.menu.hide_workshop()
+
+func show_message(title, msg):
+	self.hud_message_box.show_message(title, msg)
+	self.hud_message.show()
+	
+func close_message():
+	self.hud_message.hide()
 
 func _ready():
 	init_gui()
