@@ -131,8 +131,9 @@ func show_campaign_menu():
 
 func show_maps_menu():
 	self.refresh_custom_maps_list()
-	control_node.hide()
-	maps_sub_menu.show()
+	self.control_node.hide()
+	self.reset_player_buttons()
+	self.maps_sub_menu.show()
 
 func hide_maps_menu():
 	control_node.show()
