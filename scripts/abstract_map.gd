@@ -71,8 +71,10 @@ func create_tile_type_map():
 	for x in range(32):
 		row = []
 		for y in range(32):
-			var type = self.get_field(Vector2(x, y)).terrain_type
-			if (type == -1):
+			var field_object = self.get_field(Vector2(x, y))
+			if (field_object.terrain_type == -1):
+				row.insert(y, 999)
+			elif field_object.object != null && field_object.object.group == 'terrain':
 				row.insert(y, 999)
 			else:
 				row.insert(y, 1)

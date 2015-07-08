@@ -6,6 +6,7 @@ func _init(abstract_map_new):
 	abstract_map = abstract_map_new
 
 func prepare_cost_maps(own_buildings, own_units):
+	self.abstract_map.create_tile_type_map()
 	var cost_map = self.__fillCostMap(abstract_map.cost_map, own_units, own_buildings)
 	return self.__prepareGrid(cost_map)
 
