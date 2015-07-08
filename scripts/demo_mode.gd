@@ -7,8 +7,11 @@ func init_root(root_node):
     self.demo_timer = root_node.get_node('DemoTimer')
     self.demo_timer.inject_root(root_node)
 
-func start_demo_mode():
-    self.demo_timer.reset()
+func start_demo_mode(delay=true):
+    if delay:
+        self.demo_timer.reset()
+    else:
+        self.demo_timer.reset(self.demo_timer.NO_DELAY)
     self.demo_timer.start()
 
 func start_map():

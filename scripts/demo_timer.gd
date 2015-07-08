@@ -9,6 +9,7 @@ var state = null
 
 const INTRO = 1
 const STATS = 2
+const NO_DELAY = 3
 
 func _process(delta):
 	timeout += delta
@@ -33,6 +34,8 @@ func reset(state = INTRO):
 func __get_interval():
 	if state == INTRO:
 		return INTERVAL
+	elif state == NO_DELAY:
+		return 0
 	else:
 		return STATS_INTERVAL
 
