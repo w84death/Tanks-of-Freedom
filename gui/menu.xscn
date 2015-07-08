@@ -163,7 +163,7 @@
 				<string> "start_campaign" </string>
 				<string> "completed" </string>
 				<string> "wins" </string>
-				<string> "maps_creaded" </string>
+				<string> "maps_created" </string>
 				<string> "demo" </string>
 			</string_array>
 			<string> "node_count" </string>
@@ -181,7 +181,7 @@
 				<resource  resource_type="Script" path="res://scripts/menu_controller.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -306,12 +306,8 @@
 							<string> "current" </string>
 							<int> 0 </int>
 							<string> "sources" </string>
-							<array  len="5" shared="false">
+							<array  len="1" shared="false">
 								<string> "res://scripts/menu_controller.gd" </string>
-								<string> "res://scripts/button_visual_hack.gd" </string>
-								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/map_controller.gd" </string>
-								<string> "res://scripts/game_logic.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

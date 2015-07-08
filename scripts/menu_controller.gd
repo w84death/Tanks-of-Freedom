@@ -102,6 +102,8 @@ func _ready():
 
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
 	red_player_button.connect("pressed", self, "toggle_player", [1])
+	
+	self.update_progress_labels(0,999,0,999)
 
 func start_demo_mode():
 	print('start_demo_mode')
@@ -284,5 +286,10 @@ func adjust_turns_cap_label():
 	else:
 		maps_turns_cap_label.set_text("OFF")
 
+func update_progress_labels(completed_maps, total_maps, wins, maps_created):
+	self.label_completed.set_text("COMPLETED: " + str(completed_maps) + "/" + str(total_maps))
+	self.label_wins.set_text("WINS: " + str(wins))
+	self.label_maps_created.set_text("MAPS CREATED: " + str(maps_created))
+	
 func init_root(root_node):
 	root = root_node
