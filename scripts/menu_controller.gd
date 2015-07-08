@@ -85,7 +85,6 @@ func _ready():
 	settings_button.connect("pressed", self, "show_settings")
 	demo_button.connect("pressed", self, "start_demo_mode")
 
-	
 	self.label_completed = get_node("control/completed")
 	self.label_wins = get_node("control/wins")
 	self.label_maps_created = get_node("control/maps_created")
@@ -102,8 +101,8 @@ func _ready():
 
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
 	red_player_button.connect("pressed", self, "toggle_player", [1])
-	
-	self.update_progress_labels(0,999,0,999)
+
+	self.update_progress_labels()
 
 func start_demo_mode():
 	print('start_demo_mode')
@@ -286,10 +285,18 @@ func adjust_turns_cap_label():
 	else:
 		maps_turns_cap_label.set_text("OFF")
 
-func update_progress_labels(completed_maps, total_maps, wins, maps_created):
-	self.label_completed.set_text("COMPLETED: " + str(completed_maps) + "/" + str(total_maps))
-	self.label_wins.set_text("WINS: " + str(wins))
+func update_progress_labels():
+	self.update_custom_maps_count_label()
+	self.update_campaign_progress_label()
+
+func update_custom_maps_count_label():
+	var maps_created = self.root.dependency_container.map_list.maps.size()
 	self.label_maps_created.set_text("MAPS CREATED: " + str(maps_created))
-	
+
+func update_campaign_progress_label():
+	var completed_maps = self.root.dependency_container.campaign.get_completed_map_count()
+	var total_maps = self.root.dependency_container.campaign.maps.size()
+	self.label_completed.set_text("COMPLETED: " + str(completed_maps) + "/" + str(total_maps))
+
 func init_root(root_node):
 	root = root_node

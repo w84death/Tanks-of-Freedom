@@ -379,6 +379,7 @@ func end_game(winning_player):
 			if mission_num > self.root_node.dependency_container.campaign.get_campaign_progress():
 				self.root_node.dependency_container.campaign.update_campaign_progress(mission_num)
 				self.root_node.dependency_container.controllers.campaign_menu_controller.fill_mission_data(mission_num + 1)
+				self.root_node.dependency_container.controllers.menu_controller.update_campaign_progress_label()
 	self.root_node.dependency_container.match_state.reset()
 
 func camera_zoom_in():

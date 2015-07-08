@@ -111,6 +111,12 @@ func load_campaign_progress():
 func get_campaign_progress():
     return self.campaign_progression
 
+func get_completed_map_count():
+    var completed_num = self.campaign_progression + 1
+    if completed_num > self.maps.size():
+        completed_num = self.maps.size()
+    return completed_num
+
 func update_campaign_progress(map_number):
     self.campaign_progression = map_number
     progress_file.open("user://campaign_progress.tof",File.WRITE)

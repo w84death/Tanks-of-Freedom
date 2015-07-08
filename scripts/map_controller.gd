@@ -527,6 +527,7 @@ func store_map_in_binary_file(file_name, data):
 	map_file.close()
 	if file_name != "restore_map":
 		self.root.dependency_container.map_list.store_map(file_name)
+		self.root.dependency_container.controllers.menu_controller.update_custom_maps_count_label()
 
 func store_map_in_plain_file(file_name, data):
 	var the_file = map_file.open("user://" + file_name + ".gd", File.WRITE)
