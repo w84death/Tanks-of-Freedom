@@ -8,6 +8,7 @@ var blue_player_button
 var blue_player_button_label
 var play_button
 var close_button
+var demo_button
 var quit_button
 
 var main_menu
@@ -50,7 +51,8 @@ func _ready():
 	play_button = get_node("control/play")
 	close_button = get_node("control/close")
 	quit_button = get_node("control/quit")
-
+	demo_button = get_node("control/demo")
+	
 	main_menu = get_node("control/game_panel")
 	settings = get_node("control/settings_panel")
 
@@ -78,7 +80,8 @@ func _ready():
 	quit_button.connect("pressed", self, "quit_game")
 	menu_button.connect("pressed", self, "show_main_menu")
 	settings_button.connect("pressed", self, "show_settings")
-
+	demo_button.connect("pressed", self, "start_demo_mode")
+	
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
 	self.load_tutorial()
@@ -92,6 +95,10 @@ func _ready():
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
 	red_player_button.connect("pressed", self, "toggle_player", [1])
 
+func start_demo_mode():
+	print('start_demo_mode')
+	self.root.dependency_container.demo_mode.start_demo_mode()
+	
 func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
