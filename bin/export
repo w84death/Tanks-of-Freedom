@@ -144,11 +144,15 @@ then
     exit
 fi
 
-if [ "$1" == "target" ]
+if [ "$1" == "build" ]
 then
     run_target $2 $3 $4
     exit
 fi
 
-echo "Valid commands: list|build|cleanup|target (destination dir) (base file name)"
+echo "Valid commands:"
+echo "$1 list"
+echo "$1 build (target_name) (destination dir) (base file name)"
+echo "$1 cleanup"
+echo "$1 all (destination dir) (base file name)"
 exit 1
