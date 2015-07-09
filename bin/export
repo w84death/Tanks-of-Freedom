@@ -33,13 +33,17 @@ function check_file_exists {
     fi
 }
 
-function prepare_build_config {
+function bootstrap_configs {
     echo "Preserving engine.cfg and export.cfg"
     mv engine.cfg engine_stored.cfg
     mv export.cfg export_stored.cfg
     echo "Copying target specific configs"
     cp buildConfig/engine_$1.cfg engine.cfg
     cp buildConfig/export_$2.cfg export.cfg
+}
+
+function prepare_build_config {
+    bootstrap_configs $1 $2
 
     if [ ! -d "$3/$4" ]
     then
@@ -151,8 +155,22 @@ then
     exit
 fi
 
+if [ "$1" == "bootstrap" ]
+then
+    check_file_exists 'build' $2
+    engine_file="`grep 'engine_file' buildConfig/build_$2.cfg | sed 's/engine_file: //'`"
+    export_file="`grep 'export_file' buildConfig/build_$2.cfg | sed 's/export_file: //'`"
+
+    check_file_exists 'engine' $engine_file
+    check_file_exists 'export' $export_file
+
+    bootstrap_configs $engine_file $export_file
+    exit
+fi
+
 echo "Valid commands:"
 echo "$1 list"
+echo "$1 bootstrap (target name)"
 echo "$1 build (target_name) (destination dir) (base file name)"
 echo "$1 cleanup"
 echo "$1 all (destination dir) (base file name)"
