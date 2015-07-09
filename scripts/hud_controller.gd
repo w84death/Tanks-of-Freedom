@@ -51,7 +51,7 @@ func init_root(root, action_controller_object, hud):
 	hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
 	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
 
-	hud_end_game_missions_button.connect("pressed", root, "show_missions")
+	hud_end_game_missions_button.connect("pressed", root, "show_campaign")
 	hud_end_game_restart_button.connect("pressed", root, "restart_map")
 	hud_end_game_menu_button.connect("pressed", root, "toggle_menu")
 

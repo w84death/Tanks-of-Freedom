@@ -176,6 +176,10 @@ func show_missions():
 	self.toggle_menu()
 	menu.show_maps_menu()
 
+func show_campaign():
+	self.toggle_menu()
+	self.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+	
 func load_menu():
 	menu.show()
 	is_intro = false
