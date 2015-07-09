@@ -444,6 +444,7 @@ func handle_battle(active_field, field):
 		self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 	else:
 		sound_controller.play('no_attack')
+		self.update_unit(active_field)
 
 	return BREAK_EVENT_LOOP
 
