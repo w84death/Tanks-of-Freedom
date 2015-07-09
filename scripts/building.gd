@@ -124,11 +124,11 @@ func estimate_action(action_type, enemy_units_nearby, own_units, current_player_
 	else:
 		score = score - 10 * same_units_count
 
-	if current_player_ap > 100:
+	if current_player_ap > 200:
 		score = score + self.get_required_ap() * 4
-	elif current_player_ap > 80:
+	elif current_player_ap > 100:
 		score = score + self.get_required_ap() * 2
-	elif current_player_ap > 30:
+	elif current_player_ap > 50:
 		score = score + self.get_required_ap()
 
 	return score
