@@ -7,3 +7,4 @@ BitTanksTest.iml
 
 export.cfg
 *.tmp
+*debug.keystore

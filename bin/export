@@ -98,6 +98,7 @@ function run_target {
     engine_file="`grep 'engine_file' buildConfig/build_$1.cfg | sed 's/engine_file: //'`"
     export_file="`grep 'export_file' buildConfig/build_$1.cfg | sed 's/export_file: //'`"
     file_extension="`grep 'file_extension' buildConfig/build_$1.cfg | sed 's/file_extension: //'`"
+    extra_params="`grep 'extra_params' buildConfig/build_$1.cfg | sed 's/extra_params://'`"
 
     check_file_exists 'engine' $engine_file
     check_file_exists 'export' $export_file
@@ -105,7 +106,7 @@ function run_target {
     prepare_build_config $engine_file $export_file $2 $target_subdir
 
     echo "Running export. Logging into $2/$target_subdir/build.log"
-
+    echo "$godot_command -export '$godot_target' $2/$target_subdir/$3_$file_extension"
     $godot_command -export "$godot_target" "$2/$target_subdir/$3_$file_extension" > $2/$target_subdir/build.log 2>&1
 
     if [ ! -e "$2/$target_subdir/$3_$file_extension" ]
