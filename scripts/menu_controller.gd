@@ -38,10 +38,13 @@ var workshop_button
 var sound_toggle_button
 var music_toggle_button
 var shake_toggle_button
+var camera_zoom_in_button
+var camera_zoom_out_button
 
 var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
+var camera_zoom_label
 
 func _ready():
 	self.control_node = self.get_node("control")
@@ -65,10 +68,13 @@ func _ready():
 	sound_toggle_button = get_node("control/settings_panel/sound_toggle")
 	music_toggle_button = get_node("control/settings_panel/music_toggle")
 	shake_toggle_button = get_node("control/settings_panel/shake_toggle")
+	camera_zoom_in_button = get_node("control/settings_panel/camera_zoom_in")
+	camera_zoom_out_button = get_node("control/settings_panel/camera_zoom_out")
 
 	sound_toggle_label = sound_toggle_button.get_node("Label")
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
+	camera_zoom_label = get_node("control/settings_panel/camera_zoom_level")
 
 	campaign_button.connect("pressed", self, "show_campaign_menu")
 	#tutorial_button.connect("pressed", self, "show_tutorial")
@@ -78,6 +84,8 @@ func _ready():
 	sound_toggle_button.connect("pressed", self, "toggle_sound")
 	music_toggle_button.connect("pressed", self, "toggle_music")
 	shake_toggle_button.connect("pressed", self, "toggle_shake")
+	#camera_zoom_in_button.connect("pressed", root, "camera_zoom_in")
+	#camera_zoom_out_button.connect("pressed", root, "camera_zoom_out")
 
 	close_button.connect("pressed", root, "toggle_menu")
 	quit_button.connect("pressed", self, "quit_game")
