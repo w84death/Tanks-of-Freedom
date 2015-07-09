@@ -64,11 +64,14 @@ func get_player_units(player):
 	if player == 0:
 		return units_player_blue
 	return units_player_red
-	
+
 func get_player_buildings(player):
 	if player == 0:
 		return buildings_player_blue
 	return buildings_player_red
+
+func get_unclaimed_buildings():
+	return self.buildings_player_none
 
 func get_player_bunker_position(player):
 	var bunker = bunkers[player]
@@ -104,7 +107,7 @@ func get_nearby_enemies(nearby_tiles, current_player):
 		enemy_units_collection = units_player_red
 	else:
 		enemy_units_collection = units_player_blue
-	
+
 	var enemies = []
 	for tile in nearby_tiles:
 		if enemy_units_collection.has(tile):
@@ -130,7 +133,7 @@ func get_nearby_enemy_buldings(nearby_tiles, current_player):
 		enemy_buildings_collection = buildings_player_red
 	else:
 		enemy_buildings_collection = buildings_player_blue
-		
+
 	var buildings = []
 	for tile in nearby_tiles:
 		if enemy_buildings_collection.has(tile):
@@ -169,7 +172,7 @@ func prepare_nearby_tiles_ranges():
 			var diff_values = precalculated_nearby_tiles[val - 1]
 			for val in diff_values:
 				values.erase(val)
-		
+
 		precalculated_nearby_tiles_ranges.insert(i, values)
 		i = i +1
 

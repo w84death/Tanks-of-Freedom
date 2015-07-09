@@ -7,6 +7,7 @@ const CLOSE_RANGE = 6
 const LOOKUP_RANGE = 20
 var actions
 var wandering
+var offensive
 var current_player_ap = 0
 var current_player
 
@@ -37,7 +38,8 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	actions = preload('actions.gd').new()
 
 	self.action_builder = preload('actions/action_builder.gd').new(action_controller, abstract_map, positions)
-	self.wandering = preload('wandering.gd').new(abstract_map, actions, pathfinding, self.action_builder, positions)
+	self.wandering = preload('res://scripts/ai/wandering.gd').new(abstract_map, actions, pathfinding, self.action_builder, positions)
+	self.offensive = preload('res://scripts/ai/offensive.gd').new(abstract_map, actions, pathfinding, self.action_builder, positions)
 	behaviour_normal = preload('behaviours/normal.gd').new()
 	behaviour_destroyer = preload('behaviours/destroyer.gd').new()
 	behaviour_explorer = preload('behaviours/explorer.gd').new()
@@ -67,6 +69,19 @@ func gather_available_actions(player_ap):
 
 	return actions.execute_best_action()
 
+func get_target_buildings():
+	var buildings = []
+	var enemy_buildings
+	var unclaimed
+	if self.current_player == 0:
+		buildings = self.positions.get_player_buildings(1)
+	else:
+		buildings = self.positions.get_player_buildings(0)
+	unclaimed = self.positions.get_unclaimed_buildings()
+	for building_position in unclaimed:
+		buildings[building_position] = unclaimed[building_position]
+	return buildings
+
 func __gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
 		return
@@ -83,7 +98,8 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 			destinations = self.__gather_unit_destinations(position, current_player)
 			destinations = destinations + __gather_buildings_destinations(position, current_player)
 			if destinations.size() == 0 && current_player_ap > 5:
-				self.wandering.wander(unit, self.units)
+				#self.wandering.wander(unit, self.units)
+				self.offensive.push_front(unit, self.get_target_buildings(), self.units)
 			else:
 				#TODO - calculate data in units groups
 				for destination in destinations:
