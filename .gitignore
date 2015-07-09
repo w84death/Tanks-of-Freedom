@@ -7,4 +7,5 @@ BitTanksTest.iml
 
 export.cfg
 *.tmp
-*debug.keystore
+*.keystore
+*export_android.cfg
