@@ -22,7 +22,6 @@ var player_ap_max = 1
 var turn = 1
 var title
 var camera
-var camera_zoom_range = [1,6]
 
 var game_ended = false
 
@@ -51,7 +50,6 @@ func reset():
 	self.turn = 1
 	self.title = null
 	self.camera = null
-	self.camera_zoom_range = [1, 6]
 	self.game_ended = false
 	self.movement_arrow_bl = null
 	self.movement_arrow_br = null
@@ -381,18 +379,6 @@ func end_game(winning_player):
 				self.root_node.dependency_container.controllers.campaign_menu_controller.fill_mission_data(mission_num + 1)
 				self.root_node.dependency_container.controllers.menu_controller.update_campaign_progress_label()
 	self.root_node.dependency_container.match_state.reset()
-
-func camera_zoom_in():
-	var scale = camera.get_scale()
-	if scale.x < camera_zoom_range[1]:
-		camera.set_scale(scale + Vector2(1,1))
-	self.root_node.dependency_container.abstract_map.map.scale = camera.get_scale()
-
-func camera_zoom_out():
-	var scale = camera.get_scale()
-	if scale.x > camera_zoom_range[0]:
-		camera.set_scale(scale - Vector2(1,1))
-	self.root_node.dependency_container.abstract_map.map.scale = camera.get_scale()
 
 func play_destroy(field):
 	sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)

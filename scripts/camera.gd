@@ -1,37 +1,25 @@
 
-extends Camera2D
-export var camera_zoom_level = Vector2(0.5, 0.5)
-export var camera_position = Vector2(0, 0)
-const CAMERA_SPEED = 100
-const CAMERA_ZOOM_STEPS = 0.05
+var root
+var camera
+var abstract_map
+var camera_zoom_range = [1,6]
 
-func _fixed_process(delta):
-	
-	if (Input.is_action_pressed('camera_in')):
-		if(camera_zoom_level > Vector2(0.25, 0.25)):
-			camera_zoom_level -= Vector2(CAMERA_ZOOM_STEPS, CAMERA_ZOOM_STEPS)
-			
-	if (Input.is_action_pressed('camera_out')):
-		if(camera_zoom_level < Vector2(1, 1)):
-			camera_zoom_level += Vector2(CAMERA_ZOOM_STEPS, CAMERA_ZOOM_STEPS)
-		
-#	set_zoom(camera_zoom_level)
-	
-	if (Input.is_action_pressed('camera_left')):
-		camera_position -= Vector2(CAMERA_SPEED * delta, 0)
-		
-	if (Input.is_action_pressed('camera_right')):
-		camera_position += Vector2(CAMERA_SPEED * delta, 0)
-		
-	if (Input.is_action_pressed('camera_up')):
-		camera_position -= Vector2(0, CAMERA_SPEED * delta)
-		
-	if (Input.is_action_pressed('camera_down')):
-		camera_position += Vector2(0, CAMERA_SPEED * delta)
-		
-	set_pos(camera_position)
-	#print(camera_position)
+func init_root(root_node):
+	self.root = root_node
+	self.camera = root_node.scale_root
 
-func _ready():
-	set_fixed_process(true)
-	pass
+func camera_zoom_in():
+	var scale = self.camera.get_scale()
+	if scale.x < self.camera_zoom_range[1]:
+		self.camera.set_scale(scale + Vector2(1,1))
+	if self.abstract_map.map != null:
+		self.abstract_map.map.scale = self.camera.get_scale()
+	self.root.dependency_container.controllers.menu_controller.update_zoom_label()
+
+func camera_zoom_out():
+	var scale = self.camera.get_scale()
+	if scale.x > self.camera_zoom_range[0]:
+		self.camera.set_scale(scale - Vector2(1,1))
+	if self.abstract_map.map != null:
+		self.abstract_map.map.scale = self.camera.get_scale()
+	self.root.dependency_container.controllers.menu_controller.update_zoom_label()

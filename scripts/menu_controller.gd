@@ -84,8 +84,8 @@ func _ready():
 	sound_toggle_button.connect("pressed", self, "toggle_sound")
 	music_toggle_button.connect("pressed", self, "toggle_music")
 	shake_toggle_button.connect("pressed", self, "toggle_shake")
-	#camera_zoom_in_button.connect("pressed", root, "camera_zoom_in")
-	#camera_zoom_out_button.connect("pressed", root, "camera_zoom_out")
+	camera_zoom_in_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_in")
+	camera_zoom_out_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_out")
 
 	close_button.connect("pressed", root, "toggle_menu")
 	quit_button.connect("pressed", self, "quit_game")
@@ -111,6 +111,7 @@ func _ready():
 	red_player_button.connect("pressed", self, "toggle_player", [1])
 
 	self.update_progress_labels()
+	self.update_zoom_label()
 
 func start_demo_mode():
 	print('start_demo_mode')
@@ -292,6 +293,9 @@ func adjust_turns_cap_label():
 		maps_turns_cap_label.set_text(str(root.settings['turns_cap']))
 	else:
 		maps_turns_cap_label.set_text("OFF")
+
+func update_zoom_label():
+	self.camera_zoom_label.set_text(str(self.root.scale_root.get_scale().x))
 
 func update_progress_labels():
 	self.update_custom_maps_count_label()

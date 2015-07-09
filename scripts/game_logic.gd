@@ -179,7 +179,7 @@ func show_missions():
 func show_campaign():
 	self.toggle_menu()
 	self.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
-	
+
 func load_menu():
 	menu.show()
 	is_intro = false
@@ -243,10 +243,10 @@ func write_settings_to_file():
 	return
 
 func _ready():
+	scale_root = get_node("/root/game/pixel_scale")
+	self.ai_timer = get_node("AITimer")
 	self.dependency_container.init_root(self)
 	self.read_settings_from_file()
-	scale_root = get_node("/root/game/pixel_scale")
-	ai_timer = get_node("AITimer")
 	self.menu = self.dependency_container.controllers.menu_controller
 	sound_controller.init_root(self)
 	menu.init_root(self)
