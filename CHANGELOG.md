@@ -5,6 +5,23 @@
 ### 0.3.5-beta
 
 - removed terrain movement costs
+- capturing tower now deplets unit AP
+- redesigned main menu
+- redesigned campaign menu
+- redesigned in-game HUD
+- redesigned stats screen
+- introduced campaign progression - need to beat maps to unlock next
+- fixed AI not being aggresive
+- fixed AI mostly moving into bottom-right
+- added scripts for automated builds
+- added three starting custom maps
+- demo mode now uses only custom maps
+- added demo mode button to menu
+- balanced units stats and field of view
+- increased AP gain and units cost
+- hidden AP gain under fog
+- hidden HUD on CPU turn
+- renamed Local Multiplayer to Skirmish
 - code cleanup
 - added CHANGELOG file
 
