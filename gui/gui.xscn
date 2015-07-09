@@ -133,13 +133,13 @@
 				<int> 2 </int>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -138.166, -455.634 </vector2>
+							<vector2> 117.062, -91.4813 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -159,7 +159,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.425711 </real>
+							<real> 0.787828 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -256,10 +256,13 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 0 </int>
+							<int> 1 </int>
 							<string> "sources" </string>
-							<array  len="1" shared="false">
+							<array  len="4" shared="false">
 								<string> "res://scripts/hud_controller.gd" </string>
+								<string> "res://scripts/building.gd" </string>
+								<string> "res://scripts/game_logic.gd" </string>
+								<string> "res://scripts/controllers/action_controller.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -762,13 +765,13 @@
 				</dictionary>
 				<real> -30 </real>
 				<real> 40 </real>
-				<vector2> -60, 30 </vector2>
+				<vector2> -36, 23 </vector2>
 				<resource  resource_type="Texture" path="res://assets/gui/dialogs/gui_spritesheet.png">  </resource>
 				<int> 8 </int>
 				<int> 19 </int>
-				<vector2> 60, 30 </vector2>
+				<vector2> 40, 23 </vector2>
 				<int> 21 </int>
-				<vector2> 7.62939e-06, 30 </vector2>
+				<vector2> 7.62939e-06, 23 </vector2>
 				<int> 20 </int>
 				<real> -69 </real>
 				<real> 7 </real>
@@ -786,7 +789,7 @@
 				<real> 137 </real>
 				<real> 32 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
-				<string> "GAME MENU" </string>
+				<string> "MENU &amp; SETTINGS" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
