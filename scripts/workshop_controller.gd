@@ -1,4 +1,4 @@
-
+ 
 extends Control
 
 var root
@@ -10,7 +10,10 @@ var selector_position = Vector2(0,0)
 var game_scale
 var map_pos
 
+var hud_file_positions = [-34,108]
+var hud_file_panel
 var hud_file
+var hud_file_toggle_button
 var hud_file_play_button
 var hud_file_save_button
 var hud_file_load_button
@@ -66,7 +69,7 @@ var hud_message_box_message
 
 var hud_toolbox
 var hud_toolbox_front
-var hud_toolbox_show_button
+
 var hud_toolbox_close_button
 var hud_toolbox_fill_x
 var hud_toolbox_fill_y
@@ -79,13 +82,18 @@ var hud_toolbox_start_ap_set
 var hud_toolbox_win1
 var hud_toolbox_win2
 var hud_toolbox_win3
-var hud_toolbox_undo_button
+
+var hud_toolbox_toggle_button
+
+var hud_build_undo_button
+var hud_build_undo_button_label
 
 var toolbox_is_open = false
 
 var toolset_active_page = 0
 var tool_type = "terrain"
 var brush_type = 1
+
 
 var restore_file_name = "restore_map"
 
@@ -116,14 +124,18 @@ const LEFT_DEAD_ZONE = 60
 
 func init_gui():
 	hud_file = self.get_node("file_card/center")
-	hud_file_floppy = hud_file.get_node("floppy/anim")
-	hud_file_name = hud_file.get_node("name")
-	hud_file_play_button = hud_file.get_node("play")
-	hud_file_save_button = hud_file.get_node("save")
-	hud_file_load_button = hud_file.get_node("load")
+	hud_file_panel = hud_file.get_node("file_panel")
+	hud_file_floppy = hud_file_panel.get_node("controls/floppy/anim")
+	hud_file_name = hud_file_panel.get_node("controls/file_name")
+	hud_file_toggle_button = hud_file_panel.get_node("controls/file_button")
+	hud_file_play_button = hud_file_panel.get_node("controls/play_button")
+	hud_file_save_button = hud_file_panel.get_node("controls/save_button")
+	hud_file_load_button = hud_file_panel.get_node("controls/load_button")
+	
 	hud_file_play_button.connect("pressed", self, "play_map")
 	hud_file_save_button.connect("pressed", self, "save_map", [hud_file_name, true])
 	hud_file_load_button.connect("pressed", self, "load_map", [hud_file_name, true])
+	hud_file_toggle_button.connect("pressed", self, "toggle_file_panel")
 
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
@@ -217,12 +229,17 @@ func init_gui():
 	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
 	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
 
+	# NAVIGATION PANEL
+	
+	hud_toolbox_toggle_button = self.get_node("navigation_panel/center/navigation_panel/controls/toolbox_button")
+	hud_build_undo_button = self.get_node("navigation_panel/center/navigation_panel/controls/undo_button")
+	hud_build_undo_button_label = hud_build_undo_button.get_node("Label")
+	
 	# toolbox
+	
 	hud_toolbox = self.get_node("toolbox_menu")
 	hud_toolbox_front = hud_toolbox.get_node("center/toolbox/front/")
-	hud_toolbox_show_button = self.get_node("toolbox/center/box")
 	hud_toolbox_close_button = hud_toolbox_front.get_node("close")
-	hud_toolbox_undo_button = self.get_node("toolbox/center/undo")
 
 	hud_toolbox_fill_x = hud_toolbox_front.get_node("x")
 	hud_toolbox_fill_y = hud_toolbox_front.get_node("y")
@@ -237,13 +254,12 @@ func init_gui():
 	hud_toolbox_turn_cap = hud_toolbox_front.get_node("turn_cap")
 	hud_toolbox_start_ap = hud_toolbox_front.get_node("start_ap/ap")
 	hud_toolbox_start_ap_set = hud_toolbox_front.get_node("start_ap_set")
-	hud_toolbox_win1 = hud_toolbox_front.get_node("win1")
-	hud_toolbox_win2 = hud_toolbox_front.get_node("win2")
-	hud_toolbox_win3 = hud_toolbox_front.get_node("win3")
+	#hud_toolbox_win1 = hud_toolbox_front.get_node("win1")
+	#hud_toolbox_win2 = hud_toolbox_front.get_node("win2")
+	#hud_toolbox_win3 = hud_toolbox_front.get_node("win3")
 
-	hud_toolbox_show_button.connect("pressed",self,"toggle_toolbox")
-	hud_toolbox_close_button.connect("pressed",self,"toggle_toolbox")
-	hud_toolbox_undo_button.connect("pressed",self,"undo_last_action")
+	hud_toolbox_toggle_button.connect("pressed",self,"toggle_toolbox")
+	hud_build_undo_button.connect("pressed",self,"undo_last_action")
 
 	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0,hud_toolbox_fill_x.get_node("label")])
 	hud_toolbox_fill_y.connect("pressed",self,"toggle_fill", [1,hud_toolbox_fill_y.get_node("label")])
@@ -252,9 +268,9 @@ func init_gui():
 	hud_toolbox_clear_units.connect("pressed",self,"toolbox_clear", [1])
 
 	hud_toolbox_turn_cap.connect("pressed",self,"toggle_turn_cap", [hud_toolbox_turn_cap.get_node("label")])
-	hud_toolbox_win1.connect("pressed",self,"toolbox_win", [0,hud_toolbox_win1.get_node("label")])
-	hud_toolbox_win2.connect("pressed",self,"toolbox_win", [1,hud_toolbox_win2.get_node("label")])
-	hud_toolbox_win3.connect("pressed",self,"toolbox_win", [2,hud_toolbox_win3.get_node("label")])
+	#hud_toolbox_win1.connect("pressed",self,"toolbox_win", [0,hud_toolbox_win1.get_node("label")])
+	#hud_toolbox_win2.connect("pressed",self,"toolbox_win", [1,hud_toolbox_win2.get_node("label")])
+	#hud_toolbox_win3.connect("pressed",self,"toolbox_win", [2,hud_toolbox_win3.get_node("label")])
 
 	self.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 
@@ -280,7 +296,8 @@ func add_action(params):
 		self.save_map(restore_file_name)
 		paint_count = 0
 
-	hud_toolbox_undo_button.set_disabled(false)
+	hud_build_undo_button.set_disabled(false)
+	hud_build_undo_button_label.show()
 
 func undo_last_action():
 	var last_action
@@ -289,7 +306,8 @@ func undo_last_action():
 		self.paint(last_action.position,last_action.tool_type,last_action.brush_type, true)
 		history.remove(history.size()-1)
 	else:
-		hud_toolbox_undo_button.set_disabled(true)
+		hud_build_undo_button.set_disabled(true)
+		hud_build_undo_button_label.hide()
 
 func toolbox_win(option,label):
 	settings.win[option] = not settings.win[option]
@@ -335,12 +353,10 @@ func toolbox_clear(layer):
 func toggle_toolbox():
 	toolbox_is_open = not toolbox_is_open
 	if toolbox_is_open:
-		hud_toolbox_show_button.set_disabled(true)
 		hud_toolbox.show()
 		self.painting_allowed = false
 		# show toolbox
 	else:
-		hud_toolbox_show_button.set_disabled(false)
 		hud_toolbox.hide()
 		self.painting_allowed = true
 		# hide toolbox
@@ -503,6 +519,13 @@ func show_message(title, msg):
 
 func close_message():
 	self.hud_message.hide()
+
+func toggle_file_panel():
+	var panel = hud_file_panel.get_pos()
+	if panel.y == hud_file_positions[0]:
+		self.hud_file_panel.set_pos(Vector2(panel.x, self.hud_file_positions[1]))
+	else:
+		self.hud_file_panel.set_pos(Vector2(panel.x, self.hud_file_positions[0]))
 
 func _ready():
 	init_gui()

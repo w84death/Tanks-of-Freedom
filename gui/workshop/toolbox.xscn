@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="18" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
+<resource_file type="PackedScene" subresource_count="13" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_focused.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_normal.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_pressed.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_normal.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_huge.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/card_multisize_slim.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_tiny_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/hud/button_long_focused.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="99">
+			<string_array  len="92">
 				<string> "toolbox" </string>
 				<string> "Control" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
 				<string> "visibility/opacity" </string>
 				<string> "visibility/self_opacity" </string>
-				<string> "visibility/behind_parent" </string>
+				<string> "visibility/light_mask" </string>
 				<string> "focus_neighbour/left" </string>
 				<string> "focus_neighbour/top" </string>
 				<string> "focus_neighbour/right" </string>
@@ -45,6 +44,8 @@
 				<string> "transform/pos" </string>
 				<string> "transform/rot" </string>
 				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
 				<string> "texture" </string>
 				<string> "centered" </string>
 				<string> "offset" </string>
@@ -56,21 +57,22 @@
 				<string> "modulate" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
-				<string> "Sprite 2" </string>
-				<string> "Sprite 3" </string>
-				<string> "Sprite 4" </string>
-				<string> "Sprite 4 2" </string>
-				<string> "Sprite 4 3" </string>
-				<string> "Sprite 4 4" </string>
-				<string> "Sprite 5" </string>
-				<string> "Sprite 4 4 2" </string>
+				<string> "Sprite1" </string>
+				<string> "Sprite2" </string>
+				<string> "Sprite3" </string>
+				<string> "Sprite3 2" </string>
+				<string> "Sprite3 3" </string>
+				<string> "Sprite4" </string>
+				<string> "Sprite4 2" </string>
+				<string> "Sprite4 3" </string>
 				<string> "front" </string>
-				<string> "fill" </string>
-				<string> "TextureButton" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
+				<string> "fill" </string>
+				<string> "TextureButton" </string>
 				<string> "disabled" </string>
 				<string> "toggle_mode" </string>
+				<string> "is_pressed" </string>
 				<string> "click_on_press" </string>
 				<string> "textures/normal" </string>
 				<string> "textures/pressed" </string>
@@ -78,6 +80,8 @@
 				<string> "textures/disabled" </string>
 				<string> "textures/focused" </string>
 				<string> "textures/click_mask" </string>
+				<string> "params/scale" </string>
+				<string> "params/modulate" </string>
 				<string> "label" </string>
 				<string> "Label" </string>
 				<string> "custom_fonts/font" </string>
@@ -98,45 +102,151 @@
 				<string> "Label 2" </string>
 				<string> "Label 3" </string>
 				<string> "Label 4" </string>
-				<string> "Label 5" </string>
 				<string> "Label_x" </string>
 				<string> "x" </string>
 				<string> "y" </string>
 				<string> "clear_units" </string>
 				<string> "clear_terrain" </string>
 				<string> "turn_cap" </string>
-				<string> "start_ap" </string>
-				<string> "ap" </string>
-				<string> "LineEdit" </string>
-				<string> "max_length" </string>
-				<string> "editable" </string>
-				<string> "secret" </string>
-				<string> "start_ap_set" </string>
-				<string> "Label 6" </string>
-				<string> "Label 7" </string>
-				<string> "win1" </string>
-				<string> "win2" </string>
-				<string> "win3" </string>
-				<string> "Label 8" </string>
-				<string> "Label 9" </string>
-				<string> "close" </string>
+				<string> "Label3" </string>
+				<string> "Label4" </string>
+				<string> "Label5" </string>
+				<string> "Label6" </string>
 			</string_array>
-			<string> "version" </string>
-			<int> 1 </int>
-			<string> "conn_count" </string>
-			<int> 0 </int>
 			<string> "node_count" </string>
-			<int> 46 </int>
+			<int> 33 </int>
+			<string> "nodes" </string>
+			<int_array  len="2041"> 				-1, -1, 1, 0, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 16, 6, 0, 0, 0, 1, 17, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 18, 7, 19, 7, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 16, 8, 0, 1, 0, 20, 20, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 9, 22, 10, 23, 11, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 16, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 37, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 19, 22, 10, 23, 11, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 20, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 38, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 21, 22, 10, 23, 22, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 23, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 39, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 24, 22, 10, 23, 25, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 26, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 40, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 14, 22, 10, 23, 27, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 28, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 41, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 29, 22, 10, 23, 25, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 30, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 42, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 31, 22, 10, 23, 11, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 32, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 43, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 33, 22, 10, 23, 22, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 34, 34, 17, 35, 4, 36, 18, 0, 1, 0, 20, 44, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 35, 22, 10, 23, 11, 24, 12, 25, 1, 26, 13, 27, 1, 28, 14, 29, 4, 30, 4, 31, 15, 32, 15, 33, 36, 34, 17, 35, 4, 36, 18, 0, 0, 0, 1, 45, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 37, 47, 38, 18, 39, 19, 40, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 0, 11, 0, 49, 48, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 41, 47, 42, 18, 43, 19, 44, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 50, 4, 51, 4, 52, 4, 53, 4, 54, 45, 55, 46, 56, 47, 57, 48, 58, 49, 59, 49, 60, 11, 61, 17, 16, 50, 0, 12, 0, 63, 62, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 51, 47, 52, 18, 53, 19, 54, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 57, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 63, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 59, 47, 58, 18, 60, 19, 61, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 62, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 63, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 79, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 64, 47, 65, 18, 66, 19, 67, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 68, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 69, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 80, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 64, 47, 70, 18, 66, 19, 71, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 68, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 72, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 81, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 73, 47, 74, 18, 74, 19, 75, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 76, 74, 5, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 82, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 77, 47, 78, 18, 79, 19, 80, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 81, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 49, 83, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 82, 47, 42, 18, 70, 19, 44, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 50, 4, 51, 4, 52, 4, 53, 4, 54, 83, 55, 84, 56, 85, 57, 86, 58, 49, 59, 49, 60, 11, 61, 17, 16, 87, 0, 19, 0, 63, 62, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 88, 47, 89, 18, 90, 19, 91, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 92, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 49, 84, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 93, 47, 42, 18, 94, 19, 44, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 50, 4, 51, 4, 52, 4, 53, 4, 54, 83, 55, 84, 56, 85, 57, 86, 58, 49, 59, 49, 60, 11, 61, 17, 16, 95, 0, 21, 0, 63, 62, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 88, 47, 89, 18, 90, 19, 91, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 92, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 49, 85, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 96, 47, 97, 18, 98, 19, 99, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 50, 4, 51, 4, 52, 4, 53, 4, 54, 45, 55, 46, 56, 47, 57, 48, 58, 49, 59, 49, 60, 11, 61, 17, 16, 50, 0, 23, 0, 63, 62, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 88, 47, 52, 18, 100, 19, 54, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 101, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 49, 86, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 102, 47, 97, 18, 103, 19, 99, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 50, 4, 51, 4, 52, 4, 53, 4, 54, 45, 55, 46, 56, 47, 57, 48, 58, 49, 59, 49, 60, 11, 61, 17, 16, 50, 0, 25, 0, 63, 62, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 59, 47, 104, 18, 105, 19, 106, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 107, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 49, 87, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 102, 47, 108, 18, 103, 19, 109, 7, 0, 8, 0, 9, 0, 10, 0, 11, 4, 12, 1, 13, 5, 14, 5, 15, 2, 50, 4, 51, 4, 52, 4, 53, 4, 54, 45, 55, 46, 56, 47, 57, 48, 58, 49, 59, 49, 60, 11, 61, 17, 16, 50, 0, 27, 0, 63, 62, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 59, 47, 104, 18, 105, 19, 106, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 110, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 88, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 104, 47, 111, 18, 112, 19, 113, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 55, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 114, 74, 5, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 89, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 2, 47, 7, 18, 115, 19, 116, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 68, 65, 117, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 118, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 90, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 64, 47, 119, 18, 66, 19, 120, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 68, 65, 56, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 121, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0, 11, 0, 63, 91, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 2, 47, 122, 18, 115, 19, 123, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 5, 15, 2, 64, 68, 65, 117, 66, 10, 67, 2, 68, 2, 69, 2, 70, 10, 71, 4, 72, 4, 73, 118, 74, 3, 75, 12, 76, 4, 77, 4, 78, 58, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="163" shared="false">
+			<array  len="124" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
+				<int> 1 </int>
 				<bool> False </bool>
 				<int> 2 </int>
 				<dictionary  shared="false">
+					<string> "__editor_plugin_screen__" </string>
+					<string> "Script" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "ofs" </string>
+							<vector2> -392.739, -345.057 </vector2>
+							<string> "snap_grid" </string>
+							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
+							<string> "zoom" </string>
+							<real> 0.787829 </real>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+							</array>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+						</dictionary>
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
@@ -148,114 +258,7 @@
 								<string> "res://scripts/intro.gd" </string>
 							</array>
 						</dictionary>
-						<string> "2D" </string>
-						<dictionary  shared="false">
-							<string> "pixel_snap" </string>
-							<bool> True </bool>
-							<string> "zoom" </string>
-							<real> 1.071742 </real>
-							<string> "use_snap" </string>
-							<bool> False </bool>
-							<string> "ofs" </string>
-							<vector2> -158.969, -103.685 </vector2>
-							<string> "snap" </string>
-							<int> 1 </int>
-						</dictionary>
-						<string> "3D" </string>
-						<dictionary  shared="false">
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "viewports" </string>
-							<array  len="4" shared="false">
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-									<string> "listener" </string>
-									<bool> True </bool>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-								</dictionary>
-							</array>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
-							<string> "default_light" </string>
-							<bool> True </bool>
-							<string> "ambient_light_color" </string>
-							<color> 0.15, 0.15, 0.15, 1 </color>
-							<string> "show_grid" </string>
-							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
-							<string> "znear" </string>
-							<real> 0.1 </real>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
-						</dictionary>
 					</dictionary>
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
 						<string> "custom_args" </string>
@@ -263,182 +266,140 @@
 						<string> "run_mode" </string>
 						<int> 0 </int>
 					</dictionary>
-					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
 				</dictionary>
 				<real> 40 </real>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<vector2> 0, 0 </vector2>
+				<vector2> -240, -180 </vector2>
 				<real> 0 </real>
 				<vector2> 3, 3 </vector2>
-				<resource  resource_type="Texture" path="res://assets/hud/card_multisize_slim.png">  </resource>
-				<int> 3 </int>
 				<int> 0 </int>
+				<resource  resource_type="Texture" path="res://assets/gui/dialogs/gui_spritesheet.png">  </resource>
+				<vector2> 0, 0 </vector2>
+				<int> 8 </int>
+				<int> 3 </int>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
-				<vector2> 60, 0 </vector2>
-				<vector2> 21, 3 </vector2>
-				<int> 1 </int>
-				<vector2> 480, 0 </vector2>
-				<vector2> 0, 60 </vector2>
-				<vector2> 3, 14 </vector2>
-				<vector2> 60, 60 </vector2>
-				<vector2> 21, 14 </vector2>
-				<int> 4 </int>
-				<vector2> 480, 60 </vector2>
+				<vector2> 240, -180 </vector2>
 				<int> 5 </int>
-				<vector2> 480, 340 </vector2>
-				<int> 8 </int>
-				<vector2> 0, 340 </vector2>
-				<int> 6 </int>
-				<vector2> 60, 340 </vector2>
-				<int> 7 </int>
-				<real> 389 </real>
-				<real> 51 </real>
-				<real> 515 </real>
-				<real> 99 </real>
-				<resource  resource_type="Texture" path="res://assets/hud/button_small_normal.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_small_pressed.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_small_hover.png">  </resource>
-				<resource name=""></resource>				<resource  resource_type="Texture" path="res://assets/hud/button_small_focused.png">  </resource>
-				<dictionary  shared="false">
+				<vector2> 0, -180 </vector2>
+				<vector2> 12, 3 </vector2>
+				<int> 4 </int>
+				<vector2> -240, 0 </vector2>
+				<vector2> 3, 9 </vector2>
+				<int> 11 </int>
+				<vector2> 12, 9 </vector2>
+				<int> 12 </int>
+				<vector2> 240, 0 </vector2>
+				<int> 13 </int>
+				<vector2> -240, 180 </vector2>
+				<int> 19 </int>
+				<vector2> 0, 180 </vector2>
+				<int> 20 </int>
+				<vector2> 240, 180 </vector2>
+				<int> 21 </int>
+				<real> -277 </real>
+				<real> -214 </real>
+				<real> -237 </real>
+				<real> -174 </real>
+				<real> 384 </real>
+				<real> 117 </real>
+				<real> 528 </real>
+				<real> 165 </real>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_0.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_1.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_2.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_3.png">  </resource>
+				<resource name=""></resource>				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<real> 7 </real>
-				<real> 12 </real>
-				<real> 118 </real>
-				<real> 30 </real>
+				<real> 16 </real>
+				<real> 141 </real>
+				<real> 34 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
-				<string> "FILL" </string>
-				<real> -1 </real>
-				<real> 3 </real>
-				<real> 11 </real>
-				<real> 535 </real>
-				<real> 45 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "-TOOLBOX-" </string>
-				<real> 58 </real>
-				<real> 64 </real>
-				<real> 248 </real>
-				<real> 82 </real>
-				<string> "FILL TERRAIN:" </string>
-				<real> 20 </real>
-				<real> 119 </real>
-				<real> 159 </real>
-				<real> 137 </real>
-				<string> "CLEAR LAYER:" </string>
-				<real> 179 </real>
-				<real> 113 </real>
-				<real> 197 </real>
+				<string> "CREATE" </string>
+				<real> -1 </real>
+				<real> 9 </real>
+				<real> 541 </real>
+				<real> 22 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_huge.fnt">  </resource>
+				<string> "TOOLBOX" </string>
+				<real> 87 </real>
+				<real> 85 </real>
+				<real> 474 </real>
+				<real> 108 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<string> "CREATE NEW ISLAND IN THE CENTER" </string>
+				<real> 215 </real>
+				<real> 238 </real>
+				<string> "CLEAR LAYERS" </string>
+				<real> 263 </real>
+				<real> 369 </real>
+				<real> 387 </real>
 				<string> "TURN CAP:" </string>
-				<real> 253 </real>
-				<real> 171 </real>
-				<real> 333 </real>
-				<real> 207 </real>
-				<real> 2 </real>
-				<string> "START&#000a;AP:" </string>
-				<real> 306 </real>
-				<real> 65 </real>
-				<real> 337 </real>
-				<real> 86 </real>
+				<real> 211 </real>
+				<real> 131 </real>
+				<real> 242 </real>
+				<real> 152 </real>
 				<string> "x" </string>
-				<real> 257 </real>
-				<real> 305 </real>
-				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_normal.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_pressed.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_hover.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_focused.png">  </resource>
+				<real> 119 </real>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_0.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_1.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_2.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_3.png">  </resource>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<real> 6 </real>
-				<real> 41 </real>
+				<real> 14 </real>
+				<real> 88 </real>
+				<real> 32 </real>
 				<string> "8" </string>
-				<real> 334 </real>
-				<real> 382 </real>
+				<real> 239 </real>
+				<real> 335 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<real> 14 </real>
-				<real> 32 </real>
-				<real> 166 </real>
-				<real> 105 </real>
-				<real> 292 </real>
-				<real> 153 </real>
-				<real> 13 </real>
-				<real> 31 </real>
+				<real> 214 </real>
+				<real> 247 </real>
+				<real> 358 </real>
+				<real> 295 </real>
+				<real> 134 </real>
 				<string> "UNITS" </string>
-				<real> 298 </real>
-				<real> 517 </real>
-				<resource  resource_type="Texture" path="res://assets/hud/button_long_normal.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_long_pressed.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_long_hover.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/hud/button_long_focused.png">  </resource>
-				<real> 9 </real>
-				<real> 212 </real>
-				<string> "UNITS AND TERRAIN" </string>
-				<real> 116 </real>
-				<real> 164 </real>
-				<real> 242 </real>
-				<string> "ON" </string>
-				<vector2> 401, 188 </vector2>
-				<vector2> 1, 1 </vector2>
-				<resource  resource_type="Texture" path="res://assets/hud/button_small_disabled.png">  </resource>
-				<real> -57 </real>
-				<real> -18 </real>
-				<real> 16 </real>
-				<string> "18" </string>
-				<real> 468 </real>
-				<real> 163 </real>
-				<real> 516 </real>
-				<real> 211 </real>
-				<resource  resource_type="Texture" path="res://assets/hud/button_tiny_disabled.png">  </resource>
-				<real> 42 </real>
-				<string> "OK" </string>
-				<real> 154 </real>
-				<real> 388 </real>
-				<real> 263 </real>
-				<string> "TAKE ENEMY HQ:" </string>
-				<real> 176 </real>
-				<real> 297 </real>
-				<real> 387 </real>
-				<real> 315 </real>
-				<string> "CONTROL ALL TOWERS:" </string>
-				<real> 395 </real>
-				<real> 228 </real>
-				<real> 521 </real>
-				<real> 276 </real>
-				<real> 283 </real>
-				<real> 331 </real>
-				<real> 385 </real>
-				<real> 15 </real>
-				<real> 33 </real>
-				<string> "OFF" </string>
-				<real> 243 </real>
-				<real> 343 </real>
-				<real> 386 </real>
 				<real> 379 </real>
-				<string> "ELIMINATE ALL&#000a;ENEMY UNITS:" </string>
-				<real> 27 </real>
-				<real> 241 </real>
-				<string> "SET WINING&#000a;CONDITIONS&#000a;FOR THIS MAP:" </string>
-				<real> 25 </real>
-				<real> 372 </real>
+				<real> 523 </real>
+				<real> 15 </real>
+				<real> 136 </real>
+				<real> 33 </real>
+				<string> "EVERYTHING" </string>
+				<real> 357 </real>
+				<real> 405 </real>
+				<string> "OFF" </string>
+				<real> 133 </real>
+				<real> 94 </real>
 				<real> 151 </real>
-				<real> 420 </real>
-				<string> "CLOSE" </string>
+				<string> "SIZE:" </string>
+				<real> 552 </real>
+				<real> 63 </real>
+				<color> 0.745098, 0.14902, 0.2, 1 </color>
+				<string> "YOU WILL LOSE MAP DATA!" </string>
+				<real> 325 </real>
+				<real> 348 </real>
+				<string> "SETTINGS" </string>
+				<real> 180 </real>
+				<real> 203 </real>
 			</array>
-			<string> "nodes" </string>
-			<int_array  len="2804"> 				-1, -1, 1, 0, -1, 15, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 16, 5, 0, 0, 0, 1, 17, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 18, 6, 19, 6, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 16, 7, 0, 1, 0, 20, 20, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 8, 22, 9, 23, 10, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 13, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 35, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 16, 22, 9, 23, 17, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 18, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 36, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 19, 22, 9, 23, 10, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 4, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 37, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 20, 22, 9, 23, 21, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 12, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 38, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 22, 22, 9, 23, 23, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 24, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 39, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 25, 22, 9, 23, 21, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 26, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 40, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 27, 22, 9, 23, 10, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 28, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 41, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 29, 22, 9, 23, 10, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 30, 32, 14, 33, 3, 34, 15, 0, 1, 0, 20, 42, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 31, 22, 9, 23, 17, 24, 11, 25, 3, 26, 8, 27, 3, 28, 3, 29, 12, 30, 12, 31, 32, 32, 14, 33, 3, 34, 15, 0, 0, 0, 1, 43, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 18, 6, 19, 6, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 0, 11, 0, 45, 44, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 33, 47, 34, 18, 35, 19, 36, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 40, 55, 41, 56, 40, 16, 42, 0, 12, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 44, 18, 45, 19, 46, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 48, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 58, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 50, 47, 51, 18, 52, 19, 53, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 54, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 56, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 74, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 57, 47, 58, 18, 59, 19, 60, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 61, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 75, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 62, 47, 63, 18, 64, 19, 65, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 66, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 76, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 67, 18, 68, 19, 69, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 70, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 77, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 71, 47, 72, 18, 73, 19, 74, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 75, 63, 2, 64, 75, 65, 9, 66, 3, 67, 3, 68, 76, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 78, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 77, 47, 78, 18, 79, 19, 80, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 81, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 79, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 82, 47, 34, 18, 83, 19, 36, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 84, 52, 85, 53, 86, 54, 40, 55, 87, 56, 40, 16, 88, 0, 20, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 89, 47, 44, 18, 90, 19, 46, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 91, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 80, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 92, 47, 34, 18, 93, 19, 36, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 84, 52, 85, 53, 86, 54, 40, 55, 87, 56, 40, 16, 94, 0, 22, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 89, 47, 95, 18, 6, 19, 96, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 91, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 81, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 97, 47, 98, 18, 99, 19, 100, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 40, 55, 41, 56, 40, 16, 42, 0, 24, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 101, 18, 63, 19, 102, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 103, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 82, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 104, 47, 98, 18, 105, 19, 100, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 106, 52, 107, 53, 108, 54, 40, 55, 109, 56, 40, 16, 42, 0, 26, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 110, 47, 101, 18, 111, 19, 102, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 112, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 83, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 113, 47, 114, 18, 115, 19, 111, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 40, 55, 41, 56, 40, 16, 42, 0, 28, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 101, 18, 63, 19, 102, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 116, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 20, 84, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 117, 22, 9, 23, 118, 24, 119, 25, 1, 26, 8, 27, 3, 28, 3, 29, 18, 30, 18, 31, 13, 32, 14, 33, 3, 34, 15, 0, 30, 0, 86, 85, -1, 24, 2, 0, 3, 3, 4, 2, 5, 2, 6, 3, 46, 120, 47, 121, 18, 57, 19, 122, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 59, 47, 60, 14, 68, 123, 87, 13, 88, 1, 89, 3, 0, 11, 0, 45, 90, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 124, 47, 125, 18, 126, 19, 127, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 1, 49, 3, 50, 3, 51, 84, 52, 85, 53, 86, 54, 128, 55, 87, 56, 40, 16, 42, 0, 32, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 89, 47, 95, 18, 129, 19, 96, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 130, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 91, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 131, 47, 115, 18, 132, 19, 133, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 134, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 92, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 135, 47, 136, 18, 137, 19, 138, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 139, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 93, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 140, 47, 141, 18, 142, 19, 143, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 1, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 119, 55, 41, 56, 40, 16, 42, 0, 36, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 101, 18, 63, 19, 102, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 116, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 94, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 140, 47, 144, 18, 142, 19, 145, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 1, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 119, 55, 41, 56, 40, 16, 42, 0, 38, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 95, 18, 63, 19, 96, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 116, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 95, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 140, 47, 79, 18, 142, 19, 146, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 1, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 119, 55, 41, 56, 40, 16, 42, 0, 40, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 147, 18, 63, 19, 148, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 149, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 96, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 150, 47, 151, 18, 152, 19, 153, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 75, 63, 2, 64, 75, 65, 9, 66, 3, 67, 3, 68, 154, 69, 4, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 58, 97, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 155, 47, 156, 18, 59, 19, 145, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 55, 61, 9, 62, 50, 63, 2, 64, 50, 65, 9, 66, 3, 67, 3, 68, 157, 69, 13, 70, 13, 71, 3, 72, 3, 73, 49, 0, 11, 0, 45, 98, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 158, 47, 159, 18, 160, 19, 161, 7, 0, 8, 0, 9, 0, 10, 0, 11, 3, 12, 1, 13, 4, 14, 4, 15, 2, 48, 3, 49, 3, 50, 3, 51, 37, 52, 38, 53, 39, 54, 40, 55, 41, 56, 40, 0, 44, 0, 58, 57, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 46, 43, 47, 101, 18, 63, 19, 102, 7, 0, 8, 0, 9, 0, 10, 0, 11, 1, 12, 1, 13, 4, 15, 2, 59, 47, 60, 14, 61, 9, 62, 2, 63, 2, 64, 2, 65, 9, 66, 3, 67, 3, 68, 162, 69, 18, 70, 13, 71, 3, 72, 3, 73, 49, 0 </int_array>
-			<string> "conns" </string>
-			<int_array  len="0"> 				 </int_array>
+			<string> "version" </string>
+			<int> 1 </int>
 		</dictionary>
 
 	</main_resource>
