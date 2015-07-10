@@ -2,6 +2,9 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.3.6-beta
+
+
 ### 0.3.5-beta
 
 - removed terrain movement costs
@@ -36,6 +39,7 @@
 - modified position of barracks on campaign maps to be cost-effective
 - modified edges of some maps for better road behaviour
 - migrated game to Godot 1.1 version
+- due to a problem in Godot 1.1, OUYA is not supported until further notice
 - buildings next to the roads now only spawn small versions
 
 ### 0.3.3-beta
