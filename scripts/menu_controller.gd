@@ -20,6 +20,7 @@ var campaign_button
 var label_completed
 var label_wins
 var label_maps_created
+var label_version
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_play_custom_button
@@ -93,9 +94,10 @@ func _ready():
 	settings_button.connect("pressed", self, "show_settings")
 	demo_button.connect("pressed", self, "start_demo_mode")
 
-	self.label_completed = get_node("control/completed")
-	self.label_wins = get_node("control/wins")
-	self.label_maps_created = get_node("control/maps_created")
+	self.label_completed = self.get_node("control/completed")
+	self.label_wins = self.get_node("control/wins")
+	self.label_maps_created = self.get_node("control/maps_created")
+	self.label_version = self.get_node("control/game_panel/copy")
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
@@ -111,6 +113,7 @@ func _ready():
 	red_player_button.connect("pressed", self, "toggle_player", [1])
 
 	self.update_progress_labels()
+	self.update_version_label()
 	self.update_zoom_label()
 
 func start_demo_mode():
@@ -309,6 +312,9 @@ func update_campaign_progress_label():
 	var completed_maps = self.root.dependency_container.campaign.get_completed_map_count()
 	var total_maps = self.root.dependency_container.campaign.maps.size()
 	self.label_completed.set_text("COMPLETED: " + str(completed_maps) + "/" + str(total_maps))
+
+func update_version_label():
+	self.label_version.set_text(self.root.version_name)
 
 func init_root(root_node):
 	root = root_node

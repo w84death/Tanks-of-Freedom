@@ -1,5 +1,7 @@
 extends Control
 
+var version_name = "Version 0.3.6-BETA"
+
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
 var current_map_terrain
