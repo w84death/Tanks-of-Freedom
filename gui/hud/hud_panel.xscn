@@ -320,7 +320,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -399.875, -186.42 </vector2>
+							<vector2> -768.21, -486.114 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -340,7 +340,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.187523 </real>
+							<real> 0.522661 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -510,7 +510,7 @@
 				<vector2> 16, 3 </vector2>
 				<vector2> 300, -30 </vector2>
 				<vector2> 300, 60 </vector2>
-				<vector2> -300.504, 59.4958 </vector2>
+				<vector2> -299.504, 59.4958 </vector2>
 				<vector2> 0, 60.1262 </vector2>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
