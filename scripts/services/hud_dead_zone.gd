@@ -1,0 +1,57 @@
+
+var root
+var ready = false
+var screen_size
+
+var top_hud_size = Vector2(166, 65)
+var bottom_hud_size = Vector2(696, 123)
+var unit_panel_size = Vector2(10, 10)
+var building_build_panel_size = Vector2(320, 230)
+var building_build_panel_offset = -170
+var building_research_panel_size = Vector2(10, 10)
+var building_research_panel_offset = 10
+var popup_size = Vector2(280, 220)
+
+func init_root(root_node):
+    self.root = root_node
+    self.screen_size = OS.get_video_mode_size()
+    self.ready = true
+
+func is_dead_zone(x, y):
+    if not self.ready:
+        return false
+
+    if self.check_if_in_zone(x, y, 0, self.top_hud_size):
+        return true
+
+    if self.root.hud_controller.hud_message_card.is_visible():
+        if self.check_if_in_zone(x, y, 245, self.popup_size):
+            return true
+
+    if self.root.dependency_container.controllers.hud_panel_controller.hud_panel.is_visible():
+        if self.check_if_in_zone(x, y, self.screen_size.y - self.bottom_hud_size.y, self.bottom_hud_size):
+            return true
+        if self.root.dependency_container.controllers.hud_panel_controller.unit_panel.unit_panel_extras.is_visible():
+            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.unit_panel_size.y), self.unit_panel_size):
+                return true
+        if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel_units_panel.is_visible():
+            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_build_panel_size.y), self.building_build_panel_size, self.building_build_panel_offset):
+                return true
+        if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel_upgrades_panel.is_visible():
+            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_research_panel_size.y), self.building_research_panel_size):
+                return true
+
+    return false
+
+func check_if_in_zone(x, y, top_offset, box, side_offset=null):
+    var middle = self.screen_size.x / 2;
+    var left_edge = middle - box.x / 2;
+    var right_edge = middle + box.x / 2;
+    if side_offset != null:
+        left_edge = left_edge + side_offset
+        right_edge = right_edge + side_offset
+    var top_edge = top_offset
+    var bottom_edge = top_offset + box.y
+    if x > left_edge && x < right_edge && y > top_edge && y < bottom_edge:
+        return true
+    return false

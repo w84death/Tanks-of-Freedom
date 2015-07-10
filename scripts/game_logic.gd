@@ -64,13 +64,14 @@ func _input(event):
 				var position = current_map_terrain.map_to_world(selector_position)
 				position.y += 2
 				selector.set_pos(position)
-				selector.calculate_cost()
+				#selector.calculate_cost()
 
 			# MOUSE SELECT
 			if (event.type == InputEvent.MOUSE_BUTTON):
 				if (event.pressed and event.button_index == BUTTON_LEFT):
-					action_controller.handle_action(selector_position)
-					action_controller.post_handle_action()
+					if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
+						action_controller.handle_action(selector_position)
+						action_controller.post_handle_action()
 
 		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
