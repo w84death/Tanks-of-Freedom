@@ -10,6 +10,7 @@ var match_state = preload("res://scripts/match_state.gd").new()
 var demo_mode = preload("res://scripts/demo_mode.gd").new()
 var camera = preload("res://scripts/camera.gd").new()
 var hud_dead_zone = preload("res://scripts/services/hud_dead_zone.gd").new()
+var workshop = preload("res://gui/workshop/workshop.xscn").instance()
 var positions
 
 func init_root(root_node):
@@ -22,5 +23,7 @@ func init_root(root_node):
 	self.camera.init_root(root)
 	self.controllers.campaign_menu_controller.init_root(root_node)
 	self.controllers.hud_panel_controller.init_root(root_node)
+	self.controllers.workshop_gui_controller.init_root(root_node)
+	self.workshop.init(self.root)
 	self.hud_dead_zone.init_root(root_node)
 	self.map_list.init()

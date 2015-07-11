@@ -33,8 +33,8 @@ var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
 var tutorial_close_button
 var tutorial_button
 
-var workshop = preload("res://gui/workshop/workshop.xscn").instance()
 var workshop_button
+var workshop
 
 var sound_toggle_button
 var music_toggle_button
@@ -184,24 +184,22 @@ func hide_tutorial():
 	control_node.show()
 
 func load_workshop():
-	root.add_child(self.workshop)
-	workshop.init(root)
-	workshop.hide()
+	self.workshop = self.root.dependency_container.workshop
 
 func enter_workshop():
-	root.unload_map()
-	workshop.is_working = true
-	workshop.is_suspended = false
+	self.root.unload_map()
+	self.workshop.is_working = true
+	self.workshop.is_suspended = false
 	self.show_workshop()
 
 func show_workshop():
 	self.hide()
 	self.root.toggle_menu()
-	workshop.show()
-	workshop.units.raise()
+	self.workshop.show()
+	self.workshop.units.raise()
 
 func hide_workshop():
-	workshop.hide()
+	self.workshop.hide()
 	self.show()
 
 func toggle_player(player):
