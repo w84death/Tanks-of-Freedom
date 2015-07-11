@@ -1,4 +1,4 @@
- 
+
 extends Control
 
 var root
@@ -20,46 +20,39 @@ var hud_file_load_button
 var hud_file_name
 var hud_file_floppy
 
-var hud_toolset
-var hud_toolset_blocks
-var hud_toolset_blocks_pages = []
-var hud_toolset_paginator
-var hud_toolset_next_button
-var hud_toolset_prev_button
-var hud_toolset_active
+var hud_building_blocks
+var hud_building_blocks_blocks
+var building_blocks_database = [
+		# name, tile id in sprite, type, blueprint id
+		["EREASE", 0, "terrain", -1],
+		["PLAIN", 0, "terrain", 1],
+		["FOREST", 0, "terrain", 2],
+		["MOUNTAINS", 0, "terrain", 3],
+		["RIVER", 0, "terrain", 17],
+		["BRIDGE", 0, "terrain", 18],
+		["CITY", 0, "terrain", 4],
+		["STATUE", 0, "terrain", 5],
+		["GSM TOWER", 0, "terrain", 11],
+		["FENCE", 0, "terrain", 12],
+		["ROAD #1", 0, "terrain", 14],
+		["ROAD #2", 0, "terrain", 15],
+		["JOIN ROADS", 0, "terrain", 16],
 
-#0
-var hud_toolset_clear
-var hud_toolset_plain
-var hud_toolset_forest
-var hud_toolset_mountains
-var hud_toolset_river
-var hud_toolset_bridge
+		["HQ BLUE", 0, "terrain", 6],
+		["HQ RED", 0, "terrain", 7],
+		["BARRACKS", 0, "terrain", 8],
+		["FACTORY", 0, "terrain", 9],
+		["AIRPORT", 0, "terrain", 10],
+		["SPAWN", 0, "terrain", 13],
 
-#1
-var hud_toolset_city
-var hud_toolset_statue
-var hud_toolset_fence
-var hud_toolset_road_city
-var hud_toolset_road_country
-var hud_toolset_road_mix
-
-#2
-var hud_toolset_hq_blue
-var hud_toolset_hq_red
-var hud_toolset_barracks
-var hud_toolset_factory
-var hud_toolset_airport
-var hud_toolset_exit
-var hud_toolset_tower
-
-#3
-var hud_toolset_soldier_blue
-var hud_toolset_tank_blue
-var hud_toolset_helicopter_blue
-var hud_toolset_soldier_red
-var hud_toolset_tank_red
-var hud_toolset_helicopter_red
+		["INFANTRY B", 0, "units", 0],
+		["TANK B", 0, "units", 1],
+		["HELI B", 0, "units", 2],
+		["INFANTRY R", 0, "units", 3],
+		["TANK R", 0, "units", 4],
+		["HELI B", 0, "units", 5]
+	]
+var hud_toolset_active = false
 
 var hud_message
 var hud_message_box
@@ -83,7 +76,9 @@ var hud_toolbox_win1
 var hud_toolbox_win2
 var hud_toolbox_win3
 
+var hud_navigation_panel
 var hud_toolbox_toggle_button
+var hud_building_blocks_toggle_button
 
 var hud_build_undo_button
 var hud_build_undo_button_label
@@ -131,7 +126,7 @@ func init_gui():
 	hud_file_play_button = hud_file_panel.get_node("controls/play_button")
 	hud_file_save_button = hud_file_panel.get_node("controls/save_button")
 	hud_file_load_button = hud_file_panel.get_node("controls/load_button")
-	
+
 	hud_file_play_button.connect("pressed", self, "play_map")
 	hud_file_save_button.connect("pressed", self, "save_map", [hud_file_name, true])
 	hud_file_load_button.connect("pressed", self, "load_map", [hud_file_name, true])
@@ -143,54 +138,15 @@ func init_gui():
 
 	game_scale = get_node("blueprint/center/scale")
 
-	hud_toolset = self.get_node("toolset/center")
-	hud_toolset_blocks = hud_toolset.get_node("blocks")
-	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("0"))
-	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("1"))
-	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("2"))
-	hud_toolset_blocks_pages.append(hud_toolset_blocks.get_node("3"))
-	hud_toolset_paginator = hud_toolset.get_node("paginator")
-	hud_toolset_next_button = hud_toolset.get_node("next")
-	hud_toolset_prev_button = hud_toolset.get_node("prev")
+	# NAVIGATION PANEL
+	hud_navigation_panel = self.get_node("navigation_panel/center/navigation_panel/controls")
+	hud_toolbox_toggle_button = hud_navigation_panel.get_node("toolbox_button")
+	hud_building_blocks_toggle_button = hud_navigation_panel.get_node("building_blocks_button")
+	hud_build_undo_button = self.get_node("navigation_panel/center/navigation_panel/controls/undo_button")
+	hud_build_undo_button_label = hud_build_undo_button.get_node("Label")
 
-	hud_toolset_next_button.connect("pressed", self, "toolset_next_page")
-	hud_toolset_prev_button.connect("pressed", self, "toolset_prev_page")
-
-	#0
-	hud_toolset_clear = hud_toolset_blocks_pages[0].get_node("clear")
-	hud_toolset_plain = hud_toolset_blocks_pages[0].get_node("plain")
-	hud_toolset_forest = hud_toolset_blocks_pages[0].get_node("forest")
-	hud_toolset_mountains = hud_toolset_blocks_pages[0].get_node("mountains")
-	hud_toolset_river = hud_toolset_blocks_pages[0].get_node("river")
-	hud_toolset_bridge = hud_toolset_blocks_pages[0].get_node("bridge")
-
-	#1
-	hud_toolset_city = hud_toolset_blocks_pages[1].get_node("city")
-	hud_toolset_statue = hud_toolset_blocks_pages[1].get_node("statue")
-	hud_toolset_tower = hud_toolset_blocks_pages[1].get_node("tower")
-	#hud_toolset_fence = hud_toolset_blocks_pages[1].get_node("fence")
-	hud_toolset_road_city = hud_toolset_blocks_pages[1].get_node("road_city")
-	hud_toolset_road_country = hud_toolset_blocks_pages[1].get_node("road_country")
-	hud_toolset_road_mix = hud_toolset_blocks_pages[1].get_node("road_mix")
-
-	#2
-	hud_toolset_hq_blue = hud_toolset_blocks_pages[2].get_node("hq_blue")
-	hud_toolset_hq_red = hud_toolset_blocks_pages[2].get_node("hq_red")
-	hud_toolset_barracks = hud_toolset_blocks_pages[2].get_node("barracks")
-	hud_toolset_factory = hud_toolset_blocks_pages[2].get_node("factory")
-	hud_toolset_airport = hud_toolset_blocks_pages[2].get_node("airport")
-	hud_toolset_exit = hud_toolset_blocks_pages[2].get_node("exit")
-
-	#3
-	hud_toolset_soldier_blue = hud_toolset_blocks_pages[3].get_node("soldier_blue")
-	hud_toolset_tank_blue = hud_toolset_blocks_pages[3].get_node("tank_blue")
-	hud_toolset_helicopter_blue = hud_toolset_blocks_pages[3].get_node("helicopter_blue")
-	hud_toolset_soldier_red = hud_toolset_blocks_pages[3].get_node("soldier_red")
-	hud_toolset_tank_red = hud_toolset_blocks_pages[3].get_node("tank_red")
-	hud_toolset_helicopter_red = hud_toolset_blocks_pages[3].get_node("helicopter_red")
-
-	hud_toolset_active = hud_toolset_plain.get_node("active")
-	hud_toolset_active.show()
+	hud_toolbox_toggle_button.connect("pressed",self,"toggle_toolbox")
+	hud_building_blocks_toggle_button.connect("pressed",self,"toggle_building_blocks")
 
 	# message
 	hud_message = self.get_node("message")
@@ -198,46 +154,15 @@ func init_gui():
 	hud_message_box_button = hud_message_box.get_node("button")
 	hud_message_box_button.connect("pressed", self, "close_message")
 
-	#0
-	hud_toolset_clear.connect("pressed", self, "select_tool", ["terrain",-1,hud_toolset_clear.get_node("active")])
-	hud_toolset_plain.connect("pressed", self, "select_tool", ["terrain",1,hud_toolset_plain.get_node("active")])
-	hud_toolset_forest.connect("pressed", self, "select_tool", ["terrain",2,hud_toolset_forest.get_node("active")])
-	hud_toolset_mountains.connect("pressed", self, "select_tool", ["terrain",3,hud_toolset_mountains.get_node("active")])
-	hud_toolset_river.connect("pressed", self, "select_tool", ["terrain",17,hud_toolset_river.get_node("active")])
-	hud_toolset_bridge.connect("pressed", self, "select_tool", ["terrain",18,hud_toolset_bridge.get_node("active")])
-	#1
-	hud_toolset_city.connect("pressed", self, "select_tool", ["terrain",4,hud_toolset_city.get_node("active")])
-	hud_toolset_statue.connect("pressed", self, "select_tool", ["terrain",5,hud_toolset_statue.get_node("active")])
-	hud_toolset_tower.connect("pressed", self, "select_tool", ["terrain",11,hud_toolset_tower.get_node("active")])
-	#hud_toolset_fence.connect("pressed", self, "select_tool", ["terrain",12,hud_toolset_fence.get_node("active")])
-	hud_toolset_road_city.connect("pressed", self, "select_tool", ["terrain",14,hud_toolset_road_city.get_node("active")])
-	hud_toolset_road_country.connect("pressed", self, "select_tool", ["terrain",15,hud_toolset_road_country.get_node("active")])
-	hud_toolset_road_mix.connect("pressed", self, "select_tool", ["terrain",16,hud_toolset_road_mix.get_node("active")])
-	#2
-	hud_toolset_hq_blue.connect("pressed", self, "select_tool", ["terrain",6,hud_toolset_hq_blue.get_node("active")])
-	hud_toolset_hq_red.connect("pressed", self, "select_tool", ["terrain",7,hud_toolset_hq_red.get_node("active")])
-	hud_toolset_barracks.connect("pressed", self, "select_tool", ["terrain",8,hud_toolset_barracks.get_node("active")])
-	hud_toolset_factory.connect("pressed", self, "select_tool", ["terrain",9,hud_toolset_factory.get_node("active")])
-	hud_toolset_airport.connect("pressed", self, "select_tool", ["terrain",10,hud_toolset_airport.get_node("active")])
-	hud_toolset_exit.connect("pressed", self, "select_tool", ["terrain",13,hud_toolset_exit.get_node("active")])
+	# BUILDING building_blocks
 
-	#3
-	hud_toolset_soldier_blue.connect("pressed", self, "select_tool", ["units",0,hud_toolset_soldier_blue.get_node("active")])
-	hud_toolset_tank_blue.connect("pressed", self, "select_tool", ["units",1,hud_toolset_tank_blue.get_node("active")])
-	hud_toolset_helicopter_blue.connect("pressed", self, "select_tool", ["units",2,hud_toolset_helicopter_blue.get_node("active")])
-	hud_toolset_soldier_red.connect("pressed", self, "select_tool", ["units",3,hud_toolset_soldier_red.get_node("active")])
-	hud_toolset_tank_red.connect("pressed", self, "select_tool", ["units",4,hud_toolset_tank_red.get_node("active")])
-	hud_toolset_helicopter_red.connect("pressed", self, "select_tool", ["units",5,hud_toolset_helicopter_red.get_node("active")])
+	hud_building_blocks = self.get_node("building_blocks_panel")
+	hud_building_blocks_blocks = hud_building_blocks.get_node("center/building_blocks")
 
-	# NAVIGATION PANEL
-	
-	hud_toolbox_toggle_button = self.get_node("navigation_panel/center/navigation_panel/controls/toolbox_button")
-	hud_build_undo_button = self.get_node("navigation_panel/center/navigation_panel/controls/undo_button")
-	hud_build_undo_button_label = hud_build_undo_button.get_node("Label")
-	
+
 	# toolbox
-	
-	hud_toolbox = self.get_node("toolbox_menu")
+
+	hud_toolbox = self.get_node("toolbox_panel")
 	hud_toolbox_front = hud_toolbox.get_node("center/toolbox/front/")
 	hud_toolbox_close_button = hud_toolbox_front.get_node("close")
 
@@ -258,7 +183,6 @@ func init_gui():
 	#hud_toolbox_win2 = hud_toolbox_front.get_node("win2")
 	#hud_toolbox_win3 = hud_toolbox_front.get_node("win3")
 
-	hud_toolbox_toggle_button.connect("pressed",self,"toggle_toolbox")
 	hud_build_undo_button.connect("pressed",self,"undo_last_action")
 
 	hud_toolbox_fill_x.connect("pressed",self,"toggle_fill", [0,hud_toolbox_fill_x.get_node("label")])
@@ -362,24 +286,6 @@ func toggle_toolbox():
 		# hide toolbox
 	return
 
-func toolset_next_page():
-	hud_toolset_blocks_pages[toolset_active_page].hide()
-	toolset_active_page += 1
-	if toolset_active_page >= hud_toolset_blocks_pages.size():
-		toolset_active_page = 0
-	hud_toolset_blocks_pages[toolset_active_page].show()
-	hud_toolset_paginator.set_frame(toolset_active_page)
-	return
-
-func toolset_prev_page():
-	hud_toolset_blocks_pages[toolset_active_page].hide()
-	toolset_active_page -= 1
-	if toolset_active_page < 0:
-		toolset_active_page = hud_toolset_blocks_pages.size()-1
-	hud_toolset_blocks_pages[toolset_active_page].show()
-	hud_toolset_paginator.set_frame(toolset_active_page)
-	return
-
 func check_map_integrity():
 	#var hq_red_check = false
 	#var hq_blue_check = false
@@ -427,7 +333,6 @@ func load_map(name, input = false):
 
 
 func select_tool(tool_type,brush_type,button):
-	hud_toolset_active.hide()
 	hud_toolset_active = button
 	self.tool_type = tool_type
 	self.brush_type = brush_type
@@ -526,6 +431,12 @@ func toggle_file_panel():
 		self.hud_file_panel.set_pos(Vector2(panel.x, self.hud_file_positions[1]))
 	else:
 		self.hud_file_panel.set_pos(Vector2(panel.x, self.hud_file_positions[0]))
+
+func toggle_building_blocks():
+	if hud_building_blocks.is_visible():
+		hud_building_blocks.hide()
+	else:
+		hud_building_blocks.show()
 
 func _ready():
 	init_gui()

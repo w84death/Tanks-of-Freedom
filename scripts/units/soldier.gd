@@ -6,10 +6,10 @@ func _init():
 
 	life = 10
 	max_life = 10
-	attack = 5
+	attack = 3
 	max_ap = 4
 	attack_ap = 1
-	max_attacks_number = 1
+	max_attacks_number = 2
 	ap = 4
 	attacks_number = 1
 	visibility = 2
