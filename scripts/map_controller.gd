@@ -105,8 +105,11 @@ var map_units = [
 
 func _input(event):
 	pos = terrain.get_pos()
-	if(event.type == InputEvent.MOUSE_BUTTON):
-		if ((show_blueprint and event.button_index == BUTTON_RIGHT) or (not show_blueprint and event.button_index == BUTTON_LEFT)):
+	if event.type == InputEvent.MOUSE_BUTTON:
+		if event.button_index == BUTTON_LEFT:
+			if not show_blueprint || self.root.dependency_container.workshop.movement_mode:
+				mouse_dragging = event.pressed
+		if event.button_index == BUTTON_RIGHT && show_blueprint:
 			mouse_dragging = event.pressed
 
 	if (event.type == InputEvent.MOUSE_MOTION):
@@ -283,7 +286,7 @@ func generate_map():
 				temp = map_buildings[5].instance()
 			if terrain_cell == 12: # fence
 				temp = map_buildings[6].instance()
-				
+
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_front.add_child(temp)

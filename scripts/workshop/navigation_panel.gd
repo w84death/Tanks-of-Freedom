@@ -38,16 +38,18 @@ func undo_button_pressed():
     self.workshop.undo_last_action()
 
 func drag_button_pressed():
-    return
+    self.mark_drag_button()
+    self.workshop.movement_mode = true
+    self.set_block_label("MOVE MAP")
 
 func reset_buttons():
     return
 
 func mark_drag_button():
-    return
+    self.reset_buttons()
 
 func mark_block_button():
-    return
+    self.reset_buttons()
 
 func toolbox_button_pressed():
     self.workshop_gui_controller.toggle_toolbox_panel()

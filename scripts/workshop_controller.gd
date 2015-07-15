@@ -32,6 +32,7 @@ var history = []
 var paint_count = 0
 var autosave_after = 10
 var painting_motion = false
+var movement_mode = false
 
 var settings = {
 	fill = [4,6,8,12,16,20,24,32,48,64],
@@ -57,9 +58,7 @@ func init_gui():
 	hud_message_box_button.connect("pressed", self, "close_message")
 
 	self.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
-
 	self.load_map(restore_file_name)
-	return
 
 func add_action(params):
 	var last_brush
@@ -170,7 +169,7 @@ func init(root):
 func _input(event):
 	if self.is_working && not self.is_suspended && self.painting_allowed:
 		if(event.type == InputEvent.MOUSE_BUTTON):
-			if (event.button_index == BUTTON_LEFT):
+			if event.button_index == BUTTON_LEFT && not self.movement_mode:
 				if event.pressed:
 					painting = true
 				else:
