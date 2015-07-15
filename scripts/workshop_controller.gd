@@ -168,7 +168,7 @@ func init(root):
 
 func _input(event):
 	if self.is_working && not self.is_suspended && self.painting_allowed:
-		if(event.type == InputEvent.MOUSE_BUTTON):
+		if event.type == InputEvent.MOUSE_BUTTON:
 			if event.button_index == BUTTON_LEFT && not self.movement_mode:
 				if event.pressed:
 					painting = true
@@ -176,11 +176,13 @@ func _input(event):
 					painting = false
 					painting_motion = false
 
-		if (event.type == InputEvent.MOUSE_MOTION):
-			map_pos = terrain.get_global_pos() / Vector2(map.scale.x,map.scale.y)
-			selector_position = terrain.world_to_map( Vector2((event.x/map.scale.x)-map_pos.x,(event.y/map.scale.y)-map_pos.y))
+		if event.type == InputEvent.MOUSE_MOTION || event.type == InputEvent.MOUSE_BUTTON:
+			map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
+			selector_position = terrain.world_to_map(Vector2((event.x / map.scale.x) - map_pos.x, (event.y / map.scale.y) - map_pos.y))
 			var position = terrain.map_to_world(selector_position)
 			selector.set_pos(position)
+
+		if (event.type == InputEvent.MOUSE_MOTION):
 			painting_motion = true
 
 		if painting and event.x < OS.get_video_mode_size().x - RIGHT_DEAD_ZONE and event.x > LEFT_DEAD_ZONE :
