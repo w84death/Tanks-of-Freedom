@@ -10,16 +10,6 @@ var selector_position = Vector2(0,0)
 var game_scale
 var map_pos
 
-var hud_file_positions = [-34,108]
-var hud_file_panel
-var hud_file
-var hud_file_toggle_button
-var hud_file_play_button
-var hud_file_save_button
-var hud_file_load_button
-var hud_file_name
-var hud_file_floppy
-
 var hud_message
 var hud_message_box
 var hud_message_box_button
@@ -46,10 +36,7 @@ var painting_motion = false
 var settings = {
 	fill = [4,6,8,12,16,20,24,32,48,64],
 	fill_selected = [0,0],
-	win = [true,false,false]
 }
-
-
 
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
@@ -57,20 +44,6 @@ const RIGHT_DEAD_ZONE = 136
 const LEFT_DEAD_ZONE = 60
 
 func init_gui():
-	hud_file = self.get_node("file_card/center")
-	hud_file_panel = hud_file.get_node("file_panel")
-	hud_file_floppy = hud_file_panel.get_node("controls/floppy/anim")
-	hud_file_name = hud_file_panel.get_node("controls/file_name")
-	hud_file_toggle_button = hud_file_panel.get_node("controls/file_button")
-	hud_file_play_button = hud_file_panel.get_node("controls/play_button")
-	hud_file_save_button = hud_file_panel.get_node("controls/save_button")
-	hud_file_load_button = hud_file_panel.get_node("controls/load_button")
-
-	hud_file_play_button.connect("pressed", self, "play_map")
-	hud_file_save_button.connect("pressed", self, "save_map", [hud_file_name, true])
-	hud_file_load_button.connect("pressed", self, "load_map", [hud_file_name, true])
-	hud_file_toggle_button.connect("pressed", self, "toggle_file_panel")
-
 	map = get_node("blueprint/center/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
@@ -114,13 +87,6 @@ func undo_last_action():
 		self.paint(last_action.position,last_action.tool_type,last_action.brush_type, true)
 		history.remove(history.size()-1)
 
-func toolbox_win(option,label):
-	settings.win[option] = not settings.win[option]
-	var text = "off"
-	if settings.win[option]:
-		text = "on"
-	label.set_text(text)
-
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
 	self.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
@@ -133,39 +99,19 @@ func toolbox_clear(layer):
 		self.map.clear_layer(1)
 		self.show_message("Toolbox", ["Units layer cleared!"])
 
-func check_map_integrity():
-	#var hq_red_check = false
-	#var hq_blue_check = false
-
-	#for x in range(MAP_MAX_X):
-	#	for y in range(MAP_MAX_Y):
-	#		if terrain.get_cell(x,y) == 6:
-	#			hq_blue_check = true
-	#		if terrain.get_cell(x,y) == 7:
-	#			hq_red_check = true
-	#	if hq_red_check and hq_blue_check:
-	#		return true
-	#return false
-	return true
-
 func play_map():
 	self.save_map(restore_file_name)
-	if self.check_map_integrity():
-		self.is_working = false
-		self.is_suspended = true
-		root.load_map("workshop", restore_file_name)
-		root.menu.hide_workshop()
-		root.toggle_menu()
-	else:
-		self.show_message("HQ missing", ["In this map mode there need to be HQ building for each player. Blue and Red."])
-	return
+	self.is_working = false
+	self.is_suspended = true
+	root.load_map("workshop", restore_file_name)
+	root.menu.hide_workshop()
+	root.toggle_menu()
 
 func save_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if map.save_map(name):
 		self.show_message("Map saved", ["Success","File name: "+str(name)])
-		hud_file_floppy.play("save")
 	else:
 		self.show_message("File error", ["Failure!","File name: "+str(name)])
 
@@ -174,7 +120,6 @@ func load_map(name, input = false):
 		name = name.get_text()
 	if map.load_map(name):
 		self.show_message("Map loaded", ["Success","File name: "+str(name)])
-		hud_file_floppy.play("save")
 	else:
 		self.show_message("File not found", ["Failure!","File name: "+str(name)])
 
@@ -264,15 +209,5 @@ func show_message(title, msg):
 func close_message():
 	self.hud_message.hide()
 
-func toggle_file_panel():
-	var panel = hud_file_panel.get_pos()
-	if panel.y == hud_file_positions[0]:
-		self.hud_file_panel.set_pos(Vector2(panel.x, self.hud_file_positions[1]))
-	else:
-		self.hud_file_panel.set_pos(Vector2(panel.x, self.hud_file_positions[0]))
-
 func _ready():
 	init_gui()
-	pass
-
-

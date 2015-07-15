@@ -26,7 +26,7 @@ func bind_workshop(workshop_node):
     self.blueprint.bind_panel(self.workshop.get_node("blueprint"))
     self.toolbox_panel.bind_panel(self.workshop.get_node("toolbox_panel"))
     self.building_blocks_panel.bind_panel(self.workshop.get_node("building_blocks_panel"))
-    self.file_panel.bind_panel(self.workshop.get_node("file_card/center/file_panel"))
+    self.file_panel.bind_panel(self.workshop.get_node("file_card"))
     self.navigation_panel.bind_panel(self.workshop.get_node("navigation_panel/center/navigation_panel"))
     self.workshop = workshop_node
 
