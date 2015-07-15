@@ -35,14 +35,22 @@ var buildings_blocks = [
     ["AIRPORT", 15, "terrain", 10],
     ["SPAWN", 17, "terrain", 13],
     ["GSM TOWER", 16, "terrain", 11],
+    ["BARRACKS R", 19, "terrain", 8],
+    ["FACTORY R", 20, "terrain", 9],
+    ["AIRPORT R", 21, "terrain", 10],
+    ["TOWER R", 22, "terrain", 11],
+    ["BARRACKS B", 23, "terrain", 8],
+    ["FACTORY B", 24, "terrain", 9],
+    ["AIRPORT B", 25, "terrain", 10],
+    ["TOWER B", 26, "terrain", 11],
 ]
 var units_blocks = [
-    ["INFANTRY B", 0, "units", 0],
-    ["TANK B", 0, "units", 1],
-    ["HELI B", 0, "units", 2],
-    ["INFANTRY R", 0, "units", 3],
-    ["TANK R", 0, "units", 4],
-    ["HELI B", 0, "units", 5]
+    ["INFANTRY B", 27, "units", 0],
+    ["TANK B", 28, "units", 1],
+    ["HELI B", 29, "units", 2],
+    ["INFANTRY R", 30, "units", 3],
+    ["TANK R", 31, "units", 4],
+    ["HELI B", 32, "units", 5]
 ]
 
 var current_blocks = []
@@ -63,6 +71,7 @@ func bind_panel(building_block_panel_wrapper_node):
 
     self.terrain_button.connect("pressed", self, "fill_blocks_panel", [self.terrain_blocks])
     self.buildings_button.connect("pressed", self, "fill_blocks_panel", [self.buildings_blocks])
+    self.units_button.connect("pressed", self, "fill_blocks_panel", [self.units_blocks])
 
     self.fill_blocks_panel(self.terrain_blocks)
 
