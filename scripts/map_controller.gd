@@ -281,7 +281,9 @@ func generate_map():
 				temp = map_buildings[4].instance()
 			if terrain_cell == 11: # tower
 				temp = map_buildings[5].instance()
-
+			if terrain_cell == 12: # fence
+				temp = map_buildings[6].instance()
+				
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_front.add_child(temp)

@@ -1,9 +1,9 @@
 
 extends Sprite
-export var position_on_map = Vector2(0,0)
 export var destructable = false
+export var fence = false
 var current_map
-
+var position_on_map = Vector2(0,0)
 var group = 'terrain'
 var type
 var damage = 0
@@ -47,10 +47,40 @@ func clear_explosion():
 	self.remove_child(explosion)
 	explosion.queue_free()
 
+func connect_with_neighbours():
+	var neighbours = 0 # neibours in binary
+	var all_fences = get_tree().get_nodes_in_group("terrain_fence")
+	var x = self.position_on_map.x
+	var y = self.position_on_map.y
+	for fence in all_fences:
+		if fence.get_pos_map() == Vector(x-1, y):
+			neighbours += 1
+		if fence.get_pos_map() == Vector(x+1, y):
+			neighbours += 3
+		if fence.get_pos_map() == Vector(x, y-1):
+			neighbours += 7
+		if fence.get_pos_map() == Vector(x, y+1):
+			neighbours += 15
+	if neighbours in [1,3,4]:
+		self.set_frame(1)
+	if neighbours in [7,15,22]:
+		self.set_frame(0)
+	if neighbours in [16]:
+		self.set_frame(2)
+	if neighbours in [18]:
+		self.set_frame(3)
+	if neighbours in [10]:
+		self.set_frame(4)
+	if neighbours in [8]:
+		self.set_frame(5)
+
 func _ready():
 	add_to_group("terrain")
 	if get_node("/root/game"):
 		current_map = get_node("/root/game").current_map_terrain
+	if self.fence:
+		add_to_group("terrain_fence")
+		self.connect_with_neighbours()
 	pass
 
 
