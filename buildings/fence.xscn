@@ -42,7 +42,7 @@
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "nodes" </string>
-			<int_array  len="61"> 				-1, -1, 1, 0, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 10, 18, 11, 19, 7, 20, 12, 21, 9, 22, 13, 23, 14, 24, 15, 25, 9, 0, 9, 26, 16, 27, 3, 0 </int_array>
+			<int_array  len="61"> 				-1, -1, 1, 0, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 10, 18, 11, 19, 7, 20, 12, 21, 9, 22, 13, 23, 14, 24, 15, 25, 9, 0, 1, 26, 16, 27, 3, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="17" shared="false">
 				<node_path> "" </node_path>
@@ -62,7 +62,7 @@
 				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
