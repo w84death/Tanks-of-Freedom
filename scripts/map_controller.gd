@@ -608,12 +608,18 @@ func fill_map_from_data_array(data):
 			units.set_cell(cell.x, cell.y, cell.unit)
 	units.raise()
 
-func fill(width,height):
+func fill(width, height):
+	var offset_x = 0
+	var offset_y = 0
+
 	terrain.clear()
 	units.clear()
+	offset_x = (MAP_MAX_X*0.5) - (width*0.5)
+	offset_y = (MAP_MAX_Y*0.5) - (height*0.5)
+
 	for x in range(width):
 		for y in range(height):
-			terrain.set_cell(x, y, 1)
+			terrain.set_cell(x+offset_x, y+offset_y, 1)
 
 func clear_layer(layer):
 	if layer == 0:
