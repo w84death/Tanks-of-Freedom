@@ -52,42 +52,37 @@ func connect_with_neighbours():
 	var all_fences = get_tree().get_nodes_in_group("terrain_fence")
 	var other_fence
 	var this_pos
-	
+
+	this_pos = self.get_initial_pos()
 	for fence in all_fences:
 		other_fence = fence.get_initial_pos()
-		this_pos = self.get_initial_pos()
 		if other_fence == this_pos + Vector2(-1, 0):
-			neighbours += 1
+			neighbours += 2
 		if other_fence == this_pos + Vector2(1, 0):
-			neighbours += 3
+			neighbours += 4
 		if other_fence == this_pos + Vector2(0, -1):
-			neighbours += 15
+			neighbours += 8
 		if other_fence == this_pos + Vector2(0, 1):
-			neighbours += 7
-	
-	print('FENCEEEEE')
-	print(neighbours)
-	print('  ')
-	
-	if neighbours in [1,3,4]:
+			neighbours += 16
+
+	if neighbours in [2,4,6]:
 		self.set_frame(1)
 		return
-	if neighbours in [7,15,22]:
+	if neighbours in [8,16,24]:
 		self.set_frame(0)
 		return
-	if neighbours in [16]:
+	if neighbours in [10]:
 		self.set_frame(2)
 		return
-	if neighbours in [18]:
+	if neighbours in [12]:
 		self.set_frame(3)
 		return
-	if neighbours in [10]:
+	if neighbours in [20]:
 		self.set_frame(4)
 		return
-	if neighbours in [8]:
+	if neighbours in [18]:
 		self.set_frame(5)
 		return
-	return
 
 func _ready():
 	add_to_group("terrain")
@@ -95,8 +90,4 @@ func _ready():
 		current_map = get_node("/root/game").current_map_terrain
 	if self.fence:
 		add_to_group("terrain_fence")
-		self.connect_with_neighbours()
-	pass
-
-
 

@@ -311,6 +311,8 @@ func generate_map():
 	for cell in cells_to_change:
 		if(cell.type):
 			terrain.set_cell(cell.x,cell.y,cell.type)
+	for fence in get_tree().get_nodes_in_group("terrain_fence"):
+		fence.connect_with_neighbours()
 	units.hide()
 	fog_controller.clear_fog()
 	return
