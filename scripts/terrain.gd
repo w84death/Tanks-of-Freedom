@@ -50,19 +50,19 @@ func clear_explosion():
 func connect_with_neighbours():
 	var neighbours = 0 # neibours in binary
 	var all_fences = get_tree().get_nodes_in_group("terrain_fence")
-	var other_fence
+	var other_pos
 	var this_pos
 
 	this_pos = self.get_initial_pos()
 	for fence in all_fences:
-		other_fence = fence.get_initial_pos()
-		if other_fence == this_pos + Vector2(-1, 0):
+		other_pos = fence.get_initial_pos()
+		if other_pos == this_pos + Vector2(-1, 0):
 			neighbours += 2
-		if other_fence == this_pos + Vector2(1, 0):
+		if other_pos == this_pos + Vector2(1, 0):
 			neighbours += 4
-		if other_fence == this_pos + Vector2(0, -1):
+		if other_pos == this_pos + Vector2(0, -1):
 			neighbours += 8
-		if other_fence == this_pos + Vector2(0, 1):
+		if other_pos == this_pos + Vector2(0, 1):
 			neighbours += 16
 
 	if neighbours in [2,4,6]:
@@ -83,7 +83,22 @@ func connect_with_neighbours():
 	if neighbours in [18]:
 		self.set_frame(5)
 		return
-
+	if neighbours in [26]:
+		self.set_frame(6)
+		return
+	if neighbours in [14]:
+		self.set_frame(7)
+		return
+	if neighbours in [28]:
+		self.set_frame(8)
+		return
+	if neighbours in [22]:
+		self.set_frame(9)
+		return
+	if neighbours in [30]:
+		self.set_frame(10)
+		return
+		
 func _ready():
 	add_to_group("terrain")
 	if get_node("/root/game"):
