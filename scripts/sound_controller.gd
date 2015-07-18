@@ -9,6 +9,13 @@ const SOUND_ATTACK = 'attack'
 const SOUND_DAMAGE = 'damage'
 const SOUND_DIE = 'die'
 
+var stream
+var soundtracks = [
+	'map_soundtrack_1',
+	'map_soundtrack_2',
+	'map_soundtrack_3',
+	'map_soundtrack_4']
+
 func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
@@ -19,13 +26,15 @@ func init_root(root_node):
 func play_soundtrack():
 	self.stop_soundtrack()
 	if root.settings['music_enabled'] && root.is_map_loaded:
-		var stream = load("res://assets/sounds/soundtrack/map_soundtrack_1.ogg")
+		var selected_track = self.soundtracks[randi() % self.soundtracks.size()]
+		stream = load("res://assets/sounds/soundtrack/"+selected_track+".ogg")
 		stream_player.set_stream(stream)
 		stream_player.set_loop(true)
 		stream_player.play()
 
 func stop_soundtrack():
 	stream_player.stop()
+	stream = null
 
 func play(sound):
 	if root.settings['sound_enabled']:

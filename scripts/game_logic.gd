@@ -34,8 +34,8 @@ var settings = {
 	'cpu_1' : true,
 	'turns_cap': 0,
 	'camera_follow': true,
-	'music_volume': 0.3,
-	'sound_volume': 0.5
+	'music_volume': 0.5,
+	'sound_volume': 0.2
 }
 
 var is_map_loaded = false
