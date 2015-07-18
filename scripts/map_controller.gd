@@ -222,7 +222,8 @@ func generate_map():
 	var mountain_elements_count = map_mountain.size()
 	var city_small_elements_count = map_city_small.size()
 	var city_big_elements_count = map_city_big.size()
-
+	var neigbours = 0
+	
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 
@@ -233,12 +234,31 @@ func generate_map():
 			else:
 				self.generate_wave(x, y)
 
-			# grass, flowers, log
+			
 			if terrain_cell == 1:
-				if ( randi() % 10 ) <= GEN_GRASS:
-					temp = map_grass[randi() % grass_elements_count].instance()
-				if ( randi() % 10 ) <= GEN_FLOWERS:
-					temp2 = map_flowers[randi() % flowers_elements_count].instance()
+				# bridges
+				neigbours = 0
+				if terrain.get_cell(x, y-1) == 1:
+					neigbours += 2
+				if terrain.get_cell(x+1, y) == 1:
+					neigbours += 4
+				if terrain.get_cell(x, y+1) == 1:
+					neigbours += 8
+				if terrain.get_cell(x-1, y) == 1:
+					neigbours += 16
+				
+				if neigbours == 10:
+					cells_to_change.append({x=x, y=y, type=56})
+					temp = null
+				elif neigbours == 20:
+					cells_to_change.append({x=x, y=y, type=55})
+					temp = null
+				else:
+					# grass, flowers, log
+					if ( randi() % 10 ) <= GEN_GRASS:
+						temp = map_grass[randi() % grass_elements_count].instance()
+					if ( randi() % 10 ) <= GEN_FLOWERS:
+						temp2 = map_flowers[randi() % flowers_elements_count].instance()
 
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x, y)))
@@ -461,18 +481,27 @@ func spawn_unit(x, y, type):
 func generate_underground(x, y):
 	var generate = false
 	var temp = null
-
+	var neighbours = 0
 	if terrain.get_cell(x, y-1) == -1:
 		generate = true
+		neighbours += 2
 	if terrain.get_cell(x+1, y) == -1:
 		generate = true
+		neighbours += 4
 	if terrain.get_cell(x, y+1) == -1:
 		generate = true
+		neighbours += 8
 	if terrain.get_cell(x-1, y) == -1:
 		generate = true
+		neighbours += 16
 
 	if generate:
 		temp = underground_rock.instance()
+		temp.set_frame(0)
+		if neighbours in [10]:
+			temp.set_frame(1)
+		if neighbours in [20]:
+			temp.set_frame(2)
 		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
 		underground.add_child(temp)
 		temp = null
