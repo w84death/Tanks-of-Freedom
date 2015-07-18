@@ -238,13 +238,13 @@ func generate_map():
 			if terrain_cell == 1:
 				# bridges
 				neigbours = 0
-				if terrain.get_cell(x, y-1) == 1:
+				if terrain.get_cell(x, y-1) > 0:
 					neigbours += 2
-				if terrain.get_cell(x+1, y) == 1:
+				if terrain.get_cell(x+1, y) > 0:
 					neigbours += 4
-				if terrain.get_cell(x, y+1) == 1:
+				if terrain.get_cell(x, y+1) > 0:
 					neigbours += 8
-				if terrain.get_cell(x-1, y) == 1:
+				if terrain.get_cell(x-1, y) > 0:
 					neigbours += 16
 				
 				if neigbours == 10:
