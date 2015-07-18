@@ -10,8 +10,9 @@ var hud_message_card_player_blue_turn
 var hud_message_card_player_red_turn
 var hud_message_card_button
 
-var hourglasses_card
 
+var cinematic_camera
+var cinematic_camera_anim
 var menu_button
 
 var game_card
@@ -66,9 +67,10 @@ func init_root(root, action_controller_object, hud):
 	hud_message_card_button.connect("pressed", self, "close_message_card")
 
 	#
-	# HOUR GLASSES
+	# CPU TURN
 	#
-	hourglasses_card = hud.get_node("hourglasses")
+	cinematic_camera = hud.get_node("cinematic_camera")
+	cinematic_camera_anim = cinematic_camera.get_node("anim")
 
 	self.menu_button = hud.get_node("top_panel/center/game_card/escape")
 	self.menu_button.connect("pressed", root, "toggle_menu")
@@ -185,8 +187,10 @@ func fill_end_game_stats(stats,turns):
 	red_spawns.set_text(str(stats["spawns"][1]))
 	red_score.set_text(str(stats["score"][1]))
 
-func show_hourglasses():
-	self.hourglasses_card.show()
+func show_cinematic_camera():
+	self.cinematic_camera.show()
+	self.cinematic_camera_anim.play("on")
 
-func hide_hourglasses():
-	self.hourglasses_card.hide()
+func hide_cinematic_camera():
+	self.cinematic_camera_anim.play("off")
+	self.cinematic_camera.hide()

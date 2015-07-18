@@ -197,16 +197,16 @@ func lock_for_cpu():
 	self.selector.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
 		self.current_map.camera_follow = false
-		self.hud_controller.show_hourglasses()
+		self.hud_controller.show_cinematic_camera()
 	else:
-		self.hud_controller.hide_hourglasses()
+		self.hud_controller.hide_cinematic_camera()
 
 func unlock_for_player():
 	self.is_locked_for_cpu = false
 	self.hud_controller.unlock_hud()
 	self.selector.show()
 	self.current_map.camera_follow = true
-	self.hud_controller.hide_hourglasses()
+	self.hud_controller.hide_cinematic_camera()
 
 func lock_for_demo():
 	is_demo = true
