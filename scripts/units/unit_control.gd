@@ -9,7 +9,6 @@ var current_map_terrain
 var current_map
 var health_bar
 var icon_shield
-var icon_cloud
 var type = 0
 var kills = 0
 
@@ -69,13 +68,11 @@ func set_stats(new_stats):
 	attacks_number = new_stats.attacks_number
 	update_healthbar()
 	update_shield()
-	update_ap_left()
 
 func reset_ap():
 	ap = max_ap
 	attacks_number = max_attacks_number
 	update_shield()
-	update_ap_left()
 	update_healthbar()
 
 func set_pos_map(new_position):
@@ -175,12 +172,6 @@ func update_shield():
 	else:
 		icon_shield.hide()
 
-func update_ap_left():
-	if ap == max_ap:
-		icon_cloud.show()
-	else:
-		icon_cloud.hide()
-
 func score_kill():
 	kills = kills + 1
 
@@ -195,7 +186,6 @@ func _ready():
 		current_map = get_node("/root/game").current_map
 	health_bar = get_node("health")
 	icon_shield = get_node("shield")
-	icon_cloud = get_node("cloud")
 	pass
 
 

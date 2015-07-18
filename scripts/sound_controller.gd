@@ -19,9 +19,9 @@ var soundtracks = [
 func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
-	sample_player = root.get_node("SamplePlayer")
-	sample_player.set_default_volume(root.settings['sound_volume'])
-	stream_player.set_volume(root.settings['music_volume'])
+	sample_player = root.get_node("SamplePlayer")	
+	AudioServer.set_fx_global_volume_scale(root.settings['sound_volume'])
+	AudioServer.set_stream_global_volume_scale(root.settings['music_volume'])
 
 func play_soundtrack():
 	self.stop_soundtrack()
