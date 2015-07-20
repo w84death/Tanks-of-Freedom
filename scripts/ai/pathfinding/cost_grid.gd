@@ -23,7 +23,7 @@ func __fillCostMap(cost_map, units, ownBuildings):
 
 func __prepareGrid(cost_map):
 	var grid = {}
-	for x in range(32):
-		for y in range(32):
+	for x in range(self.abstract_map.MAX_MAP_SIZE):
+		for y in range(self.abstract_map.MAX_MAP_SIZE):
 			grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
 	return grid
