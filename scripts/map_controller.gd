@@ -662,7 +662,7 @@ func init_background():
 	print('background generate..')
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
-			underground.set_cell(x,y,1)
+			underground.set_cell(x,y,3)
 
 func init_nodes():
 	underground = self.get_node("underground")
