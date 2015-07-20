@@ -16,6 +16,31 @@ var default_custom_maps = [
         'name' : 'king_of_the_hill',
         'file' : preload('res://maps/custom/king_of_the_hill.gd').new()
     },
+
+    {
+        'name' : 'tof_dm1',
+        'file' : preload('res://maps/custom/tof_dm1.gd').new()
+    },
+    {
+        'name' : 'zuo1',
+        'file' : preload('res://maps/custom/zuo1.gd').new()
+    },
+    {
+        'name' : 'zuo2',
+        'file' : preload('res://maps/custom/zuo2.gd').new()
+    },
+    {
+        'name' : 'zuo3',
+        'file' : preload('res://maps/custom/zuo3.gd').new()
+    },
+    {
+        'name' : 'zuo4',
+        'file' : preload('res://maps/custom/zuo4.gd').new()
+    },
+    {
+        'name' : 'zuo5',
+        'file' : preload('res://maps/custom/zuo5.gd').new()
+    },
 ]
 
 func init():
