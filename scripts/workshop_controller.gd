@@ -32,7 +32,7 @@ var history = []
 var paint_count = 0
 var autosave_after = 10
 var painting_motion = false
-var movement_mode = false
+var movement_mode = true
 
 var settings = {
 	fill = [4,6,8,12,16,20,24,32,48,64],
