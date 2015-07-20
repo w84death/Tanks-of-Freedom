@@ -41,8 +41,6 @@ var settings = {
 
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
-const RIGHT_DEAD_ZONE = 136
-const LEFT_DEAD_ZONE = 60
 
 func init_gui():
 	map = get_node("blueprint/center/scale/map")
@@ -123,7 +121,7 @@ func load_map(name, input = false):
 		self.show_message("File not found", ["Failure!","File name: "+str(name)])
 
 func paint(position, tool_type = null,brush_type = null, undo_action = false):
-	if hud_message_box.is_visible():
+	if hud_message.is_visible():
 		return false
 
 	if tool_type == null:
@@ -185,7 +183,7 @@ func _input(event):
 		if (event.type == InputEvent.MOUSE_MOTION):
 			painting_motion = true
 
-		if painting and event.x < OS.get_video_mode_size().x - RIGHT_DEAD_ZONE and event.x > LEFT_DEAD_ZONE :
+		if painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
 			self.paint(selector_position)
 
 	if Input.is_action_pressed('ui_cancel'):

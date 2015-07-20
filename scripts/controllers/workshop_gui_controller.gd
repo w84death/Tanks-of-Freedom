@@ -19,16 +19,16 @@ func init_root(root_node):
     self.building_blocks_panel.init_root(root_node)
     self.file_panel.init_root(root_node)
     self.navigation_panel.init_root(root_node)
-    self.bind_workshop(self.root.dependency_container.workshop)
+    self.bind_workshop()
     self.workshop.hide()
 
-func bind_workshop(workshop_node):
+func bind_workshop():
     self.blueprint.bind_panel(self.workshop.get_node("blueprint"))
     self.toolbox_panel.bind_panel(self.workshop.get_node("toolbox_panel"))
     self.building_blocks_panel.bind_panel(self.workshop.get_node("building_blocks_panel"))
     self.file_panel.bind_panel(self.workshop.get_node("file_card"))
     self.navigation_panel.bind_panel(self.workshop.get_node("navigation_panel/center/navigation_panel"))
-    self.workshop = workshop_node
+    self.message_popup = self.workshop.hud_message
 
 func show_toolbox_panel():
     self.toolbox_panel.show()

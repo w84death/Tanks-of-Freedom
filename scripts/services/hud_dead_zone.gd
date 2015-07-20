@@ -11,6 +11,7 @@ var building_build_panel_offset = -170
 var building_research_panel_size = Vector2(10, 10)
 var building_research_panel_offset = 10
 var popup_size = Vector2(280, 220)
+var popup_top_offset = 245
 
 func init_root(root_node):
     self.root = root_node
@@ -25,7 +26,7 @@ func is_dead_zone(x, y):
         return true
 
     if self.root.hud_controller.hud_message_card.is_visible():
-        if self.check_if_in_zone(x, y, 245, self.popup_size):
+        if self.check_if_in_zone(x, y, self.popup_top_offset, self.popup_size):
             return true
 
     if self.root.dependency_container.controllers.hud_panel_controller.hud_panel.is_visible():
