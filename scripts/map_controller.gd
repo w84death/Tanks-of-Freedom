@@ -316,9 +316,9 @@ func generate_map():
 
 			# roads
 			if terrain_cell == 14: # city road
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, -1, 18])})
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, 18])})
 			if terrain_cell == 15: # country road
-				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, -1, 18])})
+				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, 18])})
 			if terrain_cell == 16: # road mix
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [16, 14])})
 			if terrain_cell == 17: # river
