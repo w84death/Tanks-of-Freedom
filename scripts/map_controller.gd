@@ -108,9 +108,9 @@ func _input(event):
 	pos = terrain.get_pos()
 	if event.type == InputEvent.MOUSE_BUTTON:
 		if event.button_index == BUTTON_LEFT:
-			if not show_blueprint || self.root.dependency_container.workshop.movement_mode:
+			if not show_blueprint || (self.root.dependency_container.workshop.movement_mode && self.root.dependency_container.workshop.is_working && not self.root.dependency_container.workshop.is_suspended):
 				mouse_dragging = event.pressed
-		if event.button_index == BUTTON_RIGHT && show_blueprint:
+		if event.button_index == BUTTON_RIGHT && show_blueprint && self.root.dependency_container.workshop.is_working && not self.root.dependency_container.workshop.is_suspended:
 			mouse_dragging = event.pressed
 
 	if (event.type == InputEvent.MOUSE_MOTION):
@@ -223,7 +223,7 @@ func generate_map():
 	var city_small_elements_count = map_city_small.size()
 	var city_big_elements_count = map_city_big.size()
 	var neigbours = 0
-	
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 
@@ -234,7 +234,7 @@ func generate_map():
 			else:
 				self.generate_wave(x, y)
 
-			
+
 			if terrain_cell == 1:
 				# bridges
 				neigbours = 0
@@ -246,7 +246,7 @@ func generate_map():
 					neigbours += 8
 				if terrain.get_cell(x-1, y) > 0:
 					neigbours += 16
-				
+
 				if neigbours == 10:
 					cells_to_change.append({x=x, y=y, type=56})
 					temp = null

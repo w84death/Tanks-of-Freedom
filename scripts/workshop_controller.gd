@@ -186,7 +186,7 @@ func _input(event):
 		if painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
 			self.paint(selector_position)
 
-	if Input.is_action_pressed('ui_cancel'):
+	if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded:
 		self.toggle_menu()
 
 func toggle_menu():

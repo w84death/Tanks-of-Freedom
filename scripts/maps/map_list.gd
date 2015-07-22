@@ -18,27 +18,27 @@ var default_custom_maps = [
     },
 
     {
-        'name' : 'tof_dm1',
+        'name' : 'tof_duel1',
         'file' : preload('res://maps/custom/tof_dm1.gd').new()
     },
     {
-        'name' : 'zuo1',
+        'name' : 'siege1',
         'file' : preload('res://maps/custom/zuo1.gd').new()
     },
     {
-        'name' : 'zuo2',
+        'name' : 'siege2',
         'file' : preload('res://maps/custom/zuo2.gd').new()
     },
     {
-        'name' : 'zuo3',
+        'name' : 'river_raid',
         'file' : preload('res://maps/custom/zuo3.gd').new()
     },
     {
-        'name' : 'zuo4',
+        'name' : 'high_pressure',
         'file' : preload('res://maps/custom/zuo4.gd').new()
     },
     {
-        'name' : 'zuo5',
+        'name' : 'a_maze',
         'file' : preload('res://maps/custom/zuo5.gd').new()
     },
 ]
