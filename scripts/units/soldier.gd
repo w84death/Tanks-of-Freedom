@@ -13,7 +13,6 @@ func _init():
 	ap = 4
 	attacks_number = 1
 	visibility = 2
-	pass
 
 func can_capture_building(building):
 	if building.player == player:
