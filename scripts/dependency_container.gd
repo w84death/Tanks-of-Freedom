@@ -30,4 +30,7 @@ func init_root(root_node):
 	self.hud_dead_zone.init_root(root_node)
 	self.workshop_dead_zone.init_root(root_node)
 	self.ap_gain.init_root(root_node)
+	self.camera.workshop_camera = self.workshop.game_scale
+	self.camera.workshop_map = self.workshop.map
+	self.camera.apply_default_camera()
 	self.map_list.init()
