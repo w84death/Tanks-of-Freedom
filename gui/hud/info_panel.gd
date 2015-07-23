@@ -39,8 +39,8 @@ func reset():
 func set_ap(ap):
     self.info_panel_ap.set_text(str(ap))
 
-func set_ap_gain(pap):
-    self.info_panel_pap.set_text('+' + str(pap))
+func set_ap_gain(ap_gain):
+    self.info_panel_pap.set_text('+' + str(ap_gain))
 
 func set_turn(turn, max_turn=null):
     var display = str(turn)

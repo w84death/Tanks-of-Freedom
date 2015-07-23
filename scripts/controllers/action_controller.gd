@@ -142,6 +142,7 @@ func capture_building(active_field, field):
 
 	field.object.claim(self.current_player, self.turn)
 	sound_controller.play('occupy_building')
+	self.root_node.dependency_container.ap_gain.update()
 	if field.object.type == 4:
 		active_field.object.takeAllAP()
 	else:
@@ -346,6 +347,7 @@ func switch_to_player(player):
 		hud_controller.show_in_game_card([], current_player)
 		self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
 	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+	self.root_node.dependency_container.ap_gain.update()
 
 func perform_ai_stuff():
 	var success = false

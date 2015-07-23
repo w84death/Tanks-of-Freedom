@@ -12,6 +12,7 @@ var camera = preload("res://scripts/camera.gd").new()
 var hud_dead_zone = preload("res://scripts/services/hud_dead_zone.gd").new()
 var workshop_dead_zone = preload("res://scripts/services/workshop_dead_zone.gd").new()
 var workshop = preload("res://gui/workshop/workshop.xscn").instance()
+var ap_gain = preload("res://gui/hud/ap_gain.gd").new()
 var positions
 
 func init_root(root_node):
@@ -28,4 +29,5 @@ func init_root(root_node):
 	self.workshop.init(self.root)
 	self.hud_dead_zone.init_root(root_node)
 	self.workshop_dead_zone.init_root(root_node)
+	self.ap_gain.init_root(root_node)
 	self.map_list.init()
