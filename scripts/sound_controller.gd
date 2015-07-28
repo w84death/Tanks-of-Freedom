@@ -3,6 +3,9 @@ var root
 var stream_player
 var sample_player
 
+var sound_volume = 0.5
+var music_volume = 1.0
+
 const SOUND_SPAWN = 'spawn'
 const SOUND_MOVE = 'move'
 const SOUND_ATTACK = 'attack'
@@ -19,9 +22,9 @@ var soundtracks = [
 func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
-	sample_player = root.get_node("SamplePlayer")	
-	AudioServer.set_fx_global_volume_scale(root.settings['sound_volume'])
-	AudioServer.set_stream_global_volume_scale(root.settings['music_volume'])
+	stream_player.set_volume(self.music_volume)
+	sample_player = root.get_node("SamplePlayer")
+	sample_player.set_default_volume_db(self.sound_volume)
 
 func play_soundtrack():
 	self.stop_soundtrack()
@@ -42,3 +45,4 @@ func play(sound):
 
 func play_unit_sound(unit, sound):
 	self.play(unit.type_name+'_'+sound)
+
