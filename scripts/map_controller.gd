@@ -555,10 +555,10 @@ func save_map(file_name):
 	if self.check_file_name(file_name):
 		self.store_map_in_binary_file(file_name, temp_data)
 		self.store_map_in_plain_file(file_name, temp_data)
-		print('ToF: map saved to file')
+		#print('ToF: map saved to file')
 		return true
 	else:
-		print('ToF: wrong file name')
+		#print('ToF: wrong file name')
 		return false
 
 func store_map_in_binary_file(file_name, data):
@@ -616,11 +616,11 @@ func load_map_from_file(file_path):
 		map_file.open(file_path, File.READ)
 		temp_data = map_file.get_var()
 		self.fill_map_from_data_array(temp_data)
-		print('ToF: map ' + file_path + ' loaded from file')
+		#print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()
 		return true
 	else:
-		print('ToF: map file not exists!')
+		#print('ToF: map file not exists!')
 		return false
 
 func fill_map_from_data_array(data):
@@ -659,7 +659,7 @@ func clear_layer(layer):
 		units.clear()
 
 func init_background():
-	print('background generate..')
+	#print('background generate..')
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			underground.set_cell(x,y,3)

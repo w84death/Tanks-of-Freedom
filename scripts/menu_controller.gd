@@ -117,7 +117,7 @@ func _ready():
 	self.update_zoom_label()
 
 func start_demo_mode():
-	print('start_demo_mode')
+	#print('start_demo_mode')
 	self.root.dependency_container.demo_mode.start_demo_mode(false)
 
 func load_maps_menu():

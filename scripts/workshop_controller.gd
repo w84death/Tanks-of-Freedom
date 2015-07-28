@@ -191,7 +191,7 @@ func _input(event):
 
 func toggle_menu():
 	if not self.is_working:
-		print('skip')
+		#print('skip')
 		return
 
 	if self.is_hidden():

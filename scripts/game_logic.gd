@@ -223,9 +223,9 @@ func read_settings_from_file():
 		if self.check_file_data(check):
 			for option in check:
 				self.settings[option] = check[option]
-			print('ToF: settings loaded from file')
+			#print('ToF: settings loaded from file')
 		else:
-			print('ToF: filecheck filed! making new file with default settings')
+			#print('ToF: filecheck filed! making new file with default settings')
 			self.write_settings_to_file()
 		settings_file.close()
 	else:
@@ -241,7 +241,7 @@ func check_file_data(data):
 func write_settings_to_file():
 	settings_file.open("user://settings.tof",File.WRITE)
 	settings_file.store_var(self.settings)
-	print('ToF: settings saved to file')
+	#print('ToF: settings saved to file')
 	settings_file.close()
 	return
 

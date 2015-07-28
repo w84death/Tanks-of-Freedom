@@ -156,8 +156,6 @@ func capture_building(active_field, field):
 
 func activate_field(field):
 	self.clear_active_field()
-	if !field.object: #todo - investigate why there is no object
-		print("FAIL to activate field: ", field.position)
 	active_field = field
 	self.root_node.dependency_container.abstract_map.tilemap.add_child(active_indicator)
 	self.root_node.dependency_container.abstract_map.tilemap.move_child(active_indicator, 0)
@@ -412,11 +410,11 @@ func handle_battle(active_field, field):
 		self.use_ap()
 		self.clear_movement_indicators()
 
-		print('MARK TRAIL!!')
+		#print('MARK TRAIL!!')
 		#TODO rewrite it to use pathfinding
 		self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
 
-		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
+		sound_controller.play_unit_sound(active_field.object, sound_controller.SOUND_ATTACK)
 		if (battle_controller.resolve_fight(active_field.object, field.object)):
 			self.play_destroy(field)
 			self.destroy_unit(field)

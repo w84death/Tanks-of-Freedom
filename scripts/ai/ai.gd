@@ -58,8 +58,8 @@ func gather_available_actions(player_ap):
 	# refreshing unit and building data
 	self.positions.refresh_units()
 	#positions.refresh_buildings()
-	if DEBUG:
-		print('DEBUG -------------------- ')
+	#if DEBUG:
+	#	print('DEBUG -------------------- ')
 	self.buildings = self.positions.get_player_buildings(current_player)
 	self.units     = self.positions.get_player_units(current_player)
 	self.terrain   = self.positions.get_terrain_obstacles()
@@ -205,8 +205,8 @@ func __add_action(unit, destination, own_units):
 		var score = unit.estimate_action(action_type, path.size(), unit_ap_cost, hiccup, player_behaviours)
 		var action = self.action_builder.create(action_type, unit, path)
 		actions.append_action(action, score)
-		if DEBUG:
-			print("DEBUG : ", action.get_action_name(), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
+		#if DEBUG:
+		#	print("DEBUG : ", action.get_action_name(), " score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 
 func __add_building_action(building, enemy_units_nearby, own_units):
 
@@ -223,8 +223,8 @@ func __add_building_action(building, enemy_units_nearby, own_units):
 
 		var action = self.action_builder.create(action_type, building, null)
 		actions.append_action(action, score)
-		if DEBUG:
-			print("DEBUG : ", action.get_action_name(), " score: ", score, " ap: ", building.get_required_ap())
+		#if DEBUG:
+		#	print("DEBUG : ", action.get_action_name(), " score: ", score, " ap: ", building.get_required_ap())
 
 
 
