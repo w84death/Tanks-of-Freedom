@@ -120,12 +120,7 @@ func _input(event):
 
 			pos.x = pos.x + event.relative_x / scale.x
 			pos.y = pos.y + event.relative_y / scale.y
-			target = pos
-			self.sX = pos.x
-			self.sY = pos.y
-			underground.set_pos(target)
-			terrain.set_pos(target)
-			fog_controller.move_cloud(pos)
+			self.set_map_pos_global(pos)
 
 func __do_panning(diff_x, diff_y):
 	if diff_x > -PAN_THRESHOLD && diff_x < PAN_THRESHOLD && diff_y > -PAN_THRESHOLD && diff_y < PAN_THRESHOLD:
@@ -160,6 +155,19 @@ func _process(delta):
 func move_to(target):
 	if not mouse_dragging:
 		self.target = target;
+
+func set_map_pos_global(position):
+	self.target = position
+	self.sX = position.x
+	self.sY = position.y
+	self.underground.set_pos(position)
+	self.terrain.set_pos(position)
+	self.fog_controller.move_cloud(position)
+
+func set_map_pos(position):
+	self.game_size = self.root.get_size()
+	position = self.terrain.map_to_world(position*Vector2(-1,-1)) + Vector2(self.game_size.x/(2*self.scale.x), self.game_size.y/(2*self.scale.y))
+	self.set_map_pos_global(position)
 
 func move_to_map(target):
 	if not root.settings['camera_follow']:

@@ -43,11 +43,11 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 func init_gui():
-	map = get_node("blueprint/center/scale/map")
+	map = get_node("blueprint/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
 
-	game_scale = get_node("blueprint/center/scale")
+	game_scale = get_node("blueprint/scale")
 
 	# message
 	hud_message = self.get_node("message")
@@ -86,6 +86,7 @@ func undo_last_action():
 
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
+	self.center_camera()
 	self.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
 
 func toolbox_clear(layer):
@@ -211,6 +212,13 @@ func show_message(title, msg):
 
 func close_message():
 	self.hud_message.hide()
+
+func center_camera():
+	self.map.move_to_map(Vector2(self.map.MAP_MAX_X / 2, self.map.MAP_MAX_Y / 2))
+
+func show():
+	self.center_camera()
+	.show()
 
 func _ready():
 	init_gui()
