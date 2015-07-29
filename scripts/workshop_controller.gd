@@ -39,8 +39,6 @@ var settings = {
 	fill_selected = [0,0],
 }
 
-var control_key_modifier = false
-
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
@@ -189,9 +187,7 @@ func _input(event):
 			self.paint(selector_position)
 
 		if event.type == InputEvent.KEY:
-			if event.scancode == KEY_CONTROL:
-				self.control_key_modifier = event.pressed
-			if event.scancode == KEY_Z && self.control_key_modifier && event.pressed:
+			if event.scancode == KEY_Z && event.pressed:
 				self.undo_last_action()
 
 	if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded:
