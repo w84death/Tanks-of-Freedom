@@ -98,12 +98,13 @@ func toolbox_clear(layer):
 		self.show_message("Toolbox", ["Units layer cleared!"])
 
 func play_map():
-	self.save_map(restore_file_name)
+	self.save_map(self.restore_file_name)
 	self.is_working = false
 	self.is_suspended = true
-	root.load_map("workshop", restore_file_name)
-	root.menu.hide_workshop()
-	root.toggle_menu()
+	self.root.load_map("workshop", self.restore_file_name)
+	self.root.menu.hide_workshop()
+	self.root.toggle_menu()
+	self.root.dependency_container.match_state.set_workshop_map()
 
 func save_map(name, input = false):
 	if input:

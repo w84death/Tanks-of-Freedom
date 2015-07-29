@@ -24,8 +24,10 @@ var hud_end_game_total_time
 var hud_end_game_stats_blue
 var hud_end_game_stats_red
 var hud_end_game_missions_button
+var hud_end_game_missions_button_label
 var hud_end_game_restart_button
 var hud_end_game_menu_button
+var hud_end_game_missions_button_action
 
 var hud_locked = false
 
@@ -49,10 +51,11 @@ func init_root(root, action_controller_object, hud):
 	hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
 	hud_end_game_stats_red = hud_end_game_controls.get_node("red")
 	hud_end_game_missions_button = hud_end_game_controls.get_node("campaign")
+	hud_end_game_missions_button_label = hud_end_game_missions_button.get_node("Label")
 	hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
 	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
 
-	hud_end_game_missions_button.connect("pressed", root, "show_campaign")
+	hud_end_game_missions_button.connect("pressed", self, "hud_end_game_missions_button_pressed")
 	hud_end_game_restart_button.connect("pressed", root, "restart_map")
 	hud_end_game_menu_button.connect("pressed", root, "toggle_menu")
 
@@ -142,11 +145,37 @@ func warn_end_turn():
 	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_flash()
 
 func show_win(player, stats, turns):
+	self.adjust_missions_button()
 	self.lock_hud()
 	self.hide_map()
 	self.game_card.hide()
 	self.fill_end_game_stats(stats,turns)
 	self.hud_end_game.show()
+
+func adjust_missions_button():
+	if self.root_node.dependency_container.match_state.is_campaign():
+		self.hud_end_game_missions_button_label.set_text("CAMPAIGN")
+		self.hud_end_game_missions_button_action = "show_campaign"
+	elif self.root_node.dependency_container.match_state.is_workshop():
+		self.hud_end_game_missions_button_label.set_text("WORKSHOP")
+		self.hud_end_game_missions_button_action = "show_workshop"
+	else:
+		self.hud_end_game_missions_button_label.set_text("SKIRMISH")
+		self.hud_end_game_missions_button_action = "show_missions"
+
+func hud_end_game_missions_button_pressed():
+	self.call(self.hud_end_game_missions_button_action)
+
+func show_campaign():
+	self.root_node.toggle_menu()
+	self.root_node.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+
+func show_missions():
+	self.root_node.toggle_menu()
+	self.root_node.dependency_container.controllers.menu_controller.show_maps_menu()
+
+func show_workshop():
+	self.root_node.dependency_container.controllers.menu_controller.enter_workshop()
 
 func show_map():
 	self.active_map.show()
