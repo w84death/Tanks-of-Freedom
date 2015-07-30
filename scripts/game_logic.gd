@@ -24,6 +24,7 @@ var ai_timer
 var dependency_container = preload('res://scripts/dependency_container.gd').new()
 
 var map_template = preload('res://maps/workshop.xscn')
+var main_tileset = preload("res://maps/map_tileset.xml")
 
 var settings = {
 	'is_ok' : true,
@@ -92,6 +93,7 @@ func load_map(template_name, workshop_file_name = false):
 	self.unload_map()
 	current_map_name = template_name
 	current_map = map_template.instance()
+	current_map.get_node('terrain').set_tileset(self.main_tileset)
 	current_map.campaign = dependency_container.campaign
 	self.workshop_file_name = workshop_file_name
 	if workshop_file_name:

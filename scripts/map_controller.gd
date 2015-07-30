@@ -245,7 +245,7 @@ func generate_map():
 				self.generate_wave(x, y)
 
 
-			if terrain_cell == self.TERRAIN_PLAIN or terrain_cell == self.TERRAIN_DIRT:
+			if terrain_cell == self.tileset.TERRAIN_PLAIN or terrain_cell == self.tileset.TERRAIN_DIRT:
 				# bridges
 				neigbours = 0
 				if terrain.get_cell(x, y-1) > 0:
@@ -263,7 +263,7 @@ func generate_map():
 				elif neigbours == 20:
 					cells_to_change.append({x=x, y=y, type=55})
 					temp = null
-				elif not terrain_cell == self.TERRAIN_DIRT:
+				elif not terrain_cell == self.tileset.TERRAIN_DIRT:
 					# grass, flowers, log
 					if ( randi() % 10 ) <= GEN_GRASS:
 						temp = map_grass[randi() % grass_elements_count].instance()
@@ -280,17 +280,17 @@ func generate_map():
 				temp2 = null
 
 			# forest
-			if terrain_cell == self.TERRAIN_FOREST:
+			if terrain_cell == self.tileset.TERRAIN_FOREST:
 				temp = map_forest[randi() % forest_elements_count].instance()
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# mountains
-			if terrain_cell == self.TERRAIN_MOUNTAINS:
+			if terrain_cell == self.tileset.TERRAIN_MOUNTAINS:
 				temp = map_mountain[randi() % mountain_elements_count].instance()
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# city
-			if terrain_cell == self.TERRAIN_CITY:
+			if terrain_cell == self.tileset.TERRAIN_CITY:
 				# have road near or have less than 5 neighbours
 				if count_neighbours(x,y,[14,15,16,17,18]) > 0 or count_neighbours(x,y,[4]) < 5:
 					temp = map_city_small[randi() % city_small_elements_count].instance()
@@ -299,23 +299,23 @@ func generate_map():
 					temp = map_city_big[randi() % city_big_elements_count].instance()
 
 			# special buildings
-			if terrain_cell == self.TERRAIN_STATUE:
+			if terrain_cell == self.tileset.TERRAIN_STATUE:
 				temp = map_statue.instance()
 
 			# military buildings
-			if terrain_cell == self.TERRAIN_HQ_BLUE: # HQ blue
+			if terrain_cell == self.tileset.TERRAIN_HQ_BLUE: # HQ blue
 				temp = map_buildings[0].instance()
-			if terrain_cell == self.TERRAIN_HQ_RED: # HQ red
+			if terrain_cell == self.tileset.TERRAIN_HQ_RED: # HQ red
 				temp = map_buildings[1].instance()
-			if terrain_cell == self.TERRAIN_BARRACKS_FREE: # barrack
+			if terrain_cell == self.tileset.TERRAIN_BARRACKS_FREE: # barrack
 				temp = map_buildings[2].instance()
-			if terrain_cell == self.TERRAIN_FACTORY_FREE: # factory
+			if terrain_cell == self.tileset.TERRAIN_FACTORY_FREE: # factory
 				temp = map_buildings[3].instance()
-			if terrain_cell == self.TERRAIN_AIRPORT_FREE: # airport
+			if terrain_cell == self.tileset.TERRAIN_AIRPORT_FREE: # airport
 				temp = map_buildings[4].instance()
-			if terrain_cell == self.TERRAIN_TOWER_FREE: # tower
+			if terrain_cell == self.tileset.TERRAIN_TOWER_FREE: # tower
 				temp = map_buildings[5].instance()
-			if terrain_cell == self.TERRAIN_FENCE: # fence
+			if terrain_cell == self.tileset.TERRAIN_FENCE: # fence
 				temp = map_buildings[6].instance()
 
 			if temp:
@@ -325,13 +325,13 @@ func generate_map():
 				temp = null
 
 			# roads
-			if terrain_cell == self.TERRAIN_ROAD: # city road
+			if terrain_cell == self.tileset.TERRAIN_ROAD: # city road
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, 18])})
-			if terrain_cell == self.TERRAIN_DIRT_ROAD: # dirt road
+			if terrain_cell == self.tileset.TERRAIN_DIRT_ROAD: # dirt road
 				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, 18])})
-			if terrain_cell == self.TERRAIN_RIVER: # river
+			if terrain_cell == self.tileset.TERRAIN_RIVER: # river
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [17, 18])})
-			if terrain_cell == self.TERRAIN_BRIDGE: # bridge
+			if terrain_cell == self.tileset.TERRAIN_BRIDGE: # bridge
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [18, 17])})
 
 			if units.get_cell(x,y) > -1:
