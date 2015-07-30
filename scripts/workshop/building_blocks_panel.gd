@@ -26,7 +26,7 @@ func init_root(root_node):
     self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
     self.tiles = self.root.dependency_container.map_tiles
 
-    self.tiles.TERRAIN_blocks = [
+    self.terrain_blocks = [
         # name, tile id in sprite, type, blueprint id
         ["EREASE", self.tiles.ICON_EREASE, "terrain", -1],
         ["PLAIN", self.tiles.TERRAIN_PLAIN, "terrain", self.tiles.TERRAIN_PLAIN],
@@ -71,16 +71,16 @@ func bind_panel(building_block_panel_wrapper_node):
     self.building_block_panel_wrapper = building_block_panel_wrapper_node
     self.building_block_panel = self.building_block_panel_wrapper.get_node("center/building_blocks")
 
-    self.tiles.TERRAIN_button = self.building_block_panel.get_node("controls/terrain_button")
+    self.terrain_button = self.building_block_panel.get_node("controls/terrain_button")
     self.buildings_button = self.building_block_panel.get_node("controls/buildings_button")
     self.units_button = self.building_block_panel.get_node("controls/units_button")
     self.blocks_area = self.building_block_panel.get_node("controls/blocks")
 
-    self.tiles.TERRAIN_button.connect("pressed", self, "fill_blocks_panel", [self.tiles.TERRAIN_blocks])
+    self.terrain_button.connect("pressed", self, "fill_blocks_panel", [self.terrain_blocks])
     self.buildings_button.connect("pressed", self, "fill_blocks_panel", [self.buildings_blocks])
     self.units_button.connect("pressed", self, "fill_blocks_panel", [self.units_blocks])
 
-    self.fill_blocks_panel(self.tiles.TERRAIN_blocks)
+    self.fill_blocks_panel(self.terrain_blocks)
 
 func show():
     self.building_block_panel_wrapper.show()
