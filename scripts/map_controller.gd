@@ -573,7 +573,7 @@ func save_map(file_name):
 		return false
 
 func store_map_in_binary_file(file_name, data):
-	var the_file = map_file.open("user://" + file_name + ".tof", File.WRITE)
+	var the_file = map_file.open("user://" + file_name + ".map", File.WRITE)
 	map_file.store_var(data)
 	map_file.close()
 	if file_name != "restore_map":
@@ -613,7 +613,7 @@ func check_file_name(name):
 	return true
 
 func load_map(file_name):
-	var file_path = "user://"+file_name+".tof"
+	var file_path = "user://"+file_name+".map"
 	return self.load_map_from_file(file_path)
 
 func load_campaign_map(file_name):

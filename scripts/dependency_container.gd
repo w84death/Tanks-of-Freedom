@@ -15,6 +15,7 @@ var workshop = preload("res://gui/workshop/workshop.xscn").instance()
 var ap_gain = preload("res://gui/hud/ap_gain.gd").new()
 var map_tiles = preload("res://scripts/maps/map_tiles.gd").new()
 var positions
+var migrations = preload("res://scripts/migrations/migrations.gd").new()
 
 func init_root(root_node):
 	self.root = root_node
@@ -35,3 +36,4 @@ func init_root(root_node):
 	self.camera.workshop_map = self.workshop.map
 	self.camera.apply_default_camera()
 	self.map_list.init()
+	self.migrations.init_bag(self)
