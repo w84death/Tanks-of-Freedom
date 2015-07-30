@@ -264,11 +264,14 @@ func generate_map():
 					cells_to_change.append({x=x, y=y, type=55})
 					temp = null
 				elif not terrain_cell == self.tileset.TERRAIN_DIRT:
+					cells_to_change.append({x=x, y=y, type=1})
 					# grass, flowers, log
 					if ( randi() % 10 ) <= GEN_GRASS:
 						temp = map_grass[randi() % grass_elements_count].instance()
 					if ( randi() % 10 ) <= GEN_FLOWERS:
 						temp2 = map_flowers[randi() % flowers_elements_count].instance()
+				else:
+					cells_to_change.append({x=x, y=y, type=0})
 
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x, y)))
@@ -338,7 +341,7 @@ func generate_map():
 				self.spawn_unit(x,y,units.get_cell(x,y))
 
 	for cell in cells_to_change:
-		if(cell.type):
+		if(cell.type > -1):
 			terrain.set_cell(cell.x,cell.y,cell.type)
 	for fence in get_tree().get_nodes_in_group("terrain_fence"):
 		fence.connect_with_neighbours()
