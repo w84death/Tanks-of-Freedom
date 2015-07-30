@@ -318,6 +318,30 @@ func generate_map():
 				temp = map_buildings[4].instance()
 			if terrain_cell == self.tileset.TERRAIN_TOWER_FREE: # tower
 				temp = map_buildings[5].instance()
+			if terrain_cell == self.tileset.TERRAIN_BARRACKS_RED: # barrack
+				temp = map_buildings[2].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_FACTORY_RED: # factory
+				temp = map_buildings[3].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_AIRPORT_RED: # airport
+				temp = map_buildings[4].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_TOWER_RED: # tower
+				temp = map_buildings[5].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_BARRACKS_BLUE: # barrack
+				temp = map_buildings[2].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_FACTORY_BLUE: # factory
+				temp = map_buildings[3].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_AIRPORT_BLUE: # airport
+				temp = map_buildings[4].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_TOWER_BLUE: # tower
+				temp = map_buildings[5].instance()
+				temp.player = 0
 			if terrain_cell == self.tileset.TERRAIN_FENCE: # fence
 				temp = map_buildings[6].instance()
 
@@ -325,6 +349,8 @@ func generate_map():
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_front.add_child(temp)
 				self.find_spawn_for_building(x, y, temp)
+				if temp.group == 'building':
+					temp.claim(temp.player, 0)
 				temp = null
 
 			# roads
