@@ -46,6 +46,8 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 	behaviours = [behaviour_destroyer]
 
 	player_behaviours = [behaviour_destroyer, behaviour_destroyer]
+	#TODO should be removed
+	# positions.prepare_nearby_tiles_ranges()
 
 func select_behaviour_type(player):
 	player_behaviours[player] = behaviours[floor(rand_range(0, behaviours.size()))]
@@ -108,7 +110,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 func __gather_unit_destinations(position, current_player, tiles_ranges=self.positions.tiles_lookup_ranges):
 	var destinations = []
 	for lookup_range in tiles_ranges:
-		var nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
+		var nearby_tiles = self.positions.get_nearby_tiles_subset(position, lookup_range)
 		destinations = destinations + self.positions.get_nearby_enemies(nearby_tiles, current_player)
 
 		if destinations.size() > 0:
@@ -121,7 +123,7 @@ func __gather_unit_destinations(position, current_player, tiles_ranges=self.posi
 func __gather_buildings_destinations(position, current_player):
 	var destinations = []
 	for lookup_range in self.positions.tiles_lookup_ranges:
-		var nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
+		var nearby_tiles = self.positions.get_nearby_tiles_subset(position, lookup_range)
 		destinations = self.positions.get_nearby_enemy_buldings(nearby_tiles, current_player)
 		destinations = destinations + positions.get_nearby_empty_buldings(nearby_tiles)
 
@@ -183,7 +185,7 @@ func __add_action(unit, destination, own_units):
 				return
 
 			var to = self.abstract_map.get_field(path[0])
-			if not action_controller.movement_controller.can_move(from, to):
+			if not self.root.dependency_container.movement_controller.can_move(from, to):
 				return
 
 			action_type = self.action_builder.ACTION_MOVE

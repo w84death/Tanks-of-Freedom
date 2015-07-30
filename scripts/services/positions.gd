@@ -19,7 +19,7 @@ const lookout_range = 3
 var precalculated_nearby_tiles = [[[null]]]
 var precalculated_nearby_tiles_ranges = [[[null]]]
 
-const MAX_PRECALCULATED_TILES_RANGE = 15
+const MAX_PRECALCULATED_TILES_RANGE = 20
 const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
@@ -164,20 +164,26 @@ func prepare_nearby_tiles():
 		precalculated_nearby_tiles.insert(distance, tiles)
 
 func prepare_nearby_tiles_ranges():
-	var ranges = [3, 5, 6, 7]
-	var i = 0
-	for val in ranges:
-		var values = precalculated_nearby_tiles[val]
-		if (i > 0):
-			var diff_values = precalculated_nearby_tiles[val - 1]
-			for val in diff_values:
-				values.erase(val)
+	self.precalculated_nearby_tiles_ranges.insert(0, precalculated_nearby_tiles[0])
+	for i in range(1, MAX_PRECALCULATED_TILES_RANGE):
+		var values = self.root_node.dependency_container.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
+		self.precalculated_nearby_tiles_ranges.insert(i, values)
 
-		precalculated_nearby_tiles_ranges.insert(i, values)
-		i = i +1
 
+#get all tiles
 func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
 	var tiles = []
+	for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
+		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+
+	return tiles
+
+#only subset (ranges)
+func get_nearby_tiles_subset(position, lookup_range=CLOSE_RANGE):
+	var tiles = []
+	if lookup_range == 0:
+		return tiles
+
 	for tile_modifier in self.precalculated_nearby_tiles_ranges[lookup_range]:
 		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 

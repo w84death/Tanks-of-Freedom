@@ -12,20 +12,35 @@ var camera = preload("res://scripts/camera.gd").new()
 var hud_dead_zone = preload("res://scripts/services/hud_dead_zone.gd").new()
 var workshop_dead_zone = preload("res://scripts/services/workshop_dead_zone.gd").new()
 var workshop = preload("res://gui/workshop/workshop.xscn").instance()
+var action_map = preload('res://scripts/action_map.gd').new()
+var battle_controller = preload('res://scripts/battle_controller.gd').new()
+var movement_controller = preload('res://scripts/movement_controller.gd').new()
 var positions
 
 func init_root(root_node):
-	self.root = root_node
-	self.positions = preload("services/positions.gd").new(self.root)
-	self.demo_mode.init_root(root_node)
-	self.campaign.load_campaign_progress()
-	self.positions.prepare_nearby_tiles()
-	self.camera.abstract_map = self.abstract_map
-	self.camera.init_root(root)
-	self.controllers.campaign_menu_controller.init_root(root_node)
-	self.controllers.hud_panel_controller.init_root(root_node)
-	self.controllers.workshop_gui_controller.init_root(root_node)
-	self.workshop.init(self.root)
-	self.hud_dead_zone.init_root(root_node)
-	self.workshop_dead_zone.init_root(root_node)
-	self.map_list.init()
+    self.root = root_node
+    self.positions = preload("services/positions.gd").new(self.root)
+    self.positions.prepare_nearby_tiles()
+    self.positions.prepare_nearby_tiles_ranges()
+    self.demo_mode.init_root(root_node)
+    self.campaign.load_campaign_progress()
+    self.camera.abstract_map = self.abstract_map
+    self.camera.init_root(root)
+    self.controllers.campaign_menu_controller.init_root(root_node)
+    self.controllers.hud_panel_controller.init_root(root_node)
+    self.controllers.workshop_gui_controller.init_root(root_node)
+    self.workshop.init(self.root)
+    self.hud_dead_zone.init_root(root_node)
+    self.workshop_dead_zone.init_root(root_node)
+    self.action_map.init_root(root_node)
+    self.map_list.init()
+
+
+func array_diff(array_one, array_two):
+    var values =[]
+
+    for val in array_one:
+        if array_two.find(val) == -1:
+            values.append(val)
+
+    return values

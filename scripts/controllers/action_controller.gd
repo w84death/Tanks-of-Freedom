@@ -6,8 +6,6 @@ var damage_layer
 var selector
 var active_field = null
 var active_indicator = preload('res://gui/selector.xscn').instance()
-var battle_controller = preload('res://scripts/battle_controller.gd').new()
-var movement_controller = preload('res://scripts/movement_controller.gd').new()
 var hud_controller = preload('res://scripts/hud_controller.gd').new()
 var battle_stats
 var sound_controller
@@ -24,11 +22,6 @@ var title
 var camera
 
 var game_ended = false
-
-var movement_arrow_bl
-var movement_arrow_br
-var movement_arrow_tl
-var movement_arrow_tr
 
 const BREAK_EVENT_LOOP = 1
 
@@ -51,10 +44,6 @@ func reset():
 	self.title = null
 	self.camera = null
 	self.game_ended = false
-	self.movement_arrow_bl = null
-	self.movement_arrow_br = null
-	self.movement_arrow_tl = null
-	self.movement_arrow_tr = null
 
 func init_root(root, map, hud):
 	self.reset()
@@ -63,6 +52,8 @@ func init_root(root, map, hud):
 
 	self.root_node.dependency_container.abstract_map.reset()
 	self.root_node.dependency_container.abstract_map.init_map(map)
+	self.root_node.dependency_container.action_map.init_map(map)
+
 	camera = root.scale_root
 	ysort = map.get_node('terrain/front')
 	damage_layer = map.get_node('terrain/destruction')
@@ -86,12 +77,6 @@ func init_root(root, map, hud):
 
 	pathfinding = preload('res://scripts/ai/pathfinding/a_star_pathfinding.gd').new()
 	ai = preload("res://scripts/ai/ai.gd").new(self.positions, pathfinding, self.root_node.dependency_container.abstract_map, self)
-
-	var movement_template = preload('res://gui/movement.xscn')
-	movement_arrow_bl = movement_template.instance()
-	movement_arrow_br = movement_template.instance()
-	movement_arrow_tl = movement_template.instance()
-	movement_arrow_tr = movement_template.instance()
 
 	demo_timer = root_node.get_node("DemoTimer")
 
@@ -121,7 +106,7 @@ func handle_action(position):
 
 					hud_controller.update_unit_card(active_field.object)
 			if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
-				if active_field.is_adjacent(field) && movement_controller.can_move(active_field, field) && self.has_ap():
+				if active_field.is_adjacent(field) && self.root_node.dependency_container.movement_controller.can_move(active_field, field) && self.has_ap():
 					if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
 						return
 		if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == current_player:
@@ -166,7 +151,8 @@ func activate_field(field):
 	sound_controller.play('select')
 	if field.object.group == 'unit':
 		hud_controller.show_unit_card(field.object, current_player)
-		self.add_movement_indicators(field)
+		if not root_node.settings['cpu_' + str(current_player)]:
+			self.add_movement_indicators(field)
 	if field.object.group == 'building' && not root_node.settings['cpu_' + str(current_player)]:
 		hud_controller.show_building_card(field.object, player_ap[current_player])
 
@@ -175,50 +161,39 @@ func clear_active_field():
 	self.root_node.dependency_container.abstract_map.tilemap.remove_child(active_indicator)
 	hud_controller.clear_unit_card()
 	hud_controller.clear_building_card()
-	self.clear_movement_indicators()
+	self.root_node.dependency_container.action_map.reset()
 
 func add_movement_indicators(field):
-	var top_left = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(-1, 0))
-	var top_right = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(0, -1))
-	var bottom_left = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(0, 1))
-	var bottom_right = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + Vector2(1, 0))
-	self.mark_field(field, top_left, movement_arrow_tl, 'tl')
-	self.mark_field(field, top_right, movement_arrow_tr, 'tr')
-	self.mark_field(field, bottom_left, movement_arrow_bl, 'bl')
-	self.mark_field(field, bottom_right, movement_arrow_br, 'br')
+	self.root_node.dependency_container.action_map.reset()
+	if player_ap[current_player] > 0 && field.object.ap > 0:
+		# calculating range
+		var tiles_range = min(field.object.ap, player_ap[current_player])
+		var tiles = []
+		var first_action_range = ceil(field.object.ap / 2)
 
-func mark_field(source, target, indicator, direction):
-	if target.terrain_type == -1:
-		return
+		var unit_moved = false
+		if field.object.ap != field.object.max_ap:
+			unit_moved = true
 
-	if player_ap[current_player] > 0:
-		var position = Vector2(self.root_node.dependency_container.abstract_map.tilemap.map_to_world(target.position))
-		if target.object == null:
-			if movement_controller.can_move(source, target):
-				indicator.set_pos(position)
-				ysort.add_child(indicator)
-				indicator.get_node('anim').play("move_" + direction)
-		else:
-			#print(target.object)
-			if target.object.group == 'unit':
-				if target.object.player != current_player && battle_controller.can_attack(source.object, target.object):
-					indicator.set_pos(position+Vector2(1,1))
-					ysort.add_child(indicator)
-					indicator.get_node('anim').play("attack")
-			if target.object.group == 'building' && target.object.player != current_player && source.object.type == 0:
-				if movement_controller.can_move(source, target):
-					indicator.set_pos(position)
-					ysort.add_child(indicator)
-					indicator.get_node('anim').play("enter")
-	else:
-		ysort.remove_child(indicator)
+		var unit_position = field.object.get_pos_map()
+		var path = []
 
-func clear_movement_indicators():
-	ysort.remove_child(movement_arrow_bl)
-	ysort.remove_child(movement_arrow_br)
-	ysort.remove_child(movement_arrow_tl)
-	ysort.remove_child(movement_arrow_tr)
-	return
+		#TODO - move it
+		var abstract_map = self.root_node.dependency_container.abstract_map
+		var cost_grid = preload('res://scripts/ai/pathfinding/cost_grid.gd').new(abstract_map)
+
+		self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps([], []))
+
+		for lookup in range (tiles_range, 0, -1):
+			# print('lookup', lookup)
+			tiles = self.root_node.dependency_container.positions.get_nearby_tiles_subset(unit_position, lookup)
+
+			for tile in tiles:
+				path = pathfinding.pathSearch(unit_position, tile, [])
+				if path.size() <= tiles_range:
+					self.root_node.dependency_container.action_map.mark_movement_tile(field, tile, first_action_range, unit_moved, current_player)
+
+
 
 func despawn_unit(field):
 	ysort.remove_child(field.object)
@@ -388,7 +363,7 @@ func update_unit(field):
 	self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
-	if movement_controller.move_object(active_field, field):
+	if self.root_node.dependency_container.movement_controller.move_object(active_field, field):
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
 		self.use_ap()
 		self.activate_field(field)
@@ -406,16 +381,16 @@ func stats_set_time():
 	battle_stats.set_counting_time(self.current_player)
 
 func handle_battle(active_field, field):
-	if (battle_controller.can_attack(active_field.object, field.object)):
+	if (self.root_node.dependency_container.battle_controller.can_attack(active_field.object, field.object)):
 		self.use_ap()
-		self.clear_movement_indicators()
+		self.root_node.dependency_container.abstract_map.reset()
 
-		print('MARK TRAIL!!')
+		#print('MARK TRAIL!!')
 		#TODO rewrite it to use pathfinding
 		self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
 
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
-		if (battle_controller.resolve_fight(active_field.object, field.object)):
+		if (self.root_node.dependency_container.battle_controller.resolve_fight(active_field.object, field.object)):
 			self.play_destroy(field)
 			self.destroy_unit(field)
 			self.update_unit(active_field)
@@ -428,8 +403,8 @@ func handle_battle(active_field, field):
 			field.object.show_explosion()
 			self.update_unit(active_field)
 			# defender can deal damage
-			if battle_controller.can_defend(field.object, active_field.object):
-				if (battle_controller.resolve_defend(active_field.object, field.object)):
+			if self.root_node.dependency_container.battle_controller.can_defend(field.object, active_field.object):
+				if (self.root_node.dependency_container.battle_controller.resolve_defend(active_field.object, field.object)):
 					self.play_destroy(active_field)
 					self.destroy_unit(active_field)
 					self.clear_active_field()
