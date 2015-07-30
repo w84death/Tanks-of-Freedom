@@ -49,6 +49,8 @@ const MAP_MAX_Y = 40
 var map_file = File.new()
 var campaign
 
+var tileset
+
 var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
 var map_grass = [
@@ -103,33 +105,6 @@ var map_units = [
 	preload('res://units/soldier_red.xscn'),
 	preload('res://units/tank_red.xscn'),
 	preload('res://units/helicopter_red.xscn')]
-
-const TERRAIN_PLAIN = 0
-const TERRAIN_FOREST = 1
-const TERRAIN_MOUNTAINS = 2
-const TERRAIN_RIVER = 3
-const TERRAIN_CITY = 4
-const TERRAIN_ROAD = 5
-const TERRAIN_DIRT_ROAD = 6
-const TERRAIN_DIRT = 7
-const TERRAIN_BRIDGE = 8
-const TERRAIN_FENCE = 9
-const TERRAIN_STATUE = 10
-const TERRAIN_HQ_BLUE = 11
-const TERRAIN_HQ_RED = 12
-const TERRAIN_BARRACKS_FREE = 13
-const TERRAIN_FACTORY_FREE = 14
-const TERRAIN_AIRPORT_FREE = 15
-const TERRAIN_TOWER_FREE = 16
-const TERRAIN_SPAWN = 17
-const TERRAIN_BARRACKS_BLUE = 19
-const TERRAIN_FACTORY_BLUE = 20
-const TERRAIN_AIRPORT_BLUE = 21
-const TERRAIN_TOWER_BLUE = 22
-const TERRAIN_BARRACKS_RED = 23
-const TERRAIN_FACTORY_RED = 24
-const TERRAIN_AIRPORT_RED = 25
-const TERRAIN_TOWER_RED = 26
 
 func _input(event):
 	pos = terrain.get_pos()
@@ -709,6 +684,7 @@ func _ready():
 	self.init_nodes()
 	fog_controller = preload('fog_controller.gd').new(self, terrain)
 	fog_controller.init_node()
+	self.tileset = self.root.dependency_container.map_tiles
 
 	if root:
 		scale = root.scale_root.get_scale()

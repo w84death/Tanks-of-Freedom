@@ -13,6 +13,7 @@ var hud_dead_zone = preload("res://scripts/services/hud_dead_zone.gd").new()
 var workshop_dead_zone = preload("res://scripts/services/workshop_dead_zone.gd").new()
 var workshop = preload("res://gui/workshop/workshop.xscn").instance()
 var ap_gain = preload("res://gui/hud/ap_gain.gd").new()
+var map_tiles = preload("res://scripts/maps/map_tiles.gd").new()
 var positions
 
 func init_root(root_node):
