@@ -292,7 +292,7 @@ func generate_map():
 			# city
 			if terrain_cell == self.tileset.TERRAIN_CITY:
 				# have road near or have less than 5 neighbours
-				if count_neighbours(x,y,[14,15,16,17,18]) > 0 or count_neighbours(x,y,[4]) < 5:
+				if count_neighbours(x,y,[self.tileset.TERRAIN_ROAD,self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_RIVER]) > 0 or count_neighbours(x,y,[self.tileset.TERRAIN_CITY]) < 5:
 					temp = map_city_small[randi() % city_small_elements_count].instance()
 				else:
 					# no roads and not alone
@@ -326,13 +326,13 @@ func generate_map():
 
 			# roads
 			if terrain_cell == self.tileset.TERRAIN_ROAD: # city road
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, 18])})
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_BRIDGE])})
 			if terrain_cell == self.tileset.TERRAIN_DIRT_ROAD: # dirt road
-				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, 18])})
+				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE])})
 			if terrain_cell == self.tileset.TERRAIN_RIVER: # river
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [17, 18])})
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [self.tileset.TERRAIN_RIVER, self.tileset.TERRAIN_BRIDGE])})
 			if terrain_cell == self.tileset.TERRAIN_BRIDGE: # bridge
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [18, 17])})
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_RIVER])})
 
 			if units.get_cell(x,y) > -1:
 				self.spawn_unit(x,y,units.get_cell(x,y))
@@ -371,7 +371,7 @@ func find_spawn_for_building(x, y, building):
 
 func look_for_spawn(x, y, offset_x, offset_y, building):
 	var cell = terrain.get_cell(x + offset_x, y + offset_y)
-	if cell == 13:
+	if cell == self.tileset.TERRAIN_SPAWN:
 		building.spawn_point_position = Vector2(offset_x, offset_y)
 		building.spawn_point = Vector2(x + offset_x, y + offset_y)
 
@@ -388,7 +388,7 @@ func build_sprite_path(x, y, type):
 		position += 16
 
 	# road
-	if type[0] == 14:
+	if type[0] == self.tileset.TERRAIN_ROAD:
 		if position in [10,2,8]:
 			return 19
 		if position in [20,16,4]:
@@ -413,7 +413,7 @@ func build_sprite_path(x, y, type):
 			return 29
 
 	# coutry road
-	if type[0] == 15:
+	if type[0] == self.tileset.TERRAIN_DIRT_ROAD:
 		if position in [10,2,8]:
 			return 36
 		if position in [20,16,4]:
@@ -449,14 +449,14 @@ func build_sprite_path(x, y, type):
 			return 35
 
 	# river
-	if type[0] == 17:
+	if type[0] == self.tileset.TERRAIN_RIVER:
 		if position in [10,2,8]:
-			if randi() % 4  > 2:
+			if randi() % 4 > 2:
 				return 47
 			else:
 				return 53
 		if position in [20,16,4]:
-			if randi() % 4  > 2:
+			if randi() % 4 > 2:
 				return 48
 			else:
 				return 54
@@ -470,7 +470,7 @@ func build_sprite_path(x, y, type):
 			return 52
 
 	# bridge
-	if type[0] == 18:
+	if type[0] == self.tileset.TERRAIN_BRIDGE:
 		if position in [10,2,8]:
 			return 31
 		if position in [20,16,4]:

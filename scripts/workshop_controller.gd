@@ -18,7 +18,7 @@ var hud_message_box_message
 
 var toolset_active_page = 0
 var tool_type = "terrain"
-var brush_type = 1
+var brush_type = 0
 
 
 var restore_file_name = "restore_map"
@@ -33,9 +33,10 @@ var paint_count = 0
 var autosave_after = 10
 var painting_motion = false
 var movement_mode = true
+var tileset
 
 var settings = {
-	fill = [4,6,8,12,16,20,24,32,48,64],
+	fill = [8,12,16,20,24,32],
 	fill_selected = [0,0],
 }
 
@@ -148,7 +149,7 @@ func paint(position, tool_type = null,brush_type = null, undo_action = false):
 
 		if tool_type == "units":
 			if units.get_cell(position.x,position.y) != brush_type:
-				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
+				if terrain.get_cell(position.x, position.y) > -1: #[self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN]:
 					if not undo_action:
 						add_action({position=Vector2(position.x,position.y),tool_type="units"})
 					units.set_cell(position.x,position.y,brush_type)
@@ -223,3 +224,4 @@ func show():
 
 func _ready():
 	init_gui()
+	#self.tileset = self.root.dependency_container.map_tiles
