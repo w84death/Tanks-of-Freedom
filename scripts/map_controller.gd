@@ -248,13 +248,13 @@ func generate_map():
 			if terrain_cell == self.tileset.TERRAIN_PLAIN or terrain_cell == self.tileset.TERRAIN_DIRT:
 				# bridges
 				neigbours = 0
-				if terrain.get_cell(x, y-1) > 0:
+				if terrain.get_cell(x, y-1) > -1:
 					neigbours += 2
-				if terrain.get_cell(x+1, y) > 0:
+				if terrain.get_cell(x+1, y) > -1:
 					neigbours += 4
-				if terrain.get_cell(x, y+1) > 0:
+				if terrain.get_cell(x, y+1) > -1:
 					neigbours += 8
-				if terrain.get_cell(x-1, y) > 0:
+				if terrain.get_cell(x-1, y) > -1:
 					neigbours += 16
 
 				if neigbours == 10:
