@@ -12,37 +12,65 @@ var units_button
 var blocks_area
 var block_template = preload("res://gui/workshop/block.xscn")
 
+const TERRAIN_PLAIN = 0
+const TERRAIN_FOREST = 1
+const TERRAIN_MOUNTAINS = 2
+const TERRAIN_RIVER = 3
+const TERRAIN_CITY = 4
+const TERRAIN_ROAD = 5
+const TERRAIN_DIRT_ROAD = 6
+const TERRAIN_DIRT = 7
+const TERRAIN_BRIDGE = 8
+const TERRAIN_FENCE = 9
+const TERRAIN_STATUE = 10
+const TERRAIN_HQ_BLUE = 11
+const TERRAIN_HQ_RED = 12
+const TERRAIN_BARRACKS_FREE = 13
+const TERRAIN_FACTORY_FREE = 14
+const TERRAIN_AIRPORT_FREE = 15
+const TERRAIN_TOWER_FREE = 16
+const TERRAIN_SPAWN = 17
+const TERRAIN_BARRACKS_BLUE = 19
+const TERRAIN_FACTORY_BLUE = 20
+const TERRAIN_AIRPORT_BLUE = 21
+const TERRAIN_TOWER_BLUE = 22
+const TERRAIN_BARRACKS_RED = 23
+const TERRAIN_FACTORY_RED = 24
+const TERRAIN_AIRPORT_RED = 25
+const TERRAIN_TOWER_RED = 26
+const ICON_EREASE = 18
+
 var terrain_blocks = [
     # name, tile id in sprite, type, blueprint id
-    ["EREASE", 18, "terrain", -1],
-    ["PLAIN", 0, "terrain", 1],
-    ["FOREST", 1, "terrain", 2],
-    ["MOUNTAIN", 2, "terrain", 3],
-    ["RIVER", 3, "terrain", 17],
-    ["BRIDGE", 8, "terrain", 18],
-    ["CITY", 4, "terrain", 4],
-    ["STATUE", 10, "terrain", 5],
-    ["FENCE", 9, "terrain", 12],
-    ["ROAD #1", 5, "terrain", 14],
-    ["ROAD #2", 6, "terrain", 15],
-    ["JOIN ROADS", 7, "terrain", 16],
+    ["EREASE", self.ICON_EREASE, "terrain", -1],
+    ["PLAIN", self.TERRAIN_PLAIN, "terrain", self.TERRAIN_PLAIN],
+    ["DIRT", self.TERRAIN_DIRT, "terrain", self.TERRAIN_DIRT],
+    ["FOREST", self.TERRAIN_FOREST, "terrain", self.TERRAIN_FOREST],
+    ["MOUNTAIN", self.TERRAIN_MOUNTAINS, "terrain", self.TERRAIN_MOUNTAINS],
+    ["RIVER", self.TERRAIN_RIVER, "terrain", self.TERRAIN_RIVER],
+    ["BRIDGE", self.TERRAIN_BRIDGE, "terrain", self.TERRAIN_BRIDGE],
+    ["CITY", self.TERRAIN_CITY, "terrain", self.TERRAIN_CITY],
+    ["STATUE", self.TERRAIN_STATUE, "terrain", self.TERRAIN_STATUE],
+    ["FENCE", self.TERRAIN_FENCE, "terrain", self.TERRAIN_FENCE],
+    ["ROAD #1", self.TERRAIN_ROAD, "terrain", self.TERRAIN_ROAD],
+    ["ROAD #2", self.TERRAIN_DIRT_ROAD, "terrain", self.TERRAIN_DIRT_ROAD]
 ]
 var buildings_blocks = [
-    ["HQ BLUE", 11, "terrain", 6],
-    ["HQ RED", 12, "terrain", 7],
-    ["BARRACKS", 13, "terrain", 8],
-    ["FACTORY", 14, "terrain", 9],
-    ["AIRPORT", 15, "terrain", 10],
-    ["SPAWN", 17, "terrain", 13],
-    ["GSM TOWER", 16, "terrain", 11],
-    ["BARRACKS R", 19, "terrain", 8],
-    ["FACTORY R", 20, "terrain", 9],
-    ["AIRPORT R", 21, "terrain", 10],
-    ["TOWER R", 22, "terrain", 11],
-    ["BARRACKS B", 23, "terrain", 8],
-    ["FACTORY B", 24, "terrain", 9],
-    ["AIRPORT B", 25, "terrain", 10],
-    ["TOWER B", 26, "terrain", 11],
+    ["HQ BLUE", self.TERRAIN_HQ_BLUE, "terrain", self.TERRAIN_HQ_BLUE],
+    ["HQ RED", self.TERRAIN_HQ_RED, "terrain", self.TERRAIN_HQ_RED],
+    ["BARRACKS", self.TERRAIN_BARRACKS_FREE, "terrain", self.TERRAIN_BARRACKS_FREE],
+    ["FACTORY", self.TERRAIN_FACTORY_FREE, "terrain", self.TERRAIN_FACTORY_FREE],
+    ["AIRPORT", self.TERRAIN_AIRPORT_FREE, "terrain", self.TERRAIN_AIRPORT_FREE],
+    ["SPAWN", self.TERRAIN_SPAWN, "terrain", self.TERRAIN_SPAWN],
+    ["GSM TOWER", self.TERRAIN_TOWER_FREE, "terrain", self.TERRAIN_TOWER_FREE],
+    ["BARRACKS R", self.TERRAIN_BARRACKS_RED, "terrain", self.TERRAIN_BARRACKS_RED],
+    ["FACTORY R", self.TERRAIN_FACTORY_RED, "terrain", self.TERRAIN_FACTORY_RED],
+    ["AIRPORT R", self.TERRAIN_AIRPORT_RED, "terrain", self.TERRAIN_AIRPORT_RED],
+    ["TOWER R", self.TERRAIN_TOWER_RED, "terrain", self.TERRAIN_TOWER_RED],
+    ["BARRACKS B", self.TERRAIN_BARRACKS_BLUE, "terrain", self.TERRAIN_BARRACKS_BLUE],
+    ["FACTORY B", self.TERRAIN_FACTORY_BLUE, "terrain", self.TERRAIN_FACTORY_BLUE],
+    ["AIRPORT B", self.TERRAIN_AIRPORT_BLUE, "terrain", self.TERRAIN_AIRPORT_BLUE],
+    ["TOWER B", self.TERRAIN_TOWER_BLUE, "terrain", self.TERRAIN_TOWER_BLUE],
 ]
 var units_blocks = [
     ["INFANTRY B", 27, "units", 0],

@@ -104,6 +104,33 @@ var map_units = [
 	preload('res://units/tank_red.xscn'),
 	preload('res://units/helicopter_red.xscn')]
 
+const TERRAIN_PLAIN = 0
+const TERRAIN_FOREST = 1
+const TERRAIN_MOUNTAINS = 2
+const TERRAIN_RIVER = 3
+const TERRAIN_CITY = 4
+const TERRAIN_ROAD = 5
+const TERRAIN_DIRT_ROAD = 6
+const TERRAIN_DIRT = 7
+const TERRAIN_BRIDGE = 8
+const TERRAIN_FENCE = 9
+const TERRAIN_STATUE = 10
+const TERRAIN_HQ_BLUE = 11
+const TERRAIN_HQ_RED = 12
+const TERRAIN_BARRACKS_FREE = 13
+const TERRAIN_FACTORY_FREE = 14
+const TERRAIN_AIRPORT_FREE = 15
+const TERRAIN_TOWER_FREE = 16
+const TERRAIN_SPAWN = 17
+const TERRAIN_BARRACKS_BLUE = 19
+const TERRAIN_FACTORY_BLUE = 20
+const TERRAIN_AIRPORT_BLUE = 21
+const TERRAIN_TOWER_BLUE = 22
+const TERRAIN_BARRACKS_RED = 23
+const TERRAIN_FACTORY_RED = 24
+const TERRAIN_AIRPORT_RED = 25
+const TERRAIN_TOWER_RED = 26
+
 func _input(event):
 	pos = terrain.get_pos()
 	if event.type == InputEvent.MOUSE_BUTTON:
@@ -243,7 +270,7 @@ func generate_map():
 				self.generate_wave(x, y)
 
 
-			if terrain_cell == 1:
+			if terrain_cell == self.TERRAIN_PLAIN or terrain_cell == self.TERRAIN_DIRT:
 				# bridges
 				neigbours = 0
 				if terrain.get_cell(x, y-1) > 0:
@@ -261,7 +288,7 @@ func generate_map():
 				elif neigbours == 20:
 					cells_to_change.append({x=x, y=y, type=55})
 					temp = null
-				else:
+				elif not terrain_cell == self.TERRAIN_DIRT:
 					# grass, flowers, log
 					if ( randi() % 10 ) <= GEN_GRASS:
 						temp = map_grass[randi() % grass_elements_count].instance()
@@ -278,17 +305,17 @@ func generate_map():
 				temp2 = null
 
 			# forest
-			if terrain_cell == 2:
+			if terrain_cell == self.TERRAIN_FOREST:
 				temp = map_forest[randi() % forest_elements_count].instance()
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# mountains
-			if terrain_cell == 3:
+			if terrain_cell == self.TERRAIN_MOUNTAINS:
 				temp = map_mountain[randi() % mountain_elements_count].instance()
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# city
-			if terrain_cell == 4:
+			if terrain_cell == self.TERRAIN_CITY:
 				# have road near or have less than 5 neighbours
 				if count_neighbours(x,y,[14,15,16,17,18]) > 0 or count_neighbours(x,y,[4]) < 5:
 					temp = map_city_small[randi() % city_small_elements_count].instance()
@@ -297,23 +324,23 @@ func generate_map():
 					temp = map_city_big[randi() % city_big_elements_count].instance()
 
 			# special buildings
-			if terrain_cell == 5:
+			if terrain_cell == self.TERRAIN_STATUE:
 				temp = map_statue.instance()
 
 			# military buildings
-			if terrain_cell == 6: # HQ blue
+			if terrain_cell == self.TERRAIN_HQ_BLUE: # HQ blue
 				temp = map_buildings[0].instance()
-			if terrain_cell == 7: # HQ red
+			if terrain_cell == self.TERRAIN_HQ_RED: # HQ red
 				temp = map_buildings[1].instance()
-			if terrain_cell == 8: # barrack
+			if terrain_cell == self.TERRAIN_BARRACKS_FREE: # barrack
 				temp = map_buildings[2].instance()
-			if terrain_cell == 9: # factory
+			if terrain_cell == self.TERRAIN_FACTORY_FREE: # factory
 				temp = map_buildings[3].instance()
-			if terrain_cell == 10: # airport
+			if terrain_cell == self.TERRAIN_AIRPORT_FREE: # airport
 				temp = map_buildings[4].instance()
-			if terrain_cell == 11: # tower
+			if terrain_cell == self.TERRAIN_TOWER_FREE: # tower
 				temp = map_buildings[5].instance()
-			if terrain_cell == 12: # fence
+			if terrain_cell == self.TERRAIN_FENCE: # fence
 				temp = map_buildings[6].instance()
 
 			if temp:
@@ -323,15 +350,13 @@ func generate_map():
 				temp = null
 
 			# roads
-			if terrain_cell == 14: # city road
+			if terrain_cell == self.TERRAIN_ROAD: # city road
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, 18])})
-			if terrain_cell == 15: # country road
+			if terrain_cell == self.TERRAIN_DIRT_ROAD: # dirt road
 				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, 18])})
-			if terrain_cell == 16: # road mix
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [16, 14])})
-			if terrain_cell == 17: # river
+			if terrain_cell == self.TERRAIN_RIVER: # river
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [17, 18])})
-			if terrain_cell == 18: # bridge
+			if terrain_cell == self.TERRAIN_BRIDGE: # bridge
 				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [18, 17])})
 
 			if units.get_cell(x,y) > -1:
