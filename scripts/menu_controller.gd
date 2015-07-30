@@ -28,11 +28,6 @@ var maps_close_button
 var maps_turns_cap
 var maps_turns_cap_label
 var maps_select_custom_map
-
-var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
-var tutorial_close_button
-var tutorial_button
-
 var workshop_button
 var workshop
 
@@ -50,7 +45,6 @@ var camera_zoom_label
 func _ready():
 	self.control_node = self.get_node("control")
 
-	#tutorial_button = get_node("control/game_panel/tutorial")
 	workshop_button = get_node("control/workshop")
 
 	campaign_button = get_node("control/start_campaign")
@@ -78,7 +72,6 @@ func _ready():
 	camera_zoom_label = get_node("control/settings_panel/camera_zoom_level")
 
 	campaign_button.connect("pressed", self, "show_campaign_menu")
-	#tutorial_button.connect("pressed", self, "show_tutorial")
 	workshop_button.connect("pressed", self, "enter_workshop")
 	play_button.connect("pressed", self, "show_maps_menu")
 
@@ -101,7 +94,6 @@ func _ready():
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
-	self.load_tutorial()
 	self.load_workshop()
 
 	blue_player_button = maps_sub_menu.get_node("control/menu_controls/blue_player")
@@ -167,21 +159,6 @@ func show_main_menu():
 func show_settings():
 	main_menu.hide()
 	settings.show()
-
-func load_tutorial():
-	tutorial_sub_menu.hide()
-	self.add_child(tutorial_sub_menu)
-
-	tutorial_close_button = tutorial_sub_menu.get_node("control/menu_controls/close")
-	tutorial_close_button.connect("pressed", self, "hide_tutorial")
-
-func show_tutorial():
-	control_node.hide()
-	tutorial_sub_menu.show()
-
-func hide_tutorial():
-	tutorial_sub_menu.hide()
-	control_node.show()
 
 func load_workshop():
 	self.workshop = self.root.dependency_container.workshop
