@@ -3,7 +3,22 @@
 ## Changelog
 
 ### 0.3.6-beta
-
+- Reworked Workshop, now for touch screens
+  - more tiles available
+  - LMB/touch dragging
+  - undo shortcut: Z
+  - camera centered
+  - camera zoom same as in-game
+  - placing fences/walls
+- New Soundtrack, reworked units sounds
+- Stats screen now shows different buttons depending on game type
+- Extended colour palette to 32
+- Reworked campaign difficulty levels
+- Bridges
+- Preventing clicks on map/workshop through HUD
+- Cinematic camera for AI turn
+- Game available in Google Play as Beta Access
+- Modified units healthbars, removed ready indicator
 
 ### 0.3.5-beta
 
