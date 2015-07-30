@@ -9,6 +9,7 @@ var attack
 var health
 var unit_range
 var price
+var no_enough_ap
 
 func bind(build_card_node):
     self.build_card = build_card_node
@@ -20,6 +21,7 @@ func bind(build_card_node):
     self.health = self.build_card.get_node('health')
     self.unit_range = self.build_card.get_node('range')
     self.price = self.build_card.get_node('price')
+    self.no_enough_ap = self.build_card.get_node('no_ap')
 
 func show():
     self.build_card.show()
@@ -33,8 +35,10 @@ func fill_card(unit, cost, player_ap):
     self.set_unit_stats(unit.attack, unit.life, unit.max_ap)
     if cost > player_ap:
         self.disable_button()
+        self.no_enough_ap.show()
     else:
         self.enable_button()
+        self.no_enough_ap.hide()
 
 func bind_spawn_unit(controller, method_name):
     self.deploy_button.connect("pressed", controller, method_name)
