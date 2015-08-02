@@ -36,6 +36,7 @@ func init_root(root_node):
         ["RIVER", self.tiles.TERRAIN_RIVER, "terrain", self.tiles.TERRAIN_RIVER],
         ["BRIDGE", self.tiles.TERRAIN_BRIDGE, "terrain", self.tiles.TERRAIN_BRIDGE],
         ["CITY", self.tiles.TERRAIN_CITY, "terrain", self.tiles.TERRAIN_CITY],
+        ["RUBBLE", self.tiles.TERRAIN_CITY_DESTROYED, "terrain", self.tiles.TERRAIN_CITY_DESTROYED],
         ["STATUE", self.tiles.TERRAIN_STATUE, "terrain", self.tiles.TERRAIN_STATUE],
         ["FENCE", self.tiles.TERRAIN_FENCE, "terrain", self.tiles.TERRAIN_FENCE],
         ["ROAD #1", self.tiles.TERRAIN_ROAD, "terrain", self.tiles.TERRAIN_ROAD],
@@ -59,12 +60,12 @@ func init_root(root_node):
         ["TOWER B", self.tiles.TERRAIN_TOWER_BLUE, "terrain", self.tiles.TERRAIN_TOWER_BLUE],
     ]
     self.units_blocks = [
-        ["INFANTRY B", 27, "units", 0],
-        ["TANK B", 28, "units", 1],
-        ["HELI B", 29, "units", 2],
-        ["INFANTRY R", 30, "units", 3],
-        ["TANK R", 31, "units", 4],
-        ["HELI B", 32, "units", 5]
+        ["INFANTRY B", self.tiles.UNIT_INFANTRY_BLUE, "units", 0],
+        ["TANK B", self.tiles.UNIT_TANK_BLUE, "units", 1],
+        ["HELI B", self.tiles.UNIT_HELICOPTER_BLUE, "units", 2],
+        ["INFANTRY R", self.tiles.UNIT_INFANTRY_RED, "units", 3],
+        ["TANK R", self.tiles.UNIT_TANK_RED, "units", 4],
+        ["HELI R", self.tiles.UNIT_HELICOPTER_RED, "units", 5]
     ]
 
 func bind_panel(building_block_panel_wrapper_node):

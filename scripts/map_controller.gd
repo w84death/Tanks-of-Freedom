@@ -293,13 +293,15 @@ func generate_map():
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# city
-			if terrain_cell == self.tileset.TERRAIN_CITY:
+			if terrain_cell == self.tileset.TERRAIN_CITY || terrain_cell == self.tileset.TERRAIN_CITY_DESTROYED:
 				# have road near or have less than 5 neighbours
 				if count_neighbours(x,y,[self.tileset.TERRAIN_ROAD,self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_RIVER]) > 0 or count_neighbours(x,y,[self.tileset.TERRAIN_CITY]) < 5:
 					temp = map_city_small[randi() % city_small_elements_count].instance()
 				else:
 					# no roads and not alone
 					temp = map_city_big[randi() % city_big_elements_count].instance()
+				if terrain_cell == self.tileset.TERRAIN_CITY_DESTROYED:
+					temp.set_damage()
 
 			# special buildings
 			if terrain_cell == self.tileset.TERRAIN_STATUE:
