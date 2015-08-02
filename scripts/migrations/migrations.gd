@@ -15,7 +15,7 @@ func init_bag(bag):
     self.save_version()
 
 func load_version():
-    if not file_handler.file_exists(self.version_file_path):
+    if not self.file_handler.file_exists(self.version_file_path):
         return
 
     self.file_handler.open(self.version_file_path, File.READ)

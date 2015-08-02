@@ -33,6 +33,9 @@ func migrate():
 
 func update_map(name):
     var map_data
+    if not self.file_handler.file_exists("user://" + name + ".tof"):
+        return
+
     self.file_handler.open("user://" + name + ".tof", File.READ)
     map_data = self.file_handler.get_var()
     self.file_handler.close()
