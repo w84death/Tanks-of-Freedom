@@ -41,6 +41,7 @@ const NEAR_THRESHOLD = 0.2
 const PAN_THRESHOLD = 60
 const GEN_GRASS = 6
 const GEN_FLOWERS = 3
+const GEN_STONES = 6
 
 # this shoudl be in main settings (see abstract_map)
 const MAP_MAX_X = 40
@@ -50,19 +51,10 @@ var map_file = File.new()
 var campaign
 
 var tileset
-
+var map_movable = preload('res://terrain/terrain_movable.xscn')
+var map_non_movable = preload('res://terrain/terrain_non-movable.xscn')
 var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
-var map_grass = [
-	preload('res://terrain/land/grass_1.xscn'),
-	preload('res://terrain/land/grass_2.xscn')]
-var map_forest = [
-	preload('res://terrain/forest/forest_1.xscn'),
-	preload('res://terrain/forest/forest_2.xscn'),
-	preload('res://terrain/forest/forest_3.xscn'),
-	preload('res://terrain/forest/forest_4.xscn'),
-	preload('res://terrain/forest/forest_5.xscn'),
-	preload('res://terrain/forest/forest_6.xscn')]
 var map_city_small = [
 	preload('res://terrain/city/city_small_1.xscn'),
 	preload('res://terrain/city/city_small_2.xscn'),
@@ -75,21 +67,7 @@ var map_city_big = [
 	preload('res://terrain/city/city_big_2.xscn'),
 	preload('res://terrain/city/city_big_3.xscn'),
 	preload('res://terrain/city/city_big_4.xscn')]
-var map_mountain = [
-	preload('res://terrain/mountains/mountain_1.xscn'),
-	preload('res://terrain/mountains/mountain_2.xscn'),
-	preload('res://terrain/mountains/mountain_3.xscn'),
-	preload('res://terrain/mountains/mountain_4.xscn')]
 var map_statue = preload('res://terrain/city/city_statue.xscn')
-var map_flowers = [
-	preload('res://terrain/land/flowers_1.xscn'),
-	preload('res://terrain/land/flowers_2.xscn'),
-	preload('res://terrain/land/flowers_3.xscn'),
-	preload('res://terrain/land/flowers_4.xscn'),
-	preload('res://terrain/land/log.xscn'),
-	preload('res://terrain/land/flowers_5.xscn'),
-	preload('res://terrain/land/flowers_6.xscn'),
-	preload('res://terrain/land/flowers_7.xscn')]
 var map_buildings = [
 	preload('res://buildings/bunker_blue.xscn'),
 	preload('res://buildings/bunker_red.xscn'),
@@ -226,10 +204,6 @@ func generate_map():
 	randomize()
 
 	#map elements count
-	var grass_elements_count = map_grass.size()
-	var flowers_elements_count = map_flowers.size()
-	var forest_elements_count = map_forest.size()
-	var mountain_elements_count = map_mountain.size()
 	var city_small_elements_count = map_city_small.size()
 	var city_big_elements_count = map_city_big.size()
 	var neigbours = 0
@@ -264,15 +238,21 @@ func generate_map():
 					cells_to_change.append({x=x, y=y, type=55})
 					temp = null
 				elif not terrain_cell == self.tileset.TERRAIN_DIRT:
+					# plain
 					cells_to_change.append({x=x, y=y, type=1})
 					# grass, flowers, log
 					if ( randi() % 10 ) <= GEN_GRASS:
-						temp = map_grass[randi() % grass_elements_count].instance()
+						temp = map_movable.instance()
+						temp.set_frame(randi()%2)
 					if ( randi() % 10 ) <= GEN_FLOWERS:
-						temp2 = map_flowers[randi() % flowers_elements_count].instance()
+						temp2 = map_movable.instance()
+						temp2.set_frame(2 + (randi()%7))
 				else:
+					# dirt
 					cells_to_change.append({x=x, y=y, type=0})
-
+					if ( randi() % 10 ) <= GEN_STONES:
+						temp = map_movable.instance()
+						temp.set_frame(16 + (randi()%8))
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x, y)))
 				map_layer_back.add_child(temp)
@@ -284,12 +264,14 @@ func generate_map():
 
 			# forest
 			if terrain_cell == self.tileset.TERRAIN_FOREST:
-				temp = map_forest[randi() % forest_elements_count].instance()
+				temp = map_non_movable.instance()
+				temp.set_frame(randi()%5)
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# mountains
 			if terrain_cell == self.tileset.TERRAIN_MOUNTAINS:
-				temp = map_mountain[randi() % mountain_elements_count].instance()
+				temp = map_non_movable.instance()
+				temp.set_frame(8 + (randi()%4))
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# city
