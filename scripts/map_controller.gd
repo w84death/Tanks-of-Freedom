@@ -307,6 +307,9 @@ func generate_map():
 			if terrain_cell == self.tileset.TERRAIN_STATUE:
 				temp = map_statue.instance()
 
+			if terrain_cell == self.tileset.TERRAIN_SPAWN:
+				cells_to_change.append({x=x, y=y, type=13})
+
 			# military buildings
 			if terrain_cell == self.tileset.TERRAIN_HQ_BLUE: # HQ blue
 				temp = map_buildings[0].instance()
@@ -353,6 +356,10 @@ func generate_map():
 				self.find_spawn_for_building(x, y, temp)
 				if temp.group == 'building':
 					temp.claim(temp.player, 0)
+				temp = 1
+				if count_neighbours(x,y,[0]) >= count_neighbours(x,y,[1]):
+					temp = 0
+				cells_to_change.append({x=x, y=y, type=temp})
 				temp = null
 
 			# roads
