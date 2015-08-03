@@ -10,28 +10,10 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="34">
+			<string_array  len="21">
 				<string> "bunker_blue" </string>
 				<string> "Sprite" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "texture" </string>
-				<string> "centered" </string>
-				<string> "offset" </string>
-				<string> "flip_h" </string>
-				<string> "flip_v" </string>
-				<string> "vframes" </string>
-				<string> "hframes" </string>
-				<string> "frame" </string>
-				<string> "modulate" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
 				<string> "script/script" </string>
@@ -44,25 +26,21 @@
 				<string> "spawn_point_position" </string>
 				<string> "flag" </string>
 				<string> "AnimatedSprite" </string>
+				<string> "_import_path" </string>
+				<string> "transform/pos" </string>
 				<string> "color" </string>
+				<string> "flag1" </string>
+				<string> "flag2" </string>
+				<string> "flag3" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 2 </int>
+			<int> 5 </int>
 			<string> "nodes" </string>
-			<int_array  len="80"> 				-1, -1, 1, 0, -1, 29, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 3, 18, 3, 19, 7, 20, 10, 21, 1, 22, 11, 23, 12, 24, 13, 25, 4, 26, 7, 27, 7, 28, 14, 29, 1, 30, 15, 0, 0, 0, 32, 31, 16, 4, 2, 0, 7, 17, 24, 18, 33, 7, 0 </int_array>
+			<int_array  len="89"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 6, 10, 7, 11, 1, 12, 8, 0, 0, 0, 14, 13, 9, 4, 15, 10, 16, 11, 6, 12, 17, 6, 0, 0, 0, 14, 18, 9, 4, 15, 10, 16, 13, 6, 12, 17, 6, 0, 0, 0, 14, 19, 9, 4, 15, 10, 16, 14, 6, 12, 17, 6, 0, 0, 0, 14, 20, 9, 4, 15, 10, 16, 15, 6, 12, 17, 6, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="19" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
-				<int> 1 </int>
-				<vector2> 0, 0 </vector2>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
+			<array  len="16" shared="false">
 				<resource  resource_type="Texture" path="res://assets/buildings.png">  </resource>
-				<bool> False </bool>
-				<color> 1, 1, 1, 1 </color>
+				<bool> True </bool>
 				<rect2> 32, 96, 32, 32 </rect2>
 				<resource  resource_type="Script" path="res://scripts/building.gd">  </resource>
 				<dictionary  shared="false">
@@ -73,7 +51,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -6.95501, -8.36538 </vector2>
+							<vector2> -42.4613, -33.2622 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -93,7 +71,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 25.866039 </real>
+							<real> 5.551855 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -187,18 +165,6 @@
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 0 </int>
-							<string> "sources" </string>
-							<array  len="4" shared="false">
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
-								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/flag.gd" </string>
-							</array>
-						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
@@ -208,10 +174,13 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<vector2> 0, 0 </vector2>
+				<int> 0 </int>
 				<int> 20 </int>
 				<vector2> 0, 1 </vector2>
 				<resource  resource_type="PackedScene" path="res://gui/flag.xscn">  </resource>
-				<vector2> 0, -6 </vector2>
+				<node_path> "" </node_path>
+				<vector2> -16.0307, -3.11808 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -341,6 +310,9 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<vector2> -4.86324, -9.06204 </vector2>
+				<vector2> 10.0867, -2.75784 </vector2>
+				<vector2> -1.98132, 3.9066 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
