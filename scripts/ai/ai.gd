@@ -117,6 +117,7 @@ func get_target_buildings():
 
 func __gather_unit_data(own_buildings, own_units, terrain):
 	if own_units.size() == 0:
+		self.units_done = true
 		return
 
 	self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps(own_buildings, own_units))
