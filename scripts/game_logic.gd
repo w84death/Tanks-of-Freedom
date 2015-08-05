@@ -80,7 +80,7 @@ func _input(event):
 			else:
 				hud.show()
 
-	if Input.is_action_pressed('ui_cancel'):
+	if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
 		self.toggle_menu()
 
 func start_ai_timer():
