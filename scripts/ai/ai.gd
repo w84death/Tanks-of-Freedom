@@ -31,6 +31,7 @@ var player_behaviours
 var finished_loop = true
 var units_done = false
 var processed_units = {}
+var camera_ready = false
 
 func _init(controller, astar_pathfinding, map, action_controller_object):
 	self.root = action_controller_object.root_node
@@ -79,10 +80,18 @@ func gather_available_actions(player_ap):
 		self.__gather_unit_data(buildings, units, terrain)
 		return true
 
+	if not self.camera_ready:
+		var best_action = self.actions.get_best_action()
+		self.camera_ready = true
+		if best_action != null:
+			self.action_controller.move_camera_to_point(best_action.unit.get_pos_map())
+		return true
+
 	self.put_on_cooldown()
 	self.finished_loop = true
 	self.units_done = false
 	self.processed_units.clear()
+	self.camera_ready = false
 	return actions.execute_best_action()
 
 func put_on_cooldown():
