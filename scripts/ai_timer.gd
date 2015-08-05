@@ -6,7 +6,6 @@ var end_turn = false
 var state = null
 
 const INTERVAL = 0.25
-const END_TURN_INTERVAL = 0.25
 
 const AI_STUFF = 1
 const END_TURN = 2
@@ -15,8 +14,10 @@ var root
 var action_controller
 var hud_controller
 
+var is_on_cooldown = false
+
 func _process(delta):
-	if get_parent().is_paused:
+	if get_parent().is_paused || self.is_on_cooldown:
 		return
 
 	if root.dependency_container.abstract_map.map.panning:
@@ -24,16 +25,14 @@ func _process(delta):
 
 	timeout += delta
 
-	if timeout > self.__get_interval():
-		if state == END_TURN:
-			self.stop()
-			end_turn = false
-			action_controller.end_turn()
-		else:
-			var result = action_controller.perform_ai_stuff()
-			if (result != true):
-				state = END_TURN
-		timeout = 0
+	if state == END_TURN:
+		self.stop()
+		end_turn = false
+		action_controller.end_turn()
+	else:
+		var result = action_controller.perform_ai_stuff()
+		if (result != true):
+			state = END_TURN
 
 func inject_action_controller(controller, hud):
 	self.root = controller.root_node
@@ -50,10 +49,4 @@ func reset_state():
 	self.reset()
 	action_controller = null
 	hud_controller = null
-
-func __get_interval():
-	if state == END_TURN:
-		return END_TURN_INTERVAL
-	else:
-		return INTERVAL
 

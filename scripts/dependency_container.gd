@@ -16,6 +16,7 @@ var ap_gain = preload("res://gui/hud/ap_gain.gd").new()
 var map_tiles = preload("res://scripts/maps/map_tiles.gd").new()
 var positions
 var migrations = preload("res://scripts/migrations/migrations.gd").new()
+var timers = preload("res://scripts/timers.gd").new()
 
 func init_root(root_node):
 	self.root = root_node
@@ -37,3 +38,4 @@ func init_root(root_node):
 	self.camera.apply_default_camera()
 	self.map_list.init()
 	self.migrations.init_bag(self)
+	self.timers._init_bag(self)

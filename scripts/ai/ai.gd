@@ -28,6 +28,10 @@ var behaviours = []
 
 var player_behaviours
 
+var finished_loop = true
+var units_done = false
+var processed_units = {}
+
 func _init(controller, astar_pathfinding, map, action_controller_object):
 	self.root = action_controller_object.root_node
 	positions = controller
@@ -54,20 +58,40 @@ func select_behaviour_type(player):
 func gather_available_actions(player_ap):
 	current_player = action_controller.current_player
 	current_player_ap = player_ap
-	self.actions.clear()
-	# refreshing unit and building data
-	self.positions.refresh_units()
-	#positions.refresh_buildings()
-	#if DEBUG:
-	#	print('DEBUG -------------------- ')
-	self.buildings = self.positions.get_player_buildings(current_player)
-	self.units     = self.positions.get_player_units(current_player)
-	self.terrain   = self.positions.get_terrain_obstacles()
 
-	self.__gather_building_data(buildings, units)
-	self.__gather_unit_data(buildings, units, terrain)
+	if self.finished_loop:
+		self.actions.clear()
+		# refreshing unit and building data
+		self.positions.refresh_units()
+		#positions.refresh_buildings()
+		#if DEBUG:
+		#	print('DEBUG -------------------- ')
+		self.buildings = self.positions.get_player_buildings(current_player)
+		self.units     = self.positions.get_player_units(current_player)
+		self.terrain   = self.positions.get_terrain_obstacles()
 
+		self.__gather_building_data(buildings, units)
+
+		self.finished_loop = false
+		return true
+
+	if not self.units_done:
+		self.__gather_unit_data(buildings, units, terrain)
+		return true
+
+	self.put_on_cooldown()
+	self.finished_loop = true
+	self.units_done = false
+	self.processed_units.clear()
 	return actions.execute_best_action()
+
+func put_on_cooldown():
+	var ai_timer = self.root.ai_timer
+	ai_timer.is_on_cooldown = true
+	self.root.dependency_container.timers.set_timeout(ai_timer.INTERVAL, self, "remove_cooldown")
+
+func remove_cooldown():
+	self.root.ai_timer.is_on_cooldown = false
 
 func get_target_buildings():
 	var buildings = []
@@ -95,6 +119,10 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 
 	for pos in own_units:
 		unit = own_units[pos]
+		if self.processed_units.has(unit.get_instance_ID()):
+			continue
+
+		self.processed_units[unit.get_instance_ID()] = true
 		if unit.get_ap() > 1:
 			position = unit.get_pos_map()
 
@@ -108,6 +136,8 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 				#TODO - calculate data in units groups
 				for destination in destinations:
 					self.__add_action(unit, destination, own_units)
+			return
+	self.units_done = true
 
 func __gather_unit_destinations(position, current_player, tiles_ranges=self.positions.tiles_lookup_ranges):
 	var destinations = []

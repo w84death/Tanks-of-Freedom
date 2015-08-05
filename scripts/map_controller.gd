@@ -37,8 +37,9 @@ var current_player = 0
 var camera_follow = true
 
 const MAP_STEP = 0.01
-const NEAR_THRESHOLD = 0.2
-const PAN_THRESHOLD = 60
+const NEAR_THRESHOLD = 20
+const NEAR_SCREEN_THRESHOLD = 0.2
+const PAN_THRESHOLD = 20
 const GEN_GRASS = 6
 const GEN_FLOWERS = 3
 const GEN_STONES = 6
@@ -116,7 +117,7 @@ func _process(delta):
 			var diff_y = target.y - self.sY
 
 			panning = self.__do_panning(diff_x, diff_y)
-
+			print(diff_x, ' ', diff_y)
 			if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
 				target = pos
 			else:
@@ -161,8 +162,8 @@ func move_to_map(target):
 		var target_position = terrain.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
-		var near_x = game_size.x * (NEAR_THRESHOLD / scale.x)
-		var near_y = game_size.y * (NEAR_THRESHOLD / scale.y)
+		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD / scale.x)
+		var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD / scale.y)
 
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
 			return
