@@ -187,7 +187,7 @@ func _input(event):
 		if (event.type == InputEvent.MOUSE_MOTION):
 			painting_motion = true
 
-		if (event.type == InputEvent.MOUSE_MOTION or event.type == MOUSE_BUTTON) and painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
+		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
 			self.paint(selector_position)
 
 		if event.type == InputEvent.KEY:
