@@ -23,16 +23,19 @@ func pathSearch(startTile, endTile, own_units):
 	#var start = OS.get_ticks_msec();
 	searched_children.append(startTile)
 	var add_path_to_cache = true
+	var end_pos
+	var start_pos
+	var cached
+	var index_range
 
 	for cache in path_cache:
 		cache = path_cache[cache]
-		var end_pos = cache.find(endTile)
-		var start_pos = cache.find(startTile)
-		
-		if (end_pos != -1 && start_pos != -1):
-			var cached = []
+		end_pos = cache.find(endTile)
+		start_pos = cache.find(startTile)
 
-			var index_range
+		if (end_pos != -1 && start_pos != -1):
+			cached = []
+
 			if (start_pos > end_pos):
 				index_range = range(end_pos, start_pos)
 			else:
@@ -71,14 +74,16 @@ func __pathSearch2(start, goal):
 	var closedset = []    #The set of nodes already evaluated.
 	var openset = []   #The set of tentative nodes to be evaluated, initially containing the start node
 	openset.append(start)
+	var current
 	var came_from = {}  # The map of navigated nodes.
+	var tentative_g_score
 
 	grid[start].G = 0    # Cost from start along best known path.
 	# Estimated total cost from start to goal through y.
 	grid[start].F = grid[start].G + __get_manhattan(start, goal)
 
 	while openset.size() > 0:
-		var current = __smallestF(openset)
+		current = __smallestF(openset)
 		if current == goal:
 			return __reconstruct_path(came_from, goal)
 
@@ -87,8 +92,8 @@ func __pathSearch2(start, goal):
 		for neighbor in __identify_successors(current, start, goal):
 			if neighbor in closedset:
 				continue
-			#var tentative_g_score = grid[current].G + 1
-			var tentative_g_score = grid[current].G + grid[current].cost
+			#tentative_g_score = grid[current].G + 1
+			tentative_g_score = grid[current].G + grid[current].cost
 
 			if !(neighbor in openset) or tentative_g_score < grid[neighbor].G :
 				came_from[neighbor] = current
@@ -104,9 +109,10 @@ func __identify_successors(current, start, goal):
 	var neighbours = self.__get_adjacent_tiles(current)
 	var dx = clamp(goal.x - current.x, -1, 1)
 	var dy = clamp(goal.y - current.y, -1, 1)
+	var exact_neighbor
 
 	for neighbor in neighbours:
-		var exact_neighbor = false
+		exact_neighbor = false
 		if clamp(neighbor.x - current.x, -1, 1) == dx && clamp(neighbor.x - current.y, -1, 1) == dy:
 			exact_neighbor = true
 			successors.append(neighbor)
@@ -144,10 +150,11 @@ func __get_dist(start, end):
 
 func __get_adjacent_tiles(center_tile):
 	var result = []
+	var vector
 	for i in range(-1,2):
 		for j in range(-1,2):
 			if i == 0 or j == 0:
-				var vector = Vector2(center_tile.x+i,center_tile.y+j)
+				vector = Vector2(center_tile.x+i,center_tile.y+j)
 				if grid.has(vector) and grid[vector].walkable == true:
 					result.append(vector)
 	return result

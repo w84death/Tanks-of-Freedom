@@ -89,12 +89,16 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 	self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps(own_buildings, own_units))
 	self.wandering.add_elemental_trails()
 
-	for pos in own_units:
-		var unit = own_units[pos]
-		if unit.get_ap() > 2:
-			var position = unit.get_pos_map()
+	var unit
+	var position
+	var destinations
 
-			var destinations = []
+	for pos in own_units:
+		unit = own_units[pos]
+		if unit.get_ap() > 1:
+			position = unit.get_pos_map()
+
+			destinations = []
 			destinations = self.__gather_unit_destinations(position, current_player)
 			destinations = destinations + __gather_buildings_destinations(position, current_player)
 			if destinations.size() == 0 && current_player_ap > 5:
@@ -107,8 +111,9 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 
 func __gather_unit_destinations(position, current_player, tiles_ranges=self.positions.tiles_lookup_ranges):
 	var destinations = []
+	var nearby_tiles
 	for lookup_range in tiles_ranges:
-		var nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
+		nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
 		destinations = destinations + self.positions.get_nearby_enemies(nearby_tiles, current_player)
 
 		if destinations.size() > 0:
@@ -120,8 +125,9 @@ func __gather_unit_destinations(position, current_player, tiles_ranges=self.posi
 #TODO this method will be rewritten to use building cache
 func __gather_buildings_destinations(position, current_player):
 	var destinations = []
+	var nearby_tiles
 	for lookup_range in self.positions.tiles_lookup_ranges:
-		var nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
+		nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
 		destinations = self.positions.get_nearby_enemy_buldings(nearby_tiles, current_player)
 		destinations = destinations + positions.get_nearby_empty_buldings(nearby_tiles)
 
@@ -135,13 +141,15 @@ func __gather_building_data(own_buildings, own_units):
 	if own_units.size() >= SPAWN_LIMIT:
 		return
 	#var buildings = positions.get_player_buildings(current_player)
+	var building
+	var enemy_units
 	for pos in own_buildings:
-		var building = own_buildings[pos]
+		building = own_buildings[pos]
 
 		if (building.type == 4): # skip tower
 			continue
 
-		var enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player, positions.tiles_building_lookup_ranges)
+		enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player, positions.tiles_building_lookup_ranges)
 		self.__add_building_action(building, enemy_units, own_units)
 
 
