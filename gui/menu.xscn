@@ -3,10 +3,10 @@
 	<ext_resource path="res://scripts/menu_controller.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/gui/backgrounds/bg1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/branding/p1x_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/branding/tof_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/extras/photo1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/extras/photo2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
@@ -319,7 +319,7 @@
 				<vector2> 4, 3 </vector2>
 				<int> 4 </int>
 				<vector2> 589, -315 </vector2>
-				<resource  resource_type="Texture" path="res://assets/logo.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/branding/p1x_logo.png">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<vector2> -240, 312 </vector2>
 				<vector2> 0, 312 </vector2>
@@ -370,7 +370,7 @@
 				<string> "Version 0.3.6-BETA" </string>
 				<vector2> 0, -197 </vector2>
 				<vector2> 11.6218, -95.6219 </vector2>
-				<resource  resource_type="Texture" path="res://assets/tof_logo.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/branding/tof_logo.png">  </resource>
 				<vector2> -410.213, 121.621 </vector2>
 				<real> 4 </real>
 				<resource  resource_type="Texture" path="res://assets/gui/extras/photo1.png">  </resource>

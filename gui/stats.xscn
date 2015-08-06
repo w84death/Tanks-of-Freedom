@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="9" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/branding/tof_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
@@ -334,7 +334,7 @@
 				<vector2> 0, -220 </vector2>
 				<vector2> 270, -220 </vector2>
 				<vector2> -1.22781, -209.446 </vector2>
-				<resource  resource_type="Texture" path="res://assets/tof_logo.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/branding/tof_logo.png">  </resource>
 				<vector2> -234.63, -115.251 </vector2>
 				<int> 27 </int>
 				<vector2> -144.63, -115.251 </vector2>

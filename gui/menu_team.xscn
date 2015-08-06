@@ -2,7 +2,7 @@
 <resource_file type="PackedScene" subresource_count="16" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
 	<ext_resource path="res://assets/hud/button_blue_small_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/branding/tof_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_blue_small_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_red_small_pressed.png" type="Texture"></ext_resource>
@@ -295,7 +295,7 @@
 				<vector2> 150, 96 </vector2>
 				<int> 8 </int>
 				<vector2> 2, -64 </vector2>
-				<resource  resource_type="Texture" path="res://assets/tof_logo.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/branding/tof_logo.png">  </resource>
 				<real> -10 </real>
 				<real> 30 </real>
 				<real> -170 </real>

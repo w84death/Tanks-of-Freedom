@@ -2,7 +2,7 @@
 <resource_file type="PackedScene" subresource_count="16" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://assets/gui/backgrounds/bg1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/branding/tof_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
@@ -14,7 +14,7 @@
 	<ext_resource path="res://assets/gui/buttons/tab_small_inactive_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/paper_80_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/paper_80_hover.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/teams.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/units/teams.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -334,7 +334,7 @@
 				<vector2> 160, 94 </vector2>
 				<int> 18 </int>
 				<vector2> 0, -207 </vector2>
-				<resource  resource_type="Texture" path="res://assets/tof_logo.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/branding/tof_logo.png">  </resource>
 				<vector2> 0, -294 </vector2>
 				<vector2> 239, 312 </vector2>
 				<int> 13 </int>
@@ -461,7 +461,7 @@
 				<real> 36 </real>
 				<string> "1" </string>
 				<vector2> -10.1886, 80.4253 </vector2>
-				<resource  resource_type="Texture" path="res://assets/teams.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/units/teams.png">  </resource>
 				<real> -192 </real>
 				<real> 39 </real>
 				<real> 169 </real>

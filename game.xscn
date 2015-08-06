@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
-	<ext_resource path="res://gui/corners.scn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://gui/corners.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scripts/ai_timer.gd" type="Script"></ext_resource>
 	<ext_resource path="res://scripts/demo_timer.gd" type="Script"></ext_resource>
 	<resource type="SampleLibrary" path="local://1">
@@ -66,7 +66,7 @@
 			<string> "node_count" </string>
 			<int> 8 </int>
 			<string> "nodes" </string>
-			<int_array  len="150"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 1, 12, 6, 0, 0, 0, 1, 13, 7, 4, 14, 8, 4, 2, 5, 1, 9, 9, 0, 0, 0, 15, 15, -1, 14, 16, 10, 17, 11, 18, 12, 19, 12, 20, 13, 21, 13, 22, 13, 23, 14, 24, 14, 25, 14, 26, 14, 27, 3, 28, 13, 29, 13, 0, 0, 0, 30, 30, -1, 6, 31, 15, 32, 2, 33, 1, 34, 13, 35, 1, 36, 1, 0, 0, 0, 38, 37, -1, 4, 39, 0, 40, 16, 41, 1, 42, 1, 0, 0, 0, 38, 43, -1, 5, 39, 0, 40, 12, 41, 1, 42, 1, 8, 17, 0, 0, 0, 38, 44, -1, 5, 39, 0, 40, 12, 41, 1, 42, 1, 8, 18, 0 </int_array>
+			<int_array  len="146"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 1, 12, 6, 0, 0, 0, 1, 13, 7, 2, 14, 8, 9, 9, 0, 0, 0, 15, 15, -1, 14, 16, 10, 17, 11, 18, 12, 19, 12, 20, 13, 21, 13, 22, 13, 23, 14, 24, 14, 25, 14, 26, 14, 27, 3, 28, 13, 29, 13, 0, 0, 0, 30, 30, -1, 6, 31, 15, 32, 2, 33, 1, 34, 13, 35, 1, 36, 1, 0, 0, 0, 38, 37, -1, 4, 39, 0, 40, 16, 41, 1, 42, 1, 0, 0, 0, 38, 43, -1, 5, 39, 0, 40, 12, 41, 1, 42, 1, 8, 17, 0, 0, 0, 38, 44, -1, 5, 39, 0, 40, 12, 41, 1, 42, 1, 8, 18, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="19" shared="false">
 				<int> 1 </int>
@@ -208,7 +208,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<vector2> 3, 3 </vector2>
-				<resource  resource_type="PackedScene" path="res://gui/corners.scn">  </resource>
+				<resource  resource_type="PackedScene" path="res://gui/corners.xscn">  </resource>
 				<node_path> "" </node_path>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -219,12 +219,24 @@
 						<dictionary  shared="false">
 							<string> "ofs" </string>
 							<vector2> -800, -187.76 </vector2>
-							<string> "pixel_snap" </string>
-							<bool> True </bool>
-							<string> "snap" </string>
-							<int> 1 </int>
-							<string> "use_snap" </string>
+							<string> "snap_grid" </string>
 							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
 							<real> 0.561085 </real>
 						</dictionary>
