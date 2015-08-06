@@ -13,6 +13,7 @@ var ai
 var pathfinding
 var demo_timer
 var positions
+var actual_movement_tiles = {}
 
 var current_player = 0
 var player_ap = [0,0]
@@ -113,14 +114,15 @@ func handle_action(position):
 			self.activate_field(field)
 	else:
 		if active_field != null && active_field.object != null && field != active_field && field.object == null:
-			if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
+			#if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
+			if active_field.object.group == 'unit'  && self.is_movement_possible(field, active_field) && field.terrain_type != -1 && self.has_ap():
 				self.move_unit(active_field, field)
 
 func post_handle_action():
 	self.positions.refresh_units()
 
 func capture_building(active_field, field):
-	self.use_ap()
+	self.use_ap(field)
 
 	#adding trail
 	self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
@@ -184,6 +186,8 @@ func add_movement_indicators(field):
 
 		self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps([], []))
 
+		self.actual_movement_tiles.clear()
+
 		for lookup in range (tiles_range, 0, -1):
 			# print('lookup', lookup)
 			tiles = self.root_node.dependency_container.positions.get_nearby_tiles_subset(unit_position, lookup)
@@ -191,6 +195,7 @@ func add_movement_indicators(field):
 			for tile in tiles:
 				path = pathfinding.pathSearch(unit_position, tile, [])
 				if path.size() <= tiles_range:
+					self.actual_movement_tiles[tile] = path.size()
 					self.root_node.dependency_container.action_map.mark_movement_tile(field, tile, first_action_range, unit_moved, current_player)
 
 
@@ -275,8 +280,23 @@ func has_enough_ap(ap):
 		return true
 	return false
 
-func use_ap():
-	self.deduct_ap(1)
+func use_ap(field):
+	var position = field.position
+	var cost = 1
+	if self.actual_movement_tiles.has(position):
+		cost = self.actual_movement_tiles[position]
+	self.deduct_ap(cost)
+
+func is_movement_possible(field, active_field):
+	#TODO hack for AI
+	if root_node.settings['cpu_' + str(current_player)]:
+		return active_field.is_adjacent(field)
+
+	var position = field.position
+	if self.actual_movement_tiles.has(position):
+		return true
+
+	return false
 
 func deduct_ap(ap):
 	self.update_ap(player_ap[current_player] - ap)
@@ -363,9 +383,9 @@ func update_unit(field):
 	self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
-	if self.root_node.dependency_container.movement_controller.move_object(active_field, field):
+	if self.root_node.dependency_container.movement_controller.move_object(active_field, field, self.actual_movement_tiles):
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
-		self.use_ap()
+		self.use_ap(field)
 		self.activate_field(field)
 		self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
 		#gather stats
@@ -382,7 +402,7 @@ func stats_set_time():
 
 func handle_battle(active_field, field):
 	if (self.root_node.dependency_container.battle_controller.can_attack(active_field.object, field.object)):
-		self.use_ap()
+		self.use_ap(field)
 		self.root_node.dependency_container.abstract_map.reset()
 
 		#print('MARK TRAIL!!')
