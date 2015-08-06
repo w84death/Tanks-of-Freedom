@@ -20,7 +20,7 @@
 			<string> "values" </string>
 			<array  len="2" shared="false">
 				<vector2> 0, -100 </vector2>
-				<vector2> 0, 48 </vector2>
+				<vector2> 0, 8 </vector2>
 			</array>
 		</dictionary>
 		<string name="tracks/1/type"> "value" </string>
@@ -36,7 +36,7 @@
 			<string> "values" </string>
 			<array  len="2" shared="false">
 				<vector2> 0, 100 </vector2>
-				<vector2> 0, -48 </vector2>
+				<vector2> 0, -8 </vector2>
 			</array>
 		</dictionary>
 		<string name="tracks/2/type"> "value" </string>
@@ -74,7 +74,7 @@
 			<real_array  len="2"> 				1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="2" shared="false">
-				<vector2> 0, 48 </vector2>
+				<vector2> 0, 8 </vector2>
 				<vector2> 0, -100 </vector2>
 			</array>
 		</dictionary>
@@ -90,7 +90,7 @@
 			<real_array  len="2"> 				1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="2" shared="false">
-				<vector2> 0, -48 </vector2>
+				<vector2> 0, -8 </vector2>
 				<vector2> 0, 100 </vector2>
 			</array>
 		</dictionary>
@@ -187,7 +187,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -1177.26, -427.863 </vector2>
+							<vector2> -1280, -700.496 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -207,7 +207,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.169684 </real>
+							<real> 0.138209 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -311,13 +311,13 @@
 					</dictionary>
 				</dictionary>
 				<real> 640 </real>
-				<vector2> 0, 48 </vector2>
+				<vector2> 0, 8 </vector2>
 				<vector2> 40, 6 </vector2>
 				<resource  resource_type="Texture" path="res://assets/gui/extras/black-box.png">  </resource>
-				<vector2> 0, -48 </vector2>
+				<vector2> 0, -8 </vector2>
 				<real> -640 </real>
-				<real> -110 </real>
-				<real> -50 </real>
+				<real> -80 </real>
+				<real> -20 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_huge.fnt">  </resource>
 				<real> 0 </real>
 				<real> 2 </real>
