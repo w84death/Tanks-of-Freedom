@@ -74,11 +74,12 @@ func _input(event):
 						action_controller.handle_action(selector_position)
 						action_controller.post_handle_action()
 
-		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
-			if hud.is_visible():
-				hud.hide()
-			else:
-				hud.show()
+		if event.type == InputEvent.KEY:
+			if event.scancode == KEY_H && event.pressed:
+				if hud.is_visible():
+					hud.hide()
+				else:
+					hud.show()
 
 	if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
 		self.toggle_menu()

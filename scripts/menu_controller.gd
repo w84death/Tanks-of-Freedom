@@ -34,12 +34,14 @@ var workshop
 var sound_toggle_button
 var music_toggle_button
 var shake_toggle_button
+var camera_follow_button
 var camera_zoom_in_button
 var camera_zoom_out_button
 
 var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
+var camera_follow_label
 var camera_zoom_label
 
 func _ready():
@@ -63,12 +65,14 @@ func _ready():
 	sound_toggle_button = get_node("control/settings_panel/sound_toggle")
 	music_toggle_button = get_node("control/settings_panel/music_toggle")
 	shake_toggle_button = get_node("control/settings_panel/shake_toggle")
+	camera_follow_button = get_node("control/settings_panel/camera_follow")
 	camera_zoom_in_button = get_node("control/settings_panel/camera_zoom_in")
 	camera_zoom_out_button = get_node("control/settings_panel/camera_zoom_out")
 
 	sound_toggle_label = sound_toggle_button.get_node("Label")
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
+	camera_follow_label = camera_follow_button.get_node("Label")
 	camera_zoom_label = get_node("control/settings_panel/camera_zoom_level")
 
 	campaign_button.connect("pressed", self, "show_campaign_menu")
@@ -78,6 +82,7 @@ func _ready():
 	sound_toggle_button.connect("pressed", self, "toggle_sound")
 	music_toggle_button.connect("pressed", self, "toggle_music")
 	shake_toggle_button.connect("pressed", self, "toggle_shake")
+	camera_follow_button.connect("pressed", self, "toggle_follow")
 	camera_zoom_in_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_in")
 	camera_zoom_out_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_out")
 
@@ -240,6 +245,14 @@ func toggle_shake():
 		shake_toggle_label.set_text("OFF")
 	root.write_settings_to_file()
 
+func toggle_follow():
+	root.settings['camera_follow'] = not root.settings['camera_follow']
+	if root.settings['camera_follow']:
+		camera_follow_label.set_text("ON")
+	else:
+		camera_follow_label.set_text("OFF")
+	root.write_settings_to_file()
+
 func refresh_buttons_labels():
 	if root.settings['sound_enabled']:
 		sound_toggle_label.set_text("ON")
@@ -253,6 +266,10 @@ func refresh_buttons_labels():
 		shake_toggle_label.set_text("ON")
 	else:
 		shake_toggle_label.set_text("OFF")
+	if root.settings['camera_follow']:
+		camera_follow_label.set_text("ON")
+	else:
+		camera_follow_label.set_text("OFF")
 
 func quit_game():
 	OS.get_main_loop().quit()
