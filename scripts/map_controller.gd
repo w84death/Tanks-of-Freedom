@@ -168,6 +168,7 @@ func move_to_map(target):
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
 			return
 		self.target = target_position
+		self.panning = true
 
 func shake_camera():
 	if root.settings['shake_enabled'] and not mouse_dragging:

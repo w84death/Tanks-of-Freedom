@@ -88,11 +88,14 @@ func gather_available_actions(player_ap):
 		return true
 
 	self.put_on_cooldown()
+	self.reset_calculation_state()
+	return actions.execute_best_action()
+
+func reset_calculation_state():
 	self.finished_loop = true
 	self.units_done = false
 	self.processed_units.clear()
 	self.camera_ready = false
-	return actions.execute_best_action()
 
 func put_on_cooldown():
 	var ai_timer = self.root.ai_timer
