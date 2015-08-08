@@ -25,15 +25,15 @@ func init_root(root_node):
     self.manage_switch_buttons()
 
 func bind_campaign_menu():
-    self.back_button = self.campaign_menu.get_node("control/dialog_controls/close")
-    self.start_button = self.campaign_menu.get_node("control/dialog_controls/start_button")
-    self.prev_button = self.campaign_menu.get_node("control/dialog_controls/prev_button")
-    self.next_button = self.campaign_menu.get_node("control/dialog_controls/next_button")
+    self.back_button = self.campaign_menu.get_node("bottom/control/dialog_controls/close")
+    self.start_button = self.campaign_menu.get_node("bottom/control/dialog_controls/start_button")
+    self.prev_button = self.campaign_menu.get_node("bottom/control/dialog_controls/prev_button")
+    self.next_button = self.campaign_menu.get_node("bottom/control/dialog_controls/next_button")
+    self.mission_num = self.campaign_menu.get_node("bottom/control/dialog_controls/mission_num")
 
-    self.mission_num = self.campaign_menu.get_node("control/dialog_controls/title/mission_num")
-    self.mission_name = self.campaign_menu.get_node("control/dialog_controls/title/mission_name")
-    self.mission_description = self.campaign_menu.get_node("control/dialog_controls/Introduction")
-    self.team = self.campaign_menu.get_node("control/dialog_controls/team")
+    self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/title/mission_name")
+    self.mission_description = self.campaign_menu.get_node("middle/control/dialog_controls/Introduction")
+    self.team = self.campaign_menu.get_node("middle/control/dialog_controls/team")
 
     self.back_button.connect("pressed", self, "hide_campaign_menu")
     self.start_button.connect("pressed", self, "start_mission")
