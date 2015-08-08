@@ -47,12 +47,12 @@ var camera_zoom_label
 func _ready():
 	self.control_node = self.get_node("menu")
 
-	workshop_button = get_node("middle/center/workshop")
+	workshop_button = get_node("bottom/center/workshop")
 
-	campaign_button = get_node("middle/center/start_campaign")
+	campaign_button = get_node("bottom/center/start_campaign")
 
 	play_button = get_node("bottom/center/play")
-	close_button = get_node("bottom/center/close")
+	close_button = get_node("top/center/close")
 	quit_button = get_node("bottom/center/quit")
 	demo_button = get_node("bottom/center/demo")
 
@@ -69,9 +69,9 @@ func _ready():
 	camera_zoom_in_button = settings.get_node("camera_zoom_in")
 	camera_zoom_out_button = settings.get_node("camera_zoom_out")
 
-	sound_toggle_label = settings.sound_toggle_button.get_node("Label")
-	music_toggle_label = settings.music_toggle_button.get_node("Label")
-	shake_toggle_label = settings.shake_toggle_button.get_node("Label")
+	sound_toggle_label = sound_toggle_button.get_node("Label")
+	music_toggle_label = music_toggle_button.get_node("Label")
+	shake_toggle_label = shake_toggle_button.get_node("Label")
 	camera_follow_label = camera_follow_button.get_node("Label")
 	camera_zoom_label = settings.get_node("camera_zoom_level")
 
@@ -94,7 +94,7 @@ func _ready():
 
 	self.label_completed = self.get_node("bottom/center/completed")
 	self.label_maps_created = self.get_node("bottom/center//maps_created")
-	self.label_version = self.get_node("middle/game_panel/copy")
+	self.label_version = self.get_node("middle/center/game_panel/copy")
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
