@@ -332,11 +332,10 @@ func load_background_map():
 	self.background_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
 	self.background_map.show_blueprint = false
 	self.root.scale_root.add_child(self.background_map)
-	self.background_map.set_default_zoom()
-	self.background_map.set_map_pos(Vector2(20, 20))
 	self.flush_group("units")
 	self.flush_group("buildings")
 	self.flush_group("terrain")
+	self.update_background_scale()
 
 func flush_group(name):
 	var collection = self.root_tree.get_nodes_in_group(name)
@@ -350,3 +349,9 @@ func show_background_map():
 func hide_background_map():
 	if self.background_map != null:
 		self.background_map.hide()
+
+func update_background_scale():
+	if self.background_map != null:
+		self.background_map.scale = self.root.scale_root.get_scale()
+		self.background_map.set_map_pos(Vector2(20, 20))
+

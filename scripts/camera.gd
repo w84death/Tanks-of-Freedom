@@ -22,6 +22,7 @@ func camera_zoom_in():
 	if self.abstract_map.map != null:
 		self.abstract_map.map.scale = self.camera.get_scale()
 	self.root.dependency_container.controllers.menu_controller.update_zoom_label()
+	self.root.dependency_container.controllers.menu_controller.update_background_scale()
 
 func camera_zoom_out():
 	var scale = self.camera.get_scale()
@@ -32,8 +33,10 @@ func camera_zoom_out():
 	if self.abstract_map.map != null:
 		self.abstract_map.map.scale = self.camera.get_scale()
 	self.root.dependency_container.controllers.menu_controller.update_zoom_label()
+	self.root.dependency_container.controllers.menu_controller.update_background_scale()
 
 func set_camera_zoom(zoom_value):
 	self.camera.set_scale(Vector2(zoom_value, zoom_value))
 	self.workshop_camera.set_scale(Vector2(zoom_value, zoom_value))
 	self.workshop_map.scale = self.workshop_camera.get_scale()
+	self.root.dependency_container.controllers.menu_controller.update_background_scale()
