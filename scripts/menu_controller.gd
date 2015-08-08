@@ -1,6 +1,6 @@
 
 var root
-var control_node
+var control_nodes
 
 var red_player_button
 var red_player_button_label
@@ -45,7 +45,7 @@ var camera_follow_label
 var camera_zoom_label
 
 func _ready():
-	self.control_node = self.get_node("menu")
+	self.control_nodes = [self.get_node("top"),self.get_node("middle"),self.get_node("bottom")]
 
 	workshop_button = get_node("bottom/center/workshop")
 
@@ -113,7 +113,6 @@ func _ready():
 	self.update_zoom_label()
 
 func start_demo_mode():
-	#print('start_demo_mode')
 	self.root.dependency_container.demo_mode.start_demo_mode(false)
 
 func load_maps_menu():
@@ -144,16 +143,24 @@ func refresh_custom_maps_list():
 
 func show_campaign_menu():
 	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
-	control_node.hide()
+	self.hide_control_nodes()
 
 func show_maps_menu():
 	self.refresh_custom_maps_list()
-	self.control_node.hide()
+	self.hide_control_nodes()
 	self.reset_player_buttons()
 	self.maps_sub_menu.show()
 
+func show_control_nodes():
+	for nod in self.control_nodes:
+		nod.show()
+
+func hide_control_nodes():
+	for nod in self.control_nodes:
+		nod.hide()
+
 func hide_maps_menu():
-	control_node.show()
+	self.show_control_nodes()
 	maps_sub_menu.hide()
 
 func show_main_menu():

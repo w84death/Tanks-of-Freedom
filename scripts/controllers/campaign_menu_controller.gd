@@ -50,7 +50,7 @@ func show_campaign_menu():
 
 func hide_campaign_menu():
     self.campaign_menu.hide()
-    self.root.dependency_container.controllers.menu_controller.control_node.show()
+    self.root.dependency_container.controllers.menu_controller.show_control_nodes()
 
 func fill_mission_data(mission_num):
     if mission_num < 0 || mission_num > self.root.dependency_container.campaign.maps.size() - 1:
@@ -104,7 +104,7 @@ func manage_switch_buttons():
 
 func button_enable_switch(button, show):
 	var temp = null
-	
+
 	if show:
 		button.set_disabled(false)
 		button.get_node('title').show()
