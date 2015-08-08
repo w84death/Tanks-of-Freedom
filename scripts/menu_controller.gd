@@ -45,35 +45,35 @@ var camera_follow_label
 var camera_zoom_label
 
 func _ready():
-	self.control_node = self.get_node("control")
+	self.control_node = self.get_node("menu")
 
-	workshop_button = get_node("control/workshop")
+	workshop_button = get_node("middle/center/workshop")
 
-	campaign_button = get_node("control/start_campaign")
+	campaign_button = get_node("middle/center/start_campaign")
 
-	play_button = get_node("control/play")
-	close_button = get_node("control/close")
-	quit_button = get_node("control/quit")
-	demo_button = get_node("control/demo")
+	play_button = get_node("bottom/center/play")
+	close_button = get_node("bottom/center/close")
+	quit_button = get_node("bottom/center/quit")
+	demo_button = get_node("bottom/center/demo")
 
-	main_menu = get_node("control/game_panel")
-	settings = get_node("control/settings_panel")
+	main_menu = get_node("middle/center/game_panel")
+	settings = get_node("middle/center/settings_panel")
 
-	menu_button = get_node("control/main_menu")
-	settings_button = get_node("control/settings")
+	menu_button = get_node("top/center/main_menu")
+	settings_button = get_node("top/center/settings")
 
-	sound_toggle_button = get_node("control/settings_panel/sound_toggle")
-	music_toggle_button = get_node("control/settings_panel/music_toggle")
-	shake_toggle_button = get_node("control/settings_panel/shake_toggle")
-	camera_follow_button = get_node("control/settings_panel/camera_follow")
-	camera_zoom_in_button = get_node("control/settings_panel/camera_zoom_in")
-	camera_zoom_out_button = get_node("control/settings_panel/camera_zoom_out")
+	sound_toggle_button = settings.get_node("sound_toggle")
+	music_toggle_button = settings.get_node("music_toggle")
+	shake_toggle_button = settings.get_node("shake_toggle")
+	camera_follow_button = settings.get_node("camera_follow")
+	camera_zoom_in_button = settings.get_node("camera_zoom_in")
+	camera_zoom_out_button = settings.get_node("camera_zoom_out")
 
-	sound_toggle_label = sound_toggle_button.get_node("Label")
-	music_toggle_label = music_toggle_button.get_node("Label")
-	shake_toggle_label = shake_toggle_button.get_node("Label")
+	sound_toggle_label = settings.sound_toggle_button.get_node("Label")
+	music_toggle_label = settings.music_toggle_button.get_node("Label")
+	shake_toggle_label = settings.shake_toggle_button.get_node("Label")
 	camera_follow_label = camera_follow_button.get_node("Label")
-	camera_zoom_label = get_node("control/settings_panel/camera_zoom_level")
+	camera_zoom_label = settings.get_node("camera_zoom_level")
 
 	campaign_button.connect("pressed", self, "show_campaign_menu")
 	workshop_button.connect("pressed", self, "enter_workshop")
@@ -92,10 +92,9 @@ func _ready():
 	settings_button.connect("pressed", self, "show_settings")
 	demo_button.connect("pressed", self, "start_demo_mode")
 
-	self.label_completed = self.get_node("control/completed")
-	self.label_wins = self.get_node("control/wins")
-	self.label_maps_created = self.get_node("control/maps_created")
-	self.label_version = self.get_node("control/game_panel/copy")
+	self.label_completed = self.get_node("bottom/center/completed")
+	self.label_maps_created = self.get_node("bottom/center//maps_created")
+	self.label_version = self.get_node("middle/game_panel/copy")
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
