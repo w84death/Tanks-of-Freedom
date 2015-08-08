@@ -45,7 +45,7 @@ func init_root(root, action_controller_object, hud):
 	# HUD END GAME
 	#
 	hud_end_game = hud.get_node("end_game")
-	hud_end_game_controls = hud_end_game.get_node("control/controls")
+	hud_end_game_controls = hud_end_game.get_node("center/controls")
 	hud_end_game_total_turns = hud_end_game_controls.get_node("labels/total_turns")
 	hud_end_game_total_time = hud_end_game_controls.get_node("labels/total_time")
 	hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
@@ -147,7 +147,7 @@ func warn_end_turn():
 func show_win(player, stats, turns):
 	self.adjust_missions_button()
 	self.lock_hud()
-	self.hide_map()
+	#self.hide_map()
 	self.game_card.hide()
 	self.fill_end_game_stats(stats,turns)
 	self.hud_end_game.show()

@@ -366,7 +366,6 @@ func end_game(winning_player):
 	game_ended = true
 	if root_node.hud.is_hidden():
 		root_node.hud.show()
-	self.root_node.unlock_for_player()
 	hud_controller.show_win(winning_player, battle_stats.get_stats(), turn)
 	selector.hide()
 	if (root_node.is_demo):

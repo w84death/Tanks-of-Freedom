@@ -152,7 +152,6 @@ func set_map_pos(position):
 
 func move_to_map(target):
 	if not root.settings['camera_follow']:
-		self.panning = false
 		return
 
 	if not self.camera_follow && fog_controller.is_fogged(target.x, target.y):
