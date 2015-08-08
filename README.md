@@ -1,6 +1,6 @@
 # Tanks of Freedom
 
-![Tanks of Freedom](http://i.imgur.com/RXYSYhp.png)
+![Tanks of Freedom](https://i.imgur.com/Xa66BXO.png)
 
 ## Indie Turn Based Strategy in Isometric Pixel Art
 
