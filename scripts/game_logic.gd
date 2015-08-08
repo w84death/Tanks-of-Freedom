@@ -143,6 +143,11 @@ func restart_map():
 	self.load_map(current_map_name,workshop_file_name)
 
 func unload_map():
+	if current_map != null:
+		scale_root.remove_child(current_map)
+		current_map.queue_free()
+		current_map = null
+
 	if is_map_loaded == false:
 		return
 

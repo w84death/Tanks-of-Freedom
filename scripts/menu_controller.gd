@@ -111,6 +111,7 @@ func _ready():
 	self.update_progress_labels()
 	self.update_version_label()
 	self.update_zoom_label()
+	self.load_background_map()
 
 func start_demo_mode():
 	self.root.dependency_container.demo_mode.start_demo_mode(false)
@@ -316,3 +317,13 @@ func update_version_label():
 
 func init_root(root_node):
 	root = root_node
+
+func load_background_map():
+	self.root.current_map = self.root.map_template.instance()
+	self.root.current_map.is_dead = true
+	self.root.current_map.get_node('terrain').set_tileset(self.root.main_tileset)
+	self.root.current_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
+	self.root.current_map.show_blueprint = false
+	self.root.scale_root.add_child(self.root.current_map)
+	self.root.current_map.set_default_zoom()
+	self.root.current_map.set_map_pos(Vector2(20, 20))

@@ -85,7 +85,12 @@ var map_units = [
 	preload('res://units/tank_red.xscn'),
 	preload('res://units/helicopter_red.xscn')]
 
+var is_dead = false
+
 func _input(event):
+	if self.is_dead:
+		return
+
 	pos = terrain.get_pos()
 	if event.type == InputEvent.MOUSE_BUTTON:
 		if event.button_index == BUTTON_LEFT:

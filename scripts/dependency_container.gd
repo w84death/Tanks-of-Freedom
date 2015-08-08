@@ -17,6 +17,7 @@ var map_tiles = preload("res://scripts/maps/map_tiles.gd").new()
 var positions
 var migrations = preload("res://scripts/migrations/migrations.gd").new()
 var timers = preload("res://scripts/timers.gd").new()
+var menu_background_map = preload("res://maps/menu_map_background.gd").new()
 
 func init_root(root_node):
 	self.root = root_node
