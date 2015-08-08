@@ -91,6 +91,7 @@ func start_ai_timer():
 func load_map(template_name, workshop_file_name = false):
 	var human_player = 'cpu_0'
 	self.unload_map()
+	self.menu.hide_background_map()
 	current_map_name = template_name
 	current_map = map_template.instance()
 	current_map.get_node('terrain').set_tileset(self.main_tileset)
@@ -143,11 +144,6 @@ func restart_map():
 	self.load_map(current_map_name,workshop_file_name)
 
 func unload_map():
-	if current_map != null:
-		scale_root.remove_child(current_map)
-		current_map.queue_free()
-		current_map = null
-
 	if is_map_loaded == false:
 		return
 
@@ -166,6 +162,7 @@ func unload_map():
 	ai_timer.reset_state()
 	hud_controller = null
 	action_controller = null
+	self.menu.show_background_map()
 
 func toggle_menu():
 	if is_map_loaded:

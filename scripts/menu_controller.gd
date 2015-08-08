@@ -44,6 +44,9 @@ var shake_toggle_label
 var camera_follow_label
 var camera_zoom_label
 
+var background_map
+var root_tree
+
 func _ready():
 	self.control_nodes = [self.get_node("top"),self.get_node("middle"),self.get_node("bottom")]
 
@@ -186,10 +189,13 @@ func show_workshop():
 	self.root.toggle_menu()
 	self.workshop.show()
 	self.workshop.units.raise()
+	self.hide_background_map()
 
 func hide_workshop():
 	self.workshop.hide()
 	self.show()
+	if not self.root.is_map_loaded:
+		self.show_background_map()
 
 func toggle_player(player):
 	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
@@ -317,13 +323,30 @@ func update_version_label():
 
 func init_root(root_node):
 	root = root_node
+	self.root_tree = self.root.get_tree()
 
 func load_background_map():
-	self.root.current_map = self.root.map_template.instance()
-	self.root.current_map.is_dead = true
-	self.root.current_map.get_node('terrain').set_tileset(self.root.main_tileset)
-	self.root.current_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
-	self.root.current_map.show_blueprint = false
-	self.root.scale_root.add_child(self.root.current_map)
-	self.root.current_map.set_default_zoom()
-	self.root.current_map.set_map_pos(Vector2(20, 20))
+	self.background_map = self.root.map_template.instance()
+	self.background_map.is_dead = true
+	self.background_map.get_node('terrain').set_tileset(self.root.main_tileset)
+	self.background_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
+	self.background_map.show_blueprint = false
+	self.root.scale_root.add_child(self.background_map)
+	self.background_map.set_default_zoom()
+	self.background_map.set_map_pos(Vector2(20, 20))
+	self.flush_group("units")
+	self.flush_group("buildings")
+	self.flush_group("terrain")
+
+func flush_group(name):
+	var collection = self.root_tree.get_nodes_in_group(name)
+	for entity in collection:
+		entity.remove_from_group(name)
+
+func show_background_map():
+	if self.background_map != null:
+		self.background_map.show()
+
+func hide_background_map():
+	if self.background_map != null:
+		self.background_map.hide()
