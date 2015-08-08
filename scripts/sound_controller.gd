@@ -46,7 +46,8 @@ var samples = [
 ]
 
 var soundtracks = [
-	preload("res://assets/sounds/soundtrack/map_soundtrack_1.ogg")
+	preload("res://assets/sounds/soundtrack/map_soundtrack_1.ogg"),
+	preload("res://assets/sounds/soundtrack/map_soundtrack_2.ogg")
 ]
 
 func init_root(root_node):
@@ -60,8 +61,9 @@ func init_root(root_node):
 func play_soundtrack():
 	self.stop_soundtrack()
 	if root.settings['music_enabled'] && root.is_map_loaded:
+		randomize()
 		var selected_track = self.soundtracks[randi() % self.soundtracks.size()]
-		stream_player.set_stream(self.soundtracks[0])
+		stream_player.set_stream(selected_track)
 		stream_player.set_loop(true)
 		stream_player.play()
 
