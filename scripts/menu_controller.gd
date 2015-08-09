@@ -331,6 +331,7 @@ func load_background_map():
 	self.background_map.get_node('terrain').set_tileset(self.root.main_tileset)
 	self.background_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
 	self.background_map.show_blueprint = false
+	self.background_map.get_node('fog_of_war').hide()
 	self.root.scale_root.add_child(self.background_map)
 	self.flush_group("units")
 	self.flush_group("buildings")
