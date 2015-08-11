@@ -22,6 +22,7 @@
 - Game available in Google Play as Beta Access
 - Modified units healthbars, removed ready indicator
 - Better AI performance, not choking main thread as much
+- Main menu background is now a custom map
 
 ### 0.3.5-beta
 
