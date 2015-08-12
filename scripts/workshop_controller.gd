@@ -55,8 +55,6 @@ func init_gui():
 	hud_message_box = hud_message.get_node("center/message")
 	hud_message_box_button = hud_message_box.get_node("button")
 	hud_message_box_button.connect("pressed", self, "close_message")
-
-	self.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 	self.load_map(restore_file_name)
 
 func add_action(params):
@@ -88,15 +86,12 @@ func undo_last_action():
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
 	self.center_camera()
-	self.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
 
 func toolbox_clear(layer):
 	if layer == 0:
 		self.map.clear_layer(0)
-		self.show_message("Toolbox", ["Terrain and units layer cleared!"])
 	if layer == 1:
 		self.map.clear_layer(1)
-		self.show_message("Toolbox", ["Units layer cleared!"])
 
 func play_map():
 	self.save_map(self.restore_file_name)
@@ -110,20 +105,16 @@ func play_map():
 func save_map(name, input = false):
 	if input:
 		name = name.get_text()
-	if map.save_map(name):
-		self.show_message("Map saved", ["Success","File name: "+str(name)])
-	else:
+	if not map.save_map(name):
 		self.show_message("File error", ["Failure!","File name: "+str(name)])
 
 func load_map(name, input = false):
 	if input:
 		name = name.get_text()
-	if map.load_map(name):
-		self.show_message("Map loaded", ["Success","File name: "+str(name)])
-	else:
+	if not map.load_map(name):
 		self.show_message("File not found", ["Failure!","File name: "+str(name)])
 
-func paint(position, tool_type = null,brush_type = null, undo_action = false):
+func paint(position, tool_type = null, brush_type = null, undo_action = false):
 	if hud_message.is_visible():
 		return false
 
@@ -154,7 +145,6 @@ func paint(position, tool_type = null,brush_type = null, undo_action = false):
 						add_action({position=Vector2(position.x,position.y),tool_type="units"})
 					units.set_cell(position.x,position.y,brush_type)
 				else:
-					self.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
 					return false
 	units.raise()
 	selector.raise()
