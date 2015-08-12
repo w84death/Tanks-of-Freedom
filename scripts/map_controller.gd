@@ -231,10 +231,10 @@ func generate_map():
 				neigbours = count_neighbours_in_binary(x, y, [-1])
 
 				if neigbours == 10:
-					cells_to_change.append({x=x, y=y, type=56})
+					cells_to_change.append({x=x, y=y, type=55})
 					temp = null
 				elif neigbours == 20:
-					cells_to_change.append({x=x, y=y, type=55})
+					cells_to_change.append({x=x, y=y, type=56})
 					temp = null
 				elif not terrain_cell == self.tileset.TERRAIN_DIRT:
 					# plain
@@ -408,95 +408,95 @@ func look_for_spawn(x, y, offset_x, offset_y, building):
 		building.spawn_point = Vector2(x + offset_x, y + offset_y)
 
 func build_sprite_path(x, y, type):
-	var position = count_neighbours_in_binary(x, y, type)
+	var neighbours = count_neighbours_in_binary(x, y, type)
 
 	# road
 	if type[0] == self.tileset.TERRAIN_ROAD:
-		if position in [10,2,8]:
+		if neighbours in [10,2,8]:
 			return 19
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			return 20
-		if position == 24:
+		if neighbours == 24:
 			return 21
-		if position == 12:
+		if neighbours == 12:
 			return 22
-		if position == 18:
+		if neighbours == 18:
 			return 23
-		if position == 6:
+		if neighbours == 6:
 			return 24
-		if position == 26:
+		if neighbours == 26:
 			return 25
-		if position == 28:
+		if neighbours == 28:
 			return 26
-		if position == 14:
+		if neighbours == 14:
 			return 27
-		if position == 22:
+		if neighbours == 22:
 			return 28
-		if position == 30:
+		if neighbours == 30:
 			return 29
 
 	# coutry road
 	if type[0] == self.tileset.TERRAIN_DIRT_ROAD:
-		if position in [10,2,8]:
+		if neighbours in [10,2,8]:
 			return 36
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			return 37
-		if position == 24:
+		if neighbours == 24:
 			return 38
-		if position == 12:
+		if neighbours == 12:
 			return 39
-		if position == 18:
+		if neighbours == 18:
 			return 40
-		if position == 6:
+		if neighbours == 6:
 			return 41
-		if position == 26:
+		if neighbours == 26:
 			return 42
-		if position == 28:
+		if neighbours == 28:
 			return 43
-		if position == 14:
+		if neighbours == 14:
 			return 44
-		if position == 22:
+		if neighbours == 22:
 			return 45
-		if position == 30:
+		if neighbours == 30:
 			return 46
 
 	# road mix
 	if type[0] == 16:
-		if position == 2:
+		if neighbours == 2:
 			return 32
-		if position == 16:
+		if neighbours == 16:
 			return 33
-		if position == 8:
+		if neighbours == 8:
 			return 34
-		if position == 4:
+		if neighbours == 4:
 			return 35
 
 	# river
 	if type[0] == self.tileset.TERRAIN_RIVER:
-		if position in [10,2,8]:
+		if neighbours in [10,2,8]:
 			if randi() % 4 > 2:
 				return 47
 			else:
 				return 53
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			if randi() % 4 > 2:
 				return 48
 			else:
 				return 54
-		if position == 24:
+		if neighbours == 24:
 			return 49
-		if position == 12:
+		if neighbours == 12:
 			return 50
-		if position == 18:
+		if neighbours == 18:
 			return 51
-		if position == 6:
+		if neighbours == 6:
 			return 52
 
 	# bridge
 	if type[0] == self.tileset.TERRAIN_BRIDGE:
-		if position in [10,2,8]:
+		if neighbours in [10,2,8]:
 			return 31
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			return 30
 
 	# nothing to change
