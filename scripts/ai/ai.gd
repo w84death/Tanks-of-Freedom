@@ -32,6 +32,7 @@ var finished_loop = true
 var units_done = false
 var processed_units = {}
 var camera_ready = false
+var ap_for_turn = null
 
 func _init(controller, astar_pathfinding, map, action_controller_object):
 	self.root = action_controller_object.root_node
@@ -278,4 +279,6 @@ func __add_building_action(building, enemy_units_nearby, own_units):
 		#	print("DEBUG : ", action.get_action_name(), " score: ", score, " ap: ", building.get_required_ap())
 
 
+func set_ap_for_turn(ap):
+	self.ap_for_turn = ap
 

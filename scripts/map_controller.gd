@@ -122,7 +122,6 @@ func _process(delta):
 			var diff_y = target.y - self.sY
 
 			panning = self.__do_panning(diff_x, diff_y)
-			print(diff_x, ' ', diff_y)
 			if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
 				target = pos
 			else:

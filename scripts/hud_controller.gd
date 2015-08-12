@@ -13,6 +13,7 @@ var hud_message_card_button
 
 var cinematic_camera
 var cinematic_camera_anim
+var cinematic_progress
 var menu_button
 
 var game_card
@@ -74,6 +75,7 @@ func init_root(root, action_controller_object, hud):
 	#
 	cinematic_camera = hud.get_node("cinematic_camera")
 	cinematic_camera_anim = cinematic_camera.get_node("anim")
+	cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
 
 	self.menu_button = hud.get_node("top_panel/center/game_card/escape")
 	self.menu_button.connect("pressed", root, "toggle_menu")
@@ -223,3 +225,15 @@ func show_cinematic_camera():
 func hide_cinematic_camera():
 	self.cinematic_camera_anim.play("off")
 	self.cinematic_camera.hide()
+
+func update_cpu_progress(current_ap, overall_ap):
+	if overall_ap == 0 || current_ap > overall_ap:
+		return
+
+	var percent = (float(current_ap) / float(overall_ap)) * 100;
+	percent = int(percent)
+	percent = (percent - (percent % 10)) / 10
+	percent = 10 - percent
+	if percent > 9:
+		percent = 9
+	self.cinematic_progress.set_frame(percent)

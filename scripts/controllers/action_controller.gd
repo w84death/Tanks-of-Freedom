@@ -340,6 +340,7 @@ func switch_to_player(player):
 		root_node.lock_for_cpu()
 		self.move_camera_to_active_bunker()
 		self.show_bonus_ap()
+		self.ai.set_ap_for_turn(self.player_ap[player])
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card([], current_player)
@@ -351,6 +352,8 @@ func perform_ai_stuff():
 	var success = false
 	if root_node.settings['cpu_' + str(current_player)] && player_ap[current_player] > 0:
 		success = ai.gather_available_actions(player_ap[current_player])
+
+	self.hud_controller.update_cpu_progress(player_ap[current_player], ai.ap_for_turn)
 
 	return player_ap[current_player] > 0 && success
 
