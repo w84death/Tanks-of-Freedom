@@ -228,15 +228,7 @@ func generate_map():
 
 			if terrain_cell == self.tileset.TERRAIN_PLAIN or terrain_cell == self.tileset.TERRAIN_DIRT:
 				# bridges
-				neigbours = 0
-				if terrain.get_cell(x, y-1) > -1:
-					neigbours += 2
-				if terrain.get_cell(x+1, y) > -1:
-					neigbours += 4
-				if terrain.get_cell(x, y+1) > -1:
-					neigbours += 8
-				if terrain.get_cell(x-1, y) > -1:
-					neigbours += 16
+				neigbours = count_neighbours_in_binary(x, y, [-1])
 
 				if neigbours == 10:
 					cells_to_change.append({x=x, y=y, type=56})
@@ -385,6 +377,19 @@ func count_neighbours(x, y, type):
 
 	return counted
 
+func count_neighbours_in_binary(x, y, type):
+	var counted = 0
+
+	if terrain.get_cell(x, y-1) in type:
+		counted += 2
+	if terrain.get_cell(x+1, y) in type:
+		counted += 4
+	if terrain.get_cell(x, y+1) in type:
+		counted += 8
+	if terrain.get_cell(x-1, y) in type:
+		counted += 16
+
+	return counted
 
 func find_spawn_for_building(x, y, building):
 	if building.group != "building":
@@ -403,16 +408,7 @@ func look_for_spawn(x, y, offset_x, offset_y, building):
 		building.spawn_point = Vector2(x + offset_x, y + offset_y)
 
 func build_sprite_path(x, y, type):
-	var position = 0
-
-	if terrain.get_cell(x, y-1) in type:
-		position += 2
-	if terrain.get_cell(x+1, y) in type:
-		position += 4
-	if terrain.get_cell(x, y+1) in type:
-		position += 8
-	if terrain.get_cell(x-1, y) in type:
-		position += 16
+	var position = count_neighbours_in_binary(x, y, type)
 
 	# road
 	if type[0] == self.tileset.TERRAIN_ROAD:
@@ -514,32 +510,18 @@ func spawn_unit(x, y, type):
 	return
 
 func generate_underground(x, y):
-	var generate = false
 	var temp = null
-	var neighbours = 0
-	if terrain.get_cell(x, y-1) == -1:
-		generate = true
-		neighbours += 2
-	if terrain.get_cell(x+1, y) == -1:
-		generate = true
-		neighbours += 4
-	if terrain.get_cell(x, y+1) == -1:
-		generate = true
-		neighbours += 8
-	if terrain.get_cell(x-1, y) == -1:
-		generate = true
-		neighbours += 16
+	var neighbours = count_neighbours_in_binary(x, y, [-1])
 
-	if generate:
-		temp = underground_rock.instance()
-		temp.set_frame(0)
-		if neighbours in [10]:
-			temp.set_frame(1)
-		if neighbours in [20]:
-			temp.set_frame(2)
-		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
-		underground.add_child(temp)
-		temp = null
+	temp = underground_rock.instance()
+	temp.set_frame(0)
+	if neighbours in [10]:
+		temp.set_frame(1)
+	if neighbours in [20]:
+		temp.set_frame(2)
+	temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
+	underground.add_child(temp)
+	temp = null
 
 func generate_wave(x, y):
 	var generate = false
