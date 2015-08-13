@@ -33,7 +33,7 @@
 				<string> "rounded_values" </string>
 				<string> "text" </string>
 				<string> "percent_visible" </string>
-				<string> "title1" </string>
+				<string> "subtitle" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 3 </int>
@@ -188,7 +188,7 @@
 				<real> 155 </real>
 				<real> 37 </real>
 				<color> 0.184314, 0.282353, 0.305882, 1 </color>
-				<string> "MAP SIZE: MEDIUM" </string>
+				<string> "SIZE: MEDIUM" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

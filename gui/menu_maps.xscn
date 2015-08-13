@@ -117,13 +117,13 @@
 				<resource  resource_type="Script" path="local://1">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -355.791, -495.304 </vector2>
+							<vector2> -202.196, -505.792 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -143,7 +143,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.350583 </real>
+							<real> 0.388458 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -466,6 +466,8 @@
 					<bool> True </bool>
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
 				</dictionary>
 				<vector2> -240, -48 </vector2>
 				<vector2> 236, -48 </vector2>
@@ -490,9 +492,9 @@
 				<color> 1, 1, 1, 1 </color>
 				<string> "&gt; BACK" </string>
 				<real> -133 </real>
-				<real> -137 </real>
+				<real> -879 </real>
 				<real> 125 </real>
-				<real> -109 </real>
+				<real> -851 </real>
 				<int> 0 </int>
 				<int> -1 </int>
 				<array  len="0" shared="false">
