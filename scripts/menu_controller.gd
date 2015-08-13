@@ -200,6 +200,7 @@ func hide_workshop():
 func toggle_player(player):
 	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
 	self.set_player_button_state(player)
+	root.write_settings_to_file()
 
 func set_player_button_state(player):
 	var label
@@ -295,6 +296,7 @@ func toggle_turns_cap():
 	else:
 		root.settings['turns_cap'] = root.settings['turns_cap'] + turns_cap_modifer
 	self.adjust_turns_cap_label()
+	root.write_settings_to_file()
 
 func adjust_turns_cap_label():
 	if root.settings['turns_cap'] > 0:
