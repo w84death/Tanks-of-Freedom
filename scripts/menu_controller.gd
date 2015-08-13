@@ -103,9 +103,9 @@ func _ready():
 	self.load_maps_menu()
 	self.load_workshop()
 
-	blue_player_button = maps_sub_menu.get_node("control/menu_controls/blue_player")
+	blue_player_button = maps_sub_menu.get_node("top/control/menu_controls/blue_player")
 	blue_player_button_label = blue_player_button.get_node("Label")
-	red_player_button = maps_sub_menu.get_node("control/menu_controls/red_player")
+	red_player_button = maps_sub_menu.get_node("top/control/menu_controls/red_player")
 	red_player_button_label = red_player_button.get_node("Label")
 
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
@@ -123,11 +123,11 @@ func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
 
-	maps_play_custom_button = maps_sub_menu.get_node("control/menu_controls/play_custom")
-	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
-	maps_turns_cap = maps_sub_menu.get_node("control/menu_controls/turns_cap")
+	maps_play_custom_button = maps_sub_menu.get_node("bottom/control/menu_controls/play_custom")
+	maps_close_button = maps_sub_menu.get_node("bottom/control/menu_controls/close")
+	maps_turns_cap = maps_sub_menu.get_node("top/control/menu_controls/turns_cap")
 	maps_turns_cap_label = maps_turns_cap.get_node("Label")
-	maps_select_custom_map = maps_sub_menu.get_node("control/menu_controls/custom_maps")
+	maps_select_custom_map = maps_sub_menu.get_node("bottom/control/menu_controls/custom_maps")
 
 	self.load_custom_maps_list(maps_select_custom_map)
 
