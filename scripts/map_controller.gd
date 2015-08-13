@@ -86,6 +86,7 @@ var map_units = [
 	preload('res://units/helicopter_red.xscn')]
 
 var is_dead = false
+var do_cinematic_pan = false
 
 func _input(event):
 	if self.is_dead:
@@ -107,6 +108,9 @@ func _input(event):
 			pos.x = pos.x + event.relative_x / scale.x
 			pos.y = pos.y + event.relative_y / scale.y
 			self.set_map_pos_global(pos)
+
+	if not show_blueprint && event.type == InputEvent.KEY && event.scancode == KEY_P:
+		self.do_cinematic_pan = event.pressed
 
 func __do_panning(diff_x, diff_y):
 	if diff_x > -PAN_THRESHOLD && diff_x < PAN_THRESHOLD && diff_y > -PAN_THRESHOLD && diff_y < PAN_THRESHOLD:
@@ -136,6 +140,9 @@ func _process(delta):
 			temp_delta = 0
 	else:
 		panning = false
+
+	if self.do_cinematic_pan:
+		self.set_map_pos_global(Vector2(self.sX - 1, self.sY))
 
 func move_to(target):
 	if not mouse_dragging:
