@@ -87,6 +87,9 @@ var map_units = [
 
 var is_dead = false
 var do_cinematic_pan = false
+var should_do_awesome_explosions = false
+var awesome_explosions_interval = 10
+var awesome_explosions_interval_counter = 0
 
 func _input(event):
 	if self.is_dead:
@@ -109,8 +112,11 @@ func _input(event):
 			pos.y = pos.y + event.relative_y / scale.y
 			self.set_map_pos_global(pos)
 
-	if not show_blueprint && event.type == InputEvent.KEY && event.scancode == KEY_P:
-		self.do_cinematic_pan = event.pressed
+	if not show_blueprint && event.type == InputEvent.KEY:
+		if event.scancode == KEY_P:
+			self.do_cinematic_pan = event.pressed
+		if event.scancode == KEY_E && event.pressed:
+			self.should_do_awesome_explosions = not self.should_do_awesome_explosions
 
 func __do_panning(diff_x, diff_y):
 	if diff_x > -PAN_THRESHOLD && diff_x < PAN_THRESHOLD && diff_y > -PAN_THRESHOLD && diff_y < PAN_THRESHOLD:
@@ -142,7 +148,36 @@ func _process(delta):
 		panning = false
 
 	if self.do_cinematic_pan:
-		self.set_map_pos_global(Vector2(self.sX - 1, self.sY))
+		self.do_awesome_cinematic_pan()
+		if self.awesome_explosions_interval_counter == self.awesome_explosions_interval:
+			self.do_awesome_random_explosions()
+			self.awesome_explosions_interval_counter = 0
+		else:
+			self.awesome_explosions_interval_counter += 1
+
+func do_awesome_cinematic_pan():
+	self.set_map_pos_global(Vector2(self.sX - 1, self.sY))
+
+func do_awesome_random_explosions():
+	if not self.should_do_awesome_explosions:
+		return
+	var root_tree = self.root.get_tree()
+	var all_units = root_tree.get_nodes_in_group("units")
+	if all_units.size() == 0:
+		return
+	randomize()
+	var unit = all_units[randi() % all_units.size()]
+	if unit.die:
+		return
+	var stats = unit.get_stats()
+	stats.life -= 5
+	unit.set_stats(stats)
+	if stats.life < 0:
+		var field = self.root.dependency_container.abstract_map.get_field(unit.get_pos_map())
+		self.root.dependency_container.controllers.action_controller.play_destroy(field)
+		self.root.dependency_container.controllers.action_controller.destroy_unit(field)
+	else:
+		unit.show_explosion()
 
 func move_to(target):
 	if not mouse_dragging:
