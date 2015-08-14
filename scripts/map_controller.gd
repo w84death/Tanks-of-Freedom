@@ -176,6 +176,7 @@ func do_awesome_random_explosions():
 		var field = self.root.dependency_container.abstract_map.get_field(unit.get_pos_map())
 		self.root.dependency_container.controllers.action_controller.play_destroy(field)
 		self.root.dependency_container.controllers.action_controller.destroy_unit(field)
+		self.root.dependency_container.controllers.action_controller.collateral_damage(unit.get_pos_map())
 	else:
 		unit.show_explosion()
 
