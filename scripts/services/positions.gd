@@ -166,7 +166,7 @@ func prepare_nearby_tiles():
 func prepare_nearby_tiles_ranges():
 	self.precalculated_nearby_tiles_ranges.insert(0, precalculated_nearby_tiles[0])
 	for i in range(1, MAX_PRECALCULATED_TILES_RANGE):
-		var values = self.root_node.dependency_container.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
+		var values = self.root_node.dependency_container.helpers.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
 		self.precalculated_nearby_tiles_ranges.insert(i, values)
 
 

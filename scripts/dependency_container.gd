@@ -21,6 +21,7 @@ var positions
 var migrations = preload("res://scripts/migrations/migrations.gd").new()
 var timers = preload("res://scripts/timers.gd").new()
 var menu_background_map = preload("res://maps/menu_map_background.gd").new()
+var helpers = preload("res://scripts/services/helpers.gd").new()
 
 func init_root(root_node):
 	self.root = root_node
@@ -46,13 +47,3 @@ func init_root(root_node):
 	self.map_list.init()
 	self.migrations.init_bag(self)
 	self.timers._init_bag(self)
-
-
-func array_diff(array_one, array_two):
-	var values =[]
-
-	for val in array_one:
-		if array_two.find(val) == -1:
-			values.append(val)
-
-	return values
