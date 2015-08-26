@@ -18,27 +18,27 @@ var default_custom_maps = [
     },
 
     {
-        'name' : 'tof_dm1',
+        'name' : 'tof_duel1',
         'file' : preload('res://maps/custom/tof_dm1.gd').new()
     },
     {
-        'name' : 'zuo1',
+        'name' : 'siege1',
         'file' : preload('res://maps/custom/zuo1.gd').new()
     },
     {
-        'name' : 'zuo2',
+        'name' : 'siege2',
         'file' : preload('res://maps/custom/zuo2.gd').new()
     },
     {
-        'name' : 'zuo3',
+        'name' : 'river_raid',
         'file' : preload('res://maps/custom/zuo3.gd').new()
     },
     {
-        'name' : 'zuo4',
+        'name' : 'high_pressure',
         'file' : preload('res://maps/custom/zuo4.gd').new()
     },
     {
-        'name' : 'zuo5',
+        'name' : 'a_maze',
         'file' : preload('res://maps/custom/zuo5.gd').new()
     },
 ]
@@ -70,7 +70,7 @@ func store_map(map_name):
 func add_default_maps():
     var file_name
     for map in self.default_custom_maps:
-        file_name = 'user://' + map['name'] + '.tof'
+        file_name = 'user://' + map['name'] + '.map'
         if not file_handler.file_exists(file_name):
             self.file_handler.open(file_name, File.WRITE)
             self.file_handler.store_var(map['file'].map_data)

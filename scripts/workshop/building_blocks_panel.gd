@@ -12,46 +12,11 @@ var units_button
 var blocks_area
 var block_template = preload("res://gui/workshop/block.xscn")
 
-var terrain_blocks = [
-    # name, tile id in sprite, type, blueprint id
-    ["EREASE", 18, "terrain", -1],
-    ["PLAIN", 0, "terrain", 1],
-    ["FOREST", 1, "terrain", 2],
-    ["MOUNTAIN", 2, "terrain", 3],
-    ["RIVER", 3, "terrain", 17],
-    ["BRIDGE", 8, "terrain", 18],
-    ["CITY", 4, "terrain", 4],
-    ["STATUE", 10, "terrain", 5],
-    ["FENCE", 9, "terrain", 12],
-    ["ROAD #1", 5, "terrain", 14],
-    ["ROAD #2", 6, "terrain", 15],
-    ["JOIN ROADS", 7, "terrain", 16],
-]
-var buildings_blocks = [
-    ["HQ BLUE", 11, "terrain", 6],
-    ["HQ RED", 12, "terrain", 7],
-    ["BARRACKS", 13, "terrain", 8],
-    ["FACTORY", 14, "terrain", 9],
-    ["AIRPORT", 15, "terrain", 10],
-    ["SPAWN", 17, "terrain", 13],
-    ["GSM TOWER", 16, "terrain", 11],
-    ["BARRACKS R", 19, "terrain", 8],
-    ["FACTORY R", 20, "terrain", 9],
-    ["AIRPORT R", 21, "terrain", 10],
-    ["TOWER R", 22, "terrain", 11],
-    ["BARRACKS B", 23, "terrain", 8],
-    ["FACTORY B", 24, "terrain", 9],
-    ["AIRPORT B", 25, "terrain", 10],
-    ["TOWER B", 26, "terrain", 11],
-]
-var units_blocks = [
-    ["INFANTRY B", 27, "units", 0],
-    ["TANK B", 28, "units", 1],
-    ["HELI B", 29, "units", 2],
-    ["INFANTRY R", 30, "units", 3],
-    ["TANK R", 31, "units", 4],
-    ["HELI B", 32, "units", 5]
-]
+var tiles
+
+var terrain_blocks
+var buildings_blocks
+var units_blocks
 
 var current_blocks = []
 
@@ -59,6 +24,49 @@ func init_root(root_node):
     self.root = root_node
     self.workshop = self.root.dependency_container.workshop
     self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
+    self.tiles = self.root.dependency_container.map_tiles
+
+    self.terrain_blocks = [
+        # name, tile id in sprite, type, blueprint id
+        ["EREASE", self.tiles.ICON_EREASE, "terrain", -1],
+        ["PLAIN", self.tiles.TERRAIN_PLAIN, "terrain", self.tiles.TERRAIN_PLAIN],
+        ["DIRT", self.tiles.TERRAIN_DIRT, "terrain", self.tiles.TERRAIN_DIRT],
+        ["FOREST", self.tiles.TERRAIN_FOREST, "terrain", self.tiles.TERRAIN_FOREST],
+        ["MOUNTAIN", self.tiles.TERRAIN_MOUNTAINS, "terrain", self.tiles.TERRAIN_MOUNTAINS],
+        ["RIVER", self.tiles.TERRAIN_RIVER, "terrain", self.tiles.TERRAIN_RIVER],
+        ["BRIDGE", self.tiles.TERRAIN_BRIDGE, "terrain", self.tiles.TERRAIN_BRIDGE],
+        ["CITY", self.tiles.TERRAIN_CITY, "terrain", self.tiles.TERRAIN_CITY],
+        ["RUBBLE", self.tiles.TERRAIN_CITY_DESTROYED, "terrain", self.tiles.TERRAIN_CITY_DESTROYED],
+        ["STATUE", self.tiles.TERRAIN_STATUE, "terrain", self.tiles.TERRAIN_STATUE],
+        ["FENCE", self.tiles.TERRAIN_FENCE, "terrain", self.tiles.TERRAIN_FENCE],
+        ["ROAD #1", self.tiles.TERRAIN_ROAD, "terrain", self.tiles.TERRAIN_ROAD],
+        ["ROAD #2", self.tiles.TERRAIN_DIRT_ROAD, "terrain", self.tiles.TERRAIN_DIRT_ROAD]
+    ]
+    self.buildings_blocks = [
+        ["HQ BLUE", self.tiles.TERRAIN_HQ_BLUE, "terrain", self.tiles.TERRAIN_HQ_BLUE],
+        ["HQ RED", self.tiles.TERRAIN_HQ_RED, "terrain", self.tiles.TERRAIN_HQ_RED],
+        ["BARRACKS", self.tiles.TERRAIN_BARRACKS_FREE, "terrain", self.tiles.TERRAIN_BARRACKS_FREE],
+        ["FACTORY", self.tiles.TERRAIN_FACTORY_FREE, "terrain", self.tiles.TERRAIN_FACTORY_FREE],
+        ["AIRPORT", self.tiles.TERRAIN_AIRPORT_FREE, "terrain", self.tiles.TERRAIN_AIRPORT_FREE],
+        ["SPAWN", self.tiles.TERRAIN_SPAWN, "terrain", self.tiles.TERRAIN_SPAWN],
+        ["GSM TOWER", self.tiles.TERRAIN_TOWER_FREE, "terrain", self.tiles.TERRAIN_TOWER_FREE],
+        ["BARRACKS R", self.tiles.TERRAIN_BARRACKS_RED, "terrain", self.tiles.TERRAIN_BARRACKS_RED],
+        ["FACTORY R", self.tiles.TERRAIN_FACTORY_RED, "terrain", self.tiles.TERRAIN_FACTORY_RED],
+        ["AIRPORT R", self.tiles.TERRAIN_AIRPORT_RED, "terrain", self.tiles.TERRAIN_AIRPORT_RED],
+        ["TOWER R", self.tiles.TERRAIN_TOWER_RED, "terrain", self.tiles.TERRAIN_TOWER_RED],
+        ["BARRACKS B", self.tiles.TERRAIN_BARRACKS_BLUE, "terrain", self.tiles.TERRAIN_BARRACKS_BLUE],
+        ["FACTORY B", self.tiles.TERRAIN_FACTORY_BLUE, "terrain", self.tiles.TERRAIN_FACTORY_BLUE],
+        ["AIRPORT B", self.tiles.TERRAIN_AIRPORT_BLUE, "terrain", self.tiles.TERRAIN_AIRPORT_BLUE],
+        ["TOWER B", self.tiles.TERRAIN_TOWER_BLUE, "terrain", self.tiles.TERRAIN_TOWER_BLUE],
+    ]
+    self.units_blocks = [
+        ["INFANTRY B", self.tiles.UNIT_INFANTRY_BLUE, "units", 0],
+        ["TANK B", self.tiles.UNIT_TANK_BLUE, "units", 1],
+        ["HELI B", self.tiles.UNIT_HELICOPTER_BLUE, "units", 2],
+        ["INFANTRY R", self.tiles.UNIT_INFANTRY_RED, "units", 3],
+        ["TANK R", self.tiles.UNIT_TANK_RED, "units", 4],
+        ["HELI R", self.tiles.UNIT_HELICOPTER_RED, "units", 5]
+    ]
 
 func bind_panel(building_block_panel_wrapper_node):
     self.building_block_panel_wrapper = building_block_panel_wrapper_node

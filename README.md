@@ -1,19 +1,19 @@
 # Tanks of Freedom
 
-![Tanks of Freedom](http://i.imgur.com/RXYSYhp.png)
+![Tanks of Freedom](https://i.imgur.com/Xa66BXO.png)
 
 ## Indie Turn Based Strategy in Isometric Pixel Art
 
 Classic turn-based strategy game with two armies fighting against each other. Challenge yourself in campaign against AI or hot-seat battle with a friend. Using easy map editor you can create any imaginable scenario to play and share online for others to discover!
 
-Each 32x32 sprite was handcrafted in gorgeous, 16 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
+Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
 
 ## Download
 ### Official builds:
 - Windows
 - Linux
 - OSX
-- Android (works on Blackberry and OUYA)
+- Android (works on Blackberry, OUYA support currently not working)
 
 Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 
@@ -25,11 +25,12 @@ Download at [f-droid.org](https://f-droid.org/repository/browse/?fdid=in.p1x.tan
 Thanks to [est31](https://github.com/est31)!
 
 ### Build from sources
-To get latest and greatest version of the game you'll need to use our source code and Godot Engine)
+To get the latest version of the game you'll need to use the source code and Godot Engine
 
 - downlaod & install [Godot Engine](http://www.godotengine.org/wp/download/)
-- download our sources [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip)
-- unzip
+- download our sources
+  - download [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip) and unzip
+  - or clone the repository using git
 - open Godot and import our game
 - run :)
 
@@ -46,12 +47,14 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn
 
 * P1X Team
  * code
+   * w84death http://krzysztofjankowski.com
    * czlowiekimadlo https://twitter.com/czlowiekimadlo
    * WrmZ https://plus.google.com/u/0/113866605142376544736/posts
  * gfx
    * w84death http://krzysztofjankowski.com
  * music
    * Mathias Nova http://mathiasnova.blogspot.com/
+   * QmYaan (Grand Beats) http://www.grandbeats.com/
  * sfx
    * QmYaan (Grand Beats) http://www.grandbeats.com/
  * engine

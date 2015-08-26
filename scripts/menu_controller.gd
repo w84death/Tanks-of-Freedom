@@ -1,6 +1,6 @@
 
 var root
-var control_node
+var control_nodes
 
 var red_player_button
 var red_player_button_label
@@ -28,63 +28,64 @@ var maps_close_button
 var maps_turns_cap
 var maps_turns_cap_label
 var maps_select_custom_map
-
-var tutorial_sub_menu = preload("res://gui/tutorial.xscn").instance()
-var tutorial_close_button
-var tutorial_button
-
 var workshop_button
 var workshop
 
 var sound_toggle_button
 var music_toggle_button
 var shake_toggle_button
+var camera_follow_button
 var camera_zoom_in_button
 var camera_zoom_out_button
 
 var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
+var camera_follow_label
 var camera_zoom_label
 
+var background_map
+var root_tree
+
 func _ready():
-	self.control_node = self.get_node("control")
+	self.control_nodes = [self.get_node("top"),self.get_node("middle"),self.get_node("bottom")]
 
-	#tutorial_button = get_node("control/game_panel/tutorial")
-	workshop_button = get_node("control/workshop")
+	workshop_button = get_node("bottom/center/workshop")
 
-	campaign_button = get_node("control/start_campaign")
+	campaign_button = get_node("bottom/center/start_campaign")
 
-	play_button = get_node("control/play")
-	close_button = get_node("control/close")
-	quit_button = get_node("control/quit")
-	demo_button = get_node("control/demo")
+	play_button = get_node("bottom/center/play")
+	close_button = get_node("top/center/close")
+	quit_button = get_node("bottom/center/quit")
+	demo_button = get_node("bottom/center/demo")
 
-	main_menu = get_node("control/game_panel")
-	settings = get_node("control/settings_panel")
+	main_menu = get_node("middle/center/game_panel")
+	settings = get_node("middle/center/settings_panel")
 
-	menu_button = get_node("control/main_menu")
-	settings_button = get_node("control/settings")
+	menu_button = get_node("top/center/main_menu")
+	settings_button = get_node("top/center/settings")
 
-	sound_toggle_button = get_node("control/settings_panel/sound_toggle")
-	music_toggle_button = get_node("control/settings_panel/music_toggle")
-	shake_toggle_button = get_node("control/settings_panel/shake_toggle")
-	camera_zoom_in_button = get_node("control/settings_panel/camera_zoom_in")
-	camera_zoom_out_button = get_node("control/settings_panel/camera_zoom_out")
+	sound_toggle_button = settings.get_node("sound_toggle")
+	music_toggle_button = settings.get_node("music_toggle")
+	shake_toggle_button = settings.get_node("shake_toggle")
+	camera_follow_button = settings.get_node("camera_follow")
+	camera_zoom_in_button = settings.get_node("camera_zoom_in")
+	camera_zoom_out_button = settings.get_node("camera_zoom_out")
 
 	sound_toggle_label = sound_toggle_button.get_node("Label")
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
-	camera_zoom_label = get_node("control/settings_panel/camera_zoom_level")
+	camera_follow_label = camera_follow_button.get_node("Label")
+	camera_zoom_label = settings.get_node("camera_zoom_level")
 
 	campaign_button.connect("pressed", self, "show_campaign_menu")
-	#tutorial_button.connect("pressed", self, "show_tutorial")
 	workshop_button.connect("pressed", self, "enter_workshop")
 	play_button.connect("pressed", self, "show_maps_menu")
 
 	sound_toggle_button.connect("pressed", self, "toggle_sound")
 	music_toggle_button.connect("pressed", self, "toggle_music")
 	shake_toggle_button.connect("pressed", self, "toggle_shake")
+	camera_follow_button.connect("pressed", self, "toggle_follow")
 	camera_zoom_in_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_in")
 	camera_zoom_out_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_out")
 
@@ -94,19 +95,17 @@ func _ready():
 	settings_button.connect("pressed", self, "show_settings")
 	demo_button.connect("pressed", self, "start_demo_mode")
 
-	self.label_completed = self.get_node("control/completed")
-	self.label_wins = self.get_node("control/wins")
-	self.label_maps_created = self.get_node("control/maps_created")
-	self.label_version = self.get_node("control/game_panel/copy")
+	self.label_completed = self.get_node("bottom/center/completed")
+	self.label_maps_created = self.get_node("bottom/center//maps_created")
+	self.label_version = self.get_node("middle/center/game_panel/copy")
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
-	self.load_tutorial()
 	self.load_workshop()
 
-	blue_player_button = maps_sub_menu.get_node("control/menu_controls/blue_player")
+	blue_player_button = maps_sub_menu.get_node("top/control/menu_controls/blue_player")
 	blue_player_button_label = blue_player_button.get_node("Label")
-	red_player_button = maps_sub_menu.get_node("control/menu_controls/red_player")
+	red_player_button = maps_sub_menu.get_node("top/control/menu_controls/red_player")
 	red_player_button_label = red_player_button.get_node("Label")
 
 	blue_player_button.connect("pressed", self, "toggle_player", [0])
@@ -115,20 +114,20 @@ func _ready():
 	self.update_progress_labels()
 	self.update_version_label()
 	self.update_zoom_label()
+	self.load_background_map()
 
 func start_demo_mode():
-	print('start_demo_mode')
 	self.root.dependency_container.demo_mode.start_demo_mode(false)
 
 func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
 
-	maps_play_custom_button = maps_sub_menu.get_node("control/menu_controls/play_custom")
-	maps_close_button = maps_sub_menu.get_node("control/menu_controls/close")
-	maps_turns_cap = maps_sub_menu.get_node("control/menu_controls/turns_cap")
+	maps_play_custom_button = maps_sub_menu.get_node("bottom/control/menu_controls/play_custom")
+	maps_close_button = maps_sub_menu.get_node("bottom/control/menu_controls/close")
+	maps_turns_cap = maps_sub_menu.get_node("top/control/menu_controls/turns_cap")
 	maps_turns_cap_label = maps_turns_cap.get_node("Label")
-	maps_select_custom_map = maps_sub_menu.get_node("control/menu_controls/custom_maps")
+	maps_select_custom_map = maps_sub_menu.get_node("bottom/control/menu_controls/custom_maps")
 
 	self.load_custom_maps_list(maps_select_custom_map)
 
@@ -148,16 +147,24 @@ func refresh_custom_maps_list():
 
 func show_campaign_menu():
 	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
-	control_node.hide()
+	self.hide_control_nodes()
 
 func show_maps_menu():
 	self.refresh_custom_maps_list()
-	self.control_node.hide()
+	self.hide_control_nodes()
 	self.reset_player_buttons()
 	self.maps_sub_menu.show()
 
+func show_control_nodes():
+	for nod in self.control_nodes:
+		nod.show()
+
+func hide_control_nodes():
+	for nod in self.control_nodes:
+		nod.hide()
+
 func hide_maps_menu():
-	control_node.show()
+	self.show_control_nodes()
 	maps_sub_menu.hide()
 
 func show_main_menu():
@@ -167,21 +174,6 @@ func show_main_menu():
 func show_settings():
 	main_menu.hide()
 	settings.show()
-
-func load_tutorial():
-	tutorial_sub_menu.hide()
-	self.add_child(tutorial_sub_menu)
-
-	tutorial_close_button = tutorial_sub_menu.get_node("control/menu_controls/close")
-	tutorial_close_button.connect("pressed", self, "hide_tutorial")
-
-func show_tutorial():
-	control_node.hide()
-	tutorial_sub_menu.show()
-
-func hide_tutorial():
-	tutorial_sub_menu.hide()
-	control_node.show()
 
 func load_workshop():
 	self.workshop = self.root.dependency_container.workshop
@@ -197,14 +189,18 @@ func show_workshop():
 	self.root.toggle_menu()
 	self.workshop.show()
 	self.workshop.units.raise()
+	self.hide_background_map()
 
 func hide_workshop():
 	self.workshop.hide()
 	self.show()
+	if not self.root.is_map_loaded:
+		self.show_background_map()
 
 func toggle_player(player):
 	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
 	self.set_player_button_state(player)
+	root.write_settings_to_file()
 
 func set_player_button_state(player):
 	var label
@@ -263,6 +259,14 @@ func toggle_shake():
 		shake_toggle_label.set_text("OFF")
 	root.write_settings_to_file()
 
+func toggle_follow():
+	root.settings['camera_follow'] = not root.settings['camera_follow']
+	if root.settings['camera_follow']:
+		camera_follow_label.set_text("ON")
+	else:
+		camera_follow_label.set_text("OFF")
+	root.write_settings_to_file()
+
 func refresh_buttons_labels():
 	if root.settings['sound_enabled']:
 		sound_toggle_label.set_text("ON")
@@ -276,6 +280,10 @@ func refresh_buttons_labels():
 		shake_toggle_label.set_text("ON")
 	else:
 		shake_toggle_label.set_text("OFF")
+	if root.settings['camera_follow']:
+		camera_follow_label.set_text("ON")
+	else:
+		camera_follow_label.set_text("OFF")
 
 func quit_game():
 	OS.get_main_loop().quit()
@@ -288,6 +296,7 @@ func toggle_turns_cap():
 	else:
 		root.settings['turns_cap'] = root.settings['turns_cap'] + turns_cap_modifer
 	self.adjust_turns_cap_label()
+	root.write_settings_to_file()
 
 func adjust_turns_cap_label():
 	if root.settings['turns_cap'] > 0:
@@ -316,3 +325,36 @@ func update_version_label():
 
 func init_root(root_node):
 	root = root_node
+	self.root_tree = self.root.get_tree()
+
+func load_background_map():
+	self.background_map = self.root.map_template.instance()
+	self.background_map.is_dead = true
+	self.background_map.get_node('terrain').set_tileset(self.root.main_tileset)
+	self.background_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
+	self.background_map.show_blueprint = false
+	self.background_map.get_node('fog_of_war').hide()
+	self.root.scale_root.add_child(self.background_map)
+	self.flush_group("units")
+	self.flush_group("buildings")
+	self.flush_group("terrain")
+	self.update_background_scale()
+
+func flush_group(name):
+	var collection = self.root_tree.get_nodes_in_group(name)
+	for entity in collection:
+		entity.remove_from_group(name)
+
+func show_background_map():
+	if self.background_map != null:
+		self.background_map.show()
+
+func hide_background_map():
+	if self.background_map != null:
+		self.background_map.hide()
+
+func update_background_scale():
+	if self.background_map != null:
+		self.background_map.scale = self.root.scale_root.get_scale()
+		self.background_map.set_map_pos(Vector2(20, 20))
+

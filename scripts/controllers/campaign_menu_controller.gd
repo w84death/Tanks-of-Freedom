@@ -25,15 +25,15 @@ func init_root(root_node):
     self.manage_switch_buttons()
 
 func bind_campaign_menu():
-    self.back_button = self.campaign_menu.get_node("control/dialog_controls/close")
-    self.start_button = self.campaign_menu.get_node("control/dialog_controls/start_button")
-    self.prev_button = self.campaign_menu.get_node("control/dialog_controls/prev_button")
-    self.next_button = self.campaign_menu.get_node("control/dialog_controls/next_button")
+    self.back_button = self.campaign_menu.get_node("bottom/control/dialog_controls/close")
+    self.start_button = self.campaign_menu.get_node("bottom/control/dialog_controls/start_button")
+    self.prev_button = self.campaign_menu.get_node("bottom/control/dialog_controls/prev_button")
+    self.next_button = self.campaign_menu.get_node("bottom/control/dialog_controls/next_button")
+    self.mission_num = self.campaign_menu.get_node("bottom/control/dialog_controls/mission_num")
 
-    self.mission_num = self.campaign_menu.get_node("control/dialog_controls/title/mission_num")
-    self.mission_name = self.campaign_menu.get_node("control/dialog_controls/title/mission_name")
-    self.mission_description = self.campaign_menu.get_node("control/dialog_controls/Introduction")
-    self.team = self.campaign_menu.get_node("control/dialog_controls/team")
+    self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/title/mission_name")
+    self.mission_description = self.campaign_menu.get_node("middle/control/dialog_controls/Introduction")
+    self.team = self.campaign_menu.get_node("middle/control/dialog_controls/team")
 
     self.back_button.connect("pressed", self, "hide_campaign_menu")
     self.start_button.connect("pressed", self, "start_mission")
@@ -50,7 +50,7 @@ func show_campaign_menu():
 
 func hide_campaign_menu():
     self.campaign_menu.hide()
-    self.root.dependency_container.controllers.menu_controller.control_node.show()
+    self.root.dependency_container.controllers.menu_controller.show_control_nodes()
 
 func fill_mission_data(mission_num):
     if mission_num < 0 || mission_num > self.root.dependency_container.campaign.maps.size() - 1:
@@ -104,7 +104,7 @@ func manage_switch_buttons():
 
 func button_enable_switch(button, show):
 	var temp = null
-	
+
 	if show:
 		button.set_disabled(false)
 		button.get_node('title').show()

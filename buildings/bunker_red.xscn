@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/buildings/military.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/building.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
 	<main_resource>
@@ -10,28 +10,10 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="34">
+			<string_array  len="21">
 				<string> "bunker_red" </string>
 				<string> "Sprite" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "texture" </string>
-				<string> "centered" </string>
-				<string> "offset" </string>
-				<string> "flip_h" </string>
-				<string> "flip_v" </string>
-				<string> "vframes" </string>
-				<string> "hframes" </string>
-				<string> "frame" </string>
-				<string> "modulate" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
 				<string> "script/script" </string>
@@ -44,25 +26,21 @@
 				<string> "spawn_point_position" </string>
 				<string> "flag" </string>
 				<string> "AnimatedSprite" </string>
+				<string> "_import_path" </string>
+				<string> "transform/pos" </string>
 				<string> "color" </string>
+				<string> "flag1" </string>
+				<string> "flag2" </string>
+				<string> "flag3" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 2 </int>
+			<int> 5 </int>
 			<string> "nodes" </string>
-			<int_array  len="80"> 				-1, -1, 1, 0, -1, 29, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 3, 18, 3, 19, 7, 20, 10, 21, 1, 22, 11, 23, 12, 24, 13, 25, 4, 26, 7, 27, 3, 28, 14, 29, 1, 30, 15, 0, 0, 0, 32, 31, 16, 4, 2, 0, 7, 17, 24, 18, 33, 3, 0 </int_array>
+			<int_array  len="89"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 1, 12, 9, 0, 0, 0, 14, 13, 10, 4, 15, 11, 16, 12, 6, 13, 17, 7, 0, 0, 0, 14, 18, 10, 4, 15, 11, 16, 14, 6, 13, 17, 7, 0, 0, 0, 14, 19, 10, 4, 15, 11, 16, 15, 6, 13, 17, 7, 0, 0, 0, 14, 20, 10, 4, 15, 11, 16, 16, 6, 13, 17, 7, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="19" shared="false">
-				<node_path> "" </node_path>
+			<array  len="17" shared="false">
+				<resource  resource_type="Texture" path="res://assets/buildings/military.png">  </resource>
 				<bool> True </bool>
-				<real> 1 </real>
-				<int> 1 </int>
-				<vector2> 0, 0 </vector2>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
-				<resource  resource_type="Texture" path="res://assets/buildings.png">  </resource>
-				<bool> False </bool>
-				<color> 1, 1, 1, 1 </color>
 				<rect2> 64, 96, 32, 32 </rect2>
 				<resource  resource_type="Script" path="res://scripts/building.gd">  </resource>
 				<dictionary  shared="false">
@@ -73,7 +51,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -327.394, -67.7161 </vector2>
+							<vector2> -62.6811, -20.5143 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -93,7 +71,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.32038 </real>
+							<real> 8.368529 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -187,17 +165,6 @@
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 2 </int>
-							<string> "sources" </string>
-							<array  len="3" shared="false">
-								<string> "res://scripts/building.gd" </string>
-								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/selector.gd" </string>
-							</array>
-						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
@@ -207,10 +174,14 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<vector2> 0, 0 </vector2>
+				<int> 0 </int>
+				<int> 1 </int>
 				<int> 20 </int>
 				<vector2> 0, 1 </vector2>
 				<resource  resource_type="PackedScene" path="res://gui/flag.xscn">  </resource>
-				<vector2> 0, -6 </vector2>
+				<node_path> "" </node_path>
+				<vector2> -5.0188, -8.98738 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -340,6 +311,9 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<vector2> -2.03142, 4.03761 </vector2>
+				<vector2> 9.91811, -2.89312 </vector2>
+				<vector2> -16.8488, -3.13211 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

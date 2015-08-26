@@ -12,8 +12,7 @@ func _init():
 	max_attacks_number = 1
 	ap = 6
 	attacks_number = 1
-	visibility = 2
-	pass
+	visibility = 3
 
 func can_capture_building(building):
 	return false

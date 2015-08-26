@@ -129,6 +129,7 @@ func capture_building(active_field, field):
 
 	field.object.claim(self.current_player, self.turn)
 	sound_controller.play('occupy_building')
+	self.root_node.dependency_container.ap_gain.update()
 	if field.object.type == 4:
 		active_field.object.takeAllAP()
 	else:
@@ -142,8 +143,6 @@ func capture_building(active_field, field):
 
 func activate_field(field):
 	self.clear_active_field()
-	if !field.object: #todo - investigate why there is no object
-		print("FAIL to activate field: ", field.position)
 	active_field = field
 	self.root_node.dependency_container.abstract_map.tilemap.add_child(active_indicator)
 	self.root_node.dependency_container.abstract_map.tilemap.move_child(active_indicator, 0)
@@ -336,16 +335,20 @@ func switch_to_player(player):
 		root_node.lock_for_cpu()
 		self.move_camera_to_active_bunker()
 		self.show_bonus_ap()
+		self.ai.set_ap_for_turn(self.player_ap[player])
 	else:
 		root_node.unlock_for_player()
 		hud_controller.show_in_game_card([], current_player)
 		self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
 	self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+	self.root_node.dependency_container.ap_gain.update()
 
 func perform_ai_stuff():
 	var success = false
 	if root_node.settings['cpu_' + str(current_player)] && player_ap[current_player] > 0:
 		success = ai.gather_available_actions(player_ap[current_player])
+
+	self.hud_controller.update_cpu_progress(player_ap[current_player], ai.ap_for_turn)
 
 	return player_ap[current_player] > 0 && success
 
@@ -411,6 +414,8 @@ func handle_battle(active_field, field):
 
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
 		if (self.root_node.dependency_container.battle_controller.resolve_fight(active_field.object, field.object)):
+		# sound_controller.play_unit_sound(active_field.object, sound_controller.SOUND_ATTACK)
+		# if (battle_controller.resolve_fight(active_field.object, field.object)):
 			self.play_destroy(field)
 			self.destroy_unit(field)
 			self.update_unit(active_field)

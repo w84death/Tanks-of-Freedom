@@ -1,11 +1,169 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="7" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="11" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/map_controller.gd" type="Script"></ext_resource>
 	<ext_resource path="res://maps/underground_tileset.xml" type="TileSet"></ext_resource>
-	<ext_resource path="res://maps/map_tileset.xml" type="TileSet"></ext_resource>
+	<ext_resource path="res://maps/blueprint_terrain_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://maps/action_tiles_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet"></ext_resource>
 	<ext_resource path="res://maps/fog_of_war.xml" type="TileSet"></ext_resource>
+	<resource type="CanvasItemShaderGraph" path="local://1">
+		<dictionary name="_code" shared="false">
+			<string> "fragment" </string>
+			<string> "" </string>
+			<string> "fragment_ofs" </string>
+			<int> 0 </int>
+			<string> "light" </string>
+			<string> "" </string>
+			<string> "light_ofs" </string>
+			<int> 0 </int>
+			<string> "vertex" </string>
+			<string> "" </string>
+			<string> "vertex_ofs" </string>
+			<int> 0 </int>
+		</dictionary>
+		<dictionary name="_data" shared="false">
+			<string> "shaders" </string>
+			<array  len="3" shared="false">
+				<array  len="6" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 250, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+				<array  len="12" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 596, 103 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+					<int> 4 </int>
+					<int> 0 </int>
+					<vector2> 20, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+				<array  len="6" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 250, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="CanvasItemMaterial" path="local://2">
+		<resource name="shader/shader" resource_type="Shader" path="local://1">  </resource>
+		<int name="shader/shading_mode"> 0 </int>
+
+	</resource>
+	<resource type="CanvasItemShaderGraph" path="local://4">
+		<dictionary name="_code" shared="false">
+			<string> "fragment" </string>
+			<string> "vec3 nd1sl2=vec3(UV,0);&#000a;vec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);&#000a;vec3 nd2sl0=rt_default_tex2.rgb;&#000a;float nd2sl1=rt_default_tex2.a;&#000a;vec3 nd4sl0=vec3(0,0,0);&#000a;float nd4sl1=1;&#000a;vec3 nd3sl0;&#000a;{&#000a;&#0009;float base=nd2sl0.x;&#000a;&#0009;float blend=nd4sl0.x;&#000a;&#0009;if (base &gt; 0.5) {&#000a;&#0009;&#0009;nd3sl0.x = 2.0 * base * blend;&#000a;&#0009;} else {&#000a;&#0009;&#0009;nd3sl0.x = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);&#000a;&#0009;}&#000a;}&#000a;{&#000a;&#0009;float base=nd2sl0.y;&#000a;&#0009;float blend=nd4sl0.y;&#000a;&#0009;if (base &gt; 0.5) {&#000a;&#0009;&#0009;nd3sl0.y = 2.0 * base * blend;&#000a;&#0009;} else {&#000a;&#0009;&#0009;nd3sl0.y = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);&#000a;&#0009;}&#000a;}&#000a;{&#000a;&#0009;float base=nd2sl0.z;&#000a;&#0009;float blend=nd4sl0.z;&#000a;&#0009;if (base &gt; 0.5) {&#000a;&#0009;&#0009;nd3sl0.z = 2.0 * base * blend;&#000a;&#0009;} else {&#000a;&#0009;&#0009;nd3sl0.z = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);&#000a;&#0009;}&#000a;}&#000a;COLOR.rgb=nd3sl0;&#000a;COLOR.a=nd4sl1;&#000a;" </string>
+			<string> "fragment_ofs" </string>
+			<int> 0 </int>
+			<string> "light" </string>
+			<string> "" </string>
+			<string> "light_ofs" </string>
+			<int> 0 </int>
+			<string> "vertex" </string>
+			<string> "" </string>
+			<string> "vertex_ofs" </string>
+			<int> 0 </int>
+		</dictionary>
+		<dictionary name="_data" shared="false">
+			<string> "shaders" </string>
+			<array  len="3" shared="false">
+				<array  len="6" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 250, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+				<array  len="30" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 568, 37 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="6" shared="false">
+						<int> 0 </int>
+						<int> 3 </int>
+						<int> 0 </int>
+						<int> 1 </int>
+						<int> 4 </int>
+						<int> 1 </int>
+					</array>
+					<int> 1 </int>
+					<int> 0 </int>
+					<vector2> 89, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+					<int> 2 </int>
+					<int> 32 </int>
+					<vector2> 241, 16 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="3" shared="false">
+						<int> 0 </int>
+						<int> 1 </int>
+						<int> 2 </int>
+					</array>
+					<int> 3 </int>
+					<int> 10 </int>
+					<vector2> 435, -4 </vector2>
+					<int> 4 </int>
+					<nil>  </nil>
+					<array  len="6" shared="false">
+						<int> 0 </int>
+						<int> 2 </int>
+						<int> 0 </int>
+						<int> 1 </int>
+						<int> 4 </int>
+						<int> 0 </int>
+					</array>
+					<int> 4 </int>
+					<int> 3 </int>
+					<vector2> 361, 94 </vector2>
+					<color> 0, 0, 0, 1 </color>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+				<array  len="6" shared="false">
+					<int> 0 </int>
+					<int> 33 </int>
+					<vector2> 250, 20 </vector2>
+					<nil>  </nil>
+					<nil>  </nil>
+					<array  len="0" shared="false">
+					</array>
+				</array>
+			</array>
+		</dictionary>
+
+	</resource>
+	<resource type="CanvasItemMaterial" path="local://5">
+		<resource name="shader/shader" resource_type="Shader" path="local://4">  </resource>
+		<int name="shader/shading_mode"> 0 </int>
+
+	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -13,25 +171,16 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="58">
+			<string_array  len="45">
 				<string> "map" </string>
 				<string> "Control" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
+				<string> "material/material" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
-				<string> "focus_neighbour/left" </string>
-				<string> "focus_neighbour/top" </string>
-				<string> "focus_neighbour/right" </string>
-				<string> "focus_neighbour/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
-				<string> "size_flags/stretch_ratio" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "show_blueprint" </string>
@@ -44,11 +193,7 @@
 				<string> "shake_boundary" </string>
 				<string> "underground" </string>
 				<string> "TileMap" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
 				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "mode" </string>
 				<string> "tile_set" </string>
 				<string> "cell/size" </string>
@@ -76,26 +221,24 @@
 			<string> "node_count" </string>
 			<int> 9 </int>
 			<string> "nodes" </string>
-			<int_array  len="425"> 				-1, -1, 1, 0, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 5, 14, 1, 15, 6, 16, 6, 17, 2, 18, 7, 19, 8, 20, 1, 21, 1, 22, 1, 23, 5, 24, 5, 25, 9, 26, 10, 27, 9, 0, 0, 0, 29, 28, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 14, 34, 1, 35, 3, 36, 15, 37, 16, 38, 17, 39, 18, 40, 6, 41, 19, 42, 1, 43, 5, 44, 2, 45, 12, 46, 3, 47, 3, 48, 20, 19, 21, 0, 0, 0, 29, 49, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 22, 34, 1, 35, 3, 36, 23, 37, 16, 38, 17, 39, 18, 40, 6, 41, 19, 42, 1, 43, 5, 44, 2, 45, 12, 46, 3, 47, 3, 48, 24, 19, 25, 0, 2, 0, 51, 50, -1, 11, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 26, 34, 1, 52, 1, 0, 2, 0, 51, 53, -1, 11, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 27, 34, 1, 52, 1, 0, 2, 0, 29, 54, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 28, 34, 1, 35, 3, 36, 29, 37, 16, 38, 17, 39, 18, 40, 6, 41, 19, 42, 1, 43, 5, 44, 2, 45, 12, 46, 3, 47, 3, 48, 20, 0, 2, 0, 51, 55, -1, 11, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 30, 34, 1, 52, 1, 0, 2, 0, 29, 56, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 31, 34, 1, 35, 3, 36, 32, 37, 16, 38, 17, 39, 18, 40, 6, 41, 19, 42, 1, 43, 5, 44, 2, 45, 12, 46, 3, 47, 3, 48, 20, 0, 0, 0, 29, 57, -1, 24, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 33, 34, 1, 35, 3, 36, 34, 37, 16, 38, 17, 39, 18, 40, 6, 41, 19, 42, 1, 43, 5, 44, 2, 45, 12, 46, 3, 47, 3, 48, 20, 0 </int_array>
+			<int_array  len="265"> 				-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 1, 5, 2, 6, 3, 7, 4, 8, 4, 9, 5, 10, 6, 11, 3, 12, 3, 13, 3, 14, 2, 15, 2, 16, 7, 17, 8, 18, 7, 0, 0, 0, 20, 19, -1, 16, 21, 9, 22, 10, 23, 11, 24, 12, 25, 13, 26, 14, 27, 4, 28, 15, 29, 3, 30, 2, 31, 16, 32, 17, 33, 10, 34, 10, 35, 18, 10, 19, 0, 0, 0, 20, 36, -1, 17, 2, 20, 21, 21, 22, 10, 23, 22, 24, 12, 25, 13, 26, 14, 27, 4, 28, 15, 29, 3, 30, 2, 31, 16, 32, 17, 33, 10, 34, 10, 35, 23, 10, 24, 0, 2, 0, 38, 37, -1, 2, 21, 25, 39, 3, 0, 2, 0, 38, 40, -1, 2, 21, 26, 39, 3, 0, 2, 0, 20, 41, -1, 15, 21, 27, 22, 10, 23, 28, 24, 12, 25, 13, 26, 14, 27, 4, 28, 15, 29, 3, 30, 2, 31, 16, 32, 17, 33, 10, 34, 10, 35, 18, 0, 2, 0, 38, 42, -1, 2, 21, 29, 39, 3, 0, 2, 0, 20, 43, -1, 15, 21, 30, 22, 10, 23, 31, 24, 12, 25, 13, 26, 14, 27, 4, 28, 15, 29, 3, 30, 2, 31, 16, 32, 17, 33, 10, 34, 10, 35, 18, 0, 0, 0, 20, 44, -1, 15, 21, 32, 22, 10, 23, 33, 24, 12, 25, 13, 26, 14, 27, 4, 28, 15, 29, 3, 30, 2, 31, 16, 32, 17, 33, 10, 34, 10, 35, 18, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="35" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
-				<int> 1 </int>
+			<array  len="34" shared="false">
+				<resource  resource_type="CanvasItemMaterial" path="local://2">  </resource>
 				<real> 40 </real>
 				<bool> False </bool>
+				<bool> True </bool>
 				<int> 2 </int>
 				<resource  resource_type="Script" path="res://scripts/map_controller.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -122.033, 54.9256 </vector2>
+							<vector2> -214.03, 48.8677 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -115,7 +258,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 2.707494 </real>
+							<real> 1.796207 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -209,18 +352,6 @@
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 0 </int>
-							<string> "sources" </string>
-							<array  len="4" shared="false">
-								<string> "res://scripts/map_controller.gd" </string>
-								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/workshop_controller.gd" </string>
-								<string> "res://scripts/fog_controller.gd" </string>
-							</array>
-						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
@@ -232,22 +363,23 @@
 				</dictionary>
 				<int> 5 </int>
 				<real> 0.25 </real>
-				<vector2> 0, 0 </vector2>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
 				<int> -200 </int>
+				<int> 1 </int>
 				<resource  resource_type="TileSet" path="res://maps/underground_tileset.xml">  </resource>
 				<vector2> 32, 16 </vector2>
 				<int> 16 </int>
 				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
 				<int> 0 </int>
+				<real> 1 </real>
+				<real> 0 </real>
 				<int_array  len="0"> 					 </int_array>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
+				<resource  resource_type="CanvasItemMaterial" path="local://5">  </resource>
 				<int> -150 </int>
-				<resource  resource_type="TileSet" path="res://maps/map_tileset.xml">  </resource>
+				<resource  resource_type="TileSet" path="res://maps/blueprint_terrain_tileset.xml">  </resource>
 				<int_array  len="8"> 					524295, 1, 524296, 1, 589831, 1, 589832, 1 </int_array>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>

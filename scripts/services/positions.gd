@@ -24,8 +24,8 @@ const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
 const EXTREME_RANGE = 3 # will be not used in the future
-var tiles_lookup_ranges = [0,1,2,3]
-var tiles_building_lookup_ranges = [0,1,2]
+var tiles_lookup_ranges = [1,2,3,4,5,6,7,8] # todo - check this mechanism
+var tiles_building_lookup_ranges = [1,2]
 
 # not changable data
 var buildings
@@ -161,7 +161,7 @@ func prepare_nearby_tiles():
 				# we are skipping current tile
 				if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
 					tiles.append(Vector2(x, y))
-		precalculated_nearby_tiles.insert(distance, tiles)
+		self.precalculated_nearby_tiles.insert(distance, tiles)
 
 func prepare_nearby_tiles_ranges():
 	self.precalculated_nearby_tiles_ranges.insert(0, precalculated_nearby_tiles[0])
@@ -173,6 +173,7 @@ func prepare_nearby_tiles_ranges():
 #get all tiles
 func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
 	var tiles = []
+
 	for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
 		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 

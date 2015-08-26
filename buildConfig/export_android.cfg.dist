@@ -216,41 +216,6 @@ release/author_id="Cert. ID"
 version/code=1
 version/name="1.0"
 
-[platform:HTML5]
-
-browser/enable_run=false
-custom_package/debug=""
-custom_package/release=""
-options/memory_size=3
-
-[platform:Linux X11]
-
-binary/64_bits=true
-custom_binary/debug=""
-custom_binary/release=""
-resources/pack_mode=0
-
-[platform:Mac OSX]
-
-application/64_bits=true
-application/copyright=""
-application/icon=""
-application/identifier="com.godot.macgame"
-application/info="This Game is Nice"
-application/name=""
-application/short_version="1.0"
-application/signature="godotmacgame"
-application/version="1.0"
-custom_package/debug=""
-custom_package/release=""
-display/high_res=false
-
-[platform:Windows Desktop]
-
-binary/64_bits=true
-custom_binary/debug=""
-custom_binary/release=""
-resources/pack_mode=0
 
 [script]
 

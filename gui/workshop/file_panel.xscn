@@ -9,7 +9,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/workshop/icons.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/workshop/icons.png" type="Texture"></ext_resource>
 	<resource type="Theme" path="local://0">
 		<resource name="default_font"></resource>
 	</resource>
@@ -379,7 +379,7 @@
 				<real> 139 </real>
 				<string> "LOAD" </string>
 				<vector2> 0, -20 </vector2>
-				<resource  resource_type="Texture" path="res://assets/workshop/icons.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/workshop/icons.png">  </resource>
 				<int> 3 </int>
 				<node_path> ".." </node_path>
 				<resource  resource_type="Animation" path="local://1">  </resource>

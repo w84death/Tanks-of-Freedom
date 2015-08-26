@@ -19,7 +19,7 @@ var maps = [
         'label': 'Riots',
         'player': 1,
         'file': preload("res://maps/campaign/administration_riot.gd").new(),
-        'description': 'Current government came to power by attacking our dear leader! And they dare to call us the rebels! New authorities are still weak. We should use this opportunity to take over key administration offices. Our forces are stanging by and awaiting your orders!'
+        'description': 'Current government came to power by attacking our dear leader! And they dare to call us the rebels! New authorities are still weak. We should use this opportunity to take over key administration offices. Our forces are standing by and awaiting your orders!'
     },
     {
         'label': 'Base Assault',

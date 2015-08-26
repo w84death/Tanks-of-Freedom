@@ -7,12 +7,17 @@ func append_action(action, score):
 	actions[score] = action
 
 func execute_best_action():
-	var size = actions.size()
-	if (size > 0):
-		var action = actions[self.__get_max_key(actions.keys())]
+	var action = self.get_best_action()
+	if action != null:
 		return action.execute()
 
 	return false
+
+func get_best_action():
+	var size = actions.size()
+	if (size > 0):
+		return actions[self.__get_max_key(actions.keys())]
+	return null
 
 func clear():
 	actions.clear()

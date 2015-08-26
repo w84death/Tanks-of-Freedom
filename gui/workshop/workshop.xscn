@@ -14,25 +14,15 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="45">
+			<string_array  len="32">
 				<string> "workshop" </string>
 				<string> "Control" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
-				<string> "focus_neighbour/left" </string>
-				<string> "focus_neighbour/top" </string>
-				<string> "focus_neighbour/right" </string>
-				<string> "focus_neighbour/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
-				<string> "size_flags/stretch_ratio" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "blueprint" </string>
@@ -45,13 +35,10 @@
 				<string> "margin/bottom" </string>
 				<string> "scale" </string>
 				<string> "Node2D" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "map" </string>
+				<string> "_import_path" </string>
 				<string> "toolbox_panel" </string>
+				<string> "visibility/visible" </string>
 				<string> "toolbox" </string>
 				<string> "building_blocks_panel" </string>
 				<string> "building_blocks" </string>
@@ -64,25 +51,23 @@
 			<string> "node_count" </string>
 			<int> 20 </int>
 			<string> "nodes" </string>
-			<int_array  len="664"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 21, 20, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 19, 8, 0, 1, 0, 1, 23, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 9, 25, 10, 26, 9, 27, 10, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 2, 0, 29, 28, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 30, 11, 31, 12, 32, 13, 33, 14, 34, 1, 0, 3, 0, 1, 35, 15, 6, 2, 0, 24, 16, 25, 17, 26, 18, 27, 19, 19, 20, 0, 0, 0, 21, 36, -1, 18, 2, 0, 3, 4, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 19, 21, 0, 5, 0, 1, 23, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 9, 25, 10, 26, 9, 27, 10, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 6, 0, 1, 37, 22, 4, 2, 0, 25, 23, 27, 23, 19, 24, 0, 0, 0, 21, 38, -1, 18, 2, 0, 3, 4, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 19, 25, 0, 8, 0, 1, 23, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 9, 25, 10, 26, 9, 27, 10, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 9, 0, 1, 39, 26, 4, 2, 0, 25, 23, 27, 23, 19, 27, 0, 0, 0, 21, 40, -1, 18, 2, 0, 3, 4, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 19, 28, 0, 11, 0, 1, 23, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 9, 25, 10, 26, 9, 27, 10, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 12, 0, 1, 40, 29, 2, 2, 0, 19, 30, 0, 0, 0, 21, 41, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 19, 31, 0, 14, 0, 1, 23, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 9, 26, 9, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 15, 0, 1, 42, 32, 4, 2, 0, 25, 33, 27, 33, 19, 34, 0, 0, 0, 21, 43, -1, 19, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 44, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 19, 35, 0, 17, 0, 1, 23, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 9, 26, 9, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 18, 0, 1, 43, 36, 2, 2, 0, 19, 37, 0 </int_array>
+			<int_array  len="390"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 9, 6, 0, 1, 0, 1, 13, -1, 8, 14, 7, 15, 8, 16, 7, 17, 8, 4, 1, 5, 2, 6, 3, 7, 3, 0, 1, 0, 19, 18, -1, 0, 0, 3, 0, 1, 20, 9, 6, 21, 10, 14, 11, 15, 12, 16, 13, 17, 14, 9, 15, 0, 0, 0, 11, 22, -1, 9, 23, 1, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 9, 16, 0, 5, 0, 1, 13, -1, 8, 14, 7, 15, 8, 16, 7, 17, 8, 4, 1, 5, 2, 6, 3, 7, 3, 0, 6, 0, 1, 24, 17, 4, 21, 10, 15, 18, 17, 18, 9, 19, 0, 0, 0, 11, 25, -1, 9, 23, 1, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 9, 20, 0, 8, 0, 1, 13, -1, 8, 14, 7, 15, 8, 16, 7, 17, 8, 4, 1, 5, 2, 6, 3, 7, 3, 0, 9, 0, 1, 26, 21, 4, 21, 10, 15, 18, 17, 18, 9, 22, 0, 0, 0, 11, 27, -1, 9, 23, 1, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 9, 23, 0, 11, 0, 1, 13, -1, 8, 14, 7, 15, 8, 16, 7, 17, 8, 4, 1, 5, 2, 6, 3, 7, 3, 0, 12, 0, 1, 27, 24, 2, 21, 10, 9, 25, 0, 0, 0, 11, 28, -1, 7, 2, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 9, 26, 0, 14, 0, 1, 13, -1, 6, 14, 7, 16, 7, 4, 1, 5, 2, 6, 3, 7, 3, 0, 15, 0, 1, 29, 27, 4, 21, 10, 15, 28, 17, 28, 9, 29, 0, 0, 0, 11, 30, -1, 9, 31, 0, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 9, 30, 0, 17, 0, 1, 13, -1, 6, 14, 7, 16, 7, 4, 1, 5, 2, 6, 3, 7, 3, 0, 18, 0, 1, 30, 31, 2, 21, 10, 9, 32, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="38" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
+			<array  len="33" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
+				<bool> True </bool>
 				<int> 2 </int>
 				<resource  resource_type="Script" path="res://scripts/workshop_controller.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -204.156, -474.048 </vector2>
+							<vector2> 132.889, 4.07632 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -102,7 +87,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.384204 </real>
+							<real> 0.967246 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -196,27 +181,6 @@
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 12 </int>
-							<string> "sources" </string>
-							<array  len="13" shared="false">
-								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/message.gd" </string>
-								<string> "res://scripts/workshop_controller.gd" </string>
-								<string> "res://scripts/map_controller.gd" </string>
-								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/abstract_map.gd" </string>
-								<string> "res://scripts/battle_stats.gd" </string>
-								<string> "res://scripts/position_controller.gd" </string>
-								<string> "res://scripts/abstract_field.gd" </string>
-								<string> "res://scripts/units/soldier.gd" </string>
-								<string> "res://scripts/units/helicopter.gd" </string>
-								<string> "res://scripts/ai/pathfinding/a_star_pathfinding.gd" </string>
-								<string> "res://scripts/terrain.gd" </string>
-							</array>
-						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
@@ -234,11 +198,8 @@
 				</dictionary>
 				<real> 640 </real>
 				<real> 360 </real>
-				<vector2> 0, 0 </vector2>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
 				<resource  resource_type="PackedScene" path="res://maps/workshop.xscn">  </resource>
+				<node_path> "" </node_path>
 				<real> -7 </real>
 				<real> -6 </real>
 				<real> 33 </real>
@@ -800,8 +761,6 @@
 					<string> "__editor_show_subtree" </string>
 					<bool> True </bool>
 					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<dictionary  shared="false">

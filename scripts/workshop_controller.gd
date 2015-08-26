@@ -18,7 +18,7 @@ var hud_message_box_message
 
 var toolset_active_page = 0
 var tool_type = "terrain"
-var brush_type = 1
+var brush_type = 0
 
 
 var restore_file_name = "restore_map"
@@ -33,9 +33,10 @@ var paint_count = 0
 var autosave_after = 10
 var painting_motion = false
 var movement_mode = true
+var tileset
 
 var settings = {
-	fill = [4,6,8,12,16,20,24,32,48,64],
+	fill = [8,12,16,20,24,32],
 	fill_selected = [0,0],
 }
 
@@ -43,19 +44,17 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 func init_gui():
-	map = get_node("blueprint/center/scale/map")
+	map = get_node("blueprint/scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
 
-	game_scale = get_node("blueprint/center/scale")
+	game_scale = get_node("blueprint/scale")
 
 	# message
 	hud_message = self.get_node("message")
 	hud_message_box = hud_message.get_node("center/message")
 	hud_message_box_button = hud_message_box.get_node("button")
 	hud_message_box_button.connect("pressed", self, "close_message")
-
-	self.show_message("Welcome!",["This is workshop. A place to create awesome maps.","Keep in mind that this tool is still in developement and may contain nasty bugs."])
 	self.load_map(restore_file_name)
 
 func add_action(params):
@@ -86,41 +85,36 @@ func undo_last_action():
 
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
-	self.show_message("Toolbox", ["Terrain filled. Dimmension:" + str(settings.fill[settings.fill_selected[0]]) + "x" + str(settings.fill[settings.fill_selected[1]])])
+	self.center_camera()
 
 func toolbox_clear(layer):
 	if layer == 0:
 		self.map.clear_layer(0)
-		self.show_message("Toolbox", ["Terrain and units layer cleared!"])
 	if layer == 1:
 		self.map.clear_layer(1)
-		self.show_message("Toolbox", ["Units layer cleared!"])
 
 func play_map():
-	self.save_map(restore_file_name)
+	self.save_map(self.restore_file_name)
 	self.is_working = false
 	self.is_suspended = true
-	root.load_map("workshop", restore_file_name)
-	root.menu.hide_workshop()
-	root.toggle_menu()
+	self.root.load_map("workshop", self.restore_file_name)
+	self.root.menu.hide_workshop()
+	self.root.toggle_menu()
+	self.root.dependency_container.match_state.set_workshop_map()
 
 func save_map(name, input = false):
 	if input:
 		name = name.get_text()
-	if map.save_map(name):
-		self.show_message("Map saved", ["Success","File name: "+str(name)])
-	else:
+	if not map.save_map(name):
 		self.show_message("File error", ["Failure!","File name: "+str(name)])
 
 func load_map(name, input = false):
 	if input:
 		name = name.get_text()
-	if map.load_map(name):
-		self.show_message("Map loaded", ["Success","File name: "+str(name)])
-	else:
+	if not map.load_map(name):
 		self.show_message("File not found", ["Failure!","File name: "+str(name)])
 
-func paint(position, tool_type = null,brush_type = null, undo_action = false):
+func paint(position, tool_type = null, brush_type = null, undo_action = false):
 	if hud_message.is_visible():
 		return false
 
@@ -146,12 +140,11 @@ func paint(position, tool_type = null,brush_type = null, undo_action = false):
 
 		if tool_type == "units":
 			if units.get_cell(position.x,position.y) != brush_type:
-				if terrain.get_cell(position.x, position.y) in [1,13,14,15,16,17,18]:
+				if terrain.get_cell(position.x, position.y) in [self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN]:
 					if not undo_action:
 						add_action({position=Vector2(position.x,position.y),tool_type="units"})
 					units.set_cell(position.x,position.y,brush_type)
 				else:
-					self.show_message("Invalid field", ["Unit can be placed only on land, river and roads."])
 					return false
 	units.raise()
 	selector.raise()
@@ -159,6 +152,7 @@ func paint(position, tool_type = null,brush_type = null, undo_action = false):
 
 func init(root):
 	self.root = root
+	self.tileset = self.root.dependency_container.map_tiles
 	terrain.add_child(selector)
 	map.set_default_zoom()
 	game_scale.set_scale(map.scale)
@@ -183,15 +177,25 @@ func _input(event):
 		if (event.type == InputEvent.MOUSE_MOTION):
 			painting_motion = true
 
-		if painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
-			self.paint(selector_position)
 
-	if Input.is_action_pressed('ui_cancel'):
+		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
+			map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
+			var position = terrain.map_to_world(selector_position)
+			position.x = (position.x + map_pos.x) * map.scale.x
+			position.y = (position.y + map_pos.y) * map.scale.y
+			if not self.root.dependency_container.workshop_dead_zone.is_dead_zone(position.x, position.y):
+				self.paint(selector_position)
+
+		if event.type == InputEvent.KEY:
+			if event.scancode == KEY_Z && event.pressed:
+				self.undo_last_action()
+
+	if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded:
 		self.toggle_menu()
 
 func toggle_menu():
 	if not self.is_working:
-		print('skip')
+		#print('skip')
 		return
 
 	if self.is_hidden():
@@ -207,6 +211,13 @@ func show_message(title, msg):
 
 func close_message():
 	self.hud_message.hide()
+
+func center_camera():
+	self.map.move_to_map(Vector2(self.map.MAP_MAX_X / 2, self.map.MAP_MAX_Y / 2))
+
+func show():
+	self.center_camera()
+	.show()
 
 func _ready():
 	init_gui()

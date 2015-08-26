@@ -1,6 +1,6 @@
 extends Control
 
-var version_name = "Version 0.3.6-BETA"
+var version_name = "Version 0.3.7-BETA"
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
@@ -24,6 +24,7 @@ var ai_timer
 var dependency_container = preload('res://scripts/dependency_container.gd').new()
 
 var map_template = preload('res://maps/workshop.xscn')
+var main_tileset = preload("res://maps/map_tileset.xml")
 
 var settings = {
 	'is_ok' : true,
@@ -69,9 +70,12 @@ func _input(event):
 			# MOUSE SELECT
 			if (event.type == InputEvent.MOUSE_BUTTON):
 				if (event.pressed and event.button_index == BUTTON_LEFT):
+
 					if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
-						action_controller.handle_action(selector_position)
-						action_controller.post_handle_action()
+						var position = current_map_terrain.map_to_world(selector_position)
+						if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y):
+							action_controller.handle_action(selector_position)
+							action_controller.post_handle_action()
 
 		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
@@ -79,7 +83,7 @@ func _input(event):
 			else:
 				hud.show()
 
-	if Input.is_action_pressed('ui_cancel'):
+	if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
 		self.toggle_menu()
 
 func start_ai_timer():
@@ -90,8 +94,10 @@ func start_ai_timer():
 func load_map(template_name, workshop_file_name = false):
 	var human_player = 'cpu_0'
 	self.unload_map()
+	self.menu.hide_background_map()
 	current_map_name = template_name
 	current_map = map_template.instance()
+	current_map.get_node('terrain').set_tileset(self.main_tileset)
 	current_map.campaign = dependency_container.campaign
 	self.workshop_file_name = workshop_file_name
 	if workshop_file_name:
@@ -159,6 +165,7 @@ func unload_map():
 	ai_timer.reset_state()
 	hud_controller = null
 	action_controller = null
+	self.menu.show_background_map()
 
 func toggle_menu():
 	if is_map_loaded:
@@ -223,9 +230,9 @@ func read_settings_from_file():
 		if self.check_file_data(check):
 			for option in check:
 				self.settings[option] = check[option]
-			print('ToF: settings loaded from file')
+			#print('ToF: settings loaded from file')
 		else:
-			print('ToF: filecheck filed! making new file with default settings')
+			#print('ToF: filecheck filed! making new file with default settings')
 			self.write_settings_to_file()
 		settings_file.close()
 	else:
@@ -241,7 +248,7 @@ func check_file_data(data):
 func write_settings_to_file():
 	settings_file.open("user://settings.tof",File.WRITE)
 	settings_file.store_var(self.settings)
-	print('ToF: settings saved to file')
+	#print('ToF: settings saved to file')
 	settings_file.close()
 	return
 

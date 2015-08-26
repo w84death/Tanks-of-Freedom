@@ -15,32 +15,44 @@ var workshop = preload("res://gui/workshop/workshop.xscn").instance()
 var action_map = preload('res://scripts/action_map.gd').new()
 var battle_controller = preload('res://scripts/battle_controller.gd').new()
 var movement_controller = preload('res://scripts/movement_controller.gd').new()
+var ap_gain = preload("res://gui/hud/ap_gain.gd").new()
+var map_tiles = preload("res://scripts/maps/map_tiles.gd").new()
 var positions
+var migrations = preload("res://scripts/migrations/migrations.gd").new()
+var timers = preload("res://scripts/timers.gd").new()
+var menu_background_map = preload("res://maps/menu_map_background.gd").new()
 
 func init_root(root_node):
-    self.root = root_node
-    self.positions = preload("services/positions.gd").new(self.root)
-    self.positions.prepare_nearby_tiles()
-    self.positions.prepare_nearby_tiles_ranges()
-    self.demo_mode.init_root(root_node)
-    self.campaign.load_campaign_progress()
-    self.camera.abstract_map = self.abstract_map
-    self.camera.init_root(root)
-    self.controllers.campaign_menu_controller.init_root(root_node)
-    self.controllers.hud_panel_controller.init_root(root_node)
-    self.controllers.workshop_gui_controller.init_root(root_node)
-    self.workshop.init(self.root)
-    self.hud_dead_zone.init_root(root_node)
-    self.workshop_dead_zone.init_root(root_node)
-    self.action_map.init_root(root_node)
-    self.map_list.init()
+	self.root = root_node
+	self.positions = preload("services/positions.gd").new(self.root)
+	self.positions.prepare_nearby_tiles()
+	self.positions.prepare_nearby_tiles_ranges()
+
+	self.demo_mode.init_root(root_node)
+	self.campaign.load_campaign_progress()
+	self.camera.abstract_map = self.abstract_map
+	self.camera.init_root(root)
+	self.controllers.campaign_menu_controller.init_root(root_node)
+	self.controllers.hud_panel_controller.init_root(root_node)
+	self.controllers.workshop_gui_controller.init_root(root_node)
+	self.workshop.init(self.root)
+	self.hud_dead_zone.init_root(root_node)
+	self.workshop_dead_zone.init_root(root_node)
+	self.action_map.init_root(root_node)
+	self.ap_gain.init_root(root_node)
+	self.camera.workshop_camera = self.workshop.game_scale
+	self.camera.workshop_map = self.workshop.map
+	self.camera.apply_default_camera()
+	self.map_list.init()
+	self.migrations.init_bag(self)
+	self.timers._init_bag(self)
 
 
 func array_diff(array_one, array_two):
-    var values =[]
+	var values =[]
 
-    for val in array_one:
-        if array_two.find(val) == -1:
-            values.append(val)
+	for val in array_one:
+		if array_two.find(val) == -1:
+			values.append(val)
 
-    return values
+	return values

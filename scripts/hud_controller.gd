@@ -13,6 +13,7 @@ var hud_message_card_button
 
 var cinematic_camera
 var cinematic_camera_anim
+var cinematic_progress
 var menu_button
 
 var game_card
@@ -24,8 +25,10 @@ var hud_end_game_total_time
 var hud_end_game_stats_blue
 var hud_end_game_stats_red
 var hud_end_game_missions_button
+var hud_end_game_missions_button_label
 var hud_end_game_restart_button
 var hud_end_game_menu_button
+var hud_end_game_missions_button_action
 
 var hud_locked = false
 
@@ -43,16 +46,17 @@ func init_root(root, action_controller_object, hud):
 	# HUD END GAME
 	#
 	hud_end_game = hud.get_node("end_game")
-	hud_end_game_controls = hud_end_game.get_node("control/controls")
+	hud_end_game_controls = hud_end_game.get_node("center/controls")
 	hud_end_game_total_turns = hud_end_game_controls.get_node("labels/total_turns")
 	hud_end_game_total_time = hud_end_game_controls.get_node("labels/total_time")
 	hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
 	hud_end_game_stats_red = hud_end_game_controls.get_node("red")
 	hud_end_game_missions_button = hud_end_game_controls.get_node("campaign")
+	hud_end_game_missions_button_label = hud_end_game_missions_button.get_node("Label")
 	hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
 	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
 
-	hud_end_game_missions_button.connect("pressed", root, "show_campaign")
+	hud_end_game_missions_button.connect("pressed", self, "hud_end_game_missions_button_pressed")
 	hud_end_game_restart_button.connect("pressed", root, "restart_map")
 	hud_end_game_menu_button.connect("pressed", root, "toggle_menu")
 
@@ -71,6 +75,7 @@ func init_root(root, action_controller_object, hud):
 	#
 	cinematic_camera = hud.get_node("cinematic_camera")
 	cinematic_camera_anim = cinematic_camera.get_node("anim")
+	cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
 
 	self.menu_button = hud.get_node("top_panel/center/game_card/escape")
 	self.menu_button.connect("pressed", root, "toggle_menu")
@@ -142,11 +147,37 @@ func warn_end_turn():
 	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_flash()
 
 func show_win(player, stats, turns):
+	self.adjust_missions_button()
 	self.lock_hud()
-	self.hide_map()
+	#self.hide_map()
 	self.game_card.hide()
 	self.fill_end_game_stats(stats,turns)
 	self.hud_end_game.show()
+
+func adjust_missions_button():
+	if self.root_node.dependency_container.match_state.is_campaign():
+		self.hud_end_game_missions_button_label.set_text("CAMPAIGN")
+		self.hud_end_game_missions_button_action = "show_campaign"
+	elif self.root_node.dependency_container.match_state.is_workshop():
+		self.hud_end_game_missions_button_label.set_text("WORKSHOP")
+		self.hud_end_game_missions_button_action = "show_workshop"
+	else:
+		self.hud_end_game_missions_button_label.set_text("SKIRMISH")
+		self.hud_end_game_missions_button_action = "show_missions"
+
+func hud_end_game_missions_button_pressed():
+	self.call(self.hud_end_game_missions_button_action)
+
+func show_campaign():
+	self.root_node.toggle_menu()
+	self.root_node.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+
+func show_missions():
+	self.root_node.toggle_menu()
+	self.root_node.dependency_container.controllers.menu_controller.show_maps_menu()
+
+func show_workshop():
+	self.root_node.dependency_container.controllers.menu_controller.enter_workshop()
 
 func show_map():
 	self.active_map.show()
@@ -194,3 +225,15 @@ func show_cinematic_camera():
 func hide_cinematic_camera():
 	self.cinematic_camera_anim.play("off")
 	self.cinematic_camera.hide()
+
+func update_cpu_progress(current_ap, overall_ap):
+	if overall_ap == 0 || current_ap > overall_ap:
+		return
+
+	var percent = (float(current_ap) / float(overall_ap)) * 100;
+	percent = int(percent)
+	percent = (percent - (percent % 10)) / 10
+	percent = 10 - percent
+	if percent > 9:
+		percent = 9
+	self.cinematic_progress.set_frame(percent)

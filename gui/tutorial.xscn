@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="22" version="1.0" version_name="Godot Engine v1.0.stable.custom_build">
-	<ext_resource path="res://assets/tof_logo.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/branding/tof_logo.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/animations/soldier_blue_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/cloud.xscn" type="PackedScene"></ext_resource>
@@ -15,7 +15,7 @@
 	<ext_resource path="res://assets/animations/tank_blue_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/icons.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/tutorial.gd" type="Script"></ext_resource>
-	<ext_resource path="res://assets/buildings.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/buildings/military.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
@@ -386,7 +386,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<vector2> 2.99998, -144 </vector2>
-				<resource  resource_type="Texture" path="res://assets/tof_logo.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/branding/tof_logo.png">  </resource>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
@@ -581,7 +581,7 @@
 				<vector2> -145, 78 </vector2>
 				<resource  resource_type="Texture" path="res://assets/animations/soldier_blue_0.png">  </resource>
 				<vector2> -13, 64 </vector2>
-				<resource  resource_type="Texture" path="res://assets/buildings.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/buildings/military.png">  </resource>
 				<vector2> 156, 65 </vector2>
 				<vector2> -90, 66 </vector2>
 				<resource  resource_type="Texture" path="res://assets/hud/icons.png">  </resource>

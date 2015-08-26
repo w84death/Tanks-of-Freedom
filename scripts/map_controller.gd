@@ -38,10 +38,12 @@ var current_player = 0
 var camera_follow = true
 
 const MAP_STEP = 0.01
-const NEAR_THRESHOLD = 0.2
-const PAN_THRESHOLD = 60
+const NEAR_THRESHOLD = 20
+const NEAR_SCREEN_THRESHOLD = 0.2
+const PAN_THRESHOLD = 20
 const GEN_GRASS = 6
 const GEN_FLOWERS = 3
+const GEN_STONES = 6
 
 # this shoudl be in main settings (see abstract_map)
 const MAP_MAX_X = 40
@@ -50,18 +52,11 @@ const MAP_MAX_Y = 40
 var map_file = File.new()
 var campaign
 
+var tileset
+var map_movable = preload('res://terrain/terrain_movable.xscn')
+var map_non_movable = preload('res://terrain/terrain_non-movable.xscn')
 var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
-var map_grass = [
-	preload('res://terrain/land/grass_1.xscn'),
-	preload('res://terrain/land/grass_2.xscn')]
-var map_forest = [
-	preload('res://terrain/forest/forest_1.xscn'),
-	preload('res://terrain/forest/forest_2.xscn'),
-	preload('res://terrain/forest/forest_3.xscn'),
-	preload('res://terrain/forest/forest_4.xscn'),
-	preload('res://terrain/forest/forest_5.xscn'),
-	preload('res://terrain/forest/forest_6.xscn')]
 var map_city_small = [
 	preload('res://terrain/city/city_small_1.xscn'),
 	preload('res://terrain/city/city_small_2.xscn'),
@@ -74,21 +69,7 @@ var map_city_big = [
 	preload('res://terrain/city/city_big_2.xscn'),
 	preload('res://terrain/city/city_big_3.xscn'),
 	preload('res://terrain/city/city_big_4.xscn')]
-var map_mountain = [
-	preload('res://terrain/mountains/mountain_1.xscn'),
-	preload('res://terrain/mountains/mountain_2.xscn'),
-	preload('res://terrain/mountains/mountain_3.xscn'),
-	preload('res://terrain/mountains/mountain_4.xscn')]
 var map_statue = preload('res://terrain/city/city_statue.xscn')
-var map_flowers = [
-	preload('res://terrain/land/flowers_1.xscn'),
-	preload('res://terrain/land/flowers_2.xscn'),
-	preload('res://terrain/land/flowers_3.xscn'),
-	preload('res://terrain/land/flowers_4.xscn'),
-	preload('res://terrain/land/log.xscn'),
-	preload('res://terrain/land/flowers_5.xscn'),
-	preload('res://terrain/land/flowers_6.xscn'),
-	preload('res://terrain/land/flowers_7.xscn')]
 var map_buildings = [
 	preload('res://buildings/bunker_blue.xscn'),
 	preload('res://buildings/bunker_red.xscn'),
@@ -105,13 +86,22 @@ var map_units = [
 	preload('res://units/tank_red.xscn'),
 	preload('res://units/helicopter_red.xscn')]
 
+var is_dead = false
+var do_cinematic_pan = false
+var should_do_awesome_explosions = false
+var awesome_explosions_interval = 10
+var awesome_explosions_interval_counter = 0
+
 func _input(event):
+	if self.is_dead:
+		return
+
 	pos = terrain.get_pos()
 	if event.type == InputEvent.MOUSE_BUTTON:
 		if event.button_index == BUTTON_LEFT:
-			if not show_blueprint || self.root.dependency_container.workshop.movement_mode:
+			if not show_blueprint || (self.root.dependency_container.workshop.movement_mode && self.root.dependency_container.workshop.is_working && not self.root.dependency_container.workshop.is_suspended):
 				mouse_dragging = event.pressed
-		if event.button_index == BUTTON_RIGHT && show_blueprint:
+		if event.button_index == BUTTON_RIGHT && show_blueprint && self.root.dependency_container.workshop.is_working && not self.root.dependency_container.workshop.is_suspended:
 			mouse_dragging = event.pressed
 
 	if (event.type == InputEvent.MOUSE_MOTION):
@@ -121,12 +111,13 @@ func _input(event):
 
 			pos.x = pos.x + event.relative_x / scale.x
 			pos.y = pos.y + event.relative_y / scale.y
-			target = pos
-			self.sX = pos.x
-			self.sY = pos.y
-			underground.set_pos(target)
-			terrain.set_pos(target)
-			fog_controller.move_cloud(pos)
+			self.set_map_pos_global(pos)
+
+	if not show_blueprint && event.type == InputEvent.KEY:
+		if event.scancode == KEY_P:
+			self.do_cinematic_pan = event.pressed
+		if event.scancode == KEY_E && event.pressed:
+			self.should_do_awesome_explosions = not self.should_do_awesome_explosions
 
 func __do_panning(diff_x, diff_y):
 	if diff_x > -PAN_THRESHOLD && diff_x < PAN_THRESHOLD && diff_y > -PAN_THRESHOLD && diff_y < PAN_THRESHOLD:
@@ -142,7 +133,6 @@ func _process(delta):
 			var diff_y = target.y - self.sY
 
 			panning = self.__do_panning(diff_x, diff_y)
-
 			if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
 				target = pos
 			else:
@@ -158,9 +148,55 @@ func _process(delta):
 	else:
 		panning = false
 
+	if self.do_cinematic_pan:
+		self.do_awesome_cinematic_pan()
+		if self.awesome_explosions_interval_counter == self.awesome_explosions_interval:
+			self.do_awesome_random_explosions()
+			self.awesome_explosions_interval_counter = 0
+		else:
+			self.awesome_explosions_interval_counter += 1
+
+func do_awesome_cinematic_pan():
+	self.set_map_pos_global(Vector2(self.sX - 1, self.sY))
+
+func do_awesome_random_explosions():
+	if not self.should_do_awesome_explosions:
+		return
+	var root_tree = self.root.get_tree()
+	var all_units = root_tree.get_nodes_in_group("units")
+	if all_units.size() == 0:
+		return
+	randomize()
+	var unit = all_units[randi() % all_units.size()]
+	if unit.die:
+		return
+	var stats = unit.get_stats()
+	stats.life -= 5
+	unit.set_stats(stats)
+	if stats.life < 0:
+		var field = self.root.dependency_container.abstract_map.get_field(unit.get_pos_map())
+		self.root.dependency_container.controllers.action_controller.play_destroy(field)
+		self.root.dependency_container.controllers.action_controller.destroy_unit(field)
+		self.root.dependency_container.controllers.action_controller.collateral_damage(unit.get_pos_map())
+	else:
+		unit.show_explosion()
+
 func move_to(target):
 	if not mouse_dragging:
 		self.target = target;
+
+func set_map_pos_global(position):
+	self.target = position
+	self.sX = position.x
+	self.sY = position.y
+	self.underground.set_pos(position)
+	self.terrain.set_pos(position)
+	self.fog_controller.move_cloud(position)
+
+func set_map_pos(position):
+	self.game_size = self.root.get_size()
+	position = self.terrain.map_to_world(position*Vector2(-1,-1)) + Vector2(self.game_size.x/(2*self.scale.x), self.game_size.y/(2*self.scale.y))
+	self.set_map_pos_global(position)
 
 func move_to_map(target):
 	if not root.settings['camera_follow']:
@@ -174,12 +210,13 @@ func move_to_map(target):
 		var target_position = terrain.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
-		var near_x = game_size.x * (NEAR_THRESHOLD / scale.x)
-		var near_y = game_size.y * (NEAR_THRESHOLD / scale.y)
+		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD / scale.x)
+		var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD / scale.y)
 
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
 			return
 		self.target = target_position
+		self.panning = true
 
 func shake_camera():
 	if root.settings['shake_enabled'] and not mouse_dragging:
@@ -217,14 +254,10 @@ func generate_map():
 	randomize()
 
 	#map elements count
-	var grass_elements_count = map_grass.size()
-	var flowers_elements_count = map_flowers.size()
-	var forest_elements_count = map_forest.size()
-	var mountain_elements_count = map_mountain.size()
 	var city_small_elements_count = map_city_small.size()
 	var city_big_elements_count = map_city_big.size()
 	var neigbours = 0
-	
+
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 
@@ -235,32 +268,33 @@ func generate_map():
 			else:
 				self.generate_wave(x, y)
 
-			
-			if terrain_cell == 1:
+
+			if terrain_cell == self.tileset.TERRAIN_PLAIN or terrain_cell == self.tileset.TERRAIN_DIRT:
 				# bridges
-				neigbours = 0
-				if terrain.get_cell(x, y-1) > 0:
-					neigbours += 2
-				if terrain.get_cell(x+1, y) > 0:
-					neigbours += 4
-				if terrain.get_cell(x, y+1) > 0:
-					neigbours += 8
-				if terrain.get_cell(x-1, y) > 0:
-					neigbours += 16
-				
+				neigbours = count_neighbours_in_binary(x, y, [-1])
+
 				if neigbours == 10:
-					cells_to_change.append({x=x, y=y, type=56})
-					temp = null
-				elif neigbours == 20:
 					cells_to_change.append({x=x, y=y, type=55})
 					temp = null
-				else:
+				elif neigbours == 20:
+					cells_to_change.append({x=x, y=y, type=56})
+					temp = null
+				elif not terrain_cell == self.tileset.TERRAIN_DIRT:
+					# plain
+					cells_to_change.append({x=x, y=y, type=1})
 					# grass, flowers, log
 					if ( randi() % 10 ) <= GEN_GRASS:
-						temp = map_grass[randi() % grass_elements_count].instance()
+						temp = map_movable.instance()
+						temp.set_frame(randi()%2)
 					if ( randi() % 10 ) <= GEN_FLOWERS:
-						temp2 = map_flowers[randi() % flowers_elements_count].instance()
-
+						temp2 = map_movable.instance()
+						temp2.set_frame(2 + (randi()%7))
+				else:
+					# dirt
+					cells_to_change.append({x=x, y=y, type=0})
+					if ( randi() % 10 ) <= GEN_STONES:
+						temp = map_movable.instance()
+						temp.set_frame(16 + (randi()%8))
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x, y)))
 				map_layer_back.add_child(temp)
@@ -271,67 +305,102 @@ func generate_map():
 				temp2 = null
 
 			# forest
-			if terrain_cell == 2:
-				temp = map_forest[randi() % forest_elements_count].instance()
+			if terrain_cell == self.tileset.TERRAIN_FOREST:
+				temp = map_non_movable.instance()
+				temp.set_frame(randi()%5)
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# mountains
-			if terrain_cell == 3:
-				temp = map_mountain[randi() % mountain_elements_count].instance()
+			if terrain_cell == self.tileset.TERRAIN_MOUNTAINS:
+				temp = map_non_movable.instance()
+				temp.set_frame(8 + (randi()%4))
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# city
-			if terrain_cell == 4:
+			if terrain_cell == self.tileset.TERRAIN_CITY || terrain_cell == self.tileset.TERRAIN_CITY_DESTROYED:
 				# have road near or have less than 5 neighbours
-				if count_neighbours(x,y,[14,15,16,17,18]) > 0 or count_neighbours(x,y,[4]) < 5:
+				if count_neighbours(x,y,[self.tileset.TERRAIN_ROAD,self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_RIVER]) > 0 or count_neighbours(x,y,[self.tileset.TERRAIN_CITY]) < 5:
 					temp = map_city_small[randi() % city_small_elements_count].instance()
 				else:
 					# no roads and not alone
 					temp = map_city_big[randi() % city_big_elements_count].instance()
+				if terrain_cell == self.tileset.TERRAIN_CITY_DESTROYED:
+					temp.set_damage()
 
 			# special buildings
-			if terrain_cell == 5:
+			if terrain_cell == self.tileset.TERRAIN_STATUE:
 				temp = map_statue.instance()
 
+			if terrain_cell == self.tileset.TERRAIN_SPAWN:
+				cells_to_change.append({x=x, y=y, type=13})
+
 			# military buildings
-			if terrain_cell == 6: # HQ blue
+			if terrain_cell == self.tileset.TERRAIN_HQ_BLUE: # HQ blue
 				temp = map_buildings[0].instance()
-			if terrain_cell == 7: # HQ red
+			if terrain_cell == self.tileset.TERRAIN_HQ_RED: # HQ red
 				temp = map_buildings[1].instance()
-			if terrain_cell == 8: # barrack
+			if terrain_cell == self.tileset.TERRAIN_BARRACKS_FREE: # barrack
 				temp = map_buildings[2].instance()
-			if terrain_cell == 9: # factory
+			if terrain_cell == self.tileset.TERRAIN_FACTORY_FREE: # factory
 				temp = map_buildings[3].instance()
-			if terrain_cell == 10: # airport
+			if terrain_cell == self.tileset.TERRAIN_AIRPORT_FREE: # airport
 				temp = map_buildings[4].instance()
-			if terrain_cell == 11: # tower
+			if terrain_cell == self.tileset.TERRAIN_TOWER_FREE: # tower
 				temp = map_buildings[5].instance()
-			if terrain_cell == 12: # fence
+			if terrain_cell == self.tileset.TERRAIN_BARRACKS_RED: # barrack
+				temp = map_buildings[2].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_FACTORY_RED: # factory
+				temp = map_buildings[3].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_AIRPORT_RED: # airport
+				temp = map_buildings[4].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_TOWER_RED: # tower
+				temp = map_buildings[5].instance()
+				temp.player = 1
+			if terrain_cell == self.tileset.TERRAIN_BARRACKS_BLUE: # barrack
+				temp = map_buildings[2].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_FACTORY_BLUE: # factory
+				temp = map_buildings[3].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_AIRPORT_BLUE: # airport
+				temp = map_buildings[4].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_TOWER_BLUE: # tower
+				temp = map_buildings[5].instance()
+				temp.player = 0
+			if terrain_cell == self.tileset.TERRAIN_FENCE: # fence
 				temp = map_buildings[6].instance()
 
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 				map_layer_front.add_child(temp)
 				self.find_spawn_for_building(x, y, temp)
+				if temp.group == 'building':
+					temp.claim(temp.player, 0)
+				temp = 1
+				if count_neighbours(x,y,[0]) >= count_neighbours(x,y,[1]):
+					temp = 0
+				cells_to_change.append({x=x, y=y, type=temp})
 				temp = null
 
 			# roads
-			if terrain_cell == 14: # city road
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [14, 16, 18])})
-			if terrain_cell == 15: # country road
-				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [15, 16, 18])})
-			if terrain_cell == 16: # road mix
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [16, 14])})
-			if terrain_cell == 17: # river
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [17, 18])})
-			if terrain_cell == 18: # bridge
-				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [18, 17])})
+			if terrain_cell == self.tileset.TERRAIN_ROAD: # city road
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_BRIDGE])})
+			if terrain_cell == self.tileset.TERRAIN_DIRT_ROAD: # dirt road
+				cells_to_change.append({x=x, y=y ,type=self.build_sprite_path(x ,y, [self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE])})
+			if terrain_cell == self.tileset.TERRAIN_RIVER: # river
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [self.tileset.TERRAIN_RIVER, self.tileset.TERRAIN_BRIDGE])})
+			if terrain_cell == self.tileset.TERRAIN_BRIDGE: # bridge
+				cells_to_change.append({x=x, y=y, type=self.build_sprite_path(x, y, [self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_RIVER])})
 
 			if units.get_cell(x,y) > -1:
 				self.spawn_unit(x,y,units.get_cell(x,y))
 
 	for cell in cells_to_change:
-		if(cell.type):
+		if(cell.type > -1):
 			terrain.set_cell(cell.x,cell.y,cell.type)
 	for fence in get_tree().get_nodes_in_group("terrain_fence"):
 		fence.connect_with_neighbours()
@@ -351,6 +420,19 @@ func count_neighbours(x, y, type):
 
 	return counted
 
+func count_neighbours_in_binary(x, y, type):
+	var counted = 0
+
+	if terrain.get_cell(x, y-1) in type:
+		counted += 2
+	if terrain.get_cell(x+1, y) in type:
+		counted += 4
+	if terrain.get_cell(x, y+1) in type:
+		counted += 8
+	if terrain.get_cell(x-1, y) in type:
+		counted += 16
+
+	return counted
 
 func find_spawn_for_building(x, y, building):
 	if building.group != "building":
@@ -364,109 +446,100 @@ func find_spawn_for_building(x, y, building):
 
 func look_for_spawn(x, y, offset_x, offset_y, building):
 	var cell = terrain.get_cell(x + offset_x, y + offset_y)
-	if cell == 13:
+	if cell == self.tileset.TERRAIN_SPAWN:
 		building.spawn_point_position = Vector2(offset_x, offset_y)
 		building.spawn_point = Vector2(x + offset_x, y + offset_y)
 
 func build_sprite_path(x, y, type):
-	var position = 0
-
-	if terrain.get_cell(x, y-1) in type:
-		position += 2
-	if terrain.get_cell(x+1, y) in type:
-		position += 4
-	if terrain.get_cell(x, y+1) in type:
-		position += 8
-	if terrain.get_cell(x-1, y) in type:
-		position += 16
+	var neighbours = count_neighbours_in_binary(x, y, type)
 
 	# road
-	if type[0] == 14:
-		if position in [10,2,8]:
+	if type[0] == self.tileset.TERRAIN_ROAD:
+		if neighbours in [10,2,8]:
 			return 19
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			return 20
-		if position == 24:
+		if neighbours == 24:
 			return 21
-		if position == 12:
+		if neighbours == 12:
 			return 22
-		if position == 18:
+		if neighbours == 18:
 			return 23
-		if position == 6:
+		if neighbours == 6:
 			return 24
-		if position == 26:
+		if neighbours == 26:
 			return 25
-		if position == 28:
+		if neighbours == 28:
 			return 26
-		if position == 14:
+		if neighbours == 14:
 			return 27
-		if position == 22:
+		if neighbours == 22:
 			return 28
-		if position == 30:
+		if neighbours == 30:
 			return 29
 
 	# coutry road
-	if type[0] == 15:
-		if position in [10,2,8]:
+	if type[0] == self.tileset.TERRAIN_DIRT_ROAD:
+		if neighbours in [10,2,8]:
 			return 36
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			return 37
-		if position == 24:
+		if neighbours == 24:
 			return 38
-		if position == 12:
+		if neighbours == 12:
 			return 39
-		if position == 18:
+		if neighbours == 18:
 			return 40
-		if position == 6:
+		if neighbours == 6:
 			return 41
-		if position == 26:
+		if neighbours == 26:
 			return 42
-		if position == 28:
+		if neighbours == 28:
 			return 43
-		if position == 14:
+		if neighbours == 14:
 			return 44
-		if position == 22:
+		if neighbours == 22:
 			return 45
-		if position == 30:
+		if neighbours == 30:
 			return 46
 
 	# road mix
 	if type[0] == 16:
-		if position == 2:
+		if neighbours == 2:
 			return 32
-		if position == 16:
+		if neighbours == 16:
 			return 33
-		if position == 8:
+		if neighbours == 8:
 			return 34
-		if position == 4:
+		if neighbours == 4:
 			return 35
 
 	# river
-	if type[0] == 17:
-		if position in [10,2,8]:
-			if randi() % 4  > 2:
+	if type[0] == self.tileset.TERRAIN_RIVER:
+		if neighbours in [10,2,8]:
+			if randi() % 4 > 2:
 				return 47
 			else:
 				return 53
-		if position in [20,16,4]:
-			if randi() % 4  > 2:
+		if neighbours in [20,16,4]:
+			if randi() % 4 > 2:
 				return 48
 			else:
 				return 54
-		if position == 24:
+		if neighbours == 24:
 			return 49
-		if position == 12:
+		if neighbours == 12:
 			return 50
-		if position == 18:
+		if neighbours == 18:
 			return 51
-		if position == 6:
+		if neighbours == 6:
 			return 52
 
 	# bridge
-	if type[0] == 18:
-		if position in [10,2,8]:
+	if type[0] == self.tileset.TERRAIN_BRIDGE:
+		if neighbours in [10,2,8]:
 			return 31
-		if position in [20,16,4]:
+		if neighbours in [20,16,4]:
 			return 30
 
 	# nothing to change
@@ -480,32 +553,18 @@ func spawn_unit(x, y, type):
 	return
 
 func generate_underground(x, y):
-	var generate = false
 	var temp = null
-	var neighbours = 0
-	if terrain.get_cell(x, y-1) == -1:
-		generate = true
-		neighbours += 2
-	if terrain.get_cell(x+1, y) == -1:
-		generate = true
-		neighbours += 4
-	if terrain.get_cell(x, y+1) == -1:
-		generate = true
-		neighbours += 8
-	if terrain.get_cell(x-1, y) == -1:
-		generate = true
-		neighbours += 16
+	var neighbours = count_neighbours_in_binary(x, y, [-1])
 
-	if generate:
-		temp = underground_rock.instance()
-		temp.set_frame(0)
-		if neighbours in [10]:
-			temp.set_frame(1)
-		if neighbours in [20]:
-			temp.set_frame(2)
-		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
-		underground.add_child(temp)
-		temp = null
+	temp = underground_rock.instance()
+	temp.set_frame(0)
+	if neighbours in [10]:
+		temp.set_frame(1)
+	if neighbours in [20]:
+		temp.set_frame(2)
+	temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
+	underground.add_child(temp)
+	temp = null
 
 func generate_wave(x, y):
 	var generate = false
@@ -556,14 +615,14 @@ func save_map(file_name):
 	if self.check_file_name(file_name):
 		self.store_map_in_binary_file(file_name, temp_data)
 		self.store_map_in_plain_file(file_name, temp_data)
-		print('ToF: map saved to file')
+		#print('ToF: map saved to file')
 		return true
 	else:
-		print('ToF: wrong file name')
+		#print('ToF: wrong file name')
 		return false
 
 func store_map_in_binary_file(file_name, data):
-	var the_file = map_file.open("user://" + file_name + ".tof", File.WRITE)
+	var the_file = map_file.open("user://" + file_name + ".map", File.WRITE)
 	map_file.store_var(data)
 	map_file.close()
 	if file_name != "restore_map":
@@ -603,7 +662,7 @@ func check_file_name(name):
 	return true
 
 func load_map(file_name):
-	var file_path = "user://"+file_name+".tof"
+	var file_path = "user://"+file_name+".map"
 	return self.load_map_from_file(file_path)
 
 func load_campaign_map(file_name):
@@ -617,11 +676,11 @@ func load_map_from_file(file_path):
 		map_file.open(file_path, File.READ)
 		temp_data = map_file.get_var()
 		self.fill_map_from_data_array(temp_data)
-		print('ToF: map ' + file_path + ' loaded from file')
+		#print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()
 		return true
 	else:
-		print('ToF: map file not exists!')
+		#print('ToF: map file not exists!')
 		return false
 
 func fill_map_from_data_array(data):
@@ -660,7 +719,7 @@ func clear_layer(layer):
 		units.clear()
 
 func init_background():
-	print('background generate..')
+	#print('background generate..')
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
 			underground.set_cell(x,y,3)
@@ -678,6 +737,7 @@ func _ready():
 	self.init_nodes()
 	fog_controller = preload('fog_controller.gd').new(self, terrain)
 	fog_controller.init_node()
+	self.tileset = self.root.dependency_container.map_tiles
 
 	if root:
 		scale = root.scale_root.get_scale()
@@ -699,6 +759,4 @@ func _ready():
 
 	set_process_input(true)
 	set_process(true)
-	pass
-
 

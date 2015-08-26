@@ -120,10 +120,11 @@ func can_defend():
 
 func die():
 	self.queue_free()
-	print('DIED!')
+	#print('DIED!')
 
 func set_damaged():
-	print('DAMAGED!')
+	return
+	#print('DAMAGED!')
 
 func get_life_status():
 	return self.life / (self.max_life * 1.0 )
