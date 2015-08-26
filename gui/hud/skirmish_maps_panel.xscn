@@ -19,7 +19,7 @@
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
 			<string_array  len="70">
-				<string> "skirmish_maps_panel" </string>
+				<string> "maps_list" </string>
 				<string> "Control" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
