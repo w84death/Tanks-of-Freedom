@@ -62,7 +62,7 @@ var map_data = [
 	{'x': 6, 'y': 7, 'terrain': 9, 'unit': -1},
 	{'x': 6, 'y': 8, 'terrain': 9, 'unit': -1},
 	{'x': 6, 'y': 9, 'terrain': 9, 'unit': -1},
-	{'x': 6, 'y': 10, 'terrain': 9, 'unit': -1},
+	{'x': 6, 'y': 10, 'terrain': 5, 'unit': -1},
 	{'x': 6, 'y': 11, 'terrain': 9, 'unit': -1},
 	{'x': 6, 'y': 12, 'terrain': 9, 'unit': -1},
 	{'x': 6, 'y': 13, 'terrain': 9, 'unit': -1},
