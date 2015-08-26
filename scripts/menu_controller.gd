@@ -23,6 +23,7 @@ var label_maps_created
 var label_version
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
+var maps_sub_menu_anchor
 var maps_play_custom_button
 var maps_close_button
 var maps_turns_cap
@@ -104,12 +105,12 @@ func _ready():
 	self.load_workshop()
 
 	blue_player_button = maps_sub_menu.get_node("middle/selected_map/controls/blue_player")
-	blue_player_button_label = blue_player_button.get_node("Label")
+	#blue_player_button_label = blue_player_button.get_node("Label")
 	red_player_button = maps_sub_menu.get_node("middle/selected_map/controls/red_player")
-	red_player_button_label = red_player_button.get_node("Label")
+	#red_player_button_label = red_player_button.get_node("Label")
 
-	blue_player_button.connect("pressed", self, "toggle_player", [0])
-	red_player_button.connect("pressed", self, "toggle_player", [1])
+	#blue_player_button.connect("pressed", self, "toggle_player", [0])
+	#red_player_button.connect("pressed", self, "toggle_player", [1])
 
 	self.update_progress_labels()
 	self.update_version_label()
@@ -123,17 +124,18 @@ func load_maps_menu():
 	maps_sub_menu.hide()
 	self.add_child(maps_sub_menu)
 
+	maps_sub_menu_anchor = maps_sub_menu.get_node("middle")
 	maps_play_custom_button = maps_sub_menu.get_node("middle/selected_map/controls/play")
 	maps_close_button = maps_sub_menu.get_node("bottom/control/menu_controls/close")
 	maps_turns_cap = maps_sub_menu.get_node("middle/selected_map/controls/turns_cap")
-	maps_turns_cap_label = maps_turns_cap.get_node("Label")
+	#maps_turns_cap_label = maps_turns_cap.get_node("Label")
 	maps_select_custom_map = maps_sub_menu.get_node("bottom/control/menu_controls/custom_maps")
 
 	self.load_custom_maps_list(maps_select_custom_map)
 
-	maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map, true])
+	#maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map, true])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
-	maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
+	#maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
 
 func load_custom_maps_list(dropdown):
 	var map_list = root.dependency_container.map_list.maps
@@ -153,6 +155,7 @@ func show_maps_menu():
 	self.refresh_custom_maps_list()
 	self.hide_control_nodes()
 	self.reset_player_buttons()
+	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
 	self.maps_sub_menu.show()
 
 func show_control_nodes():
@@ -166,6 +169,7 @@ func hide_control_nodes():
 func hide_maps_menu():
 	self.show_control_nodes()
 	maps_sub_menu.hide()
+	self.root.dependency_container.map_picker.detach_panel()
 
 func show_main_menu():
 	main_menu.show()
@@ -208,7 +212,7 @@ func set_player_button_state(player):
 		label = "CPU"
 	else:
 		label = "HUMAN"
-
+	return
 	if player == 0:
 		blue_player_button_label.set_text(label)
 	else:
