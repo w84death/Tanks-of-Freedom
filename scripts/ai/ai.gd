@@ -155,7 +155,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 
 func __gather_unit_destinations(position, current_player, tiles_ranges=self.positions.tiles_lookup_ranges):
 	var destinations = []
-	var nearby_tiles
+	var nearby_tiles = []
 	for lookup_range in tiles_ranges:
 		nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
 		destinations = destinations + self.positions.get_nearby_enemies(nearby_tiles, current_player)
@@ -192,7 +192,6 @@ func __gather_building_data(own_buildings, own_units):
 
 		if (building.type == 4): # skip tower
 			continue
-
 		enemy_units = self.__gather_unit_destinations(building.get_pos_map(), current_player, positions.tiles_building_lookup_ranges)
 		self.__add_building_action(building, enemy_units, own_units)
 
@@ -235,7 +234,7 @@ func __add_action(unit, destination, own_units):
 				return
 
 			var to = self.abstract_map.get_field(path[0])
-			if not action_controller.movement_controller.can_move(from, to):
+			if not self.root.dependency_container.movement_controller.can_move(from, to):
 				return
 
 			action_type = self.action_builder.ACTION_MOVE

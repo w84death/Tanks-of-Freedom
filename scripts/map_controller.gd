@@ -12,6 +12,7 @@ var units
 var fog_controller
 var map_layer_back
 var map_layer_front
+var action_layer
 
 var mouse_dragging = false
 var pos
@@ -729,6 +730,7 @@ func init_nodes():
 	units = terrain.get_node("units")
 	map_layer_back = terrain.get_node("back")
 	map_layer_front = terrain.get_node("front")
+	action_layer = terrain.get_node("actions")
 
 func _ready():
 	root = get_node("/root/game")

@@ -16,7 +16,7 @@ var lastCurrent
 var path_cache = {}
 var bench_result = 0
 
-const CACHE_MINIMUM_PATH_SIZE = 6
+const CACHE_MINIMUM_PATH_SIZE = 3
 
 func pathSearch(startTile, endTile, own_units):
 
@@ -109,10 +109,9 @@ func __identify_successors(current, start, goal):
 	var neighbours = self.__get_adjacent_tiles(current)
 	var dx = clamp(goal.x - current.x, -1, 1)
 	var dy = clamp(goal.y - current.y, -1, 1)
-	var exact_neighbor
 
 	for neighbor in neighbours:
-		exact_neighbor = false
+		var exact_neighbor = false
 		if clamp(neighbor.x - current.x, -1, 1) == dx && clamp(neighbor.x - current.y, -1, 1) == dy:
 			exact_neighbor = true
 			successors.append(neighbor)

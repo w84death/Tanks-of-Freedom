@@ -10,7 +10,7 @@ var movement_controller = null
 func init(root_node):
 	self.root = root_node
 	self.action_controller = self.root.action_controller
-	self.movement_controller = self.action_controller.movement_controller
+	self.movement_controller = self.root.dependency_container.movement_controller
 
 func reset():
 	action_controller = null

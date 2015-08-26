@@ -11,11 +11,16 @@ var tile_types = [
 
 const TERRAIN_COST = 1
 
-func move_object(from, to):
+func move_object(from, to, movement_tiles):
 	var action_cost = self.get_terrain_cost()
-	var player_stats = from.object.get_stats()
+	if movement_tiles.has(to.position):
+        action_cost = movement_tiles[to.position]
 
-	if self.can_move(from, to):
+	var player_stats = from.object.get_stats()
+	var position = to.position
+
+	if self.has_enough_ap(from, action_cost):
+	#if self.can_move(from, to, movement_tiles):
 		player_stats.ap = player_stats.ap - action_cost
 		from.object.set_stats(player_stats)
 
@@ -28,6 +33,13 @@ func move_object(from, to):
 		return true
 	else:
 
+		return false
+
+func has_enough_ap(from, cost):
+	var unit_stats = from.object.get_stats()
+	if unit_stats.ap >= cost:
+		return true
+	else:
 		return false
 
 func can_move(from, to):
