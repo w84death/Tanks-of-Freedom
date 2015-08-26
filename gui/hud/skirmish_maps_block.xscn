@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="2" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+	<ext_resource path="res://assets/gui/buttons/lcd_70_0.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/lcd_70_1.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/lcd_70_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -8,16 +11,22 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="25">
+			<string_array  len="30">
 				<string> "block" </string>
 				<string> "Control" </string>
-				<string> "margin/right" </string>
-				<string> "margin/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
 				<string> "__meta__" </string>
+				<string> "TextureButton" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
+				<string> "toggle_mode" </string>
+				<string> "textures/normal" </string>
+				<string> "textures/pressed" </string>
+				<string> "textures/hover" </string>
+				<string> "params/scale" </string>
 				<string> "title" </string>
 				<string> "Label" </string>
 				<string> "margin/left" </string>
@@ -33,16 +42,13 @@
 				<string> "rounded_values" </string>
 				<string> "text" </string>
 				<string> "percent_visible" </string>
-				<string> "subtitle" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 3 </int>
 			<string> "nodes" </string>
-			<int_array  len="107"> 				-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 4, 8, 5, 0, 0, 0, 10, 9, -1, 18, 11, 6, 12, 6, 2, 7, 3, 8, 4, 3, 5, 3, 6, 4, 13, 9, 14, 10, 15, 11, 16, 6, 17, 6, 18, 6, 19, 11, 20, 2, 21, 2, 22, 12, 23, 13, 0, 0, 0, 10, 24, -1, 18, 11, 6, 12, 8, 2, 14, 3, 15, 4, 3, 5, 3, 6, 4, 13, 9, 14, 16, 15, 11, 16, 6, 17, 6, 18, 6, 19, 11, 20, 2, 21, 2, 22, 17, 23, 13, 0 </int_array>
+			<int_array  len="89"> 				-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 0, 0, 0, 7, 7, -1, 11, 8, 4, 9, 5, 2, 0, 3, 1, 4, 2, 5, 2, 10, 0, 11, 6, 12, 7, 13, 8, 14, 9, 0, 1, 0, 16, 15, -1, 18, 17, 10, 18, 11, 8, 12, 9, 5, 2, 1, 3, 1, 4, 2, 19, 13, 20, 14, 21, 15, 22, 16, 23, 16, 24, 16, 25, 15, 26, 0, 27, 0, 28, 17, 29, 18, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="18" shared="false">
-				<real> 144 </real>
-				<real> 48 </real>
+			<array  len="19" shared="false">
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
@@ -54,7 +60,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -217.338, -190.756 </vector2>
+							<vector2> -175.351, -164.168 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -177,18 +183,21 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 1 </real>
-				<real> 153 </real>
-				<real> 19 </real>
+				<real> 214 </real>
+				<real> 24 </real>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/lcd_70_0.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/lcd_70_1.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/lcd_70_2.png">  </resource>
+				<vector2> 3, 3 </vector2>
+				<real> 8 </real>
+				<real> 6 </real>
+				<real> 203 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<color> 0.639216, 0.807843, 0.152941, 1 </color>
 				<real> 0 </real>
-				<string> "A VERY LONG NA.." </string>
+				<real> 1 </real>
+				<string> "A VERY LONG FILENAME " </string>
 				<real> -1 </real>
-				<real> 155 </real>
-				<real> 37 </real>
-				<color> 0.184314, 0.282353, 0.305882, 1 </color>
-				<string> "SIZE: MEDIUM" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
