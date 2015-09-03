@@ -25,8 +25,8 @@ const LABEL_LENGTH = 21
 
 var current_container = null
 
-var bound_object
-var bound_method
+var bound_object = null
+var bound_method = null
 
 func _init_bag(bag):
     self.bag = bag
@@ -60,8 +60,10 @@ func attach_panel(container_node):
     self.current_container.add_child(self.picker)
 
 func detach_panel():
-    self.current_container.remove_child(self.picker)
-    self.current_container = null
+    if self.current_container != null:
+        self.current_container.remove_child(self.picker)
+        self.current_container = null
+    self.disconnect()
 
 func fill_page():
     var maps_amount = self.get_maps_amount()
@@ -166,6 +168,10 @@ func connect(object, method):
     self.bound_object = object
     self.bound_method = method
 
+func disconnect():
+    self.bound_object = null
+    self.bound_method = null
+
 func call_bound_object(map_name):
     if self.bound_object != null:
-        self.bound_object.call(self.bound_method, [map_name])
+        self.bound_object.call(self.bound_method, map_name)

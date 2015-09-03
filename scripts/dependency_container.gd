@@ -23,6 +23,7 @@ var timers = preload("res://scripts/timers.gd").new()
 var menu_background_map = preload("res://maps/menu_map_background.gd").new()
 var helpers = preload("res://scripts/services/helpers.gd").new()
 var map_picker = preload("res://gui/hud/map_picker.gd").new()
+var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
 
 func init_root(root_node):
 	self.root = root_node
@@ -49,3 +50,4 @@ func init_root(root_node):
 	self.migrations.init_bag(self)
 	self.timers._init_bag(self)
 	self.map_picker._init_bag(self)
+	self.skirmish_setup._init_bag(self)

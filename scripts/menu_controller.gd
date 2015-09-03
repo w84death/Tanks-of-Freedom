@@ -2,10 +2,6 @@
 var root
 var control_nodes
 
-var red_player_button
-var red_player_button_label
-var blue_player_button
-var blue_player_button_label
 var play_button
 var close_button
 var demo_button
@@ -24,11 +20,7 @@ var label_version
 
 var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
 var maps_sub_menu_anchor
-var maps_play_custom_button
 var maps_close_button
-var maps_turns_cap
-var maps_turns_cap_label
-var maps_select_custom_map
 var workshop_button
 var workshop
 
@@ -104,14 +96,6 @@ func _ready():
 	self.load_maps_menu()
 	self.load_workshop()
 
-	blue_player_button = maps_sub_menu.get_node("middle/selected_map/controls/blue_player")
-	#blue_player_button_label = blue_player_button.get_node("Label")
-	red_player_button = maps_sub_menu.get_node("middle/selected_map/controls/red_player")
-	#red_player_button_label = red_player_button.get_node("Label")
-
-	#blue_player_button.connect("pressed", self, "toggle_player", [0])
-	#red_player_button.connect("pressed", self, "toggle_player", [1])
-
 	self.update_progress_labels()
 	self.update_version_label()
 	self.update_zoom_label()
@@ -125,38 +109,33 @@ func load_maps_menu():
 	self.add_child(maps_sub_menu)
 
 	maps_sub_menu_anchor = maps_sub_menu.get_node("middle")
-	maps_play_custom_button = maps_sub_menu.get_node("middle/selected_map/controls/play")
 	maps_close_button = maps_sub_menu.get_node("bottom/control/menu_controls/close")
-	maps_turns_cap = maps_sub_menu.get_node("middle/selected_map/controls/turns_cap")
-	#maps_turns_cap_label = maps_turns_cap.get_node("Label")
-	maps_select_custom_map = maps_sub_menu.get_node("bottom/control/menu_controls/custom_maps")
 
-	self.load_custom_maps_list(maps_select_custom_map)
-
-	#maps_play_custom_button.connect("pressed", self, "load_map_from_list", [maps_select_custom_map, true])
 	maps_close_button.connect("pressed", self, "hide_maps_menu")
-	#maps_turns_cap.connect("pressed", self, "toggle_turns_cap")
-
-func load_custom_maps_list(dropdown):
-	var map_list = root.dependency_container.map_list.maps
-
-	for map in map_list:
-		dropdown.add_item(map)
-
-func refresh_custom_maps_list():
-	self.maps_select_custom_map.clear()
-	self.load_custom_maps_list(self.maps_select_custom_map)
 
 func show_campaign_menu():
 	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
 	self.hide_control_nodes()
 
 func show_maps_menu():
-	self.refresh_custom_maps_list()
 	self.hide_control_nodes()
-	self.reset_player_buttons()
 	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
+	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
 	self.maps_sub_menu.show()
+
+func switch_to_skirmish_setup_panel(selected_map_name):
+	self.root.dependency_container.map_picker.detach_panel()
+	self.root.dependency_container.skirmish_setup.attach_panel(self.maps_sub_menu_anchor)
+	self.root.dependency_container.skirmish_setup.set_map_name(selected_map_name, selected_map_name)
+	self.root.dependency_container.skirmish_setup.connect(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
+
+func switch_to_map_selection_panel():
+	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
+	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
+	self.root.dependency_container.skirmish_setup.detach_panel()
+
+func play_selected_skirmish_map(map_name):
+	self.load_map(map_name, true)
 
 func show_control_nodes():
 	for nod in self.control_nodes:
@@ -170,6 +149,7 @@ func hide_maps_menu():
 	self.show_control_nodes()
 	maps_sub_menu.hide()
 	self.root.dependency_container.map_picker.detach_panel()
+	self.root.dependency_container.skirmish_setup.detach_panel()
 
 func show_main_menu():
 	main_menu.show()
@@ -200,35 +180,6 @@ func hide_workshop():
 	self.show()
 	if not self.root.is_map_loaded:
 		self.show_background_map()
-
-func toggle_player(player):
-	root.settings['cpu_' + str(player)] = not root.settings['cpu_' + str(player)]
-	self.set_player_button_state(player)
-	root.write_settings_to_file()
-
-func set_player_button_state(player):
-	var label
-	if root.settings['cpu_' + str(player)]:
-		label = "CPU"
-	else:
-		label = "HUMAN"
-	return
-	if player == 0:
-		blue_player_button_label.set_text(label)
-	else:
-		red_player_button_label.set_text(label)
-
-func reset_player_buttons():
-	self.set_player_button_state(0)
-	self.set_player_button_state(1)
-
-func load_map_from_list(list, from_workshop):
-	var map_identifier
-	if from_workshop:
-		map_identifier = list.get_item_text(list.get_selected())
-	else:
-		map_identifier = list.get_selected()
-	self.load_map(map_identifier, from_workshop)
 
 func load_map(name, from_workshop):
 	if from_workshop:
@@ -291,22 +242,6 @@ func refresh_buttons_labels():
 
 func quit_game():
 	OS.get_main_loop().quit()
-
-func toggle_turns_cap():
-	var turns_cap_modifer = 25
-
-	if root.settings['turns_cap'] >= 100:
-		root.settings['turns_cap'] = 0
-	else:
-		root.settings['turns_cap'] = root.settings['turns_cap'] + turns_cap_modifer
-	self.adjust_turns_cap_label()
-	root.write_settings_to_file()
-
-func adjust_turns_cap_label():
-	if root.settings['turns_cap'] > 0:
-		maps_turns_cap_label.set_text(str(root.settings['turns_cap']))
-	else:
-		maps_turns_cap_label.set_text("OFF")
 
 func update_zoom_label():
 	self.camera_zoom_label.set_text(str(self.root.scale_root.get_scale().x))
