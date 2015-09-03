@@ -1,5 +1,6 @@
 
 var root
+var bag
 var workshop
 var workshop_gui_controller
 var file_panel
@@ -11,11 +12,15 @@ var toggle_button
 var play_button
 var save_button
 var load_button
+var pick_button
 var file_name
 var floppy
 
+var central_container
+
 func init_root(root_node):
     self.root = root_node
+    self.bag = root_node.dependency_container
     self.workshop = self.root.dependency_container.workshop
     self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
 
@@ -29,12 +34,16 @@ func bind_panel(file_panel_wrapper_node):
     self.toggle_button = self.file_panel.get_node("controls/file_button")
     self.play_button = self.file_panel.get_node("controls/play_button")
     self.save_button = self.file_panel.get_node("controls/save_button")
+    self.pick_button = self.file_panel.get_node("controls/load_button_picker")
     self.load_button = self.file_panel.get_node("controls/load_button")
 
-    self.play_button.connect("pressed", self.workshop, "play_map")
+    self.play_button.connect("pressed", self, "play_button_pressed")
     self.save_button.connect("pressed", self, "save_button_pressed")
     self.load_button.connect("pressed", self, "load_button_pressed")
+    self.pick_button.connect("pressed", self, "pick_button_pressed")
     self.toggle_button.connect("pressed", self, "toggle_file_panel")
+
+    self.central_container = self.workshop.get_node("central_container")
 
 func toggle_file_panel():
     if self.position.y == self.positions[0]:
@@ -50,3 +59,39 @@ func save_button_pressed():
 func load_button_pressed():
     self.workshop.load_map(self.file_name, true)
     self.floppy.play("save")
+
+func play_button_pressed():
+    self.show_skirmish_setup_panel()
+
+func show_skirmish_setup_panel():
+    self.hide_map_picker()
+    self.central_container.show()
+    self.bag.skirmish_setup.attach_panel(self.central_container)
+    self.bag.skirmish_setup.connect(self, "hide_skirmish_setup_panel", "play_map_from_skirmish_setup_panel")
+    self.bag.skirmish_setup.set_map_name('not important', self.file_name.get_text())
+
+func hide_skirmish_setup_panel():
+    self.central_container.hide()
+    self.bag.skirmish_setup.detach_panel()
+
+func play_map_from_skirmish_setup_panel(map_name):
+    self.hide_skirmish_setup_panel()
+    self.workshop.play_map()
+
+func pick_button_pressed():
+    self.toggle_file_panel()
+    self.show_map_picker()
+
+func show_map_picker():
+    self.central_container.show()
+    self.bag.map_picker.attach_panel(self.central_container)
+    self.bag.map_picker.connect(self, "load_map_from_picker")
+
+func hide_map_picker():
+    self.central_container.hide()
+    self.bag.map_picker.detach_panel()
+
+func load_map_from_picker(selected_map_name):
+    self.workshop.load_map(selected_map_name)
+    self.file_name.set_text(selected_map_name)
+    self.hide_map_picker()

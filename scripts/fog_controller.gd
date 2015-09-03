@@ -19,6 +19,8 @@ func init_node():
     self.build_fog_pattern()
 
 func is_fogged(x, y):
+	if x < 0 or y < 0:
+		return false
 	return current_fog_state[y][x] > -1
 
 func build_fog_pattern():

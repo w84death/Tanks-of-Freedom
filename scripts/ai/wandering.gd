@@ -20,15 +20,7 @@ func add_elemental_trails():
 	var bunker_0 = self.positions.get_player_bunker_position(0)
 	var bunker_1 = self.positions.get_player_bunker_position(1)
 
-	self.abstract_map.add_trails([self.pathfinding.pathSearch(bunker_0, bunker_1, [])], 0)
-	self.abstract_map.add_trails([self.pathfinding.pathSearch(bunker_1, bunker_0, [])], 1)
-
 	var empty_building_positions = self.positions.buildings_player_none
-	if empty_building_positions.size() > 0:
-		for building_pos in empty_building_positions:
-			self.abstract_map.add_trails([self.pathfinding.pathSearch(bunker_0, building_pos, [])], 0)
-
-			self.abstract_map.add_trails([self.pathfinding.pathSearch(bunker_1, building_pos, [])], 1)
 
 	self.elemental_trails_generated = true
 

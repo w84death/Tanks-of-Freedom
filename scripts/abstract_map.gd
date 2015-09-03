@@ -99,16 +99,6 @@ func calculate_path_cost(unit, path):
 
 	return cost
 
-func add_trails(paths, player, value=1):
-	var count
-	var pos
-	for path in paths:
-		count = path.size() - 1
-		for idx in range(0, count):
-			pos = path[idx]
-
-			fields[pos.y][pos.x].mark_trail(path[idx + 1], 0)
-
 func get_available_directions(unit, current_position):
 	var directions = []
 	var next_position

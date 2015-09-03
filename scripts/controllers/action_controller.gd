@@ -124,9 +124,6 @@ func post_handle_action():
 func capture_building(active_field, field):
 	self.use_ap(field)
 
-	#adding trail
-	self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
-
 	field.object.claim(self.current_player, self.turn)
 	sound_controller.play('occupy_building')
 	self.root_node.dependency_container.ap_gain.update()
@@ -407,10 +404,6 @@ func handle_battle(active_field, field):
 	if (self.root_node.dependency_container.battle_controller.can_attack(active_field.object, field.object)):
 		self.use_ap(field)
 		self.root_node.dependency_container.abstract_map.reset()
-
-		#print('MARK TRAIL!!')
-		#TODO rewrite it to use pathfinding
-		self.root_node.dependency_container.abstract_map.add_trails([active_field.object.move_positions], active_field.object.player, 2)
 
 		sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
 		if (self.root_node.dependency_container.battle_controller.resolve_fight(active_field.object, field.object)):
