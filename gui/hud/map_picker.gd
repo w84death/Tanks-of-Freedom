@@ -34,6 +34,7 @@ func _init_bag(bag):
     self.connect_buttons()
     self.fill_page()
     self.adjust_page_buttons()
+    self.refresh_labels()
 
 func bind_hud():
     self.blocks_container = self.picker.get_node("controls/blocks")
@@ -43,6 +44,8 @@ func bind_hud():
     self.delete_button = self.picker.get_node("controls/delete_mode")
     self.next_button = self.picker.get_node("controls/next")
     self.prev_button = self.picker.get_node("controls/prev")
+    self.count_label = self.picker.get_node("controls/maps")
+    self.page_label = self.picker.get_node("controls/page")
 
 func connect_buttons():
     self.button_enable_switch(self.local_button, false)
@@ -83,6 +86,7 @@ func fill_page():
         self.fill_block(new_block, self.get_map(index), counter)
         index = index + 1
         counter = counter + 1
+    self.refresh_labels()
 
 
 func clear_page():
@@ -175,3 +179,9 @@ func disconnect():
 func call_bound_object(map_name):
     if self.bound_object != null:
         self.bound_object.call(self.bound_method, map_name)
+
+func refresh_labels():
+    var maps_count = self.get_maps_amount()
+    var max_pages = self.get_number_of_pages()
+    self.count_label.set_text(str(maps_count))
+    self.page_label.set_text(str(self.current_page) + '/' + str(max_pages))
