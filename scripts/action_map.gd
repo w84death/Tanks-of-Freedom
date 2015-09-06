@@ -30,7 +30,7 @@ func mark_movement_tile(source, tile, first_action_range, unit_moved, current_pl
 			var start = source.object.get_pos_map();
 			var distance = abs(start.x-tile.x)+abs(start.y-tile.y)
 			var tile_type = 1;
-			if (distance > first_action_range || unit_moved):
+			if (distance > first_action_range):
 				tile_type = 2;
 
 			self.add_movement_indicator(tile, tile_type)

@@ -137,7 +137,6 @@ func capture_building(active_field, field):
         self.end_game(self.current_player)
         return 1
 
-
 func activate_field(field):
     self.clear_active_field()
     active_field = field
@@ -167,7 +166,7 @@ func add_movement_indicators(field):
         # calculating range
         var tiles_range = min(field.object.ap, player_ap[current_player])
         var tiles = []
-        var first_action_range = ceil(field.object.ap / 2)
+        var first_action_range = max(0, ceil(field.object.ap - 1)) # 1 is attack cost
 
         var unit_moved = false
         if field.object.ap != field.object.max_ap:
@@ -180,7 +179,10 @@ func add_movement_indicators(field):
         var abstract_map = self.root_node.dependency_container.abstract_map
         var cost_grid = preload('res://scripts/ai/pathfinding/cost_grid.gd').new(abstract_map)
 
-        var cost_map = cost_grid.prepare_cost_maps([], [])
+        var own_buildings = self.root_node.dependency_container.positions.get_player_buildings(current_player)
+        var own_units = self.root_node.dependency_container.positions.get_player_units(current_player)
+
+        var cost_map = cost_grid.prepare_cost_maps(own_buildings, own_units)
         self.actual_movement_tiles.clear()
 
         tiles = self.root_node.dependency_container.positions.get_nearby_tiles_subset(unit_position, tiles_range)
@@ -401,8 +403,6 @@ func handle_battle(active_field, field):
 
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
         if (self.root_node.dependency_container.battle_controller.resolve_fight(active_field.object, field.object)):
-        # sound_controller.play_unit_sound(active_field.object, sound_controller.SOUND_ATTACK)
-        # if (battle_controller.resolve_fight(active_field.object, field.object)):
             self.play_destroy(field)
             self.destroy_unit(field)
             self.update_unit(active_field)
