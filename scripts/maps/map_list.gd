@@ -76,3 +76,7 @@ func add_default_maps():
             self.file_handler.store_var(map['file'].map_data)
             self.file_handler.close()
             self.store_map(map['name'])
+
+func remove_map(name):
+    self.maps.erase(name)
+    self.save_list()

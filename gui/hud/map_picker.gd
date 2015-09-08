@@ -28,6 +28,8 @@ var current_container = null
 var bound_object = null
 var bound_method = null
 
+var delete_mode_enabled = false
+
 func _init_bag(bag):
     self.bag = bag
     self.bind_hud()
@@ -55,6 +57,7 @@ func connect_buttons():
 
     self.prev_button.connect("pressed", self, "prev_page")
     self.next_button.connect("pressed", self, "next_page")
+    self.delete_button.connect("pressed", self, "delete_button_pressed")
 
 func attach_panel(container_node):
     if self.current_container != null:
@@ -67,6 +70,8 @@ func detach_panel():
         self.current_container.remove_child(self.picker)
         self.current_container = null
     self.disconnect()
+    self.disable_delete_mode()
+    self.lock_delete_mode_button()
 
 func fill_page():
     var maps_amount = self.get_maps_amount()
@@ -178,10 +183,44 @@ func disconnect():
 
 func call_bound_object(map_name):
     if self.bound_object != null:
-        self.bound_object.call(self.bound_method, map_name)
+        if not self.delete_mode_enabled:
+            self.bound_object.call(self.bound_method, map_name)
+        else:
+            self.delete_map(map_name)
 
 func refresh_labels():
     var maps_count = self.get_maps_amount()
     var max_pages = self.get_number_of_pages()
     self.count_label.set_text(str(maps_count))
     self.page_label.set_text(str(self.current_page) + '/' + str(max_pages))
+
+func enable_delete_mode():
+    self.delete_mode_enabled = true
+
+func disable_delete_mode():
+    self.delete_mode_enabled = false
+
+func toggle_delete_mode():
+    if self.delete_mode_enabled:
+        self.disable_delete_mode()
+    else:
+        self.enable_delete_mode()
+
+func unlock_delete_mode_button():
+    self.button_enable_switch(self.delete_button, true)
+
+func lock_delete_mode_button():
+    self.button_enable_switch(self.delete_button, false)
+    self.delete_button.set_pressed(false)
+
+func is_attached_to(container_node):
+    return self.current_container == container_node
+
+func delete_map(map_name):
+    self.bag.map_list.remove_map(map_name)
+    self.fill_page()
+    self.refresh_labels()
+    self.adjust_page_buttons()
+
+func delete_button_pressed():
+    self.toggle_delete_mode()
