@@ -166,7 +166,7 @@ func add_movement_indicators(field):
         # calculating range
         var tiles_range = min(field.object.ap, player_ap[current_player])
         var tiles = []
-        var first_action_range = max(0, ceil(field.object.ap - 1)) # 1 is attack cost
+        var first_action_range = max(0, ceil(field.object.ap - 1))
 
         var unit_moved = false
         if field.object.ap != field.object.max_ap:
