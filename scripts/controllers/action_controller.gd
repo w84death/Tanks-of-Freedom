@@ -386,6 +386,7 @@ func move_unit(active_field, field):
         self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
         #gather stats
         battle_stats.add_moves(self.current_player)
+        self.update_unit(self.active_field)
 
     else:
         sound_controller.play('no_moves')
