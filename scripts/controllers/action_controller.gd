@@ -400,7 +400,6 @@ func stats_set_time():
 func handle_battle(active_field, field):
     if (self.root_node.dependency_container.battle_controller.can_attack(active_field.object, field.object)):
         self.use_ap(field)
-        self.root_node.dependency_container.abstract_map.reset()
 
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
         if (self.root_node.dependency_container.battle_controller.resolve_fight(active_field.object, field.object)):
