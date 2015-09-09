@@ -47,6 +47,7 @@ var is_locked_for_cpu = false
 var is_from_workshop = false
 var settings_file = File.new()
 var workshop_file_name
+var click_fix_position = 12
 
 func _input(event):
 	if is_demo == true:
@@ -60,12 +61,11 @@ func _input(event):
 				game_scale = scale_root.get_scale()
 				map_pos = current_map_terrain.get_pos()
 
-				selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,(event.y/game_scale.y)-map_pos.y))
+				selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,((event.y+click_fix_position)/game_scale.y)-map_pos.y))
 			if (event.type == InputEvent.MOUSE_MOTION):
 				var position = current_map_terrain.map_to_world(selector_position)
 				position.y += 2
 				selector.set_pos(position)
-				#selector.calculate_cost()
 
 			# MOUSE SELECT
 			if (event.type == InputEvent.MOUSE_BUTTON):
@@ -73,7 +73,7 @@ func _input(event):
 
 					if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
 						var position = current_map_terrain.map_to_world(selector_position)
-						if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y):
+						if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y+click_fix_position):
 							action_controller.handle_action(selector_position)
 							action_controller.post_handle_action()
 
