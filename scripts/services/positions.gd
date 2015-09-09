@@ -6,6 +6,7 @@ var root_tree
 # dictionaries with encoded positions
 var units_player_blue = {}
 var units_player_red = {}
+var all_units = {}
 var buildings_player_none = {}
 var buildings_player_blue = {}
 var buildings_player_red = {}
@@ -50,6 +51,7 @@ func bootstrap():
 func refresh_units():
 	units_player_blue.clear()
 	units_player_red.clear()
+	all_units.clear()
 
 	get_units()
 
@@ -100,6 +102,7 @@ func get_units():
 				units_player_red[unit.get_pos_map()] = unit
 			else:
 				units_player_blue[unit.get_pos_map()] = unit
+			all_units[unit.get_pos_map()] = unit
 
 func get_nearby_enemies(nearby_tiles, current_player):
 	var enemy_units_collection

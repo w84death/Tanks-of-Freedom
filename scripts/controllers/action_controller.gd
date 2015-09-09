@@ -180,9 +180,9 @@ func add_movement_indicators(field):
         var cost_grid = preload('res://scripts/ai/pathfinding/cost_grid.gd').new(abstract_map)
 
         var own_buildings = self.root_node.dependency_container.positions.get_player_buildings(current_player)
-        var own_units = self.root_node.dependency_container.positions.get_player_units(current_player)
+        var all_units = self.root_node.dependency_container.positions.all_units
 
-        var cost_map = cost_grid.prepare_cost_maps(own_buildings, own_units)
+        var cost_map = cost_grid.prepare_cost_maps(own_buildings, all_units)
         self.actual_movement_tiles.clear()
 
         tiles = self.root_node.dependency_container.positions.get_nearby_tiles_subset(unit_position, tiles_range)
