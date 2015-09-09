@@ -35,6 +35,9 @@ func is_dead_zone(x, y):
     if self.root.dependency_container.controllers.workshop_gui_controller.file_panel.is_map_picker_visible():
         return true
 
+    if self.root.dependency_container.controllers.workshop_gui_controller.file_panel.is_game_setup_visible():
+        return true
+
     return false
 
 

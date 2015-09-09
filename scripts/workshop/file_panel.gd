@@ -105,3 +105,6 @@ func load_map_from_picker(selected_map_name):
 
 func is_map_picker_visible():
     return self.bag.map_picker.is_attached_to(self.central_container)
+
+func is_game_setup_visible():
+    return self.bag.skirmish_setup.is_attached_to(self.central_container)

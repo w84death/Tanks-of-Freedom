@@ -63,6 +63,9 @@ func attach_panel(container_node):
     self.current_container.add_child(self.panel)
     self.refresh_labels()
 
+func is_attached_to(container_node):
+    return self.current_container == container_node
+
 func detach_panel():
     if self.current_container != null:
         self.current_container.remove_child(self.panel)
