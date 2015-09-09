@@ -187,10 +187,15 @@ func add_movement_indicators(field):
 
         tiles = self.root_node.dependency_container.positions.get_nearby_tiles_subset(unit_position, tiles_range)
         tiles = self.root_node.dependency_container.raycasting.check_visibility(unit_position, tiles, cost_map, tiles_range)
+
+        var red_tiles = []
+        var tile_type = null
+
+        self.root_node.dependency_container.action_map.clear_interaction_tiles()
         for tile in tiles:
             self.actual_movement_tiles[tile] = tiles[tile]
-            self.root_node.dependency_container.action_map.mark_movement_tile(field, tile, first_action_range, unit_moved, current_player)
-
+            tile_type = self.root_node.dependency_container.action_map.mark_movement_tile(field, tile, first_action_range, unit_moved, current_player)
+        self.root_node.dependency_container.action_map.mark_interaction_tiles()
 
 func despawn_unit(field):
     ysort.remove_child(field.object)
