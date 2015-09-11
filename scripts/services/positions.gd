@@ -7,6 +7,7 @@ var root_tree
 var units_player_blue = {}
 var units_player_red = {}
 var all_units = {}
+var all_buildings = {}
 var buildings_player_none = {}
 var buildings_player_blue = {}
 var buildings_player_red = {}
@@ -35,163 +36,168 @@ var terrains
 var pathfinding
 
 func _init(root):
-	root_node = root
-	self.root_tree = root_node.get_tree()
-	bunkers = {0: null, 1: null}
+    root_node = root
+    self.root_tree = root_node.get_tree()
+    bunkers = {0: null, 1: null}
 
 func bootstrap():
-	buildings = self.root_tree.get_nodes_in_group("buildings")
-	terrains = self.root_tree.get_nodes_in_group("terrain")
-	get_bunkers()
-	get_terrain()
+    buildings = self.root_tree.get_nodes_in_group("buildings")
+    terrains = self.root_tree.get_nodes_in_group("terrain")
+    get_bunkers()
+    get_terrain()
 
-	prepare_nearby_tiles()
-	prepare_nearby_tiles_ranges()
+    prepare_nearby_tiles()
+    prepare_nearby_tiles_ranges()
 
 func refresh_units():
-	units_player_blue.clear()
-	units_player_red.clear()
-	all_units.clear()
+    units_player_blue.clear()
+    units_player_red.clear()
+    all_units.clear()
+    all_buildings.clear()
 
-	get_units()
+    get_units()
 
 func refresh_buildings():
-	buildings_player_none.clear()
-	buildings_player_blue.clear()
-	buildings_player_red.clear()
+    buildings_player_none.clear()
+    buildings_player_blue.clear()
+    buildings_player_red.clear()
+    all_buildings.clear()
 
-	get_buildings()
+    get_buildings()
 
 func get_player_units(player):
-	if player == 0:
-		return units_player_blue
-	return units_player_red
+    if player == 0:
+        return units_player_blue
+    return units_player_red
 
 func get_player_buildings(player):
-	if player == 0:
-		return buildings_player_blue
-	return buildings_player_red
+    if player == 0:
+        return buildings_player_blue
+    return buildings_player_red
 
 func get_unclaimed_buildings():
-	return self.buildings_player_none
+    return self.buildings_player_none
 
 func get_player_bunker_position(player):
-	var bunker = bunkers[player]
-	if bunker == null:
-		return null
-	return bunker.get_initial_pos()
+    var bunker = bunkers[player]
+    if bunker == null:
+        return null
+    return bunker.get_initial_pos()
 
 func get_terrain_obstacles():
-	return terrain_obstacles
+    return terrain_obstacles
 
 func get_bunkers():
-	for building in buildings:
-		if (building.type == 0):
-			bunkers[building.get_player()] = building
+    for building in buildings:
+        if (building.type == 0):
+            bunkers[building.get_player()] = building
 
 func get_terrain():
-	for terrain in terrains:
-		terrain_obstacles[terrain.get_pos_map()] = terrain
+    for terrain in terrains:
+        terrain_obstacles[terrain.get_pos_map()] = terrain
 
 func get_units():
-	units = self.root_tree.get_nodes_in_group("units")
+    units = self.root_tree.get_nodes_in_group("units")
 
-	for unit in units:
-		if unit.life > 0: # skip undead units (despawn bug)
-			if unit.get_player() == 1:
-				units_player_red[unit.get_pos_map()] = unit
-			else:
-				units_player_blue[unit.get_pos_map()] = unit
-			all_units[unit.get_pos_map()] = unit
+    for unit in units:
+        if unit.life > 0: # skip undead units (despawn bug)
+            if unit.get_player() == 1:
+                units_player_red[unit.get_pos_map()] = unit
+            else:
+                units_player_blue[unit.get_pos_map()] = unit
+            all_units[unit.get_pos_map()] = unit
 
 func get_nearby_enemies(nearby_tiles, current_player):
-	var enemy_units_collection
-	if current_player == 0:
-		enemy_units_collection = units_player_red
-	else:
-		enemy_units_collection = units_player_blue
+    var enemy_units_collection
+    if current_player == 0:
+        enemy_units_collection = units_player_red
+    else:
+        enemy_units_collection = units_player_blue
 
-	var enemies = []
-	for tile in nearby_tiles:
-		if enemy_units_collection.has(tile):
-			enemies.append(enemy_units_collection[tile])
+    var enemies = []
+    for tile in nearby_tiles:
+        if enemy_units_collection.has(tile):
+            enemies.append(enemy_units_collection[tile])
 
-	return enemies
+    return enemies
 
 func get_buildings():
-	for building in buildings:
-		var pos = building.get_pos_map()
-		var owner = building.get_player()
-		if (owner == 0):
-			buildings_player_blue[pos] = building
-		elif(owner == 1):
-			buildings_player_red[pos] = building
-		else:
-			buildings_player_none[pos] = building
+    for building in buildings:
+        var pos = building.get_pos_map()
+        var owner = building.get_player()
+
+        all_buildings[pos] = building
+
+        if (owner == 0):
+            buildings_player_blue[pos] = building
+        elif(owner == 1):
+            buildings_player_red[pos] = building
+        else:
+            buildings_player_none[pos] = building
 
 #for red
 func get_nearby_enemy_buldings(nearby_tiles, current_player):
-	var enemy_buildings_collection
-	if current_player == 0:
-		enemy_buildings_collection = buildings_player_red
-	else:
-		enemy_buildings_collection = buildings_player_blue
+    var enemy_buildings_collection
+    if current_player == 0:
+        enemy_buildings_collection = buildings_player_red
+    else:
+        enemy_buildings_collection = buildings_player_blue
 
-	var buildings = []
-	for tile in nearby_tiles:
-		if enemy_buildings_collection.has(tile):
-			buildings.append(enemy_buildings_collection[tile])
+    var buildings = []
+    for tile in nearby_tiles:
+        if enemy_buildings_collection.has(tile):
+            buildings.append(enemy_buildings_collection[tile])
 
-	return buildings
+    return buildings
 
 #for red
 func get_nearby_empty_buldings(nearby_tiles):
-	var buildings = []
-	for tile in nearby_tiles:
-		if buildings_player_none.has(tile):
-			buildings.append(buildings_player_none[tile])
+    var buildings = []
+    for tile in nearby_tiles:
+        if buildings_player_none.has(tile):
+            buildings.append(buildings_player_none[tile])
 
-	return buildings
+    return buildings
 
 func prepare_nearby_tiles():
-	for distance in range(1, MAX_PRECALCULATED_TILES_RANGE):
+    for distance in range(1, MAX_PRECALCULATED_TILES_RANGE):
 
-		var max_distance = distance *2 -1
-		var tiles = []
+        var max_distance = distance *2 -1
+        var tiles = []
 
-		for x in range(-distance, distance + 1):
-			for y in range(-distance, distance  + 1):
-				# we are skipping current tile
-				if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
-					tiles.append(Vector2(x, y))
-		self.precalculated_nearby_tiles.insert(distance, tiles)
+        for x in range(-distance, distance + 1):
+            for y in range(-distance, distance  + 1):
+                # we are skipping current tile
+                if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
+                    tiles.append(Vector2(x, y))
+        self.precalculated_nearby_tiles.insert(distance, tiles)
 
 func prepare_nearby_tiles_ranges():
-	self.precalculated_nearby_tiles_ranges.insert(0, precalculated_nearby_tiles[0])
-	for i in range(1, MAX_PRECALCULATED_TILES_RANGE):
-		var values = self.root_node.dependency_container.helpers.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
-		self.precalculated_nearby_tiles_ranges.insert(i, values)
+    self.precalculated_nearby_tiles_ranges.insert(0, precalculated_nearby_tiles[0])
+    for i in range(1, MAX_PRECALCULATED_TILES_RANGE):
+        var values = self.root_node.dependency_container.helpers.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
+        self.precalculated_nearby_tiles_ranges.insert(i, values)
 
 
 #get all tiles
 func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
-	var tiles = []
+    var tiles = []
 
-	for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
-		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+    for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
+        tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
-	return tiles
+    return tiles
 
 #only subset (ranges)
 func get_nearby_tiles_subset(position, lookup_range=CLOSE_RANGE):
-	var tiles = []
-	if lookup_range == 0:
-		return tiles
+    var tiles = []
+    if lookup_range == 0:
+        return tiles
 
-	for tile_modifier in self.precalculated_nearby_tiles_ranges[lookup_range]:
-		tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+    for tile_modifier in self.precalculated_nearby_tiles_ranges[lookup_range]:
+        tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
-	return tiles
+    return tiles
 
 
 

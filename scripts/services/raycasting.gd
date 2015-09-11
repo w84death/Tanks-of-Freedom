@@ -57,7 +57,7 @@ func check_visibility(unit_position, tiles, cost_map, tiles_range):
                 if previous_tile == null:
                     previous_tile = point
                 else:
-                    if !self.is_walkable(point, cost_map):
+                    if !cost_map.has(point):
                         break;
 
                     distance = distance  + self.calculate_tile_distance(previous_tile, point)
@@ -70,6 +70,9 @@ func check_visibility(unit_position, tiles, cost_map, tiles_range):
                     else:
                         checked_tiles[point] = distance
 
+                    if !cost_map[point].walkable:
+                        break;
+
                 previous_tile = point
 
     return checked_tiles
@@ -77,10 +80,5 @@ func check_visibility(unit_position, tiles, cost_map, tiles_range):
 func calculate_tile_distance(pos1, pos2):
     return  abs(pos1.x - pos2.x) + abs(pos1.y - pos2.y)
 
-func is_walkable(point, cost_map):
-    if cost_map.has(point) && cost_map[point].walkable:
-        return true
-
-    return false
 
 

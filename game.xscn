@@ -216,10 +216,11 @@
 							<string> "current" </string>
 							<int> 2 </int>
 							<string> "sources" </string>
-							<array  len="3" shared="false">
+							<array  len="4" shared="false">
 								<string> "res://scripts/controllers/action_controller.gd" </string>
 								<string> "res://scripts/ai/pathfinding/a_star_pathfinding.gd" </string>
 								<string> "res://scripts/action_map.gd" </string>
+								<string> "res://scripts/game_logic.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

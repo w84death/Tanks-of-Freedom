@@ -1,7 +1,8 @@
 var map
 var root
 var action_layer
-var intraction_tiles = []
+var red_tiles = []
+
 
 func init_root(root):
     self.root = root
@@ -16,7 +17,25 @@ func reset():
 func add_movement_indicator(tile, tile_type):
     self.action_layer.set_cell(tile.x, tile.y, tile_type)
 
+func mark_movement_tiles(source, tiles, first_action_range, unit_moved, current_player):
+    var adj_tiles = []
+    var red_tile
+    var target
+
+    for tile in tiles:
+        red_tile = self.mark_movement_tile(source, tile, first_action_range, unit_moved, current_player)
+        if red_tile != null:
+            adj_tiles = self.get_adjacement_tiles(red_tile)
+            for adj_tile in adj_tiles:
+                if tiles.has(adj_tile):
+                    target = self.root.dependency_container.abstract_map.get_field(adj_tile)
+                    if target.terrain_type != -1:
+                        self.add_movement_indicator(adj_tile, 3)
+
+
+
 func mark_movement_tile(source, tile, first_action_range, unit_moved, current_player):
+    var intraction_tiles = []
     if self.root.dependency_container.abstract_map.map.fog_controller.is_fogged(tile.x, tile.y):
         return
 
@@ -35,27 +54,16 @@ func mark_movement_tile(source, tile, first_action_range, unit_moved, current_pl
                 tile_type = 2
 
             self.add_movement_indicator(tile, tile_type)
+            return
 
     else:
         if target.object.group == 'unit':
             if target.object.player != current_player && self.root.dependency_container.battle_controller.can_attack(source.object, target.object):
                 self.add_movement_indicator(tile, 3)
-                self.interaction_tiles.append(tile)
+                return tile
         if target.object.group == 'building' && target.object.player != current_player && source.object.type == 0:
             self.add_movement_indicator(tile, 3)
-            self.intraction_tiles.append(tile)
-
-func mark_interaction_tiles():
-    var tiles
-    for tile in self.intraction_tiles:
-        tiles = self.get_adjacement_tiles(tile)
-        for adj_tile in tiles:
-            if self.action_layer.get_cell(adj_tile.x, adj_tile.y) > 0:
-                self.add_movement_indicator(adj_tile, 3)
-
-func clear_interaction_tiles():
-    self.intraction_tiles.clear()
-
+            return tile
 
 func get_adjacement_tiles(tile):
     var mods = [Vector2(-1,0), Vector2(1,0), Vector2(0,-1), Vector2(0,1)]
