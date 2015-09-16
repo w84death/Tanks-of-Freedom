@@ -2,4 +2,9 @@
 
 bin/export build android_16x9 /tmp ToF_debug_build
 
-adb install /tmp/tof-build/ToF_debug_build_1280_android64.apk
+adb install -r /tmp/tof-build/ToF_debug_build_1280_android64.apk
+
+if [ "$1" == "logcat" ]
+then
+  ./bin/android_logcat
+fi
