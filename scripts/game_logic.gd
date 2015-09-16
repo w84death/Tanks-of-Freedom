@@ -47,7 +47,7 @@ var is_locked_for_cpu = false
 var is_from_workshop = false
 var settings_file = File.new()
 var workshop_file_name
-var click_fix_position = 12
+var click_fix_position = Globals.get("tof/selector_offset")
 
 func _input(event):
 	if is_demo == true:
