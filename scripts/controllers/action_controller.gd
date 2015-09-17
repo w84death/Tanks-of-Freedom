@@ -117,6 +117,8 @@ func handle_action(position):
             #if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
             if active_field.object.group == 'unit'  && self.is_movement_possible(field, active_field) && field.terrain_type != -1 && self.has_ap():
                 self.move_unit(active_field, field)
+            else:
+            	self.clear_active_field()
 
 func post_handle_action():
     self.positions.refresh_units()
