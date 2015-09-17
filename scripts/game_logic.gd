@@ -49,6 +49,10 @@ var settings_file = File.new()
 var workshop_file_name
 var click_fix_position = Globals.get("tof/selector_offset")
 
+var registered_click = false
+var registered_click_position = Vector2(0, 0)
+var registered_click_threshold = 10
+
 func _input(event):
 	if is_demo == true:
 		is_demo = false
@@ -66,16 +70,22 @@ func _input(event):
 				var position = current_map_terrain.map_to_world(selector_position)
 				position.y += 2
 				selector.set_pos(position)
+				if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
+					self.registered_click = false
 
 			# MOUSE SELECT
-			if (event.type == InputEvent.MOUSE_BUTTON):
-				if (event.pressed and event.button_index == BUTTON_LEFT):
-
-					if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
-						var position = current_map_terrain.map_to_world(selector_position)
-						if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y+click_fix_position):
-							action_controller.handle_action(selector_position)
-							action_controller.post_handle_action()
+			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
+				if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
+					var position = current_map_terrain.map_to_world(selector_position)
+					if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y+click_fix_position):
+						if event.is_pressed():
+							self.registered_click = true
+							self.registered_click_position = Vector2(event.x, event.y)
+						else:
+							if self.registered_click:
+								action_controller.handle_action(selector_position)
+								action_controller.post_handle_action()
+								self.registered_click = false
 
 		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
