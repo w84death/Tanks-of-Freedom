@@ -164,7 +164,7 @@ func clear_active_field():
 
 func add_movement_indicators(field):
     self.root_node.dependency_container.action_map.reset()
-    if player_ap[current_player] > 0 && field.object.ap > 0:
+    if player_ap[current_player] > 0 && field.object.ap > 0 && not root_node.settings['cpu_' + str(current_player)]:
         # calculating range
         var tiles_range = min(field.object.ap, player_ap[current_player])
         var tiles = []
