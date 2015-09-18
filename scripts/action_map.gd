@@ -21,6 +21,7 @@ func find_movement_tiles(source_field, move_range):
     var visited_tiles = {}
     var depth
     var field
+    var abstract_map = self.root.dependency_container.abstract_map
     visited_tiles[source_field.position] = true
 
     if move_range == 0:
@@ -36,6 +37,8 @@ func find_movement_tiles(source_field, move_range):
         if depth < move_range:
             for neighbour in field.get_neighbours():
                 if neighbour.is_passable() and not visited_tiles.has(neighbour.position):
+                    if abstract_map.map.fog_controller.is_fogged(neighbour.position.x, neighbour.position.y):
+                        continue
                     processing_queue.push_back({ 'field': neighbour, 'depth': depth + 1 })
                     visited_tiles[neighbour.position] = true
         index += 1
