@@ -82,3 +82,38 @@ func next_tile_by_trail(directions):
 
 	return next_tile
 
+func is_passable():
+	if self.terrain_type < 0:
+		return false
+	if self.object != null:
+		return false
+
+	return true
+
+func has_attackable_enemy(unit):
+	if unit == null:
+		return false
+
+	if self.object != null and self.object.group == 'unit' and self.object.player != unit.player:
+		if unit.can_attack() and unit.can_attack_unit_type(self.object):
+			return true
+
+	return false
+
+func has_capturable_building(unit):
+	if unit == null:
+		return false
+
+	if self.object != null and self.object.group == 'building' and self.object.player != unit.player:
+		if unit.can_capture_building(self.object):
+			return true
+
+	return false
+
+func get_neighbours():
+	return [
+		self.abstract_map.get_field(Vector2(self.position.x, self.position.y - 1)),
+		self.abstract_map.get_field(Vector2(self.position.x, self.position.y + 1)),
+		self.abstract_map.get_field(Vector2(self.position.x - 1, self.position.y)),
+		self.abstract_map.get_field(Vector2(self.position.x + 1, self.position.y))
+	]

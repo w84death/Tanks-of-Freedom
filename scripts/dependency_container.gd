@@ -22,7 +22,6 @@ var migrations = preload("res://scripts/migrations/migrations.gd").new()
 var timers = preload("res://scripts/timers.gd").new()
 var menu_background_map = preload("res://maps/menu_map_background.gd").new()
 var helpers = preload("res://scripts/services/helpers.gd").new()
-var raycasting = preload("res://scripts/services/raycasting.gd").new()
 var map_picker = preload("res://gui/hud/map_picker.gd").new()
 var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
 

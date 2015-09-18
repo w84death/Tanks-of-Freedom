@@ -198,7 +198,3 @@ func get_nearby_tiles_subset(position, lookup_range=CLOSE_RANGE):
         tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
     return tiles
-
-
-
-
