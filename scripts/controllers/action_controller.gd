@@ -24,6 +24,13 @@ var camera
 
 var game_ended = false
 
+var interaction_indicators = {
+    'bl' : { 'offset' : Vector2(0, 1), 'indicator' : null },
+    'br' : { 'offset' : Vector2(1, 0), 'indicator' : null },
+    'tl' : { 'offset' : Vector2(-1, 0), 'indicator' : null },
+    'tr' : { 'offset' : Vector2(0, -1), 'indicator' : null }
+}
+
 const BREAK_EVENT_LOOP = 1
 
 func reset():
@@ -78,6 +85,12 @@ func init_root(root, map, hud):
 
     pathfinding = preload('res://scripts/ai/pathfinding/a_star_pathfinding.gd').new()
     ai = preload("res://scripts/ai/ai.gd").new(self.positions, pathfinding, self.root_node.dependency_container.abstract_map, self)
+
+    var interaction_template = preload('res://gui/movement.xscn')
+    for direction in self.interaction_indicators:
+        self.interaction_indicators[direction]['indicator'] = interaction_template.instance()
+        ysort.add_child(self.interaction_indicators[direction]['indicator'])
+        self.interaction_indicators[direction]['indicator'].hide()
 
     demo_timer = root_node.get_node("DemoTimer")
 
@@ -161,6 +174,7 @@ func clear_active_field():
     hud_controller.clear_unit_card()
     hud_controller.clear_building_card()
     self.root_node.dependency_container.action_map.reset()
+    self.hide_interaction_indicators()
 
 func add_movement_indicators(field):
     self.root_node.dependency_container.action_map.reset()
@@ -180,6 +194,39 @@ func add_movement_indicators(field):
             self.actual_movement_tiles[tile] = tiles[tile]
 
         self.root_node.dependency_container.action_map.mark_movement_tiles(field, tiles, first_action_range, current_player)
+    self.add_interaction_indicators(field)
+
+func add_interaction_indicators(field):
+    var neighbour
+    var indicator
+    var indicator_position
+
+    if player_ap[current_player] == 0:
+        return
+
+    for direction in self.interaction_indicators:
+        indicator = self.interaction_indicators[direction]['indicator']
+        indicator.hide()
+
+        neighbour = self.root_node.dependency_container.abstract_map.get_field(Vector2(field.position) + self.interaction_indicators[direction]['offset'])
+
+        if neighbour.terrain_type == -1:
+            continue
+
+        indicator_position = Vector2(self.root_node.dependency_container.abstract_map.tilemap.map_to_world(neighbour.position))
+
+        if neighbour.has_attackable_enemy(field.object):
+            indicator.set_pos(indicator_position + Vector2(1, 1))
+            indicator.show()
+            indicator.get_node('anim').play("attack")
+        if neighbour.has_capturable_building(field.object) && self.root_node.dependency_container.movement_controller.can_move(field, neighbour):
+            indicator.set_pos(indicator_position)
+            indicator.show()
+            indicator.get_node('anim').play("enter")
+
+func hide_interaction_indicators():
+    for direction in self.interaction_indicators:
+        self.interaction_indicators[direction]['indicator'].hide()
 
 func despawn_unit(field):
     ysort.remove_child(field.object)
