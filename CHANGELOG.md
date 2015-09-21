@@ -2,6 +2,23 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.3.7-beta
+- New units movement
+  - units can move more tiles at once
+  - valid path, no longer than range, must exist
+- CPU turn progress bar
+- New custom map picker for Skirmish and Workshop
+- Human/CPU switches for Play option in Workshop
+- Remove map option for Workshop
+- Unit/Building deselect when clicking on empty tile
+- Fixed building capture indicator showing under buildings
+- Fixed clicks through HUD on Android devices
+- Click/Drag threshold added to prevent accidental unit actions
+- Fixed Human/CPU settings not saving after switch
+- Updated mission briefings in campaign
+- Fixed map saved popup in Workshop
+- Fixed underground not showing correctly near bridges
+
 ### 0.3.6-beta
 - Reworked Workshop, now for touch screens
   - more tiles available
