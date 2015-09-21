@@ -200,8 +200,8 @@ user_permissions/6=""
 user_permissions/7=""
 user_permissions/8=""
 user_permissions/9=""
-version/code=2
-version/name="0.3.5-beta"
+version/code=4
+version/name="0.3.7-beta"
 
 [platform:BlackBerry 10]
 
