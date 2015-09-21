@@ -63,7 +63,7 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
 
         for neighbour in field.get_neighbours():
             if neighbour.has_capturable_building(source.object):
-                tile_type = 0
+                tile_type = 3
                 break
             if neighbour.has_attackable_enemy(source.object):
                 tile_type = 3
