@@ -16,7 +16,7 @@ var lastCurrent
 var path_cache = {}
 var bench_result = 0
 
-const CACHE_MINIMUM_PATH_SIZE = 6
+const CACHE_MINIMUM_PATH_SIZE = 20
 
 func pathSearch(startTile, endTile, own_units):
 

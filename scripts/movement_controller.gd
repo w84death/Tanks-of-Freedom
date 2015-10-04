@@ -11,10 +11,8 @@ var tile_types = [
 
 const TERRAIN_COST = 1
 
-func move_object(from, to, movement_tiles):
+func move_object(from, to):
     var action_cost = self.get_terrain_cost()
-    if movement_tiles.has(to.position):
-        action_cost = movement_tiles[to.position]
 
     var player_stats = from.object.get_stats()
     var position = to.position

@@ -9,8 +9,8 @@ func execute():
 	var field = self.__get_next_tile_from_action()
 	if field:
 		action_controller.set_active_field(unit.get_pos_map())
-		action_controller.handle_action(field.position)
-		positions.refresh_units()
-		return true
+		if action_controller.handle_action(field.position) == 1:
+		    positions.refresh_units()
+		    return true
 
 	return false

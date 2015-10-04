@@ -105,16 +105,16 @@ func set_active_field(position):
 
 func handle_action(position):
     if game_ended:
-        return
+        return 0
 
     var field = self.root_node.dependency_container.abstract_map.get_field(position)
-
     if field.object != null:
         if active_field != null:
             if field.object.group == 'unit' && active_field.object.group == 'unit':
+
                 if active_field.is_adjacent(field) && field.object.player != current_player && self.has_ap():
                     if (self.handle_battle(active_field, field) == BREAK_EVENT_LOOP):
-                        return
+                        return 0
                 else:
                     sound_controller.play('no_move')
 
@@ -122,7 +122,7 @@ func handle_action(position):
             if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != current_player:
                 if active_field.is_adjacent(field) && self.root_node.dependency_container.movement_controller.can_move(active_field, field) && self.has_ap():
                     if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
-                        return
+                        return 0
         if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == current_player:
             self.activate_field(field)
     else:
@@ -132,6 +132,8 @@ func handle_action(position):
                 self.move_unit(active_field, field)
             else:
                 self.clear_active_field()
+
+    return 1
 
 func post_handle_action():
     self.positions.refresh_units()
@@ -415,7 +417,7 @@ func update_unit(field):
     self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
-    if self.root_node.dependency_container.movement_controller.move_object(active_field, field, self.actual_movement_tiles):
+    if self.root_node.dependency_container.movement_controller.move_object(active_field, field):
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
         self.use_ap(field)
         self.activate_field(field)
