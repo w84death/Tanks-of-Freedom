@@ -15,6 +15,7 @@ var cinematic_camera
 var cinematic_camera_anim
 var cinematic_progress
 var menu_button
+var settings_button
 
 var game_card
 
@@ -77,8 +78,10 @@ func init_root(root, action_controller_object, hud):
 	cinematic_camera_anim = cinematic_camera.get_node("anim")
 	cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
 
-	self.menu_button = hud.get_node("top_panel/center/game_card/escape")
-	self.menu_button.connect("pressed", root, "toggle_menu")
+	self.menu_button = hud.get_node("top_panel/center/game_card/menu")
+	self.settings_button = hud.get_node("top_panel/center/game_card/settings")
+	self.menu_button.connect("pressed", root, "toggle_menu", ['menu'])
+	self.settings_button.connect("pressed", root, "toggle_menu", ['settings'])
 	self.root_node.dependency_container.controllers.hud_panel_controller.reset()
 
 func attach_hud_panel():

@@ -177,12 +177,16 @@ func unload_map():
 	action_controller = null
 	self.menu.show_background_map()
 
-func toggle_menu():
+func toggle_menu(target = 'menu'):
 	if is_map_loaded:
 		if menu.is_hidden():
 			is_paused = true
 			action_controller.stats_set_time()
 			menu.show()
+			if target == 'menu':
+				self.menu.show_main_menu()
+			if target == 'settings':
+				self.menu.show_settings()
 			hud.hide()
 		else:
 			is_paused = false
