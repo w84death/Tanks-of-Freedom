@@ -21,6 +21,7 @@ var player_ap_max = 1
 var turn = 1
 var title
 var camera
+var is_cpu_player
 
 var game_ended = false
 
@@ -46,6 +47,7 @@ func reset():
     self.demo_timer = null
     self.positions = null
     self.current_player = 0
+    self.is_cpu_player = false
     self.player_ap = [0, 0]
     self.player_ap_max = 1
     self.turn = 1
@@ -165,9 +167,9 @@ func activate_field(field):
     sound_controller.play('select')
     if field.object.group == 'unit':
         hud_controller.show_unit_card(field.object, current_player)
-        if not root_node.settings['cpu_' + str(current_player)]:
+        if not self.is_cpu_player:
             self.add_movement_indicators(field)
-    if field.object.group == 'building' && not root_node.settings['cpu_' + str(current_player)]:
+    if field.object.group == 'building' && not self.is_cpu_player:
         hud_controller.show_building_card(field.object, player_ap[current_player])
 
 func clear_active_field():
@@ -180,17 +182,16 @@ func clear_active_field():
 
 func add_movement_indicators(field):
     self.root_node.dependency_container.action_map.reset()
-    if player_ap[current_player] > 0 && field.object.ap > 0 && not root_node.settings['cpu_' + str(current_player)]:
+    if player_ap[current_player] > 0 && field.object.ap > 0 && not self.is_cpu_player:
         # calculating range
         var tiles_range = min(field.object.ap, player_ap[current_player])
-        var tiles = []
         var first_action_range = max(0, ceil(field.object.ap - 1))
 
         var unit_position = field.object.get_pos_map()
 
         self.actual_movement_tiles.clear()
 
-        tiles = self.root_node.dependency_container.action_map.find_movement_tiles(field, tiles_range)
+        var tiles = self.root_node.dependency_container.action_map.find_movement_tiles(field, tiles_range)
 
         for tile in tiles:
             self.actual_movement_tiles[tile] = tiles[tile]
@@ -319,7 +320,7 @@ func use_ap(field):
 
 func is_movement_possible(field, active_field):
     #TODO hack for AI
-    if root_node.settings['cpu_' + str(current_player)]:
+    if self.is_cpu_player:
         return active_field.is_adjacent(field)
 
     var position = field.position
@@ -357,6 +358,8 @@ func switch_to_player(player):
     self.stats_start_time()
     self.clear_active_field()
     current_player = player
+    self.is_cpu_player = root_node.settings['cpu_' + str(current_player)]
+
     self.reset_player_units(player)
     selector.set_player(player);
     self.root_node.dependency_container.abstract_map.map.current_player = player
@@ -376,7 +379,7 @@ func switch_to_player(player):
 
 func perform_ai_stuff():
     var success = false
-    if root_node.settings['cpu_' + str(current_player)] && player_ap[current_player] > 0:
+    if self.is_cpu_player && player_ap[current_player] > 0:
         success = ai.gather_available_actions(player_ap[current_player])
 
     self.hud_controller.update_cpu_progress(player_ap[current_player], ai.ap_for_turn)
@@ -417,7 +420,12 @@ func update_unit(field):
     self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
-    if self.root_node.dependency_container.movement_controller.move_object(active_field, field):
+    print(float(true))
+    var action_cost = self.root_node.dependency_container.movement_controller.TERRAIN_COST
+    if !self.is_cpu_player && self.actual_movement_tiles.has(field.position):
+        action_cost = self.actual_movement_tiles[field.position]
+
+    if self.root_node.dependency_container.movement_controller.move_object(active_field, field, action_cost):
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
         self.use_ap(field)
         self.activate_field(field)
