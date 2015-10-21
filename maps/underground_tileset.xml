@@ -8,36 +8,36 @@
 		<string name="0/name"> "0" </string>
 		<resource name="0/texture" resource_type="Texture" path="res://assets/terrain/underground.png">  </resource>
 		<vector2 name="0/tex_offset"> 0, -14 </vector2>
-		<resource name="0/material"></resource>		<rect2 name="0/region"> 0, 0, 32, 32 </rect2>
-		<vector2 name="0/occluder_offset"> 16, 16 </vector2>
-		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 16, 16 </vector2>
+		<resource name="0/material"></resource>		<rect2 name="0/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="0/occluder_offset"> 32, 32 </vector2>
+		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 32, 32 </vector2>
 		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 0, 0 </vector2>
 		<array name="0/shapes" len="0" shared="false">
 		</array>
 		<string name="1/name"> "1" </string>
 		<resource name="1/texture" resource_type="Texture" path="res://assets/terrain/underground.png">  </resource>
 		<vector2 name="1/tex_offset"> 0, -14 </vector2>
-		<resource name="1/material"></resource>		<rect2 name="1/region"> 32, 0, 32, 32 </rect2>
-		<vector2 name="1/occluder_offset"> 16, 16 </vector2>
-		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 16, 16 </vector2>
+		<resource name="1/material"></resource>		<rect2 name="1/region"> 64, 0, 64, 64 </rect2>
+		<vector2 name="1/occluder_offset"> 32, 32 </vector2>
+		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 32, 32 </vector2>
 		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 0, 0 </vector2>
 		<array name="1/shapes" len="0" shared="false">
 		</array>
 		<string name="2/name"> "2" </string>
 		<resource name="2/texture" resource_type="Texture" path="res://assets/terrain/underground.png">  </resource>
 		<vector2 name="2/tex_offset"> 0, -14 </vector2>
-		<resource name="2/material"></resource>		<rect2 name="2/region"> 64, 0, 32, 32 </rect2>
-		<vector2 name="2/occluder_offset"> 16, 16 </vector2>
-		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 16, 16 </vector2>
+		<resource name="2/material"></resource>		<rect2 name="2/region"> 128, 0, 64, 64 </rect2>
+		<vector2 name="2/occluder_offset"> 32, 32 </vector2>
+		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 32, 32 </vector2>
 		<resource name="2/navigation"></resource>		<vector2 name="2/shape_offset"> 0, 0 </vector2>
 		<array name="2/shapes" len="0" shared="false">
 		</array>
 		<string name="3/name"> "3" </string>
 		<resource name="3/texture" resource_type="Texture" path="res://assets/terrain/underground.png">  </resource>
 		<vector2 name="3/tex_offset"> 0, -14 </vector2>
-		<resource name="3/material"></resource>		<rect2 name="3/region"> 96, 0, 32, 32 </rect2>
-		<vector2 name="3/occluder_offset"> 16, 16 </vector2>
-		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 16, 16 </vector2>
+		<resource name="3/material"></resource>		<rect2 name="3/region"> 192, 0, 64, 64 </rect2>
+		<vector2 name="3/occluder_offset"> 32, 32 </vector2>
+		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 32, 32 </vector2>
 		<resource name="3/navigation"></resource>		<vector2 name="3/shape_offset"> 0, 0 </vector2>
 		<array name="3/shapes" len="0" shared="false">
 		</array>

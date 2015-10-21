@@ -8,31 +8,15 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="29">
+			<string_array  len="13">
 				<string> "underground_tileset" </string>
 				<string> "Node2D" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
 				<string> "__meta__" </string>
 				<string> "0" </string>
 				<string> "Sprite" </string>
+				<string> "transform/pos" </string>
 				<string> "texture" </string>
-				<string> "centered" </string>
 				<string> "offset" </string>
-				<string> "flip_h" </string>
-				<string> "flip_v" </string>
-				<string> "vframes" </string>
-				<string> "hframes" </string>
-				<string> "frame" </string>
-				<string> "modulate" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
 				<string> "1" </string>
@@ -42,17 +26,9 @@
 			<string> "node_count" </string>
 			<int> 5 </int>
 			<string> "nodes" </string>
-			<int_array  len="225"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 0, 0, 0, 14, 13, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 9, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 14, 0, 0, 0, 14, 26, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 15, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 16, 0, 0, 0, 14, 27, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 17, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 18, 0, 0, 0, 14, 28, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 19, 8, 5, 9, 6, 10, 7, 11, 1, 15, 10, 16, 1, 17, 11, 18, 12, 19, 12, 20, 3, 21, 3, 22, 7, 23, 13, 24, 1, 25, 20, 0 </int_array>
+			<int_array  len="77"> 				-1, -1, 1, 0, -1, 1, 2, 0, 0, 0, 0, 4, 3, -1, 5, 5, 1, 6, 2, 7, 3, 8, 4, 9, 5, 0, 0, 0, 4, 10, -1, 5, 5, 6, 6, 2, 7, 3, 8, 4, 9, 7, 0, 0, 0, 4, 11, -1, 5, 5, 8, 6, 2, 7, 3, 8, 4, 9, 9, 0, 0, 0, 4, 12, -1, 5, 5, 10, 6, 2, 7, 3, 8, 4, 9, 11, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="21" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
-				<int> 1 </int>
-				<vector2> 0, 0 </vector2>
-				<real> 0 </real>
-				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
+			<array  len="12" shared="false">
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -184,18 +160,17 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<vector2> 16, 30 </vector2>
+				<vector2> 24.7868, 38.7868 </vector2>
 				<resource  resource_type="Texture" path="res://assets/terrain/underground.png">  </resource>
 				<vector2> 0, -14 </vector2>
-				<bool> False </bool>
-				<color> 1, 1, 1, 1 </color>
-				<rect2> 0, 0, 32, 32 </rect2>
-				<vector2> 51, 30 </vector2>
-				<rect2> 32, 0, 32, 32 </rect2>
-				<vector2> 88, 30 </vector2>
-				<rect2> 64, 0, 32, 32 </rect2>
-				<vector2> 128, 30 </vector2>
-				<rect2> 96, 0, 32, 32 </rect2>
+				<bool> True </bool>
+				<rect2> 0, 0, 64, 64 </rect2>
+				<vector2> 104.397, 37.435 </vector2>
+				<rect2> 64, 0, 64, 64 </rect2>
+				<vector2> 187.359, 48.9255 </vector2>
+				<rect2> 128, 0, 64, 64 </rect2>
+				<vector2> 262.506, 46.2218 </vector2>
+				<rect2> 192, 0, 64, 64 </rect2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
