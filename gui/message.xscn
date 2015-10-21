@@ -2,10 +2,10 @@
 <resource_file type="PackedScene" subresource_count="9" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/message.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
 	<main_resource>
@@ -15,7 +15,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="56">
+			<string_array  len="52">
 				<string> "message" </string>
 				<string> "Control" </string>
 				<string> "margin/right" </string>
@@ -66,19 +66,15 @@
 				<string> "align" </string>
 				<string> "percent_visible" </string>
 				<string> "title" </string>
-				<string> "RichTextLabel" </string>
-				<string> "custom_fonts/normal_font" </string>
-				<string> "custom_colors/default_color" </string>
-				<string> "bbcode/enabled" </string>
-				<string> "bbcode/bbcode" </string>
-				<string> "visible_characters" </string>
+				<string> "title1" </string>
+				<string> "autowrap" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 15 </int>
 			<string> "nodes" </string>
-			<int_array  len="375"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 1, 10, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 9, 6, 0, 1, 0, 11, 11, -1, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 10, 17, 11, 0, 1, 0, 11, 18, -1, 6, 12, 12, 13, 8, 14, 9, 15, 10, 16, 10, 17, 13, 0, 1, 0, 11, 19, -1, 6, 12, 14, 13, 8, 14, 9, 15, 10, 16, 10, 17, 15, 0, 1, 0, 11, 20, -1, 6, 12, 16, 13, 8, 14, 9, 15, 10, 16, 10, 17, 17, 0, 1, 0, 11, 21, -1, 6, 12, 18, 13, 8, 14, 9, 15, 10, 16, 10, 17, 19, 0, 1, 0, 11, 22, -1, 6, 12, 20, 13, 8, 14, 9, 15, 10, 16, 10, 17, 21, 0, 1, 0, 11, 23, -1, 6, 12, 22, 13, 8, 14, 9, 15, 10, 16, 10, 17, 23, 0, 1, 0, 11, 24, -1, 6, 12, 24, 13, 8, 14, 9, 15, 10, 16, 10, 17, 25, 0, 1, 0, 11, 25, -1, 6, 12, 26, 13, 8, 14, 9, 15, 10, 16, 10, 17, 27, 0, 0, 0, 27, 26, -1, 15, 28, 28, 29, 29, 2, 30, 3, 31, 4, 1, 5, 2, 6, 3, 7, 3, 30, 1, 31, 32, 32, 33, 33, 34, 34, 35, 35, 8, 9, 36, 0, 11, 0, 36, 36, -1, 19, 28, 37, 29, 38, 2, 39, 3, 40, 4, 2, 5, 2, 6, 3, 37, 41, 38, 42, 39, 43, 40, 44, 41, 44, 42, 44, 43, 43, 44, 1, 45, 1, 46, 45, 47, 46, 48, 47, 0, 0, 0, 36, 49, -1, 19, 28, 48, 29, 49, 2, 50, 3, 51, 4, 2, 5, 2, 6, 3, 37, 52, 38, 42, 39, 43, 40, 44, 41, 44, 42, 44, 43, 43, 44, 1, 45, 1, 46, 53, 47, 46, 48, 47, 0, 0, 0, 50, 0, -1, 13, 28, 54, 29, 55, 2, 56, 3, 57, 4, 1, 5, 2, 6, 3, 7, 3, 51, 41, 52, 42, 53, 1, 54, 58, 55, 59, 0 </int_array>
+			<int_array  len="385"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 1, 10, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 9, 6, 0, 1, 0, 11, 11, -1, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 10, 17, 11, 0, 1, 0, 11, 18, -1, 6, 12, 12, 13, 8, 14, 9, 15, 10, 16, 10, 17, 13, 0, 1, 0, 11, 19, -1, 6, 12, 14, 13, 8, 14, 9, 15, 10, 16, 10, 17, 15, 0, 1, 0, 11, 20, -1, 6, 12, 16, 13, 8, 14, 9, 15, 10, 16, 10, 17, 17, 0, 1, 0, 11, 21, -1, 6, 12, 18, 13, 8, 14, 9, 15, 10, 16, 10, 17, 19, 0, 1, 0, 11, 22, -1, 6, 12, 20, 13, 8, 14, 9, 15, 10, 16, 10, 17, 21, 0, 1, 0, 11, 23, -1, 6, 12, 22, 13, 8, 14, 9, 15, 10, 16, 10, 17, 23, 0, 1, 0, 11, 24, -1, 6, 12, 24, 13, 8, 14, 9, 15, 10, 16, 10, 17, 25, 0, 1, 0, 11, 25, -1, 6, 12, 26, 13, 8, 14, 9, 15, 10, 16, 10, 17, 27, 0, 0, 0, 27, 26, -1, 14, 28, 28, 29, 29, 2, 30, 3, 31, 4, 1, 5, 2, 6, 3, 7, 3, 30, 1, 31, 32, 32, 33, 33, 34, 34, 35, 35, 8, 0, 11, 0, 36, 36, -1, 19, 28, 36, 29, 37, 2, 38, 3, 39, 4, 2, 5, 2, 6, 3, 37, 40, 38, 41, 39, 42, 40, 43, 41, 43, 42, 43, 43, 42, 44, 1, 45, 1, 46, 44, 47, 45, 48, 46, 0, 0, 0, 36, 49, -1, 19, 28, 47, 29, 47, 2, 48, 3, 49, 4, 2, 5, 2, 6, 3, 37, 50, 38, 41, 39, 42, 40, 43, 41, 43, 42, 43, 43, 42, 44, 1, 45, 1, 46, 51, 47, 45, 48, 46, 0, 0, 0, 36, 50, -1, 19, 28, 52, 29, 53, 2, 54, 3, 55, 4, 2, 5, 2, 6, 3, 37, 40, 38, 41, 39, 42, 40, 56, 41, 43, 42, 57, 43, 42, 44, 1, 45, 1, 46, 58, 51, 2, 48, 46, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="60" shared="false">
+			<array  len="59" shared="false">
 				<real> 40 </real>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -92,7 +88,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -426.957, -239.005 </vector2>
+							<vector2> -198.056, -176.353 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -112,7 +108,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.967247 </real>
+							<real> 1.45797 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -240,41 +236,37 @@
 				<int> 13 </int>
 				<vector2> 0, 2.00001 </vector2>
 				<int> 12 </int>
-				<real> 14 </real>
+				<real> -71 </real>
 				<real> 50 </real>
-				<real> 110 </real>
+				<real> 73 </real>
 				<real> 98 </real>
-				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_0.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_1.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_2.png">  </resource>
-				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_3.png">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_0.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_1.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_2.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_3.png">  </resource>
 				<real> 4 </real>
 				<real> 16 </real>
-				<real> 90 </real>
+				<real> 134 </real>
 				<real> 31 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<real> 0 </real>
 				<real> 1 </real>
-				<string> "CLOSE" </string>
+				<string> "START TURN" </string>
 				<int> 1 </int>
 				<real> -1 </real>
-				<real> -131 </real>
-				<real> -81 </real>
-				<real> 131 </real>
-				<real> -58 </real>
+				<real> -98 </real>
+				<real> 97 </real>
+				<real> -75 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
-				<string> "SECRET TRANSMISSION" </string>
-				<real> -125 </real>
-				<real> -48 </real>
-				<real> 123 </real>
-				<real> 58 </real>
-				<string> "" </string>
-				<int> -1 </int>
+				<string> "NEW TURN" </string>
+				<real> -118 </real>
+				<real> -62 </real>
+				<real> 121 </real>
+				<real> 39 </real>
+				<real> 6 </real>
+				<real> 6.733333 </real>
+				<string> "Did you know?&#000a;&#000a;Little shield icon next to the unit shows that this unit can defend itself if attacked." </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
