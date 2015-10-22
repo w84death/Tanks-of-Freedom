@@ -6,7 +6,7 @@ var end_turn = false
 var state = null
 
 const INTERVAL = 0.2
-const COOLDOWN_INTERVAL = 0.1
+const COOLDOWN_INTERVAL = 0.25
 
 const AI_STUFF = 1
 const END_TURN = 2

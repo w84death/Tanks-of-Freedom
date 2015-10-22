@@ -10,7 +10,7 @@ var active = false
 func show_message(title,message):
 	self.active = true
 	hud_title.set_text(title)
-	hud_message.set_text(message)
+	#hud_message.set_text(message)
 	self.raise()
 	return
 
