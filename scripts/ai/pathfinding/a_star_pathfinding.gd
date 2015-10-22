@@ -16,7 +16,7 @@ var lastCurrent
 var path_cache = {}
 var possible_neighbours = Vector2Array([Vector2(-1,-1), Vector2(-1,0), Vector2(-1,1), Vector2(0,-1), Vector2(0,0), Vector2(0,1),Vector2(1,-1), Vector2(1,0), Vector2(1,1)])
 
-const CACHE_MINIMUM_PATH_SIZE = 10
+const CACHE_MINIMUM_PATH_SIZE = 3
 
 func pathSearch(startTile, endTile, own_units):
 
@@ -24,17 +24,16 @@ func pathSearch(startTile, endTile, own_units):
     var add_path_to_cache = true
     var end_pos
     var start_pos
-    var cached
+    var cached = Vector2Array()
     var index_range
-
     for cache in self.path_cache:
+
         cache = self.path_cache[cache]
         end_pos = cache.find(endTile)
         start_pos = cache.find(startTile)
 
         if (end_pos != -1 && start_pos != -1):
-            cached = []
-
+            cached = Vector2Array()
             if (start_pos > end_pos):
                 index_range = range(end_pos, start_pos)
             else:
@@ -50,9 +49,9 @@ func pathSearch(startTile, endTile, own_units):
             return cached
 
     var result = __pathSearch2(startTile, endTile)
-
-    if (add_path_to_cache && result.size() >= self.CACHE_MINIMUM_PATH_SIZE && !self.path_cache.has(result.hash())):
-        self.path_cache[result.hash()] = result
+    var result_hash = result.hash()
+    if (add_path_to_cache && result.size() >= self.CACHE_MINIMUM_PATH_SIZE && !self.path_cache.has(result_hash)):
+        self.path_cache[result_hash] = result
 
     return result
 
@@ -63,7 +62,7 @@ func set_cost_grid(cost_grid):
 func __invalid_check(cached, own_units):
     # temp cache invalidation
     for unit_pos in own_units:
-        if (cached.find(startTile)):
+        if (cached.find(startTile) == 1):
             return true
 
     return false
@@ -77,9 +76,9 @@ func __pathSearch2(start, goal):
     var came_from = {}  # The map of navigated nodes.
     var tentative_g_score
 
-    grid[start].G = 0    # Cost from start along best known path.
+    grid[start].G = int(0)    # Cost from start along best known path.
     # Estimated total cost from start to goal through y.
-    grid[start].F = grid[start].G + __get_manhattan(start, goal)
+    grid[start].F = int(grid[start].G + __get_manhattan(start, goal))
 
     while openset.size() > 0:
         current = __smallestF(openset)

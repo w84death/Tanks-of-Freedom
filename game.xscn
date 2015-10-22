@@ -218,9 +218,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 7 </int>
+							<int> 8 </int>
 							<string> "sources" </string>
-							<array  len="8" shared="false">
+							<array  len="9" shared="false">
 								<string> "res://scripts/controllers/action_controller.gd" </string>
 								<string> "res://scripts/ai/pathfinding/a_star_pathfinding.gd" </string>
 								<string> "res://scripts/action_map.gd" </string>
@@ -229,6 +229,7 @@
 								<string> "res://scripts/ai/actions.gd" </string>
 								<string> "res://scripts/services/positions.gd" </string>
 								<string> "res://scripts/message.gd" </string>
+								<string> "res://scripts/units/unit_control.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>

@@ -8,7 +8,7 @@ func _init(unit, path):
 func execute():
     var field = self.__get_next_tile_from_action()
     if field:
-        action_controller.set_active_field(unit.get_pos_map())
+        action_controller.set_active_field(unit.position_on_map)
         if action_controller.handle_action(field.position) == 1:
             return true
 

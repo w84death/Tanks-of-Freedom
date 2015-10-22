@@ -286,8 +286,6 @@ func end_turn():
 
     #gather stats
     battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
-    if turn == 1 || fmod(turn, 3) == 0:
-        ai.select_behaviour_type(current_player)
 
 func move_camera_to_active_bunker():
     var bunker_position = self.positions.get_player_bunker_position(current_player)
@@ -420,7 +418,6 @@ func update_unit(field):
     self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
-    print(float(true))
     var action_cost = self.root_node.dependency_container.movement_controller.TERRAIN_COST
     if !self.is_cpu_player && self.actual_movement_tiles.has(field.position):
         action_cost = self.actual_movement_tiles[field.position]

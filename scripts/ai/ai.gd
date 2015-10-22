@@ -52,10 +52,6 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 
     player_behaviours = [behaviour_destroyer, behaviour_destroyer]
 
-func select_behaviour_type(player):
-    player_behaviours[player] = behaviours[floor(rand_range(0, behaviours.size()))]
-    #print('SELECTED BEHAVIOUR FOR PLAYER: ', player, ' IS ', rand)
-
 func gather_available_actions(player_ap):
     current_player = action_controller.current_player
     current_player_ap = player_ap

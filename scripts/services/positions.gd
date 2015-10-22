@@ -169,7 +169,7 @@ func prepare_nearby_tiles():
             for y in range(-distance, distance  + 1):
                 # we are skipping current tile
                 if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
-                    tiles.append(Vector2(x, y))
+                    tiles.push_back(Vector2(x, y))
         self.precalculated_nearby_tiles.insert(distance, tiles)
 
 func prepare_nearby_tiles_ranges():
@@ -184,7 +184,7 @@ func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
     var tiles = []
 
     for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
-        tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+        tiles.push_back(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
     return tiles
 
@@ -195,6 +195,6 @@ func get_nearby_tiles_subset(position, lookup_range=CLOSE_RANGE):
         return tiles
 
     for tile_modifier in self.precalculated_nearby_tiles_ranges[lookup_range]:
-        tiles.append(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+        tiles.push_back(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
 
     return tiles

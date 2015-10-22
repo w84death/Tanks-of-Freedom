@@ -1,4 +1,4 @@
-var tile_types = [
+var tile_types = StringArray([
     'plain','plain','plain','plain','plain','plain','plain','plain',
     'plain','plain','plain','plain','plain','road','road','road',
     'road','river','road',
@@ -7,7 +7,7 @@ var tile_types = [
     'road','road','road','road','road','road','road','road',
     'road','road','road','road',
     'river','river','river','river','river','river','river','river'
-]
+])
 
 const TERRAIN_COST = 1
 
