@@ -203,9 +203,7 @@ func toggle_menu():
 		root.menu.show_workshop()
 	else:
 		self.is_suspended = true
-		self.save_map(restore_file_name)
 		root.menu.hide_workshop()
-
 
 func show_message(title, msg):
 	self.hud_message_box.show_message(title, msg)

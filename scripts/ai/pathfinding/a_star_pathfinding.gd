@@ -14,12 +14,12 @@ var closedList = []
 
 var lastCurrent
 var path_cache = {}
+var possible_neighbours = Vector2Array([Vector2(-1,-1), Vector2(-1,0), Vector2(-1,1), Vector2(0,-1), Vector2(0,0), Vector2(0,1),Vector2(1,-1), Vector2(1,0), Vector2(1,1)])
 
 const CACHE_MINIMUM_PATH_SIZE = 10
 
 func pathSearch(startTile, endTile, own_units):
 
-    #var start = OS.get_ticks_msec();
     searched_children.append(startTile)
     var add_path_to_cache = true
     var end_pos
@@ -45,7 +45,6 @@ func pathSearch(startTile, endTile, own_units):
 
             if (self.__invalid_check(cached, own_units)):
                 add_path_to_cache = false
-                #print ('invalidate')
                 continue
 
             return cached
@@ -92,8 +91,8 @@ func __pathSearch2(start, goal):
         for neighbor in __identify_successors(current, start, goal):
             if neighbor in closedset:
                 continue
-            #tentative_g_score = grid[current].G + 1
-            tentative_g_score = grid[current].G + grid[current].cost
+
+            tentative_g_score = grid[current].G + 1
 
             if !(neighbor in openset) or tentative_g_score < grid[neighbor].G :
                 came_from[neighbor] = current
@@ -142,18 +141,14 @@ func __reconstruct_path(came_from, current_node):
         return [current_node]
 
 func __get_manhattan(start, end):
-    return abs(start.x-end.x)+abs(start.y-end.y)
-
-func __get_dist(start, end):
-    return sqrt(pow(start.x-end.x,2)+pow(start.y-end.y,2))
+    return abs(start.x-end.x) +abs (start.y-end.y)
 
 func __get_adjacent_tiles(center_tile):
     var result = []
     var vector
-    for i in range(-1,2):
-        for j in range(-1,2):
-            if i == 0 or j == 0:
-                vector = Vector2(center_tile.x+i,center_tile.y+j)
-                if grid.has(vector) and grid[vector].walkable == true:
-                    result.append(vector)
+    for mod in self.possible_neighbours:
+        if mod.x == 0 or mod.y == 0:
+            vector = center_tile + mod
+            if grid.has(vector) and grid[vector].walkable == true:
+                result.append(vector)
     return result

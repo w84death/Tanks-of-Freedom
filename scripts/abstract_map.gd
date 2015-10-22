@@ -87,46 +87,31 @@ func update_terrain_tile_type_map(terrain):
  		var unit_pos = terrain[pos].get_pos_map()
  		self.cost_map[unit_pos.x][unit_pos.y] = 999
 
-func calculate_path_cost(unit, path):
-	#start element
-	var cost = 0
-	var skip = true
-	for pos in path:
-		if !skip:
-			if self.cost_map[pos.x][pos.y]:
-				cost = cost + self.cost_map[pos.x][pos.y]
-		skip = false
-
-	return cost
-
 func get_available_directions(unit, current_position):
 	var directions = []
 	var next_position
 
-	next_position = __get_next_position(current_position, 1, 0)
+	next_position = __get_next_position(current_position, Vector2(1, 0))
 	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('right')
 
-	next_position = __get_next_position(current_position, -1, 0)
+	next_position = __get_next_position(current_position, Vector2(-1, 0))
 	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('left')
 
-	next_position = __get_next_position(current_position, 0, -1)
+	next_position = __get_next_position(current_position, Vector2(0, -1))
 	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('up')
 
-	next_position = __get_next_position(current_position, 0, 1)
+	next_position = __get_next_position(current_position, Vector2(0, 1))
 	if self.__check_direction_avaibility(next_position) && !unit.check_hiccup(next_position):
 		directions.append('down')
 
 	return directions
 
-func __get_next_position(current_position, x_mod, y_mod):
+func __get_next_position(current_position, mod):
 	var tmp = current_position
-	tmp.x = tmp.x + x_mod
-	tmp.y = tmp.y + y_mod
-
-	return tmp
+	return tmp + mod
 
 func __check_direction_avaibility(next_position):
 	# we can assume that if building can be catchable it will be handled by standard ai

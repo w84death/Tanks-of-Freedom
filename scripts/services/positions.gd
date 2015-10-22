@@ -102,10 +102,10 @@ func get_units():
     for unit in units:
         if unit.life > 0: # skip undead units (despawn bug)
             if unit.get_player() == 1:
-                units_player_red[unit.get_pos_map()] = unit
+                units_player_red[unit.position_on_map] = unit
             else:
-                units_player_blue[unit.get_pos_map()] = unit
-            all_units[unit.get_pos_map()] = unit
+                units_player_blue[unit.position_on_map] = unit
+            all_units[unit.position_on_map] = unit
 
 func get_nearby_enemies(nearby_tiles, current_player):
     var enemy_units_collection

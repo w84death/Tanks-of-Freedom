@@ -1,10 +1,10 @@
 var actions = {}
 
 func append_action(action, score):
-    if actions.has(score):
+    if self.actions.has(score):
         score = score + floor(randf() * 20)
 
-    actions[score] = action
+    self.actions[score] = action
 
 func execute_best_action():
     var action = self.get_best_action()
@@ -15,13 +15,12 @@ func execute_best_action():
     return false
 
 func get_best_action():
-    var size = actions.size()
-    if (size > 0):
+    if (self.actions.size() > 0):
         return actions[self.__get_max_key(actions.keys())]
     return null
 
 func clear():
-    actions.clear()
+    self.actions.clear()
 
 func __get_max_key(keys):
     var max_key = -999
