@@ -8,23 +8,27 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="6">
+			<string_array  len="8">
 				<string> "terrain_movable" </string>
 				<string> "Sprite" </string>
+				<string> "transform/pos" </string>
 				<string> "texture" </string>
 				<string> "vframes" </string>
 				<string> "hframes" </string>
+				<string> "frame" </string>
 				<string> "__meta__" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "nodes" </string>
-			<int_array  len="15"> 				-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0 </int_array>
+			<int_array  len="19"> 				-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="4" shared="false">
+			<array  len="6" shared="false">
+				<vector2> 0, 0.397209 </vector2>
 				<resource  resource_type="Texture" path="res://assets/terrain/terrain_movable.png">  </resource>
 				<int> 4 </int>
 				<int> 8 </int>
+				<int> 1 </int>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>

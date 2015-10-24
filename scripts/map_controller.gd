@@ -285,10 +285,10 @@ func generate_map():
 					# grass, flowers, log
 					if ( randi() % 10 ) <= GEN_GRASS:
 						temp = map_movable.instance()
-						temp.set_frame(randi()%2)
+						temp.set_frame(randi()%3)
 					if ( randi() % 10 ) <= GEN_FLOWERS:
 						temp2 = map_movable.instance()
-						temp2.set_frame(2 + (randi()%7))
+						temp2.set_frame(8 + (randi()%8))
 				else:
 					# dirt
 					cells_to_change.append({x=x, y=y, type=0})
