@@ -1,9 +1,9 @@
 const NON_WALKABLE = 999
 
 var parent
-var G = 0
-var H = 0
-var F = 0
+var G = int(0)
+var H = int(0)
+var F = int(0)
 var cost
 var walkable = true
 

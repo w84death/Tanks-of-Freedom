@@ -12,9 +12,9 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				5, 0, 59, 58, 2, 0 </int_array>
+			<int_array  len="6"> 				5, 0, 63, 62, 2, 0 </int_array>
 			<string> "names" </string>
-			<string_array  len="60">
+			<string_array  len="64">
 				<string> "game" </string>
 				<string> "Control" </string>
 				<string> "_import_path" </string>
@@ -43,6 +43,10 @@
 				<string> "z/z" </string>
 				<string> "z/relative" </string>
 				<string> "corners" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
 				<string> "SamplePlayer" </string>
 				<string> "config/voices" </string>
 				<string> "config/samples" </string>
@@ -79,9 +83,9 @@
 			<string> "node_count" </string>
 			<int> 8 </int>
 			<string> "nodes" </string>
-			<int_array  len="194"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 21, 20, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 8, 23, 9, 24, 10, 25, 11, 26, 1, 0, 0, 0, 1, 27, 12, 2, 2, 0, 19, 13, 0, 0, 0, 28, 28, -1, 15, 2, 0, 29, 14, 30, 15, 31, 2, 32, 2, 33, 9, 34, 9, 35, 9, 36, 16, 37, 16, 38, 16, 39, 16, 40, 5, 41, 9, 42, 9, 0, 0, 0, 43, 43, -1, 7, 2, 0, 44, 17, 45, 1, 46, 4, 47, 9, 48, 4, 49, 4, 0, 0, 0, 51, 50, -1, 5, 2, 0, 52, 3, 53, 18, 54, 4, 55, 4, 0, 0, 0, 51, 56, -1, 6, 2, 0, 52, 3, 53, 2, 54, 4, 55, 4, 18, 19, 0, 0, 0, 51, 57, -1, 6, 2, 0, 52, 3, 53, 2, 54, 4, 55, 4, 18, 20, 0 </int_array>
+			<int_array  len="202"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 21, 20, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 22, 8, 23, 9, 24, 10, 25, 11, 26, 1, 0, 0, 0, 1, 27, 12, 6, 2, 0, 28, 2, 29, 2, 30, 13, 31, 13, 19, 14, 0, 0, 0, 32, 32, -1, 15, 2, 0, 33, 15, 34, 16, 35, 2, 36, 2, 37, 9, 38, 9, 39, 9, 40, 17, 41, 17, 42, 17, 43, 17, 44, 5, 45, 9, 46, 9, 0, 0, 0, 47, 47, -1, 7, 2, 0, 48, 18, 49, 1, 50, 4, 51, 9, 52, 4, 53, 4, 0, 0, 0, 55, 54, -1, 5, 2, 0, 56, 3, 57, 19, 58, 4, 59, 4, 0, 0, 0, 55, 60, -1, 6, 2, 0, 56, 3, 57, 2, 58, 4, 59, 4, 18, 20, 0, 0, 0, 55, 61, -1, 6, 2, 0, 56, 3, 57, 2, 58, 4, 59, 4, 18, 21, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="21" shared="false">
+			<array  len="22" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -214,13 +218,18 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 2 </int>
+							<int> 8 </int>
 							<string> "sources" </string>
-							<array  len="4" shared="false">
+							<array  len="9" shared="false">
 								<string> "res://scripts/controllers/action_controller.gd" </string>
 								<string> "res://scripts/ai/pathfinding/a_star_pathfinding.gd" </string>
 								<string> "res://scripts/action_map.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
+								<string> "res://scripts/ai/ai.gd" </string>
+								<string> "res://scripts/ai/actions.gd" </string>
+								<string> "res://scripts/services/positions.gd" </string>
+								<string> "res://scripts/message.gd" </string>
+								<string> "res://scripts/units/unit_control.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -239,6 +248,7 @@
 				<vector2> 3, 3 </vector2>
 				<int> 0 </int>
 				<resource  resource_type="PackedScene" path="res://gui/corners.xscn">  </resource>
+				<real> -1 </real>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>

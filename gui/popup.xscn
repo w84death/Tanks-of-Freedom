@@ -15,8 +15,8 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="52">
-				<string> "message" </string>
+			<string_array  len="50">
+				<string> "popup" </string>
 				<string> "Control" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
@@ -39,10 +39,7 @@
 				<string> "Sprite3" </string>
 				<string> "Sprite3 2" </string>
 				<string> "Sprite3 3" </string>
-				<string> "Sprite4" </string>
-				<string> "Sprite4 2" </string>
-				<string> "Sprite4 3" </string>
-				<string> "button" </string>
+				<string> "button_a" </string>
 				<string> "TextureButton" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
@@ -66,15 +63,16 @@
 				<string> "align" </string>
 				<string> "percent_visible" </string>
 				<string> "title" </string>
-				<string> "title1" </string>
+				<string> "message" </string>
 				<string> "autowrap" </string>
+				<string> "button_b" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 15 </int>
+			<int> 14 </int>
 			<string> "nodes" </string>
-			<int_array  len="385"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 1, 10, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 9, 6, 0, 1, 0, 11, 11, -1, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 10, 17, 11, 0, 1, 0, 11, 18, -1, 6, 12, 12, 13, 8, 14, 9, 15, 10, 16, 10, 17, 13, 0, 1, 0, 11, 19, -1, 6, 12, 14, 13, 8, 14, 9, 15, 10, 16, 10, 17, 15, 0, 1, 0, 11, 20, -1, 6, 12, 16, 13, 8, 14, 9, 15, 10, 16, 10, 17, 17, 0, 1, 0, 11, 21, -1, 6, 12, 18, 13, 8, 14, 9, 15, 10, 16, 10, 17, 19, 0, 1, 0, 11, 22, -1, 6, 12, 20, 13, 8, 14, 9, 15, 10, 16, 10, 17, 21, 0, 1, 0, 11, 23, -1, 6, 12, 22, 13, 8, 14, 9, 15, 10, 16, 10, 17, 23, 0, 1, 0, 11, 24, -1, 6, 12, 24, 13, 8, 14, 9, 15, 10, 16, 10, 17, 25, 0, 1, 0, 11, 25, -1, 6, 12, 26, 13, 8, 14, 9, 15, 10, 16, 10, 17, 27, 0, 0, 0, 27, 26, -1, 14, 28, 28, 29, 29, 2, 30, 3, 31, 4, 1, 5, 2, 6, 3, 7, 3, 30, 1, 31, 32, 32, 33, 33, 34, 34, 35, 35, 8, 0, 11, 0, 36, 36, -1, 19, 28, 36, 29, 37, 2, 38, 3, 39, 4, 2, 5, 2, 6, 3, 37, 40, 38, 41, 39, 42, 40, 43, 41, 43, 42, 43, 43, 42, 44, 1, 45, 1, 46, 44, 47, 45, 48, 46, 0, 0, 0, 36, 49, -1, 19, 28, 47, 29, 47, 2, 48, 3, 49, 4, 2, 5, 2, 6, 3, 37, 50, 38, 41, 39, 42, 40, 43, 41, 43, 42, 43, 43, 42, 44, 1, 45, 1, 46, 51, 47, 45, 48, 46, 0, 0, 0, 36, 50, -1, 19, 28, 52, 29, 53, 2, 54, 3, 55, 4, 2, 5, 2, 6, 3, 37, 40, 38, 41, 39, 42, 40, 56, 41, 43, 42, 57, 43, 42, 44, 1, 45, 1, 46, 58, 51, 2, 48, 46, 0 </int_array>
+			<int_array  len="406"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 1, 10, -1, 6, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 0, 1, 0, 11, 11, -1, 6, 12, 6, 13, 7, 14, 8, 15, 9, 16, 9, 17, 10, 0, 1, 0, 11, 18, -1, 6, 12, 11, 13, 12, 14, 8, 15, 9, 16, 9, 17, 13, 0, 1, 0, 11, 19, -1, 6, 12, 14, 13, 12, 14, 8, 15, 9, 16, 9, 17, 15, 0, 1, 0, 11, 20, -1, 6, 12, 16, 13, 7, 14, 8, 15, 9, 16, 9, 17, 17, 0, 1, 0, 11, 21, -1, 6, 12, 18, 13, 12, 14, 8, 15, 9, 16, 9, 17, 19, 0, 1, 0, 11, 22, -1, 6, 12, 20, 13, 12, 14, 8, 15, 9, 16, 9, 17, 21, 0, 0, 0, 24, 23, -1, 14, 25, 22, 26, 23, 2, 24, 3, 25, 4, 1, 5, 2, 6, 3, 7, 3, 27, 1, 28, 26, 29, 27, 30, 28, 31, 29, 32, 12, 0, 8, 0, 33, 33, -1, 19, 25, 30, 26, 31, 2, 32, 3, 33, 4, 2, 5, 2, 6, 3, 34, 34, 35, 35, 36, 36, 37, 37, 38, 37, 39, 37, 40, 36, 41, 1, 42, 1, 43, 38, 44, 39, 45, 24, 0, 0, 0, 33, 46, -1, 19, 25, 40, 26, 41, 2, 42, 3, 43, 4, 2, 5, 2, 6, 3, 34, 44, 35, 35, 36, 36, 37, 37, 38, 37, 39, 37, 40, 36, 41, 1, 42, 1, 43, 45, 44, 39, 45, 24, 0, 0, 0, 33, 47, -1, 19, 25, 46, 26, 47, 2, 48, 3, 49, 4, 2, 5, 2, 6, 3, 34, 34, 35, 35, 36, 36, 37, 50, 38, 37, 39, 51, 40, 36, 41, 1, 42, 1, 43, 52, 48, 2, 45, 24, 0, 0, 0, 24, 49, -1, 14, 25, 30, 26, 23, 2, 53, 3, 25, 4, 1, 5, 2, 6, 3, 7, 3, 27, 1, 28, 26, 29, 27, 30, 28, 31, 29, 32, 12, 0, 12, 0, 33, 33, -1, 19, 25, 30, 26, 31, 2, 32, 3, 33, 4, 2, 5, 2, 6, 3, 34, 34, 35, 35, 36, 36, 37, 37, 38, 37, 39, 37, 40, 36, 41, 1, 42, 1, 43, 54, 44, 39, 45, 24, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="59" shared="false">
+			<array  len="55" shared="false">
 				<real> 40 </real>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -88,7 +86,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -198.056, -176.353 </vector2>
+							<vector2> -428.81, -379.527 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -108,7 +106,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.45797 </real>
+							<real> 0.87294 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -211,35 +209,26 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<vector2> 0, -68 </vector2>
-				<vector2> 3, 3 </vector2>
+				<vector2> 0, -48 </vector2>
+				<vector2> 6, 3 </vector2>
 				<resource  resource_type="Texture" path="res://assets/gui/dialogs/gui_spritesheet.png">  </resource>
 				<int> 8 </int>
 				<int> 4 </int>
-				<vector2> 96, -68 </vector2>
+				<vector2> 136, -48 </vector2>
+				<vector2> 3, 3 </vector2>
 				<int> 5 </int>
-				<vector2> -96, -68 </vector2>
+				<vector2> -136, -48 </vector2>
 				<int> 3 </int>
-				<vector2> 0, 68 </vector2>
+				<vector2> 0, 38 </vector2>
 				<int> 20 </int>
-				<vector2> -96, 68 </vector2>
+				<vector2> -136, 38 </vector2>
 				<int> 19 </int>
-				<vector2> 96, 68 </vector2>
+				<vector2> 136, 38 </vector2>
 				<int> 21 </int>
-				<vector2> -96, 2.00001 </vector2>
-				<int> 11 </int>
-				<vector2> 96, 2.00001 </vector2>
-				<int> 13 </int>
-				<vector2> 0, 2.00001 </vector2>
-				<int> 12 </int>
-				<real> -71 </real>
-				<real> 50 </real>
-				<real> 73 </real>
-				<real> 98 </real>
+				<real> -145 </real>
+				<real> 11 </real>
+				<real> -1 </real>
+				<real> 59 </real>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_0.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_1.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_2.png">  </resource>
@@ -252,21 +241,23 @@
 				<color> 0, 0, 0, 1 </color>
 				<real> 0 </real>
 				<real> 1 </real>
-				<string> "START TURN" </string>
+				<string> "BUTTON A" </string>
 				<int> 1 </int>
-				<real> -1 </real>
 				<real> -98 </real>
+				<real> -78 </real>
 				<real> 97 </real>
-				<real> -75 </real>
+				<real> -55 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
-				<string> "NEW TURN" </string>
-				<real> -118 </real>
-				<real> -62 </real>
-				<real> 121 </real>
-				<real> 39 </real>
+				<string> "A NEW POPUP!" </string>
+				<real> -141 </real>
+				<real> -45 </real>
+				<real> 142 </real>
 				<real> 6 </real>
-				<real> 6.733333 </real>
-				<string> "Did you know?&#000a;&#000a;Little shield icon next to the unit shows that this unit can defend itself if attacked." </string>
+				<real> 3 </real>
+				<real> 3.4 </real>
+				<string> "This is a message&#000a;second line&#000a;third.." </string>
+				<real> 148 </real>
+				<string> "BUTTON B" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

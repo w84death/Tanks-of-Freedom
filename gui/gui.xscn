@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="17" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="16" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gui/message.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/buildings/military.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture"></ext_resource>
@@ -23,7 +22,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="71">
+			<string_array  len="63">
 				<string> "GUI" </string>
 				<string> "Control" </string>
 				<string> "anchor/right" </string>
@@ -48,23 +47,32 @@
 				<string> "message_card" </string>
 				<string> "message" </string>
 				<string> "blue" </string>
-				<string> "HQ blue" </string>
-				<string> "Sprite" </string>
+				<string> "flag" </string>
+				<string> "AnimatedSprite" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/scale" </string>
+				<string> "color" </string>
+				<string> "red" </string>
+				<string> "flag 2" </string>
+				<string> "top_panel" </string>
+				<string> "game_card" </string>
+				<string> "Sprite" </string>
 				<string> "texture" </string>
 				<string> "vframes" </string>
 				<string> "hframes" </string>
 				<string> "frame" </string>
-				<string> "scale" </string>
-				<string> "Node2D" </string>
-				<string> "flag" </string>
-				<string> "AnimatedSprite" </string>
-				<string> "color" </string>
-				<string> "blue_player" </string>
+				<string> "Sprite1" </string>
+				<string> "Sprite2" </string>
+				<string> "menu" </string>
+				<string> "TextureButton" </string>
+				<string> "toggle_mode" </string>
+				<string> "textures/normal" </string>
+				<string> "textures/pressed" </string>
+				<string> "textures/hover" </string>
+				<string> "textures/disabled" </string>
+				<string> "params/scale" </string>
 				<string> "Label" </string>
 				<string> "custom_fonts/font" </string>
-				<string> "custom_colors/font_color" </string>
 				<string> "range/min" </string>
 				<string> "range/max" </string>
 				<string> "range/step" </string>
@@ -76,32 +84,15 @@
 				<string> "align" </string>
 				<string> "valign" </string>
 				<string> "percent_visible" </string>
-				<string> "red" </string>
-				<string> "HQ red" </string>
-				<string> "scale 2" </string>
-				<string> "flag 2" </string>
-				<string> "red_player" </string>
-				<string> "top_panel" </string>
-				<string> "game_card" </string>
-				<string> "Sprite1" </string>
-				<string> "Sprite2" </string>
-				<string> "menu" </string>
-				<string> "TextureButton" </string>
-				<string> "toggle_mode" </string>
-				<string> "textures/normal" </string>
-				<string> "textures/pressed" </string>
-				<string> "textures/hover" </string>
-				<string> "textures/disabled" </string>
-				<string> "params/scale" </string>
 				<string> "settings" </string>
 				<string> "end_game" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 29 </int>
+			<int> 23 </int>
 			<string> "nodes" </string>
-			<int_array  len="673"> 				-1, -1, 1, 0, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 0, 0, 0, 1, 9, 5, 3, 10, 6, 11, 1, 8, 7, 0, 0, 0, 13, 12, -1, 11, 14, 0, 2, 0, 3, 0, 15, 8, 16, 9, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 8, 10, 0, 2, 0, 1, 18, -1, 7, 19, 11, 20, 11, 4, 1, 5, 2, 6, 3, 7, 3, 8, 12, 0, 0, 0, 13, 21, -1, 9, 11, 1, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 8, 13, 0, 4, 0, 1, 18, -1, 8, 19, 11, 15, 14, 20, 11, 16, 14, 4, 1, 5, 2, 6, 3, 7, 3, 0, 5, 0, 1, 22, 15, 2, 10, 6, 8, 16, 0, 5, 0, 1, 23, -1, 10, 11, 1, 19, 17, 15, 18, 20, 19, 16, 20, 4, 1, 5, 2, 6, 3, 7, 3, 8, 21, 0, 7, 0, 25, 24, -1, 6, 26, 22, 27, 23, 28, 24, 29, 25, 30, 26, 31, 27, 0, 7, 0, 33, 32, -1, 2, 26, 28, 27, 23, 0, 9, 0, 35, 34, 29, 4, 10, 6, 26, 30, 8, 31, 36, 32, 0, 7, 0, 38, 37, -1, 20, 19, 33, 15, 34, 20, 35, 16, 36, 4, 2, 5, 2, 6, 3, 39, 37, 40, 38, 41, 39, 42, 40, 43, 40, 44, 40, 45, 39, 46, 1, 47, 1, 48, 41, 49, 0, 50, 0, 51, 42, 0, 5, 0, 1, 52, -1, 10, 11, 1, 19, 17, 15, 18, 20, 19, 16, 20, 4, 1, 5, 2, 6, 3, 7, 3, 8, 43, 0, 12, 0, 25, 53, -1, 6, 26, 44, 27, 23, 28, 24, 29, 25, 30, 26, 31, 45, 0, 12, 0, 33, 54, -1, 2, 26, 28, 27, 23, 0, 14, 0, 35, 55, 29, 4, 10, 6, 26, 30, 8, 31, 36, 0, 0, 12, 0, 38, 56, -1, 20, 19, 46, 15, 34, 20, 8, 16, 36, 4, 2, 5, 2, 6, 3, 39, 37, 40, 47, 41, 39, 42, 40, 43, 40, 44, 40, 45, 39, 46, 1, 47, 1, 48, 48, 49, 0, 50, 0, 51, 42, 0, 0, 0, 13, 57, -1, 7, 2, 0, 16, 9, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 0, 17, 0, 1, 18, -1, 8, 19, 11, 15, 18, 20, 11, 16, 18, 4, 1, 5, 2, 6, 3, 7, 3, 0, 18, 0, 1, 58, -1, 6, 15, 49, 16, 49, 4, 1, 5, 2, 6, 3, 7, 3, 0, 19, 0, 1, 1, -1, 6, 20, 50, 16, 50, 4, 1, 5, 2, 6, 3, 7, 3, 0, 20, 0, 25, 25, -1, 6, 26, 51, 27, 23, 28, 52, 29, 53, 30, 53, 31, 54, 0, 20, 0, 25, 59, -1, 6, 26, 55, 27, 23, 28, 52, 29, 53, 30, 53, 31, 56, 0, 20, 0, 25, 60, -1, 6, 26, 57, 27, 23, 28, 52, 29, 53, 30, 53, 31, 58, 0, 19, 0, 62, 61, -1, 17, 2, 0, 3, 0, 19, 59, 15, 60, 20, 61, 16, 62, 4, 1, 5, 2, 6, 3, 7, 3, 63, 1, 64, 63, 65, 64, 66, 65, 67, 66, 68, 23, 8, 67, 0, 24, 0, 38, 38, -1, 19, 19, 68, 15, 69, 20, 70, 16, 71, 4, 2, 5, 2, 6, 3, 39, 37, 41, 39, 42, 40, 43, 40, 44, 40, 45, 39, 46, 1, 47, 1, 48, 72, 49, 0, 50, 0, 51, 42, 0, 19, 0, 62, 69, -1, 15, 19, 18, 15, 60, 20, 73, 16, 74, 4, 1, 5, 2, 6, 3, 7, 3, 63, 1, 64, 75, 65, 76, 66, 77, 67, 78, 68, 23, 8, 67, 0, 26, 0, 25, 25, -1, 5, 26, 79, 27, 80, 28, 81, 30, 3, 31, 0, 0, 0, 0, 13, 70, 82, 3, 10, 6, 11, 1, 8, 83, 0 </int_array>
+			<int_array  len="521"> 				-1, -1, 1, 0, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 0, 0, 0, 1, 9, 5, 3, 10, 6, 11, 1, 8, 7, 0, 0, 0, 13, 12, -1, 11, 14, 0, 2, 0, 3, 0, 15, 8, 16, 9, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 8, 10, 0, 2, 0, 1, 18, -1, 7, 19, 11, 20, 11, 4, 1, 5, 2, 6, 3, 7, 3, 8, 12, 0, 0, 0, 13, 21, -1, 8, 11, 1, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 0, 4, 0, 1, 18, -1, 8, 19, 11, 15, 13, 20, 11, 16, 13, 4, 1, 5, 2, 6, 3, 7, 3, 0, 5, 0, 1, 22, 14, 2, 10, 6, 8, 15, 0, 5, 0, 1, 23, -1, 9, 19, 16, 15, 17, 20, 18, 16, 19, 4, 1, 5, 2, 6, 3, 7, 3, 8, 20, 0, 7, 0, 25, 24, 21, 5, 10, 6, 26, 22, 27, 23, 8, 24, 28, 25, 0, 5, 0, 1, 29, -1, 9, 19, 16, 15, 17, 20, 18, 16, 19, 4, 1, 5, 2, 6, 3, 7, 3, 8, 26, 0, 9, 0, 25, 30, 21, 5, 10, 6, 26, 27, 27, 23, 8, 24, 28, 0, 0, 0, 0, 13, 31, -1, 8, 2, 0, 16, 9, 4, 1, 5, 2, 6, 3, 7, 3, 17, 1, 8, 28, 0, 11, 0, 1, 18, -1, 8, 19, 11, 15, 17, 20, 11, 16, 17, 4, 1, 5, 2, 6, 3, 7, 3, 0, 12, 0, 1, 32, -1, 6, 15, 29, 16, 29, 4, 1, 5, 2, 6, 3, 7, 3, 0, 13, 0, 1, 1, -1, 7, 20, 30, 16, 30, 4, 1, 5, 2, 6, 3, 7, 3, 8, 31, 0, 14, 0, 33, 33, -1, 6, 26, 32, 27, 23, 34, 33, 35, 34, 36, 34, 37, 35, 0, 14, 0, 33, 38, -1, 6, 26, 36, 27, 23, 34, 33, 35, 34, 36, 34, 37, 37, 0, 14, 0, 33, 39, -1, 6, 26, 38, 27, 23, 34, 33, 35, 34, 36, 34, 37, 39, 0, 13, 0, 41, 40, -1, 17, 2, 0, 3, 0, 19, 40, 15, 41, 20, 42, 16, 43, 4, 1, 5, 2, 6, 3, 7, 3, 42, 1, 43, 44, 44, 45, 45, 46, 46, 47, 47, 23, 8, 48, 0, 18, 0, 48, 48, -1, 19, 19, 49, 15, 50, 20, 51, 16, 52, 4, 2, 5, 2, 6, 3, 49, 53, 50, 54, 51, 55, 52, 55, 53, 55, 54, 54, 55, 1, 56, 1, 57, 56, 58, 0, 59, 0, 60, 57, 0, 13, 0, 41, 61, -1, 15, 19, 17, 15, 41, 20, 58, 16, 59, 4, 1, 5, 2, 6, 3, 7, 3, 42, 1, 43, 60, 44, 61, 45, 62, 46, 63, 47, 23, 8, 48, 0, 20, 0, 33, 33, -1, 5, 26, 64, 27, 65, 34, 66, 36, 3, 37, 0, 0, 0, 0, 13, 62, 67, 3, 10, 6, 11, 1, 8, 68, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="84" shared="false">
+			<array  len="69" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -114,7 +105,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> 430.059, -172.465 </vector2>
+							<vector2> 362.618, 173.329 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -134,7 +125,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.615482 </real>
+							<real> 1.457973 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -389,10 +380,6 @@
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
 				<real> 360 </real>
 				<resource  resource_type="PackedScene" path="res://gui/message.xscn">  </resource>
 				<dictionary  shared="false">
@@ -537,6 +524,8 @@
 					</dictionary>
 					<string> "__editor_show_subtree" </string>
 					<bool> True </bool>
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
 				</dictionary>
 				<real> -60 </real>
 				<real> 30 </real>
@@ -546,15 +535,9 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<vector2> 7.00001, -28 </vector2>
-				<vector2> 3, 3 </vector2>
-				<resource  resource_type="Texture" path="res://assets/buildings/military.png">  </resource>
-				<int> 5 </int>
-				<int> 3 </int>
-				<int> 10 </int>
-				<vector2> 3, 0 </vector2>
 				<resource  resource_type="PackedScene" path="res://gui/flag.xscn">  </resource>
-				<vector2> 1.33334, -14.6667 </vector2>
+				<vector2> -13.7561, -130.581 </vector2>
+				<vector2> 3, 3 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -685,27 +668,21 @@
 					</dictionary>
 				</dictionary>
 				<int> 0 </int>
-				<real> -41 </real>
-				<real> 31 </real>
-				<real> 52 </real>
-				<real> 46 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
-				<color> 0, 0.341176, 0.517647, 1 </color>
-				<real> 0 </real>
-				<real> 1 </real>
-				<string> "BLUE TURN" </string>
-				<real> -1 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<vector2> 6.99998, -28 </vector2>
-				<int> 11 </int>
-				<real> -36 </real>
-				<color> 0.745098, 0.14902, 0.2, 1 </color>
-				<string> "RED TURN" </string>
+				<vector2> -13.7561, -131.267 </vector2>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
 				<real> -30 </real>
 				<real> 40 </real>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
 				<vector2> -86, 23 </vector2>
 				<resource  resource_type="Texture" path="res://assets/gui/dialogs/gui_spritesheet.png">  </resource>
 				<int> 8 </int>
@@ -730,7 +707,11 @@
 				<real> 17 </real>
 				<real> 127 </real>
 				<real> 35 </real>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<real> 0 </real>
+				<real> 1 </real>
 				<string> "&gt; MAIN MENU" </string>
+				<real> -1 </real>
 				<real> 126 </real>
 				<real> 57 </real>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_0.png">  </resource>

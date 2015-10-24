@@ -14,27 +14,26 @@ var closedList = []
 
 var lastCurrent
 var path_cache = {}
+var possible_neighbours = Vector2Array([Vector2(-1,-1), Vector2(-1,0), Vector2(-1,1), Vector2(0,-1), Vector2(0,0), Vector2(0,1),Vector2(1,-1), Vector2(1,0), Vector2(1,1)])
 
-const CACHE_MINIMUM_PATH_SIZE = 10
+const CACHE_MINIMUM_PATH_SIZE = 3
 
 func pathSearch(startTile, endTile, own_units):
 
-    #var start = OS.get_ticks_msec();
     searched_children.append(startTile)
     var add_path_to_cache = true
     var end_pos
     var start_pos
-    var cached
+    var cached = Vector2Array()
     var index_range
-
     for cache in self.path_cache:
+
         cache = self.path_cache[cache]
         end_pos = cache.find(endTile)
         start_pos = cache.find(startTile)
 
         if (end_pos != -1 && start_pos != -1):
-            cached = []
-
+            cached = Vector2Array()
             if (start_pos > end_pos):
                 index_range = range(end_pos, start_pos)
             else:
@@ -45,15 +44,14 @@ func pathSearch(startTile, endTile, own_units):
 
             if (self.__invalid_check(cached, own_units)):
                 add_path_to_cache = false
-                #print ('invalidate')
                 continue
 
             return cached
 
     var result = __pathSearch2(startTile, endTile)
-
-    if (add_path_to_cache && result.size() >= self.CACHE_MINIMUM_PATH_SIZE && !self.path_cache.has(result.hash())):
-        self.path_cache[result.hash()] = result
+    var result_hash = result.hash()
+    if (add_path_to_cache && result.size() >= self.CACHE_MINIMUM_PATH_SIZE && !self.path_cache.has(result_hash)):
+        self.path_cache[result_hash] = result
 
     return result
 
@@ -64,7 +62,7 @@ func set_cost_grid(cost_grid):
 func __invalid_check(cached, own_units):
     # temp cache invalidation
     for unit_pos in own_units:
-        if (cached.find(startTile)):
+        if (cached.find(startTile) == 1):
             return true
 
     return false
@@ -78,9 +76,9 @@ func __pathSearch2(start, goal):
     var came_from = {}  # The map of navigated nodes.
     var tentative_g_score
 
-    grid[start].G = 0    # Cost from start along best known path.
+    grid[start].G = int(0)    # Cost from start along best known path.
     # Estimated total cost from start to goal through y.
-    grid[start].F = grid[start].G + __get_manhattan(start, goal)
+    grid[start].F = int(grid[start].G + __get_manhattan(start, goal))
 
     while openset.size() > 0:
         current = __smallestF(openset)
@@ -92,8 +90,8 @@ func __pathSearch2(start, goal):
         for neighbor in __identify_successors(current, start, goal):
             if neighbor in closedset:
                 continue
-            #tentative_g_score = grid[current].G + 1
-            tentative_g_score = grid[current].G + grid[current].cost
+
+            tentative_g_score = grid[current].G + 1
 
             if !(neighbor in openset) or tentative_g_score < grid[neighbor].G :
                 came_from[neighbor] = current
@@ -142,18 +140,14 @@ func __reconstruct_path(came_from, current_node):
         return [current_node]
 
 func __get_manhattan(start, end):
-    return abs(start.x-end.x)+abs(start.y-end.y)
-
-func __get_dist(start, end):
-    return sqrt(pow(start.x-end.x,2)+pow(start.y-end.y,2))
+    return abs(start.x-end.x) +abs (start.y-end.y)
 
 func __get_adjacent_tiles(center_tile):
     var result = []
     var vector
-    for i in range(-1,2):
-        for j in range(-1,2):
-            if i == 0 or j == 0:
-                vector = Vector2(center_tile.x+i,center_tile.y+j)
-                if grid.has(vector) and grid[vector].walkable == true:
-                    result.append(vector)
+    for mod in self.possible_neighbours:
+        if mod.x == 0 or mod.y == 0:
+            vector = center_tile + mod
+            if grid.has(vector) and grid[vector].walkable == true:
+                result.append(vector)
     return result
