@@ -35,6 +35,8 @@ var floating_damage
 var die = false
 var parent
 
+var sprite_offset_for_64x64 = Vector2(0,8);
+
 func set_ap(value):
 	ap = value
 
@@ -85,7 +87,7 @@ func set_pos_map(new_position):
 	elif new_position.y > position_on_map.y:
 		self.set_flip_h(false)
 
-	self.set_pos(current_map_terrain.map_to_world(new_position))
+	self.set_pos(current_map_terrain.map_to_world(new_position) + sprite_offset_for_64x64)
 	self.add_move(position_on_map)
 	position_on_map = new_position
 
