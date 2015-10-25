@@ -153,7 +153,7 @@ func capture_building(active_field, field):
         active_field.object.takeAllAP()
     else:
         self.despawn_unit(active_field)
-    self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+    self.root_node.dependency_container.fog_controller.clear_fog()
     self.activate_field(field)
     if field.object.type == 0:
         self.end_game(self.current_player)
@@ -262,7 +262,7 @@ func spawn_unit_from_active_building():
 
         #gather stats
         battle_stats.add_spawn(self.current_player)
-        self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+        self.root_node.dependency_container.fog_controller.clear_fog()
 
 func import_objects():
     self.attach_objects(self.root_tree.get_nodes_in_group("units"))
@@ -353,7 +353,7 @@ func refill_ap():
 func show_bonus_ap():
     var buildings = self.positions.get_player_buildings(current_player)
     for building in buildings:
-        if buildings[building].bonus_ap > 0 && not self.root_node.dependency_container.abstract_map.map.fog_controller.is_fogged(buildings[building].position_on_map.x, buildings[building].position_on_map.y):
+        if buildings[building].bonus_ap > 0 && not self.root_node.dependency_container.fog_controller.is_fogged(buildings[building].position_on_map.x, buildings[building].position_on_map.y):
             buildings[building].show_floating_ap()
 
 func switch_to_player(player):
@@ -376,7 +376,7 @@ func switch_to_player(player):
         root_node.unlock_for_player()
         hud_controller.show_in_game_card([], current_player)
         self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
-    self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+    self.root_node.dependency_container.fog_controller.clear_fog()
     self.root_node.dependency_container.ap_gain.update()
 
 func perform_ai_stuff():
@@ -431,7 +431,7 @@ func move_unit(active_field, field):
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
         self.use_ap(field)
         self.activate_field(field)
-        self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+        self.root_node.dependency_container.fog_controller.clear_fog()
         #gather stats
         battle_stats.add_moves(self.current_player)
         self.update_unit(self.active_field)
@@ -476,7 +476,7 @@ func handle_battle(active_field, field):
                     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
                     self.update_unit(active_field)
                     active_field.object.show_explosion()
-        self.root_node.dependency_container.abstract_map.map.fog_controller.clear_fog()
+        self.root_node.dependency_container.fog_controller.clear_fog()
     else:
         sound_controller.play('no_attack')
         self.update_unit(active_field)
