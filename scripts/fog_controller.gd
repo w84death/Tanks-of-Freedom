@@ -85,6 +85,7 @@ func clear_fog():
 	self.fill_fog()
 	var units = root.get_tree().get_nodes_in_group("units")
 	var buildings = root.get_tree().get_nodes_in_group("buildings")
+	#TODO: can use data from positions
 	var current_player = 0
 
 	if root.action_controller != null:

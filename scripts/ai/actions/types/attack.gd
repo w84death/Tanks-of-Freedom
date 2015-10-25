@@ -11,6 +11,6 @@ func execute():
 		action_controller.set_active_field(unit.position_on_map)
 		if action_controller.handle_action(field.position) == 1:
 		    positions.refresh_units()
-		    return true
+		return true
 
 	return false

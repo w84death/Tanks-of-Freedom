@@ -109,6 +109,9 @@ func handle_action(position):
     if game_ended:
         return 0
 
+    #if active_field == null:
+    #   return 1
+
     var field = self.root_node.dependency_container.abstract_map.get_field(position)
     if field.object != null:
         if active_field != null:
@@ -125,11 +128,11 @@ func handle_action(position):
                 if active_field.is_adjacent(field) && self.root_node.dependency_container.movement_controller.can_move(active_field, field) && self.has_ap():
                     if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
                         return 0
+
         if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == current_player:
             self.activate_field(field)
     else:
         if active_field != null && active_field.object != null && field != active_field && field.object == null:
-            #if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
             if active_field.object.group == 'unit'  && self.is_movement_possible(field, active_field) && field.terrain_type != -1 && self.has_ap():
                 self.move_unit(active_field, field)
             else:
@@ -165,20 +168,21 @@ func activate_field(field):
     position.y += 2
     active_indicator.set_pos(position)
     sound_controller.play('select')
-    if field.object.group == 'unit':
-        hud_controller.show_unit_card(field.object, current_player)
-        if not self.is_cpu_player:
+    if not self.is_cpu_player:
+        if field.object.group == 'unit':
+            hud_controller.show_unit_card(field.object, current_player)
             self.add_movement_indicators(field)
-    if field.object.group == 'building' && not self.is_cpu_player:
-        hud_controller.show_building_card(field.object, player_ap[current_player])
+        if field.object.group == 'building' && not self.is_cpu_player:
+            hud_controller.show_building_card(field.object, player_ap[current_player])
 
 func clear_active_field():
     active_field = null
     self.root_node.dependency_container.abstract_map.tilemap.remove_child(active_indicator)
-    hud_controller.clear_unit_card()
-    hud_controller.clear_building_card()
-    self.root_node.dependency_container.action_map.reset()
-    self.hide_interaction_indicators()
+    if not self.is_cpu_player:
+        hud_controller.clear_unit_card()
+        hud_controller.clear_building_card()
+        self.root_node.dependency_container.action_map.reset()
+        self.hide_interaction_indicators()
 
 func add_movement_indicators(field):
     self.root_node.dependency_container.action_map.reset()
@@ -414,8 +418,9 @@ func play_destroy(field):
     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)
 
 func update_unit(field):
-    hud_controller.update_unit_card(active_field.object)
-    self.add_movement_indicators(active_field)
+    if !self.is_cpu_player:
+        hud_controller.update_unit_card(active_field.object)
+        self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
     var action_cost = self.root_node.dependency_container.movement_controller.TERRAIN_COST

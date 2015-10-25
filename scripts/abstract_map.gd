@@ -120,7 +120,6 @@ func __check_direction_avaibility(next_position):
 		return false
 
 	var field = get_field(next_position)
-	#print('position check', next_position)
 	if field.terrain_type != - 1 && field.object == null:
 		return true
 

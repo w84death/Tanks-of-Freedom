@@ -71,6 +71,10 @@ func set_stats(new_stats):
 	update_healthbar()
 	update_shield()
 
+func update_ap(new_ap):
+	ap = new_ap
+	update_shield()
+
 func reset_ap():
 	ap = max_ap
 	attacks_number = max_attacks_number
