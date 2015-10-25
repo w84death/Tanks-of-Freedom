@@ -109,6 +109,9 @@ func handle_action(position):
     if game_ended:
         return 0
 
+    #if active_field == null:
+    #   return 1
+
     var field = self.root_node.dependency_container.abstract_map.get_field(position)
     if field.object != null:
         if active_field != null:
@@ -125,11 +128,11 @@ func handle_action(position):
                 if active_field.is_adjacent(field) && self.root_node.dependency_container.movement_controller.can_move(active_field, field) && self.has_ap():
                     if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
                         return 0
+
         if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == current_player:
             self.activate_field(field)
     else:
         if active_field != null && active_field.object != null && field != active_field && field.object == null:
-            #if active_field.object.group == 'unit' && active_field.is_adjacent(field) && field.terrain_type != -1 && self.has_ap():
             if active_field.object.group == 'unit'  && self.is_movement_possible(field, active_field) && field.terrain_type != -1 && self.has_ap():
                 self.move_unit(active_field, field)
             else:
