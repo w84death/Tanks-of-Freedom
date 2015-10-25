@@ -3,7 +3,6 @@ var root
 var action_layer
 var red_tiles = []
 
-
 func init_root(root):
     self.root = root
 
@@ -37,7 +36,7 @@ func find_movement_tiles(source_field, move_range):
         if depth < move_range:
             for neighbour in field.get_neighbours():
                 if neighbour.is_passable() and not visited_tiles.has(neighbour.position):
-                    if abstract_map.map.fog_controller.is_fogged(neighbour.position.x, neighbour.position.y):
+                    if root.dependency_container.fog_controller.is_fogged(neighbour.position.x, neighbour.position.y):
                         continue
                     processing_queue.push_back({ 'field': neighbour, 'depth': depth + 1 })
                     visited_tiles[neighbour.position] = true
@@ -55,7 +54,7 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
     var abstract_map = self.root.dependency_container.abstract_map
 
     for tile in tiles:
-        if abstract_map.map.fog_controller.is_fogged(tile.x, tile.y):
+        if root.dependency_container.fog_controller.is_fogged(tile.x, tile.y):
             continue
         field = abstract_map.get_field(tile)
         distance = tiles[tile]

@@ -24,6 +24,7 @@ var menu_background_map = preload("res://maps/menu_map_background.gd").new()
 var helpers = preload("res://scripts/services/helpers.gd").new()
 var map_picker = preload("res://gui/hud/map_picker.gd").new()
 var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
+var fog_controller = preload('fog_controller.gd').new()
 
 func init_root(root_node):
     self.root = root_node
@@ -51,3 +52,4 @@ func init_root(root_node):
     self.timers._init_bag(self)
     self.map_picker._init_bag(self)
     self.skirmish_setup._init_bag(self)
+    self.fog_controller._init_bag(self)

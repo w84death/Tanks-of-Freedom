@@ -9,10 +9,10 @@ export var multiplayer_map = false
 var terrain
 var underground
 var units
-var fog_controller
 var map_layer_back
 var map_layer_front
 var action_layer
+var bag
 
 var mouse_dragging = false
 var pos
@@ -141,7 +141,7 @@ func _process(delta):
 				var new_pos = Vector2(self.sX, self.sY)
 
 				terrain.set_pos(new_pos)
-				fog_controller.move_cloud(new_pos)
+				self.bag.fog_controller.move_cloud(new_pos)
 				underground.set_pos(new_pos)
 
 			temp_delta = 0
@@ -191,7 +191,7 @@ func set_map_pos_global(position):
 	self.sY = position.y
 	self.underground.set_pos(position)
 	self.terrain.set_pos(position)
-	self.fog_controller.move_cloud(position)
+	self.bag.fog_controller.move_cloud(position)
 
 func set_map_pos(position):
 	self.game_size = self.root.get_size()
@@ -202,7 +202,7 @@ func move_to_map(target):
 	if not root.settings['camera_follow']:
 		return
 
-	if not self.camera_follow && fog_controller.is_fogged(target.x, target.y):
+	if not self.camera_follow && self.bag.fog_controller.is_fogged(target.x, target.y):
 		return
 
 	if not mouse_dragging:
@@ -405,7 +405,7 @@ func generate_map():
 	for fence in get_tree().get_nodes_in_group("terrain_fence"):
 		fence.connect_with_neighbours()
 	units.hide()
-	fog_controller.clear_fog()
+	self.bag.fog_controller.clear_fog()
 	return
 
 func count_neighbours(x, y, type):
@@ -735,8 +735,9 @@ func init_nodes():
 func _ready():
 	root = get_node("/root/game")
 	self.init_nodes()
-	fog_controller = preload('fog_controller.gd').new(self, terrain)
-	fog_controller.init_node()
+	self.bag = self.root.dependency_container
+	self.bag.fog_controller.init_node(self, terrain)
+
 	self.tileset = self.root.dependency_container.map_tiles
 
 	if root:
