@@ -4,7 +4,7 @@
 	<ext_resource path="res://scripts/wave_controller.gd" type="Script"></ext_resource>
 	<resource type="Animation" path="local://1">
 		<string name="resource/name"> "wave" </string>
-		<real name="length"> 3.5 </real>
+		<real name="length"> 3 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
 		<string name="tracks/0/type"> "value" </string>
@@ -14,25 +14,19 @@
 			<string> "cont" </string>
 			<bool> False </bool>
 			<string> "times" </string>
-			<real_array  len="14"> 				0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25 </real_array>
+			<real_array  len="8"> 				0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75 </real_array>
 			<string> "transitions" </string>
-			<real_array  len="14"> 				1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<real_array  len="8"> 				1, 1, 1, 1, 1, 1, 1, 1 </real_array>
 			<string> "values" </string>
-			<array  len="14" shared="false">
-				<int> 0 </int>
+			<array  len="8" shared="false">
 				<int> 1 </int>
 				<int> 2 </int>
 				<int> 3 </int>
 				<int> 4 </int>
 				<int> 5 </int>
-				<int> 6 </int>
-				<int> 7 </int>
-				<int> 6 </int>
-				<int> 5 </int>
 				<int> 4 </int>
 				<int> 3 </int>
 				<int> 2 </int>
-				<int> 1 </int>
 			</array>
 		</dictionary>
 
@@ -70,7 +64,7 @@
 			<array  len="13" shared="false">
 				<resource  resource_type="Texture" path="res://assets/terrain/waves.png">  </resource>
 				<int> 12 </int>
-				<int> 4 </int>
+				<int> 3 </int>
 				<resource  resource_type="Script" path="res://scripts/wave_controller.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -80,7 +74,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -33.1179, -42.3027 </vector2>
+							<vector2> -90.948, -42.0312 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
