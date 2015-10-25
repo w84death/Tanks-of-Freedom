@@ -91,6 +91,7 @@ func clear_fog():
     if root.action_controller != null:
         current_player = root.action_controller.current_player
 
+    self.bag.positions.refresh_units()
     var units = self.__get_units_to_unhide(current_player)
     for position in units:
         #taking visibility parameter from unit
@@ -105,7 +106,7 @@ func __get_units_to_unhide(player):
         return self.bag.positions.all_units
     else:
         if root.settings['cpu_' + str(player)]:
-            player = (player + 1) % 2
+            return self.bag.positions.get_player_units((player + 1) % 2)
         return self.bag.positions.get_player_units(player)
 
 func __get_buildings_to_unhide(player):
@@ -113,7 +114,7 @@ func __get_buildings_to_unhide(player):
         return self.bag.positions.buildings_player_none
     else:
         if root.settings['cpu_' + str(player)]:
-            player = (player + 1) % 2
+            return self.bag.positions.get_player_buildings((player + 1) % 2)
         return self.bag.positions.get_player_buildings(player)
 
 func __remove_fog(position_on_map, view_range):
