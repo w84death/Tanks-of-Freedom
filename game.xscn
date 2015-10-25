@@ -218,7 +218,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 8 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="9" shared="false">
 								<string> "res://scripts/controllers/action_controller.gd" </string>
