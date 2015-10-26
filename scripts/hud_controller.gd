@@ -6,8 +6,7 @@ var hud_root
 var hud_panel_anchor
 
 var hud_message_card
-var hud_message_card_player_blue_turn
-var hud_message_card_player_red_turn
+var hud_message_card_controller
 var hud_message_card_button
 
 
@@ -66,8 +65,7 @@ func init_root(root, action_controller_object, hud):
 	#
 
 	hud_message_card = hud.get_node("message_card")
-	hud_message_card_player_blue_turn = hud_message_card.get_node("center/blue")
-	hud_message_card_player_red_turn = hud_message_card.get_node("center/red")
+	hud_message_card_controller = hud_message_card.get_node("center/message")
 	hud_message_card_button = hud_message_card.get_node("center/message/button")
 	hud_message_card_button.connect("pressed", self, "close_message_card")
 
@@ -115,13 +113,7 @@ func clear_building_card():
 func show_in_game_card(messages, current_player):
 	self.lock_hud()
 	self.hide_map()
-	if current_player == 1:
-		hud_message_card_player_blue_turn.hide()
-		hud_message_card_player_red_turn.show()
-	else:
-		hud_message_card_player_blue_turn.show()
-		hud_message_card_player_red_turn.hide()
-
+	hud_message_card_controller.set_flag(current_player)
 	hud_message_card.show()
 
 func close_message_card():
