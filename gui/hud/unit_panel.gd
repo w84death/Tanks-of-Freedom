@@ -27,7 +27,7 @@ func bind(hud_panel):
     self.unit_attacks_left = self.unit_panel.get_node('attacks_left')
     self.background_extra_unit = hud_panel.get_node('background/unit_extra_panel')
 
-    self.unit_panel_extras_button.connect('pressed', self, 'toggle_skills')
+    #self.unit_panel_extras_button.connect('pressed', self, 'toggle_skills')
 
 func bind_unit(unit_object):
     self.hide_skills()
@@ -80,5 +80,6 @@ func show_skills():
     self.background_extra_unit.show()
 
 func hide_skills():
-    self.unit_panel_extras.hide()
-    self.background_extra_unit.hide()
+    #self.unit_panel_extras.hide()
+    #self.background_extra_unit.hide()
+	return
