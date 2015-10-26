@@ -61,15 +61,12 @@ func fill_fog():
                 self.current_fog_state[y][x] = self.fog_pattern[y][x]
 
 func clear_fog_range(center, size):
-    var x_min = center.x-size
-    var x_max = center.x+size+1
-    var y_min = center.y-size
-    var y_max = center.y+size+1
-
-    for x in range(x_min,x_max):
-        for y in range(y_min,y_max):
-            if x >= 0 && y >= 0:
-                self.current_fog_state[y][x] = -1
+    var tile = center
+    self.current_fog_state[tile.y][tile.x] = -1
+    for mod in self.bag.positions.precalculated_nearby_tiles[size]:
+        tile = center + mod
+        if tile.x >=0 && tile.y >=0:
+            self.current_fog_state[tile.y][tile.x] = -1
     return
 
 func clear():
@@ -91,6 +88,8 @@ func clear_fog():
     if root.action_controller != null:
         current_player = root.action_controller.current_player
 
+    self.bag.positions.refresh_units()
+    self.bag.positions.refresh_buildings()
     var units = self.__get_units_to_unhide(current_player)
     for position in units:
         #taking visibility parameter from unit
@@ -104,17 +103,23 @@ func __get_units_to_unhide(player):
     if root.settings['cpu_0'] && root.settings['cpu_1']:
         return self.bag.positions.all_units
     else:
-        if root.settings['cpu_' + str(player)]:
-            player = (player + 1) % 2
+        if is_cpu(player):
+            return self.bag.positions.get_player_units((player + 1) % 2)
         return self.bag.positions.get_player_units(player)
 
 func __get_buildings_to_unhide(player):
     if root.settings['cpu_0'] && root.settings['cpu_1']:
         return self.bag.positions.buildings_player_none
     else:
-        if root.settings['cpu_' + str(player)]:
-            player = (player + 1) % 2
+        if self.is_cpu(player):
+            return self.bag.positions.get_player_buildings((player + 1) % 2)
         return self.bag.positions.get_player_buildings(player)
 
 func __remove_fog(position_on_map, view_range):
     self.clear_fog_range(position_on_map, view_range)
+
+func is_cpu(player):
+    if root.settings['cpu_' + str(player)]:
+        return true
+
+    return false

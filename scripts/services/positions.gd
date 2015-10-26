@@ -30,8 +30,8 @@ var tiles_lookup_ranges = [1,2,3,4,5,6,7,8] # todo - check this mechanism
 var tiles_building_lookup_ranges = [1,2]
 
 # not changable data
-var buildings
-var terrains
+var buildings = []
+var terrains = []
 
 var pathfinding
 
@@ -94,14 +94,14 @@ func get_bunkers():
 
 func get_terrain():
     for terrain in terrains:
-        terrain_obstacles[terrain.get_pos_map()] = terrain
+        terrain_obstacles[terrain.position_on_map] = terrain
 
 func get_units():
     units = self.root_tree.get_nodes_in_group("units")
 
     for unit in units:
         if unit.life > 0: # skip undead units (despawn bug)
-            if unit.get_player() == 1:
+            if unit.player == 1:
                 units_player_red[unit.position_on_map] = unit
             else:
                 units_player_blue[unit.position_on_map] = unit
@@ -123,8 +123,8 @@ func get_nearby_enemies(nearby_tiles, current_player):
 
 func get_buildings():
     for building in buildings:
-        var pos = building.get_pos_map()
-        var owner = building.get_player()
+        var pos = building.position_on_map
+        var owner = building.player
 
         all_buildings[pos] = building
 
