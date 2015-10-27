@@ -8,6 +8,7 @@ var current_map_terrain
 var map_pos
 var game_scale
 var scale_root
+var camera
 var hud_template = preload('res://gui/gui.xscn')
 var menu
 
@@ -265,7 +266,8 @@ func write_settings_to_file():
 	return
 
 func _ready():
-	scale_root = get_node("/root/game/pixel_scale")
+	scale_root = get_node("/root/game/viewport/pixel_scale")
+	camera = get_node("/root/game/viewport/camera")
 	self.ai_timer = get_node("AITimer")
 	self.dependency_container.init_root(self)
 	self.read_settings_from_file()
