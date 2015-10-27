@@ -314,6 +314,11 @@ func generate_map():
 			if terrain_cell == self.tileset.TERRAIN_MOUNTAINS:
 				temp = map_non_movable.instance()
 				temp.set_frame(8 + (randi()%4))
+				if temp.get_frame() in range(8,11):
+					temp.get_node('snow').show();
+					temp.get_node('snow/snow1').set_emitting(true)
+					temp.get_node('snow/snow2').set_emitting(true)
+					temp.get_node('snow/snow3').set_emitting(true)
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# city
