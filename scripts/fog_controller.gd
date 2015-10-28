@@ -9,8 +9,8 @@ func _init_bag(bag):
     self.bag = bag
     self.root = bag.root
 
-var fog_pattern = []
-var current_fog_state = []
+var fog_pattern = {}
+var current_fog_state = {}
 
 func init_node(map_controller_object, terrain_node):
     self.map_controller = map_controller_object
@@ -18,17 +18,16 @@ func init_node(map_controller_object, terrain_node):
     self.fog_of_war = map_controller.get_node("fog_of_war")
     self.build_fog_pattern()
 
-func is_fogged(x, y):
-    return current_fog_state[y][x] > -1
+func is_fogged(tile):
+    return current_fog_state[tile] > -1
 
 func build_fog_pattern():
     var sprite = 0
     var uniq_num
-    var row_array
-    var pattern_array
+    self.fog_pattern.clear()
+    self.current_fog_state.clear()
+
     for y in range(0, map_controller.MAP_MAX_Y):
-        row_array = []
-        pattern_array = []
         for x in range(0, map_controller.MAP_MAX_X):
             sprite = -1
             if terrain.get_cell(x,y) > -1:
@@ -43,30 +42,25 @@ func build_fog_pattern():
                         sprite = 2
                     else:
                         sprite = 3
-            row_array.insert(x, sprite)
-            pattern_array.insert(x, sprite)
-        self.fog_pattern.insert(y, pattern_array)
-        self.current_fog_state.insert(y, row_array)
+
+            self.fog_pattern[Vector2(x, y)] = sprite
+            self.current_fog_state[Vector2(x, y)] = sprite
 
 func apply_fog():
-    for x in range(0, map_controller.MAP_MAX_X):
-        for y in range(0, map_controller.MAP_MAX_Y):
-            if terrain.get_cell(x,y) > -1:
-                fog_of_war.set_cell(x, y, self.current_fog_state[y][x])
+    for tile in map_controller.used_tiles_list:
+        fog_of_war.set_cell(tile.x, tile.y, self.current_fog_state[tile])
 
 func fill_fog():
-    for x in range(0, map_controller.MAP_MAX_X):
-        for y in range(0, map_controller.MAP_MAX_Y):
-            if terrain.get_cell(x,y) > -1:
-                self.current_fog_state[y][x] = self.fog_pattern[y][x]
+    for tile in map_controller.used_tiles_list:
+        self.current_fog_state[tile] = self.fog_pattern[tile]
 
 func clear_fog_range(center, size):
     var tile = center
-    self.current_fog_state[tile.y][tile.x] = -1
+    self.current_fog_state[tile] = -1
     for mod in self.bag.positions.precalculated_nearby_tiles[size]:
         tile = center + mod
         if tile.x >=0 && tile.y >=0:
-            self.current_fog_state[tile.y][tile.x] = -1
+            self.current_fog_state[tile] = -1
     return
 
 func clear():

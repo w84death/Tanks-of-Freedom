@@ -51,6 +51,7 @@ const MAP_MAX_Y = 40
 
 var map_file = File.new()
 var campaign
+var used_tiles_list = []
 
 var tileset
 var map_movable = preload('res://terrain/terrain_movable.xscn')
@@ -202,7 +203,7 @@ func move_to_map(target):
 	if not root.settings['camera_follow']:
 		return
 
-	if not self.camera_follow && self.bag.fog_controller.is_fogged(target.x, target.y):
+	if not self.camera_follow && self.bag.fog_controller.is_fogged(target):
 		return
 
 	if not mouse_dragging:
@@ -252,6 +253,7 @@ func generate_map():
 	var cells_to_change = []
 	var cell
 	randomize()
+	self.used_tiles_list = []
 
 	#map elements count
 	var city_small_elements_count = map_city_small.size()
@@ -260,14 +262,15 @@ func generate_map():
 
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
-
 			var terrain_cell = terrain.get_cell(x, y)
 			# underground
 			if terrain_cell > -1:
 				self.generate_underground(x, y)
 			else:
 				self.generate_wave(x, y)
+				continue
 
+			self.used_tiles_list.append(Vector2(x, y))
 
 			if terrain_cell == self.tileset.TERRAIN_PLAIN or terrain_cell == self.tileset.TERRAIN_DIRT:
 				# bridges
@@ -405,6 +408,7 @@ func generate_map():
 	for fence in get_tree().get_nodes_in_group("terrain_fence"):
 		fence.connect_with_neighbours()
 	units.hide()
+
 	self.bag.fog_controller.clear_fog()
 	return
 
