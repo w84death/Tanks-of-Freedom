@@ -150,11 +150,15 @@ func __gather_destinations(position):
     for lookup_range in self.positions.tiles_lookup_ranges:
         nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
 
-        destinations = self.positions.get_nearby_enemy_buldings(nearby_tiles, self.current_player)
+        destinations = self.positions.get_nearby_enemy_buildings(nearby_tiles, self.current_player)
         if (destinations.size() > 0):
             return destinations
 
         destinations = self.positions.get_nearby_enemies(nearby_tiles, self.current_player)
+        if (destinations.size() > 0):
+            return destinations
+
+        destinations = self.positions.get_nearby_empty_buldings(nearby_tiles)
         if (destinations.size() > 0):
             return destinations
 

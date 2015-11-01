@@ -135,8 +135,7 @@ func get_buildings():
         else:
             buildings_player_none[pos] = building
 
-#for red
-func get_nearby_enemy_buldings(nearby_tiles, current_player):
+func get_nearby_enemy_buildings(nearby_tiles, current_player):
     var enemy_buildings_collection
     if current_player == 0:
         enemy_buildings_collection = buildings_player_red
@@ -150,7 +149,6 @@ func get_nearby_enemy_buldings(nearby_tiles, current_player):
 
     return buildings
 
-#for red
 func get_nearby_empty_buldings(nearby_tiles):
     var buildings = []
     for tile in nearby_tiles:

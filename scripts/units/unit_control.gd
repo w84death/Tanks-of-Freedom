@@ -68,18 +68,18 @@ func set_stats(new_stats):
 	attack = new_stats.attack
 	ap = new_stats.ap
 	attacks_number = new_stats.attacks_number
-	update_healthbar()
-	update_shield()
+	self.update_healthbar()
+	self.update_shield()
 
 func update_ap(new_ap):
 	ap = new_ap
-	update_shield()
+	self.update_shield()
 
 func reset_ap():
 	ap = max_ap
 	attacks_number = max_attacks_number
-	update_shield()
-	update_healthbar()
+	self.update_shield()
+	self.update_healthbar()
 
 func set_pos_map(new_position):
 	if new_position.x > position_on_map.x:
@@ -115,22 +115,20 @@ func check_hiccup(new_position):
 	return false
 
 func can_attack():
-	if ap >= attack_ap && attacks_number > 0:
+	if self.ap >= self.attack_ap && self.attacks_number > 0:
 		return true
 	return false
 
 func can_defend():
-	if ap >= attack_ap:
+	if self.ap >= self.attack_ap:
 		return true
 	return false
 
 func die():
 	self.queue_free()
-	#print('DIED!')
 
 func set_damaged():
 	return
-	#print('DAMAGED!')
 
 func get_life_status():
 	return self.life / (self.max_life * 1.0 )
@@ -138,7 +136,7 @@ func get_life_status():
 func update_healthbar():
 	var life_status = self.get_life_status()
 	var new_frame = floor((1.0 - life_status)*10)
-	health_bar.set_frame(new_frame)
+	self.health_bar.set_frame(new_frame)
 
 func show_explosion():
 	explosion = explosion_template.instance()
@@ -175,15 +173,16 @@ func die_after_explosion(ysort):
 
 func update_shield():
 	if ap >= attack_ap:
-		icon_shield.show()
+		self.icon_shield.show()
 	else:
-		icon_shield.hide()
+		self.icon_shield.hide()
 
 func score_kill():
 	kills = kills + 1
 
 func takeAllAP():
 	self.ap = 0
+	self.icon_shield.hide()
 
 func _ready():
 	add_to_group("units")
@@ -191,8 +190,8 @@ func _ready():
 	if get_node("/root/game"):
 		current_map_terrain = get_node("/root/game").current_map_terrain
 		current_map = get_node("/root/game").current_map
-	health_bar = get_node("health")
-	icon_shield = get_node("shield")
+	self.health_bar = get_node("health")
+	self.icon_shield = get_node("shield")
 	pass
 
 

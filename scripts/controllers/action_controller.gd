@@ -140,9 +140,6 @@ func handle_action(position):
 
     return 1
 
-func post_handle_action():
-    self.positions.refresh_units()
-
 func capture_building(active_field, field):
     self.use_ap(field)
 
@@ -352,9 +349,9 @@ func refill_ap():
 
 func show_bonus_ap():
     var buildings = self.positions.get_player_buildings(current_player)
-    for building in buildings:
-        if buildings[building].bonus_ap > 0 && not self.root_node.dependency_container.fog_controller.is_fogged(buildings[building].position_on_map.x, buildings[building].position_on_map.y):
-            buildings[building].show_floating_ap()
+    for building_pos in buildings:
+        if buildings[building_pos].bonus_ap > 0 && not self.root_node.dependency_container.fog_controller.is_fogged(building_pos):
+            buildings[building_pos].show_floating_ap()
 
 func switch_to_player(player):
     self.stats_start_time()
@@ -389,10 +386,9 @@ func perform_ai_stuff():
     return player_ap[current_player] > 0 && success
 
 func reset_player_units(player):
-    var units = self.root_tree.get_nodes_in_group("units")
-    for unit in units:
-        if unit.player == player:
-            unit.reset_ap()
+    var units = self.positions.get_player_units(player)
+    for unit_pos in units:
+        units[unit_pos].reset_ap()
 
 func end_game(winning_player):
     self.root_node.ai_timer.reset_state()

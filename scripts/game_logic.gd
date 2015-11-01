@@ -85,7 +85,6 @@ func _input(event):
 						else:
 							if self.registered_click:
 								action_controller.handle_action(selector_position)
-								action_controller.post_handle_action()
 								self.registered_click = false
 
 		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
