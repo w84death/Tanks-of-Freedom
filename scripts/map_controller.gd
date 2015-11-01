@@ -341,6 +341,7 @@ func generate_map():
 			# special buildings
 			if terrain_cell == self.tileset.TERRAIN_STATUE:
 				temp = map_statue.instance()
+				terrain_under_building = 9
 
 			if terrain_cell == self.tileset.TERRAIN_SPAWN:
 				cells_to_change.append({x=x, y=y, type=13})

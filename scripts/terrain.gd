@@ -35,7 +35,7 @@ func set_damage():
 			smoke.set_emitting(true)
 
 		var region = self.get_region_rect()
-		self.set_region_rect(Rect2(Vector2(region.pos.x, region.pos.y + 32), Vector2(region.size.x, region.size.y)))
+		self.set_region_rect(Rect2(Vector2(region.pos.x, region.pos.y + 64), Vector2(region.size.x, region.size.y)))
 		self.show_explosion()
 
 func show_explosion():
@@ -98,7 +98,7 @@ func connect_with_neighbours():
 	if neighbours in [30]:
 		self.set_frame(10)
 		return
-		
+
 func _ready():
 	add_to_group("terrain")
 	if get_node("/root/game"):

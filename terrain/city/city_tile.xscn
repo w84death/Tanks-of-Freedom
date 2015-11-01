@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://assets/buildings/buildings_big.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
 	<ext_resource path="res://particle/smoke.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://assets/buildings/buildings_small.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -10,12 +10,9 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="15">
-				<string> "city_big_2" </string>
-				<string> "Sprite" </string>
-				<string> "texture" </string>
-				<string> "region" </string>
-				<string> "region_rect" </string>
+			<string_array  len="21">
+				<string> "city_small" </string>
+				<string> "Node2D" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "destructable" </string>
@@ -26,16 +23,22 @@
 				<string> "Particles2D" </string>
 				<string> "_import_path" </string>
 				<string> "emission_points" </string>
+				<string> "c1" </string>
+				<string> "Sprite" </string>
+				<string> "texture" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "c2" </string>
+				<string> "transform/pos" </string>
+				<string> "c3" </string>
+				<string> "c4" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 2 </int>
+			<int> 6 </int>
 			<string> "nodes" </string>
-			<int_array  len="38"> 				-1, -1, 1, 0, -1, 9, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 1, 8, 5, 9, 6, 10, 7, 0, 0, 0, 12, 11, 8, 3, 13, 9, 14, 10, 6, 11, 0 </int_array>
+			<int_array  len="130"> 				-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0, 0, 0, 9, 8, 6, 3, 10, 7, 11, 8, 3, 9, 0, 0, 0, 13, 12, -1, 8, 14, 10, 15, 2, 16, 11, 2, 0, 4, 2, 5, 3, 6, 4, 7, 5, 0, 0, 0, 13, 17, -1, 9, 18, 12, 14, 10, 15, 2, 16, 11, 2, 0, 4, 2, 5, 3, 6, 4, 7, 5, 0, 0, 0, 13, 19, -1, 9, 18, 13, 14, 10, 15, 2, 16, 11, 2, 0, 4, 2, 5, 3, 6, 4, 7, 5, 0, 0, 0, 13, 20, -1, 9, 18, 14, 14, 10, 15, 2, 16, 11, 2, 0, 4, 2, 5, 3, 6, 4, 7, 5, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="12" shared="false">
-				<resource  resource_type="Texture" path="res://assets/buildings/buildings_big.png">  </resource>
-				<bool> True </bool>
-				<rect2> 64, 0, 64, 64 </rect2>
+			<array  len="15" shared="false">
 				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -45,7 +48,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -75.057, -53.9163 </vector2>
+							<vector2> -111.521, -76.8205 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -65,7 +68,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 5.720016 </real>
+							<real> 2.789509 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -168,6 +171,7 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<bool> True </bool>
 				<bool> False </bool>
 				<int> 16 </int>
 				<int> 1 </int>
@@ -293,6 +297,11 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
+				<resource  resource_type="Texture" path="res://assets/buildings/buildings_small.png">  </resource>
+				<rect2> 0, 0, 32, 32 </rect2>
+				<vector2> -15, 7 </vector2>
+				<vector2> 15, 7 </vector2>
+				<vector2> 0, 14 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
