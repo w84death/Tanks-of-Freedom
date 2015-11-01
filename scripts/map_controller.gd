@@ -250,6 +250,7 @@ func do_single_shake():
 func generate_map():
 	var temp = null
 	var temp2 = null
+	var terrain_under_building = null
 	var cells_to_change = []
 	var cell
 	randomize()
@@ -262,6 +263,7 @@ func generate_map():
 
 	for x in range(MAP_MAX_X):
 		for y in range(MAP_MAX_Y):
+
 			var terrain_cell = terrain.get_cell(x, y)
 			# underground
 			if terrain_cell > -1:
@@ -310,14 +312,14 @@ func generate_map():
 			# forest
 			if terrain_cell == self.tileset.TERRAIN_FOREST:
 				temp = map_non_movable.instance()
-				temp.set_frame(randi()%5)
+				temp.set_frame(randi()%8)
 				cells_to_change.append({x=x, y=y, type=1})
 
 			# mountains
 			if terrain_cell == self.tileset.TERRAIN_MOUNTAINS:
 				temp = map_non_movable.instance()
-				temp.set_frame(8 + (randi()%4))
-				if temp.get_frame() in range(8,11):
+				temp.set_frame(9 + (randi()%2))
+				if randi()%10 < 2 :
 					temp.get_node('snow').show();
 					temp.get_node('snow/snow1').set_emitting(true)
 					temp.get_node('snow/snow2').set_emitting(true)
@@ -334,6 +336,7 @@ func generate_map():
 					temp = map_city_big[randi() % city_big_elements_count].instance()
 				if terrain_cell == self.tileset.TERRAIN_CITY_DESTROYED:
 					temp.set_damage()
+				terrain_under_building = 9
 
 			# special buildings
 			if terrain_cell == self.tileset.TERRAIN_STATUE:
@@ -343,44 +346,60 @@ func generate_map():
 				cells_to_change.append({x=x, y=y, type=13})
 
 			# military buildings
+
 			if terrain_cell == self.tileset.TERRAIN_HQ_BLUE: # HQ blue
 				temp = map_buildings[0].instance()
+				terrain_under_building = 11
 			if terrain_cell == self.tileset.TERRAIN_HQ_RED: # HQ red
 				temp = map_buildings[1].instance()
+				terrain_under_building = 12
 			if terrain_cell == self.tileset.TERRAIN_BARRACKS_FREE: # barrack
 				temp = map_buildings[2].instance()
+				terrain_under_building = 10
 			if terrain_cell == self.tileset.TERRAIN_FACTORY_FREE: # factory
 				temp = map_buildings[3].instance()
+				terrain_under_building = 10
 			if terrain_cell == self.tileset.TERRAIN_AIRPORT_FREE: # airport
 				temp = map_buildings[4].instance()
+				terrain_under_building = 10
 			if terrain_cell == self.tileset.TERRAIN_TOWER_FREE: # tower
 				temp = map_buildings[5].instance()
+				terrain_under_building = 10
 			if terrain_cell == self.tileset.TERRAIN_BARRACKS_RED: # barrack
 				temp = map_buildings[2].instance()
 				temp.player = 1
+				terrain_under_building = 12
 			if terrain_cell == self.tileset.TERRAIN_FACTORY_RED: # factory
 				temp = map_buildings[3].instance()
 				temp.player = 1
+				terrain_under_building = 12
 			if terrain_cell == self.tileset.TERRAIN_AIRPORT_RED: # airport
 				temp = map_buildings[4].instance()
 				temp.player = 1
+				terrain_under_building = 12
 			if terrain_cell == self.tileset.TERRAIN_TOWER_RED: # tower
 				temp = map_buildings[5].instance()
 				temp.player = 1
+				terrain_under_building = 12
 			if terrain_cell == self.tileset.TERRAIN_BARRACKS_BLUE: # barrack
 				temp = map_buildings[2].instance()
 				temp.player = 0
+				terrain_under_building = 11
 			if terrain_cell == self.tileset.TERRAIN_FACTORY_BLUE: # factory
 				temp = map_buildings[3].instance()
 				temp.player = 0
+				terrain_under_building = 11
 			if terrain_cell == self.tileset.TERRAIN_AIRPORT_BLUE: # airport
 				temp = map_buildings[4].instance()
 				temp.player = 0
+				terrain_under_building = 11
 			if terrain_cell == self.tileset.TERRAIN_TOWER_BLUE: # tower
 				temp = map_buildings[5].instance()
 				temp.player = 0
+				terrain_under_building = 11
 			if terrain_cell == self.tileset.TERRAIN_FENCE: # fence
 				temp = map_buildings[6].instance()
+				terrain_under_building = 10
 
 			if temp:
 				temp.set_pos(terrain.map_to_world(Vector2(x,y)))
@@ -389,8 +408,14 @@ func generate_map():
 				if temp.group == 'building':
 					temp.claim(temp.player, 0)
 				temp = 1
-				if count_neighbours(x,y,[0]) >= count_neighbours(x,y,[1]):
-					temp = 0
+				if terrain_under_building == null:
+					if count_neighbours(x,y,[0]) >= count_neighbours(x,y,[1]):
+						temp = 0
+					else:
+						temp = 1
+				else:
+					temp = terrain_under_building
+
 				cells_to_change.append({x=x, y=y, type=temp})
 				temp = null
 
@@ -406,6 +431,8 @@ func generate_map():
 
 			if units.get_cell(x,y) > -1:
 				self.spawn_unit(x,y,units.get_cell(x,y))
+
+			terrain_under_building = null
 
 	for cell in cells_to_change:
 		if(cell.type > -1):

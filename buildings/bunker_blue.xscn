@@ -10,9 +10,10 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="21">
+			<string_array  len="19">
 				<string> "bunker_blue" </string>
 				<string> "Sprite" </string>
+				<string> "transform/pos" </string>
 				<string> "texture" </string>
 				<string> "region" </string>
 				<string> "region_rect" </string>
@@ -27,21 +28,19 @@
 				<string> "flag" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "_import_path" </string>
-				<string> "transform/pos" </string>
 				<string> "color" </string>
-				<string> "flag1" </string>
 				<string> "flag2" </string>
-				<string> "flag3" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 3 </int>
 			<string> "nodes" </string>
-			<int_array  len="89"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 6, 10, 7, 11, 1, 12, 8, 0, 0, 0, 14, 13, 9, 4, 15, 10, 16, 11, 6, 12, 17, 6, 0, 0, 0, 14, 18, 9, 4, 15, 10, 16, 13, 6, 12, 17, 6, 0, 0, 0, 14, 19, 9, 4, 15, 10, 16, 14, 6, 12, 17, 6, 0, 0, 0, 14, 20, 9, 4, 15, 10, 16, 15, 6, 12, 17, 6, 0 </int_array>
+			<int_array  len="61"> 				-1, -1, 1, 0, -1, 12, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 7, 11, 8, 12, 2, 13, 9, 0, 0, 0, 15, 14, 10, 4, 16, 11, 2, 12, 7, 13, 17, 7, 0, 0, 0, 15, 18, 10, 4, 16, 11, 2, 14, 7, 13, 17, 7, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="16" shared="false">
+			<array  len="15" shared="false">
+				<vector2> 0.180122, 0 </vector2>
 				<resource  resource_type="Texture" path="res://assets/buildings/military.png">  </resource>
 				<bool> True </bool>
-				<rect2> 32, 96, 32, 32 </rect2>
+				<rect2> 64, 196, 64, 64 </rect2>
 				<resource  resource_type="Script" path="res://scripts/building.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -180,7 +179,7 @@
 				<vector2> 0, 1 </vector2>
 				<resource  resource_type="PackedScene" path="res://gui/flag.xscn">  </resource>
 				<node_path> "" </node_path>
-				<vector2> -16.0307, -3.11808 </vector2>
+				<vector2> -27.1981, 1.2048 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -310,9 +309,7 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<vector2> -4.86324, -9.06204 </vector2>
-				<vector2> 10.0867, -2.75784 </vector2>
-				<vector2> -1.98132, 3.9066 </vector2>
+				<vector2> 19.8132, 2.1054 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

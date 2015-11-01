@@ -10,7 +10,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="21">
+			<string_array  len="19">
 				<string> "bunker_red" </string>
 				<string> "Sprite" </string>
 				<string> "texture" </string>
@@ -29,19 +29,17 @@
 				<string> "_import_path" </string>
 				<string> "transform/pos" </string>
 				<string> "color" </string>
-				<string> "flag1" </string>
 				<string> "flag2" </string>
-				<string> "flag3" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 3 </int>
 			<string> "nodes" </string>
-			<int_array  len="89"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 1, 12, 9, 0, 0, 0, 14, 13, 10, 4, 15, 11, 16, 12, 6, 13, 17, 7, 0, 0, 0, 14, 18, 10, 4, 15, 11, 16, 14, 6, 13, 17, 7, 0, 0, 0, 14, 19, 10, 4, 15, 11, 16, 15, 6, 13, 17, 7, 0, 0, 0, 14, 20, 10, 4, 15, 11, 16, 16, 6, 13, 17, 7, 0 </int_array>
+			<int_array  len="59"> 				-1, -1, 1, 0, -1, 11, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 8, 11, 1, 12, 9, 0, 0, 0, 14, 13, 10, 4, 15, 11, 16, 12, 6, 13, 17, 7, 0, 0, 0, 14, 18, 10, 4, 15, 11, 16, 14, 6, 13, 17, 7, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="17" shared="false">
+			<array  len="15" shared="false">
 				<resource  resource_type="Texture" path="res://assets/buildings/military.png">  </resource>
 				<bool> True </bool>
-				<rect2> 64, 96, 32, 32 </rect2>
+				<rect2> 128, 192, 64, 64 </rect2>
 				<resource  resource_type="Script" path="res://scripts/building.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -51,7 +49,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -62.6811, -20.5143 </vector2>
+							<vector2> -51.807, -20.6338 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -181,7 +179,7 @@
 				<vector2> 0, 1 </vector2>
 				<resource  resource_type="PackedScene" path="res://gui/flag.xscn">  </resource>
 				<node_path> "" </node_path>
-				<vector2> -5.0188, -8.98738 </vector2>
+				<vector2> 19.1193, 6.42752 </vector2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>
@@ -311,9 +309,7 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<vector2> -2.03142, 4.03761 </vector2>
-				<vector2> 9.91811, -2.89312 </vector2>
-				<vector2> -16.8488, -3.13211 </vector2>
+				<vector2> -26.2889, 6.42752 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>

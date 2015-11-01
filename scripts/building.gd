@@ -60,7 +60,7 @@ func get_player():
 
 func set_frame(number):
 	var current_frame = get_region_rect()
-	var new_frame = Rect2(number * 32, current_frame.pos.y, 32, 32)
+	var new_frame = Rect2(number * 64, current_frame.pos.y, 64, 64)
 	set_region_rect(new_frame)
 
 func get_spawn_type():
