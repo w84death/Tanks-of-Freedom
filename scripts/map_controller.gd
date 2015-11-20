@@ -77,7 +77,7 @@ var map_units = [
 	preload('res://units/helicopter_red.xscn')]
 
 var is_dead = false
-var do_cinematic_pan = false
+
 var should_do_awesome_explosions = false
 var awesome_explosions_interval = 10
 var awesome_explosions_interval_counter = 0

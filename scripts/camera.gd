@@ -26,12 +26,14 @@ const NEAR_THRESHOLD = 20
 const NEAR_SCREEN_THRESHOLD = 0.2
 const PAN_THRESHOLD = 20
 
+var do_cinematic_pan = false
+
 func init_root(root_node):
 	self.root = root_node
+	self.bag = self.root.dependency_container
 	self.camera = self.root.get_node("/root/game/viewport/camera")
 	self.game_logic = self.root.get_node("/root/game")
 	self.update_zoom()
-	self.bag = self.root.dependency_container
 	
 func update_zoom():
 	self.scale = self.camera.get_zoom()
@@ -82,7 +84,7 @@ func move_to_map(target):
 		self.panning = true
 
 
-func _process(delta):
+func process(delta):
 	if not pos == target:
 		temp_delta += delta
 		if temp_delta > MAP_STEP:
@@ -96,7 +98,7 @@ func _process(delta):
 				self.sX = self.sX + diff_x * temp_delta;
 				self.sY = self.sY + diff_y * temp_delta;
 				var new_pos = Vector2(self.sX, self.sY)
-				self.set_offset(new_pos)
+				self.camera.set_offset(new_pos)
 			temp_delta = 0
 	else:
 		panning = false
