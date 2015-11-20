@@ -33,6 +33,8 @@ func init_root(root_node):
     self.positions.prepare_nearby_tiles()
     self.positions.prepare_nearby_tiles_ranges()
 
+    
+
     self.demo_mode.init_root(root_node)
     self.campaign.load_campaign_progress()
     

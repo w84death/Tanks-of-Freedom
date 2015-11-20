@@ -5,12 +5,13 @@ var version_name = "Version 0.3.7-BETA"
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
 var current_map_terrain
-var map_pos
+var camera_pos
 var game_scale
 var scale_root
 var camera
 var hud_template = preload('res://gui/gui.xscn')
 var menu
+var screen_size
 
 var intro = preload('res://intro.xscn').instance()
 
@@ -63,13 +64,12 @@ func _input(event):
 		if is_locked_for_cpu == false:
 			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 
-				game_scale = scale_root.get_scale()
-				map_pos = current_map_terrain.get_pos()
-
-				selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-map_pos.x,((event.y+click_fix_position)/game_scale.y)-map_pos.y))
+				game_scale = self.camera.get_scale()
+				camera_pos = self.camera.get_pos()
+				selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-camera_pos.x-(self.screen_size.width/2),((event.y)/game_scale.y)-camera_pos.y-(self.screen_size.height/2)))
 			if (event.type == InputEvent.MOUSE_MOTION):
 				var position = current_map_terrain.map_to_world(selector_position)
-				position.y += 2
+				#position.y += 2
 				selector.set_pos(position)
 				if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
 					self.registered_click = false
@@ -78,7 +78,7 @@ func _input(event):
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
 				if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
 					var position = current_map_terrain.map_to_world(selector_position)
-					if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y+click_fix_position):
+					if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y):
 						if event.is_pressed():
 							self.registered_click = true
 							self.registered_click_position = Vector2(event.x, event.y)
@@ -266,7 +266,6 @@ func write_settings_to_file():
 
 func _ready():
 	scale_root = get_node("/root/game/viewport/pixel_scale")
-	
 	self.ai_timer = get_node("AITimer")
 	self.dependency_container.init_root(self)
 	self.camera = self.dependency_container.camera
@@ -277,4 +276,5 @@ func _ready():
 	menu.hide()
 	intro.init_root(self)
 	self.add_child(intro)
+	self.screen_size = get_node('/root/game/viewport').get_rect().size
 	pass

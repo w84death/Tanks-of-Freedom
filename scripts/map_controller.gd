@@ -528,7 +528,7 @@ func generate_wave(x, y):
 	return false
 
 func set_default_zoom():
-	self.scale = Vector2(2, 2)
+	self.scale = (Vector2(2, 2))
 
 func save_map(file_name):
 	var temp_data = []
@@ -684,7 +684,7 @@ func _ready():
 	self.tileset = self.bag.map_tiles
 
 	if root:
-		scale = root.scale_root.get_scale()
+		scale = self.camera.get_scale()
 	else:
 		self.set_default_zoom()
 	#pos = terrain.get_pos()

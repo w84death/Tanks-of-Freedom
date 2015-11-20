@@ -244,7 +244,7 @@ func quit_game():
 	OS.get_main_loop().quit()
 
 func update_zoom_label():
-	self.camera_zoom_label.set_text(str(self.root.scale_root.get_scale().x))
+	self.camera_zoom_label.set_text(str(self.root.camera.get_camera_zoom().x))
 
 func update_progress_labels():
 	self.update_custom_maps_count_label()
