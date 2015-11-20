@@ -86,8 +86,8 @@ func _process(delta):
 	if not pos == target:
 		temp_delta += delta
 		if temp_delta > MAP_STEP:
-			var diff_x = target.x - self.sX
-			var diff_y = target.y - self.sY
+			var diff_x = self.target.x - self.sX
+			var diff_y = self.target.y - self.sY
 
 			panning = self.__do_panning(diff_x, diff_y)
 			if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
