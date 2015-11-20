@@ -215,7 +215,7 @@ func lock_for_cpu():
 	self.hud_controller.lock_hud()
 	self.selector.hide()
 	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
-		self.current_map.camera_follow = false
+		self.camera.camera_follow = false
 		self.hud_controller.show_cinematic_camera()
 	else:
 		self.hud_controller.hide_cinematic_camera()
@@ -224,7 +224,7 @@ func unlock_for_player():
 	self.is_locked_for_cpu = false
 	self.hud_controller.unlock_hud()
 	self.selector.show()
-	self.current_map.camera_follow = true
+	self.camera.camera_follow = true
 	self.hud_controller.hide_cinematic_camera()
 
 func lock_for_demo():
@@ -266,9 +266,10 @@ func write_settings_to_file():
 
 func _ready():
 	scale_root = get_node("/root/game/viewport/pixel_scale")
-	camera = get_node("/root/game/viewport/camera")
+	
 	self.ai_timer = get_node("AITimer")
 	self.dependency_container.init_root(self)
+	self.camera = self.dependency_container.camera
 	self.read_settings_from_file()
 	self.menu = self.dependency_container.controllers.menu_controller
 	sound_controller.init_root(self)

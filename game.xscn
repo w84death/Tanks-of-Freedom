@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gui/corners.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://scripts/ai_timer.gd" type="Script"></ext_resource>
@@ -12,30 +12,21 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				4, 0, 91, 90, 2, 0 </int_array>
+			<int_array  len="6"> 				4, 0, 78, 77, 2, 0 </int_array>
 			<string> "names" </string>
-			<string_array  len="92">
+			<string_array  len="79">
 				<string> "game" </string>
 				<string> "Control" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
-				<string> "focus_neighbour/left" </string>
-				<string> "focus_neighbour/top" </string>
-				<string> "focus_neighbour/right" </string>
-				<string> "focus_neighbour/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
-				<string> "size_flags/stretch_ratio" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "corners" </string>
+				<string> "_import_path" </string>
 				<string> "SamplePlayer" </string>
 				<string> "config/voices" </string>
 				<string> "config/samples" </string>
@@ -83,12 +74,7 @@
 				<string> "physics/object_picking" </string>
 				<string> "camera" </string>
 				<string> "Camera2D" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
-				<string> "centered" </string>
+				<string> "anchor_mode" </string>
 				<string> "rotating" </string>
 				<string> "current" </string>
 				<string> "smoothing" </string>
@@ -105,20 +91,19 @@
 				<string> "drag_margin/bottom" </string>
 				<string> "pixel_scale" </string>
 				<string> "Node2D" </string>
+				<string> "transform/scale" </string>
 				<string> "load_menu" </string>
 				<string> "timeout" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 10 </int>
 			<string> "nodes" </string>
-			<int_array  len="286"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 1, 20, 8, 2, 2, 0, 19, 9, 0, 0, 0, 21, 21, -1, 15, 2, 0, 22, 10, 23, 11, 24, 2, 25, 2, 26, 12, 27, 12, 28, 12, 29, 13, 30, 13, 31, 13, 32, 13, 33, 5, 34, 12, 35, 12, 0, 0, 0, 36, 36, -1, 7, 2, 0, 37, 14, 38, 1, 39, 4, 40, 12, 41, 4, 42, 4, 0, 0, 0, 44, 43, -1, 5, 2, 0, 45, 3, 46, 15, 47, 4, 48, 4, 0, 0, 0, 44, 49, -1, 6, 2, 0, 45, 3, 46, 2, 47, 4, 48, 4, 18, 16, 0, 0, 0, 44, 50, -1, 6, 2, 0, 45, 3, 46, 2, 47, 4, 48, 4, 18, 17, 0, 0, 0, 52, 51, -1, 14, 2, 0, 53, 18, 54, 4, 55, 14, 56, 4, 57, 4, 58, 4, 59, 1, 60, 4, 61, 4, 62, 5, 63, 4, 64, 4, 65, 4, 0, 7, 0, 67, 66, -1, 25, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 68, 19, 69, 12, 70, 20, 71, 21, 72, 1, 73, 1, 74, 4, 75, 1, 76, 12, 77, 20, 78, 22, 79, 22, 80, 23, 81, 23, 82, 1, 83, 1, 84, 24, 85, 24, 86, 24, 87, 24, 0, 7, 0, 89, 88, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 68, 19, 69, 12, 70, 25, 71, 21, 72, 1, 0 </int_array>
+			<int_array  len="216"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 1, 10, 6, 2, 11, 7, 9, 8, 0, 0, 0, 12, 12, -1, 14, 13, 9, 14, 10, 15, 11, 16, 11, 17, 12, 18, 12, 19, 12, 20, 13, 21, 13, 22, 13, 23, 13, 24, 3, 25, 12, 26, 12, 0, 0, 0, 27, 27, -1, 6, 28, 14, 29, 2, 30, 1, 31, 12, 32, 1, 33, 1, 0, 0, 0, 35, 34, -1, 4, 36, 0, 37, 15, 38, 1, 39, 1, 0, 0, 0, 35, 40, -1, 5, 36, 0, 37, 11, 38, 1, 39, 1, 8, 16, 0, 0, 0, 35, 41, -1, 5, 36, 0, 37, 11, 38, 1, 39, 1, 8, 17, 0, 0, 0, 43, 42, -1, 13, 44, 18, 45, 1, 46, 14, 47, 1, 48, 1, 49, 1, 50, 2, 51, 1, 52, 1, 53, 3, 54, 1, 55, 1, 56, 1, 0, 7, 0, 58, 57, -1, 15, 59, 0, 60, 1, 61, 2, 62, 12, 63, 19, 64, 20, 65, 20, 66, 21, 67, 21, 68, 2, 69, 2, 70, 22, 71, 22, 72, 22, 73, 22, 0, 7, 0, 75, 74, -1, 1, 76, 23, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="26" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
+			<array  len="24" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
+				<bool> True </bool>
 				<int> 2 </int>
 				<resource  resource_type="Script" path="res://scripts/game_logic.gd">  </resource>
 				<dictionary  shared="false">
@@ -243,16 +228,6 @@
 							<string> "znear" </string>
 							<real> 0.1 </real>
 						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 1 </int>
-							<string> "sources" </string>
-							<array  len="2" shared="false">
-								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/camera.gd" </string>
-							</array>
-						</dictionary>
 					</dictionary>
 					<string> "__editor_run_settings__" </string>
 					<dictionary  shared="false">
@@ -265,6 +240,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<resource  resource_type="PackedScene" path="res://gui/corners.xscn">  </resource>
+				<node_path> "" </node_path>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -398,15 +374,14 @@
 				</dictionary>
 				<int> 10 </int>
 				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
+				<real> 1 </real>
 				<real> 0 </real>
 				<nil>  </nil>
 				<resource name=""></resource>				<real> 12 </real>
 				<resource  resource_type="Script" path="res://scripts/ai_timer.gd">  </resource>
 				<resource  resource_type="Script" path="res://scripts/demo_timer.gd">  </resource>
 				<rect2> 0, 0, 1280, 800 </rect2>
-				<vector2> 0, 0 </vector2>
 				<vector2> 1, 1 </vector2>
-				<int> 0 </int>
 				<int> -10000000 </int>
 				<int> 10000000 </int>
 				<real> 0.2 </real>

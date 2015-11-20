@@ -34,8 +34,7 @@ func init_root(root_node):
 
     self.demo_mode.init_root(root_node)
     self.campaign.load_campaign_progress()
-    self.camera.abstract_map = self.abstract_map
-    self.camera.init_root(root)
+    
     self.controllers.campaign_menu_controller.init_root(root_node)
     self.controllers.hud_panel_controller.init_root(root_node)
     self.controllers.workshop_gui_controller.init_root(root_node)
@@ -44,9 +43,12 @@ func init_root(root_node):
     self.workshop_dead_zone.init_root(root_node)
     self.action_map.init_root(root_node)
     self.ap_gain.init_root(root_node)
-    self.camera.workshop_camera = self.workshop.game_scale
+
+    self.camera.init_root(root)
+    self.camera.abstract_map = self.abstract_map
     self.camera.workshop_map = self.workshop.map
     self.camera.apply_default_camera()
+
     self.map_list.init()
     self.migrations.init_bag(self)
     self.timers._init_bag(self)

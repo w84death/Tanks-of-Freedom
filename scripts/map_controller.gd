@@ -19,11 +19,7 @@ var pos
 var game_size
 var scale
 var root
-
-var sX = 0
-var sY = 0
-var k = 0.90
-var target = Vector2(0,0)
+var camera
 
 var shake_timer = Timer.new()
 var shakes = 0
@@ -31,16 +27,9 @@ export var shakes_max = 5
 export var shake_time = 0.25
 export var shake_boundary = 5
 var shake_initial_position
-var temp_delta = 0
 
-var panning = false
 var current_player = 0
-var camera_follow = true
 
-const MAP_STEP = 0.01
-const NEAR_THRESHOLD = 20
-const NEAR_SCREEN_THRESHOLD = 0.2
-const PAN_THRESHOLD = 20
 const GEN_GRASS = 6
 const GEN_FLOWERS = 3
 const GEN_STONES = 6
@@ -120,43 +109,6 @@ func _input(event):
 		if event.scancode == KEY_E && event.pressed:
 			self.should_do_awesome_explosions = not self.should_do_awesome_explosions
 
-func __do_panning(diff_x, diff_y):
-	if diff_x > -PAN_THRESHOLD && diff_x < PAN_THRESHOLD && diff_y > -PAN_THRESHOLD && diff_y < PAN_THRESHOLD:
-		return false
-
-	return true
-
-func _process(delta):
-	if not pos == target:
-		temp_delta += delta
-		if temp_delta > MAP_STEP:
-			var diff_x = target.x - self.sX
-			var diff_y = target.y - self.sY
-
-			panning = self.__do_panning(diff_x, diff_y)
-			if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
-				target = pos
-			else:
-				self.sX = self.sX + diff_x * temp_delta;
-				self.sY = self.sY + diff_y * temp_delta;
-				var new_pos = Vector2(self.sX, self.sY)
-
-				terrain.set_pos(new_pos)
-				self.bag.fog_controller.move_cloud(new_pos)
-				underground.set_pos(new_pos)
-
-			temp_delta = 0
-	else:
-		panning = false
-
-	if self.do_cinematic_pan:
-		self.do_awesome_cinematic_pan()
-		if self.awesome_explosions_interval_counter == self.awesome_explosions_interval:
-			self.do_awesome_random_explosions()
-			self.awesome_explosions_interval_counter = 0
-		else:
-			self.awesome_explosions_interval_counter += 1
-
 func do_awesome_cinematic_pan():
 	self.set_map_pos_global(Vector2(self.sX - 1, self.sY))
 
@@ -184,15 +136,10 @@ func do_awesome_random_explosions():
 
 func move_to(target):
 	if not mouse_dragging:
-		self.target = target;
+		self.camera.target = target;
 
 func set_map_pos_global(position):
-	self.target = position
-	self.sX = position.x
-	self.sY = position.y
-	self.underground.set_pos(position)
-	self.terrain.set_pos(position)
-	self.bag.fog_controller.move_cloud(position)
+	self.camera.set_camera_pos(position)
 
 func set_map_pos(position):
 	self.game_size = self.root.get_size()
@@ -200,51 +147,10 @@ func set_map_pos(position):
 	self.set_map_pos_global(position)
 
 func move_to_map(target):
-	if not root.settings['camera_follow']:
-		return
-
-	if not self.camera_follow && self.bag.fog_controller.is_fogged(target):
-		return
-
-	if not mouse_dragging:
-		game_size = root.get_size()
-		var target_position = terrain.map_to_world(target*Vector2(-1,-1)) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
-		var diff_x = target_position.x - self.sX
-		var diff_y = target_position.y - self.sY
-		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD / scale.x)
-		var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD / scale.y)
-
-		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
-			return
-		self.target = target_position
-		self.panning = true
+	self.camera.move_to_map(target)
 
 func shake_camera():
-	if root.settings['shake_enabled'] and not mouse_dragging:
-		shakes = 0
-		shake_initial_position = terrain.get_pos()
-		self.do_single_shake()
-
-func do_single_shake():
-	if shakes < shakes_max:
-		var distance_x = randi() % shake_boundary
-		var distance_y = randi() % shake_boundary
-		if randf() <= 0.5:
-			distance_x = -distance_x
-		if randf() <= 0.5:
-			distance_y = -distance_y
-
-		pos = Vector2(shake_initial_position) + Vector2(distance_x, distance_y)
-		target = pos
-		underground.set_pos(pos)
-		terrain.set_pos(pos)
-		shakes += 1
-		shake_timer.start()
-	else:
-		pos = shake_initial_position
-		target = pos
-		underground.set_pos(shake_initial_position)
-		terrain.set_pos(shake_initial_position)
+	return
 
 
 func generate_map():
@@ -774,20 +680,20 @@ func _ready():
 	self.init_nodes()
 	self.bag = self.root.dependency_container
 	self.bag.fog_controller.init_node(self, terrain)
-
-	self.tileset = self.root.dependency_container.map_tiles
+	self.camera = self.bag.camera
+	self.tileset = self.bag.map_tiles
 
 	if root:
 		scale = root.scale_root.get_scale()
 	else:
 		self.set_default_zoom()
-	pos = terrain.get_pos()
+	#pos = terrain.get_pos()
 
-	shake_timer.set_wait_time(shake_time / shakes_max)
-	shake_timer.set_one_shot(true)
-	shake_timer.set_autostart(false)
-	shake_timer.connect('timeout', self, 'do_single_shake')
-	self.add_child(shake_timer)
+	#shake_timer.set_wait_time(shake_time / shakes_max)
+	#shake_timer.set_one_shot(true)
+	#shake_timer.set_autostart(false)
+	#shake_timer.connect('timeout', self, 'do_single_shake')
+	#self.add_child(shake_timer)
 
 	# where the magic happens
 	if show_blueprint:
