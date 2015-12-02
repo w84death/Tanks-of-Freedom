@@ -64,9 +64,9 @@
 			<string> "node_count" </string>
 			<int> 5 </int>
 			<string> "nodes" </string>
-			<int_array  len="213"> 				-1, -1, 1, 0, -1, 10, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 6, 10, 7, 11, 8, 0, 0, 0, 13, 12, -1, 1, 14, 6, 0, 1, 0, 16, 15, -1, 26, 17, 9, 18, 10, 19, 11, 20, 12, 21, 13, 22, 6, 23, 14, 24, 15, 25, 16, 26, 14, 27, 14, 28, 14, 29, 17, 30, 14, 31, 14, 32, 18, 33, 14, 34, 19, 35, 14, 36, 14, 37, 13, 38, 14, 39, 20, 40, 21, 41, 21, 42, 22, 0, 1, 0, 16, 43, -1, 26, 17, 23, 18, 10, 19, 11, 20, 12, 21, 13, 22, 6, 23, 14, 24, 15, 25, 16, 26, 14, 27, 14, 28, 14, 29, 17, 30, 14, 31, 14, 32, 18, 33, 14, 34, 19, 35, 14, 36, 14, 37, 13, 38, 14, 39, 20, 40, 21, 41, 21, 42, 22, 0, 1, 0, 16, 44, -1, 26, 17, 24, 18, 10, 19, 11, 20, 12, 21, 13, 22, 6, 23, 14, 24, 15, 25, 16, 26, 14, 27, 14, 28, 14, 29, 17, 30, 14, 31, 14, 32, 18, 33, 14, 34, 19, 35, 14, 36, 14, 37, 13, 38, 14, 39, 20, 40, 21, 41, 21, 42, 22, 0 </int_array>
+			<int_array  len="215"> 				-1, -1, 1, 0, -1, 10, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 6, 10, 7, 11, 8, 0, 0, 0, 13, 12, -1, 2, 14, 6, 7, 9, 0, 1, 0, 16, 15, -1, 26, 17, 10, 18, 11, 19, 12, 20, 13, 21, 14, 22, 6, 23, 15, 24, 16, 25, 17, 26, 15, 27, 15, 28, 15, 29, 18, 30, 15, 31, 15, 32, 19, 33, 15, 34, 20, 35, 15, 36, 15, 37, 14, 38, 15, 39, 21, 40, 22, 41, 22, 42, 23, 0, 1, 0, 16, 43, -1, 26, 17, 24, 18, 11, 19, 12, 20, 13, 21, 14, 22, 6, 23, 15, 24, 16, 25, 17, 26, 15, 27, 15, 28, 15, 29, 18, 30, 15, 31, 15, 32, 19, 33, 15, 34, 20, 35, 15, 36, 15, 37, 14, 38, 15, 39, 21, 40, 22, 41, 22, 42, 23, 0, 1, 0, 16, 44, -1, 26, 17, 25, 18, 11, 19, 12, 20, 13, 21, 14, 22, 6, 23, 15, 24, 16, 25, 17, 26, 15, 27, 15, 28, 15, 29, 18, 30, 15, 31, 15, 32, 19, 33, 15, 34, 20, 35, 15, 36, 15, 37, 14, 38, 15, 39, 21, 40, 22, 41, 22, 42, 23, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="25" shared="false">
+			<array  len="26" shared="false">
 				<resource  resource_type="Texture" path="res://assets/terrain/terrain_non-movable.png">  </resource>
 				<int> 4 </int>
 				<int> 8 </int>
@@ -74,13 +74,13 @@
 				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -317.866, -120.317 </vector2>
+							<vector2> -97.136, -52.2112 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -100,7 +100,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.227738 </real>
+							<real> 3.794777 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -206,6 +206,10 @@
 				<bool> False </bool>
 				<int> 16 </int>
 				<int> 1 </int>
+				<dictionary  shared="false">
+					<string> "_editor_collapsed" </string>
+					<bool> True </bool>
+				</dictionary>
 				<vector2> 4.81448, -46.9556 </vector2>
 				<int> 60 </int>
 				<int> 3 </int>
