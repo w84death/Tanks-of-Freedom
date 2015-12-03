@@ -8,12 +8,12 @@ var hud_button_close
 var active = false
 var flag
 
-func show_message(title,message):
+func show_message(title, message, flag = false):
 	self.active = true
 	hud_title.set_text(title)
-	#hud_message.set_text(message)
-	# some functions use this using table for message
-	# disabled for better funcionality :D
+	hud_message.set_text(message)
+	if flag:
+		self.set_flag(flag)
 	self.raise()
 	return
 
