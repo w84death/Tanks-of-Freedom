@@ -10,10 +10,10 @@ var flag
 
 func show_message(title, message, flag = 2):
 	self.active = true
-	hud_title.set_text(title)
-	hud_message.set_text(message)
-	if flag:
-		self.set_flag(flag)
+	self.hud_title.set_text(title)
+	self.hud_message.set_text(message)
+	self.hud_message.set_uppercase()
+	self.set_flag(flag)
 	self.raise()
 	return
 
