@@ -116,7 +116,7 @@ func clear_building_card():
 func show_in_game_card(messages, current_player):
 	self.lock_hud()
 	self.hide_map()
-	hud_message_card_controller.show_message('TOP SECRET', self.__show_next_tip(), current_player)
+	hud_message_card_controller.show_message('Did you know?', self.__show_next_tip(), current_player)
 	hud_message_card.show()
 
 
