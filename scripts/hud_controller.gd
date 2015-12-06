@@ -32,11 +32,14 @@ var hud_end_game_missions_button_action
 
 var hud_locked = false
 
+var tip_counter
+
 func init_root(root, action_controller_object, hud):
 	self.root_node = root
 	self.action_controller = action_controller_object
 	self.hud_root = hud
 	self.attach_hud_panel()
+	self.tip_counter = 1
 
 	self.active_map = root.scale_root
 
@@ -113,8 +116,9 @@ func clear_building_card():
 func show_in_game_card(messages, current_player):
 	self.lock_hud()
 	self.hide_map()
-	hud_message_card_controller.set_flag(current_player)
+	hud_message_card_controller.show_message('TOP SECRET', self.__show_next_tip(), current_player)
 	hud_message_card.show()
+
 
 func close_message_card():
 	hud_message_card.hide()
@@ -232,3 +236,7 @@ func update_cpu_progress(current_ap, overall_ap):
 	if percent > 9:
 		percent = 9
 	self.cinematic_progress.set_frame(percent)
+
+func __show_next_tip():
+    self.tip_counter = (self.tip_counter + 1) % 13
+    return str(tr('KEY_GENERAL'), tr(str('KEY_HINT_', self.tip_counter)))
