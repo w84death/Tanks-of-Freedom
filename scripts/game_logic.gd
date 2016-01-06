@@ -69,6 +69,7 @@ func _input(event):
 
 			if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
 					self.is_camera_drag = event.pressed
+					self.dependency_container.camera.mouse_dragging = event.pressed
 
 			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
 				var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)

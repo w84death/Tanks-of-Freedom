@@ -43,6 +43,8 @@ func get_pos():
 
 func set_pos(position):
 	self.camera.set_offset(position)
+	self.target = position
+	self.pos = position
 
 func get_scale():
 	return self.scale
