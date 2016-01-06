@@ -5,7 +5,7 @@
 	<ext_resource path="res://scripts/ai_timer.gd" type="Script"></ext_resource>
 	<ext_resource path="res://scripts/demo_timer.gd" type="Script"></ext_resource>
 	<ext_resource path="res://scripts/camera.gd" type="Script"></ext_resource>
-	<resource type="SampleLibrary" path="local://0">
+	<resource type="SampleLibrary" path="local://1">
 
 	</resource>
 	<main_resource>
@@ -247,7 +247,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 3 </int>
+							<int> 1 </int>
 							<string> "sources" </string>
 							<array  len="4" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
@@ -400,7 +400,7 @@
 					</dictionary>
 				</dictionary>
 				<int> 10 </int>
-				<resource  resource_type="SampleLibrary" path="local://0">  </resource>
+				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
 				<real> 0 </real>
 				<nil>  </nil>
 				<resource name=""></resource>				<real> 12 </real>
