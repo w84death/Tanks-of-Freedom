@@ -44,11 +44,10 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 func init_gui():
-	map = get_node("blueprint/scale/map")
+	game_scale = get_node("viewport/camera/scale")
+	map = game_scale.get_node("map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
-
-	game_scale = get_node("blueprint/scale")
 
 	# message
 	hud_message = self.get_node("message")
@@ -216,7 +215,7 @@ func center_camera():
 	self.map.move_to_map(Vector2(self.map.MAP_MAX_X / 2, self.map.MAP_MAX_Y / 2))
 
 func show():
-	self.center_camera()
+	#self.center_camera()
 	.show()
 
 func _ready():
