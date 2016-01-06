@@ -702,5 +702,4 @@ func _ready():
 		self.generate_map()
 
 	set_process_input(true)
-	set_process(true)
 

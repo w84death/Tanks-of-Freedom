@@ -48,6 +48,7 @@ var is_demo = false
 var is_paused = false
 var is_locked_for_cpu = false
 var is_from_workshop = false
+var is_camera_drag = false
 var settings_file = File.new()
 var workshop_file_name
 var click_fix_position = Globals.get("tof/selector_offset")
@@ -63,13 +64,15 @@ func _input(event):
 
 	if is_map_loaded && is_paused == false:
 		if is_locked_for_cpu == false:
-			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
+			game_scale = self.camera.get_scale()
+			camera_pos = self.camera.get_pos()
 
-				game_scale = self.camera.get_scale()
-				camera_pos = self.camera.get_pos()
-				var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x / 3)
-				var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y / 3) + 5
-				print(game_scale)
+			if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
+					self.is_camera_drag = event.pressed
+
+			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
+				var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
+				var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
 				selector_position = current_map_terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
 			if (event.type == InputEvent.MOUSE_MOTION):
 				var position = current_map_terrain.map_to_world(selector_position)
@@ -77,6 +80,10 @@ func _input(event):
 				selector.set_pos(position)
 				if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
 					self.registered_click = false
+				if self.is_camera_drag:
+					camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
+					camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
+					self.camera.set_pos(camera_pos)
 
 			# MOUSE SELECT
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:

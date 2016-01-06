@@ -41,6 +41,9 @@ func update_zoom():
 func get_pos():
 	return self.camera.get_offset()
 
+func set_pos(position):
+	self.camera.set_offset(position)
+
 func get_scale():
 	return self.scale
 
