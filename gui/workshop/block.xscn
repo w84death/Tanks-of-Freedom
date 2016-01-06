@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="7" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="7" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://assets/gui/workshop/building_blocks.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
@@ -87,9 +87,9 @@
 			<string> "node_count" </string>
 			<int> 4 </int>
 			<string> "nodes" </string>
-			<int_array  len="224"> 				-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 5, 14, 1, 15, 6, 16, 6, 17, 2, 18, 7, 0, 0, 0, 20, 19, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 8, 22, 9, 23, 10, 24, 11, 25, 1, 26, 12, 27, 5, 28, 13, 29, 5, 30, 5, 31, 14, 32, 14, 33, 11, 34, 15, 35, 5, 36, 16, 0, 0, 0, 38, 37, -1, 29, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 39, 17, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 5, 14, 1, 15, 6, 16, 6, 17, 2, 40, 5, 41, 5, 42, 5, 43, 5, 44, 18, 45, 19, 46, 20, 47, 21, 48, 22, 49, 22, 50, 10, 51, 15, 0, 2, 0, 53, 52, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 39, 23, 7, 4, 8, 24, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 6, 17, 2, 54, 25, 55, 26, 56, 9, 57, 2, 58, 2, 59, 2, 60, 9, 61, 5, 62, 5, 63, 27, 64, 3, 65, 11, 66, 5, 67, 5, 68, 28, 0 </int_array>
+			<int_array  len="224"> 				-1, -1, 1, 0, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 5, 14, 1, 15, 6, 16, 6, 17, 2, 18, 7, 0, 0, 0, 20, 19, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 21, 8, 22, 9, 23, 10, 24, 11, 25, 1, 26, 12, 27, 5, 28, 13, 29, 5, 30, 5, 31, 14, 32, 14, 33, 11, 34, 15, 35, 5, 36, 16, 0, 0, 0, 38, 37, -1, 29, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 39, 17, 7, 4, 8, 4, 9, 0, 10, 0, 11, 0, 12, 0, 13, 5, 14, 1, 15, 6, 16, 6, 17, 2, 40, 5, 41, 5, 42, 5, 43, 5, 44, 18, 45, 19, 46, 20, 47, 21, 48, 22, 49, 22, 50, 23, 51, 15, 0, 2, 0, 53, 52, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 39, 24, 7, 4, 8, 25, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 6, 17, 2, 54, 26, 55, 27, 56, 9, 57, 2, 58, 2, 59, 2, 60, 9, 61, 5, 62, 5, 63, 28, 64, 3, 65, 11, 66, 5, 67, 5, 68, 29, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="29" shared="false">
+			<array  len="30" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -228,9 +228,9 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<vector2> 0, -42 </vector2>
+				<vector2> 16.8773, -25.1228 </vector2>
 				<real> 0 </real>
-				<vector2> 3, 3 </vector2>
+				<vector2> 1, 1 </vector2>
 				<int> 0 </int>
 				<resource  resource_type="Texture" path="res://assets/gui/workshop/building_blocks.png">  </resource>
 				<vector2> 0, 0 </vector2>
@@ -242,7 +242,8 @@
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_1.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_2.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size2_3.png">  </resource>
-				<resource name=""></resource>				<real> 17 </real>
+				<resource name=""></resource>				<vector2> 3, 3 </vector2>
+				<real> 17 </real>
 				<real> 35 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
