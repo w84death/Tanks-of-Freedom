@@ -226,6 +226,7 @@ func center_camera():
 
 func show():
 	#self.center_camera()
+	camera.set_zoom(self.root.dependency_container.camera.camera.get_zoom())
 	.show()
 
 func _ready():

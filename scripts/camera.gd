@@ -64,6 +64,7 @@ func camera_zoom_do(direction):
 		new_scale = self.camera_zoom_levels[self.camera_zoom_level_pos]
 		self.scale = Vector2(new_scale, new_scale)
 		self.camera.set_zoom(self.scale)
+		self.root.dependency_container.workshop.camera.set_zoom(self.scale)
 		self.root.game_scale = self.scale
 	self.bag.controllers.menu_controller.update_zoom_label()
 	self.bag.controllers.menu_controller.update_background_scale()
