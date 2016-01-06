@@ -47,6 +47,8 @@ func set_pos(position):
 	self.camera.set_offset(position)
 	self.target = position
 	self.pos = position
+	self.sX = position.x
+	self.sY = position.y
 
 func get_scale():
 	return self.scale
@@ -97,8 +99,8 @@ func move_to_map(target):
 		var target_position = self.abstract_map.tilemap.map_to_world(target)
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
-		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD / scale.x)
-		var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD / scale.y)
+		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * scale.x)
+		var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD * scale.y)
 
 		if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
 			return
