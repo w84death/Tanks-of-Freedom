@@ -239,7 +239,7 @@ func update_cpu_progress(current_ap, overall_ap):
 
 func __show_next_tip():
     self.tip_counter = (self.tip_counter + 1) % 13
-    return str(tr(str('KEY_HINT_', self.tip_counter)))
+    return str(tr(str('KEY_HINT_', self.tip_counter + 1)))
 
 func __show_general_header():
 	return tr('KEY_GENERAL')
