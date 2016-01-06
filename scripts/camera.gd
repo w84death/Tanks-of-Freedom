@@ -88,7 +88,7 @@ func move_to_map(target):
 
 	if not mouse_dragging:
 		self.game_size = self.game_logic.get_size()
-		var target_position = self.abstract_map.tilemap.map_to_world(target) + Vector2(game_size.x/(2*scale.x),game_size.y/(2*scale.y))
+		var target_position = self.abstract_map.tilemap.map_to_world(target)
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
 		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD / scale.x)
