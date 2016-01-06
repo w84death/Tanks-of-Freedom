@@ -174,9 +174,12 @@ func show_workshop():
 	self.workshop.show()
 	self.workshop.units.raise()
 	self.hide_background_map()
+	self.workshop.camera.make_current()
 
 func hide_workshop():
 	self.workshop.hide()
+	self.workshop.camera.clear_current()
+	self.root.dependency_container.camera.camera.make_current()
 	self.show()
 	if not self.root.is_map_loaded:
 		self.show_background_map()

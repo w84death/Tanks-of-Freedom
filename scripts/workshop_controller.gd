@@ -7,7 +7,6 @@ var is_suspended = true
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position = Vector2(0,0)
-var game_scale
 var map_pos
 
 var hud_message
@@ -24,6 +23,7 @@ var brush_type = 0
 var restore_file_name = "restore_map"
 
 var map
+var camera
 var terrain
 var units
 var painting = false
@@ -34,6 +34,7 @@ var autosave_after = 10
 var painting_motion = false
 var movement_mode = true
 var tileset
+var is_camera_drag = false
 
 var settings = {
 	fill = [8,12,16,20,24,32],
@@ -44,8 +45,8 @@ const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
 func init_gui():
-	game_scale = get_node("viewport/camera/scale")
-	map = game_scale.get_node("map")
+	camera = get_node("viewport/camera")
+	map = camera.get_node("scale/map")
 	terrain = map.get_node("terrain")
 	units = map.get_node("terrain/units")
 
@@ -154,28 +155,37 @@ func init(root):
 	self.tileset = self.root.dependency_container.map_tiles
 	terrain.add_child(selector)
 	map.set_default_zoom()
-	game_scale.set_scale(map.scale)
 	set_process_input(true)
 
 func _input(event):
 	if self.is_working && not self.is_suspended && self.painting_allowed:
-		if event.type == InputEvent.MOUSE_BUTTON:
-			if event.button_index == BUTTON_LEFT && not self.movement_mode:
+		var camera_pos = self.camera.get_offset()
+		var game_scale = self.camera.get_zoom()
+
+		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT:
+			if not self.movement_mode:
 				if event.pressed:
 					painting = true
 				else:
 					painting = false
 					painting_motion = false
+			else:
+				self.is_camera_drag = event.pressed
 
 		if event.type == InputEvent.MOUSE_MOTION || event.type == InputEvent.MOUSE_BUTTON:
-			map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
-			selector_position = terrain.world_to_map(Vector2((event.x / map.scale.x) - map_pos.x, (event.y / map.scale.y) - map_pos.y))
+			var new_selector_x = (event.x - self.root.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
+			var new_selector_y = (event.y - self.root.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
+			selector_position = terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
 			var position = terrain.map_to_world(selector_position)
+			position.y = position.y + 4
 			selector.set_pos(position)
 
 		if (event.type == InputEvent.MOUSE_MOTION):
 			painting_motion = true
-
+			if self.is_camera_drag:
+				camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
+				camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
+				self.camera.set_offset(camera_pos)
 
 		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
 			map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
