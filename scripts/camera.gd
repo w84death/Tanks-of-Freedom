@@ -33,20 +33,20 @@ func init_root(root_node):
 	self.bag = self.root.dependency_container
 	self.camera = self.root.get_node("/root/game/viewport/camera")
 	self.game_logic = self.root.get_node("/root/game")
-	#self.update_zoom()
-	
-#func update_zoom():
-	#self.scale = self.camera.get_zoom()
+	self.update_zoom()
+
+func update_zoom():
+	self.scale = self.camera.get_zoom()
 
 func get_pos():
 	return self.camera.get_offset()
 
 func get_scale():
 	return self.scale
-	
+
 func get_camera_zoom():
 	return self.scale
-	
+
 func apply_default_camera():
 	self.set_camera_zoom(Globals.get("tof/default_zoom"))
 
@@ -54,6 +54,7 @@ func camera_zoom_do(direction):
 	if ( direction < 0 && scale.x > self.camera_zoom_range[0] ) or ( direction > 0 && scale.x < self.camera_zoom_range[1] ):
 		self.scale = scale + (Vector2(0.25,0.25) * direction)
 		self.camera.set_zoom(self.scale)
+		self.root.game_scale = self.scale
 	self.bag.controllers.menu_controller.update_zoom_label()
 	self.bag.controllers.menu_controller.update_background_scale()
 
@@ -67,7 +68,7 @@ func set_camera_zoom(zoom_value):
 	self.camera.set_zoom(Vector2(zoom_value, zoom_value))
 	self.scale = Vector2(zoom_value, zoom_value)
 	self.bag.controllers.menu_controller.update_background_scale()
-	
+
 func set_camera_pos(position):
 	self.target = position
 	self.sX = position.x

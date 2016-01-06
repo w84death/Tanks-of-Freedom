@@ -12,6 +12,7 @@ var camera
 var hud_template = preload('res://gui/gui.xscn')
 var menu
 var screen_size
+var half_screen_size = Vector2(0, 0)
 
 var intro = preload('res://intro.xscn').instance()
 
@@ -66,10 +67,13 @@ func _input(event):
 
 				game_scale = self.camera.get_scale()
 				camera_pos = self.camera.get_pos()
-				selector_position = current_map_terrain.world_to_map( Vector2((event.x/game_scale.x)-camera_pos.x-(self.screen_size.width/2),((event.y)/game_scale.y)-camera_pos.y-(self.screen_size.height/2)))
+				var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x / 3)
+				var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y / 3) + 5
+				print(game_scale)
+				selector_position = current_map_terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
 			if (event.type == InputEvent.MOUSE_MOTION):
 				var position = current_map_terrain.map_to_world(selector_position)
-				#position.y += 2
+				position.y += 4
 				selector.set_pos(position)
 				if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
 					self.registered_click = false
@@ -130,7 +134,7 @@ func load_map(template_name, workshop_file_name = false):
 	menu.raise()
 	self.add_child(hud)
 
-	game_scale = scale_root.get_scale()
+	game_scale = self.dependency_container.camera.scale
 	action_controller = self.dependency_container.controllers.action_controller
 	action_controller.init_root(self, current_map, hud)
 	hud_controller = action_controller.hud_controller
@@ -277,4 +281,5 @@ func _ready():
 	intro.init_root(self)
 	self.add_child(intro)
 	self.screen_size = get_node('/root/game/viewport').get_rect().size
+	self.half_screen_size = self.screen_size / 2
 	pass
