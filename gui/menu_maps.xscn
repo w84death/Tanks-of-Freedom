@@ -5,7 +5,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
 	<resource type="GDScript" path="local://1">
 		<string name="script/source"> "&#000a;func load_map(name):&#000a;&#0009;get_parent().load_map(name)&#000a;" </string>
 
@@ -256,7 +256,7 @@
 				<real> 16 </real>
 				<real> 127 </real>
 				<real> 34 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 1, 1, 1, 1 </color>
 				<real> 0 </real>
 				<real> 1 </real>

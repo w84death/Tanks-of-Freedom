@@ -4,11 +4,11 @@
 	<ext_resource path="res://assets/hud/button_small_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/animations/soldier_blue_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://gui/cloud.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_huge.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/animations/helicopter_blue_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_disabled.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/animations/soldier_red_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/animations/tank_red_0.png" type="Texture"></ext_resource>
@@ -17,7 +17,7 @@
 	<ext_resource path="res://scripts/tutorial.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/buildings/military.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/hud/card_multisize.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/hud/button_small_pressed.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/terrain_tileset.png" type="Texture"></ext_resource>
@@ -408,7 +408,7 @@
 				<real> 14 </real>
 				<real> 123 </real>
 				<real> 32 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<string> "MENU" </string>
 				<real> -1 </real>
 				<real> 131 </real>
@@ -433,14 +433,14 @@
 				<real> -85 </real>
 				<real> 297 </real>
 				<real> -58 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_huge.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_32.fnt">  </resource>
 				<color> 0.184314, 0.282353, 0.301961, 1 </color>
 				<string> "Welcome to tutorial" </string>
 				<real> -168 </real>
 				<real> -7 </real>
 				<real> 285 </real>
 				<real> 68 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_13.fnt">  </resource>
 				<real> 5 </real>
 				<string> "Tanks of Freedom is still in development. &#000a;The game is sponsored by players.&#000a;&#000a;To keep the game free for everyone&#000a;please support us at itch.io" </string>
 				<vector2> 0, 1.00001 </vector2>
@@ -731,7 +731,7 @@
 				<real> 112 </real>
 				<real> -65 </real>
 				<real> 220 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
 				<color> 0.286275, 0.235294, 0.164706, 1 </color>
 				<string> "win" </string>
 				<dictionary  shared="false">

@@ -3,7 +3,7 @@
 	<ext_resource path="res://assets/gui/backgrounds/bg1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/branding/tof_logo.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/tab_small_active_normal.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/tab_small_active_hover.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/tab_small_inactive_normal.png" type="Texture"></ext_resource>
@@ -18,7 +18,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -320,7 +320,7 @@
 				<real> -121 </real>
 				<real> 177 </real>
 				<real> 32 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<real> 0 </real>
 				<real> 3 </real>
@@ -495,7 +495,7 @@
 				<real> -154 </real>
 				<real> 192 </real>
 				<real> -129 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
 				<real> 1.086957 </real>
 				<string> "1" </string>
 				<real> 27 </real>

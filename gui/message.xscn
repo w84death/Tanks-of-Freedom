@@ -6,8 +6,8 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/animations/small_cloud_alert_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/animations/small_cloud_alert_1.png" type="Texture"></ext_resource>
@@ -356,7 +356,7 @@
 				<real> 16 </real>
 				<real> 134 </real>
 				<real> 31 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "START TURN" </string>
 				<real> -1 </real>
@@ -364,7 +364,7 @@
 				<real> -147 </real>
 				<real> 44 </real>
 				<real> -124 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
 				<string> "NEW TURN" </string>
 				<real> -230 </real>
 				<real> -90 </real>

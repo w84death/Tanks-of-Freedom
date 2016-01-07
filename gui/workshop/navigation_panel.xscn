@@ -5,14 +5,14 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_nano.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_10.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -249,7 +249,7 @@
 				<real> 18 </real>
 				<real> 134 </real>
 				<real> 33 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<real> 0 </real>
 				<real> 1 </real>
@@ -290,7 +290,7 @@
 				<real> 34 </real>
 				<string> "BUILD TERRAIN" </string>
 				<real> 10 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_nano.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_10.fnt">  </resource>
 				<color> 0.921569, 0.537255, 0.192157, 1 </color>
 				<string> "SELECTED TOOL" </string>
 			</array>

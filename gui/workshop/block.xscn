@@ -5,7 +5,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -245,7 +245,7 @@
 				<resource name=""></resource>				<vector2> 3, 3 </vector2>
 				<real> 17 </real>
 				<real> 35 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "NAME" </string>
 				<real> -1 </real>

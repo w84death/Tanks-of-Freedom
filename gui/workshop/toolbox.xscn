@@ -5,9 +5,9 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_huge.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture"></ext_resource>
@@ -325,20 +325,20 @@
 				<real> 16 </real>
 				<real> 141 </real>
 				<real> 34 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "CREATE" </string>
 				<real> -1 </real>
 				<real> 9 </real>
 				<real> 541 </real>
 				<real> 22 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_huge.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_32.fnt">  </resource>
 				<string> "TOOLBOX" </string>
 				<real> 87 </real>
 				<real> 85 </real>
 				<real> 474 </real>
 				<real> 108 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
 				<string> "CREATE NEW ISLAND IN THE CENTER" </string>
 				<real> 215 </real>
 				<real> 238 </real>

@@ -198,7 +198,7 @@ func takeAllAP():
 
 func fix_initial_pos():
 	self.set_pos(self.get_pos() + sprite_offset_for_64x64)
-	
+
 func _ready():
 	self.add_to_group("units")
 	self.anim = self.get_node("anim")

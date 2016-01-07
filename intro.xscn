@@ -2,11 +2,11 @@
 <resource_file type="PackedScene" subresource_count="12" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
 	<ext_resource path="res://scripts/intro.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/branding/p1x_logo.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/branding/tof_logo_big.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_small.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_nano.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_10.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://gui/corners.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/sounds/soundtrack/intro.ogg" type="AudioStream"></ext_resource>
 	<resource type="Animation" path="local://2">
@@ -381,7 +381,7 @@
 				<real> -22 </real>
 				<real> 130 </real>
 				<real> 23 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
 				<real> 1 </real>
 				<string> "PRESENTS" </string>
 				<real> -1 </real>
@@ -394,7 +394,7 @@
 				<real> 160 </real>
 				<real> 97 </real>
 				<real> 181 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<string> "PRESS START" </string>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
@@ -404,13 +404,13 @@
 				<real> 80 </real>
 				<real> 281 </real>
 				<real> 92 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_small.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_13.fnt">  </resource>
 				<string> "CZLOWIEKIMADLO - WRMZ - W84DEATH - MATHIAS NOVA - QMYAAN" </string>
 				<real> 137 </real>
 				<real> 95 </real>
 				<real> 270 </real>
 				<real> 107 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_nano.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_10.fnt">  </resource>
 				<string> "GRAND BEATS" </string>
 				<resource  resource_type="PackedScene" path="res://gui/corners.xscn">  </resource>
 				<node_path> "" </node_path>

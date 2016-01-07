@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://assets/fonts/courier_prime_nano.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_10.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/icons.png" type="Texture"></ext_resource>
 	<resource type="Animation" path="local://1">
@@ -124,7 +124,7 @@
 				<real> -24 </real>
 				<bool> True </bool>
 				<int> 2 </int>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_nano.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_10.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<int> 1 </int>
 				<real> 1 </real>

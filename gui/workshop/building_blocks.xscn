@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="8" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_huge.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -297,7 +297,7 @@
 				<real> -1 </real>
 				<real> 541 </real>
 				<real> 29 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_huge.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_32.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "BUILDING TILES BOX" </string>
 				<real> 38 </real>
@@ -316,7 +316,7 @@
 				<real> 17 </real>
 				<real> 136 </real>
 				<real> 35 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<string> "TERRAIN" </string>
 				<real> 204 </real>
 				<real> 348 </real>

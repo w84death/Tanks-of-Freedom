@@ -6,8 +6,8 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_normal.fnt" type="Font"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_big.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font"></ext_resource>
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/animations/soldier_blue_0.png" type="Texture"></ext_resource>
 	<main_resource>
@@ -285,7 +285,7 @@
 				<real> 17 </real>
 				<real> 90 </real>
 				<real> 32 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_normal.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "$40 " </string>
 				<real> -1 </real>
@@ -293,7 +293,7 @@
 				<real> -180 </real>
 				<real> 58 </real>
 				<real> -157 </real>
-				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_big.fnt">  </resource>
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
 				<string> "BARRACKS" </string>
 				<resource  resource_type="PackedScene" path="res://gui/flag.xscn">  </resource>
 				<vector2> -86, -196 </vector2>
