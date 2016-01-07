@@ -41,6 +41,10 @@ var default_custom_maps = [
         'name' : 'a_maze',
         'file' : preload('res://maps/custom/zuo5.gd').new()
     },
+    {
+        'name' : 'developer_map',
+        'file' : preload('res://maps/custom/developer_map.gd').new()
+    },
 ]
 
 func init():
