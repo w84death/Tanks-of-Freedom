@@ -9,6 +9,7 @@ var current_map_terrain
 var current_map
 var health_bar
 var icon_shield
+var anim
 var type = 0
 var kills = 0
 
@@ -37,8 +38,15 @@ var parent
 
 var sprite_offset_for_64x64 = Vector2(0,8);
 
+func set_no_ap_idle():
+	if ap == 0:
+		self.anim.play('idle_no_ap')
+	else:
+		self.anim.play('move')
+
 func set_ap(value):
 	ap = value
+	self.set_no_ap_idle()
 
 func get_ap():
 	return ap;
@@ -70,16 +78,19 @@ func set_stats(new_stats):
 	attacks_number = new_stats.attacks_number
 	self.update_healthbar()
 	self.update_shield()
+	self.set_no_ap_idle()
 
 func update_ap(new_ap):
 	ap = new_ap
 	self.update_shield()
+	self.set_no_ap_idle()
 
 func reset_ap():
 	ap = max_ap
 	attacks_number = max_attacks_number
 	self.update_shield()
 	self.update_healthbar()
+	self.set_no_ap_idle()
 
 func set_pos_map(new_position):
 	if new_position.x > position_on_map.x:
@@ -183,15 +194,21 @@ func score_kill():
 func takeAllAP():
 	self.ap = 0
 	self.icon_shield.hide()
+	self.set_no_ap_idle()
 
+func fix_initial_pos():
+	self.set_pos(self.get_pos() + sprite_offset_for_64x64)
+	
 func _ready():
-	add_to_group("units")
-	get_node('anim').play("move")
-	if get_node("/root/game"):
-		current_map_terrain = get_node("/root/game").current_map_terrain
-		current_map = get_node("/root/game").current_map
-	self.health_bar = get_node("health")
-	self.icon_shield = get_node("shield")
+	self.add_to_group("units")
+	self.anim = self.get_node("anim")
+	if self.get_node("/root/game"):
+		self.current_map_terrain = self.get_node("/root/game").current_map_terrain
+		self.current_map = self.get_node("/root/game").current_map
+	self.health_bar = self.get_node("health")
+	self.icon_shield = self.get_node("shield")
+	self.fix_initial_pos()
+	self.anim.play("move")
 	pass
 
 
