@@ -11,6 +11,8 @@ var flag
 func show_message(title, message, flag = 2):
 	self.active = true
 	self.hud_title.set_text(title)
+	if message[0]:
+		message = message[0]
 	self.hud_message.set_text(message)
 	self.set_flag(flag)
 	self.raise()
