@@ -5,6 +5,7 @@ var deploy_button
 var deploy_button_label
 
 var name
+var unit_sprite
 var attack
 var health
 var unit_range
@@ -17,6 +18,7 @@ func bind(build_card_node):
     self.deploy_button_label = self.deploy_button.get_node('Label')
 
     self.name = self.build_card.get_node('unit_name')
+    self.unit_sprite = self.build_card.get_node('unit_sprite')
     self.attack = self.build_card.get_node('attack')
     self.health = self.build_card.get_node('health')
     self.unit_range = self.build_card.get_node('range')
@@ -31,6 +33,7 @@ func hide():
 
 func fill_card(unit, cost, player_ap):
     self.set_unit_name(unit.type_name)
+    self.set_unit_sprite(unit.type, unit.player)
     self.set_unit_price(cost)
     self.set_unit_stats(unit.attack, unit.life, unit.max_ap)
     if cost > player_ap:
@@ -45,6 +48,9 @@ func bind_spawn_unit(controller, method_name):
 
 func set_unit_name(name):
     self.name.set_text(name)
+
+func set_unit_sprite(id, team):
+    self.unit_sprite.set_frame(id+(3*team))
 
 func set_unit_price(price):
     self.price.set_text("PRICE: "+ str(price) + "AP")
