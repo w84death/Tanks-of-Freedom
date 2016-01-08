@@ -106,13 +106,13 @@ func save_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if not map.save_map(name):
-		self.show_message("File error", ["Failure!","File name: "+str(name)])
+		self.show_message("Failure!", "File error File name: "+str(name))
 
 func load_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if not map.load_map(name):
-		self.show_message("File not found", ["Failure!","File name: "+str(name)])
+		self.show_message("Failure!", "File not found File name: "+str(name))
 
 func paint(position, tool_type = null, brush_type = null, undo_action = false):
 	if hud_message.is_visible():

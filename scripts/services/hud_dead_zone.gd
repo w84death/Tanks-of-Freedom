@@ -22,6 +22,8 @@ func init_root(root_node):
     self.ready = true
 
 func is_dead_zone(x, y):
+    return false
+
     if not self.ready:
         return false
 

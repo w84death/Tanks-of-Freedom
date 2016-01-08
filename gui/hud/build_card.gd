@@ -16,7 +16,7 @@ func bind(build_card_node):
     self.deploy_button = self.build_card.get_node('deploy_button')
     self.deploy_button_label = self.deploy_button.get_node('Label')
 
-    self.name = self.build_card.get_node('name')
+    self.name = self.build_card.get_node('unit_name')
     self.attack = self.build_card.get_node('attack')
     self.health = self.build_card.get_node('health')
     self.unit_range = self.build_card.get_node('range')
