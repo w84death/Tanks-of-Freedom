@@ -7,6 +7,8 @@ var close_button
 var demo_button
 var quit_button
 
+var main_menu_animations
+var settings_animations
 var main_menu
 var settings
 var menu_button
@@ -54,6 +56,8 @@ func _ready():
 
 	main_menu = get_node("middle/center/game_panel")
 	settings = get_node("middle/center/settings_panel")
+	main_menu_animations = get_node("middle/center/menu_anim")
+	settings_animations = get_node("middle/center/settings_anim")
 
 	menu_button = get_node("top/center/main_menu")
 	settings_button = get_node("top/center/settings")
@@ -84,13 +88,13 @@ func _ready():
 
 	close_button.connect("pressed", root, "toggle_menu")
 	quit_button.connect("pressed", self, "quit_game")
-	menu_button.connect("pressed", self, "show_main_menu")
-	settings_button.connect("pressed", self, "show_settings")
+	menu_button.connect("pressed", self, "toggle_main_menu")
+	settings_button.connect("pressed", self, "toggle_settings")
 	demo_button.connect("pressed", self, "start_demo_mode")
 
 	self.label_completed = self.get_node("bottom/center/completed")
 	self.label_maps_created = self.get_node("bottom/center//maps_created")
-	self.label_version = self.get_node("middle/center/game_panel/copy")
+	self.label_version = self.get_node("middle/center/game_panel/under_logo/copy")
 
 	self.refresh_buttons_labels()
 	self.load_maps_menu()
@@ -100,6 +104,7 @@ func _ready():
 	self.update_version_label()
 	self.update_zoom_label()
 	self.load_background_map()
+	self.toggle_main_menu()
 
 func start_demo_mode():
 	self.root.dependency_container.demo_mode.start_demo_mode(false)
@@ -151,13 +156,33 @@ func hide_maps_menu():
 	self.root.dependency_container.map_picker.detach_panel()
 	self.root.dependency_container.skirmish_setup.detach_panel()
 
+
+func toggle_main_menu():
+	if main_menu.get_opacity() == 1:
+		self.hide_main_menu()
+	else:
+		self.show_main_menu()
+
 func show_main_menu():
-	main_menu.show()
-	settings.hide()
+	main_menu_animations.play('show_main_menu')
+
+func hide_main_menu():
+	main_menu_animations.play('hide_main_menu')
+
+
+func toggle_settings():
+	self.toggle_main_menu()
+	if settings.get_pos().y != 0:
+		self.show_settings()
+	else:
+		self.hide_settings()
 
 func show_settings():
-	main_menu.hide()
-	settings.show()
+	settings_animations.play('show_settings')
+
+func hide_settings():
+	settings_animations.play('hide_settings')
+
 
 func load_workshop():
 	self.workshop = self.root.dependency_container.workshop
