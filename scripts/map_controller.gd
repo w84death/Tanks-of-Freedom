@@ -512,9 +512,10 @@ func generate_underground(x, y):
 func generate_wave(x, y):
 	var generate = false
 	var temp = null
+	var waves_range = 4
 
-	for cx in range(x-2, x+2):
-		for cy in range(y-2, y+2):
+	for cx in range(x-waves_range, x+waves_range+1):
+		for cy in range(y-waves_range, y+waves_range+1):
 			if terrain.get_cell(cx, cy) > -1:
 				generate = true
 
