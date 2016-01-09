@@ -1,9 +1,5 @@
-
 extends Sprite
 
-# member variables here, example:
-# var a=2
-# var b="textvar"
 var animation
 var wave_pos
 var root
@@ -20,4 +16,5 @@ func _ready():
     #wave_pos = (1+ sin(angle_line) ) * ( animation.get_current_animation_length() * 0.5)
     animation_length = int(animation.get_current_animation_length())
     wave_pos = angle_line % animation_length
+    animation.play('wave_' + str(randi()%3) )
     animation.seek(wave_pos,true)

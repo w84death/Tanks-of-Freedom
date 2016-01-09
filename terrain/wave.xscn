@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://assets/terrain/waves.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/wave_controller.gd" type="Script"></ext_resource>
+	<resource type="Animation" path="local://0">
+		<string name="resource/name"> "wave_1" </string>
+		<real name="length"> 10 </real>
+		<bool name="loop"> True </bool>
+		<real name="step"> 0.25 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> ".:frame" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> False </bool>
+			<string> "times" </string>
+			<real_array  len="8"> 				2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="8"> 				1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="8" shared="false">
+				<int> 1 </int>
+				<int> 2 </int>
+				<int> 3 </int>
+				<int> 4 </int>
+				<int> 5 </int>
+				<int> 4 </int>
+				<int> 3 </int>
+				<int> 2 </int>
+			</array>
+		</dictionary>
+
+	</resource>
 	<resource type="Animation" path="local://1">
-		<string name="resource/name"> "wave" </string>
-		<real name="length"> 6 </real>
+		<string name="resource/name"> "wave_0" </string>
+		<real name="length"> 10 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
 		<string name="tracks/0/type"> "value" </string>
@@ -31,6 +60,35 @@
 		</dictionary>
 
 	</resource>
+	<resource type="Animation" path="local://2">
+		<string name="resource/name"> "wave_2" </string>
+		<real name="length"> 10 </real>
+		<bool name="loop"> True </bool>
+		<real name="step"> 0.25 </real>
+		<string name="tracks/0/type"> "value" </string>
+		<node_path name="tracks/0/path"> ".:frame" </node_path>
+		<int name="tracks/0/interp"> 1 </int>
+		<dictionary name="tracks/0/keys" shared="false">
+			<string> "cont" </string>
+			<bool> False </bool>
+			<string> "times" </string>
+			<real_array  len="8"> 				4.25, 4.5, 4.75, 5, 5.25, 5.5, 5.75, 6 </real_array>
+			<string> "transitions" </string>
+			<real_array  len="8"> 				1, 1, 1, 1, 1, 1, 1, 1 </real_array>
+			<string> "values" </string>
+			<array  len="8" shared="false">
+				<int> 1 </int>
+				<int> 2 </int>
+				<int> 3 </int>
+				<int> 4 </int>
+				<int> 5 </int>
+				<int> 4 </int>
+				<int> 3 </int>
+				<int> 2 </int>
+			</array>
+		</dictionary>
+
+	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -38,7 +96,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="34">
+			<string_array  len="36">
 				<string> "Sprite" </string>
 				<string> "_import_path" </string>
 				<string> "visibility/visible" </string>
@@ -68,7 +126,9 @@
 				<string> "playback/process_mode" </string>
 				<string> "playback/default_blend_time" </string>
 				<string> "root/root" </string>
-				<string> "anims/wave" </string>
+				<string> "anims/wave_1" </string>
+				<string> "anims/wave_0" </string>
+				<string> "anims/wave_2" </string>
 				<string> "playback/active" </string>
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
@@ -77,9 +137,9 @@
 			<string> "node_count" </string>
 			<int> 2 </int>
 			<string> "nodes" </string>
-			<int_array  len="78"> 				-1, -1, 0, 0, -1, 23, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 1, 11, 8, 12, 1, 13, 4, 14, 9, 15, 9, 16, 3, 17, 10, 18, 3, 19, 11, 20, 9, 21, 12, 22, 13, 23, 14, 0, 0, 0, 25, 24, -1, 9, 1, 0, 26, 3, 27, 5, 28, 15, 29, 16, 30, 1, 31, 17, 32, 18, 33, 19, 0 </int_array>
+			<int_array  len="82"> 				-1, -1, 0, 0, -1, 23, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 7, 10, 1, 11, 8, 12, 1, 13, 4, 14, 9, 15, 9, 16, 3, 17, 10, 18, 3, 19, 11, 20, 9, 21, 12, 22, 13, 23, 14, 0, 0, 0, 25, 24, -1, 11, 1, 0, 26, 3, 27, 5, 28, 15, 29, 16, 30, 17, 31, 18, 32, 1, 33, 19, 34, 20, 35, 21, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="20" shared="false">
+			<array  len="22" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -235,11 +295,13 @@
 					</dictionary>
 				</dictionary>
 				<node_path> ".." </node_path>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<resource  resource_type="Animation" path="local://1">  </resource>
-				<real> 2 </real>
+				<resource  resource_type="Animation" path="local://2">  </resource>
+				<real> 2.2 </real>
 				<array  len="0" shared="false">
 				</array>
-				<string> "wave" </string>
+				<string> "wave_0" </string>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
