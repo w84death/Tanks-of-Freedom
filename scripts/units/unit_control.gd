@@ -10,6 +10,7 @@ var current_map
 var health_bar
 var icon_shield
 var anim
+var teleport_anim
 var type = 0
 var kills = 0
 
@@ -105,6 +106,7 @@ func set_pos_map(new_position):
 	self.set_pos(current_map_terrain.map_to_world(new_position) + sprite_offset_for_64x64)
 	self.add_move(position_on_map)
 	position_on_map = new_position
+	self.teleport_anim.play('in')
 
 func check_hiccup(new_position):
 	var depth = MAX_HICCUP_DEPTH
@@ -202,6 +204,7 @@ func fix_initial_pos():
 func _ready():
 	self.add_to_group("units")
 	self.anim = self.get_node("anim")
+	self.teleport_anim = self.get_node("teleport_anim")
 	if self.get_node("/root/game"):
 		self.current_map_terrain = self.get_node("/root/game").current_map_terrain
 		self.current_map = self.get_node("/root/game").current_map
@@ -209,6 +212,7 @@ func _ready():
 	self.icon_shield = self.get_node("shield")
 	self.fix_initial_pos()
 	self.anim.play("move")
+	self.teleport_anim.play('in')
 	pass
 
 
