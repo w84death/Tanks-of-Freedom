@@ -16,6 +16,7 @@ func init_bag(bag):
 
 func load_version():
     if not self.file_handler.file_exists(self.version_file_path):
+        self.set_latest_migration()
         self.save_version();
 
     self.file_handler.open(self.version_file_path, File.READ)
@@ -31,4 +32,9 @@ func run_migrations():
     for migration in self.migrations:
         if migration.version > self.current_version:
             migration.migrate()
+            self.current_version = migration.version
+
+func set_latest_migration():
+    for migration in self.migrations:
+        if migration.version > self.current_version:
             self.current_version = migration.version
