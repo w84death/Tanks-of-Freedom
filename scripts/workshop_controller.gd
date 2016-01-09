@@ -85,7 +85,7 @@ func undo_last_action():
 
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
-	self.center_camera()
+	#self.center_camera()
 
 func toolbox_clear(layer):
 	if layer == 0:
