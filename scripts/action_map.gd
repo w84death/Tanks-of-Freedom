@@ -52,6 +52,7 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
     var field
     var distance
     var abstract_map = self.root.dependency_container.abstract_map
+    var player_ap = self.root.dependency_container.controllers.action_controller.player_ap[current_player]
 
     for tile in tiles:
         if root.dependency_container.fog_controller.is_fogged(tile):
@@ -68,7 +69,7 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
                 tile_type = 3
                 break
 
-        if distance > first_action_range:
+        if distance > first_action_range || distance == player_ap:
             tile_type = 2
 
         self.add_movement_indicator(tile, tile_type)
