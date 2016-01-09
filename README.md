@@ -52,6 +52,7 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn
    * WrmZ https://plus.google.com/u/0/113866605142376544736/posts
  * gfx
    * w84death http://krzysztofjankowski.com
+   * Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/
  * music
    * Mathias Nova http://mathiasnova.blogspot.com/
    * QmYaan (Grand Beats) http://www.grandbeats.com/
