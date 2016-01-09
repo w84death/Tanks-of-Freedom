@@ -335,5 +335,5 @@ func hide_background_map():
 func update_background_scale():
 	if self.background_map != null:
 		self.background_map.scale = self.root.scale_root.get_scale()
-		self.root.camera.set_camera_pos(Vector2(20, 20))
+		self.root.camera.set_pos(Vector2(-200, 500))
 

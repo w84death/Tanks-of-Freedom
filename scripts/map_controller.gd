@@ -139,7 +139,7 @@ func move_to(target):
 		self.camera.target = target;
 
 func set_map_pos_global(position):
-	self.camera.set_camera_pos(position)
+	self.camera.set_pos(position)
 
 func set_map_pos(position):
 	self.game_size = self.root.get_size()

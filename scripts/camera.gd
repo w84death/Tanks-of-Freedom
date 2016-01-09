@@ -82,11 +82,6 @@ func set_camera_zoom(zoom_value):
 	self.scale = Vector2(zoom_value, zoom_value)
 	self.bag.controllers.menu_controller.update_background_scale()
 
-func set_camera_pos(position):
-	self.target = position
-	self.sX = position.x
-	self.sY = position.y
-
 func move_to_map(target):
 	if not root.settings['camera_follow']:
 		return
