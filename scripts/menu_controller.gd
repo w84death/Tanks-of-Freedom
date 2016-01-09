@@ -156,34 +156,46 @@ func hide_maps_menu():
 	self.root.dependency_container.map_picker.detach_panel()
 	self.root.dependency_container.skirmish_setup.detach_panel()
 
+# MAIN MENU
+func get_main_menu_visibility():
+	return self.main_menu.get_opacity() == 1
 
 func toggle_main_menu():
-	if main_menu.get_opacity() == 1:
+	if self.get_main_menu_visibility():
 		self.hide_main_menu()
 	else:
+		if self.get_settings_visibility():
+			self.hide_settings()
 		self.show_main_menu()
 
 func show_main_menu():
-	main_menu_animations.play('show_main_menu')
+	self.main_menu_animations.play('show_main_menu')
 
 func hide_main_menu():
-	main_menu_animations.play('hide_main_menu')
+	self.main_menu_animations.play('hide_main_menu')
 
+# SETTINGS
+func get_settings_visibility():
+	return settings.get_pos().y == 0
 
 func toggle_settings():
-	self.toggle_main_menu()
-	if settings.get_pos().y != 0:
-		self.show_settings()
-	else:
+	if self.get_settings_visibility():
 		self.hide_settings()
+		self.show_main_menu()
+	else:
+		if self.get_main_menu_visibility():
+			self.hide_main_menu()
+		self.show_settings()
+		# here we coudl back to the game (if user clicked settings in game)
 
 func show_settings():
-	settings_animations.play('show_settings')
+	self.settings_animations.play('show_settings')
 
 func hide_settings():
-	settings_animations.play('hide_settings')
+	self.settings_animations.play('hide_settings')
 
 
+# WORKSHOP
 func load_workshop():
 	self.workshop = self.root.dependency_container.workshop
 
