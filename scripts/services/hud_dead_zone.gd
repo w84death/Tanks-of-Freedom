@@ -6,7 +6,7 @@ var screen_size
 var top_hud_size = Vector2(166, 65)
 var bottom_hud_size = Vector2(696, 123)
 var unit_panel_size = Vector2(10, 10)
-var building_build_panel_size = Vector2(320, 230)
+var building_build_panel_size = Vector2(380, 90)
 var building_build_panel_offset = -170
 var building_research_panel_size = Vector2(10, 10)
 var building_research_panel_offset = 10
@@ -22,8 +22,6 @@ func init_root(root_node):
     self.ready = true
 
 func is_dead_zone(x, y):
-    return false
-
     if not self.ready:
         return false
 
@@ -40,12 +38,12 @@ func is_dead_zone(x, y):
         if self.root.dependency_container.controllers.hud_panel_controller.unit_panel.unit_panel_extras.is_visible():
             if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.unit_panel_size.y), self.unit_panel_size):
                 return true
-        if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel_units_panel.is_visible():
-            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_build_panel_size.y), self.building_build_panel_size, self.building_build_panel_offset):
+        if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel.is_visible():
+            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_build_panel_size.y), self.building_build_panel_size):
                 return true
-        if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel_upgrades_panel.is_visible():
-            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_research_panel_size.y), self.building_research_panel_size):
-                return true
+        #if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel_upgrades_panel.is_visible():
+        #    if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_research_panel_size.y), self.building_research_panel_size):
+        #        return true
 
     return false
 
