@@ -90,7 +90,7 @@ func _input(event):
 			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
 				if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
 					var position = current_map_terrain.map_to_world(selector_position)
-					if not self.dependency_container.hud_dead_zone.is_dead_zone(position.x, position.y):
+					if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
 						if event.is_pressed():
 							self.registered_click = true
 							self.registered_click_position = Vector2(event.x, event.y)
