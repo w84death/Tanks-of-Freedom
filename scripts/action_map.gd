@@ -69,7 +69,10 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
                 tile_type = 3
                 break
 
-        if distance > first_action_range || distance == player_ap:
+        if distance > first_action_range:
             tile_type = 2
+
+        if  distance == player_ap && player_ap <= first_action_range:
+            tile_type = 1
 
         self.add_movement_indicator(tile, tile_type)
