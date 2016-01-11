@@ -31,6 +31,7 @@ var hud_end_game_menu_button
 var hud_end_game_missions_button_action
 
 var hud_locked = false
+var tips
 
 var tip_counter
 
@@ -40,6 +41,7 @@ func init_root(root, action_controller_object, hud):
 	self.hud_root = hud
 	self.attach_hud_panel()
 	self.tip_counter = 1
+	self.tips = preload('res://scripts/translations/tips.gd').new()
 
 	self.active_map = root.scale_root
 
@@ -238,8 +240,8 @@ func update_cpu_progress(current_ap, overall_ap):
 	self.cinematic_progress.set_frame(percent)
 
 func __show_next_tip():
-    self.tip_counter = (self.tip_counter + 1) % 13
-    return tr(str('KEY_HINT_', self.tip_counter + 1))
+	self.tip_counter = (self.tip_counter + 1) % 13
+	return self.tips.tips[self.tip_counter]
 
 func __show_general_header():
-	return tr('KEY_GENERAL')
+	return 'Did you know that...'

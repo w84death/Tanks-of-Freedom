@@ -249,11 +249,12 @@
 							<string> "current" </string>
 							<int> 1 </int>
 							<string> "sources" </string>
-							<array  len="4" shared="false">
+							<array  len="5" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
 								<string> "res://scripts/camera.gd" </string>
+								<string> "res://scripts/translations/tips.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
