@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="8" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="8" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
-	<resource type="GDScript" path="local://1">
+	<resource type="GDScript" path="local://0">
 		<string name="script/source"> "&#000a;func load_map(name):&#000a;&#0009;get_parent().load_map(name)&#000a;" </string>
 
 	</resource>
@@ -17,15 +17,25 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="58">
+			<string_array  len="88">
 				<string> "menu_maps" </string>
 				<string> "Control" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/light_mask" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
+				<string> "focus_neighbour/left" </string>
+				<string> "focus_neighbour/top" </string>
+				<string> "focus_neighbour/right" </string>
+				<string> "focus_neighbour/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
+				<string> "size_flags/stretch_ratio" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "middle" </string>
@@ -41,23 +51,38 @@
 				<string> "Sprite1" </string>
 				<string> "Sprite" </string>
 				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
 				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
 				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
 				<string> "vframes" </string>
 				<string> "hframes" </string>
 				<string> "frame" </string>
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
 				<string> "Sprite2" </string>
-				<string> "Sprite3" </string>
 				<string> "menu_controls" </string>
 				<string> "close" </string>
 				<string> "TextureButton" </string>
 				<string> "margin/top" </string>
+				<string> "disabled" </string>
 				<string> "toggle_mode" </string>
+				<string> "is_pressed" </string>
+				<string> "click_on_press" </string>
 				<string> "textures/normal" </string>
 				<string> "textures/pressed" </string>
 				<string> "textures/hover" </string>
 				<string> "textures/disabled" </string>
+				<string> "textures/focused" </string>
+				<string> "textures/click_mask" </string>
 				<string> "params/scale" </string>
+				<string> "params/modulate" </string>
 				<string> "Label" </string>
 				<string> "custom_fonts/font" </string>
 				<string> "custom_colors/font_color" </string>
@@ -70,24 +95,31 @@
 				<string> "rounded_values" </string>
 				<string> "text" </string>
 				<string> "align" </string>
+				<string> "valign" </string>
+				<string> "autowrap" </string>
+				<string> "uppercase" </string>
 				<string> "percent_visible" </string>
 				<string> "custom_maps" </string>
 				<string> "OptionButton" </string>
+				<string> "icon" </string>
 				<string> "flat" </string>
+				<string> "clip_text" </string>
 				<string> "selected" </string>
 				<string> "items" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 12 </int>
+			<int> 11 </int>
 			<string> "nodes" </string>
-			<int_array  len="302"> 				-1, -1, 1, 0, -1, 8, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 8, 4, 9, 5, 0, 0, 0, 11, 10, -1, 7, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 0, 0, 0, 11, 13, -1, 8, 14, 0, 2, 0, 3, 0, 4, 1, 5, 2, 6, 3, 7, 3, 12, 1, 0, 2, 0, 1, 15, -1, 6, 16, 6, 17, 6, 4, 1, 5, 2, 6, 3, 7, 3, 0, 3, 0, 1, 18, -1, 7, 17, 7, 19, 7, 4, 1, 5, 2, 6, 3, 7, 3, 9, 8, 0, 4, 0, 21, 20, -1, 6, 22, 9, 23, 10, 24, 11, 25, 12, 26, 12, 27, 13, 0, 4, 0, 21, 28, -1, 6, 22, 14, 23, 10, 24, 11, 25, 12, 26, 12, 27, 15, 0, 4, 0, 21, 29, -1, 6, 22, 16, 23, 10, 24, 11, 25, 12, 26, 12, 27, 17, 0, 3, 0, 1, 30, -1, 7, 17, 7, 19, 7, 4, 1, 5, 2, 6, 3, 7, 3, 9, 18, 0, 8, 0, 32, 31, -1, 15, 16, 19, 33, 20, 17, 21, 19, 22, 4, 1, 5, 2, 6, 3, 7, 3, 34, 1, 35, 23, 36, 24, 37, 25, 38, 26, 39, 10, 9, 27, 0, 9, 0, 40, 40, -1, 19, 16, 28, 33, 29, 17, 30, 19, 31, 4, 2, 5, 2, 6, 3, 41, 32, 42, 33, 43, 34, 44, 35, 45, 35, 46, 35, 47, 34, 48, 1, 49, 1, 50, 36, 51, 0, 52, 37, 0, 8, 0, 54, 53, -1, 14, 16, 38, 33, 39, 17, 40, 19, 41, 4, 1, 5, 2, 6, 3, 7, 3, 41, 32, 34, 1, 55, 1, 51, 42, 56, 43, 57, 44, 0 </int_array>
+			<int_array  len="553"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 21, 20, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 0, 0, 0, 21, 23, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 24, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 22, 4, 0, 2, 0, 1, 25, -1, 16, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 26, 8, 27, 8, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 0, 3, 0, 1, 28, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 9, 29, 9, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 19, 10, 0, 4, 0, 31, 30, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 11, 33, 12, 34, 13, 35, 14, 36, 1, 37, 15, 38, 1, 39, 16, 40, 4, 41, 4, 42, 17, 43, 17, 44, 18, 45, 19, 46, 4, 47, 20, 0, 4, 0, 31, 48, -1, 21, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 32, 21, 33, 12, 34, 13, 35, 14, 36, 1, 37, 15, 38, 1, 39, 16, 40, 4, 41, 4, 42, 17, 43, 17, 44, 22, 45, 19, 46, 4, 47, 20, 0, 3, 0, 1, 49, -1, 17, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 27, 9, 29, 9, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 19, 23, 0, 7, 0, 51, 50, -1, 31, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 26, 24, 52, 25, 27, 26, 29, 27, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 53, 4, 54, 4, 55, 4, 56, 4, 57, 28, 58, 29, 59, 30, 60, 31, 61, 32, 62, 32, 63, 13, 64, 19, 19, 33, 0, 8, 0, 65, 65, -1, 32, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 26, 34, 52, 35, 27, 36, 29, 37, 9, 0, 10, 0, 11, 0, 12, 0, 13, 1, 14, 1, 15, 5, 17, 2, 66, 38, 67, 19, 68, 12, 69, 2, 70, 2, 71, 2, 72, 12, 73, 4, 74, 4, 75, 39, 76, 3, 77, 14, 78, 4, 79, 4, 80, 40, 0, 7, 0, 82, 81, -1, 30, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 26, 41, 52, 42, 27, 43, 29, 44, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 66, 38, 53, 4, 54, 4, 55, 4, 56, 4, 75, 45, 83, 32, 84, 4, 85, 4, 76, 14, 86, 46, 87, 47, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="45" shared="false">
+			<array  len="48" shared="false">
+				<node_path> "" </node_path>
+				<bool> True </bool>
+				<real> 1 </real>
 				<int> 1 </int>
 				<bool> False </bool>
-				<bool> True </bool>
 				<int> 2 </int>
-				<resource  resource_type="Script" path="local://1">  </resource>
+				<resource  resource_type="Script" path="local://0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -96,7 +128,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -179.562, -90.4353 </vector2>
+							<vector2> -81.9517, 241.097 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -116,7 +148,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 0.476925 </real>
+							<real> 1.809824 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -221,34 +253,37 @@
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<real> 640 </real>
+				<real> 400 </real>
 				<real> 40 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<vector2> -240, -48 </vector2>
+				<vector2> -270, -22 </vector2>
+				<real> 0 </real>
 				<vector2> 3, 3 </vector2>
+				<int> 0 </int>
 				<resource  resource_type="Texture" path="res://assets/gui/dialogs/gui_spritesheet.png">  </resource>
+				<vector2> 0, 0 </vector2>
 				<int> 8 </int>
 				<int> 3 </int>
-				<vector2> -124, -48 </vector2>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
+				<vector2> -200, -22 </vector2>
 				<int> 5 </int>
-				<vector2> -190, -48 </vector2>
-				<int> 4 </int>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<real> -255 </real>
-				<real> -63 </real>
-				<real> -111 </real>
-				<real> -15 </real>
+				<real> -307 </real>
+				<real> -59 </real>
+				<real> -163 </real>
+				<real> -11 </real>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_special_3.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_special_4.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_special_5.png">  </resource>
 				<resource  resource_type="Texture" path="res://assets/gui/buttons/analog_size3_3.png">  </resource>
-				<dictionary  shared="false">
+				<resource name=""></resource>				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
@@ -257,16 +292,13 @@
 				<real> 127 </real>
 				<real> 34 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
-				<color> 1, 1, 1, 1 </color>
-				<real> 0 </real>
-				<real> 1 </real>
 				<string> "&gt; BACK" </string>
 				<real> -1 </real>
 				<real> -133 </real>
 				<real> -879 </real>
 				<real> 125 </real>
 				<real> -851 </real>
-				<int> 0 </int>
+				<string> "" </string>
 				<int> -1 </int>
 				<array  len="0" shared="false">
 				</array>

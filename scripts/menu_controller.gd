@@ -51,7 +51,7 @@ func _ready():
 
 	play_button = get_node("bottom/center/play")
 	close_button = get_node("top/center/close")
-	quit_button = get_node("bottom/center/quit")
+	quit_button = get_node("top/center/quit")
 	demo_button = get_node("bottom/center/demo")
 
 	main_menu = get_node("middle/center/game_panel")
@@ -93,7 +93,7 @@ func _ready():
 	demo_button.connect("pressed", self, "start_demo_mode")
 
 	self.label_completed = self.get_node("bottom/center/completed")
-	self.label_maps_created = self.get_node("bottom/center//maps_created")
+	self.label_maps_created = self.get_node("bottom/center/maps_created")
 	self.label_version = self.get_node("middle/center/game_panel/under_logo/copy")
 
 	self.refresh_buttons_labels()

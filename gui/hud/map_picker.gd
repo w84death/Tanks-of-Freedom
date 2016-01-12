@@ -50,11 +50,6 @@ func bind_hud():
     self.page_label = self.picker.get_node("controls/page")
 
 func connect_buttons():
-    self.button_enable_switch(self.local_button, false)
-    self.button_enable_switch(self.cloud_button, false)
-    self.button_enable_switch(self.download_button, false)
-    self.button_enable_switch(self.delete_button, false)
-
     self.prev_button.connect("pressed", self, "prev_page")
     self.next_button.connect("pressed", self, "next_page")
     self.delete_button.connect("pressed", self, "delete_button_pressed")
