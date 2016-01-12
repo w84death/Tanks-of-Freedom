@@ -2,6 +2,26 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.4.0.2-beta
+- fixed menu background map positioning
+- fixed movement tiles wrongly showing possible attack when there is not enough AP
+- fixed data versioning file not recreating if it is removed
+- improved waves
+- fixed workshop land-fill tool
+- fixed translations for tips not working after export
+- fixed hud dead zone detection preventing units from entering certain parts of maps
+
+### 0.4.0.1-beta
+- fixed default zoom value
+
+### 0.4.0-beta
+- increased resolution of terrain tiles
+- redesigned in-game gui
+- fixed major AI locking issue
+- many minor bugfixes and improvements
+- reworked camera now using Godot camera funcionality
+- added tips between turns
+
 ### 0.3.7-beta
 - New units movement
   - units can move more tiles at once
