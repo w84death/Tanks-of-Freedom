@@ -4,7 +4,10 @@ var ready = false
 var screen_size
 
 var top_hud_size = Vector2(166, 65)
-var bottom_hud_size = Vector2(696, 123)
+var bottom_hud_size = Vector2(696, 83)
+var selected_panel_size = Vector2(350, 83)
+
+
 var unit_panel_size = Vector2(10, 10)
 var building_build_panel_size = Vector2(380, 90)
 var building_build_panel_offset = -170
@@ -34,13 +37,18 @@ func is_dead_zone(x, y):
 
     if self.root.dependency_container.controllers.hud_panel_controller.hud_panel.is_visible():
         if self.check_if_in_zone(x, y, self.screen_size.y - self.bottom_hud_size.y, self.bottom_hud_size):
+
+            if not self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel.is_visible() and not self.root.dependency_container.controllers.hud_panel_controller.unit_panel.unit_panel.is_visible() and self.check_if_in_zone(x, y, self.screen_size.y - self.selected_panel_size.y, self.selected_panel_size):
+                return false
             return true
-        if self.root.dependency_container.controllers.hud_panel_controller.unit_panel.unit_panel_extras.is_visible():
-            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.unit_panel_size.y), self.unit_panel_size):
-                return true
-        if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel.is_visible():
-            if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_build_panel_size.y), self.building_build_panel_size):
-                return true
+
+
+        #if self.root.dependency_container.controllers.hud_panel_controller.unit_panel.unit_panel_extras.is_visible():
+        #    if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.unit_panel_size.y), self.unit_panel_size):
+        #        return true
+        #if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel.is_visible():
+        #    if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_build_panel_size.y), self.building_build_panel_size):
+        #        return true
         #if self.root.dependency_container.controllers.hud_panel_controller.building_panel.building_panel_upgrades_panel.is_visible():
         #    if self.check_if_in_zone(x, y, self.screen_size.y - (self.bottom_hud_size.y + self.building_research_panel_size.y), self.building_research_panel_size):
         #        return true
