@@ -35,6 +35,7 @@ func init_root(root_node):
 	self.bag = self.root.dependency_container
 	self.camera = self.root.get_node("/root/game/viewport/camera")
 	self.game_logic = self.root.get_node("/root/game")
+	self.camera_zoom_level_pos = self.root.settings['camera_zoom']
 	self.update_zoom()
 
 func update_zoom():
@@ -57,7 +58,7 @@ func get_camera_zoom():
 	return self.scale
 
 func apply_default_camera():
-	self.set_camera_zoom(Globals.get("tof/default_zoom"))
+	self.set_camera_zoom(self.camera_zoom_levels[self.camera_zoom_level_pos])
 
 func camera_zoom_do(direction):
 	var new_scale
@@ -68,6 +69,8 @@ func camera_zoom_do(direction):
 		self.camera.set_zoom(self.scale)
 		self.root.dependency_container.workshop.camera.set_zoom(self.scale)
 		self.root.game_scale = self.scale
+		self.root.settings['camera_zoom'] = self.camera_zoom_level_pos
+		self.root.write_settings_to_file()
 	self.bag.controllers.menu_controller.update_zoom_label()
 	self.bag.controllers.menu_controller.update_background_scale()
 

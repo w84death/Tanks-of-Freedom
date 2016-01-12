@@ -39,7 +39,8 @@ var settings = {
 	'turns_cap': 0,
 	'camera_follow': true,
 	'music_volume': 0.5,
-	'sound_volume': 0.2
+	'sound_volume': 0.2,
+	'camera_zoom': 2
 }
 
 var is_map_loaded = false
@@ -279,9 +280,9 @@ func write_settings_to_file():
 func _ready():
 	scale_root = get_node("/root/game/viewport/pixel_scale")
 	self.ai_timer = get_node("AITimer")
+	self.read_settings_from_file()
 	self.dependency_container.init_root(self)
 	self.camera = self.dependency_container.camera
-	self.read_settings_from_file()
 	self.menu = self.dependency_container.controllers.menu_controller
 	sound_controller.init_root(self)
 	menu.init_root(self)
