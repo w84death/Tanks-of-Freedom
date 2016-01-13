@@ -135,7 +135,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
         self.processed_units[unit_instance_id] = true
         if unit.get_ap() > 1:
 
-            destinations = self.__gather_destinations(unit_pos)
+            destinations = self.__gather_destinations(unit_pos, unit.can_capture_buildings())
             if destinations.size() == 0 && current_player_ap > 5:
                 self.offensive.push_front(unit, self.get_target_buildings(), self.units)
             else:
@@ -144,23 +144,25 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 
     self.units_done = true
 
-func __gather_destinations(position):
+func __gather_destinations(position, can_capture_building):
     var destinations = Vector2Array()
     var nearby_tiles
     for lookup_range in self.positions.tiles_lookup_ranges:
         nearby_tiles = self.positions.get_nearby_tiles(position, lookup_range)
 
-        destinations = self.positions.get_nearby_enemy_buildings(nearby_tiles, self.current_player)
-        if (destinations.size() > 0):
-            return destinations
+        if can_capture_building:
+            destinations = self.positions.get_nearby_enemy_buildings(nearby_tiles, self.current_player)
+            if (destinations.size() > 0):
+                return destinations
 
         destinations = self.positions.get_nearby_enemies(nearby_tiles, self.current_player)
         if (destinations.size() > 0):
             return destinations
 
-        destinations = self.positions.get_nearby_empty_buldings(nearby_tiles)
-        if (destinations.size() > 0):
-            return destinations
+        if can_capture_building:
+            destinations = self.positions.get_nearby_empty_buldings(nearby_tiles)
+            if (destinations.size() > 0):
+                return destinations
 
     return destinations
 

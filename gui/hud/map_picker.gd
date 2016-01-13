@@ -163,7 +163,6 @@ func fill_block(block, map, counter):
         position.x = self.OFFSET_X
     position.y = 15 + ((counter - (counter % 2)) / 2) * self.OFFSET_Y
     block.set_pos(position)
-    print(position)
 
 func map_selected(name):
     self.call_bound_object(name)

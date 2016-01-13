@@ -19,7 +19,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture"></ext_resource>
-	<resource type="Animation" path="local://0">
+	<resource type="Animation" path="local://1">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
@@ -59,7 +59,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://1">
+	<resource type="Animation" path="local://2">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
@@ -99,7 +99,7 @@
 		</dictionary>
 
 	</resource>
-	<resource type="Animation" path="local://2">
+	<resource type="Animation" path="local://3">
 		<real name="length"> 1 </real>
 		<bool name="loop"> True </bool>
 		<real name="step"> 0.25 </real>
@@ -424,7 +424,7 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 1 </int>
+							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="2" shared="false">
 								<string> "res://scripts/controllers/action_controller.gd" </string>
@@ -637,9 +637,9 @@
 				<vector2> 257.214, -25.1493 </vector2>
 				<resource  resource_type="Texture" path="res://assets/gui/dialogs/mini_led_icons.png">  </resource>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://0">  </resource>
 				<resource  resource_type="Animation" path="local://1">  </resource>
 				<resource  resource_type="Animation" path="local://2">  </resource>
+				<resource  resource_type="Animation" path="local://3">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "" </string>

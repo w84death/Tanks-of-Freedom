@@ -137,6 +137,11 @@ func can_defend():
 		return true
 	return false
 
+func can_capture_buildings():
+	if self.type == 0:
+		return true
+	return false
+
 func die():
 	self.queue_free()
 
