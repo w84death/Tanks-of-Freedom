@@ -3,12 +3,11 @@ var root
 var ready = false
 var screen_size
 
-var file_panel_size = Vector2(460, 240)
+var file_panel_size = Vector2(640, 210)
 var file_panel_top_offset = 108
-var bottom_panel_size = Vector2(580, 200)
-var bottom_panel_offset = 585
-var popup_size = Vector2(280, 220)
-var popup_top_offset = 245
+var bottom_panel_size = Vector2(640, 70)
+var pick_button_size = Vector2(120, 130)
+var pick_button_offset = 255
 
 func init_root(root_node):
     var screen_width = Globals.get("display/width")
@@ -26,7 +25,10 @@ func is_dead_zone(x, y):
     if self.check_if_in_zone(x, y, self.root.dependency_container.controllers.workshop_gui_controller.file_panel.position.y - self.file_panel_top_offset, self.file_panel_size):
         return true
 
-    if self.check_if_in_zone(x, y, self.bottom_panel_offset, self.bottom_panel_size):
+    if self.check_if_in_zone(x, y, self.screen_size.y - self.bottom_panel_size.y, self.bottom_panel_size):
+        return true
+
+    if self.check_if_in_zone(x, y, self.screen_size.y - self.pick_button_size.y, self.pick_button_size, self.pick_button_offset):
         return true
 
     if self.root.dependency_container.controllers.workshop_gui_controller.toolbox_panel.toolbox_panel.is_visible():
