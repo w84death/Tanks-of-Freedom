@@ -188,12 +188,12 @@ func _input(event):
 				self.camera.set_offset(camera_pos)
 
 		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.root.dependency_container.workshop_dead_zone.is_dead_zone(event.x, event.y):
-			map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
-			var position = terrain.map_to_world(selector_position)
-			position.x = (position.x + map_pos.x) * map.scale.x
-			position.y = (position.y + map_pos.y) * map.scale.y
-			if not self.root.dependency_container.workshop_dead_zone.is_dead_zone(position.x, position.y):
-				self.paint(selector_position)
+			#map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
+			#var position = terrain.map_to_world(selector_position)
+			#position.x = (position.x + map_pos.x) * map.scale.x
+			#position.y = (position.y + map_pos.y) * map.scale.y
+			#if not self.root.dependency_container.workshop_dead_zone.is_dead_zone(position.x, position.y):
+			self.paint(selector_position)
 
 		if event.type == InputEvent.KEY:
 			if event.scancode == KEY_Z && event.pressed:
