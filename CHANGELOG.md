@@ -10,6 +10,8 @@
 - fixed workshop land-fill tool
 - fixed translations for tips not working after export
 - fixed hud dead zone detection preventing units from entering certain parts of maps
+- fixed camera zoom settings not being saved
+- modified gui and menus to not overlap on low resolutions
 
 ### 0.4.0.1-beta
 - fixed default zoom value
