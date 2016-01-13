@@ -1,4 +1,5 @@
 
+export var easy_mode = false
 var root_node
 var root_tree
 var ysort
@@ -33,6 +34,7 @@ var interaction_indicators = {
 }
 
 const BREAK_EVENT_LOOP = 1
+const AP_HANDICAP = 0.8
 
 func reset():
     self.root_tree = null
@@ -343,9 +345,12 @@ func refill_ap():
 
     var total_ap = player_ap[current_player]
     var buildings = self.positions.get_player_buildings(current_player)
+    var bonus_ap = 0
     for building in buildings:
-        total_ap = total_ap + buildings[building].bonus_ap
-    self.update_ap(total_ap)
+        bonus_ap = bonus_ap + buildings[building].bonus_ap
+    if self.apply_handicap():
+        bonus_ap = floor(bonus_ap * self.AP_HANDICAP)
+    self.update_ap(total_ap + bonus_ap)
 
 func show_bonus_ap():
     var buildings = self.positions.get_player_buildings(current_player)
@@ -385,10 +390,18 @@ func perform_ai_stuff():
 
     return player_ap[current_player] > 0 && success
 
+func apply_handicap():
+    if self.easy_mode:
+        if self.is_cpu_player && !(root_node.settings['cpu_1'] && root_node.settings['cpu_0']):
+            return true
+
+    return false
+
 func reset_player_units(player):
     var units = self.positions.get_player_units(player)
+    var limit_ap = self.apply_handicap()
     for unit_pos in units:
-        units[unit_pos].reset_ap()
+        units[unit_pos].reset_ap(limit_ap)
 
 func end_game(winning_player):
     self.root_node.ai_timer.reset_state()

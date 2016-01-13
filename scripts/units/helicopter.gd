@@ -8,6 +8,7 @@ func _init():
 	max_life = 10
 	attack = 8
 	max_ap = 8
+	limited_ap = 6
 	attack_ap = 1
 	max_attacks_number = 1
 	ap = 8

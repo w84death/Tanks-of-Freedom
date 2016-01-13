@@ -21,6 +21,7 @@ var plain
 var road
 var river
 var max_ap
+var limited_ap
 var attack_ap
 var max_attacks_number
 var ap
@@ -86,8 +87,12 @@ func update_ap(new_ap):
 	self.update_shield()
 	self.set_no_ap_idle()
 
-func reset_ap():
-	ap = max_ap
+func reset_ap(limit_ap):
+	if (limit_ap):
+		self.ap = self.limited_ap
+	else:
+		self.ap = self.max_ap
+
 	attacks_number = max_attacks_number
 	self.update_shield()
 	self.update_healthbar()
