@@ -12,6 +12,8 @@
 - fixed hud dead zone detection preventing units from entering certain parts of maps
 - fixed camera zoom settings not being saved
 - modified gui and menus to not overlap on low resolutions
+- tuned down campaign difficulty
+- added AI easy mode (not yet available)
 
 ### 0.4.0.1-beta
 - fixed default zoom value
