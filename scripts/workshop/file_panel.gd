@@ -7,14 +7,13 @@ var file_panel
 var file_panel_wrapper
 
 var position
-var positions = [-34,108]
+var positions = [-48,50]
 var toggle_button
 var play_button
 var save_button
 var load_button
 var pick_button
 var file_name
-var floppy
 
 var central_container
 
@@ -29,7 +28,6 @@ func bind_panel(file_panel_wrapper_node):
     self.file_panel = self.file_panel_wrapper.get_node("center/file_panel")
     self.position = self.file_panel.get_pos()
 
-    self.floppy = self.file_panel.get_node("controls/floppy/anim")
     self.file_name = self.file_panel.get_node("controls/file_name")
     self.toggle_button = self.file_panel.get_node("controls/file_button")
     self.play_button = self.file_panel.get_node("controls/play_button")
@@ -54,11 +52,9 @@ func toggle_file_panel():
 
 func save_button_pressed():
     self.workshop.save_map(self.file_name, true)
-    self.floppy.play("save")
 
 func load_button_pressed():
     self.workshop.load_map(self.file_name, true)
-    self.floppy.play("save")
 
 func play_button_pressed():
     self.show_skirmish_setup_panel()

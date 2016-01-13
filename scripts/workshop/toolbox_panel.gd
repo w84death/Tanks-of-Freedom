@@ -12,8 +12,6 @@ var fill_y_button_label
 var fill_button
 var clear_terrain_button
 var clear_units_button
-var turn_cap_button
-var turn_cap_button_label
 
 func init_root(root_node):
     self.root = root_node
@@ -31,8 +29,6 @@ func bind_panel(toolbox_panel_wrapper_node):
     self.fill_button = self.toolbox_panel.get_node("front/fill")
     self.clear_terrain_button = self.toolbox_panel.get_node("front/clear_terrain")
     self.clear_units_button = self.toolbox_panel.get_node("front/clear_units")
-    self.turn_cap_button = self.toolbox_panel.get_node("front/turn_cap")
-    self.turn_cap_button_label = self.turn_cap_button.get_node("label")
 
     self.fill_x_button.connect("pressed", self, "fill_axis_button_pressed", [self.fill_x_button_label, 0])
     self.fill_y_button.connect("pressed", self, "fill_axis_button_pressed", [self.fill_y_button_label, 1])
