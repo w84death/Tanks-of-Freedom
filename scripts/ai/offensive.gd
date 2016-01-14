@@ -5,6 +5,8 @@ var pathfinding
 var positions
 var action_builder
 
+const MINIMAL_DISTANCE = 4
+
 func _init(abstract_map_object, actions_object, pathfinding_object, action_builder_object, positions_object):
     self.abstract_map = abstract_map_object
     self.actions = actions_object
@@ -23,9 +25,10 @@ func push_front(unit, buildings, own_units):
     var unit_pos = unit.get_pos_map()
     for destination in buildings:
         distance = self.pathfinding.__get_manhattan(unit_pos, destination)
-        if closest_destination == null || distance < closest_path_length:
-            closest_destination = destination
-            closest_path_length = distance
+        if distance >= self.MINIMAL_DISTANCE :
+            if closest_destination == null || distance < closest_path_length:
+                closest_destination = destination
+                closest_path_length = distance
 
     if closest_destination != null:
         path = self.pathfinding.pathSearch(unit_pos, closest_destination, own_units)
