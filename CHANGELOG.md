@@ -2,6 +2,10 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.4.0.3-beta
+- fixed AI locking-up by tank or heli trying to capture building when there are no enemies nearby
+- fixed AI-owned buildings not revealing fog of war in Demo mode
+
 ### 0.4.0.2-beta
 - fixed menu background map positioning
 - fixed movement tiles wrongly showing possible attack when there is not enough AP
