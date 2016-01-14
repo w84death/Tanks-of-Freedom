@@ -103,7 +103,7 @@ func __get_units_to_unhide(player):
 
 func __get_buildings_to_unhide(player):
     if root.settings['cpu_0'] && root.settings['cpu_1']:
-        return self.bag.positions.buildings_player_none
+        return self.bag.positions.all_buildings
     else:
         if self.is_cpu(player):
             return self.bag.positions.get_player_buildings((player + 1) % 2)
