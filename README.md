@@ -46,24 +46,24 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn
 
 ![Alt text](http://i.imgur.com/wZPAs75.jpg)
 
-* P1X Team
- * code
+### P1X Team
+###  code
    - w84death http://krzysztofjankowski.com
    - czlowiekimadlo https://twitter.com/czlowiekimadlo
    - WrmZ https://plus.google.com/u/0/113866605142376544736/posts
 
- * gfx
+### gfx
    - w84death http://krzysztofjankowski.com
    - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/
 
- * music
+### music
    - Mathias Nova http://mathiasnova.blogspot.com/
    - QmYaan (Grand Beats) http://www.grandbeats.com/
 
- * sfx
+### sfx
    - QmYaan (Grand Beats) http://www.grandbeats.com/
 
- * engine
+### engine
    - Godot Engine http://www.godotengine.org/
 
 ## Public game catalogs
