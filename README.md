@@ -15,6 +15,7 @@ Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original sou
 - OSX
 - Android (works on Blackberry, OUYA support currently not working)
 
+### Official pages:
 - Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 - Official game page: [tof.p1x.in](http://tof.p1x.in)
 - Official P1X page: [p1x.in](http://p1x.in)
@@ -50,14 +51,18 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn
    - w84death http://krzysztofjankowski.com
    - czlowiekimadlo https://twitter.com/czlowiekimadlo
    - WrmZ https://plus.google.com/u/0/113866605142376544736/posts
+
  * gfx
    - w84death http://krzysztofjankowski.com
    - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/
+
  * music
    - Mathias Nova http://mathiasnova.blogspot.com/
    - QmYaan (Grand Beats) http://www.grandbeats.com/
+
  * sfx
    - QmYaan (Grand Beats) http://www.grandbeats.com/
+
  * engine
    - Godot Engine http://www.godotengine.org/
 
