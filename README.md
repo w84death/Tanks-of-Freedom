@@ -36,7 +36,7 @@ To get the latest version of the game you'll need to use the source code and God
 - open Godot and import our game
 - run :)
 
-Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn how to export game for each platform.
+Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn how to export the game for each platform.
 
 ## Media
 ![Imgur](http://tof.p1x.in/assets/screen1.jpg)
