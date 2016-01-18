@@ -15,9 +15,9 @@ Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original sou
 - OSX
 - Android (works on Blackberry, OUYA support currently not working)
 
-Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
-Official game page: [tof.p1x.in](http://tof.p1x.in)
-Official P1X page: [p1x.in](http://p1x.in)
+- Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+- Official game page: [tof.p1x.in](http://tof.p1x.in)
+- Official P1X page: [p1x.in](http://p1x.in)
 
 ### Unofficial ports:
 - [F-Droid](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom) thanks to [est31](https://github.com/est31)!
