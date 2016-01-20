@@ -8,6 +8,8 @@ const MINIMAL_HEIGHT = 720
 var locked_height
 var native_resolution
 
+var override_resolution
+
 const UNSET = 0
 const LOCKED = 1
 const UNLOCKED = 2
@@ -16,6 +18,7 @@ func _init_bag(bag):
     self.bag = bag
     self.root = bag.root
     self.native_resolution = OS.get_screen_size()
+    self.override_resolution = Globals.get('tof/resolution_override')
 
     self.calculate_locked_height()
     self.check_initial_resolution()
@@ -41,6 +44,13 @@ func check_initial_resolution():
 func apply_resolution():
     var newsize
     var fullscreen = false
+
+    if not self.resolution_override:
+        var width = Globals.get('display/width')
+        var height = Globals.get('display/height')
+        self.bag.hud_dead_zone.screen_size = Vector2(width, height)
+        self.bag.workshop_dead_zone.screen_size = Vector2(width, height)
+        return
 
     if self.root.settings['resolution'] == self.UNLOCKED:
         newsize = self.native_resolution
