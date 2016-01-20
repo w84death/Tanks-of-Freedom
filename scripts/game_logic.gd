@@ -40,7 +40,8 @@ var settings = {
 	'camera_follow': true,
 	'music_volume': 0.5,
 	'sound_volume': 0.2,
-	'camera_zoom': 2
+	'camera_zoom': 2,
+	'resolution': 0
 }
 
 var is_map_loaded = false
@@ -262,7 +263,6 @@ func read_settings_from_file():
 		settings_file.close()
 	else:
 		self.write_settings_to_file()
-	return
 
 func check_file_data(data):
 	if str(data) and data.has('is_ok'):
@@ -275,7 +275,6 @@ func write_settings_to_file():
 	settings_file.store_var(self.settings)
 	#print('ToF: settings saved to file')
 	settings_file.close()
-	return
 
 func _ready():
 	scale_root = get_node("/root/game/viewport/pixel_scale")
@@ -291,4 +290,3 @@ func _ready():
 	self.add_child(intro)
 	self.screen_size = get_node('/root/game/viewport').get_rect().size
 	self.half_screen_size = self.screen_size / 2
-	pass
