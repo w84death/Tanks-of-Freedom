@@ -29,7 +29,7 @@ Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original sou
 ### Build from sources
 To get the latest version of the game you'll need to use the source code and Godot Engine
 
-- downlaod & install [Godot Engine](http://www.godotengine.org/projects/godot-engine/documents)
+- download & install [Godot Engine](http://www.godotengine.org/projects/godot-engine/documents)
 - download our sources
   - download [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip) and unzip
   - or clone the repository using git
