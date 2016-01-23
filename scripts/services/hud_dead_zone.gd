@@ -17,11 +17,8 @@ var popup_size = Vector2(280, 220)
 var popup_top_offset = 245
 
 func init_root(root_node):
-    var screen_width = Globals.get("display/width")
-    var screen_height = Globals.get("display/height")
-
     self.root = root_node
-    self.screen_size = Vector2(screen_width, screen_height)
+    self.screen_size = Vector2(1280, 720)
     self.ready = true
 
 func is_dead_zone(x, y):

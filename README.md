@@ -15,51 +15,56 @@ Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original sou
 - OSX
 - Android (works on Blackberry, OUYA support currently not working)
 
-Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+### Official pages:
+- Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+- Official game page: [tof.p1x.in](http://tof.p1x.in)
+- Official P1X page: [p1x.in](http://p1x.in)
 
 ### Unofficial ports:
-- F-Droid
+- [F-Droid](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom) thanks to [est31](https://github.com/est31)!
+- [FreeBSD](http://portsmon.freebsd.org/portoverview.py?category=games&portname=tanks-of-freedom) thanks to amdmi3
+- [Pandora](https://repo.openpandora.org/?page=detail&app=tanksoffreedom) thanks to Canseco
 
-Download at [f-droid.org](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom)
-
-Thanks to [est31](https://github.com/est31)!
 
 ### Build from sources
 To get the latest version of the game you'll need to use the source code and Godot Engine
 
-- downlaod & install [Godot Engine](http://www.godotengine.org/projects/godot-engine/documents)
+- download & install [Godot Engine](http://www.godotengine.org/projects/godot-engine/documents)
 - download our sources
   - download [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip) and unzip
   - or clone the repository using git
 - open Godot and import our game
 - run :)
 
-Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) on learn how to export game for each platform.
+Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn how to export the game for each platform.
 
 ## Media
-![Imgur](http://i.imgur.com/pyDr87G.png)
-![Imgur](http://i.imgur.com/U0ORsxQ.png)
-![Imgur](http://i.imgur.com/kkp8zFD.png)
+![Imgur](http://tof.p1x.in/assets/screen1.jpg)
+![Imgur](http://tof.p1x.in/assets/screen2.jpg)
 
 ## Credits
 
 ![Alt text](http://i.imgur.com/wZPAs75.jpg)
 
-* P1X Team
- * code
-   * w84death http://krzysztofjankowski.com
-   * czlowiekimadlo https://twitter.com/czlowiekimadlo
-   * WrmZ https://plus.google.com/u/0/113866605142376544736/posts
- * gfx
-   * w84death http://krzysztofjankowski.com
-   * Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/
- * music
-   * Mathias Nova http://mathiasnova.blogspot.com/
-   * QmYaan (Grand Beats) http://www.grandbeats.com/
- * sfx
-   * QmYaan (Grand Beats) http://www.grandbeats.com/
- * engine
-   * Godot Engine http://www.godotengine.org/
+### P1X Team
+###  code
+   - w84death http://krzysztofjankowski.com
+   - czlowiekimadlo https://twitter.com/czlowiekimadlo
+   - WrmZ https://plus.google.com/u/0/113866605142376544736/posts
+
+### gfx
+   - w84death http://krzysztofjankowski.com
+   - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/
+
+### music
+   - Mathias Nova http://mathiasnova.blogspot.com/
+   - QmYaan (Grand Beats) http://www.grandbeats.com/
+
+### sfx
+   - QmYaan (Grand Beats) http://www.grandbeats.com/
+
+### engine
+   - Godot Engine http://www.godotengine.org/
 
 ## Public game catalogs
 
