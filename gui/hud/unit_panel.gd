@@ -19,13 +19,13 @@ func bind(hud_panel):
     self.unit_panel = hud_panel.get_node('unit_panel')
 
     self.unit_panel_extras = self.unit_panel.get_node('extras')
-    self.unit_panel_extras_button = self.unit_panel.get_node('extras_button')
+    #self.unit_panel_extras_button = self.unit_panel.get_node('extras_button')
     self.unit_panel_name = self.unit_panel.get_node('name')
     self.unit_panel_attack = self.unit_panel.get_node('attack')
     self.unit_panel_health = self.unit_panel.get_node('health')
     self.unit_panel_ap = self.unit_panel.get_node('ap')
     self.unit_attacks_left = self.unit_panel.get_node('attacks_left')
-    self.background_extra_unit = hud_panel.get_node('background/unit_extra_panel')
+    #self.background_extra_unit = hud_panel.get_node('background/unit_extra_panel')
 
     #self.unit_panel_extras_button.connect('pressed', self, 'toggle_skills')
 

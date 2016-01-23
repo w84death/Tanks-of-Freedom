@@ -40,9 +40,9 @@ func _init_bag(bag):
 
 func bind_hud():
     self.blocks_container = self.picker.get_node("controls/blocks")
-    self.local_button = self.picker.get_node("controls/local")
-    self.cloud_button = self.picker.get_node("controls/cloud")
-    self.download_button = self.picker.get_node("controls/load_map")
+    #self.local_button = self.picker.get_node("controls/local")
+    #self.cloud_button = self.picker.get_node("controls/cloud")
+    #self.download_button = self.picker.get_node("controls/load_map")
     self.delete_button = self.picker.get_node("controls/delete_mode")
     self.next_button = self.picker.get_node("controls/next")
     self.prev_button = self.picker.get_node("controls/prev")
