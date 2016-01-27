@@ -1,4 +1,5 @@
 
+var root
 var bag
 
 var panel = preload("res://gui/hud/skirmish_maps_selected_map.xscn").instance()
@@ -22,6 +23,7 @@ var connected_map_name = null
 
 func _init_bag(bag):
     self.bag = bag
+    self.root = bag.root
     self.bind_hud()
     self.connect_buttons()
     self.refresh_labels()
@@ -38,11 +40,24 @@ func bind_hud():
     self.play_button = self.panel.get_node("controls/play")
 
 func connect_buttons():
-    self.player_0_button.connect("pressed", self, "toggle_player", [0])
-    self.player_1_button.connect("pressed", self, "toggle_player", [1])
-    self.turn_cap_button.connect("pressed", self, "toggle_turns_cap")
-    self.back_button.connect("pressed", self, "back_button_pressed")
-    self.play_button.connect("pressed", self, "play_button_pressed")
+    self.player_0_button.connect("pressed", self, "_player_button_pressed", [0])
+    self.player_1_button.connect("pressed", self, "_player_button_pressed", [1])
+    self.turn_cap_button.connect("pressed", self, "_turn_cap_button_pressed")
+    self.back_button.connect("pressed", self, "_back_button_pressed")
+    self.play_button.connect("pressed", self, "_play_button_pressed")
+
+func _player_button_pressed(player_id):
+    self.root.sound_controller.play('menu')
+    self.toggle_player(player_id)
+func _turn_cap_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.toggle_turns_cap()
+func _back_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.back_button_pressed()
+func _play_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.play_button_pressed()
 
 func refresh_labels():
     if self.bag.root.settings['turns_cap'] > 0:

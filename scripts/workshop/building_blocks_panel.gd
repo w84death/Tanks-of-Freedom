@@ -77,11 +77,15 @@ func bind_panel(building_block_panel_wrapper_node):
     self.units_button = self.building_block_panel.get_node("controls/units_button")
     self.blocks_area = self.building_block_panel.get_node("controls/blocks")
 
-    self.terrain_button.connect("pressed", self, "fill_blocks_panel", [self.terrain_blocks])
-    self.buildings_button.connect("pressed", self, "fill_blocks_panel", [self.buildings_blocks])
-    self.units_button.connect("pressed", self, "fill_blocks_panel", [self.units_blocks])
+    self.terrain_button.connect("pressed", self, "_category_button_pressed", [self.terrain_blocks])
+    self.buildings_button.connect("pressed", self, "_category_button_pressed", [self.buildings_blocks])
+    self.units_button.connect("pressed", self, "_category_button_pressed", [self.units_blocks])
 
     self.fill_blocks_panel(self.terrain_blocks)
+
+func _category_button_pressed(category):
+    self.root.sound_controller.play('menu')
+    self.fill_blocks_panel(category)
 
 func show():
     self.building_block_panel_wrapper.show()
@@ -116,6 +120,7 @@ func fill_blocks_panel(blocks):
         self.current_blocks.append(new_block)
 
 func set_building_block_type(layer, tile_id, tile_name):
+    self.root.sound_controller.play('menu')
     self.workshop.tool_type = layer
     self.workshop.brush_type = tile_id
     self.workshop_gui_controller.navigation_panel.set_block_label(tile_name)

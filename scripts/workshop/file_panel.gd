@@ -39,9 +39,13 @@ func bind_panel(file_panel_wrapper_node):
     self.save_button.connect("pressed", self, "save_button_pressed")
     self.load_button.connect("pressed", self, "load_button_pressed")
     self.pick_button.connect("pressed", self, "pick_button_pressed")
-    self.toggle_button.connect("pressed", self, "toggle_file_panel")
+    self.toggle_button.connect("pressed", self, "_toggle_button_pressed")
 
     self.central_container = self.workshop.get_node("central_container")
+
+func _toggle_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.toggle_file_panel()
 
 func toggle_file_panel():
     if self.position.y == self.positions[0]:
@@ -51,12 +55,15 @@ func toggle_file_panel():
     self.file_panel.set_pos(self.position)
 
 func save_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop.save_map(self.file_name, true)
 
 func load_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop.load_map(self.file_name, true)
 
 func play_button_pressed():
+    self.root.sound_controller.play('menu')
     self.show_skirmish_setup_panel()
 
 func show_skirmish_setup_panel():
@@ -75,6 +82,7 @@ func play_map_from_skirmish_setup_panel(map_name):
     self.workshop.play_map()
 
 func pick_button_pressed():
+    self.root.sound_controller.play('menu')
     self.toggle_file_panel()
     self.toggle_map_picker()
 

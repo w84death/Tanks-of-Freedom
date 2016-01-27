@@ -1,4 +1,5 @@
 
+var root
 var bag
 
 var picker = preload("res://gui/hud/skirmish_maps_panel.xscn").instance()
@@ -32,6 +33,7 @@ var delete_mode_enabled = false
 
 func _init_bag(bag):
     self.bag = bag
+    self.root = bag.root
     self.bind_hud()
     self.connect_buttons()
     self.fill_page()
@@ -50,9 +52,20 @@ func bind_hud():
     self.page_label = self.picker.get_node("controls/page")
 
 func connect_buttons():
-    self.prev_button.connect("pressed", self, "prev_page")
-    self.next_button.connect("pressed", self, "next_page")
-    self.delete_button.connect("pressed", self, "delete_button_pressed")
+    self.prev_button.connect("pressed", self, "_prev_button_pressed")
+    self.next_button.connect("pressed", self, "_next_button_pressed")
+    self.delete_button.connect("pressed", self, "_delete_button_pressed")
+
+func _prev_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.prev_page()
+func _next_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.next_page()
+func _delete_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.delete_button_pressed()
+
 
 func attach_panel(container_node):
     if self.current_container != null:
@@ -165,6 +178,7 @@ func fill_block(block, map, counter):
     block.set_pos(position)
 
 func map_selected(name):
+    self.root.sound_controller.play('menu')
     self.call_bound_object(name)
 
 func connect(object, method):
