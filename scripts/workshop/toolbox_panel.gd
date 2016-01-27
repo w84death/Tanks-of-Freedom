@@ -36,8 +36,12 @@ func bind_panel(toolbox_panel_wrapper_node):
     self.refresh_axis_button_label(self.fill_y_button_label, 1)
 
     self.fill_button.connect("pressed", self, "fill_button_pressed")
-    self.clear_terrain_button.connect("pressed", self.workshop ,"toolbox_clear", [0])
-    self.clear_units_button.connect("pressed", self.workshop, "toolbox_clear", [1])
+    self.clear_terrain_button.connect("pressed", self.workshop ,"_clear_button_pressed", [0])
+    self.clear_units_button.connect("pressed", self.workshop, "_clear_button_pressed", [1])
+
+func _clear_button_pressed(layer_id):
+    self.root.sound_controller.play('menu')
+    self.workshop.toolbox_clear(layer_id)
 
 func show():
     self.toolbox_panel_wrapper.show()
@@ -46,10 +50,12 @@ func hide():
     self.toolbox_panel_wrapper.hide()
 
 func fill_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop_gui_controller.hide_toolbox_panel()
     self.workshop.toolbox_fill()
 
 func fill_axis_button_pressed(label, axis_index):
+    self.root.sound_controller.play('menu')
     self.workshop.settings.fill_selected[axis_index] = self.workshop.settings.fill_selected[axis_index] + 1
     if self.workshop.settings.fill_selected[axis_index] == self.workshop.settings.fill.size():
         self.workshop.settings.fill_selected[axis_index] = 0

@@ -35,10 +35,24 @@ func bind_campaign_menu():
     self.mission_description = self.campaign_menu.get_node("middle/control/dialog_controls/Introduction")
     self.team = self.campaign_menu.get_node("middle/control/dialog_controls/team")
 
-    self.back_button.connect("pressed", self, "hide_campaign_menu")
-    self.start_button.connect("pressed", self, "start_mission")
-    self.prev_button.connect("pressed", self, "switch_to_prev")
-    self.next_button.connect("pressed", self, "switch_to_next")
+    self.back_button.connect("pressed", self, "_back_button_pressed")
+    self.start_button.connect("pressed", self, "_start_button_pressed")
+    self.prev_button.connect("pressed", self, "_prev_button_pressed")
+    self.next_button.connect("pressed", self, "_next_button_pressed")
+
+func _back_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.hide_campaign_menu()
+func _start_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.start_mission()
+func _prev_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.switch_to_prev()
+func _next_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.switch_to_next()
+
 
 func attach_campaign_menu():
     self.root.dependency_container.controllers.menu_controller.add_child(self.campaign_menu)

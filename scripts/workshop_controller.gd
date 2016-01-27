@@ -54,8 +54,12 @@ func init_gui():
 	hud_message = self.get_node("message")
 	hud_message_box = hud_message.get_node("center/message")
 	hud_message_box_button = hud_message_box.get_node("button")
-	hud_message_box_button.connect("pressed", self, "close_message")
+	hud_message_box_button.connect("pressed", self, "_hud_message_box_button_pressed")
 	self.load_map(restore_file_name)
+
+func _hud_message_box_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.close_message()
 
 func add_action(params):
 	var last_brush

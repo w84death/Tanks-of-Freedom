@@ -32,12 +32,15 @@ func bind_panel(navigation_panel_node):
     self.block_button.connect("pressed", self, "block_button_pressed")
 
 func menu_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop.toggle_menu()
 
 func undo_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop.undo_last_action()
 
 func drag_button_pressed():
+    self.root.sound_controller.play('menu')
     self.mark_drag_button()
     self.workshop.movement_mode = true
     self.set_block_label("MOVE MAP")
@@ -52,9 +55,11 @@ func mark_block_button():
     self.reset_buttons()
 
 func toolbox_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop_gui_controller.toggle_toolbox_panel()
 
 func block_button_pressed():
+    self.root.sound_controller.play('menu')
     self.workshop_gui_controller.toggle_block_blocks()
 
 func reset_block_label():
