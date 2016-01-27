@@ -45,7 +45,7 @@ func apply_resolution():
     var newsize
     var fullscreen = false
 
-    if not self.resolution_override:
+    if not self.override_resolution:
         var width = Globals.get('display/width')
         var height = Globals.get('display/height')
         self.bag.hud_dead_zone.screen_size = Vector2(width, height)
