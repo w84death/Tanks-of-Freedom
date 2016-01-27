@@ -7,6 +7,7 @@
 - settings for AI difficulty
 - resume game (limited save/load)
 - added click sounds to all buttons
+- 'camera follow' is now always on in CPU vs CPU
 - fixed clicking on 'change tile' button in workshop placing tiles underneath it
 
 ### 0.4.0.3-beta
