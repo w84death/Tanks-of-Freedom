@@ -124,7 +124,7 @@
 				<resource  resource_type="Script" path="res://scripts/game_logic.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>
@@ -404,6 +404,8 @@
 						<string> "run_mode" </string>
 						<int> 0 </int>
 					</dictionary>
+					<string> "_edit_lock_" </string>
+					<bool> True </bool>
 				</dictionary>
 				<int> 10 </int>
 				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
@@ -412,7 +414,7 @@
 				<resource name=""></resource>				<real> 12 </real>
 				<resource  resource_type="Script" path="res://scripts/ai_timer.gd">  </resource>
 				<resource  resource_type="Script" path="res://scripts/demo_timer.gd">  </resource>
-				<rect2> 0, 0, 800, 480 </rect2>
+				<rect2> 0, 0, 1280, 720 </rect2>
 				<vector2> 0, 0 </vector2>
 				<vector2> 1, 1 </vector2>
 				<int> 0 </int>
