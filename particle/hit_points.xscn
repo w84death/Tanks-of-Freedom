@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <resource_file type="PackedScene" subresource_count="5" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" index="0"></ext_resource>
 	<ext_resource path="res://particle/explosion.gd" type="Script" index="1"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/icons.png" type="Texture" index="2"></ext_resource>
 	<resource type="Animation" path="local://1">
+=======
+<resource_file type="PackedScene" subresource_count="5" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font"></ext_resource>
+	<ext_resource path="res://particle/explosion.gd" type="Script"></ext_resource>
+	<ext_resource path="res://assets/gui/dialogs/icons.png" type="Texture"></ext_resource>
+	<resource type="Animation" path="local://0">
+>>>>>>> master
 		<string name="resource/name"> "fly" </string>
-		<real name="length"> 1.2 </real>
+		<real name="length"> 1.5 </real>
 		<bool name="loop"> False </bool>
 		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
@@ -15,7 +23,7 @@
 			<string> "cont" </string>
 			<bool> True </bool>
 			<string> "times" </string>
-			<real_array  len="2"> 				0.7, 1.2 </real_array>
+			<real_array  len="2"> 				1, 1.3 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="2"> 				1, 1 </real_array>
 			<string> "values" </string>
@@ -31,7 +39,7 @@
 			<string> "cont" </string>
 			<bool> True </bool>
 			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.2, 1.2 </real_array>
+			<real_array  len="3"> 				0, 0.2, 1.3 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="3"> 				1, 1, 1 </real_array>
 			<string> "values" </string>
@@ -48,7 +56,7 @@
 			<string> "cont" </string>
 			<bool> True </bool>
 			<string> "times" </string>
-			<real_array  len="1"> 				1.2 </real_array>
+			<real_array  len="1"> 				1.3 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="1"> 				1 </real_array>
 			<string> "values" </string>
@@ -63,6 +71,7 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
+<<<<<<< HEAD
 			<int_array  len="6"> 				1, 0, 38, 37, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
@@ -70,19 +79,49 @@
 			<string> "names" </string>
 			<string_array  len="39">
 				<string> "hit_points" </string>
+=======
+			<int_array  len="6"> 				1, 0, 66, 65, 2, 0 </int_array>
+			<string> "names" </string>
+			<string_array  len="67">
+				<string> "hit_points" </string>
+				<string> "Label" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+>>>>>>> master
 				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/light_mask" </string>
 				<string> "margin/left" </string>
 				<string> "margin/top" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
+				<string> "focus_neighbour/left" </string>
+				<string> "focus_neighbour/top" </string>
+				<string> "focus_neighbour/right" </string>
+				<string> "focus_neighbour/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
+				<string> "size_flags/stretch_ratio" </string>
 				<string> "custom_fonts/font" </string>
 				<string> "custom_colors/font_color_shadow" </string>
 				<string> "custom_constants/shadow_offset_x" </string>
+<<<<<<< HEAD
+=======
+				<string> "custom_constants/shadow_offset_y" </string>
+				<string> "range/min" </string>
+				<string> "range/max" </string>
+				<string> "range/step" </string>
+				<string> "range/page" </string>
+				<string> "range/value" </string>
+				<string> "range/exp_edit" </string>
+				<string> "rounded_values" </string>
+>>>>>>> master
 				<string> "text" </string>
 				<string> "align" </string>
+				<string> "valign" </string>
+				<string> "autowrap" </string>
+				<string> "uppercase" </string>
 				<string> "percent_visible" </string>
 				<string> "lines_skipped" </string>
 				<string> "max_lines_visible" </string>
@@ -99,13 +138,31 @@
 				<string> "blend_times" </string>
 				<string> "autoplay" </string>
 				<string> "AP" </string>
+<<<<<<< HEAD
 				<string> "visibility/visible" </string>
+=======
+				<string> "Sprite" </string>
+>>>>>>> master
 				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
 				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
 				<string> "vframes" </string>
 				<string> "hframes" </string>
 				<string> "frame" </string>
+<<<<<<< HEAD
 				<string> "Sprite" </string>
+=======
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+>>>>>>> master
 				<string> "clear_points" </string>
 				<string> "finished" </string>
 			</string_array>
@@ -115,6 +172,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
+<<<<<<< HEAD
 			<int_array  len="85"> 				-1, -1, 19, 0, -1, 18, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 5, 8, 6, 9, 7, 10, 8, 11, 9, 12, 10, 13, 9, 14, 11, 15, 12, 16, 13, 17, 14, 18, 15, 0, 0, 0, 20, 20, -1, 8, 21, 9, 22, 0, 23, 16, 24, 17, 25, 5, 26, 11, 27, 18, 28, 19, 0, 0, 0, 36, 29, -1, 6, 30, 20, 31, 21, 32, 22, 33, 23, 34, 23, 35, 24, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="25" shared="false">
@@ -123,11 +181,31 @@
 				<real> -36 </real>
 				<real> 11 </real>
 				<real> -24 </real>
+=======
+			<int_array  len="153"> 				-1, -1, 1, 0, -1, 36, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 0, 12, 0, 13, 0, 14, 0, 15, 1, 16, 1, 17, 8, 18, 2, 19, 9, 20, 10, 21, 11, 22, 8, 23, 12, 24, 2, 25, 2, 26, 2, 27, 12, 28, 13, 29, 13, 30, 14, 31, 3, 32, 11, 33, 13, 34, 13, 35, 15, 36, 16, 37, 17, 0, 0, 0, 38, 38, -1, 9, 2, 0, 39, 3, 40, 12, 41, 18, 42, 19, 43, 1, 44, 2, 45, 20, 46, 21, 0, 0, 0, 48, 47, -1, 21, 2, 0, 3, 13, 4, 2, 5, 2, 6, 3, 49, 22, 50, 12, 51, 23, 52, 11, 53, 1, 54, 24, 55, 1, 56, 25, 57, 13, 58, 13, 59, 26, 60, 26, 61, 27, 62, 28, 63, 13, 64, 29, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="30" shared="false">
+				<node_path> "" </node_path>
+>>>>>>> master
 				<bool> True </bool>
+				<real> 1 </real>
+				<int> 1 </int>
+				<real> -11 </real>
+				<real> -12 </real>
+				<real> 15 </real>
+				<real> 3 </real>
 				<int> 2 </int>
+<<<<<<< HEAD
 				<resource  external="0">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<int> 1 </int>
+=======
+				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_16.fnt">  </resource>
+				<color> 0, 0, 0, 1 </color>
+				<int> 0 </int>
+				<real> 0 </real>
+				<bool> False </bool>
+>>>>>>> master
 				<string> "99" </string>
 				<real> 1 </real>
 				<int> 0 </int>
@@ -135,18 +213,166 @@
 				<resource  external="1">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
+<<<<<<< HEAD
 					<string> "2D" </string>
+=======
+					<string> "Script" </string>
+					<string> "__editor_plugin_states__" </string>
+					<dictionary  shared="false">
+						<string> "2D" </string>
+						<dictionary  shared="false">
+							<string> "ofs" </string>
+							<vector2> -91.5292, -39.4287 </vector2>
+							<string> "snap_grid" </string>
+							<bool> False </bool>
+							<string> "snap_offset" </string>
+							<vector2> 0, 0 </vector2>
+							<string> "snap_pixel" </string>
+							<bool> False </bool>
+							<string> "snap_relative" </string>
+							<bool> False </bool>
+							<string> "snap_rotation" </string>
+							<bool> False </bool>
+							<string> "snap_rotation_offset" </string>
+							<real> 0 </real>
+							<string> "snap_rotation_step" </string>
+							<real> 0.261799 </real>
+							<string> "snap_show_grid" </string>
+							<bool> False </bool>
+							<string> "snap_step" </string>
+							<vector2> 10, 10 </vector2>
+							<string> "zoom" </string>
+							<real> 4.658988 </real>
+						</dictionary>
+						<string> "3D" </string>
+						<dictionary  shared="false">
+							<string> "ambient_light_color" </string>
+							<color> 0.15, 0.15, 0.15, 1 </color>
+							<string> "default_light" </string>
+							<bool> True </bool>
+							<string> "default_srgb" </string>
+							<bool> False </bool>
+							<string> "deflight_rot_x" </string>
+							<real> 0.942478 </real>
+							<string> "deflight_rot_y" </string>
+							<real> 0.628319 </real>
+							<string> "fov" </string>
+							<real> 45 </real>
+							<string> "show_grid" </string>
+							<bool> True </bool>
+							<string> "show_origin" </string>
+							<bool> True </bool>
+							<string> "viewport_mode" </string>
+							<int> 1 </int>
+							<string> "viewports" </string>
+							<array  len="4" shared="false">
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> True </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+								<dictionary  shared="false">
+									<string> "distance" </string>
+									<real> 4 </real>
+									<string> "listener" </string>
+									<bool> False </bool>
+									<string> "pos" </string>
+									<vector3> 0, 0, 0 </vector3>
+									<string> "use_environment" </string>
+									<bool> False </bool>
+									<string> "use_orthogonal" </string>
+									<bool> False </bool>
+									<string> "x_rot" </string>
+									<real> 0 </real>
+									<string> "y_rot" </string>
+									<real> 0 </real>
+								</dictionary>
+							</array>
+							<string> "zfar" </string>
+							<real> 500 </real>
+							<string> "znear" </string>
+							<real> 0.1 </real>
+						</dictionary>
+						<string> "Script" </string>
+						<dictionary  shared="false">
+							<string> "current" </string>
+							<int> 0 </int>
+							<string> "sources" </string>
+							<array  len="1" shared="false">
+								<string> "res://gui/hud/info_panel.gd" </string>
+							</array>
+						</dictionary>
+					</dictionary>
+					<string> "__editor_run_settings__" </string>
+					<dictionary  shared="false">
+						<string> "custom_args" </string>
+						<string> "-l $scene" </string>
+						<string> "run_mode" </string>
+						<int> 0 </int>
+					</dictionary>
+>>>>>>> master
 				</dictionary>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://1">  </resource>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<array  len="0" shared="false">
 				</array>
 				<string> "fly" </string>
 				<bool> False </bool>
 				<vector2> 11, -4 </vector2>
+<<<<<<< HEAD
 				<resource  external="2">  </resource>
+=======
+				<vector2> 1, 1 </vector2>
+				<resource  resource_type="Texture" path="res://assets/gui/dialogs/icons.png">  </resource>
+				<vector2> 0, 0 </vector2>
+>>>>>>> master
 				<int> 3 </int>
 				<int> 6 </int>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
