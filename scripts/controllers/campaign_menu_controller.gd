@@ -31,7 +31,7 @@ func bind_campaign_menu():
     self.next_button = self.campaign_menu.get_node("bottom/control/dialog_controls/next_button")
     self.mission_num = self.campaign_menu.get_node("bottom/control/dialog_controls/mission_num")
 
-    self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/mission_name")
+    self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/title/mission_name")
     self.mission_description = self.campaign_menu.get_node("middle/control/dialog_controls/Introduction")
     self.team = self.campaign_menu.get_node("middle/control/dialog_controls/team")
 

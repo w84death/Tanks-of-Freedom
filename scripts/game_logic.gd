@@ -107,10 +107,6 @@ func _input(event):
             else:
                 hud.show()
 
-        if event.type == InputEvent.KEY && event.scancode == KEY_A && event.pressed:
-            self.action_controller.refill_ap()
-            self.action_controller.reset_player_units(self.action_controller.current_player)
-
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
 
