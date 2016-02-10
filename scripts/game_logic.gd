@@ -41,7 +41,8 @@ var settings = {
     'music_volume': 0.5,
     'sound_volume': 0.2,
     'camera_zoom': 2,
-    'resolution': 0
+    'resolution': 0,
+    'easy_mode' : false
 }
 
 var is_map_loaded = false
