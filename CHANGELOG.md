@@ -5,6 +5,7 @@
 ### 0.4.1-beta
 - native resolution mode (not available for android)
 - settings for AI difficulty
+- added loading screen
 - resume game (limited save/load)
 - added click sounds to all buttons
 - 'camera follow' is now always on in CPU vs CPU

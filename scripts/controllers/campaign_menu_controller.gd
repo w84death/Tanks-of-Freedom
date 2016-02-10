@@ -8,6 +8,8 @@ var back_button
 var start_button
 var prev_button
 var next_button
+var difficulty_button
+var difficulty_label
 
 var mission_num
 var mission_name
@@ -29,9 +31,11 @@ func bind_campaign_menu():
     self.start_button = self.campaign_menu.get_node("bottom/control/dialog_controls/start_button")
     self.prev_button = self.campaign_menu.get_node("bottom/control/dialog_controls/prev_button")
     self.next_button = self.campaign_menu.get_node("bottom/control/dialog_controls/next_button")
+    self.difficulty_button = self.campaign_menu.get_node('middle/control/dialog_controls/difficulty_button')
     self.mission_num = self.campaign_menu.get_node("bottom/control/dialog_controls/mission_num")
+    self.difficulty_label = difficulty_button.get_node("Label")
 
-    self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/title/mission_name")
+    self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/mission_name")
     self.mission_description = self.campaign_menu.get_node("middle/control/dialog_controls/Introduction")
     self.team = self.campaign_menu.get_node("middle/control/dialog_controls/team")
 
@@ -39,6 +43,7 @@ func bind_campaign_menu():
     self.start_button.connect("pressed", self, "_start_button_pressed")
     self.prev_button.connect("pressed", self, "_prev_button_pressed")
     self.next_button.connect("pressed", self, "_next_button_pressed")
+    self.difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
 
 func _back_button_pressed():
     self.root.sound_controller.play('menu')
@@ -52,7 +57,10 @@ func _prev_button_pressed():
 func _next_button_pressed():
     self.root.sound_controller.play('menu')
     self.switch_to_next()
-
+func _difficulty_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.root.settings['easy_mode'] = not self.root.settings['easy_mode']
+    self.manage_switch_buttons()
 
 func attach_campaign_menu():
     self.root.dependency_container.controllers.menu_controller.add_child(self.campaign_menu)
@@ -63,8 +71,10 @@ func show_campaign_menu():
     self.campaign_menu.show()
 
 func hide_campaign_menu():
+    self.root.menu.refresh_buttons_labels()
     self.campaign_menu.hide()
     self.root.dependency_container.controllers.menu_controller.show_control_nodes()
+    self.root.write_settings_to_file()
 
 func fill_mission_data(mission_num):
     if mission_num < 0 || mission_num > self.root.dependency_container.campaign.maps.size() - 1:
@@ -115,6 +125,11 @@ func manage_switch_buttons():
         self.button_enable_switch(next_button,false)
     else:
         self.button_enable_switch(next_button,true)
+
+    if self.root.settings['easy_mode']:
+        difficulty_label.set_text('EASY')
+    else:
+        difficulty_label.set_text('NORMAL')
 
 func button_enable_switch(button, show):
 	var temp = null

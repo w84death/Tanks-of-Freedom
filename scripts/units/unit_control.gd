@@ -1,5 +1,5 @@
 
-extends AnimatedSprite
+extends Sprite
 
 export var player = -1
 export var position_on_map = Vector2(0,0)
@@ -45,6 +45,9 @@ func set_no_ap_idle():
 		self.anim.play('idle_no_ap')
 	else:
 		self.anim.play('move')
+
+func force_no_ap_idle():
+	self.anim.play('idle_no_ap')
 
 func set_ap(value):
 	ap = value

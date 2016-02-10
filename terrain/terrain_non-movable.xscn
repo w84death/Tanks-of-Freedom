@@ -56,14 +56,14 @@
 				<int> 0 </int>
 				<resource  resource_type="Texture" path="res://assets/terrain/terrain_non-movable.png">  </resource>
 				<bool> False </bool>
-				<int> 4 </int>
+				<int> 2 </int>
 				<int> 8 </int>
 				<color> 1, 1, 1, 1 </color>
 				<rect2> 0, 0, 0, 0 </rect2>
 				<resource  resource_type="Script" path="res://scripts/terrain.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "Script" </string>
+					<string> "2D" </string>
 					<string> "__editor_plugin_states__" </string>
 					<dictionary  shared="false">
 						<string> "2D" </string>

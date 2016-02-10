@@ -1,5 +1,5 @@
 
-extends AnimatedSprite
+extends Sprite
 
 var anim
 var RANDOM_MAX

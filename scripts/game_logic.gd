@@ -15,6 +15,7 @@ var screen_size
 var half_screen_size = Vector2(0, 0)
 
 var intro = preload('res://intro.xscn').instance()
+var loading_screen = preload('res://gui/loading.xscn').instance()
 
 var action_controller
 var sound_controller = preload("sound_controller.gd").new()
@@ -41,7 +42,8 @@ var settings = {
     'music_volume': 0.5,
     'sound_volume': 0.2,
     'camera_zoom': 2,
-    'resolution': 0
+    'resolution': 0,
+    'easy_mode' : false
 }
 
 var is_map_loaded = false
