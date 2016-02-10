@@ -330,7 +330,12 @@ func is_movement_possible(field, active_field):
     return false
 
 func deduct_ap(ap):
+    var units
     self.update_ap(player_ap[current_player] - ap)
+    if self.player_ap[self.current_player] < 1:
+        units = self.positions.get_player_units(current_player)
+        for unit in units:
+            units[unit].force_no_ap_idle()
 
 func update_ap(ap):
     player_ap[current_player] = ap

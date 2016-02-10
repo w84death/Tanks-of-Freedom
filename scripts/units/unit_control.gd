@@ -46,6 +46,9 @@ func set_no_ap_idle():
 	else:
 		self.anim.play('move')
 
+func force_no_ap_idle():
+	self.anim.play('idle_no_ap')
+
 func set_ap(value):
 	ap = value
 	self.set_no_ap_idle()
