@@ -32,12 +32,14 @@ var shake_toggle_button
 var camera_follow_button
 var camera_zoom_in_button
 var camera_zoom_out_button
+var resolution_button
 
 var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
 var camera_follow_label
 var camera_zoom_label
+var resolution_label
 
 var background_map
 var root_tree
@@ -68,12 +70,14 @@ func _ready():
 	camera_follow_button = settings.get_node("camera_follow")
 	camera_zoom_in_button = settings.get_node("camera_zoom_in")
 	camera_zoom_out_button = settings.get_node("camera_zoom_out")
+	resolution_button = settings.get_node("display_mode_toggle")
 
 	sound_toggle_label = sound_toggle_button.get_node("Label")
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 	camera_follow_label = camera_follow_button.get_node("Label")
 	camera_zoom_label = settings.get_node("camera_zoom_level")
+	resolution_label = resolution_button.get_node("Label")
 
 	campaign_button.connect("pressed", self, "_campaign_button_pressed")
 	workshop_button.connect("pressed", self, "_workshop_button_pressed")
@@ -85,6 +89,7 @@ func _ready():
 	camera_follow_button.connect("pressed", self, "_toggle_follow_button_pressed")
 	camera_zoom_in_button.connect("pressed", self, "_camera_zoom_in_button_pressed")
 	camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
+	resolution_button.connect("pressed", self, "_resolution_button_pressed")
 
 	close_button.connect("pressed", self, "_close_button_pressed")
 	quit_button.connect("pressed", self, "_quit_button_pressed")
@@ -151,6 +156,10 @@ func _demo_button_pressed():
 func _maps_close_button_pressed():
 	self.root.sound_controller.play('menu')
 	self.hide_maps_menu()
+func _resolution_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.dependency_container.resolution.toggle_resolution()
+	self.refresh_buttons_labels()
 
 
 func start_demo_mode():
@@ -326,6 +335,17 @@ func refresh_buttons_labels():
 		camera_follow_label.set_text("ON")
 	else:
 		camera_follow_label.set_text("OFF")
+
+	if root.dependency_container.resolution.override_resolution:
+		self.resolution_button.set_disabled(false)
+		self.resolution_label.show()
+		if root.settings['resolution'] == root.dependency_container.resolution.UNLOCKED:
+			resolution_label.set_text('UNLOCKED')
+		else:
+			resolution_label.set_text('LOCKED')
+	else:
+		self.resolution_button.set_disabled(true)
+		self.resolution_label.hide()
 
 func quit_game():
 	OS.get_main_loop().quit()

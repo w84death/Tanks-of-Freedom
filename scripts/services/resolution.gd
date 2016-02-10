@@ -28,7 +28,10 @@ func _init_bag(bag):
 
 func calculate_locked_height():
     var ratio = self.native_resolution.y / self.native_resolution.x
-    self.locked_height = int(self.LOCKED_WIDTH * ratio)
+    if abs(ratio - 0.56) < 0.2:
+        self.locked_height = self.MINIMAL_HEIGHT
+    else:
+        self.locked_height = int(self.LOCKED_WIDTH * ratio)
 
 func check_initial_resolution():
     if self.root.settings['resolution'] != self.UNSET:
@@ -59,16 +62,18 @@ func apply_resolution():
         newsize = Vector2(self.LOCKED_WIDTH, self.locked_height)
 
     OS.set_window_resizable(true)
+    OS.set_window_fullscreen(fullscreen)
     OS.set_video_mode(newsize, fullscreen, false)
     OS.set_window_size(newsize)
-    if fullscreen:
-        OS.set_window_fullscreen(true)
     OS.set_window_resizable(false)
 
     self.bag.hud_dead_zone.screen_size = newsize
     self.bag.workshop_dead_zone.screen_size = newsize
 
 func toggle_resolution():
+    if not self.override_resolution:
+        return
+
     if self.root.settings['resolution'] == self.UNLOCKED:
         self.root.settings['resolution'] = self.LOCKED
     else:
