@@ -395,7 +395,7 @@ func perform_ai_stuff():
     return player_ap[current_player] > 0 && success
 
 func apply_handicap():
-    if self.root.settings['easy_mode']:
+    if self.root_node.settings['easy_mode']:
         if self.is_cpu_player && !(root_node.settings['cpu_1'] && root_node.settings['cpu_0']):
             return true
 
