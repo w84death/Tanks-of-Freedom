@@ -8,6 +8,7 @@ var current_map_terrain
 var camera_pos
 var game_scale
 var scale_root
+var loading_container
 var camera
 var hud_template = preload('res://gui/gui.xscn')
 var menu
@@ -123,6 +124,7 @@ func start_ai_timer():
 
 func load_map(template_name, workshop_file_name = false):
     var human_player = 'cpu_0'
+    self.add_child(self.loading_screen)
     self.unload_map()
     self.menu.hide_background_map()
     current_map_name = template_name
@@ -165,6 +167,7 @@ func load_map(template_name, workshop_file_name = false):
     if (menu && menu.close_button):
         menu.close_button.show()
     is_map_loaded = true
+    self.remove_child(self.loading_screen)
     set_process_input(true)
 
     if settings[human_player]:
@@ -186,6 +189,7 @@ func unload_map():
     current_map.queue_free()
     current_map = null
     current_map_terrain = null
+    self.hud_controller.disable_back_to_workshop()
     self.hud_controller.detach_hud_panel()
     self.remove_child(hud)
     hud.queue_free()
@@ -286,7 +290,8 @@ func write_settings_to_file():
     settings_file.close()
 
 func _ready():
-    scale_root = get_node("/root/game/viewport/pixel_scale")
+    self.loading_container = self.get_node('/root/game/viewport')
+    self.scale_root = self.loading_container.get_node("pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
     self.dependency_container.init_root(self)

@@ -105,6 +105,7 @@ func play_map():
 	self.root.menu.hide_workshop()
 	self.root.toggle_menu()
 	self.root.dependency_container.match_state.set_workshop_map()
+	self.root.hud_controller.enable_back_to_workshop()
 
 func save_map(name, input = false):
 	if input:
