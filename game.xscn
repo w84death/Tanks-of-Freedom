@@ -247,9 +247,9 @@
 						<string> "Script" </string>
 						<dictionary  shared="false">
 							<string> "current" </string>
-							<int> 9 </int>
+							<int> 10 </int>
 							<string> "sources" </string>
-							<array  len="10" shared="false">
+							<array  len="11" shared="false">
 								<string> "res://scripts/map_controller.gd" </string>
 								<string> "res://scripts/hud_controller.gd" </string>
 								<string> "res://scripts/game_logic.gd" </string>
@@ -260,6 +260,7 @@
 								<string> "res://scripts/units/soldier.gd" </string>
 								<string> "res://scripts/units/helicopter.gd" </string>
 								<string> "res://scripts/controllers/action_controller.gd" </string>
+								<string> "res://scripts/saving.gd" </string>
 							</array>
 						</dictionary>
 					</dictionary>
@@ -412,7 +413,7 @@
 				<resource name=""></resource>				<real> 12 </real>
 				<resource  resource_type="Script" path="res://scripts/ai_timer.gd">  </resource>
 				<resource  resource_type="Script" path="res://scripts/demo_timer.gd">  </resource>
-				<rect2> 0, 0, 800, 480 </rect2>
+				<rect2> 0, 0, 1280, 720 </rect2>
 				<vector2> 0, 0 </vector2>
 				<vector2> 1, 1 </vector2>
 				<int> 0 </int>

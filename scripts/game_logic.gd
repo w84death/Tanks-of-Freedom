@@ -25,22 +25,23 @@ var hud
 var ai_timer
 
 var dependency_container = preload('res://scripts/dependency_container.gd').new()
+var bag = dependency_container
 
 var map_template = preload('res://maps/workshop.xscn')
 var main_tileset = preload("res://maps/map_tileset.xml")
 
 var settings = {
-	'is_ok' : true,
-	'sound_enabled' : true,
-	'music_enabled' : true,
-	'shake_enabled' : true,
-	'cpu_0' : false,
-	'cpu_1' : true,
-	'turns_cap': 0,
-	'camera_follow': true,
-	'music_volume': 0.5,
-	'sound_volume': 0.2,
-	'camera_zoom': 2
+    'is_ok' : true,
+    'sound_enabled' : true,
+    'music_enabled' : true,
+    'shake_enabled' : true,
+    'cpu_0' : false,
+    'cpu_1' : true,
+    'turns_cap': 0,
+    'camera_follow': true,
+    'music_volume': 0.5,
+    'sound_volume': 0.2,
+    'camera_zoom': 2
 }
 
 var is_map_loaded = false
@@ -58,237 +59,221 @@ var registered_click = false
 var registered_click_position = Vector2(0, 0)
 var registered_click_threshold = 10
 
+const SETTINGS_PATH = "user://settings.tof"
+
 func _input(event):
-	if is_demo == true:
-		is_demo = false
-		get_node("DemoTimer").stop()
+    if is_demo == true:
+        is_demo = false
+        get_node("DemoTimer").stop()
 
-	if is_map_loaded && is_paused == false:
-		if is_locked_for_cpu == false:
-			game_scale = self.camera.get_scale()
-			camera_pos = self.camera.get_pos()
+    if is_map_loaded && is_paused == false:
+        if is_locked_for_cpu == false:
+            game_scale = self.camera.get_scale()
+            camera_pos = self.camera.get_pos()
 
-			if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
-					self.is_camera_drag = event.pressed
-					self.dependency_container.camera.mouse_dragging = event.pressed
+            if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
+                    self.is_camera_drag = event.pressed
+                    self.bag.camera.mouse_dragging = event.pressed
 
-			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
-				var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
-				var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
-				selector_position = current_map_terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
-			if (event.type == InputEvent.MOUSE_MOTION):
-				var position = current_map_terrain.map_to_world(selector_position)
-				position.y += 4
-				selector.set_pos(position)
-				if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
-					self.registered_click = false
-				if self.is_camera_drag:
-					camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
-					camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
-					self.camera.set_pos(camera_pos)
+            if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
+                var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
+                var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
+                selector_position = current_map_terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
+            if (event.type == InputEvent.MOUSE_MOTION):
+                var position = current_map_terrain.map_to_world(selector_position)
+                position.y += 4
+                selector.set_pos(position)
+                if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
+                    self.registered_click = false
+                if self.is_camera_drag:
+                    camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
+                    camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
+                    self.camera.set_pos(camera_pos)
 
-			# MOUSE SELECT
-			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-				if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
-					var position = current_map_terrain.map_to_world(selector_position)
-					if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
-						if event.is_pressed():
-							self.registered_click = true
-							self.registered_click_position = Vector2(event.x, event.y)
-						else:
-							if self.registered_click:
-								action_controller.handle_action(selector_position)
-								self.registered_click = false
+            # MOUSE SELECT
+            if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
+                if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
+                    var position = current_map_terrain.map_to_world(selector_position)
+                    if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
+                        if event.is_pressed():
+                            self.registered_click = true
+                            self.registered_click_position = Vector2(event.x, event.y)
+                        else:
+                            if self.registered_click:
+                                action_controller.handle_action(selector_position)
+                                self.registered_click = false
 
-		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
-			if hud.is_visible():
-				hud.hide()
-			else:
-				hud.show()
+        if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
+            if hud.is_visible():
+                hud.hide()
+            else:
+                hud.show()
 
-	if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
-		self.toggle_menu()
+    if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
+        self.toggle_menu()
 
 func start_ai_timer():
-	ai_timer.reset_state()
-	ai_timer.inject_action_controller(action_controller, hud_controller)
-	ai_timer.start()
+    ai_timer.reset_state()
+    ai_timer.inject_action_controller(action_controller, hud_controller)
+    ai_timer.start()
 
 func load_map(template_name, workshop_file_name = false):
-	var human_player = 'cpu_0'
-	self.unload_map()
-	self.menu.hide_background_map()
-	current_map_name = template_name
-	current_map = map_template.instance()
-	current_map.get_node('terrain').set_tileset(self.main_tileset)
-	current_map.campaign = dependency_container.campaign
-	self.workshop_file_name = workshop_file_name
-	if workshop_file_name:
-		self.is_from_workshop = true
-		current_map.load_map(workshop_file_name)
-	else:
-		human_player = 'cpu_' + str(self.dependency_container.campaign.get_map_player(template_name))
-		self.is_from_workshop = false
-		self.settings['cpu_0'] = true
-		self.settings['cpu_1'] = true
-		self.settings[human_player] = false
-		current_map.load_campaign_map(template_name)
-	current_map.show_blueprint = false
-	hud = hud_template.instance()
+    var human_player = 'cpu_0'
+    self.unload_map()
+    self.menu.hide_background_map()
+    current_map_name = template_name
+    current_map = map_template.instance()
+    current_map.get_node('terrain').set_tileset(self.main_tileset)
+    current_map.campaign = bag.campaign
+    self.workshop_file_name = workshop_file_name
+    if workshop_file_name:
+        self.is_from_workshop = true
+        current_map.load_map(workshop_file_name)
+    else:
+        human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
+        self.is_from_workshop = false
+        self.settings['cpu_0'] = true
+        self.settings['cpu_1'] = true
+        self.settings[human_player] = false
+        current_map.load_campaign_map(template_name)
+    current_map.show_blueprint = false
+    hud = hud_template.instance()
 
-	current_map_terrain = current_map.get_node("terrain")
-	current_map_terrain.add_child(selector)
+    current_map_terrain = current_map.get_node("terrain")
+    current_map_terrain.add_child(selector)
 
-	scale_root.add_child(current_map)
-	menu.raise()
-	self.add_child(hud)
+    scale_root.add_child(current_map)
+    menu.raise()
+    self.add_child(hud)
 
-	game_scale = self.dependency_container.camera.scale
-	action_controller = self.dependency_container.controllers.action_controller
-	action_controller.init_root(self, current_map, hud)
-	hud_controller = action_controller.hud_controller
-	if workshop_file_name:
-		action_controller.switch_to_player(0)
-		self.dependency_container.match_state.reset()
-	else:
-		action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
-		self.dependency_container.match_state.set_campaign_map(template_name)
-	hud_controller.show_map()
-	selector.init(self)
-	if (menu && menu.close_button):
-		menu.close_button.show()
-	is_map_loaded = true
-	set_process_input(true)
+    game_scale = self.bag.camera.scale
+    action_controller = self.bag.controllers.action_controller
+    action_controller.init_root(self, current_map, hud)
+    hud_controller = action_controller.hud_controller
+    if workshop_file_name:
+        action_controller.switch_to_player(0)
+        self.bag.match_state.reset()
+    else:
+        action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
+        self.bag.match_state.set_campaign_map(template_name)
+    hud_controller.show_map()
+    selector.init(self)
+    if (menu && menu.close_button):
+        menu.close_button.show()
+    is_map_loaded = true
+    set_process_input(true)
 
-	if settings[human_player]:
-		self.lock_for_cpu()
-	else:
-		self.unlock_for_player()
-	sound_controller.play_soundtrack()
+    if settings[human_player]:
+        self.lock_for_cpu()
+    else:
+        self.unlock_for_player()
+    sound_controller.play_soundtrack()
 
 func restart_map():
-	self.load_map(current_map_name,workshop_file_name)
+    self.load_map(current_map_name,workshop_file_name)
 
 func unload_map():
-	if is_map_loaded == false:
-		return
+    if is_map_loaded == false:
+        return
 
-	is_map_loaded = false
-	current_map_terrain.remove_child(selector)
-	scale_root.remove_child(current_map)
-	current_map.queue_free()
-	current_map = null
-	current_map_terrain = null
-	self.hud_controller.detach_hud_panel()
-	self.remove_child(hud)
-	hud.queue_free()
-	hud = null
-	selector.reset()
-	menu.close_button.hide()
-	ai_timer.reset_state()
-	hud_controller = null
-	action_controller = null
-	self.menu.show_background_map()
+    is_map_loaded = false
+    current_map_terrain.remove_child(selector)
+    scale_root.remove_child(current_map)
+    current_map.queue_free()
+    current_map = null
+    current_map_terrain = null
+    self.hud_controller.detach_hud_panel()
+    self.remove_child(hud)
+    hud.queue_free()
+    hud = null
+    selector.reset()
+    menu.close_button.hide()
+    ai_timer.reset_state()
+    hud_controller = null
+    action_controller = null
+    self.menu.show_background_map()
 
 func toggle_menu(target = 'menu'):
-	if is_map_loaded:
-		if menu.is_hidden():
-			is_paused = true
-			action_controller.stats_set_time()
-			menu.show()
-			if target == 'menu':
-				self.menu.show_main_menu()
-			if target == 'settings':
-				self.menu.show_settings()
-			hud.hide()
-		else:
-			is_paused = false
-			action_controller.stats_start_time()
-			menu.hide()
-			hud.show()
+    if is_map_loaded:
+        if menu.is_hidden():
+            is_paused = true
+            action_controller.stats_set_time()
+            menu.show()
+            if target == 'menu':
+                self.menu.show_main_menu()
+            if target == 'settings':
+                self.menu.show_settings()
+            hud.hide()
+        else:
+            is_paused = false
+            action_controller.stats_start_time()
+            menu.hide()
+            hud.show()
 
 func show_missions():
-	self.toggle_menu()
-	menu.show_maps_menu()
+    self.toggle_menu()
+    menu.show_maps_menu()
 
 func show_campaign():
-	self.toggle_menu()
-	self.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+    self.toggle_menu()
+    self.bag.controllers.campaign_menu_controller.show_campaign_menu()
 
 func load_menu():
-	menu.show()
-	is_intro = false
-	self.remove_child(intro)
-	intro.queue_free()
-	self.add_child(menu)
-	menu.close_button.hide()
+    menu.show()
+    is_intro = false
+    self.remove_child(intro)
+    intro.queue_free()
+    self.add_child(menu)
+    menu.close_button.hide()
 
 func lock_for_cpu():
-	self.is_locked_for_cpu = true
-	self.hud_controller.lock_hud()
-	self.selector.hide()
-	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
-		self.camera.camera_follow = false
-		self.hud_controller.show_cinematic_camera()
-	else:
-		self.hud_controller.hide_cinematic_camera()
+    self.is_locked_for_cpu = true
+    self.hud_controller.lock_hud()
+    self.selector.hide()
+    if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
+        self.camera.camera_follow = false
+        self.hud_controller.show_cinematic_camera()
+    else:
+        self.hud_controller.hide_cinematic_camera()
 
 func unlock_for_player():
-	self.is_locked_for_cpu = false
-	self.hud_controller.unlock_hud()
-	self.selector.show()
-	self.camera.camera_follow = true
-	self.hud_controller.hide_cinematic_camera()
+    self.is_locked_for_cpu = false
+    self.hud_controller.unlock_hud()
+    self.selector.show()
+    self.camera.camera_follow = true
+    self.hud_controller.hide_cinematic_camera()
 
 func lock_for_demo():
-	is_demo = true
-	self.lock_for_cpu()
+    is_demo = true
+    self.lock_for_cpu()
 
 func unlock_for_demo():
- 	is_demo = false
+    is_demo = false
 
 func read_settings_from_file():
-	var check
-	if settings_file.file_exists("user://settings.tof"):
-		settings_file.open("user://settings.tof",File.READ)
-		check = settings_file.get_var()
-		if self.check_file_data(check):
-			for option in check:
-				self.settings[option] = check[option]
-			#print('ToF: settings loaded from file')
-		else:
-			#print('ToF: filecheck filed! making new file with default settings')
-			self.write_settings_to_file()
-		settings_file.close()
-	else:
-		self.write_settings_to_file()
-	return
-
-func check_file_data(data):
-	if str(data) and data.has('is_ok'):
-		return true
-	else:
-		return false
+    var data
+    data = self.bag.file_handler.read(self.SETTINGS_PATH)
+    if data.empty():
+        self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
+    else:
+        for option in data:
+            self.settings[option] = data[option]
 
 func write_settings_to_file():
-	settings_file.open("user://settings.tof",File.WRITE)
-	settings_file.store_var(self.settings)
-	#print('ToF: settings saved to file')
-	settings_file.close()
-	return
+    self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
-	scale_root = get_node("/root/game/viewport/pixel_scale")
-	self.ai_timer = get_node("AITimer")
-	self.read_settings_from_file()
-	self.dependency_container.init_root(self)
-	self.camera = self.dependency_container.camera
-	self.menu = self.dependency_container.controllers.menu_controller
-	sound_controller.init_root(self)
-	menu.init_root(self)
-	menu.hide()
-	intro.init_root(self)
-	self.add_child(intro)
-	self.screen_size = get_node('/root/game/viewport').get_rect().size
-	self.half_screen_size = self.screen_size / 2
-	pass
+    scale_root = get_node("/root/game/viewport/pixel_scale")
+    self.ai_timer = get_node("AITimer")
+    self.read_settings_from_file()
+    self.bag.init_root(self)
+    self.camera = self.bag.camera
+    self.menu = self.bag.controllers.menu_controller
+    sound_controller.init_root(self)
+    menu.init_root(self)
+    menu.hide()
+    intro.init_root(self)
+    self.add_child(intro)
+    self.screen_size = get_node('/root/game/viewport').get_rect().size
+    self.half_screen_size = self.screen_size / 2
+    pass
