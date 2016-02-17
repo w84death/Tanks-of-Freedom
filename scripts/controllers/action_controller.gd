@@ -382,6 +382,7 @@ func switch_to_player(player):
         root_node.unlock_for_player()
         hud_controller.show_in_game_card([], current_player)
         self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
+        self.root_node.dependency_container.saving.save_state()
     self.root_node.dependency_container.fog_controller.clear_fog()
     self.root_node.dependency_container.ap_gain.update()
 

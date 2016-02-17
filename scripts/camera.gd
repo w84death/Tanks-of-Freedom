@@ -79,7 +79,6 @@ func camera_zoom_in():
 
 func camera_zoom_out():
     camera_zoom_do(1)
-    self.bag.saving.save_state()
 
 func set_camera_zoom(zoom_value):
     self.camera.set_zoom(Vector2(zoom_value, zoom_value))

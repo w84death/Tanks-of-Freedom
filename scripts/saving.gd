@@ -29,6 +29,7 @@ func load_state():
 
 func save_state():
     var pos
+    self.data.clear()
     for field_row in self.root_node.bag.abstract_map.fields:
         for field in field_row:
             pos = Vector2(field.position.x, field.position.y)
