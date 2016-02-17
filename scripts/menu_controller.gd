@@ -234,7 +234,9 @@ func toggle_main_menu():
 			self.hide_settings()
 		self.show_main_menu()
 
-func show_main_menu():
+func show_main_menu(force = false):
+	if force and self.get_settings_visibility():
+		self.hide_settings()
 	self.main_menu_animations.play('show_main_menu')
 
 func hide_main_menu():
@@ -254,7 +256,9 @@ func toggle_settings():
 		self.show_settings()
 		# here we coudl back to the game (if user clicked settings in game)
 
-func show_settings():
+func show_settings(force = false):
+	if force and self.get_main_menu_visibility():
+		self.hide_main_menu()
 	self.refresh_buttons_labels()
 	self.settings_animations.play('show_settings')
 

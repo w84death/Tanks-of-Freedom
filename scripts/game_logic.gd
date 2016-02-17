@@ -208,9 +208,9 @@ func toggle_menu(target = 'menu'):
             action_controller.stats_set_time()
             menu.show()
             if target == 'menu':
-                self.menu.show_main_menu()
+                self.menu.show_main_menu(true)
             if target == 'settings':
-                self.menu.show_settings()
+                self.menu.show_settings(true)
             hud.hide()
         else:
             is_paused = false
