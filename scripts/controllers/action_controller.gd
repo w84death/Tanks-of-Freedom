@@ -427,6 +427,8 @@ func end_game(winning_player):
                 self.root_node.dependency_container.controllers.campaign_menu_controller.fill_mission_data(mission_num + 1)
                 self.root_node.dependency_container.controllers.menu_controller.update_campaign_progress_label()
     self.root_node.dependency_container.match_state.reset()
+    if not self.root_node.is_demo_mode():
+        self.root_node.dependency_container.saving.invalidate_save_file()
 
 func play_destroy(field):
     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)

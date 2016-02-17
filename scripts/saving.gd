@@ -1,4 +1,4 @@
-const FILE_PATH = 'user://__save'
+const FILE_PATH = 'user://__current.save'
 
 var root_node
 var data = {}
@@ -45,6 +45,13 @@ func save_state():
     self.store_map_in_binary_file()
     self.store_map_in_plain_file(self.data)
 
+func invalidate_save_file():
+    var save_data = {
+        'map' : [],
+        'is_current' : false
+    }
+    self.bag.file_handler.write(self.FILE_PATH, map_array)
+
 func __fill_building_data(owner):
     if owner == 'red':
         buildings = self.bag.positions.buildings_player_red
@@ -69,11 +76,17 @@ func __get_building_id(type, owner):
 
 
 func store_map_in_binary_file():
-    var save_data = []
+    var save_data
+    var map_array = []
     for pos in self.data:
-        save_data.append(self.data[pos])
+        map_array.append(self.data[pos])
 
-    self.bag.file_handler.write(self.FILE_PATH + ".map", save_data)
+    save_data = {
+        'map' : map_array,
+        'is_current' : true
+    }
+
+    self.bag.file_handler.write(self.FILE_PATH, save_data)
 
 func store_map_in_plain_file(data):
     var file = self.bag.file_handler.file
