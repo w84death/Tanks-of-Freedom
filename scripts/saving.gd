@@ -43,7 +43,6 @@ func save_state():
     self.__fill_unit_data()
 
     self.store_map_in_binary_file()
-    self.store_map_in_plain_file(self.data)
 
 func invalidate_save_file():
     var save_data = {
@@ -52,6 +51,15 @@ func invalidate_save_file():
         'md5' : 0
     }
     self.bag.file_handler.write(self.FILE_PATH, save_data)
+
+func validate_data(save_data):
+    var md5 = save_data['md5']
+    save_data.erase('md5')
+    if md5 == save_data.to_json().md5_text():
+        return true
+
+    return false
+
 
 func __fill_building_data(owner):
     if owner == 'red':
@@ -90,32 +98,3 @@ func store_map_in_binary_file():
     save_data['md5'] = save_data.to_json().md5_text()
 
     self.bag.file_handler.write(self.FILE_PATH, save_data)
-
-func store_map_in_plain_file(data):
-    var file = self.bag.file_handler.file
-    file.open(self.FILE_PATH + ".gd", File.WRITE)
-    file.store_line("var map_data = [")
-    var cell_line
-    var cell
-    for pos in data:
-        cell = data[pos]
-        cell_line = "'x': " + str(cell.x) + ", "
-        cell_line += "'y': " + str(cell.y) + ", "
-        cell_line += "'terrain': " + str(cell.terrain) + ", "
-        cell_line += "'unit': " + str(cell.unit) + ", "
-        cell_line += "'meta': " + "{ "
-
-        if cell.meta.size() :
-            for meta_name in cell.meta:
-                cell_line += "'" + meta_name + "': " + str(cell.meta[meta_name]) + ", "
-
-        cell_line += "}"
-        file.store_line("	{" + cell_line + "},")
-    file.store_line("]")
-    file.close()
-
-
-
-
-
-
