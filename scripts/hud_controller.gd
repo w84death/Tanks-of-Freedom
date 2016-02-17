@@ -15,6 +15,7 @@ var cinematic_camera
 var cinematic_camera_anim
 var cinematic_progress
 var menu_button
+var menu_button_label
 var settings_button
 
 var game_card
@@ -32,6 +33,7 @@ var hud_end_game_menu_button
 var hud_end_game_missions_button_action
 
 var hud_locked = false
+var back_to_workshop = false
 var tips
 
 var tip_counter
@@ -84,6 +86,7 @@ func init_root(root, action_controller_object, hud):
 	cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
 
 	self.menu_button = hud.get_node("top_panel/center/game_card/menu")
+	self.menu_button_label = self.menu_button.get_node('Label')
 	self.settings_button = hud.get_node("top_panel/center/game_card/settings")
 	self.menu_button.connect("pressed", self, "_menu_button_pressed", ['menu'])
 	self.settings_button.connect("pressed", self, "_menu_button_pressed", ['settings'])
@@ -101,6 +104,8 @@ func _hud_message_card_button_pressed():
 func _menu_button_pressed(tab):
 	self.root.sound_controller.play('menu')
 	self.root.toggle_menu(tab)
+	if self.back_to_workshop:
+		self.root.dependency_container.controllers.menu_controller.enter_workshop()
 func _end_turn_button_pressed():
 	self.root.sound_controller.play('menu')
 	self.action_controller.end_turn()
@@ -113,6 +118,14 @@ func attach_hud_panel():
 
 func detach_hud_panel():
 	self.hud_panel_anchor.remove_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
+
+func enable_back_to_workshop():
+	self.back_to_workshop = true
+	self.menu_button_label.set_text("< WORKSHOP")
+
+func disable_back_to_workshop():
+	self.back_to_workshop = false
+	self.menu_button_label.set_text("< MAIN MENU")
 
 func show_unit_card(unit, player):
 	if self.hud_locked:
