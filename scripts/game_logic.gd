@@ -8,6 +8,7 @@ var current_map_terrain
 var camera_pos
 var game_scale
 var scale_root
+var loading_container
 var camera
 var hud_template = preload('res://gui/gui.xscn')
 var menu
@@ -15,6 +16,7 @@ var screen_size
 var half_screen_size = Vector2(0, 0)
 
 var intro = preload('res://intro.xscn').instance()
+var loading_screen = preload('res://gui/loading.xscn').instance()
 
 var action_controller
 var sound_controller = preload("sound_controller.gd").new()
@@ -41,7 +43,9 @@ var settings = {
     'camera_follow': true,
     'music_volume': 0.5,
     'sound_volume': 0.2,
-    'camera_zoom': 2
+    'camera_zoom': 2,
+    'resolution': 0,
+    'easy_mode' : false
 }
 
 var is_map_loaded = false
@@ -108,6 +112,10 @@ func _input(event):
                 hud.hide()
             else:
                 hud.show()
+
+        if event.type == InputEvent.KEY && event.scancode == KEY_A && event.pressed:
+            self.action_controller.refill_ap()
+            self.action_controller.reset_player_units(self.action_controller.current_player)
 
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
@@ -182,6 +190,7 @@ func unload_map():
     current_map.queue_free()
     current_map = null
     current_map_terrain = null
+    self.hud_controller.disable_back_to_workshop()
     self.hud_controller.detach_hud_panel()
     self.remove_child(hud)
     hud.queue_free()
@@ -250,6 +259,9 @@ func lock_for_demo():
 func unlock_for_demo():
     is_demo = false
 
+func is_demo_mode():
+    return self.is_demo or (self.settings['cpu_0'] and self.settings['cpu_1'])
+
 func read_settings_from_file():
     var data
     data = self.bag.file_handler.read(self.SETTINGS_PATH)
@@ -263,7 +275,7 @@ func write_settings_to_file():
     self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
-    scale_root = get_node("/root/game/viewport/pixel_scale")
+    self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
     self.bag.init_root(self)
@@ -276,4 +288,3 @@ func _ready():
     self.add_child(intro)
     self.screen_size = get_node('/root/game/viewport').get_rect().size
     self.half_screen_size = self.screen_size / 2
-    pass

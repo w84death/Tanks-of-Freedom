@@ -2,6 +2,15 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.4.1-beta
+- native resolution mode (not available for android)
+- settings for AI difficulty
+- resume game (limited save/load)
+- added click sounds to all buttons
+- 'camera follow' is now always on in CPU vs CPU
+- games started from Workshop now return to Workshop instead of Main Menu
+- fixed clicking on 'change tile' button in workshop placing tiles underneath it
+
 ### 0.4.0.3-beta
 - fixed AI locking-up by tank or heli trying to capture building when there are no enemies nearby
 - fixed AI-owned buildings not revealing fog of war in Demo mode

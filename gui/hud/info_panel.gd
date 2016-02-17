@@ -9,6 +9,8 @@ var info_panel_turn
 var info_panel_ap
 var info_panel_pap
 
+var max_visible_ap = 999
+
 func bind(hud_panel):
     self.info_panel = hud_panel.get_node('info_panel')
 
@@ -37,6 +39,8 @@ func reset():
     self.end_button_enable()
 
 func set_ap(ap):
+    if ap > self.max_visible_ap:
+        ap = self.max_visible_ap
     self.info_panel_ap.set_text(str(ap))
 
 func set_ap_gain(ap_gain):

@@ -27,6 +27,7 @@ var fog_controller = preload('res://scripts/fog_controller.gd').new()
 var processing = preload('res://scripts/processing.gd').new()
 var file_handler = preload('res://scripts/services/file_handler.gd').new()
 var saving = preload('res://scripts//saving.gd').new()
+var resolution = preload('res://scripts/services/resolution.gd').new()
 
 func init_root(root_node):
     self.root = root_node
@@ -36,7 +37,7 @@ func init_root(root_node):
 
     self.demo_mode.init_root(root_node)
     self.campaign.load_campaign_progress()
-    
+
     self.controllers.campaign_menu_controller.init_root(root_node)
     self.controllers.hud_panel_controller.init_root(root_node)
     self.controllers.workshop_gui_controller.init_root(root_node)
@@ -61,3 +62,5 @@ func init_root(root_node):
     self.processing._init_bag(self)
     self.processing.ready = true
     self.processing.register(self.camera)
+
+    self.resolution._init_bag(self)

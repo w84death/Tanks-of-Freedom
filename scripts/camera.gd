@@ -87,8 +87,9 @@ func set_camera_zoom(zoom_value):
     self.bag.controllers.menu_controller.update_background_scale()
 
 func move_to_map(target):
-    if not root.settings['camera_follow']:
-        return
+	if not root.settings['camera_follow']:
+		if not root.is_demo_mode():
+			return
 
     if not self.camera_follow && self.bag.fog_controller.is_fogged(target):
         return

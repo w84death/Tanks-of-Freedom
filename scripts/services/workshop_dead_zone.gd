@@ -6,15 +6,12 @@ var screen_size
 var file_panel_size = Vector2(640, 210)
 var file_panel_top_offset = 108
 var bottom_panel_size = Vector2(640, 70)
-var pick_button_size = Vector2(120, 130)
-var pick_button_offset = 255
+var pick_button_size = Vector2(135, 130)
+var pick_button_offset = 240
 
 func init_root(root_node):
-    var screen_width = Globals.get("display/width")
-    var screen_height = Globals.get("display/height")
-
     self.root = root_node
-    self.screen_size = Vector2(screen_width, screen_height)
+    self.screen_size = Vector2(1280, 720)
     self.ready = true
 
 

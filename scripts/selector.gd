@@ -1,4 +1,4 @@
-extends AnimatedSprite
+extends Sprite
 
 var anim
 var current_cost = 0

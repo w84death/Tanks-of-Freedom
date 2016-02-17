@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="15" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://assets/animations/selector_neutral_0.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_neutral_1.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_neutral_2.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_blue_0.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_blue_1.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_blue_2.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_red_0.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_red_1.png" type="Texture"></ext_resource>
-	<ext_resource path="res://assets/animations/selector_red_2.png" type="Texture"></ext_resource>
+<resource_file type="PackedScene" subresource_count="6" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
+	<ext_resource path="res://assets/gui/selectors_spritesheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/selector.gd" type="Script"></ext_resource>
-	<resource type="SpriteFrames" path="local://4">
-		<array name="frames" len="9" shared="false">
-			<resource  resource_type="Texture" path="res://assets/animations/selector_neutral_0.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_neutral_1.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_neutral_2.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_blue_0.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_blue_1.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_blue_2.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_red_0.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_red_1.png">  </resource>
-			<resource  resource_type="Texture" path="res://assets/animations/selector_red_2.png">  </resource>
-		</array>
-
-	</resource>
-	<resource type="Animation" path="local://3">
-		<real name="length"> 0.8 </real>
+	<resource type="Animation" path="local://0">
+		<string name="resource/name"> "red" </string>
+		<real name="length"> 0.4 </real>
 		<bool name="loop"> True </bool>
-		<real name="step"> 0.2 </real>
+		<real name="step"> 0.1 </real>
 		<string name="tracks/0/type"> "value" </string>
 		<node_path name="tracks/0/path"> ".:frame" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
@@ -35,14 +14,14 @@
 			<string> "cont" </string>
 			<bool> False </bool>
 			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.2, 0.4 </real_array>
+			<real_array  len="3"> 				0, 0.1, 0.2 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="3"> 				1, 1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="3" shared="false">
-				<int> 0 </int>
-				<int> 1 </int>
-				<int> 2 </int>
+				<int> 10 </int>
+				<int> 11 </int>
+				<int> 12 </int>
 			</array>
 		</dictionary>
 
@@ -64,18 +43,17 @@
 			<real_array  len="3"> 				1, 1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="3" shared="false">
-				<int> 3 </int>
-				<int> 4 </int>
-				<int> 5 </int>
+				<int> 7 </int>
+				<int> 8 </int>
+				<int> 9 </int>
 			</array>
 		</dictionary>
 
 	</resource>
 	<resource type="Animation" path="local://2">
-		<string name="resource/name"> "red" </string>
-		<real name="length"> 0.4 </real>
+		<real name="length"> 0.8 </real>
 		<bool name="loop"> True </bool>
-		<real name="step"> 0.1 </real>
+		<real name="step"> 0.2 </real>
 		<string name="tracks/0/type"> "value" </string>
 		<node_path name="tracks/0/path"> ".:frame" </node_path>
 		<int name="tracks/0/interp"> 1 </int>
@@ -83,14 +61,14 @@
 			<string> "cont" </string>
 			<bool> False </bool>
 			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.1, 0.2 </real_array>
+			<real_array  len="3"> 				0, 0.2, 0.4 </real_array>
 			<string> "transitions" </string>
 			<real_array  len="3"> 				1, 1, 1 </real_array>
 			<string> "values" </string>
 			<array  len="3" shared="false">
+				<int> 4 </int>
+				<int> 5 </int>
 				<int> 6 </int>
-				<int> 7 </int>
-				<int> 8 </int>
 			</array>
 		</dictionary>
 
@@ -102,12 +80,30 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="19">
+			<string_array  len="37">
 				<string> "selector" </string>
-				<string> "AnimatedSprite" </string>
+				<string> "Sprite" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/light_mask" </string>
+				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "transform/scale" </string>
 				<string> "z/z" </string>
-				<string> "frames" </string>
+				<string> "z/relative" </string>
+				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
 				<string> "frame" </string>
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "anim" </string>
@@ -115,9 +111,9 @@
 				<string> "playback/process_mode" </string>
 				<string> "playback/default_blend_time" </string>
 				<string> "root/root" </string>
-				<string> "anims/neutral" </string>
-				<string> "anims/blue" </string>
 				<string> "anims/red" </string>
+				<string> "anims/blue" </string>
+				<string> "anims/neutral" </string>
 				<string> "playback/active" </string>
 				<string> "playback/speed" </string>
 				<string> "blend_times" </string>
@@ -126,12 +122,23 @@
 			<string> "node_count" </string>
 			<int> 2 </int>
 			<string> "nodes" </string>
-			<int_array  len="44"> 				-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 0, 0, 8, 7, -1, 10, 9, 2, 10, 5, 11, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 11, 17, 12, 18, 13, 0 </int_array>
+			<int_array  len="82"> 				-1, -1, 1, 0, -1, 23, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 10, 18, 10, 19, 11, 20, 12, 21, 9, 22, 13, 23, 14, 24, 15, 0, 0, 0, 26, 25, -1, 11, 2, 0, 27, 3, 28, 5, 29, 16, 30, 17, 31, 18, 32, 19, 33, 1, 34, 2, 35, 20, 36, 21, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="14" shared="false">
-				<int> 60 </int>
-				<resource  resource_type="SpriteFrames" path="local://4">  </resource>
+			<array  len="22" shared="false">
+				<node_path> "" </node_path>
+				<bool> True </bool>
+				<real> 1 </real>
 				<int> 1 </int>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<int> 60 </int>
+				<resource  resource_type="Texture" path="res://assets/gui/selectors_spritesheet.png">  </resource>
+				<bool> False </bool>
+				<int> 4 </int>
+				<int> 7 </int>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
 				<resource  resource_type="Script" path="res://scripts/selector.gd">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -141,7 +148,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -151.71, -66.1709 </vector2>
+							<vector2> -179.371, -146.886 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -264,13 +271,10 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<real> 0 </real>
 				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://3">  </resource>
+				<resource  resource_type="Animation" path="local://0">  </resource>
 				<resource  resource_type="Animation" path="local://1">  </resource>
 				<resource  resource_type="Animation" path="local://2">  </resource>
-				<bool> True </bool>
-				<real> 1 </real>
 				<array  len="0" shared="false">
 				</array>
 				<string> "neutral" </string>

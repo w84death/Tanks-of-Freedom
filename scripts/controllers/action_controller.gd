@@ -1,5 +1,4 @@
 
-export var easy_mode = false
 var root_node
 var root_tree
 var ysort
@@ -331,7 +330,12 @@ func is_movement_possible(field, active_field):
     return false
 
 func deduct_ap(ap):
+    var units
     self.update_ap(player_ap[current_player] - ap)
+    if self.player_ap[self.current_player] < 1:
+        units = self.positions.get_player_units(current_player)
+        for unit in units:
+            units[unit].force_no_ap_idle()
 
 func update_ap(ap):
     player_ap[current_player] = ap
@@ -391,7 +395,7 @@ func perform_ai_stuff():
     return player_ap[current_player] > 0 && success
 
 func apply_handicap():
-    if self.easy_mode:
+    if self.root_node.settings['easy_mode']:
         if self.is_cpu_player && !(root_node.settings['cpu_1'] && root_node.settings['cpu_0']):
             return true
 

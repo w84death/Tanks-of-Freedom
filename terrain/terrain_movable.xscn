@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="2" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="2" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://assets/terrain/terrain_movable.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -8,27 +8,53 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="8">
+			<string_array  len="24">
 				<string> "terrain_movable" </string>
 				<string> "Sprite" </string>
+				<string> "_import_path" </string>
+				<string> "visibility/visible" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "visibility/light_mask" </string>
 				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "transform/scale" </string>
+				<string> "z/z" </string>
+				<string> "z/relative" </string>
 				<string> "texture" </string>
+				<string> "centered" </string>
+				<string> "offset" </string>
+				<string> "flip_h" </string>
+				<string> "flip_v" </string>
 				<string> "vframes" </string>
 				<string> "hframes" </string>
 				<string> "frame" </string>
+				<string> "modulate" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
 				<string> "__meta__" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "nodes" </string>
-			<int_array  len="19"> 				-1, -1, 1, 0, -1, 6, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 0 </int_array>
+			<int_array  len="51"> 				-1, -1, 1, 0, -1, 22, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 9, 15, 10, 16, 10, 17, 11, 18, 12, 19, 3, 20, 13, 21, 10, 22, 14, 23, 15, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="6" shared="false">
-				<vector2> 0, 0.397209 </vector2>
-				<resource  resource_type="Texture" path="res://assets/terrain/terrain_movable.png">  </resource>
-				<int> 4 </int>
-				<int> 8 </int>
+			<array  len="16" shared="false">
+				<node_path> "" </node_path>
+				<bool> True </bool>
+				<real> 1 </real>
 				<int> 1 </int>
+				<vector2> 0, 0.397209 </vector2>
+				<real> 0 </real>
+				<vector2> 1, 1 </vector2>
+				<int> 0 </int>
+				<resource  resource_type="Texture" path="res://assets/terrain/terrain_movable.png">  </resource>
+				<vector2> 0, 0 </vector2>
+				<bool> False </bool>
+				<int> 3 </int>
+				<int> 8 </int>
+				<color> 1, 1, 1, 1 </color>
+				<rect2> 0, 0, 0, 0 </rect2>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>

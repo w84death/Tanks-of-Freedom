@@ -32,12 +32,16 @@ var shake_toggle_button
 var camera_follow_button
 var camera_zoom_in_button
 var camera_zoom_out_button
+var resolution_button
+var difficulty_button
 
 var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
 var camera_follow_label
 var camera_zoom_label
+var resolution_label
+var difficulty_label
 
 var background_map
 var root_tree
@@ -68,29 +72,35 @@ func _ready():
 	camera_follow_button = settings.get_node("camera_follow")
 	camera_zoom_in_button = settings.get_node("camera_zoom_in")
 	camera_zoom_out_button = settings.get_node("camera_zoom_out")
+	resolution_button = settings.get_node("display_mode_toggle")
+	difficulty_button = settings.get_node("difficulty_mode_toggle")
 
 	sound_toggle_label = sound_toggle_button.get_node("Label")
 	music_toggle_label = music_toggle_button.get_node("Label")
 	shake_toggle_label = shake_toggle_button.get_node("Label")
 	camera_follow_label = camera_follow_button.get_node("Label")
 	camera_zoom_label = settings.get_node("camera_zoom_level")
+	resolution_label = resolution_button.get_node("Label")
+	difficulty_label = difficulty_button.get_node("Label")
 
-	campaign_button.connect("pressed", self, "show_campaign_menu")
-	workshop_button.connect("pressed", self, "enter_workshop")
-	play_button.connect("pressed", self, "show_maps_menu")
+	campaign_button.connect("pressed", self, "_campaign_button_pressed")
+	workshop_button.connect("pressed", self, "_workshop_button_pressed")
+	play_button.connect("pressed", self, "_play_button_pressed")
 
-	sound_toggle_button.connect("pressed", self, "toggle_sound")
-	music_toggle_button.connect("pressed", self, "toggle_music")
-	shake_toggle_button.connect("pressed", self, "toggle_shake")
-	camera_follow_button.connect("pressed", self, "toggle_follow")
-	camera_zoom_in_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_in")
-	camera_zoom_out_button.connect("pressed", self.root.dependency_container.camera, "camera_zoom_out")
+	sound_toggle_button.connect("pressed", self, "_toggle_sound_button_pressed")
+	music_toggle_button.connect("pressed", self, "_toggle_music_button_pressed")
+	shake_toggle_button.connect("pressed", self, "_toggle_shake_button_pressed")
+	camera_follow_button.connect("pressed", self, "_toggle_follow_button_pressed")
+	camera_zoom_in_button.connect("pressed", self, "_camera_zoom_in_button_pressed")
+	camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
+	resolution_button.connect("pressed", self, "_resolution_button_pressed")
+	difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
 
-	close_button.connect("pressed", root, "toggle_menu")
-	quit_button.connect("pressed", self, "quit_game")
-	menu_button.connect("pressed", self, "toggle_main_menu")
-	settings_button.connect("pressed", self, "toggle_settings")
-	demo_button.connect("pressed", self, "start_demo_mode")
+	close_button.connect("pressed", self, "_close_button_pressed")
+	quit_button.connect("pressed", self, "_quit_button_pressed")
+	menu_button.connect("pressed", self, "_menu_button_pressed")
+	settings_button.connect("pressed", self, "_settings_button_pressed")
+	demo_button.connect("pressed", self, "_demo_button_pressed")
 
 	self.label_completed = self.get_node("bottom/center/completed")
 	self.label_maps_created = self.get_node("bottom/center/maps_created")
@@ -106,6 +116,62 @@ func _ready():
 	self.load_background_map()
 	self.toggle_main_menu()
 
+func _campaign_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.show_campaign_menu()
+func _workshop_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.enter_workshop()
+func _play_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.show_maps_menu()
+func _toggle_sound_button_pressed():
+	self.toggle_sound()
+	self.root.sound_controller.play('menu')
+func _toggle_music_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.toggle_music()
+func _toggle_shake_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.toggle_shake()
+func _toggle_follow_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.toggle_follow()
+func _camera_zoom_in_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.dependency_container.camera.camera_zoom_in()
+func _camera_zoom_out_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.dependency_container.camera.camera_zoom_out()
+func _close_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.toggle_menu()
+func _quit_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.quit_game()
+func _menu_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.toggle_main_menu()
+func _settings_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.toggle_settings()
+func _demo_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.start_demo_mode()
+func _maps_close_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.hide_maps_menu()
+func _resolution_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.dependency_container.resolution.toggle_resolution()
+	self.refresh_buttons_labels()
+func _difficulty_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.settings['easy_mode'] = not self.root.settings['easy_mode']
+	self.refresh_buttons_labels()
+	self.root.write_settings_to_file()
+
+
 func start_demo_mode():
 	self.root.dependency_container.demo_mode.start_demo_mode(false)
 
@@ -116,7 +182,7 @@ func load_maps_menu():
 	maps_sub_menu_anchor = maps_sub_menu.get_node("middle")
 	maps_close_button = maps_sub_menu.get_node("bottom/control/menu_controls/close")
 
-	maps_close_button.connect("pressed", self, "hide_maps_menu")
+	maps_close_button.connect("pressed", self, "_maps_close_button_pressed")
 
 func show_campaign_menu():
 	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
@@ -189,6 +255,7 @@ func toggle_settings():
 		# here we coudl back to the game (if user clicked settings in game)
 
 func show_settings():
+	self.refresh_buttons_labels()
 	self.settings_animations.play('show_settings')
 
 func hide_settings():
@@ -279,6 +346,21 @@ func refresh_buttons_labels():
 		camera_follow_label.set_text("ON")
 	else:
 		camera_follow_label.set_text("OFF")
+	if root.settings['easy_mode']:
+		difficulty_label.set_text('EASY')
+	else:
+		difficulty_label.set_text('NORMAL')
+
+	if root.dependency_container.resolution.override_resolution:
+		self.resolution_button.set_disabled(false)
+		self.resolution_label.show()
+		if root.settings['resolution'] == root.dependency_container.resolution.UNLOCKED:
+			resolution_label.set_text('UNLOCKED')
+		else:
+			resolution_label.set_text('LOCKED')
+	else:
+		self.resolution_button.set_disabled(true)
+		self.resolution_label.hide()
 
 func quit_game():
 	OS.get_main_loop().quit()

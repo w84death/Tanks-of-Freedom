@@ -1,3 +1,4 @@
+var root
 var root_node
 var action_controller
 var active_map
@@ -14,6 +15,7 @@ var cinematic_camera
 var cinematic_camera_anim
 var cinematic_progress
 var menu_button
+var menu_button_label
 var settings_button
 
 var game_card
@@ -31,12 +33,14 @@ var hud_end_game_menu_button
 var hud_end_game_missions_button_action
 
 var hud_locked = false
+var back_to_workshop = false
 var tips
 
 var tip_counter
 
 func init_root(root, action_controller_object, hud):
 	self.root_node = root
+	self.root = root
 	self.action_controller = action_controller_object
 	self.hud_root = hud
 	self.attach_hud_panel()
@@ -62,8 +66,8 @@ func init_root(root, action_controller_object, hud):
 	hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
 
 	hud_end_game_missions_button.connect("pressed", self, "hud_end_game_missions_button_pressed")
-	hud_end_game_restart_button.connect("pressed", root, "restart_map")
-	hud_end_game_menu_button.connect("pressed", root, "toggle_menu")
+	hud_end_game_restart_button.connect("pressed", self, "_hud_end_game_restart_button_pressed")
+	hud_end_game_menu_button.connect("pressed", self, "_hud_end_game_menu_button_pressed")
 
 	#
 	# MESSAGE
@@ -72,7 +76,7 @@ func init_root(root, action_controller_object, hud):
 	hud_message_card = hud.get_node("message_card")
 	hud_message_card_controller = hud_message_card.get_node("center/message")
 	hud_message_card_button = hud_message_card.get_node("center/message/button")
-	hud_message_card_button.connect("pressed", self, "close_message_card")
+	hud_message_card_button.connect("pressed", self, "_hud_message_card_button_pressed")
 
 	#
 	# CPU TURN
@@ -82,18 +86,46 @@ func init_root(root, action_controller_object, hud):
 	cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
 
 	self.menu_button = hud.get_node("top_panel/center/game_card/menu")
+	self.menu_button_label = self.menu_button.get_node('Label')
 	self.settings_button = hud.get_node("top_panel/center/game_card/settings")
-	self.menu_button.connect("pressed", root, "toggle_menu", ['menu'])
-	self.settings_button.connect("pressed", root, "toggle_menu", ['settings'])
+	self.menu_button.connect("pressed", self, "_menu_button_pressed", ['menu'])
+	self.settings_button.connect("pressed", self, "_menu_button_pressed", ['settings'])
 	self.root_node.dependency_container.controllers.hud_panel_controller.reset()
+
+func _hud_end_game_restart_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.restart_map()
+func _hud_end_game_menu_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.root.toggle_menu()
+func _hud_message_card_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.close_message_card()
+func _menu_button_pressed(tab):
+	self.root.sound_controller.play('menu')
+	self.root.toggle_menu(tab)
+	if self.back_to_workshop:
+		self.root.dependency_container.controllers.menu_controller.enter_workshop()
+func _end_turn_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.action_controller.end_turn()
+
 
 func attach_hud_panel():
 	self.hud_panel_anchor = self.hud_root.get_node('bottom_panel/center')
 	self.hud_panel_anchor.add_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
-	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.bind_end_turn(self.action_controller, 'end_turn')
+	self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.bind_end_turn(self, '_end_turn_button_pressed')
 
 func detach_hud_panel():
 	self.hud_panel_anchor.remove_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
+
+func enable_back_to_workshop():
+	self.back_to_workshop = true
+	self.menu_button_label.set_text("< WORKSHOP")
+
+func disable_back_to_workshop():
+	self.back_to_workshop = false
+	self.menu_button_label.set_text("< MAIN MENU")
 
 func show_unit_card(unit, player):
 	if self.hud_locked:
@@ -167,6 +199,7 @@ func adjust_missions_button():
 		self.hud_end_game_missions_button_action = "show_missions"
 
 func hud_end_game_missions_button_pressed():
+	self.root.sound_controller.play('menu')
 	self.call(self.hud_end_game_missions_button_action)
 
 func show_campaign():
