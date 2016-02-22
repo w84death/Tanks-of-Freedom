@@ -495,8 +495,7 @@ func spawn_unit(x, y, type):
 	var temp = map_units[type].instance()
 	temp.set_pos(terrain.map_to_world(Vector2(x,y)))
 	map_layer_front.add_child(temp)
-	temp = null
-	return
+	return temp
 
 func generate_underground(x, y):
 	var temp = null

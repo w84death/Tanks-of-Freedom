@@ -23,8 +23,8 @@ func init_root(root):
     }
 
     self.unit_map = {
-        0 : [t.UNIT_INFANTRY_RED, t.UNIT_TANK_RED, t.UNIT_HELICOPTER_RED],
-        1 : [t.UNIT_INFANTRY_BLUE, t.UNIT_TANK_BLUE, t.UNIT_HELICOPTER_BLUE]
+        0 : [0, 1, 2],
+        1 : [3, 4, 5]
     }
 
 func load_state():
@@ -35,7 +35,7 @@ func load_state():
 func load_map_state():
     self.remove_units_from_map()
     self.apply_units_from_save()
-    self.apply_saved_buildings()
+    self.apply_saved_terrain()
 
 func remove_units_from_map():
     var units = self.root_tree.get_nodes_in_group('units')
@@ -43,10 +43,23 @@ func remove_units_from_map():
         unit.get_parent().remove_child(unit)
         unit.remove_from_group('units')
 
-func apply_saved_buildings():
-    return
+func apply_units_from_save():
+    var new_unit
+    for field in self.loaded_data['map']:
+        if field['unit'] != -1:
+            new_unit = self.root_node.current_map.spawn_unit(field['x'], field['y'], field['unit'])
+            new_unit.set_ap(field['meta']['ap'])
+            new_unit.set_hp(field['meta']['hp'])
+            new_unit.kills = field['meta']['kills']
 
 func apply_saved_buildings():
+    var abstract_field
+    for field in self.loaded_data['map']:
+        if field['building'] != -1:
+            abstract_field = self.bag.abstract_map.get_field(Vector2(field['x'], field['y']))
+            abstract_field.object.claim(field['meta']['owner'], field['meta']['turn_claimed'])
+
+func apply_saved_terrain():
     return
 
 func apply_saved_environment_settings():
@@ -64,7 +77,9 @@ func save_state():
     for field_row in self.root_node.bag.abstract_map.fields:
         for field in field_row:
             pos = Vector2(field.position.x, field.position.y)
-            self.data[pos] = {'x' : field.position.x, 'y': field.position.y, 'terrain': field.terrain_type, 'unit' : -1, 'meta': {}}
+            self.data[pos] = {'x' : field.position.x, 'y': field.position.y, 'terrain': field.terrain_type, 'unit' : -1, 'building' : -1, 'meta': {}}
+            if field.object != null and field.object.group == 'terrain':
+                self.data[pos]['meta'] = {'is_terrain' : true, 'damage' : field.object.damage}
 
     #buildings
     self.__fill_building_data('none')
@@ -102,6 +117,7 @@ func __fill_building_data(owner):
 
     for building_pos in buildings:
         data[building_pos]['building'] = self.__get_building_id(buildings[building_pos].type, owner)
+        data[building_pos]['meta'] = {'owner' : buildings[building_pos].player, 'turn_claimed' : buildings[building_pos].turn_claimed}
 
 func __fill_unit_data():
     var units = self.bag.positions.all_units
@@ -109,7 +125,7 @@ func __fill_unit_data():
     for pos in units:
         unit = units[pos]
         self.data[pos]['unit'] = self.unit_map[unit.player][unit.type]
-        self.data[pos]['meta'] = {'hp' : unit.life, 'ap' : unit.ap, 'player' : unit.player, 'type' : unit.type}
+        self.data[pos]['meta'] = {'hp' : unit.life, 'ap' : unit.ap, 'kills' : unit.kills}
 
 func __get_building_id(type, owner):
     return self.building_map[owner][type]
@@ -126,7 +142,12 @@ func store_map_in_binary_file():
         'is_current' : true,
         'template_name' : self.root_node.current_map_name,
         'from_workshop' : self.root_node.workshop_file_name,
+        'is_from_workshop' : self.root_node.is_from_workshop,
         'active_player' : self.root_node.action_controller.current_player
+        'cpu_0' : self.root_node.settings['cpu_0'],
+        'cpu_1' : self.root_node.settings['cpu_1'],
+        'turns_cap' : self.root_node.settings['turns_cap'],
+        'easy_mode' : self.root_node.settings['easy_mode']
     }
 
     save_data['md5'] = save_data.to_json().md5_text()
