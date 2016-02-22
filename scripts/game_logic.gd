@@ -125,7 +125,7 @@ func start_ai_timer():
     ai_timer.inject_action_controller(action_controller, hud_controller)
     ai_timer.start()
 
-func load_map(template_name, workshop_file_name = false):
+func load_map(template_name, workshop_file_name = false, load_saved_state = false):
     var human_player = 'cpu_0'
     self.unload_map()
     self.menu.hide_background_map()
@@ -154,16 +154,25 @@ func load_map(template_name, workshop_file_name = false):
     menu.raise()
     self.add_child(hud)
 
+    if load_saved_state:
+        self.bag.saving.load_map_state()
+
     game_scale = self.bag.camera.scale
     action_controller = self.bag.controllers.action_controller
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
-    if workshop_file_name:
-        action_controller.switch_to_player(0)
-        self.bag.match_state.reset()
+
+    if load_saved_state:
+        self.bag.saving.apply_saved_environment_settings()
+        self.action_controller.switch_to_player(self.bag.saving.get_active_player_id())
+        human_player = self.bag.saving.get_active_player_key()
     else:
-        action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
-        self.bag.match_state.set_campaign_map(template_name)
+        if workshop_file_name:
+            action_controller.switch_to_player(0)
+            self.bag.match_state.reset()
+        else:
+            action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
+            self.bag.match_state.set_campaign_map(template_name)
     hud_controller.show_map()
     selector.init(self)
     if (menu && menu.close_button):
@@ -178,7 +187,7 @@ func load_map(template_name, workshop_file_name = false):
     sound_controller.play_soundtrack()
 
 func restart_map():
-    self.load_map(current_map_name,workshop_file_name)
+    self.load_map(current_map_name, workshop_file_name)
 
 func unload_map():
     if is_map_loaded == false:

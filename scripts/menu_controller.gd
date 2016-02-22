@@ -299,6 +299,14 @@ func load_map(name, from_workshop):
 	workshop.is_working = false
 	workshop.is_suspended = true
 
+func resume_map():
+	self.root.dependency_container.saving.load_state()
+	root.toggle_menu()
+	self.hide_maps_menu()
+	workshop.hide()
+	workshop.is_working = false
+	workshop.is_suspended = true
+
 func toggle_sound():
 	root.settings['sound_enabled'] = not root.settings['sound_enabled']
 	self.refresh_buttons_labels()
