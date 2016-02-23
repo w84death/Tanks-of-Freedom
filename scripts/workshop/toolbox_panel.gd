@@ -36,8 +36,8 @@ func bind_panel(toolbox_panel_wrapper_node):
     self.refresh_axis_button_label(self.fill_y_button_label, 1)
 
     self.fill_button.connect("pressed", self, "fill_button_pressed")
-    self.clear_terrain_button.connect("pressed", self.workshop ,"_clear_button_pressed", [0])
-    self.clear_units_button.connect("pressed", self.workshop, "_clear_button_pressed", [1])
+    self.clear_terrain_button.connect("pressed", self ,"_clear_button_pressed", [0])
+    self.clear_units_button.connect("pressed", self, "_clear_button_pressed", [1])
 
 func _clear_button_pressed(layer_id):
     self.root.sound_controller.play('menu')
