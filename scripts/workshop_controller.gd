@@ -89,7 +89,7 @@ func undo_last_action():
 
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
-	#self.center_camera()
+	self.center_camera()
 
 func toolbox_clear(layer):
 	if layer == 0:
@@ -227,10 +227,10 @@ func close_message():
 	self.hud_message.hide()
 
 func center_camera():
-	self.map.move_to_map(Vector2(self.map.MAP_MAX_X / 2, self.map.MAP_MAX_Y / 2))
+	self.camera.set_pos(Vector2(self.MAP_MAX_X / 2, self.MAP_MAX_Y / 2))
 
 func show():
-	#self.center_camera()
+	self.center_camera()
 	camera.set_zoom(self.root.dependency_container.camera.camera.get_zoom())
 	.show()
 
