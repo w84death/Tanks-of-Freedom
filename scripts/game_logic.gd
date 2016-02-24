@@ -162,20 +162,22 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
 
-    self.bag.match_state.reset()
-    if not workshop_file_name:
-        self.bag.match_state.set_campaign_map(template_name)
-
     if load_saved_state:
         self.bag.saving.apply_saved_buildings()
         self.bag.saving.apply_saved_environment_settings()
         self.action_controller.switch_to_player(self.bag.saving.get_active_player_id())
         human_player = self.bag.saving.get_active_player_key()
+        self.bag.saving.apply_saved_action_state()
+
+        action_controller.refresh_hud()
     else:
         if workshop_file_name:
             action_controller.switch_to_player(0)
+            self.bag.match_state.reset()
         else:
             action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
+            self.bag.match_state.set_campaign_map(template_name)
+
     hud_controller.show_map()
     self.selector.init(self)
     self.is_map_loaded = true
