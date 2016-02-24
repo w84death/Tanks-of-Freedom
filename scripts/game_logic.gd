@@ -162,9 +162,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
 
-    if workshop_file_name:
-        self.bag.match_state.reset()
-    else:
+    self.bag.match_state.reset()
+    if not workshop_file_name:
         self.bag.match_state.set_campaign_map(template_name)
 
     if load_saved_state:
