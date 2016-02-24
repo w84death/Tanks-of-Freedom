@@ -77,7 +77,7 @@ func apply_saved_terrain():
                 terrain_object = self.get_terrain_object_by_unique_type(field['meta']['type'])
                 if field['meta']['frame'] > 0:
                     terrain_object.set_frame(field['meta']['frame'])
-                for i in range(field['meta']['damage'])
+                for i in range(field['meta']['damage']):
                     terrain_object.set_damage()
                 self.root_node.current_map.map_layer_front.add_child(terrain_object)
 
@@ -197,7 +197,7 @@ func store_map_in_binary_file():
         'template_name' : self.root_node.current_map_name,
         'from_workshop' : self.root_node.workshop_file_name,
         'is_from_workshop' : self.root_node.is_from_workshop,
-        'active_player' : self.root_node.action_controller.current_player
+        'active_player' : self.root_node.action_controller.current_player,
         'cpu_0' : self.root_node.settings['cpu_0'],
         'cpu_1' : self.root_node.settings['cpu_1'],
         'turns_cap' : self.root_node.settings['turns_cap'],
