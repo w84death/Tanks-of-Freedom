@@ -167,6 +167,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         self.bag.saving.apply_saved_environment_settings()
         self.action_controller.switch_to_player(self.bag.saving.get_active_player_id())
         human_player = self.bag.saving.get_active_player_key()
+        if not workshop_file_name:
+            self.bag.match_state.set_campaign_map(template_name)
     else:
         if workshop_file_name:
             action_controller.switch_to_player(0)
