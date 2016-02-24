@@ -38,10 +38,19 @@ func load_map_state():
     self.apply_saved_terrain()
 
 func remove_units_from_map():
-    var units = self.root_tree.get_nodes_in_group('units')
-    for unit in units:
-        unit.get_parent().remove_child(unit)
-        unit.remove_from_group('units')
+    self.remove_objects_group_from_map('units')
+
+func remove_terrain_objects_from_map():
+    self.remove_objects_group_from_map('terrain')
+
+func remove_objects_group_from_map(group_tag):
+    var objects = self.root_tree.get_nodes_in_group(group_tag)
+    for object in objects:
+        if object.group == 'terrain' && object.unique_type_id == object.CITY_FENCE:
+            continue
+        object.get_parent().remove_child(object)
+        object.remove_from_group(group_tag)
+        object.queue_free()
 
 func apply_units_from_save():
     var new_unit
@@ -60,7 +69,47 @@ func apply_saved_buildings():
             abstract_field.object.claim(field['meta']['owner'], field['meta']['turn_claimed'])
 
 func apply_saved_terrain():
-    return
+    var terrain_object
+    for field in self.loaded_data['map']:
+        if field['terrain'] > -1:
+            self.root_node.current_map_terrain.set_cell(field['x'], field['y'], field['terrain'])
+            if field['meta'].has('is_terrain') and field['meta']['is_terrain']:
+                terrain_object = self.get_terrain_object_by_unique_type(field['meta']['type'])
+                if field['meta']['frame'] > 0:
+                    terrain_object.set_frame(field['meta']['frame'])
+                for i in range(field['meta']['damage'])
+                    terrain_object.set_damage()
+                self.root_node.current_map.map_layer_front.add_child(terrain_object)
+
+
+func get_terrain_object_by_unique_type(unique_type_id):
+    if unique_type_id == self.t.CITY_SMALL_1:
+        return self.root_node.current_map.map_city_small[0].instance()
+    if unique_type_id == self.t.CITY_SMALL_2:
+        return self.root_node.current_map.map_city_small[1].instance()
+    if unique_type_id == self.t.CITY_SMALL_3:
+        return self.root_node.current_map.map_city_small[2].instance()
+    if unique_type_id == self.t.CITY_SMALL_4:
+        return self.root_node.current_map.map_city_small[3].instance()
+    if unique_type_id == self.t.CITY_SMALL_5:
+        return self.root_node.current_map.map_city_small[4].instance()
+    if unique_type_id == self.t.CITY_SMALL_6:
+        return self.root_node.current_map.map_city_small[5].instance()
+
+    if unique_type_id == self.t.CITY_BIG_1:
+        return self.root_node.current_map.map_city_big[0].instance()
+    if unique_type_id == self.t.CITY_BIG_2:
+        return self.root_node.current_map.map_city_big[1].instance()
+    if unique_type_id == self.t.CITY_BIG_3:
+        return self.root_node.current_map.map_city_big[2].instance()
+    if unique_type_id == self.t.CITY_BIG_4:
+        return self.root_node.current_map.map_city_big[3].instance()
+
+    if unique_type_id == self.t.CITY_STATUE:
+        return self.root_node.current_map.map_statue.instance()
+    if unique_type_id == self.t.COUNTRY_FOREST_MOUNTAIN:
+        return self.root_node.current_map.map_non_movable.instance()
+
 
 func apply_saved_environment_settings():
     return
@@ -79,7 +128,12 @@ func save_state():
             pos = Vector2(field.position.x, field.position.y)
             self.data[pos] = {'x' : field.position.x, 'y': field.position.y, 'terrain': field.terrain_type, 'unit' : -1, 'building' : -1, 'meta': {}}
             if field.object != null and field.object.group == 'terrain':
-                self.data[pos]['meta'] = {'is_terrain' : true, 'damage' : field.object.damage}
+                self.data[pos]['meta'] = {
+                    'is_terrain' : true,
+                    'damage' : field.object.damage,
+                    'type' : field.object.unique_type_id,
+                    'frame' : field.object.get_frame()
+                }
 
     #buildings
     self.__fill_building_data('none')

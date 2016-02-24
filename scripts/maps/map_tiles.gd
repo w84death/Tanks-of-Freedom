@@ -41,3 +41,21 @@ const UNIT_TANK_RED = 31
 const UNIT_HELICOPTER_RED = 32
 
 const ICON_EREASE = 18
+
+
+
+const CITY_SMALL_1 = 0
+const CITY_SMALL_2 = 1
+const CITY_SMALL_3 = 2
+const CITY_SMALL_4 = 3
+const CITY_SMALL_5 = 4
+const CITY_SMALL_6 = 5
+
+const CITY_BIG_1 = 6
+const CITY_BIG_2 = 7
+const CITY_BIG_3 = 8
+const CITY_BIG_4 = 9
+
+const CITY_STATUE = 10
+const CITY_FENCE = 11
+const COUNTRY_FOREST_MOUNTAIN = 12
