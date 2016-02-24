@@ -6,10 +6,7 @@ func read(path):
     var data = file.get_var()
     file.close()
 
-    if self.__check_file_data(data):
-        return data
-    else:
-        return false
+    return data
 
 func write(path, data):
     file.open(path, File.WRITE)
@@ -22,9 +19,3 @@ func __create_file_if_no_exists(path):
         return false
 
     return true
-
-func __check_file_data(data):
-    if str(data) and data.has('is_ok'):
-        return true
-    else:
-        return false

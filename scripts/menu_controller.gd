@@ -4,6 +4,7 @@ var control_nodes
 
 var play_button
 var close_button
+var close_button_label
 var demo_button
 var quit_button
 
@@ -57,6 +58,8 @@ func _ready():
 	close_button = get_node("top/center/close")
 	quit_button = get_node("top/center/quit")
 	demo_button = get_node("bottom/center/demo")
+
+	close_button_label = close_button.get_node('Label')
 
 	main_menu = get_node("middle/center/game_panel")
 	settings = get_node("middle/center/settings_panel")
@@ -145,6 +148,8 @@ func _camera_zoom_out_button_pressed():
 	self.root.dependency_container.camera.camera_zoom_out()
 func _close_button_pressed():
 	self.root.sound_controller.play('menu')
+	if not self.root.is_map_loaded:
+		self.root.dependency_container.saving.load_state()
 	self.root.toggle_menu()
 func _quit_button_pressed():
 	self.root.sound_controller.play('menu')
@@ -265,6 +270,15 @@ func show_settings(force = false):
 func hide_settings():
 	self.settings_animations.play('hide_settings')
 
+func manage_close_button():
+	if self.root.is_map_loaded:
+		self.close_button.show()
+		self.close_button_label.set_text('< BACK TO GAME')
+	elif self.root.dependency_container.saving.is_save_available():
+		self.close_button.show()
+		self.close_button_label.set_text('< RESUME')
+	else:
+    	self.close_button.hide()
 
 # WORKSHOP
 func load_workshop():

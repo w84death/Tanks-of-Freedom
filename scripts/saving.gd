@@ -27,8 +27,17 @@ func init_root(root):
         1 : [3, 4, 5]
     }
 
-func load_state():
+func load_save_file_contents():
     self.loaded_data = self.bag.file_handler.read(self.FILE_PATH)
+    if self.loaded_data == false:
+        self.loaded_data = {
+            'map' : [],
+            'is_current' : false,
+            'md5' : 0
+        }
+
+func load_state():
+    self.load_save_file_contents()
 
     self.bag.root.load_map(self.loaded_data['template_name'], self.loaded_data['from_workshop'], true)
 
@@ -207,3 +216,7 @@ func store_map_in_binary_file():
     save_data['md5'] = save_data.to_json().md5_text()
 
     self.bag.file_handler.write(self.FILE_PATH, save_data)
+
+func is_save_available():
+    self.load_save_file_contents()
+    return self.loaded_data['is_current']

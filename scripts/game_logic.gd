@@ -175,10 +175,10 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
             action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
             self.bag.match_state.set_campaign_map(template_name)
     hud_controller.show_map()
-    selector.init(self)
-    if (menu && menu.close_button):
-        menu.close_button.show()
-    is_map_loaded = true
+    self.selector.init(self)
+    self.is_map_loaded = true
+    if menu:
+        menu.manage_close_button()
     set_process_input(true)
 
     if settings[human_player]:
@@ -206,11 +206,11 @@ func unload_map():
     hud.queue_free()
     hud = null
     selector.reset()
-    menu.close_button.hide()
     ai_timer.reset_state()
     hud_controller = null
     action_controller = null
     self.menu.show_background_map()
+    self.menu.manage_close_button()
 
 func toggle_menu(target = 'menu'):
     if is_map_loaded:
@@ -243,7 +243,7 @@ func load_menu():
     self.remove_child(intro)
     intro.queue_free()
     self.add_child(menu)
-    menu.close_button.hide()
+    menu.manage_close_button()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
