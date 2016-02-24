@@ -369,8 +369,8 @@ func switch_to_player(player):
     self.reset_player_units(player)
     selector.set_player(player);
     self.root_node.dependency_container.abstract_map.map.current_player = player
-    self.refill_ap()
     if root_node.settings['cpu_' + str(player)]:
+        self.refill_ap()
         root_node.start_ai_timer()
         root_node.lock_for_cpu()
         self.move_camera_to_active_bunker()
@@ -381,6 +381,7 @@ func switch_to_player(player):
         hud_controller.show_in_game_card([], current_player)
         self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
         self.root_node.dependency_container.saving.save_state()
+        self.refill_ap()
     self.root_node.dependency_container.fog_controller.clear_fog()
     self.root_node.dependency_container.ap_gain.update()
 
