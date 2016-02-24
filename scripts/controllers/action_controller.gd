@@ -17,7 +17,6 @@ var actual_movement_tiles = {}
 
 var current_player = 0
 var player_ap = [0,0]
-var player_ap_max = 1
 var turn = 1
 var title
 var camera
@@ -50,7 +49,6 @@ func reset():
     self.current_player = 0
     self.is_cpu_player = false
     self.player_ap = [0, 0]
-    self.player_ap_max = 1
     self.turn = 1
     self.title = null
     self.camera = null
@@ -274,7 +272,7 @@ func attach_objects(collection):
 func end_turn():
     self.stats_set_time()
     if self.root_node.settings['turns_cap'] > 0:
-        if turn >= self.root_node.settings['turns_cap']:
+        if self.turn >= self.root_node.settings['turns_cap']:
             self.end_game(-1)
             return
 
@@ -283,7 +281,7 @@ func end_turn():
         self.switch_to_player(1)
     else:
         self.switch_to_player(0)
-        turn += 1
+        self.turn += 1
     hud_controller.set_turn(turn)
 
     #gather stats

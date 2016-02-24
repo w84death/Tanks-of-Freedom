@@ -209,8 +209,12 @@ func store_map_in_binary_file():
         'active_player' : self.root_node.action_controller.current_player,
         'cpu_0' : self.root_node.settings['cpu_0'],
         'cpu_1' : self.root_node.settings['cpu_1'],
+        'player_0_ap' : self.root_node.action_controller.player_ap[0],
+        'player_1_ap' : self.root_node.action_controller.player_ap[1],
         'turns_cap' : self.root_node.settings['turns_cap'],
-        'easy_mode' : self.root_node.settings['easy_mode']
+        'easy_mode' : self.root_node.settings['easy_mode'],
+        'turn': self.root_node.action_controller.turn,
+        'battle_stats' : self.root_node.action_controller.battle_stats
     }
 
     save_data['md5'] = save_data.to_json().md5_text()
