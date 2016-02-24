@@ -72,6 +72,8 @@ func attach_panel(container_node):
         self.detach_panel()
     self.current_container = container_node
     self.current_container.add_child(self.picker)
+    self.fill_page()
+    self.adjust_page_buttons()
 
 func detach_panel():
     if self.current_container != null:

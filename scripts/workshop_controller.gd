@@ -111,13 +111,13 @@ func save_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if not map.save_map(name):
-		self.show_message("Failure!", "File error File name: "+str(name))
+		self.show_message("Failure!", "File error File name: "+str(name), 'Double check for typos!', "OK")
 
 func load_map(name, input = false):
 	if input:
 		name = name.get_text()
 	if not map.load_map(name):
-		self.show_message("Failure!", "File not found File name: "+str(name))
+		self.show_message("Failure!", "File not found File name: "+str(name), 'Double check for typos!', "OK")
 
 func paint(position, tool_type = null, brush_type = null, undo_action = false):
 	if hud_message.is_visible():
@@ -219,8 +219,8 @@ func toggle_menu():
 		self.is_suspended = true
 		root.menu.hide_workshop()
 
-func show_message(title, msg):
-	self.hud_message_box.show_message(title, msg)
+func show_message(title, msg, footer, button):
+	self.hud_message_box.show_message(title, msg, footer, button)
 	self.hud_message.show()
 
 func close_message():
