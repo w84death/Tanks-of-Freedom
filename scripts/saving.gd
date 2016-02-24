@@ -10,10 +10,12 @@ var buildings
 var unit_map
 var loaded_data
 
+var saved_settings = ['cpu_0', 'cpu_1', 'turns_cap', 'easy_mode']
+
 func init_root(root):
     self.root_node = root
     self.root_tree = root.get_tree()
-    self.bag = self.root_node.dependency_container
+    self.bag = self.root_node.bag
     t = self.bag.map_tiles
 
     self.building_map = {
@@ -40,6 +42,7 @@ func load_state():
     self.load_save_file_contents()
 
     self.bag.root.load_map(self.loaded_data['template_name'], self.loaded_data['from_workshop'], true)
+    self.apply_env_variables()
 
 func load_map_state():
     self.remove_units_from_map()
@@ -90,6 +93,14 @@ func apply_saved_terrain():
                     terrain_object.set_damage()
                 self.root_node.current_map.map_layer_front.add_child(terrain_object)
 
+func apply_env_variables():
+    for settings in self.saved_settings:
+        self.root_node.settings[settings] = self.loaded_data[settings]
+
+    self.root_node.action_controller.player_ap[0] = self.loaded_data['player_0_ap']
+    self.root_node.action_controller.player_ap[1] = self.loaded_data['player_1_ap']
+    self.root_node.action_controller.turn         = self.loaded_data['turn']
+    #self.root_node.action_controller.battle_stats = self.loaded_data['battle_stats']
 
 func get_terrain_object_by_unique_type(unique_type_id):
     if unique_type_id == self.t.CITY_SMALL_1:
@@ -205,17 +216,17 @@ func store_map_in_binary_file():
         'is_current' : true,
         'template_name' : self.root_node.current_map_name,
         'from_workshop' : self.root_node.workshop_file_name,
-        'is_from_workshop' : self.root_node.is_from_workshop,
         'active_player' : self.root_node.action_controller.current_player,
-        'cpu_0' : self.root_node.settings['cpu_0'],
-        'cpu_1' : self.root_node.settings['cpu_1'],
         'player_0_ap' : self.root_node.action_controller.player_ap[0],
         'player_1_ap' : self.root_node.action_controller.player_ap[1],
-        'turns_cap' : self.root_node.settings['turns_cap'],
-        'easy_mode' : self.root_node.settings['easy_mode'],
         'turn': self.root_node.action_controller.turn,
-        'battle_stats' : self.root_node.action_controller.battle_stats
+        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats()
+
+        #match_state,
     }
+
+    for settings in self.saved_settings:
+        save_data[settings] = self.root_node.settings[settings]
 
     save_data['md5'] = save_data.to_json().md5_text()
 

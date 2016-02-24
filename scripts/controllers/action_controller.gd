@@ -77,7 +77,7 @@ func init_root(root, map, hud):
     self.positions.get_player_bunker_position(current_player)
     self.positions.bootstrap()
 
-    battle_stats = preload("res://scripts/battle_stats.gd").new()
+    self.battle_stats = preload("res://scripts/battle_stats.gd").new()
 
     sound_controller = root.sound_controller
 
@@ -257,7 +257,7 @@ func spawn_unit_from_active_building():
         self.move_camera_to_point(spawn_point.position)
 
         #gather stats
-        battle_stats.add_spawn(self.current_player)
+        self.battle_stats.add_spawn(self.current_player)
         self.root_node.dependency_container.fog_controller.clear_fog()
 
 func import_objects():
@@ -285,7 +285,7 @@ func end_turn():
     hud_controller.set_turn(turn)
 
     #gather stats
-    battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
+    self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func move_camera_to_active_bunker():
     var bunker_position = self.positions.get_player_bunker_position(current_player)
@@ -413,7 +413,7 @@ func end_game(winning_player):
     game_ended = true
     if root_node.hud.is_hidden():
         root_node.hud.show()
-    hud_controller.show_win(winning_player, battle_stats.get_stats(), turn)
+    hud_controller.show_win(winning_player, self.battle_stats.get_stats(), turn)
     selector.hide()
     if (root_node.is_demo):
         demo_timer.reset(demo_timer.STATS)
@@ -448,17 +448,17 @@ func move_unit(active_field, field):
         self.activate_field(field)
         self.root_node.dependency_container.fog_controller.clear_fog()
         #gather stats
-        battle_stats.add_moves(self.current_player)
+        self.battle_stats.add_moves(self.current_player)
         self.update_unit(self.active_field)
 
     else:
         sound_controller.play('no_moves')
 
 func stats_start_time():
-    battle_stats.start_counting_time()
+    self.battle_stats.start_counting_time()
 
 func stats_set_time():
-    battle_stats.set_counting_time(self.current_player)
+    self.battle_stats.set_counting_time(self.current_player)
 
 func handle_battle(active_field, field):
     if (self.root_node.dependency_container.battle_controller.can_attack(active_field.object, field.object)):
@@ -471,7 +471,7 @@ func handle_battle(active_field, field):
             self.update_unit(active_field)
 
             #gather stats
-            battle_stats.add_kills(current_player)
+            self.battle_stats.add_kills(current_player)
             self.collateral_damage(field.position)
         else:
             sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
@@ -485,7 +485,7 @@ func handle_battle(active_field, field):
                     self.clear_active_field()
 
                     #gather stats
-                    battle_stats.add_kills(abs(current_player - 1))
+                    self.battle_stats.add_kills(abs(current_player - 1))
                     self.collateral_damage(active_field.position)
                 else:
                     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
