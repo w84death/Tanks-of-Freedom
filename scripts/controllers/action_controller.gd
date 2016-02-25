@@ -280,8 +280,8 @@ func end_turn():
     if current_player == 0:
         self.switch_to_player(1)
     else:
-        self.switch_to_player(0)
         self.turn += 1
+        self.switch_to_player(0)
     hud_controller.set_turn(turn)
 
     #gather stats
