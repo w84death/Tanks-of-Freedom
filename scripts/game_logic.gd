@@ -143,6 +143,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         self.settings['cpu_0'] = true
         self.settings['cpu_1'] = true
         self.settings[human_player] = false
+        self.settings['turns_cap'] = 0
         current_map.load_campaign_map(template_name)
     current_map.show_blueprint = false
     hud = hud_template.instance()
