@@ -150,7 +150,7 @@ func clear_building_card():
 func show_in_game_card(messages, current_player):
 	self.lock_hud()
 	self.hide_map()
-	hud_message_card_controller.show_message(self.__show_general_header(), self.__show_next_tip(), current_player)
+	hud_message_card_controller.show_message(self.__show_general_header(), self.__show_next_tip(), 'Start your turn now!', "START TURN", current_player)
 	hud_message_card.show()
 
 

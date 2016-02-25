@@ -6,6 +6,8 @@
 
 Classic turn-based strategy game with two armies fighting against each other. Challenge yourself in campaign against AI or hot-seat battle with a friend. Using easy map editor you can create any imaginable scenario to play and share online for others to discover!
 
+![32 colour](https://i.imgur.com/Oe6y4SO.jpg)
+
 Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
 
 ## Download

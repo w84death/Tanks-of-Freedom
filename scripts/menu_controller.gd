@@ -197,6 +197,7 @@ func show_maps_menu():
 	self.hide_control_nodes()
 	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
 	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
+	self.root.dependency_container.map_picker.lock_delete_mode_button()
 	self.maps_sub_menu.show()
 
 func switch_to_skirmish_setup_panel(selected_map_name):
