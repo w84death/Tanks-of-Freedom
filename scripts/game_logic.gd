@@ -165,10 +165,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     if load_saved_state:
         self.bag.saving.apply_saved_buildings()
         self.bag.saving.apply_saved_environment_settings()
-        self.action_controller.switch_to_player(self.bag.saving.get_active_player_id())
+        self.action_controller.switch_to_player(self.bag.saving.get_active_player_id(), false)
         human_player = self.bag.saving.get_active_player_key()
-        self.bag.saving.apply_saved_action_state()
-
         action_controller.refresh_hud()
     else:
         if workshop_file_name:
