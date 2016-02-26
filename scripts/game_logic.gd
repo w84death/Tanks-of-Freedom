@@ -170,9 +170,9 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         action_controller.refresh_hud()
     else:
         if workshop_file_name:
-            action_controller.switch_to_player(0)
+            action_controller.switch_to_player(0, false)
         else:
-            action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
+            action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name), false)
 
     hud_controller.show_map()
     self.selector.init(self)
