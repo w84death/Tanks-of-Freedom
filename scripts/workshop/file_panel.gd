@@ -11,6 +11,7 @@ var positions = [-48,50]
 var toggle_button
 var play_button
 var save_button
+var save_animation
 var load_button
 var pick_button
 var file_name
@@ -32,6 +33,7 @@ func bind_panel(file_panel_wrapper_node):
     self.toggle_button = self.file_panel.get_node("controls/file_button")
     self.play_button = self.file_panel.get_node("controls/play_button")
     self.save_button = self.file_panel.get_node("controls/save_button")
+    self.save_animation = self.file_panel.get_node("controls/progress_animation")
     self.pick_button = self.file_panel.get_node("controls/load_button_picker")
     self.load_button = self.file_panel.get_node("controls/load_button")
 
@@ -57,6 +59,7 @@ func toggle_file_panel():
 func save_button_pressed():
     self.root.sound_controller.play('menu')
     self.workshop.save_map(self.file_name, true)
+    self.save_animation.play('flash')
 
 func load_button_pressed():
     self.root.sound_controller.play('menu')
