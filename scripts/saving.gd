@@ -123,9 +123,8 @@ func get_terrain_object_by_unique_type(unique_type_id):
 
 
 func apply_saved_environment_settings():
-    for key in self.saved_settings:
-        if self.root_node.settings.has(key):
-            self.root_node.settings[key] = self.loaded_data[key]
+    for settings in self.saved_settings:
+        self.root_node.settings[settings] = self.loaded_data[settings]
     self.apply_saved_action_state()
 
 func apply_saved_action_state():
@@ -220,12 +219,11 @@ func store_map_in_binary_file():
         'player_0_ap' : self.root_node.action_controller.player_ap[0],
         'player_1_ap' : self.root_node.action_controller.player_ap[1],
         'turn': self.root_node.action_controller.turn,
-        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats(),
-        'cpu_0' : self.root_node.settings['cpu_0'],
-        'cpu_1' : self.root_node.settings['cpu_1'],
-        'turns_cap' : self.root_node.settings['turns_cap'],
-        'easy_mode' : self.root_node.settings['easy_mode']
+        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats()
     }
+
+    for settings in self.saved_settings:
+        save_data[settings] = self.root_node.settings[settings]
 
     save_data['md5'] = save_data.to_json().md5_text()
 
