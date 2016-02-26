@@ -27,7 +27,7 @@ func _init_bag(bag):
     self.root.get_node("/root").connect("size_changed", self, "apply_resolution")
 
 func calculate_locked_height():
-    self.locked_height = self.MINIMAL_HEIGHT
+    self.locked_height = Globals.get('display/height')
 
 func check_initial_resolution():
     if self.root.settings['resolution'] != self.UNSET:
