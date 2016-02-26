@@ -49,6 +49,7 @@ func apply_resolution():
         var height = Globals.get('display/height')
         self.bag.hud_dead_zone.screen_size = Vector2(width, height)
         self.bag.workshop_dead_zone.screen_size = Vector2(width, height)
+        OS.set_window_resizable(true)
         return
 
     if self.root.settings['resolution'] == self.UNLOCKED:
