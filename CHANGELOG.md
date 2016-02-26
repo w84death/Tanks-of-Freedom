@@ -3,7 +3,7 @@
 ## Changelog
 
 ### 0.4.1-beta
-- native resolution mode (not available for android)
+- native resolution mode (not available for android and OS X)
 - settings for AI difficulty
 - resume game (limited save/load)
 - added click sounds to all buttons
