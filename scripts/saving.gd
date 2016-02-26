@@ -231,4 +231,6 @@ func store_map_in_binary_file():
 
 func is_save_available():
     self.load_save_file_contents()
+    if self.loaded_data == null or not self.loaded_data.has('is_current'):
+        return false
     return self.loaded_data['is_current']
