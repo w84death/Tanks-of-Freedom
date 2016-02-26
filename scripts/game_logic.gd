@@ -27,6 +27,7 @@ var hud
 var ai_timer
 
 var dependency_container = preload('res://scripts/dependency_container.gd').new()
+var bag = dependency_container
 
 var map_template = preload('res://maps/workshop.xscn')
 var main_tileset = preload("res://maps/map_tileset.xml")
@@ -62,6 +63,8 @@ var registered_click = false
 var registered_click_position = Vector2(0, 0)
 var registered_click_threshold = 10
 
+const SETTINGS_PATH = "user://settings.tof"
+
 func _input(event):
     if is_demo == true:
         is_demo = false
@@ -74,7 +77,7 @@ func _input(event):
 
             if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
                     self.is_camera_drag = event.pressed
-                    self.dependency_container.camera.mouse_dragging = event.pressed
+                    self.bag.camera.mouse_dragging = event.pressed
 
             if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
                 var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
@@ -93,9 +96,9 @@ func _input(event):
 
             # MOUSE SELECT
             if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-                if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
+                if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
                     var position = current_map_terrain.map_to_world(selector_position)
-                    if not self.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
+                    if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
                         if event.is_pressed():
                             self.registered_click = true
                             self.registered_click_position = Vector2(event.x, event.y)
@@ -118,25 +121,25 @@ func start_ai_timer():
     ai_timer.inject_action_controller(action_controller, hud_controller)
     ai_timer.start()
 
-func load_map(template_name, workshop_file_name = false):
+func load_map(template_name, workshop_file_name = false, load_saved_state = false):
     var human_player = 'cpu_0'
-    self.add_child(self.loading_screen)
     self.unload_map()
     self.menu.hide_background_map()
     current_map_name = template_name
     current_map = map_template.instance()
     current_map.get_node('terrain').set_tileset(self.main_tileset)
-    current_map.campaign = dependency_container.campaign
+    current_map.campaign = bag.campaign
     self.workshop_file_name = workshop_file_name
     if workshop_file_name:
         self.is_from_workshop = true
         current_map.load_map(workshop_file_name)
     else:
-        human_player = 'cpu_' + str(self.dependency_container.campaign.get_map_player(template_name))
+        human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
         self.settings['cpu_0'] = true
         self.settings['cpu_1'] = true
         self.settings[human_player] = false
+        self.settings['turns_cap'] = 0
         current_map.load_campaign_map(template_name)
     current_map.show_blueprint = false
     hud = hud_template.instance()
@@ -148,22 +151,34 @@ func load_map(template_name, workshop_file_name = false):
     menu.raise()
     self.add_child(hud)
 
-    game_scale = self.dependency_container.camera.scale
-    action_controller = self.dependency_container.controllers.action_controller
+    if load_saved_state:
+        self.bag.saving.load_map_state()
+
+    game_scale = self.bag.camera.scale
+    action_controller = self.bag.controllers.action_controller
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
-    if workshop_file_name:
-        action_controller.switch_to_player(0)
-        self.dependency_container.match_state.reset()
+    self.bag.match_state.reset()
+    if not workshop_file_name:
+        self.bag.match_state.set_campaign_map(template_name)
+
+    if load_saved_state:
+        self.bag.saving.apply_saved_buildings()
+        self.bag.saving.apply_saved_environment_settings()
+        self.action_controller.switch_to_player(self.bag.saving.get_active_player_id(), false)
+        human_player = self.bag.saving.get_active_player_key()
+        action_controller.refresh_hud()
     else:
-        action_controller.switch_to_player(self.dependency_container.campaign.get_map_player(template_name))
-        self.dependency_container.match_state.set_campaign_map(template_name)
+        if workshop_file_name:
+            action_controller.switch_to_player(0)
+        else:
+            action_controller.switch_to_player(self.bag.campaign.get_map_player(template_name))
+
     hud_controller.show_map()
-    selector.init(self)
-    if (menu && menu.close_button):
-        menu.close_button.show()
-    is_map_loaded = true
-    self.remove_child(self.loading_screen)
+    self.selector.init(self)
+    self.is_map_loaded = true
+    if menu:
+        menu.manage_close_button()
     set_process_input(true)
 
     if settings[human_player]:
@@ -173,7 +188,7 @@ func load_map(template_name, workshop_file_name = false):
     sound_controller.play_soundtrack()
 
 func restart_map():
-    self.load_map(current_map_name,workshop_file_name)
+    self.load_map(current_map_name, workshop_file_name)
 
 func unload_map():
     if is_map_loaded == false:
@@ -191,11 +206,11 @@ func unload_map():
     hud.queue_free()
     hud = null
     selector.reset()
-    menu.close_button.hide()
     ai_timer.reset_state()
     hud_controller = null
     action_controller = null
     self.menu.show_background_map()
+    self.menu.manage_close_button()
 
 func toggle_menu(target = 'menu'):
     if is_map_loaded:
@@ -220,7 +235,7 @@ func show_missions():
 
 func show_campaign():
     self.toggle_menu()
-    self.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+    self.bag.controllers.campaign_menu_controller.show_campaign_menu()
 
 func load_menu():
     menu.show()
@@ -228,7 +243,7 @@ func load_menu():
     self.remove_child(intro)
     intro.queue_free()
     self.add_child(menu)
-    menu.close_button.hide()
+    menu.manage_close_button()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
@@ -258,41 +273,24 @@ func is_demo_mode():
     return self.is_demo or (self.settings['cpu_0'] and self.settings['cpu_1'])
 
 func read_settings_from_file():
-    var check
-    if settings_file.file_exists("user://settings.tof"):
-        settings_file.open("user://settings.tof",File.READ)
-        check = settings_file.get_var()
-        if self.check_file_data(check):
-            for option in check:
-                self.settings[option] = check[option]
-            #print('ToF: settings loaded from file')
-        else:
-            #print('ToF: filecheck filed! making new file with default settings')
-            self.write_settings_to_file()
-        settings_file.close()
+    var data
+    data = self.bag.file_handler.read(self.SETTINGS_PATH)
+    if data.empty():
+        self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
     else:
-        self.write_settings_to_file()
-
-func check_file_data(data):
-    if str(data) and data.has('is_ok'):
-        return true
-    else:
-        return false
+        for option in data:
+            self.settings[option] = data[option]
 
 func write_settings_to_file():
-    settings_file.open("user://settings.tof",File.WRITE)
-    settings_file.store_var(self.settings)
-    #print('ToF: settings saved to file')
-    settings_file.close()
+    self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
-    self.loading_container = self.get_node('/root/game/viewport')
-    self.scale_root = self.loading_container.get_node("pixel_scale")
+    self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
-    self.dependency_container.init_root(self)
-    self.camera = self.dependency_container.camera
-    self.menu = self.dependency_container.controllers.menu_controller
+    self.bag.init_root(self)
+    self.camera = self.bag.camera
+    self.menu = self.bag.controllers.menu_controller
     sound_controller.init_root(self)
     menu.init_root(self)
     menu.hide()

@@ -85,6 +85,10 @@ func set_stats(new_stats):
 	self.update_shield()
 	self.set_no_ap_idle()
 
+func set_hp(hp):
+	self.life = hp
+	self.update_healthbar()
+
 func update_ap(new_ap):
 	ap = new_ap
 	self.update_shield()

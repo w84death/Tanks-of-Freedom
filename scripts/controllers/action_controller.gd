@@ -17,7 +17,6 @@ var actual_movement_tiles = {}
 
 var current_player = 0
 var player_ap = [0,0]
-var player_ap_max = 1
 var turn = 1
 var title
 var camera
@@ -50,7 +49,6 @@ func reset():
     self.current_player = 0
     self.is_cpu_player = false
     self.player_ap = [0, 0]
-    self.player_ap_max = 1
     self.turn = 1
     self.title = null
     self.camera = null
@@ -79,7 +77,7 @@ func init_root(root, map, hud):
     self.positions.get_player_bunker_position(current_player)
     self.positions.bootstrap()
 
-    battle_stats = preload("res://scripts/battle_stats.gd").new()
+    self.battle_stats = preload("res://scripts/battle_stats.gd").new()
 
     sound_controller = root.sound_controller
 
@@ -259,7 +257,7 @@ func spawn_unit_from_active_building():
         self.move_camera_to_point(spawn_point.position)
 
         #gather stats
-        battle_stats.add_spawn(self.current_player)
+        self.battle_stats.add_spawn(self.current_player)
         self.root_node.dependency_container.fog_controller.clear_fog()
 
 func import_objects():
@@ -274,7 +272,7 @@ func attach_objects(collection):
 func end_turn():
     self.stats_set_time()
     if self.root_node.settings['turns_cap'] > 0:
-        if turn >= self.root_node.settings['turns_cap']:
+        if self.turn >= self.root_node.settings['turns_cap']:
             self.end_game(-1)
             return
 
@@ -282,12 +280,12 @@ func end_turn():
     if current_player == 0:
         self.switch_to_player(1)
     else:
+        self.turn += 1
         self.switch_to_player(0)
-        turn += 1
     hud_controller.set_turn(turn)
 
     #gather stats
-    battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
+    self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func move_camera_to_active_bunker():
     var bunker_position = self.positions.get_player_bunker_position(current_player)
@@ -362,7 +360,7 @@ func show_bonus_ap():
         if buildings[building_pos].bonus_ap > 0 && not self.root_node.dependency_container.fog_controller.is_fogged(building_pos):
             buildings[building_pos].show_floating_ap()
 
-func switch_to_player(player):
+func switch_to_player(player, save_game=true):
     self.stats_start_time()
     self.clear_active_field()
     current_player = player
@@ -371,8 +369,8 @@ func switch_to_player(player):
     self.reset_player_units(player)
     selector.set_player(player);
     self.root_node.dependency_container.abstract_map.map.current_player = player
-    self.refill_ap()
     if root_node.settings['cpu_' + str(player)]:
+        self.refill_ap()
         root_node.start_ai_timer()
         root_node.lock_for_cpu()
         self.move_camera_to_active_bunker()
@@ -382,6 +380,9 @@ func switch_to_player(player):
         root_node.unlock_for_player()
         hud_controller.show_in_game_card([], current_player)
         self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_enable()
+        if save_game:
+            self.root_node.dependency_container.saving.save_state()
+        self.refill_ap()
     self.root_node.dependency_container.fog_controller.clear_fog()
     self.root_node.dependency_container.ap_gain.update()
 
@@ -413,7 +414,7 @@ func end_game(winning_player):
     game_ended = true
     if root_node.hud.is_hidden():
         root_node.hud.show()
-    hud_controller.show_win(winning_player, battle_stats.get_stats(), turn)
+    hud_controller.show_win(winning_player, self.battle_stats.get_stats(), turn)
     selector.hide()
     if (root_node.is_demo):
         demo_timer.reset(demo_timer.STATS)
@@ -426,6 +427,8 @@ func end_game(winning_player):
                 self.root_node.dependency_container.controllers.campaign_menu_controller.fill_mission_data(mission_num + 1)
                 self.root_node.dependency_container.controllers.menu_controller.update_campaign_progress_label()
     self.root_node.dependency_container.match_state.reset()
+    if not self.root_node.is_demo_mode():
+        self.root_node.dependency_container.saving.invalidate_save_file()
 
 func play_destroy(field):
     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)
@@ -446,17 +449,17 @@ func move_unit(active_field, field):
         self.activate_field(field)
         self.root_node.dependency_container.fog_controller.clear_fog()
         #gather stats
-        battle_stats.add_moves(self.current_player)
+        self.battle_stats.add_moves(self.current_player)
         self.update_unit(self.active_field)
 
     else:
         sound_controller.play('no_moves')
 
 func stats_start_time():
-    battle_stats.start_counting_time()
+    self.battle_stats.start_counting_time()
 
 func stats_set_time():
-    battle_stats.set_counting_time(self.current_player)
+    self.battle_stats.set_counting_time(self.current_player)
 
 func handle_battle(active_field, field):
     if (self.root_node.dependency_container.battle_controller.can_attack(active_field.object, field.object)):
@@ -469,7 +472,7 @@ func handle_battle(active_field, field):
             self.update_unit(active_field)
 
             #gather stats
-            battle_stats.add_kills(current_player)
+            self.battle_stats.add_kills(current_player)
             self.collateral_damage(field.position)
         else:
             sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
@@ -483,7 +486,7 @@ func handle_battle(active_field, field):
                     self.clear_active_field()
 
                     #gather stats
-                    battle_stats.add_kills(abs(current_player - 1))
+                    self.battle_stats.add_kills(abs(current_player - 1))
                     self.collateral_damage(active_field.position)
                 else:
                     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
@@ -517,3 +520,7 @@ func damage_terrain(position):
         return
 
     field.object.set_damage()
+
+func refresh_hud():
+    hud_controller.set_turn(self.turn)
+    hud_controller.update_ap(player_ap[current_player])

@@ -1,3 +1,21 @@
+const DOMINATION  = 0
+const MOVES       = 1
+const TIME        = 2
+const KILLS       = 3
+const TOTAL_TIME  = 4
+const SPAWNS      = 5
+const SCORE       = 6
+
+var stats = [
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [1, 1],
+    [0, 0],
+    [0, 0]
+]
+
 var domination = [0, 0]
 var moves = [0, 0]
 var time = [0, 0]

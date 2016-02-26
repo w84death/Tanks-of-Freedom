@@ -1,4 +1,3 @@
-
 var root
 
 var controllers = preload("res://scripts/controllers/controllers.gd").new()
@@ -26,6 +25,8 @@ var map_picker = preload("res://gui/hud/map_picker.gd").new()
 var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
 var fog_controller = preload('res://scripts/fog_controller.gd').new()
 var processing = preload('res://scripts/processing.gd').new()
+var file_handler = preload('res://scripts/services/file_handler.gd').new()
+var saving = preload('res://scripts//saving.gd').new()
 var resolution = preload('res://scripts/services/resolution.gd').new()
 
 func init_root(root_node):
@@ -33,8 +34,6 @@ func init_root(root_node):
     self.positions = preload("services/positions.gd").new(self.root)
     self.positions.prepare_nearby_tiles()
     self.positions.prepare_nearby_tiles_ranges()
-
-
 
     self.demo_mode.init_root(root_node)
     self.campaign.load_campaign_progress()
@@ -47,6 +46,7 @@ func init_root(root_node):
     self.workshop_dead_zone.init_root(root_node)
     self.action_map.init_root(root_node)
     self.ap_gain.init_root(root_node)
+    self.saving.init_root(root_node)
 
     self.camera.init_root(root)
     self.camera.abstract_map = self.abstract_map

@@ -9,7 +9,7 @@
 			<string> "conns" </string>
 			<int_array  len="0"> 				 </int_array>
 			<string> "names" </string>
-			<string_array  len="29">
+			<string_array  len="30">
 				<string> "terrain_non-movable" </string>
 				<string> "Sprite" </string>
 				<string> "_import_path" </string>
@@ -39,13 +39,14 @@
 				<string> "fence" </string>
 				<string> "smoke_particles" </string>
 				<string> "smoke_lifetime" </string>
+				<string> "unique_type_id" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 1 </int>
 			<string> "nodes" </string>
-			<int_array  len="61"> 				-1, -1, 1, 0, -1, 27, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 10, 18, 11, 19, 7, 20, 12, 21, 9, 22, 13, 23, 14, 24, 15, 25, 9, 26, 9, 27, 16, 28, 3, 0 </int_array>
+			<int_array  len="63"> 				-1, -1, 1, 0, -1, 28, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 7, 11, 1, 12, 8, 13, 1, 14, 4, 15, 9, 16, 9, 17, 10, 18, 11, 19, 7, 20, 12, 21, 9, 22, 13, 23, 14, 24, 15, 25, 9, 26, 9, 27, 16, 28, 3, 29, 17, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="17" shared="false">
+			<array  len="18" shared="false">
 				<node_path> "" </node_path>
 				<bool> True </bool>
 				<real> 1 </real>
@@ -203,6 +204,7 @@
 					</dictionary>
 				</dictionary>
 				<int> 16 </int>
+				<int> 12 </int>
 			</array>
 			<string> "version" </string>
 			<int> 1 </int>
