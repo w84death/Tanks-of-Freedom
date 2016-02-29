@@ -25,3 +25,8 @@ THE SOFTWARE.
 A Free font Courier Prime used in this project can be found here:
 http://www.quoteunquoteapps.com/courierprime/
 This font is licensed under OFL license.
+
+# MUSIC & SFX LICENSE
+Original copyrights of all audio assets belong to QmYaan (Grand Beats) http://www.grandbeats.com/
+All sfx and music assets in this repository are licensed under Creative Commons Attribution-ShareAlike 4.0 license (CC BY-SA 4.0).
+[Full text of the license provided by Creative Commons](http://creativecommons.org/licenses/by-sa/4.0/legalcode)
