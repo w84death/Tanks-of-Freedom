@@ -55,7 +55,7 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn
    - WrmZ https://plus.google.com/u/0/113866605142376544736/posts
 
 ### gfx
-   - w84death http://krzysztofjankowski.com
+   - w84death http://krzysztofjankowski.com licensed under MIT
    - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/ licensed under OFL
 
 ### music
@@ -77,6 +77,7 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn
 <a href="http://www.indiedb.com/games/tanks-of-freedom" title="View Tanks of Freedom on Indie DB" target="_blank"><img src="http://button.indiedb.com/popularity/medium/games/39024.png" alt="Tanks of Freedom" /></a>
 
 ## The MIT License (MIT)
+This license applies both to the code, and to all graphical assets within this repository.
 
 Copyright (c) 2015 P1X
 
