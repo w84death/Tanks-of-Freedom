@@ -21,12 +21,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-# Free font Courier Prime
+## Free font Courier Prime
 A Free font Courier Prime used in this project can be found here:
 http://www.quoteunquoteapps.com/courierprime/
 This font is licensed under OFL license.
 
-# MUSIC & SFX LICENSE
+## Music & SFX License
 Original copyrights of all audio assets belong to QmYaan (Grand Beats) http://www.grandbeats.com/
 
 All sfx and music assets in this repository are licensed under Creative Commons Attribution-ShareAlike 4.0 license (CC BY-SA 4.0).
