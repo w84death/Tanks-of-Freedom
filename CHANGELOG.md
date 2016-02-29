@@ -12,7 +12,7 @@
 - fixed clicking on 'change tile' button in workshop placing tiles underneath it
 - fixed custom map list not refreshing when new map is saved
 - fixed workshop popup showing 'Start turn' button
-- removed export configs for Android with 1x1 screen size
+- removed export configs for Android with 1:1 screen ratio
 
 ### 0.4.0.3-beta
 - fixed AI locking-up by tank or heli trying to capture building when there are no enemies nearby
