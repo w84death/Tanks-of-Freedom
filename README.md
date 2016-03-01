@@ -56,11 +56,11 @@ Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn
 
 ### gfx
    - w84death http://krzysztofjankowski.com
-   - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/
+   - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/ licensed under OFL
 
 ### music
-   - Mathias Nova http://mathiasnova.blogspot.com/
    - QmYaan (Grand Beats) http://www.grandbeats.com/
+   - Mathias Nova http://mathiasnova.blogspot.com/ (older versions only)
 
 ### sfx
    - QmYaan (Grand Beats) http://www.grandbeats.com/

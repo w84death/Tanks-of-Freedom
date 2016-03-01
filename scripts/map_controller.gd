@@ -396,13 +396,21 @@ func look_for_spawn(x, y, offset_x, offset_y, building):
 func build_sprite_path(x, y, type):
 	var neighbours
 
-	# bridge
+	# big bridge
 	if type[0] == self.tileset.TERRAIN_ROAD or type[0] == self.tileset.TERRAIN_DIRT_ROAD:
 		neighbours = count_neighbours_in_binary(x, y, [-1])
 		if neighbours == 10:
 			return 55
 		if neighbours == 20:
 			return 56
+
+	# river bridge
+	if type[0] == self.tileset.TERRAIN_BRIDGE:
+		neighbours = count_neighbours_in_binary(x, y, [self.tileset.TERRAIN_RIVER])
+		if neighbours == 10:
+			return 31
+		if neighbours == 20:
+			return 30
 
 	neighbours = count_neighbours_in_binary(x, y, type)
 

@@ -45,6 +45,7 @@ func load_state():
 
 func load_map_state():
     self.remove_units_from_map()
+    self.remove_terrain_objects_from_map()
     self.apply_units_from_save()
     self.apply_saved_terrain()
 
@@ -57,7 +58,7 @@ func remove_terrain_objects_from_map():
 func remove_objects_group_from_map(group_tag):
     var objects = self.root_tree.get_nodes_in_group(group_tag)
     for object in objects:
-        if object.group == 'terrain' && object.unique_type_id == object.CITY_FENCE:
+        if object.group == 'terrain' && object.unique_type_id == t.CITY_FENCE:
             continue
         object.get_parent().remove_child(object)
         object.remove_from_group(group_tag)
@@ -86,12 +87,14 @@ func apply_saved_terrain():
         if field['terrain'] > -1:
             self.root_node.current_map_terrain.set_cell(field['x'], field['y'], field['terrain'])
             if field['meta'].has('is_terrain') and field['meta']['is_terrain']:
+                print('terrain: ', field['meta']['type'])
                 terrain_object = self.get_terrain_object_by_unique_type(field['meta']['type'])
                 if field['meta']['frame'] > 0:
                     terrain_object.set_frame(field['meta']['frame'])
                 for i in range(field['meta']['damage']):
                     terrain_object.set_damage()
                 self.root_node.current_map.map_layer_front.add_child(terrain_object)
+                terrain_object.set_pos(self.root_node.current_map_terrain.map_to_world(Vector2(field['x'], field['y'])))
 
 func get_terrain_object_by_unique_type(unique_type_id):
     if unique_type_id == self.t.CITY_SMALL_1:
@@ -146,7 +149,7 @@ func save_state():
         for field in field_row:
             pos = Vector2(field.position.x, field.position.y)
             self.data[pos] = {'x' : field.position.x, 'y': field.position.y, 'terrain': field.terrain_type, 'unit' : -1, 'building' : -1, 'meta': {}}
-            if field.object != null and field.object.group == 'terrain':
+            if field.object != null and field.object.group == 'terrain' and field.object.unique_type_id != t.CITY_FENCE:
                 self.data[pos]['meta'] = {
                     'is_terrain' : true,
                     'damage' : field.object.damage,
