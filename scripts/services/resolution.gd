@@ -9,6 +9,7 @@ var locked_height
 var native_resolution
 
 var override_resolution
+var resolution_override
 
 const UNSET = 0
 const LOCKED = 1

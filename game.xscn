@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="7" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
-	<ext_resource path="res://scripts/game_logic.gd" type="Script"></ext_resource>
-	<ext_resource path="res://gui/corners.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://scripts/ai_timer.gd" type="Script"></ext_resource>
-	<ext_resource path="res://scripts/demo_timer.gd" type="Script"></ext_resource>
-	<ext_resource path="res://scripts/camera.gd" type="Script"></ext_resource>
-	<resource type="SampleLibrary" path="local://0">
+<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
+	<ext_resource path="res://scripts/game_logic.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://gui/corners.xscn" type="PackedScene" index="1"></ext_resource>
+	<ext_resource path="res://scripts/camera.gd" type="Script" index="4"></ext_resource>
+	<ext_resource path="res://scripts/demo_timer.gd" type="Script" index="3"></ext_resource>
+	<ext_resource path="res://scripts/ai_timer.gd" type="Script" index="2"></ext_resource>
+	<resource type="SampleLibrary" path="local://1">
 
 	</resource>
 	<main_resource>
@@ -13,32 +13,25 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				4, 0, 91, 90, 2, 0 </int_array>
+			<int_array  len="6"> 				4, 0, 80, 79, 2, 0 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
 			<string> "names" </string>
-			<string_array  len="92">
+			<string_array  len="81">
 				<string> "game" </string>
-				<string> "Control" </string>
-				<string> "_import_path" </string>
-				<string> "visibility/visible" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "visibility/light_mask" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
-				<string> "focus_neighbour/left" </string>
-				<string> "focus_neighbour/top" </string>
-				<string> "focus_neighbour/right" </string>
-				<string> "focus_neighbour/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
-				<string> "size_flags/stretch_ratio" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
+				<string> "Control" </string>
 				<string> "corners" </string>
 				<string> "SamplePlayer" </string>
-				<string> "config/voices" </string>
+				<string> "config/polyphony" </string>
 				<string> "config/samples" </string>
 				<string> "default/volume_db" </string>
 				<string> "default/pitch_scale" </string>
@@ -59,16 +52,17 @@
 				<string> "stream/volume_db" </string>
 				<string> "stream/autoplay" </string>
 				<string> "stream/paused" </string>
+				<string> "stream/loop_restart_time" </string>
+				<string> "stream/buffering_ms" </string>
 				<string> "IntroTimer" </string>
-				<string> "Timer" </string>
 				<string> "process_mode" </string>
 				<string> "wait_time" </string>
 				<string> "one_shot" </string>
 				<string> "autostart" </string>
+				<string> "Timer" </string>
 				<string> "AITimer" </string>
 				<string> "DemoTimer" </string>
 				<string> "viewport" </string>
-				<string> "Viewport" </string>
 				<string> "rect" </string>
 				<string> "own_world" </string>
 				<string> "world" </string>
@@ -82,17 +76,12 @@
 				<string> "audio_listener/enable_2d" </string>
 				<string> "audio_listener/enable_3d" </string>
 				<string> "physics/object_picking" </string>
+				<string> "gui/disable_input" </string>
+				<string> "Viewport" </string>
 				<string> "camera" </string>
-				<string> "Camera2D" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/rot" </string>
-				<string> "transform/scale" </string>
-				<string> "z/z" </string>
-				<string> "z/relative" </string>
-				<string> "centered" </string>
+				<string> "anchor_mode" </string>
 				<string> "rotating" </string>
 				<string> "current" </string>
-				<string> "smoothing" </string>
 				<string> "zoom" </string>
 				<string> "limit/left" </string>
 				<string> "limit/top" </string>
@@ -100,10 +89,13 @@
 				<string> "limit/bottom" </string>
 				<string> "drag_margin/h_enabled" </string>
 				<string> "drag_margin/v_enabled" </string>
+				<string> "smoothing/enable" </string>
+				<string> "smoothing/speed" </string>
 				<string> "drag_margin/left" </string>
 				<string> "drag_margin/top" </string>
 				<string> "drag_margin/right" </string>
 				<string> "drag_margin/bottom" </string>
+				<string> "Camera2D" </string>
 				<string> "pixel_scale" </string>
 				<string> "Node2D" </string>
 				<string> "load_menu" </string>
@@ -111,321 +103,43 @@
 			</string_array>
 			<string> "node_count" </string>
 			<int> 10 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
 			<string> "nodes" </string>
-			<int_array  len="288"> 				-1, -1, 1, 0, -1, 18, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 0, 10, 0, 11, 0, 12, 0, 13, 4, 14, 1, 15, 5, 16, 5, 17, 2, 18, 6, 19, 7, 0, 0, 0, 1, 20, 8, 2, 2, 0, 19, 9, 0, 0, 0, 21, 21, -1, 15, 2, 0, 22, 10, 23, 11, 24, 2, 25, 2, 26, 12, 27, 12, 28, 12, 29, 13, 30, 13, 31, 13, 32, 13, 33, 5, 34, 12, 35, 12, 0, 0, 0, 36, 36, -1, 7, 2, 0, 37, 14, 38, 1, 39, 4, 40, 12, 41, 4, 42, 4, 0, 0, 0, 44, 43, -1, 5, 2, 0, 45, 3, 46, 15, 47, 4, 48, 4, 0, 0, 0, 44, 49, -1, 6, 2, 0, 45, 3, 46, 2, 47, 4, 48, 4, 18, 16, 0, 0, 0, 44, 50, -1, 6, 2, 0, 45, 3, 46, 2, 47, 4, 48, 4, 18, 17, 0, 0, 0, 52, 51, -1, 14, 2, 0, 53, 18, 54, 4, 55, 14, 56, 4, 57, 4, 58, 4, 59, 1, 60, 4, 61, 4, 62, 5, 63, 4, 64, 4, 65, 4, 0, 7, 0, 67, 66, -1, 26, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 68, 19, 69, 12, 70, 20, 71, 21, 72, 1, 73, 1, 74, 4, 75, 1, 76, 12, 77, 20, 78, 22, 79, 22, 80, 23, 81, 23, 82, 1, 83, 1, 84, 24, 85, 24, 86, 24, 87, 24, 18, 25, 0, 7, 0, 89, 88, -1, 10, 2, 0, 3, 1, 4, 2, 5, 2, 6, 3, 68, 19, 69, 12, 70, 20, 71, 21, 72, 1, 0 </int_array>
+			<int_array  len="220"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 2147483647, 10, 6, 0, 0, 0, 0, 11, 11, -1, 14, 12, 0, 13, 7, 14, 8, 15, 8, 16, 9, 17, 9, 18, 9, 19, 10, 20, 9, 21, 9, 22, 9, 23, 3, 24, 9, 25, 9, 0, 0, 0, 26, 26, -1, 8, 27, 11, 28, 2, 29, 1, 30, 9, 31, 1, 32, 1, 33, 9, 34, 12, 0, 0, 0, 40, 35, -1, 4, 36, 0, 37, 13, 38, 1, 39, 1, 0, 0, 0, 40, 41, -1, 5, 36, 0, 37, 8, 38, 1, 39, 1, 7, 14, 0, 0, 0, 40, 42, -1, 5, 36, 0, 37, 8, 38, 1, 39, 1, 7, 15, 0, 0, 0, 58, 43, -1, 14, 44, 16, 45, 1, 46, 11, 47, 1, 48, 1, 49, 1, 50, 2, 51, 1, 52, 1, 53, 3, 54, 1, 55, 1, 56, 1, 57, 1, 0, 7, 0, 76, 59, -1, 17, 60, 0, 61, 1, 62, 2, 63, 17, 64, 18, 65, 18, 66, 19, 67, 19, 68, 2, 69, 2, 70, 1, 71, 20, 72, 21, 73, 21, 74, 21, 75, 21, 7, 22, 0, 7, 0, 78, 77, -1, 0, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="26" shared="false">
-				<node_path> "" </node_path>
-				<bool> True </bool>
-				<real> 1 </real>
+			<array  len="23" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
+				<bool> True </bool>
 				<int> 2 </int>
-				<resource  resource_type="Script" path="res://scripts/game_logic.gd">  </resource>
+				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
-					<string> "__editor_plugin_states__" </string>
-					<dictionary  shared="false">
-						<string> "2D" </string>
-						<dictionary  shared="false">
-							<string> "ofs" </string>
-							<vector2> -170.284, -254.847 </vector2>
-							<string> "snap_grid" </string>
-							<bool> False </bool>
-							<string> "snap_offset" </string>
-							<vector2> 0, 0 </vector2>
-							<string> "snap_pixel" </string>
-							<bool> False </bool>
-							<string> "snap_relative" </string>
-							<bool> False </bool>
-							<string> "snap_rotation" </string>
-							<bool> False </bool>
-							<string> "snap_rotation_offset" </string>
-							<real> 0 </real>
-							<string> "snap_rotation_step" </string>
-							<real> 0.261799 </real>
-							<string> "snap_show_grid" </string>
-							<bool> False </bool>
-							<string> "snap_step" </string>
-							<vector2> 10, 10 </vector2>
-							<string> "zoom" </string>
-							<real> 0.524472 </real>
-						</dictionary>
-						<string> "3D" </string>
-						<dictionary  shared="false">
-							<string> "ambient_light_color" </string>
-							<color> 0.15, 0.15, 0.15, 1 </color>
-							<string> "default_light" </string>
-							<bool> True </bool>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "show_grid" </string>
-							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
-							<string> "viewports" </string>
-							<array  len="4" shared="false">
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> True </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "znear" </string>
-							<real> 0.1 </real>
-						</dictionary>
-						<string> "Script" </string>
-						<dictionary  shared="false">
-							<string> "current" </string>
-							<int> 10 </int>
-							<string> "sources" </string>
-							<array  len="11" shared="false">
-								<string> "res://scripts/map_controller.gd" </string>
-								<string> "res://scripts/hud_controller.gd" </string>
-								<string> "res://scripts/game_logic.gd" </string>
-								<string> "res://scripts/camera.gd" </string>
-								<string> "res://scripts/translations/tips.gd" </string>
-								<string> "res://scripts/units/tank.gd" </string>
-								<string> "res://scripts/units/unit_control.gd" </string>
-								<string> "res://scripts/units/soldier.gd" </string>
-								<string> "res://scripts/units/helicopter.gd" </string>
-								<string> "res://scripts/controllers/action_controller.gd" </string>
-								<string> "res://scripts/saving.gd" </string>
-							</array>
-						</dictionary>
-					</dictionary>
-					<string> "__editor_run_settings__" </string>
-					<dictionary  shared="false">
-						<string> "custom_args" </string>
-						<string> "-l $scene" </string>
-						<string> "run_mode" </string>
-						<int> 0 </int>
-					</dictionary>
+					<string> "Script" </string>
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  resource_type="PackedScene" path="res://gui/corners.xscn">  </resource>
-				<dictionary  shared="false">
-					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
-					<string> "__editor_plugin_states__" </string>
-					<dictionary  shared="false">
-						<string> "2D" </string>
-						<dictionary  shared="false">
-							<string> "ofs" </string>
-							<vector2> -800, -187.76 </vector2>
-							<string> "snap_grid" </string>
-							<bool> False </bool>
-							<string> "snap_offset" </string>
-							<vector2> 0, 0 </vector2>
-							<string> "snap_pixel" </string>
-							<bool> False </bool>
-							<string> "snap_relative" </string>
-							<bool> False </bool>
-							<string> "snap_rotation" </string>
-							<bool> False </bool>
-							<string> "snap_rotation_offset" </string>
-							<real> 0 </real>
-							<string> "snap_rotation_step" </string>
-							<real> 0.261799 </real>
-							<string> "snap_show_grid" </string>
-							<bool> False </bool>
-							<string> "snap_step" </string>
-							<vector2> 10, 10 </vector2>
-							<string> "zoom" </string>
-							<real> 0.561085 </real>
-						</dictionary>
-						<string> "3D" </string>
-						<dictionary  shared="false">
-							<string> "ambient_light_color" </string>
-							<color> 0.15, 0.15, 0.15, 1 </color>
-							<string> "default_light" </string>
-							<bool> True </bool>
-							<string> "default_srgb" </string>
-							<bool> False </bool>
-							<string> "deflight_rot_x" </string>
-							<real> 0.942478 </real>
-							<string> "deflight_rot_y" </string>
-							<real> 0.628319 </real>
-							<string> "fov" </string>
-							<real> 45 </real>
-							<string> "show_grid" </string>
-							<bool> True </bool>
-							<string> "show_origin" </string>
-							<bool> True </bool>
-							<string> "viewport_mode" </string>
-							<int> 1 </int>
-							<string> "viewports" </string>
-							<array  len="4" shared="false">
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> True </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-								<dictionary  shared="false">
-									<string> "distance" </string>
-									<real> 4 </real>
-									<string> "listener" </string>
-									<bool> False </bool>
-									<string> "pos" </string>
-									<vector3> 0, 0, 0 </vector3>
-									<string> "use_environment" </string>
-									<bool> False </bool>
-									<string> "use_orthogonal" </string>
-									<bool> False </bool>
-									<string> "x_rot" </string>
-									<real> 0 </real>
-									<string> "y_rot" </string>
-									<real> 0 </real>
-								</dictionary>
-							</array>
-							<string> "zfar" </string>
-							<real> 500 </real>
-							<string> "znear" </string>
-							<real> 0.1 </real>
-						</dictionary>
-					</dictionary>
-					<string> "__editor_run_settings__" </string>
-					<dictionary  shared="false">
-						<string> "custom_args" </string>
-						<string> "-l $scene" </string>
-						<string> "run_mode" </string>
-						<int> 0 </int>
-					</dictionary>
-					<string> "_edit_lock_" </string>
-					<bool> True </bool>
-				</dictionary>
-				<int> 10 </int>
-				<resource  resource_type="SampleLibrary" path="local://0">  </resource>
+				<resource  external="1">  </resource>
+				<resource  resource_type="SampleLibrary" path="local://1">  </resource>
+				<real> 1 </real>
 				<real> 0 </real>
-				<nil>  </nil>
-				<resource name=""></resource>				<real> 12 </real>
-				<resource  resource_type="Script" path="res://scripts/ai_timer.gd">  </resource>
-				<resource  resource_type="Script" path="res://scripts/demo_timer.gd">  </resource>
-				<rect2> 0, 0, 1280, 720 </rect2>
-				<vector2> 0, 0 </vector2>
-				<vector2> 1, 1 </vector2>
 				<int> 0 </int>
+				<resource name=""></resource>				<int> 500 </int>
+				<real> 12 </real>
+				<resource  external="2">  </resource>
+				<resource  external="3">  </resource>
+				<rect2> 0, 0, 1280, 720 </rect2>
+				<vector2> 1, 1 </vector2>
 				<int> -10000000 </int>
 				<int> 10000000 </int>
+				<real> 5 </real>
 				<real> 0.2 </real>
-				<resource  resource_type="Script" path="res://scripts/camera.gd">  </resource>
+				<resource  external="4">  </resource>
 			</array>
 			<string> "version" </string>
-			<int> 1 </int>
+			<int> 2 </int>
 		</dictionary>
 
 	</main_resource>
