@@ -48,6 +48,7 @@ func bind_campaign_menu():
 func _back_button_pressed():
     self.root.sound_controller.play('menu')
     self.hide_campaign_menu()
+    self.root.menu.campaign_button.grab_focus()
 func _start_button_pressed():
     self.root.sound_controller.play('menu')
     self.start_mission()

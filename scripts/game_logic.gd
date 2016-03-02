@@ -223,6 +223,7 @@ func toggle_menu(target = 'menu'):
             if target == 'settings':
                 self.menu.show_settings(true)
             hud.hide()
+            menu.close_button.grab_focus()
         else:
             is_paused = false
             action_controller.stats_start_time()
