@@ -1,4 +1,4 @@
- 
+
 var root
 var control_nodes
 
@@ -192,6 +192,7 @@ func load_maps_menu():
 func show_campaign_menu():
 	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
 	self.hide_control_nodes()
+	self.root.dependency_container.controllers.campaign_menu_controller.start_button.grab_focus()
 
 func show_maps_menu():
 	self.hide_control_nodes()

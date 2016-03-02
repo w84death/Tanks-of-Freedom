@@ -152,6 +152,7 @@ func show_in_game_card(messages, current_player):
 	self.hide_map()
 	hud_message_card_controller.show_message(self.__show_general_header(), self.__show_next_tip(), 'Start your turn now!', "START TURN", current_player)
 	hud_message_card.show()
+	hud_message_card_button.grab_focus()
 
 
 func close_message_card():

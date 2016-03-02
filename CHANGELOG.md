@@ -3,7 +3,8 @@
 ## Changelog
 
 ### 0.4.2-beta
-- Ported game source to Godot 2.0
+- ported game source to Godot 2.0
+- added basic gamepad support
 
 ### 0.4.1-beta
 - native resolution mode (not available for android)
