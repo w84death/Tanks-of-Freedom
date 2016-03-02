@@ -26,8 +26,9 @@ var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
 var fog_controller = preload('res://scripts/fog_controller.gd').new()
 var processing = preload('res://scripts/processing.gd').new()
 var file_handler = preload('res://scripts/services/file_handler.gd').new()
-var saving = preload('res://scripts//saving.gd').new()
+var saving = preload('res://scripts/saving.gd').new()
 var resolution = preload('res://scripts/services/resolution.gd').new()
+var gamepad = preload('res://scripts/gamepad_input.gd').new()
 
 func init_root(root_node):
     self.root = root_node
@@ -64,3 +65,5 @@ func init_root(root_node):
     self.processing.register(self.camera)
 
     self.resolution._init_bag(self)
+    self.gamepad._init_bag(self)
+    self.processing.register(self.gamepad)

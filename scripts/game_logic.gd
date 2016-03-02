@@ -72,6 +72,9 @@ func _input(event):
 
     if is_map_loaded && is_paused == false:
         if is_locked_for_cpu == false:
+            if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
+                self.dependency_container.gamepad.handle_input(event)
+
             game_scale = self.camera.get_scale()
             camera_pos = self.camera.get_pos()
 
@@ -115,6 +118,12 @@ func _input(event):
 
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
+
+func move_selector_to_map_position(pos):
+    var position = current_map_terrain.map_to_world(pos)
+    position.y += 4
+    selector.set_pos(position)
+    selector_position = pos
 
 func start_ai_timer():
     ai_timer.reset_state()
@@ -229,6 +238,8 @@ func toggle_menu(target = 'menu'):
             action_controller.stats_start_time()
             menu.hide()
             hud.show()
+            if hud.hud_message_card.is_visible():
+                hud.hud_message_card_button.grab_focus()
 
 func show_missions():
     self.toggle_menu()
