@@ -188,7 +188,7 @@ func show_win(player, stats, turns):
 	self.lock_hud()
 	#self.hide_map()
 	self.game_card.hide()
-	self.fill_end_game_stats(stats,turns)
+	self.fill_end_game_stats(stats, turns)
 	self.hud_end_game.show()
 
 func adjust_missions_button():
@@ -223,7 +223,7 @@ func show_map():
 func hide_map():
 	self.active_map.hide()
 
-func fill_end_game_stats(stats,turns):
+func fill_end_game_stats(stats, turns):
 	#var total_turns = hud_end_game_controls.get_node("total_turns")
 	var blue_domination = hud_end_game_stats_blue.get_node("domination")
 	var blue_moves = hud_end_game_stats_blue.get_node("unit_moves")
@@ -240,7 +240,8 @@ func fill_end_game_stats(stats,turns):
 	var red_score = hud_end_game_stats_red.get_node("overall")
 
 	hud_end_game_total_turns.set_text(str(turns))
-	hud_end_game_total_time.set_text(stats["time_total"])
+	print(stats)
+	hud_end_game_total_time.set_text(stats["total_time"])
 
 	blue_domination.set_text(str(stats["domination"][0]))
 	blue_moves.set_text(str(stats["moves"][0]))
