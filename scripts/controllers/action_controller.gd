@@ -430,6 +430,7 @@ func end_game(winning_player):
     self.root_node.dependency_container.match_state.reset()
     if not self.root_node.is_demo_mode():
         self.root_node.dependency_container.saving.invalidate_save_file()
+    self.root_node.dependency_container.timers.set_timeout(0.1, hud_controller.hud_end_game_missions_button, "grab_focus")
 
 func play_destroy(field):
     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)

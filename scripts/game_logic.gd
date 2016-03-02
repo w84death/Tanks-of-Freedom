@@ -240,6 +240,8 @@ func toggle_menu(target = 'menu'):
             hud.show()
             if hud_controller.hud_message_card_visible:
                 hud_controller.hud_message_card_button.grab_focus()
+            if action_controller.game_ended:
+                hud_controller.hud_end_game_missions_button.grab_focus()
 
 func show_missions():
     self.toggle_menu()
