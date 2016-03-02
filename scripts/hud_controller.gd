@@ -9,6 +9,7 @@ var hud_panel_anchor
 var hud_message_card
 var hud_message_card_controller
 var hud_message_card_button
+var hud_message_card_visible = false
 
 
 var cinematic_camera
@@ -153,6 +154,7 @@ func show_in_game_card(messages, current_player):
 	hud_message_card_controller.show_message(self.__show_general_header(), self.__show_next_tip(), 'Start your turn now!', "START TURN", current_player)
 	hud_message_card.show()
 	hud_message_card_button.grab_focus()
+	hud_message_card_visible = true
 
 
 func close_message_card():
@@ -161,6 +163,7 @@ func close_message_card():
 	self.show_map()
 	action_controller.move_camera_to_active_bunker()
 	action_controller.show_bonus_ap()
+	hud_message_card_visible = false
 
 func lock_hud():
 	self.hud_locked = true

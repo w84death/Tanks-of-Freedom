@@ -28,13 +28,12 @@ func handle_motion(event):
 func handle_button(event):
     if Input.is_action_pressed('ui_accept'):
         self.bag.root.action_controller.handle_action(self.bag.root.selector_position)
-    if event.button_index == JOY_BUTTON_3 and event.pressed:
+    if event.button_index == JOY_BUTTON_3 and event.pressed and not self.bag.root.hud_controller.hud_message_card_visible:
         self.bag.root.sound_controller.play('menu')
         self.bag.root.action_controller.end_turn()
     if event.button_index == JOY_BUTTON_2 and event.pressed:
         self.bag.root.sound_controller.play('menu')
         self.bag.root.action_controller.spawn_unit_from_active_building()
-
 
 func process(delta):
     var selector_move = Vector2(0, 0)
