@@ -2,6 +2,9 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.4.2-beta
+- Ported game source to Godot 2.0
+
 ### 0.4.1-beta
 - native resolution mode (not available for android)
 - settings for AI difficulty
