@@ -5,7 +5,8 @@ var accumulated_time = 0
 var axis_controll = Vector2(0, 0)
 
 const INPUT_DELAY = 0.2
-const AXIS_THRESHOLD = 0.3
+const AXIS_ANGLE_THRESHOLD = 0.2
+const AXIS_OVERALL_THRESHOLD = 0.5
 
 
 
@@ -39,18 +40,21 @@ func process(delta):
     var selector_move = Vector2(0, 0)
     self.accumulated_time = self.accumulated_time + delta
 
-    if abs(axis_controll.x) < self.AXIS_THRESHOLD && abs(axis_controll.y) < self.AXIS_THRESHOLD:
+    if abs(axis_controll.x) < self.AXIS_ANGLE_THRESHOLD and abs(axis_controll.y) < self.AXIS_ANGLE_THRESHOLD:
         self.accumulated_time = 2*self.INPUT_DELAY
         return
 
+    if not (abs(axis_controll.x) > self.AXIS_OVERALL_THRESHOLD or abs(axis_controll.y) > self.AXIS_OVERALL_THRESHOLD):
+        return
+
     if self.accumulated_time > self.INPUT_DELAY:
-        if self.axis_controll.x < -self.AXIS_THRESHOLD:
+        if self.axis_controll.x < -self.AXIS_ANGLE_THRESHOLD:
             selector_move = selector_move + Vector2(-1, 1)
-        if self.axis_controll.x > self.AXIS_THRESHOLD:
+        if self.axis_controll.x > self.AXIS_ANGLE_THRESHOLD:
             selector_move = selector_move + Vector2(1, -1)
-        if self.axis_controll.y < -self.AXIS_THRESHOLD:
+        if self.axis_controll.y < -self.AXIS_ANGLE_THRESHOLD:
             selector_move = selector_move + Vector2(-1, -1)
-        if self.axis_controll.y > self.AXIS_THRESHOLD:
+        if self.axis_controll.y > self.AXIS_ANGLE_THRESHOLD:
             selector_move = selector_move + Vector2(1, 1)
 
         if selector_move.x > 1:

@@ -239,7 +239,6 @@ func toggle_menu(target = 'menu'):
             menu.hide()
             hud.show()
             if hud_controller.hud_message_card_visible:
-                print('focusing')
                 hud_controller.hud_message_card_button.grab_focus()
 
 func show_missions():
