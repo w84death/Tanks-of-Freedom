@@ -244,6 +244,7 @@ func load_menu():
     intro.queue_free()
     self.add_child(menu)
     menu.manage_close_button()
+    menu.campaign_button.grab_focus()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
