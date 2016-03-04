@@ -164,9 +164,9 @@ max_lines_visible = -1
 [node name="title" type="Label" parent="."]
 
 margin/left = -240.0
-margin/top = -84.0
-margin/right = -34.0
-margin/bottom = -61.0
+margin/top = -82.0
+margin/right = 48.0
+margin/bottom = -59.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -179,9 +179,9 @@ max_lines_visible = -1
 [node name="message" type="Label" parent="."]
 
 margin/left = -240.0
-margin/top = -50.0
+margin/top = -48.0
 margin/right = 240.0
-margin/bottom = 50.0
+margin/bottom = 52.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -200,7 +200,7 @@ frame = 7
 
 [node name="info" type="Sprite" parent="."]
 
-transform/pos = Vector2( -224, 86 )
+transform/pos = Vector2( -224, 81 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 11 )
 vframes = 2
@@ -220,10 +220,10 @@ autoplay = "jump"
 
 [node name="footer" type="Label" parent="."]
 
-margin/left = -190.0
-margin/top = 80.0
-margin/right = 30.0
-margin/bottom = 100.0
+margin/left = -200.0
+margin/top = 68.0
+margin/right = 93.0
+margin/bottom = 101.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
