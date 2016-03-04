@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="15" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
 	<ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://gui/message.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://gui/message.tscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture"></ext_resource>
@@ -416,7 +416,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 360 </real>
-				<resource  resource_type="PackedScene" path="res://gui/message.xscn">  </resource>
+				<resource  resource_type="PackedScene" path="res://gui/message.tscn">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "Script" </string>

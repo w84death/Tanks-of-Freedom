@@ -1,0 +1,239 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://scripts/message.gd" type="Script" id=1]
+[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=8]
+[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=9]
+[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/gui/cloud_spritesheet.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "jump"
+length = 0.8
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("info:frame")
+tracks/0/interp = 1
+tracks/0/keys = { "cont":false, "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "values":[ 3, 4, 5, 4, 3 ] }
+
+[node name="message" type="Control"]
+
+margin/right = 40.0
+margin/bottom = 40.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"2D" }
+
+[node name="background" type="Control" parent="."]
+
+margin/right = 40.0
+margin/bottom = 40.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="background"]
+
+transform/pos = Vector2( 0, -48 )
+transform/scale = Vector2( 10, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 4
+
+[node name="Sprite1" type="Sprite" parent="background"]
+
+transform/pos = Vector2( 206, -48 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 5
+
+[node name="Sprite2" type="Sprite" parent="background"]
+
+transform/pos = Vector2( -206, -48 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 3
+
+[node name="Sprite3" type="Sprite" parent="background"]
+
+transform/pos = Vector2( 0, 68 )
+transform/scale = Vector2( 10, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 20
+
+[node name="Sprite4" type="Sprite" parent="background"]
+
+transform/pos = Vector2( -206, 2.00001 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 11
+
+[node name="Sprite4 2" type="Sprite" parent="background"]
+
+transform/pos = Vector2( 206, 2.00001 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 13
+
+[node name="Sprite4 3" type="Sprite" parent="background"]
+
+transform/pos = Vector2( 0, 2.00001 )
+transform/scale = Vector2( 10, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 12
+
+[node name="Sprite3 3" type="Sprite" parent="background"]
+
+transform/pos = Vector2( 206, 68 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 21
+
+[node name="Sprite3 2" type="Sprite" parent="background"]
+
+transform/pos = Vector2( -206, 68 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+vframes = 8
+hframes = 8
+frame = 19
+
+[node name="button" type="TextureButton" parent="."]
+
+margin/left = 104.0
+margin/top = 60.0
+margin/right = 248.0
+margin/bottom = 108.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 3 )
+textures/pressed = ExtResource( 4 )
+textures/hover = ExtResource( 5 )
+textures/disabled = ExtResource( 6 )
+textures/focused = ExtResource( 7 )
+params/scale = Vector2( 3, 3 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Label" type="Label" parent="button"]
+
+margin/left = 4.0
+margin/top = 16.0
+margin/right = 134.0
+margin/bottom = 31.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "START TURN"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="title" type="Label" parent="."]
+
+margin/left = -240.0
+margin/top = -84.0
+margin/right = -34.0
+margin/bottom = -61.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 9 )
+text = "DID YOU KNOW THAT<..."
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="message" type="Label" parent="."]
+
+margin/left = -240.0
+margin/top = -50.0
+margin/right = 240.0
+margin/bottom = 50.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 8 )
+text = "Did you know\?\n\nLittle shield icon next to the unit shows that this unit can defend itself if attacked."
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="flag" parent="." instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 224, -66 )
+transform/scale = Vector2( 3, 3 )
+frame = 7
+
+[node name="info" type="Sprite" parent="."]
+
+transform/pos = Vector2( -224, 86 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+vframes = 2
+hframes = 3
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/jump = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "jump"
+
+[node name="footer" type="Label" parent="."]
+
+margin/left = -190.0
+margin/top = 80.0
+margin/right = 30.0
+margin/bottom = 100.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Start your turn now!"
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

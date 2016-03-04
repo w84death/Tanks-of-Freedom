@@ -3,7 +3,7 @@
 	<ext_resource path="res://scripts/workshop_controller.gd" type="Script"></ext_resource>
 	<ext_resource path="res://gui/workshop/toolbox.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gui/workshop/building_blocks.xscn" type="PackedScene"></ext_resource>
-	<ext_resource path="res://gui/message.xscn" type="PackedScene"></ext_resource>
+	<ext_resource path="res://gui/message.tscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gui/workshop/file_panel.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://gui/workshop/navigation_panel.xscn" type="PackedScene"></ext_resource>
 	<ext_resource path="res://maps/workshop.xscn" type="PackedScene"></ext_resource>
@@ -549,7 +549,7 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<resource  resource_type="PackedScene" path="res://gui/message.xscn">  </resource>
+				<resource  resource_type="PackedScene" path="res://gui/message.tscn">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
