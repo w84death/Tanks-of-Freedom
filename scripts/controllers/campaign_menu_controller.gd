@@ -117,15 +117,27 @@ func switch_to_next():
 
 func manage_switch_buttons():
     var campaign_progression = self.root.dependency_container.campaign.get_campaign_progress()
+    var grab_next_button = false
 
     if self.current_campaign_map == 0:
+        if self.prev_button.has_focus():
+            grab_next_button = true
+            self.start_button.grab_focus()
         self.button_enable_switch(prev_button,false)
     else:
         self.button_enable_switch(prev_button,true)
+
     if (self.current_campaign_map + 1) == self.root.dependency_container.campaign.maps.size() || self.current_campaign_map == (campaign_progression + 1):
+        if self.next_button.has_focus():
+            if not self.prev_button.is_disabled():
+                self.prev_button.grab_focus()
+            else:
+                self.start_button.grab_focus()
         self.button_enable_switch(next_button,false)
     else:
         self.button_enable_switch(next_button,true)
+        if grab_next_button:
+            self.next_button.grab_focus()
 
     if self.root.settings['easy_mode']:
         difficulty_label.set_text('EASY')
