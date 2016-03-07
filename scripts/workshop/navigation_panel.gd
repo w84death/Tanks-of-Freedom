@@ -34,6 +34,7 @@ func bind_panel(navigation_panel_node):
 func menu_button_pressed():
     self.root.sound_controller.play('menu')
     self.workshop.toggle_menu()
+    self.root.menu.workshop_button.grab_focus()
 
 func undo_button_pressed():
     self.root.sound_controller.play('menu')

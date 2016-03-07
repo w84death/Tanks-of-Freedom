@@ -166,6 +166,7 @@ func _demo_button_pressed():
 func _maps_close_button_pressed():
 	self.root.sound_controller.play('menu')
 	self.hide_maps_menu()
+	self.play_button.grab_focus()
 func _resolution_button_pressed():
 	self.root.sound_controller.play('menu')
 	self.root.dependency_container.resolution.toggle_resolution()
@@ -200,17 +201,23 @@ func show_maps_menu():
 	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
 	self.root.dependency_container.map_picker.lock_delete_mode_button()
 	self.maps_sub_menu.show()
+	if self.root.dependency_container.map_picker.blocks_cache.size() > 0:
+		self.root.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
+	else:
+		self.maps_close_button.grab_focus()
 
 func switch_to_skirmish_setup_panel(selected_map_name):
 	self.root.dependency_container.map_picker.detach_panel()
 	self.root.dependency_container.skirmish_setup.attach_panel(self.maps_sub_menu_anchor)
 	self.root.dependency_container.skirmish_setup.set_map_name(selected_map_name, selected_map_name)
 	self.root.dependency_container.skirmish_setup.connect(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
+	self.root.dependency_container.skirmish_setup.play_button.grab_focus()
 
 func switch_to_map_selection_panel():
 	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
 	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
 	self.root.dependency_container.skirmish_setup.detach_panel()
+	self.root.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func play_selected_skirmish_map(map_name):
 	self.load_map(map_name, true)
@@ -299,6 +306,7 @@ func show_workshop():
 	self.workshop.units.raise()
 	self.hide_background_map()
 	self.workshop.camera.make_current()
+	self.root.dependency_container.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
 
 func hide_workshop():
 	self.workshop.hide()
@@ -307,6 +315,7 @@ func hide_workshop():
 	self.show()
 	if not self.root.is_map_loaded:
 		self.show_background_map()
+	self.workshop_button.grab_focus()
 
 func load_map(name, from_workshop):
 	if from_workshop:

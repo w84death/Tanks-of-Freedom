@@ -131,16 +131,23 @@ func get_map(index):
 
 func adjust_page_buttons():
     var pages = self.get_number_of_pages()
+    var focus_next_button = false
 
     if self.current_page == 1:
+        if self.prev_button.has_focus():
+            focus_next_button = true
         self.button_enable_switch(self.prev_button, false)
     else:
         self.button_enable_switch(self.prev_button, true)
 
     if self.current_page == pages:
+        if self.next_button.has_focus() and not self.prev_button.is_disabled():
+            self.prev_button.grab_focus()
         self.button_enable_switch(self.next_button, false)
     else:
         self.button_enable_switch(self.next_button, true)
+        if focus_next_button:
+            self.next_button.grab_focus()
 
 func next_page():
     var pages = self.get_number_of_pages()

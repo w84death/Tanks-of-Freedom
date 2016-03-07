@@ -88,6 +88,7 @@ func pick_button_pressed():
     self.root.sound_controller.play('menu')
     self.toggle_file_panel()
     self.toggle_map_picker()
+    self.root.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func show_map_picker():
     self.central_container.show()
@@ -109,6 +110,7 @@ func load_map_from_picker(selected_map_name):
     self.workshop.load_map(selected_map_name)
     self.file_name.set_text(selected_map_name)
     self.hide_map_picker()
+    self.toggle_button.grab_focus()
 
 func is_map_picker_visible():
     return self.bag.map_picker.is_attached_to(self.central_container)
