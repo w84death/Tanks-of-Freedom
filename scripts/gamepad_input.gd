@@ -28,7 +28,8 @@ func handle_motion(event):
 
 func handle_button(event):
     if Input.is_action_pressed('ui_accept'):
-        self.bag.root.action_controller.handle_action(self.bag.root.selector_position)
+        if self.bag.root.selector_position != null:
+            self.bag.root.action_controller.handle_action(self.bag.root.selector_position)
     if event.button_index == JOY_BUTTON_3 and event.pressed and not self.bag.root.hud_controller.hud_message_card_visible:
         self.bag.root.sound_controller.play('menu')
         self.bag.root.action_controller.end_turn()

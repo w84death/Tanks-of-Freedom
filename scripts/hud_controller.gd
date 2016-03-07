@@ -209,6 +209,7 @@ func hud_end_game_missions_button_pressed():
 func show_campaign():
 	self.root_node.toggle_menu()
 	self.root_node.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+	self.root_node.dependency_container.controllers.campaign_menu_controller.start_button.grab_focus()
 
 func show_missions():
 	self.root_node.toggle_menu()
