@@ -92,6 +92,7 @@ func show():
 
 func hide():
     self.building_block_panel_wrapper.hide()
+    self.workshop_gui_controller.navigation_panel.block_button.grab_focus()
 
 func clear_blocks_panel():
     for block in self.current_blocks:
