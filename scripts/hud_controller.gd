@@ -214,9 +214,11 @@ func show_campaign():
 func show_missions():
 	self.root_node.toggle_menu()
 	self.root_node.dependency_container.controllers.menu_controller.show_maps_menu()
+	self.root_node.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func show_workshop():
 	self.root_node.dependency_container.controllers.menu_controller.enter_workshop()
+	self.root.dependency_container.controllers.workshop_gui_controller.file_panel.play_button.grab_focus()
 
 func show_map():
 	self.active_map.show()
