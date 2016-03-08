@@ -29,6 +29,7 @@ var file_handler = preload('res://scripts/services/file_handler.gd').new()
 var saving = preload('res://scripts/saving.gd').new()
 var resolution = preload('res://scripts/services/resolution.gd').new()
 var gamepad = preload('res://scripts/gamepad_input.gd').new()
+var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
 func init_root(root_node):
     self.root = root_node
@@ -48,6 +49,7 @@ func init_root(root_node):
     self.action_map.init_root(root_node)
     self.ap_gain.init_root(root_node)
     self.saving.init_root(root_node)
+    self.unit_switcher.init_root(root_node)
 
     self.camera.init_root(root)
     self.camera.abstract_map = self.abstract_map

@@ -116,6 +116,9 @@ func _input(event):
             else:
                 hud.show()
 
+        if event.type == InputEvent.KEY && event.scancode == KEY_C && event.pressed:
+            action_controller.switch_to_next_unit()
+
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
 
