@@ -53,6 +53,12 @@ func handle_button(event):
         if event.button_index == JOY_BUTTON_2 and event.pressed:
             self.bag.root.sound_controller.play('menu')
             self.bag.root.action_controller.spawn_unit_from_active_building()
+        if event.button_index == JOY_BUTTON_5 and event.pressed:
+            self.bag.root.sound_controller.play('menu')
+            self.bag.root.action_controller.switch_to_next_unit()
+            if self.bag.root.action_controller.active_field != null:
+                self.bag.root.move_selector_to_map_position(self.bag.root.action_controller.active_field.position)
+                self.bag.camera.move_to_map(self.bag.root.action_controller.active_field.position)
 
 func process(delta):
     var selector_move = Vector2(0, 0)
