@@ -7,6 +7,7 @@ func init_root(root):
     self.bag = self.root_node.bag
 
 func next_unit(player, active_field):
+    self.bag.positions.refresh_units()
     var units = self.bag.positions.get_player_units(player)
     var unit
     if active_field == null:
@@ -19,7 +20,7 @@ func next_unit(player, active_field):
 
     for unit_pos in units:
         unit = units[unit_pos]
-        if unit.ap > 0 && self.shown_units.find(unit.get_instance_ID()) == -1:
+        if unit.ap > 0 && self.shown_units.find(unit.get_instance_ID()) == -1 && active_field.object != unit:
             self.shown_units.append(unit.get_instance_ID())
             return unit
 
