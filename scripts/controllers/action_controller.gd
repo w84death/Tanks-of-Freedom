@@ -387,9 +387,6 @@ func switch_to_player(player, save_game=true):
     self.root_node.bag.fog_controller.clear_fog()
     self.root_node.bag.ap_gain.update()
 
-    # probably not needed
-    self.root_node.bag.unit_switcher.reset()
-
 func perform_ai_stuff():
     var success = false
     if self.is_cpu_player && player_ap[current_player] > 0:
@@ -530,9 +527,9 @@ func refresh_hud():
     hud_controller.set_turn(self.turn)
     hud_controller.update_ap(player_ap[current_player])
 
-func switch_to_next_unit():
+func switch_unit(direction):
     if not self.is_cpu_player:
-        var unit = self.root_node.bag.unit_switcher.next_unit(self.current_player, self.active_field)
-        if unit != null :
-            var unit_field = self.root_node.bag.abstract_map.get_field(unit.get_pos_map())
+        var unit_pos = self.root_node.bag.unit_switcher.switch_unit(self.current_player, self.active_field, direction)
+        if unit_pos != null :
+            var unit_field = self.root_node.bag.abstract_map.get_field(unit_pos)
             self.activate_field(unit_field)

@@ -117,7 +117,9 @@ func _input(event):
                 hud.show()
 
         if event.type == InputEvent.KEY && event.scancode == KEY_C && event.pressed:
-            action_controller.switch_to_next_unit()
+            action_controller.switch_unit(self.bag.unit_switcher.NEXT)
+        if event.type == InputEvent.KEY && event.scancode == KEY_X && event.pressed:
+            action_controller.switch_unit(self.bag.unit_switcher.BACK)
         if event.type == InputEvent.KEY && event.scancode == KEY_B && event.pressed:
             self.bag.camera.move_to_map_center()
 
