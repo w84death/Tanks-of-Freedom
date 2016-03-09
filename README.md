@@ -10,6 +10,32 @@ Classic turn-based strategy game with two armies fighting against each other. Ch
 
 Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
 
+## Gamepad Controlls
+Please note, that all controlls are described for XBox 360 controller. If you are using a different gamepad, please check for coresponding buttons.
+
+### Menus
+- DPad to navigate menu buttons
+- A to press button
+- usual B to back does not work in menus
+
+### In game
+- left analog stick to move selector
+- A to select units/buildings, move, attack, claim buildings
+- B to toggle between game and Menu
+- X to buy unit from active building
+- Y to end turn
+- RB to select next unit with AP
+
+### Workshop
+- DPad to navigate buttons
+- A to press button
+- B to toggle between Workshop and Main Menu
+- left analog stick to move selector
+- X to place a tile under selector
+- Y to erase a tile under selector
+
+Please note, that changing map name with gamepad is not possible at this time. Keyboard is still required.
+
 ## Download
 ### Official builds:
 - Windows

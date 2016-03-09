@@ -5,6 +5,11 @@
 ### 0.4.2-beta
 - ported game source to Godot 2.0
 - added basic gamepad support
+  - refer to README.md for details
+- added battle stats to pause/resume
+- added keyboard B hotkey to center camera on map
+- fixed error message in workshop being trimmed
+- fixed some river tiles not matching each other
 
 ### 0.4.1-beta
 - native resolution mode (not available for android)
