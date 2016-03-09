@@ -80,10 +80,12 @@ func show_skirmish_setup_panel():
     self.bag.skirmish_setup.attach_panel(self.central_container)
     self.bag.skirmish_setup.connect(self, "hide_skirmish_setup_panel", "play_map_from_skirmish_setup_panel")
     self.bag.skirmish_setup.set_map_name('not important', self.file_name.get_text())
+    self.bag.skirmish_setup.play_button.grab_focus()
 
 func hide_skirmish_setup_panel():
     self.central_container.hide()
     self.bag.skirmish_setup.detach_panel()
+    self.play_button.grab_focus()
 
 func play_map_from_skirmish_setup_panel(map_name):
     self.hide_skirmish_setup_panel()
