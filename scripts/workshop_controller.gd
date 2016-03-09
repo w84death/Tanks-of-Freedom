@@ -235,9 +235,15 @@ func center_camera():
     self.set_selector_map_pos(center_position)
 
 func set_camera_map_pos(position):
+    if position.x < 0 or position.y < 0 or position.x > self.MAP_MAX_X or position.y > self.MAP_MAX_Y:
+        return
+
     self.camera.set_offset(self.terrain.map_to_world(position))
 
 func set_selector_map_pos(pos):
+    if pos.x < 0 or pos.y < 0 or pos.x > self.MAP_MAX_X or pos.y > self.MAP_MAX_Y:
+        return
+
     var position = self.terrain.map_to_world(pos)
     position.y += 4
     selector.set_pos(position)
