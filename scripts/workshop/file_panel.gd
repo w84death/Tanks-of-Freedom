@@ -5,6 +5,7 @@ var workshop
 var workshop_gui_controller
 var file_panel
 var file_panel_wrapper
+var file_panel_top_controls
 
 var position
 var positions = [-48,50]
@@ -15,6 +16,7 @@ var save_animation
 var load_button
 var pick_button
 var file_name
+
 
 var central_container
 
@@ -28,14 +30,15 @@ func bind_panel(file_panel_wrapper_node):
     self.file_panel_wrapper = file_panel_wrapper_node
     self.file_panel = self.file_panel_wrapper.get_node("center/file_panel")
     self.position = self.file_panel.get_pos()
+    self.file_panel_top_controls = self.file_panel.get_node('controls/top')
+    self.file_name = self.file_panel_top_controls.get_node("file_name")
+    self.save_button = self.file_panel_top_controls.get_node("save_button")
+    self.save_animation = self.file_panel_top_controls.get_node("progress_animation")
+    self.pick_button = self.file_panel_top_controls.get_node("load_button_picker")
+    self.load_button = self.file_panel_top_controls.get_node("load_button")
 
-    self.file_name = self.file_panel.get_node("controls/file_name")
     self.toggle_button = self.file_panel.get_node("controls/file_button")
     self.play_button = self.file_panel.get_node("controls/play_button")
-    self.save_button = self.file_panel.get_node("controls/save_button")
-    self.save_animation = self.file_panel.get_node("controls/progress_animation")
-    self.pick_button = self.file_panel.get_node("controls/load_button_picker")
-    self.load_button = self.file_panel.get_node("controls/load_button")
 
     self.play_button.connect("pressed", self, "play_button_pressed")
     self.save_button.connect("pressed", self, "save_button_pressed")
@@ -52,8 +55,10 @@ func _toggle_button_pressed():
 func toggle_file_panel():
     if self.position.y == self.positions[0]:
         self.position.y = self.positions[1]
+        self.file_panel_top_controls.show()
     else:
         self.position.y = self.positions[0]
+        self.file_panel_top_controls.hide()
     self.file_panel.set_pos(self.position)
 
 func save_button_pressed():
