@@ -106,6 +106,10 @@ func move_to_map(target):
         self.target = target_position
         self.panning = true
 
+func move_to_map_center():
+    if self.root.current_map != null:
+        self.move_to_map(Vector2(self.root.current_map.MAP_MAX_X / 2, self.root.current_map.MAP_MAX_Y / 2))
+
 func process(delta):
     if not pos == target:
         temp_delta += delta

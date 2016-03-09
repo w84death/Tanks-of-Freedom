@@ -118,6 +118,8 @@ func _input(event):
 
         if event.type == InputEvent.KEY && event.scancode == KEY_C && event.pressed:
             action_controller.switch_to_next_unit()
+        if event.type == InputEvent.KEY && event.scancode == KEY_B && event.pressed:
+            self.bag.camera.move_to_map_center()
 
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
