@@ -529,7 +529,12 @@ func refresh_hud():
 
 func switch_unit(direction):
     if not self.is_cpu_player:
+        sound_controller.play('menu')
         var unit_pos = self.root_node.bag.unit_switcher.switch_unit(self.current_player, self.active_field, direction)
         if unit_pos != null :
             var unit_field = self.root_node.bag.abstract_map.get_field(unit_pos)
             self.activate_field(unit_field)
+
+        if self.active_field != null:
+            self.root_node.move_selector_to_map_position(self.active_field.position)
+            self.move_camera_to_point(self.active_field.position)
