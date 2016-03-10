@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
-	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="5"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="8" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="6"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="3"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="4"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://assets/gui/workshop/building_blocks.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -16,7 +17,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="34">
+			<string_array  len="35">
 				<string> "block" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
@@ -40,6 +41,7 @@
 				<string> "textures/pressed" </string>
 				<string> "textures/hover" </string>
 				<string> "textures/disabled" </string>
+				<string> "textures/focused" </string>
 				<string> "params/scale" </string>
 				<string> "TextureButton" </string>
 				<string> "name" </string>
@@ -58,9 +60,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="104"> 				-1, -1, 8, 0, -1, 7, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 0, 0, 0, 15, 9, -1, 5, 10, 5, 11, 6, 12, 1, 13, 7, 14, 8, 0, 0, 0, 24, 16, -1, 13, 17, 9, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 18, 1, 19, 10, 20, 11, 21, 12, 22, 13, 23, 14, 0, 2, 0, 33, 25, -1, 13, 17, 15, 1, 0, 2, 16, 3, 2, 4, 2, 5, 3, 26, 17, 27, 18, 28, 19, 29, 20, 30, 21, 31, 22, 32, 23, 0 </int_array>
+			<int_array  len="106"> 				-1, -1, 8, 0, -1, 7, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 0, 0, 0, 15, 9, -1, 5, 10, 5, 11, 6, 12, 1, 13, 7, 14, 8, 0, 0, 0, 25, 16, -1, 14, 17, 9, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 18, 1, 19, 10, 20, 11, 21, 12, 22, 13, 23, 14, 24, 15, 0, 2, 0, 34, 26, -1, 13, 17, 16, 1, 0, 2, 17, 3, 2, 4, 2, 5, 3, 27, 18, 28, 19, 29, 20, 30, 21, 31, 22, 32, 23, 33, 24, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="24" shared="false">
+			<array  len="25" shared="false">
 				<real> 96 </real>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -78,10 +80,11 @@
 				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
 				<resource  external="4">  </resource>
+				<resource  external="5">  </resource>
 				<vector2> 3, 3 </vector2>
 				<real> 17 </real>
 				<real> 35 </real>
-				<resource  external="5">  </resource>
+				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "NAME" </string>
 				<int> 1 </int>
