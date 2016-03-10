@@ -46,13 +46,14 @@ var difficulty_label
 
 var background_map
 var root_tree
+var background_gradient
 
 func _ready():
 	self.control_nodes = [self.get_node("top"),self.get_node("middle"),self.get_node("bottom")]
 
 	workshop_button = get_node("bottom/center/workshop")
-
 	campaign_button = get_node("bottom/center/start_campaign")
+	self.background_gradient = self.get_node('vigette/center/Sprite')
 
 	play_button = get_node("bottom/center/play")
 	close_button = get_node("top/center/close")
@@ -118,6 +119,9 @@ func _ready():
 	self.update_zoom_label()
 	self.load_background_map()
 	self.toggle_main_menu()
+
+	if self.root.settings['resolution'] == self.root.bag.resolution.UNLOCKED:
+		self.background_gradient.set_scale(Vector2(7,7))
 
 func _campaign_button_pressed():
 	self.root.sound_controller.play('menu')
