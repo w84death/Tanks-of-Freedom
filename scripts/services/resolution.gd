@@ -61,8 +61,8 @@ func apply_resolution():
 
     OS.set_window_resizable(true)
     OS.set_window_fullscreen(fullscreen)
-    OS.set_video_mode(newsize, fullscreen, false)
-    OS.set_window_size(newsize)
+    #OS.set_video_mode(newsize, fullscreen, false)
+    #OS.set_window_size(newsize)
     OS.set_window_resizable(false)
 
     self.bag.hud_dead_zone.screen_size = newsize

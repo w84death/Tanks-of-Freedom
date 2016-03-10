@@ -392,9 +392,9 @@ func refresh_buttons_labels():
 		self.resolution_button.set_disabled(false)
 		self.resolution_label.show()
 		if root.settings['resolution'] == root.dependency_container.resolution.UNLOCKED:
-			resolution_label.set_text('UNLOCKED')
+			resolution_label.set_text('ON')
 		else:
-			resolution_label.set_text('LOCKED')
+			resolution_label.set_text('OFF')
 	else:
 		self.resolution_button.set_disabled(true)
 		self.resolution_label.hide()
