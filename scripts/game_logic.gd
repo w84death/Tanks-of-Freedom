@@ -321,5 +321,3 @@ func _ready():
     menu.hide()
     intro.init_root(self)
     self.add_child(intro)
-    self.screen_size = get_node('/root/game/viewport').get_rect().size
-    self.half_screen_size = self.screen_size / 2
