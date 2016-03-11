@@ -4,8 +4,9 @@
 
 ### 0.4.2-beta
 - ported game source to Godot 2.0
-- added basic gamepad support
+- added gamepad support
   - refer to README.md for details
+  - not available in OSX version
 - added battle stats to pause/resume
 - added keyboard B hotkey to center camera on map
 - fixed error message in workshop being trimmed

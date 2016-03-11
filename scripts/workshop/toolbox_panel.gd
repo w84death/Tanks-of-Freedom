@@ -53,6 +53,7 @@ func fill_button_pressed():
     self.root.sound_controller.play('menu')
     self.workshop_gui_controller.hide_toolbox_panel()
     self.workshop.toolbox_fill()
+    self.workshop_gui_controller.navigation_panel.block_button.grab_focus()
 
 func fill_axis_button_pressed(label, axis_index):
     self.root.sound_controller.play('menu')
