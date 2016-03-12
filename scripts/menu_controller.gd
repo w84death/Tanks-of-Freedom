@@ -286,7 +286,7 @@ func hide_settings():
 func manage_close_button():
 	if self.root.is_map_loaded:
 		self.close_button.show()
-		self.close_button_label.set_text('< BACK TO GAME')
+		self.close_button_label.set_text('< GAME')
 	elif self.root.dependency_container.saving.is_save_available():
 		self.close_button.show()
 		self.close_button_label.set_text('< RESUME')
