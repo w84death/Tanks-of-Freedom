@@ -66,6 +66,8 @@ func apply_resolution():
         if self.root.menu != null:
             self.root.menu.background_gradient.set_scale(Vector2(5, 5))
 
+    print('New resolution is ' , newsize)
+
     OS.set_window_fullscreen(fullscreen)
     OS.set_video_mode(newsize, fullscreen, false)
     OS.set_window_size(newsize)
