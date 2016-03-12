@@ -25,10 +25,20 @@ func _init_bag(bag):
     self.check_initial_resolution()
     self.apply_resolution()
 
-    #self.root.get_node("/root").connect("size_changed", self, "apply_resolution")
+    self.root.get_node("/root").connect("size_changed", self, "update_window_size")
 
 func calculate_locked_height():
     self.locked_height = Globals.get('display/height')
+
+func update_window_size():
+    if self.root.settings['resolution'] == self.UNLOCKED:
+        return
+
+    var resolution = self.root.get_node("/root").get_rect().size
+    self.bag.hud_dead_zone.screen_size = resolution
+    self.bag.workshop_dead_zone.screen_size = resolution
+    self.root.screen_size = resolution
+    self.root.half_screen_size = resolution / 2
 
 func check_initial_resolution():
     if self.root.settings['resolution'] != self.UNSET:
@@ -65,8 +75,6 @@ func apply_resolution():
         newsize = Vector2(self.LOCKED_WIDTH, self.locked_height)
         if self.root.menu != null:
             self.root.menu.background_gradient.set_scale(Vector2(5, 5))
-
-    print('New resolution is ' , newsize)
 
     OS.set_window_fullscreen(fullscreen)
     OS.set_video_mode(newsize, fullscreen, false)
