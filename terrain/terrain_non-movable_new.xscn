@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://assets/terrain/terrain_non-movable.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/summer/terrain_non-movable.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
 	<resource type="ColorRamp" path="local://1">
 		<real_array name="offsets" len="4"> 			0, 0.2464, 0.7808, 1 </real_array>
@@ -67,7 +67,7 @@
 			<int_array  len="215"> 				-1, -1, 1, 0, -1, 10, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 6, 10, 7, 11, 8, 0, 0, 0, 13, 12, -1, 2, 14, 6, 7, 9, 0, 1, 0, 16, 15, -1, 26, 17, 10, 18, 11, 19, 12, 20, 13, 21, 14, 22, 6, 23, 15, 24, 16, 25, 17, 26, 15, 27, 15, 28, 15, 29, 18, 30, 15, 31, 15, 32, 19, 33, 15, 34, 20, 35, 15, 36, 15, 37, 14, 38, 15, 39, 21, 40, 22, 41, 22, 42, 23, 0, 1, 0, 16, 43, -1, 26, 17, 24, 18, 11, 19, 12, 20, 13, 21, 14, 22, 6, 23, 15, 24, 16, 25, 17, 26, 15, 27, 15, 28, 15, 29, 18, 30, 15, 31, 15, 32, 19, 33, 15, 34, 20, 35, 15, 36, 15, 37, 14, 38, 15, 39, 21, 40, 22, 41, 22, 42, 23, 0, 1, 0, 16, 44, -1, 26, 17, 25, 18, 11, 19, 12, 20, 13, 21, 14, 22, 6, 23, 15, 24, 16, 25, 17, 26, 15, 27, 15, 28, 15, 29, 18, 30, 15, 31, 15, 32, 19, 33, 15, 34, 20, 35, 15, 36, 15, 37, 14, 38, 15, 39, 21, 40, 22, 41, 22, 42, 23, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="26" shared="false">
-				<resource  resource_type="Texture" path="res://assets/terrain/terrain_non-movable.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/terrain/summer/terrain_non-movable.png">  </resource>
 				<int> 4 </int>
 				<int> 8 </int>
 				<int> 9 </int>

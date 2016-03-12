@@ -20,6 +20,7 @@ var menu_button_label
 var settings_button
 
 var game_card
+var hud_vigette
 
 var hud_end_game
 var hud_end_game_controls
@@ -51,6 +52,11 @@ func init_root(root, action_controller_object, hud):
     self.active_map = root.scale_root
 
     self.game_card = hud.get_node("top_panel/center/game_card")
+
+    hud_vigette = hud.get_node("vigette/center/sprite")
+
+    if self.root.settings['resolution'] == self.root.bag.resolution.UNLOCKED:
+        hud_vigette.set_scale(Vector2(7,7))
 
     #
     # HUD END GAME

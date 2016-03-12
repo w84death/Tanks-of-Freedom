@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="3" version="1.1" version_name="Godot Engine v1.1.stable.d3b42e41b0">
-	<ext_resource path="res://assets/terrain/terrain_non-movable.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/summer/terrain_non-movable.png" type="Texture"></ext_resource>
 	<ext_resource path="res://scripts/terrain.gd" type="Script"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -55,7 +55,7 @@
 				<real> 0 </real>
 				<vector2> 1, 1 </vector2>
 				<int> 0 </int>
-				<resource  resource_type="Texture" path="res://assets/terrain/terrain_non-movable.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/terrain/summer/terrain_non-movable.png">  </resource>
 				<bool> False </bool>
 				<int> 2 </int>
 				<int> 8 </int>

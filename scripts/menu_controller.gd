@@ -53,7 +53,7 @@ func _ready():
 
 	workshop_button = get_node("bottom/center/workshop")
 	campaign_button = get_node("bottom/center/start_campaign")
-	self.background_gradient = self.get_node('vigette/center/Sprite')
+	self.background_gradient = self.get_node('vigette/center/sprite')
 
 	play_button = get_node("bottom/center/play")
 	close_button = get_node("top/center/close")

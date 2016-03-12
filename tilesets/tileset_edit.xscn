@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="2" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
-	<ext_resource path="res://assets/terrain/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/summer/ground.png" type="Texture"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -217,7 +217,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<vector2> -166.108, -169 </vector2>
-				<resource  resource_type="Texture" path="res://assets/terrain/ground.png">  </resource>
+				<resource  resource_type="Texture" path="res://assets/terrain/summer/ground.png">  </resource>
 				<vector2> 0, -14 </vector2>
 				<bool> True </bool>
 				<rect2> 0, 0, 64, 64 </rect2>
