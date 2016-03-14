@@ -32,7 +32,7 @@ func bind_campaign_menu():
     self.prev_button = self.campaign_menu.get_node("bottom/control/dialog_controls/prev_button")
     self.next_button = self.campaign_menu.get_node("bottom/control/dialog_controls/next_button")
     self.difficulty_button = self.campaign_menu.get_node('middle/control/dialog_controls/difficulty_button')
-    self.mission_num = self.campaign_menu.get_node("bottom/control/dialog_controls/mission_num")
+    self.mission_num = self.campaign_menu.get_node("middle/control/dialog_controls/mission_num")
     self.difficulty_label = difficulty_button.get_node("Label")
 
     self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/mission_name")
