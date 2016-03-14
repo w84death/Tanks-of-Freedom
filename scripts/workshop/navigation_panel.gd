@@ -13,8 +13,8 @@ var block_button_label
 
 func init_root(root_node):
     self.root = root_node
-    self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
-    self.workshop = self.root.dependency_container.workshop
+    self.workshop_gui_controller = self.root.bag.controllers.workshop_gui_controller
+    self.workshop = self.root.bag.workshop
 
 func bind_panel(navigation_panel_node):
     self.navigation_panel = navigation_panel_node

@@ -12,8 +12,8 @@ var navigation_panel = preload("res://scripts/workshop/navigation_panel.gd").new
 
 func init_root(root_node):
     self.root = root_node
-    self.workshop = self.root.dependency_container.workshop
-    self.root.add_child(self.root.dependency_container.workshop)
+    self.workshop = self.root.bag.workshop
+    self.root.add_child(self.root.bag.workshop)
     self.blueprint.init_root(root_node)
     self.toolbox_panel.init_root(root_node)
     self.building_blocks_panel.init_root(root_node)

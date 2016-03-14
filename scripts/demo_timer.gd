@@ -22,7 +22,7 @@ func _process(delta):
 			self.reset(STATS)
 		else:
 			self.reset(INTRO)
-		self.root.dependency_container.demo_mode.start_map()
+		self.root.bag.demo_mode.start_map()
 
 func inject_root(root_obj):
 	root = root_obj

@@ -25,6 +25,6 @@ func start_map():
 
 func get_random_map():
     randomize()
-    var map_num = randi() % self.root.dependency_container.map_list.maps.size()
-    var keys = self.root.dependency_container.map_list.maps.keys()
+    var map_num = randi() % self.root.bag.map_list.maps.size()
+    var keys = self.root.bag.map_list.maps.keys()
     return keys[map_num]

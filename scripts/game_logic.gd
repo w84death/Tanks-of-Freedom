@@ -26,8 +26,7 @@ var current_map_name
 var hud
 var ai_timer
 
-var dependency_container = preload('res://scripts/dependency_container.gd').new()
-var bag = dependency_container
+var bag = preload('res://scripts/services/dependency_container.gd').new()
 
 var map_template = preload('res://maps/workshop.xscn')
 var main_tileset = preload("res://maps/map_tileset.xml")
@@ -73,7 +72,7 @@ func _input(event):
     if is_map_loaded && is_paused == false:
         if is_locked_for_cpu == false:
             if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
-                self.dependency_container.gamepad.handle_input(event)
+                self.bag.gamepad.handle_input(event)
 
             game_scale = self.camera.get_scale()
             camera_pos = self.camera.get_pos()
@@ -268,7 +267,7 @@ func load_menu():
     intro.queue_free()
     self.add_child(menu)
     menu.manage_close_button()
-    self.dependency_container.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
+    self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true

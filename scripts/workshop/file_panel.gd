@@ -22,9 +22,9 @@ var central_container
 
 func init_root(root_node):
     self.root = root_node
-    self.bag = root_node.dependency_container
-    self.workshop = self.root.dependency_container.workshop
-    self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
+    self.bag = root_node.bag
+    self.workshop = self.root.bag.workshop
+    self.workshop_gui_controller = self.root.bag.controllers.workshop_gui_controller
 
 func bind_panel(file_panel_wrapper_node):
     self.file_panel_wrapper = file_panel_wrapper_node
@@ -95,7 +95,7 @@ func pick_button_pressed():
     self.root.sound_controller.play('menu')
     self.toggle_file_panel()
     self.toggle_map_picker()
-    self.root.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
+    self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func show_map_picker():
     self.central_container.show()

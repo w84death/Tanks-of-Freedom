@@ -21,7 +21,7 @@ func _process(delta):
 	if get_parent().is_paused || self.is_on_cooldown:
 		return
 
-	if root.dependency_container.camera.panning:
+	if root.bag.camera.panning:
 		return
 
 	timeout += delta

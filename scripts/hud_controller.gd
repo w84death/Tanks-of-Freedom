@@ -1,5 +1,4 @@
 var root
-var root_node
 var action_controller
 var active_map
 
@@ -41,7 +40,6 @@ var tips
 var tip_counter
 
 func init_root(root, action_controller_object, hud):
-    self.root_node = root
     self.root = root
     self.action_controller = action_controller_object
     self.hud_root = hud
@@ -97,7 +95,7 @@ func init_root(root, action_controller_object, hud):
     self.settings_button = hud.get_node("top_panel/center/game_card/settings")
     self.menu_button.connect("pressed", self, "_menu_button_pressed", ['menu'])
     self.settings_button.connect("pressed", self, "_menu_button_pressed", ['settings'])
-    self.root_node.dependency_container.controllers.hud_panel_controller.reset()
+    self.root.bag.controllers.hud_panel_controller.reset()
 
 func _hud_end_game_restart_button_pressed():
     self.root.sound_controller.play('menu')
@@ -106,7 +104,7 @@ func _hud_end_game_menu_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.toggle_menu()
     self.root.unload_map()
-    self.root.dependency_container.timers.set_timeout(0.1, self.root.menu.campaign_button, "grab_focus")
+    self.root.bag.timers.set_timeout(0.1, self.root.menu.campaign_button, "grab_focus")
 func _hud_message_card_button_pressed():
     self.root.sound_controller.play('menu')
     self.close_message_card()
@@ -114,7 +112,7 @@ func _menu_button_pressed(tab):
     self.root.sound_controller.play('menu')
     self.root.toggle_menu(tab)
     if self.back_to_workshop:
-        self.root.dependency_container.controllers.menu_controller.enter_workshop()
+        self.root.bag.controllers.menu_controller.enter_workshop()
 func _end_turn_button_pressed():
     self.root.sound_controller.play('menu')
     self.action_controller.end_turn()
@@ -122,11 +120,11 @@ func _end_turn_button_pressed():
 
 func attach_hud_panel():
     self.hud_panel_anchor = self.hud_root.get_node('bottom_panel/center')
-    self.hud_panel_anchor.add_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
-    self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.bind_end_turn(self, '_end_turn_button_pressed')
+    self.hud_panel_anchor.add_child(self.root.bag.controllers.hud_panel_controller.hud_panel)
+    self.root.bag.controllers.hud_panel_controller.info_panel.bind_end_turn(self, '_end_turn_button_pressed')
 
 func detach_hud_panel():
-    self.hud_panel_anchor.remove_child(self.root_node.dependency_container.controllers.hud_panel_controller.hud_panel)
+    self.hud_panel_anchor.remove_child(self.root.bag.controllers.hud_panel_controller.hud_panel)
 
 func enable_back_to_workshop():
     self.back_to_workshop = true
@@ -139,22 +137,22 @@ func disable_back_to_workshop():
 func show_unit_card(unit, player):
     if self.hud_locked:
         return
-    self.root_node.dependency_container.controllers.hud_panel_controller.show_unit_panel(unit)
+    self.root.bag.controllers.hud_panel_controller.show_unit_panel(unit)
 
 func update_unit_card(unit):
-    self.root_node.dependency_container.controllers.hud_panel_controller.unit_panel.update_hud()
+    self.root.bag.controllers.hud_panel_controller.unit_panel.update_hud()
 
 func clear_unit_card():
-    self.root_node.dependency_container.controllers.hud_panel_controller.hide_unit_panel()
+    self.root.bag.controllers.hud_panel_controller.hide_unit_panel()
 
 func show_building_card(building, player_ap):
     if not building.can_spawn || self.hud_locked:
         return
-    self.root_node.dependency_container.controllers.hud_panel_controller.show_building_panel(building, player_ap)
-    self.root_node.dependency_container.controllers.hud_panel_controller.building_panel.bind_spawn_unit(self.action_controller, "spawn_unit_from_active_building")
+    self.root.bag.controllers.hud_panel_controller.show_building_panel(building, player_ap)
+    self.root.bag.controllers.hud_panel_controller.building_panel.bind_spawn_unit(self.action_controller, "spawn_unit_from_active_building")
 
 func clear_building_card():
-    self.root_node.dependency_container.controllers.hud_panel_controller.hide_building_panel()
+    self.root.bag.controllers.hud_panel_controller.hide_building_panel()
 
 func show_in_game_card(messages, current_player):
     self.lock_hud()
@@ -175,21 +173,21 @@ func close_message_card():
 
 func lock_hud():
     self.hud_locked = true
-    self.root_node.dependency_container.controllers.hud_panel_controller.hide_panel()
-    self.root_node.dependency_container.controllers.hud_panel_controller.clear_panels()
+    self.root.bag.controllers.hud_panel_controller.hide_panel()
+    self.root.bag.controllers.hud_panel_controller.clear_panels()
 
 func unlock_hud():
     self.hud_locked = false
-    self.root_node.dependency_container.controllers.hud_panel_controller.show_panel()
+    self.root.bag.controllers.hud_panel_controller.show_panel()
 
 func update_ap(ap):
-    self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.set_ap(ap)
+    self.root.bag.controllers.hud_panel_controller.info_panel.set_ap(ap)
 
 func set_turn(no):
-    self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.set_turn(no, self.root_node.settings['turns_cap'])
+    self.root.bag.controllers.hud_panel_controller.info_panel.set_turn(no, self.root.settings['turns_cap'])
 
 func warn_end_turn():
-    self.root_node.dependency_container.controllers.hud_panel_controller.info_panel.end_button_flash()
+    self.root.bag.controllers.hud_panel_controller.info_panel.end_button_flash()
 
 func show_win(player, stats, turns):
     self.adjust_missions_button()
@@ -200,10 +198,10 @@ func show_win(player, stats, turns):
     self.hud_end_game.show()
 
 func adjust_missions_button():
-    if self.root_node.dependency_container.match_state.is_campaign():
+    if self.root.bag.match_state.is_campaign():
         self.hud_end_game_missions_button_label.set_text("CAMPAIGN")
         self.hud_end_game_missions_button_action = "show_campaign"
-    elif self.root_node.dependency_container.match_state.is_workshop():
+    elif self.root.bag.match_state.is_workshop():
         self.hud_end_game_missions_button_label.set_text("WORKSHOP")
         self.hud_end_game_missions_button_action = "show_workshop"
     else:
@@ -216,17 +214,17 @@ func hud_end_game_missions_button_pressed():
     self.root.unload_map()
 
 func show_campaign():
-    self.root_node.toggle_menu()
-    self.root_node.menu.show_campaign_menu()
+    self.root.toggle_menu()
+    self.root.menu.show_campaign_menu()
 
 func show_missions():
-    self.root_node.toggle_menu()
-    self.root_node.dependency_container.controllers.menu_controller.show_maps_menu()
-    self.root_node.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
+    self.root.toggle_menu()
+    self.root.bag.controllers.menu_controller.show_maps_menu()
+    self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func show_workshop():
-    self.root_node.dependency_container.controllers.menu_controller.enter_workshop()
-    self.root.dependency_container.controllers.workshop_gui_controller.file_panel.play_button.grab_focus()
+    self.root.bag.controllers.menu_controller.enter_workshop()
+    self.root.bag.controllers.workshop_gui_controller.file_panel.play_button.grab_focus()
 
 func show_map():
     self.active_map.show()
@@ -289,8 +287,8 @@ func update_cpu_progress(current_ap, overall_ap):
     self.cinematic_progress.set_frame(percent)
 
 func __show_next_tip():
-    self.tip_counter = (self.tip_counter + 1) % 13
-    return self.tips.tips[self.tip_counter]
+	self.tip_counter = (self.tip_counter + 1) % 13
+	return self.tips.tips[self.tip_counter]
 
 func __show_general_header():
-    return 'Did you know that...'
+	return 'Did you know that...'

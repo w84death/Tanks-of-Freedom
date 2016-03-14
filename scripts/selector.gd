@@ -10,7 +10,7 @@ var movement_controller = null
 func init(root_node):
 	self.root = root_node
 	self.action_controller = self.root.action_controller
-	self.movement_controller = self.root.dependency_container.movement_controller
+	self.movement_controller = self.root.bag.movement_controller
 
 func reset():
 	action_controller = null
@@ -32,7 +32,7 @@ func calculate_cost():
 		return # not initiated
 
 	var active_field = action_controller.active_field
-	var marked_field = root.dependency_container.abstract_map.get_field(action_controller.root_node.selector_position)
+	var marked_field = root.bag.abstract_map.get_field(action_controller.root_node.selector_position)
 
 	if action_controller.player_ap[action_controller.current_player] < 1:
 		return # no ap left

@@ -120,9 +120,6 @@ func _ready():
 	self.load_background_map()
 	self.toggle_main_menu()
 
-	if self.root.settings['resolution'] == self.root.bag.resolution.UNLOCKED:
-		self.background_gradient.set_scale(Vector2(7,7))
-
 func _campaign_button_pressed():
 	self.root.sound_controller.play('menu')
 	self.show_campaign_menu()
@@ -146,14 +143,14 @@ func _toggle_follow_button_pressed():
 	self.toggle_follow()
 func _camera_zoom_in_button_pressed():
 	self.root.sound_controller.play('menu')
-	self.root.dependency_container.camera.camera_zoom_in()
+	self.root.bag.camera.camera_zoom_in()
 func _camera_zoom_out_button_pressed():
 	self.root.sound_controller.play('menu')
-	self.root.dependency_container.camera.camera_zoom_out()
+	self.root.bag.camera.camera_zoom_out()
 func _close_button_pressed():
 	self.root.sound_controller.play('menu')
 	if not self.root.is_map_loaded:
-		self.root.dependency_container.saving.load_state()
+		self.root.bag.saving.load_state()
 	self.root.toggle_menu()
 func _quit_button_pressed():
 	self.root.sound_controller.play('menu')
@@ -173,7 +170,7 @@ func _maps_close_button_pressed():
 	self.play_button.grab_focus()
 func _resolution_button_pressed():
 	self.root.sound_controller.play('menu')
-	self.root.dependency_container.resolution.toggle_resolution()
+	self.root.bag.resolution.toggle_resolution()
 	self.refresh_buttons_labels()
 func _difficulty_button_pressed():
 	self.root.sound_controller.play('menu')
@@ -183,7 +180,7 @@ func _difficulty_button_pressed():
 
 
 func start_demo_mode():
-	self.root.dependency_container.demo_mode.start_demo_mode(false)
+	self.root.bag.demo_mode.start_demo_mode(false)
 
 func load_maps_menu():
 	maps_sub_menu.hide()
@@ -195,33 +192,33 @@ func load_maps_menu():
 	maps_close_button.connect("pressed", self, "_maps_close_button_pressed")
 
 func show_campaign_menu():
-	self.root.dependency_container.controllers.campaign_menu_controller.show_campaign_menu()
+	self.root.bag.controllers.campaign_menu_controller.show_campaign_menu()
 	self.hide_control_nodes()
-	self.root.dependency_container.controllers.campaign_menu_controller.start_button.grab_focus()
+	self.root.bag.controllers.campaign_menu_controller.start_button.grab_focus()
 
 func show_maps_menu():
 	self.hide_control_nodes()
-	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
-	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
-	self.root.dependency_container.map_picker.lock_delete_mode_button()
+	self.root.bag.map_picker.attach_panel(self.maps_sub_menu_anchor)
+	self.root.bag.map_picker.connect(self, "switch_to_skirmish_setup_panel")
+	self.root.bag.map_picker.lock_delete_mode_button()
 	self.maps_sub_menu.show()
-	if self.root.dependency_container.map_picker.blocks_cache.size() > 0:
-		self.root.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
+	if self.root.bag.map_picker.blocks_cache.size() > 0:
+		self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 	else:
 		self.maps_close_button.grab_focus()
 
 func switch_to_skirmish_setup_panel(selected_map_name):
-	self.root.dependency_container.map_picker.detach_panel()
-	self.root.dependency_container.skirmish_setup.attach_panel(self.maps_sub_menu_anchor)
-	self.root.dependency_container.skirmish_setup.set_map_name(selected_map_name, selected_map_name)
-	self.root.dependency_container.skirmish_setup.connect(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
-	self.root.dependency_container.skirmish_setup.play_button.grab_focus()
+	self.root.bag.map_picker.detach_panel()
+	self.root.bag.skirmish_setup.attach_panel(self.maps_sub_menu_anchor)
+	self.root.bag.skirmish_setup.set_map_name(selected_map_name, selected_map_name)
+	self.root.bag.skirmish_setup.connect(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
+	self.root.bag.skirmish_setup.play_button.grab_focus()
 
 func switch_to_map_selection_panel():
-	self.root.dependency_container.map_picker.attach_panel(self.maps_sub_menu_anchor)
-	self.root.dependency_container.map_picker.connect(self, "switch_to_skirmish_setup_panel")
-	self.root.dependency_container.skirmish_setup.detach_panel()
-	self.root.dependency_container.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
+	self.root.bag.map_picker.attach_panel(self.maps_sub_menu_anchor)
+	self.root.bag.map_picker.connect(self, "switch_to_skirmish_setup_panel")
+	self.root.bag.skirmish_setup.detach_panel()
+	self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func play_selected_skirmish_map(map_name):
 	self.load_map(map_name, true)
@@ -237,8 +234,8 @@ func hide_control_nodes():
 func hide_maps_menu():
 	self.show_control_nodes()
 	maps_sub_menu.hide()
-	self.root.dependency_container.map_picker.detach_panel()
-	self.root.dependency_container.skirmish_setup.detach_panel()
+	self.root.bag.map_picker.detach_panel()
+	self.root.bag.skirmish_setup.detach_panel()
 
 # MAIN MENU
 func get_main_menu_visibility():
@@ -287,7 +284,7 @@ func manage_close_button():
 	if self.root.is_map_loaded:
 		self.close_button.show()
 		self.close_button_label.set_text('< GAME')
-	elif self.root.dependency_container.saving.is_save_available():
+	elif self.root.bag.saving.is_save_available():
 		self.close_button.show()
 		self.close_button_label.set_text('< RESUME')
 	else:
@@ -295,7 +292,7 @@ func manage_close_button():
 
 # WORKSHOP
 func load_workshop():
-	self.workshop = self.root.dependency_container.workshop
+	self.workshop = self.root.bag.workshop
 
 func enter_workshop():
 	self.root.unload_map()
@@ -310,12 +307,12 @@ func show_workshop():
 	self.workshop.units.raise()
 	self.hide_background_map()
 	self.workshop.camera.make_current()
-	self.root.dependency_container.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
+	self.root.bag.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
 
 func hide_workshop():
 	self.workshop.hide()
 	self.workshop.camera.clear_current()
-	self.root.dependency_container.camera.camera.make_current()
+	self.root.bag.camera.camera.make_current()
 	self.show()
 	if not self.root.is_map_loaded:
 		self.show_background_map()
@@ -333,7 +330,7 @@ func load_map(name, from_workshop):
 	workshop.is_suspended = true
 
 func resume_map():
-	self.root.dependency_container.saving.load_state()
+	self.root.bag.saving.load_state()
 	root.toggle_menu()
 	self.hide_maps_menu()
 	workshop.hide()
@@ -392,10 +389,10 @@ func refresh_buttons_labels():
 	else:
 		difficulty_label.set_text('NORMAL')
 
-	if root.dependency_container.resolution.override_resolution:
+	if root.bag.resolution.override_resolution:
 		self.resolution_button.set_disabled(false)
 		self.resolution_label.show()
-		if root.settings['resolution'] == root.dependency_container.resolution.UNLOCKED:
+		if root.settings['resolution'] == root.bag.resolution.UNLOCKED:
 			resolution_label.set_text('ON')
 		else:
 			resolution_label.set_text('OFF')
@@ -414,12 +411,12 @@ func update_progress_labels():
 	self.update_campaign_progress_label()
 
 func update_custom_maps_count_label():
-	var maps_created = self.root.dependency_container.map_list.maps.size()
+	var maps_created = self.root.bag.map_list.maps.size()
 	self.label_maps_created.set_text("MAPS CREATED: " + str(maps_created))
 
 func update_campaign_progress_label():
-	var completed_maps = self.root.dependency_container.campaign.get_completed_map_count()
-	var total_maps = self.root.dependency_container.campaign.maps.size()
+	var completed_maps = self.root.bag.campaign.get_completed_map_count()
+	var total_maps = self.root.bag.campaign.maps.size()
 	self.label_completed.set_text("COMPLETED: " + str(completed_maps) + "/" + str(total_maps))
 
 func update_version_label():
@@ -433,7 +430,7 @@ func load_background_map():
 	self.background_map = self.root.map_template.instance()
 	self.background_map.is_dead = true
 	self.background_map.get_node('terrain').set_tileset(self.root.main_tileset)
-	self.background_map.fill_map_from_data_array(self.root.dependency_container.menu_background_map.map_data)
+	self.background_map.fill_map_from_data_array(self.root.bag.menu_background_map.map_data)
 	self.background_map.show_blueprint = false
 	self.background_map.get_node('fog_of_war').hide()
 	self.root.scale_root.add_child(self.background_map)

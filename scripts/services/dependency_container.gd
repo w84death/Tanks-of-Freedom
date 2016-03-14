@@ -33,7 +33,7 @@ var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
 func init_root(root_node):
     self.root = root_node
-    self.positions = preload("services/positions.gd").new(self.root)
+    self.positions = preload('res://scripts/services/positions.gd').new(self.root)
     self.positions.prepare_nearby_tiles()
     self.positions.prepare_nearby_tiles_ranges()
 

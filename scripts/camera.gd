@@ -32,7 +32,7 @@ var do_cinematic_pan = false
 
 func init_root(root_node):
     self.root = root_node
-    self.bag = self.root.dependency_container
+    self.bag = self.root.bag
     self.camera = self.root.get_node("/root/game/viewport/camera")
     self.game_logic = self.root.get_node("/root/game")
     self.camera_zoom_level_pos = self.root.settings['camera_zoom']
@@ -67,7 +67,7 @@ func camera_zoom_do(direction):
         new_scale = self.camera_zoom_levels[self.camera_zoom_level_pos]
         self.scale = Vector2(new_scale, new_scale)
         self.camera.set_zoom(self.scale)
-        self.root.dependency_container.workshop.camera.set_zoom(self.scale)
+        self.root.bag.workshop.camera.set_zoom(self.scale)
         self.root.game_scale = self.scale
         self.root.settings['camera_zoom'] = self.camera_zoom_level_pos
         self.root.write_settings_to_file()

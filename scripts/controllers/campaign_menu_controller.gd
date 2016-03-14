@@ -20,8 +20,8 @@ func init_root(root_node):
     self.root = root_node
     self.bind_campaign_menu()
     self.attach_campaign_menu()
-    self.current_campaign_map = self.root.dependency_container.campaign.get_campaign_progress() + 1
-    if self.current_campaign_map == self.root.dependency_container.campaign.maps.size():
+    self.current_campaign_map = self.root.bag.campaign.get_campaign_progress() + 1
+    if self.current_campaign_map == self.root.bag.campaign.maps.size():
         self.current_campaign_map = self.current_campaign_map - 1
     self.fill_mission_data(self.current_campaign_map)
     self.manage_switch_buttons()
@@ -64,7 +64,7 @@ func _difficulty_button_pressed():
     self.manage_switch_buttons()
 
 func attach_campaign_menu():
-    self.root.dependency_container.controllers.menu_controller.add_child(self.campaign_menu)
+    self.root.bag.controllers.menu_controller.add_child(self.campaign_menu)
     self.campaign_menu.hide()
 
 func show_campaign_menu():
@@ -74,18 +74,18 @@ func show_campaign_menu():
 func hide_campaign_menu():
     self.root.menu.refresh_buttons_labels()
     self.campaign_menu.hide()
-    self.root.dependency_container.controllers.menu_controller.show_control_nodes()
+    self.root.bag.controllers.menu_controller.show_control_nodes()
     self.root.write_settings_to_file()
 
 func fill_mission_data(mission_num):
-    if mission_num < 0 || mission_num > self.root.dependency_container.campaign.maps.size() - 1:
+    if mission_num < 0 || mission_num > self.root.bag.campaign.maps.size() - 1:
         return
 
     self.current_campaign_map = mission_num
     self.set_mission_num(mission_num + 1)
-    self.set_mission_name(self.root.dependency_container.campaign.get_map_name(mission_num))
-    self.set_mission_description(self.root.dependency_container.campaign.get_map_description(mission_num))
-    self.set_team(self.root.dependency_container.campaign.get_map_player(mission_num))
+    self.set_mission_name(self.root.bag.campaign.get_map_name(mission_num))
+    self.set_mission_description(self.root.bag.campaign.get_map_description(mission_num))
+    self.set_team(self.root.bag.campaign.get_map_player(mission_num))
     self.manage_switch_buttons()
 
 func set_mission_num(number):
@@ -111,12 +111,12 @@ func switch_to_prev():
         self.fill_mission_data(self.current_campaign_map)
 
 func switch_to_next():
-    if self.current_campaign_map < (self.root.dependency_container.campaign.maps.size() - 1):
+    if self.current_campaign_map < (self.root.bag.campaign.maps.size() - 1):
         self.current_campaign_map = self.current_campaign_map + 1
         self.fill_mission_data(self.current_campaign_map)
 
 func manage_switch_buttons():
-    var campaign_progression = self.root.dependency_container.campaign.get_campaign_progress()
+    var campaign_progression = self.root.bag.campaign.get_campaign_progress()
     var grab_next_button = false
 
     if self.current_campaign_map == 0:
@@ -127,7 +127,7 @@ func manage_switch_buttons():
     else:
         self.button_enable_switch(prev_button,true)
 
-    if (self.current_campaign_map + 1) == self.root.dependency_container.campaign.maps.size() || self.current_campaign_map == (campaign_progression + 1):
+    if (self.current_campaign_map + 1) == self.root.bag.campaign.maps.size() || self.current_campaign_map == (campaign_progression + 1):
         if self.next_button.has_focus():
             if not self.prev_button.is_disabled():
                 self.prev_button.grab_focus()

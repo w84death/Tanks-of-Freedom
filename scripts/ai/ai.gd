@@ -38,7 +38,7 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
     self.root = action_controller_object.root_node
     positions = controller
     pathfinding = astar_pathfinding
-    abstract_map = self.root.dependency_container.abstract_map
+    abstract_map = self.root.bag.abstract_map
     action_controller = action_controller_object
     cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
     actions = preload('actions.gd').new()
@@ -96,7 +96,7 @@ func reset_calculation_state():
 func put_on_cooldown():
     var ai_timer = self.root.ai_timer
     ai_timer.is_on_cooldown = true
-    self.root.dependency_container.timers.set_timeout(ai_timer.COOLDOWN_INTERVAL, self, "remove_cooldown")
+    self.root.bag.timers.set_timeout(ai_timer.COOLDOWN_INTERVAL, self, "remove_cooldown")
 
 func remove_cooldown():
     self.root.ai_timer.is_on_cooldown = false
@@ -221,7 +221,7 @@ func __add_action(unit, destination, own_units):
                 return
 
             var to = self.abstract_map.get_field(path[0])
-            if not self.root.dependency_container.movement_controller.can_move(from, to):
+            if not self.root.bag.movement_controller.can_move(from, to):
                 return
 
             action_type = self.action_builder.ACTION_MOVE

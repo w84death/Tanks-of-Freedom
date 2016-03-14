@@ -15,8 +15,8 @@ var clear_units_button
 
 func init_root(root_node):
     self.root = root_node
-    self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
-    self.workshop = self.root.dependency_container.workshop
+    self.workshop_gui_controller = self.root.bag.controllers.workshop_gui_controller
+    self.workshop = self.root.bag.workshop
 
 func bind_panel(toolbox_panel_wrapper_node):
     self.toolbox_panel_wrapper = toolbox_panel_wrapper_node

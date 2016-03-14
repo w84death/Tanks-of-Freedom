@@ -22,9 +22,9 @@ var current_blocks = []
 
 func init_root(root_node):
     self.root = root_node
-    self.workshop = self.root.dependency_container.workshop
-    self.workshop_gui_controller = self.root.dependency_container.controllers.workshop_gui_controller
-    self.tiles = self.root.dependency_container.map_tiles
+    self.workshop = self.root.bag.workshop
+    self.workshop_gui_controller = self.root.bag.controllers.workshop_gui_controller
+    self.tiles = self.root.bag.map_tiles
 
     self.terrain_blocks = [
         # name, tile id in sprite, type, blueprint id

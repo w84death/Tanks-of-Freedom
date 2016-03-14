@@ -89,14 +89,14 @@ func _input(event):
 	pos = terrain.get_pos()
 	if event.type == InputEvent.MOUSE_BUTTON:
 		if event.button_index == BUTTON_LEFT:
-			if not show_blueprint || (self.root.dependency_container.workshop.movement_mode && self.root.dependency_container.workshop.is_working && not self.root.dependency_container.workshop.is_suspended):
+			if not show_blueprint || (self.root.bag.workshop.movement_mode && self.root.bag.workshop.is_working && not self.root.bag.workshop.is_suspended):
 				mouse_dragging = event.pressed
-		if event.button_index == BUTTON_RIGHT && show_blueprint && self.root.dependency_container.workshop.is_working && not self.root.dependency_container.workshop.is_suspended:
+		if event.button_index == BUTTON_RIGHT && show_blueprint && self.root.bag.workshop.is_working && not self.root.bag.workshop.is_suspended:
 			mouse_dragging = event.pressed
 
 	if (event.type == InputEvent.MOUSE_MOTION):
 		if (mouse_dragging):
-			if not show_blueprint and self.root.dependency_container.hud_dead_zone.is_dead_zone(event.x, event.y):
+			if not show_blueprint and self.root.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
 				return
 
 			pos.x = pos.x + event.relative_x / scale.x
@@ -127,10 +127,10 @@ func do_awesome_random_explosions():
 	stats.life -= 5
 	unit.set_stats(stats)
 	if stats.life < 0:
-		var field = self.root.dependency_container.abstract_map.get_field(unit.get_pos_map())
-		self.root.dependency_container.controllers.action_controller.play_destroy(field)
-		self.root.dependency_container.controllers.action_controller.destroy_unit(field)
-		self.root.dependency_container.controllers.action_controller.collateral_damage(unit.get_pos_map())
+		var field = self.root.bag.abstract_map.get_field(unit.get_pos_map())
+		self.root.bag.controllers.action_controller.play_destroy(field)
+		self.root.bag.controllers.action_controller.destroy_unit(field)
+		self.root.bag.controllers.action_controller.collateral_damage(unit.get_pos_map())
 	else:
 		unit.show_explosion()
 
@@ -580,8 +580,8 @@ func store_map_in_binary_file(file_name, data):
 	map_file.store_var(data)
 	map_file.close()
 	if file_name != "restore_map":
-		self.root.dependency_container.map_list.store_map(file_name)
-		self.root.dependency_container.controllers.menu_controller.update_custom_maps_count_label()
+		self.root.bag.map_list.store_map(file_name)
+		self.root.bag.controllers.menu_controller.update_custom_maps_count_label()
 
 func store_map_in_plain_file(file_name, data):
 	var the_file = map_file.open("user://" + file_name + ".gd", File.WRITE)
@@ -689,7 +689,7 @@ func init_nodes():
 func _ready():
 	root = get_node("/root/game")
 	self.init_nodes()
-	self.bag = self.root.dependency_container
+	self.bag = self.root.bag
 	self.bag.fog_controller.init_node(self, terrain)
 	self.camera = self.bag.camera
 	self.tileset = self.bag.map_tiles
