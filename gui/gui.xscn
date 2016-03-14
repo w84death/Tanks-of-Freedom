@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="18" version="2.0" version_name="Godot Engine v2.0.stable.official">
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="10"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="7"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="11"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="8"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" index="6"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="11"></ext_resource>
+	<ext_resource path="res://gui/vigette.tscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://gui/message.tscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" index="15"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="10"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="7"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="8"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="13"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="12"></ext_resource>
 	<ext_resource path="res://gui/stats.xscn" type="PackedScene" index="16"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="14"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="12"></ext_resource>
-	<ext_resource path="res://gui/message.tscn" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" index="15"></ext_resource>
-	<ext_resource path="res://gui/vigette.tscn" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -38,8 +38,8 @@
 				<string> "__meta__" </string>
 				<string> "Control" </string>
 				<string> "vigette" </string>
-				<string> "cinematic_camera" </string>
 				<string> "visibility/visible" </string>
+				<string> "cinematic_camera" </string>
 				<string> "bottom_panel" </string>
 				<string> "anchor/top" </string>
 				<string> "margin/top" </string>
@@ -88,7 +88,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="428"> 				-1, -1, 8, 0, -1, 7, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 0, 0, 0, 2147483647, 9, 5, 0, 0, 0, 0, 2147483647, 10, 6, 1, 11, 1, 0, 0, 0, 17, 12, -1, 11, 13, 0, 1, 0, 2, 0, 14, 7, 15, 8, 3, 1, 4, 2, 5, 3, 6, 3, 16, 1, 7, 9, 0, 3, 0, 8, 18, -1, 7, 19, 10, 20, 10, 3, 1, 4, 2, 5, 3, 6, 3, 7, 11, 0, 0, 0, 17, 21, -1, 9, 11, 1, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 16, 1, 7, 12, 0, 5, 0, 8, 18, -1, 8, 19, 10, 14, 13, 20, 10, 15, 13, 3, 1, 4, 2, 5, 3, 6, 3, 0, 6, 0, 2147483647, 22, 14, 0, 0, 0, 0, 17, 23, -1, 8, 1, 0, 15, 8, 3, 1, 4, 2, 5, 3, 6, 3, 16, 1, 7, 15, 0, 8, 0, 8, 18, -1, 8, 19, 10, 14, 16, 20, 10, 15, 16, 3, 1, 4, 2, 5, 3, 6, 3, 0, 9, 0, 8, 24, -1, 6, 14, 17, 15, 17, 3, 1, 4, 2, 5, 3, 6, 3, 0, 10, 0, 8, 8, -1, 7, 20, 18, 15, 18, 3, 1, 4, 2, 5, 3, 6, 3, 7, 19, 0, 11, 0, 25, 25, -1, 6, 26, 20, 27, 21, 28, 22, 29, 23, 30, 23, 31, 24, 0, 11, 0, 25, 32, -1, 6, 26, 25, 27, 21, 28, 22, 29, 23, 30, 23, 31, 26, 0, 11, 0, 25, 33, -1, 6, 26, 27, 27, 21, 28, 22, 29, 23, 30, 23, 31, 28, 0, 10, 0, 42, 34, -1, 18, 1, 0, 2, 0, 19, 29, 14, 30, 20, 31, 15, 32, 3, 1, 4, 2, 5, 3, 6, 3, 35, 1, 36, 33, 37, 34, 38, 35, 39, 36, 40, 37, 41, 21, 7, 38, 0, 15, 0, 43, 43, -1, 14, 19, 39, 14, 40, 20, 41, 15, 42, 3, 2, 4, 2, 5, 3, 44, 43, 45, 44, 46, 0, 47, 0, 48, 45, 49, 46, 50, 47, 0, 10, 0, 42, 51, -1, 16, 19, 16, 14, 30, 20, 48, 15, 49, 3, 1, 4, 2, 5, 3, 6, 3, 35, 1, 36, 50, 37, 51, 38, 52, 39, 53, 40, 54, 41, 21, 7, 38, 0, 17, 0, 25, 25, -1, 5, 26, 55, 27, 56, 28, 57, 30, 3, 31, 0, 0, 0, 0, 2147483647, 52, 58, 1, 11, 1, 0 </int_array>
+			<int_array  len="430"> 				-1, -1, 8, 0, -1, 7, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 0, 0, 0, 2147483647, 9, 5, 1, 10, 1, 0, 0, 0, 2147483647, 11, 6, 1, 10, 1, 0, 0, 0, 17, 12, -1, 11, 13, 0, 1, 0, 2, 0, 14, 7, 15, 8, 3, 1, 4, 2, 5, 3, 6, 3, 16, 1, 7, 9, 0, 3, 0, 8, 18, -1, 7, 19, 10, 20, 10, 3, 1, 4, 2, 5, 3, 6, 3, 7, 11, 0, 0, 0, 17, 21, -1, 9, 10, 1, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 16, 1, 7, 12, 0, 5, 0, 8, 18, -1, 8, 19, 10, 14, 13, 20, 10, 15, 13, 3, 1, 4, 2, 5, 3, 6, 3, 0, 6, 0, 2147483647, 22, 14, 0, 0, 0, 0, 17, 23, -1, 8, 1, 0, 15, 8, 3, 1, 4, 2, 5, 3, 6, 3, 16, 1, 7, 15, 0, 8, 0, 8, 18, -1, 8, 19, 10, 14, 16, 20, 10, 15, 16, 3, 1, 4, 2, 5, 3, 6, 3, 0, 9, 0, 8, 24, -1, 6, 14, 17, 15, 17, 3, 1, 4, 2, 5, 3, 6, 3, 0, 10, 0, 8, 8, -1, 7, 20, 18, 15, 18, 3, 1, 4, 2, 5, 3, 6, 3, 7, 19, 0, 11, 0, 25, 25, -1, 6, 26, 20, 27, 21, 28, 22, 29, 23, 30, 23, 31, 24, 0, 11, 0, 25, 32, -1, 6, 26, 25, 27, 21, 28, 22, 29, 23, 30, 23, 31, 26, 0, 11, 0, 25, 33, -1, 6, 26, 27, 27, 21, 28, 22, 29, 23, 30, 23, 31, 28, 0, 10, 0, 42, 34, -1, 18, 1, 0, 2, 0, 19, 29, 14, 30, 20, 31, 15, 32, 3, 1, 4, 2, 5, 3, 6, 3, 35, 1, 36, 33, 37, 34, 38, 35, 39, 36, 40, 37, 41, 21, 7, 38, 0, 15, 0, 43, 43, -1, 14, 19, 39, 14, 40, 20, 41, 15, 42, 3, 2, 4, 2, 5, 3, 44, 43, 45, 44, 46, 0, 47, 0, 48, 45, 49, 46, 50, 47, 0, 10, 0, 42, 51, -1, 16, 19, 16, 14, 30, 20, 48, 15, 49, 3, 1, 4, 2, 5, 3, 6, 3, 35, 1, 36, 50, 37, 51, 38, 52, 39, 53, 40, 54, 41, 21, 7, 38, 0, 17, 0, 25, 25, -1, 5, 26, 55, 27, 56, 28, 57, 30, 3, 31, 0, 0, 0, 0, 2147483647, 52, 58, 1, 10, 1, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="59" shared="false">
 				<int> 1 </int>

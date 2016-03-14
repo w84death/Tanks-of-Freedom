@@ -67,7 +67,7 @@ func apply_resolution():
         return
 
     if self.root.settings['resolution'] == self.UNLOCKED:
-        newsize = self.native_resolution
+        newsize = OS.get_screen_size()
         fullscreen = true
         if self.root.menu != null:
             self.root.menu.background_gradient.set_scale(Vector2(7, 7))
@@ -77,6 +77,8 @@ func apply_resolution():
             self.root.menu.background_gradient.set_scale(Vector2(5, 5))
 
     OS.set_window_fullscreen(fullscreen)
+    if OS.get_name() == 'OSX':
+        newsize = OS.get_screen_size()
     OS.set_video_mode(newsize, fullscreen, false)
     OS.set_window_size(newsize)
 
