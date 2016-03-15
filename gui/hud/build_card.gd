@@ -50,7 +50,21 @@ func set_unit_name(name):
     self.name.set_text(name)
 
 func set_unit_sprite(id, team):
-    self.unit_sprite.set_frame(id+(3*team))
+    var new_frame = 0
+
+    if team == 0:
+        if id == 1:
+            new_frame = 6
+        if id == 2:
+            new_frame = 12
+    else:
+        if id == 0:
+            new_frame = 3
+        if id == 1:
+            new_frame = 9
+        if id == 2:
+            new_frame = 16
+    self.unit_sprite.set_frame(new_frame)
 
 func set_unit_price(price):
     self.price.set_text("PRICE: "+ str(price) + "AP")

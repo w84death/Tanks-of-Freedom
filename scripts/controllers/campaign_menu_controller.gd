@@ -14,7 +14,8 @@ var difficulty_label
 var mission_num
 var mission_name
 var mission_description
-var team
+var team_blue
+var team_red
 
 func init_root(root_node):
     self.root = root_node
@@ -37,7 +38,9 @@ func bind_campaign_menu():
 
     self.mission_name = self.campaign_menu.get_node("middle/control/dialog_controls/mission_name")
     self.mission_description = self.campaign_menu.get_node("middle/control/dialog_controls/Introduction")
-    self.team = self.campaign_menu.get_node("middle/control/dialog_controls/team")
+    self.team_blue = self.campaign_menu.get_node("middle/control/dialog_controls/blue")
+    self.team_red = self.campaign_menu.get_node("middle/control/dialog_controls/red")
+
 
     self.back_button.connect("pressed", self, "_back_button_pressed")
     self.start_button.connect("pressed", self, "_start_button_pressed")
@@ -98,7 +101,12 @@ func set_mission_description(description):
     self.mission_description.set_text(description)
 
 func set_team(team):
-	self.team.set_frame(team)
+    if team == 0:
+       self.team_red.hide()
+       self.team_blue.show()
+    else:
+       self.team_red.show()
+       self.team_blue.hide()
 
 func start_mission():
     self.root.load_map(self.current_campaign_map, false)
