@@ -4,9 +4,7 @@ var object = null
 var damage = null
 var abstract_map = null
 
-var ant_parameters = [{'up':0,'down':0,'left':0,'right':0},{'up':0,'down':0,'left':0,'right':0}]
 var destroyed_tile_template = preload("res://terrain/destroyed_tile.xscn")
-
 
 func is_adjacent(field):
 	var diff_x = self.position.x - field.position.x
@@ -29,58 +27,6 @@ func add_damage(damage_layer):
 	var damage_frames = damage.get_vframes() * damage.get_hframes()
 	var damage_frame = randi() % damage_frames
 	damage.set_frame(damage_frame)
-
-func mark_trail(new_position, player, value=1):
-	var dx = clamp(position.x - new_position.x, -1, 1)
-	var parameters = ant_parameters[player]
-	if dx != 0:
-		if dx == -1:
-			parameters['left'] = parameters['left'] + value
-		else:
-			parameters['right'] = parameters['right'] + value
-	else:
-		var dy = clamp(position.y - new_position.y, -1, 1)
-		if dy == 1:
-			parameters['down'] = parameters['down'] + value
-		else:
-			parameters['up'] = parameters['up'] + value
-
-func next_tile_by_trail(directions):
-	if directions.size() == 0:
-		return null
-
-	var next_tile = position
-	var player = self.object.player
-	var parameters = ant_parameters[player]
-	var val = -1
-	var direction_name = ''
-	# TODO this directions can be not valid
-	# print('AVAILABLE', directions)
-	for direction in parameters:
-		randomize()
-		if directions.find(direction) > -1:
-			if  parameters[direction] > val:
-				val = parameters[direction]
-			elif parameters[direction] == val && randf() > 0.2 : #we have two equals directions)
-				val = parameters[direction]
-
-			val = parameters[direction]
-			direction_name = direction
-
-
-	if direction_name == '':
-		direction_name = directions[randi() % directions.size()]
-
-	if direction_name == 'right':
-		next_tile.x = next_tile.x + 1
-	elif direction_name == 'left':
-		next_tile.x = next_tile.x - 1
-	elif direction_name == 'up':
-		next_tile.y = next_tile.y - 1
-	elif direction_name == 'down':
-		next_tile.y = next_tile.y + 1
-
-	return next_tile
 
 func is_passable():
 	if self.terrain_type < 0:
