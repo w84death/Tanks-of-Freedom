@@ -41,10 +41,6 @@ func set_counting_time(player):
     self.__increment(self.TIME, player, time_now - start_time)
     start_time = time_now
 
-func __calculate_score():
-    self.stats[self.SCORE][0] = (self.stats[self.DOMINATION][0] * 3 + self.stats[self.KILLS][0] * 2 + self.stats[self.MOVES][0] + self.stats[self.SPAWNS][0]) * 10
-    self.stats[self.SCORE][1] = (self.stats[self.DOMINATION][1] * 3 + self.stats[self.KILLS][1] * 2 + self.stats[self.MOVES][1] + self.stats[self.SPAWNS][1]) * 10
-
 func get_stats():
     self.__calculate_score()
 
@@ -52,6 +48,10 @@ func get_stats():
     self.stats[self.TIME_FORMATED] = [__time_format(self.stats[self.TIME][0]), __time_format(self.stats[self.TIME][1])]
 
     return self.stats;
+
+func __calculate_score():
+    self.stats[self.SCORE][0] = (self.stats[self.DOMINATION][0] * 3 + self.stats[self.KILLS][0] * 2 + self.stats[self.MOVES][0] + self.stats[self.SPAWNS][0]) * 10
+    self.stats[self.SCORE][1] = (self.stats[self.DOMINATION][1] * 3 + self.stats[self.KILLS][1] * 2 + self.stats[self.MOVES][1] + self.stats[self.SPAWNS][1]) * 10
 
 func __time_format(value):
     var m = floor(value / 60)

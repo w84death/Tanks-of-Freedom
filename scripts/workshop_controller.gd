@@ -44,6 +44,16 @@ var settings = {
 const MAP_MAX_X = 64
 const MAP_MAX_Y = 64
 
+func init(root):
+    self.root = root
+    self.tileset = self.root.bag.map_tiles
+    terrain.add_child(selector)
+    map.set_default_zoom()
+    set_process_input(true)
+
+func _ready():
+    init_gui()
+
 func init_gui():
     camera = get_node("viewport/camera")
     map = camera.get_node("scale/map")
@@ -155,13 +165,6 @@ func paint(position, tool_type = null, brush_type = null, undo_action = false):
     selector.raise()
     return true
 
-func init(root):
-    self.root = root
-    self.tileset = self.root.bag.map_tiles
-    terrain.add_child(selector)
-    map.set_default_zoom()
-    set_process_input(true)
-
 func _input(event):
     if self.is_working && not self.is_suspended && self.painting_allowed:
         var camera_pos = self.camera.get_offset()
@@ -254,6 +257,3 @@ func show():
         self.center_camera()
     camera.set_zoom(self.root.bag.camera.camera.get_zoom())
     .show()
-
-func _ready():
-    init_gui()

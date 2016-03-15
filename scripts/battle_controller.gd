@@ -15,8 +15,8 @@ func resolve_fight(attacker, defender):
 	
 	#handle
 	if (defender_stats.life <= 0):
-		return true
 		attacker.score_kill()
+		return true
 	else:
 		return false
 
@@ -33,8 +33,8 @@ func resolve_defend(attacker, defender):
 
 	#handle
 	if (attacker_stats.life <= 0):
-		return true
 		defender.score_kill()
+		return true
 	else:
 		return false
 
