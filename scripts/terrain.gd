@@ -5,7 +5,8 @@ export var fence = false
 var current_map
 var position_on_map = Vector2(0,0)
 var group = 'terrain'
-var type
+var particle_enabled = false
+var snow_particles = []
 var damage = 0
 export var smoke_particles = 16
 export var smoke_lifetime = 1
@@ -100,10 +101,19 @@ func connect_with_neighbours():
 		self.set_frame(10)
 		return
 
+func enable_snow_particle():
+	for snow in self.snow_particles:
+		snow.show()
+
 func _ready():
 	add_to_group("terrain")
 	if get_node("/root/game"):
 		current_map = get_node("/root/game").current_map_terrain
+
 	if self.fence:
 		add_to_group("terrain_fence")
 
+	if self.particle_enabled:
+		self.snow_particles.append(self.get_node("snow1"))
+		self.snow_particles.append(self.get_node("snow2"))
+		self.enable_snow_particle()
