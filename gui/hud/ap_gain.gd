@@ -1,18 +1,20 @@
 
-var root
+var bag
 
-func init_root(root_node):
-    self.root = root_node
+func _init_bag(bag):
+    self.bag = bag
 
 func update():
-    var gain = self.calculate_gain()
-    self.root.bag.controllers.hud_panel_controller.info_panel.set_ap_gain(gain)
+    self.bag.controllers.hud_panel_controller.info_panel.set_ap_gain(self.__calculate_gain())
 
-func calculate_gain():
+func __calculate_gain():
     var total_ap_gain = 0
-    var current_player = self.root.bag.controllers.action_controller.current_player
-    var buildings = self.root.get_tree().get_nodes_in_group("buildings")
-    for building in buildings:
-        if building.player == current_player:
-            total_ap_gain = total_ap_gain + building.bonus_ap
+    var current_player = self.bag.controllers.action_controller.current_player
+
+    #TODO WrmZ - investigate this (refreshing buildings - this should be done once)
+    self.bag.positions.refresh_buildings()
+    var buildings = self.bag.positions.get_player_buildings(current_player)
+    for pos in buildings:
+            total_ap_gain = total_ap_gain + buildings[pos].bonus_ap
+
     return total_ap_gain

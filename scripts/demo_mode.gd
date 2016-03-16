@@ -1,11 +1,13 @@
 
 var root
+var bag
 var demo_timer
 
-func init_root(root_node):
-    self.root = root_node
-    self.demo_timer = root_node.get_node('DemoTimer')
-    self.demo_timer.inject_root(root_node)
+func _init_bag(bag):
+    self.bag = bag
+    self.root = self.bag.root
+    self.demo_timer = self.root.get_node('DemoTimer')
+    self.demo_timer.inject_root(self.root)
 
 func start_demo_mode(delay=true):
     if delay:
@@ -25,6 +27,6 @@ func start_map():
 
 func get_random_map():
     randomize()
-    var map_num = randi() % self.root.bag.map_list.maps.size()
-    var keys = self.root.bag.map_list.maps.keys()
+    var map_num = randi() % self.bag.map_list.maps.size()
+    var keys = self.bag.map_list.maps.keys()
     return keys[map_num]

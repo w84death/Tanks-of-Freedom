@@ -1,10 +1,10 @@
 var map
-var root
+var bag
 var action_layer
 var red_tiles = []
 
-func init_root(root):
-    self.root = root
+func _init_bag(bag):
+    self.bag = bag
 
 func init_map(map_node):
     self.map = map_node
@@ -20,7 +20,7 @@ func find_movement_tiles(source_field, move_range):
     var visited_tiles = {}
     var depth
     var field
-    var abstract_map = self.root.bag.abstract_map
+    var abstract_map = self.bag.abstract_map
     visited_tiles[source_field.position] = true
 
     if move_range == 0:
@@ -36,7 +36,7 @@ func find_movement_tiles(source_field, move_range):
         if depth < move_range:
             for neighbour in field.get_neighbours():
                 if neighbour.is_passable() and not visited_tiles.has(neighbour.position):
-                    if root.bag.fog_controller.is_fogged(neighbour.position):
+                    if self.bag.fog_controller.is_fogged(neighbour.position):
                         continue
                     processing_queue.push_back({ 'field': neighbour, 'depth': depth + 1 })
                     visited_tiles[neighbour.position] = true
@@ -51,11 +51,11 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
     var tile_type
     var field
     var distance
-    var abstract_map = self.root.bag.abstract_map
-    var player_ap = self.root.bag.controllers.action_controller.player_ap[current_player]
+    var abstract_map = self.bag.abstract_map
+    var player_ap = self.bag.controllers.action_controller.player_ap[current_player]
 
     for tile in tiles:
-        if root.bag.fog_controller.is_fogged(tile):
+        if self.bag.fog_controller.is_fogged(tile):
             continue
         field = abstract_map.get_field(tile)
         distance = tiles[tile]

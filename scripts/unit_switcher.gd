@@ -8,9 +8,9 @@ var counter = 0
 const NEXT = 0;
 const BACK = 1;
 
-func init_root(root):
-    self.root_node = root
-    self.bag = self.root_node.bag
+func _init_bag(bag):
+    self.root_node = bag.root
+    self.bag = bag
 
 func switch_unit(player, active_field, direction=self.NEXT):
     self.bag.positions.refresh_units()

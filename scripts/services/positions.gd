@@ -2,6 +2,7 @@ var root_node
 var bunkers
 var center
 var root_tree
+var bag
 
 # dictionaries with encoded positions
 var units_player_blue = {}
@@ -35,10 +36,13 @@ var terrains = []
 
 var pathfinding
 
-func _init(root):
-    root_node = root
+func _init_bag(bag):
+    self.bag = bag
+    self.root_node = bag.root
     self.root_tree = root_node.get_tree()
     bunkers = {0: null, 1: null}
+    self.prepare_nearby_tiles()
+    self.prepare_nearby_tiles_ranges()
 
 func bootstrap():
     buildings = self.root_tree.get_nodes_in_group("buildings")
@@ -173,7 +177,7 @@ func prepare_nearby_tiles():
 func prepare_nearby_tiles_ranges():
     self.precalculated_nearby_tiles_ranges.insert(0, precalculated_nearby_tiles[0])
     for i in range(1, MAX_PRECALCULATED_TILES_RANGE):
-        var values = self.root_node.bag.helpers.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
+        var values = self.bag.helpers.array_diff(precalculated_nearby_tiles[i], precalculated_nearby_tiles[i - 1])
         self.precalculated_nearby_tiles_ranges.insert(i, values)
 
 

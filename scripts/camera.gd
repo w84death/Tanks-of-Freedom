@@ -2,8 +2,6 @@
 var root
 var game_logic
 var camera
-var workshop_map
-var abstract_map
 var camera_zoom_range = [0.5,2.5]
 var camera_zoom_levels = [0.125, 0.25, 0.5, 1, 1.5]
 var camera_zoom_level_pos = 2
@@ -30,13 +28,17 @@ const PAN_THRESHOLD = 20
 
 var do_cinematic_pan = false
 
-func init_root(root_node):
-    self.root = root_node
-    self.bag = self.root.bag
+func _init_bag(dependency_bag):
+    self.bag = dependency_bag
+    self.root = self.bag.root
+
+
     self.camera = self.root.get_node("/root/game/viewport/camera")
     self.game_logic = self.root.get_node("/root/game")
     self.camera_zoom_level_pos = self.root.settings['camera_zoom']
     self.update_zoom()
+
+    self.apply_default_camera()
 
 func update_zoom():
     self.scale = self.camera.get_zoom()
@@ -95,7 +97,7 @@ func move_to_map(target):
 
     if not mouse_dragging:
         self.game_size = self.game_logic.get_size()
-        var target_position = self.abstract_map.tilemap.map_to_world(target)
+        var target_position = self.bag.abstract_map.tilemap.map_to_world(target)
         var diff_x = target_position.x - self.sX
         var diff_y = target_position.y - self.sY
         var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * scale.x)

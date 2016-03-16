@@ -12,10 +12,10 @@ var loaded_data
 
 var saved_settings = ['cpu_0', 'cpu_1', 'turns_cap', 'easy_mode']
 
-func init_root(root):
-    self.root_node = root
-    self.root_tree = root.get_tree()
-    self.bag = self.root_node.bag
+func _init_bag(bag):
+    self.root_node = bag.root
+    self.root_tree = root_node.get_tree()
+    self.bag = bag
     t = self.bag.map_tiles
 
     self.building_map = {

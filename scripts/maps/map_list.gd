@@ -47,7 +47,7 @@ var default_custom_maps = [
     },
 ]
 
-func init():
+func _init():
     if file_handler.file_exists(self.list_file_path):
         self.load_list()
     else:

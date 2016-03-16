@@ -16,7 +16,7 @@ var battle_controller = preload('res://scripts/battle_controller.gd').new()
 var movement_controller = preload('res://scripts/movement_controller.gd').new()
 var ap_gain = preload("res://gui/hud/ap_gain.gd").new()
 var map_tiles = preload("res://scripts/maps/map_tiles.gd").new()
-var positions
+var positions = preload('res://scripts/services/positions.gd').new()
 var migrations = preload("res://scripts/migrations/migrations.gd").new()
 var timers = preload("res://scripts/timers.gd").new()
 var menu_background_map = preload("res://maps/menu_map_background.gd").new()
@@ -33,39 +33,33 @@ var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
 func init_root(root_node):
     self.root = root_node
-    self.positions = preload('res://scripts/services/positions.gd').new(self.root)
-    self.positions.prepare_nearby_tiles()
-    self.positions.prepare_nearby_tiles_ranges()
 
-    self.demo_mode.init_root(root_node)
     self.campaign.load_campaign_progress()
 
     self.controllers.campaign_menu_controller.init_root(root_node)
     self.controllers.hud_panel_controller.init_root(root_node)
     self.controllers.workshop_gui_controller.init_root(root_node)
+
     self.workshop.init(self.root)
     self.hud_dead_zone.init_root(root_node)
     self.workshop_dead_zone.init_root(root_node)
-    self.action_map.init_root(root_node)
-    self.ap_gain.init_root(root_node)
-    self.saving.init_root(root_node)
-    self.unit_switcher.init_root(root_node)
 
-    self.camera.init_root(root)
-    self.camera.abstract_map = self.abstract_map
-    self.camera.workshop_map = self.workshop.map
-    self.camera.apply_default_camera()
-
-    self.map_list.init()
-    self.migrations.init_bag(self)
+    self.positions._init_bag(self)
+    self.demo_mode._init_bag(self)
+    self.action_map._init_bag(self)
+    self.ap_gain._init_bag(self)
+    self.saving._init_bag(self)
+    self.unit_switcher._init_bag(self)
+    self.camera._init_bag(self)
+    self.migrations._init_bag(self)
     self.timers._init_bag(self)
     self.map_picker._init_bag(self)
     self.skirmish_setup._init_bag(self)
     self.fog_controller._init_bag(self)
+    self.resolution._init_bag(self)
+    self.gamepad._init_bag(self)
+
     self.processing._init_bag(self)
     self.processing.ready = true
     self.processing.register(self.camera)
-
-    self.resolution._init_bag(self)
-    self.gamepad._init_bag(self)
     self.processing.register(self.gamepad)

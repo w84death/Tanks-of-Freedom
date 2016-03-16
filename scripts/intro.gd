@@ -13,7 +13,6 @@ func _input(event):
 		self.root.unlock_for_demo()
 		self.root.load_menu()
 
-
 func init_root(root):
 	self.root = root
 
