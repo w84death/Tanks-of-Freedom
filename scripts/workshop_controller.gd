@@ -65,7 +65,7 @@ func init_gui():
     hud_message_box = hud_message.get_node("center/message")
     hud_message_box_button = hud_message_box.get_node("button")
     hud_message_box_button.connect("pressed", self, "_hud_message_box_button_pressed")
-    self.load_map(restore_file_name)
+    self.load_map(restore_file_name, false, true)
 
 func _hud_message_box_button_pressed():
     self.root.sound_controller.play('menu')
@@ -123,11 +123,12 @@ func save_map(name, input = false):
     if not map.save_map(name):
         self.show_message("Failure!", "File error File name: "+str(name), 'Double check for typos!', "OK")
 
-func load_map(name, input = false):
+func load_map(name, input = false, suppress=false):
     if input:
         name = name.get_text()
     if not map.load_map(name):
-        self.show_message("Failure!", "File not found File name: "+str(name), 'Double check for typos!', "OK")
+        if not suppress:
+            self.show_message("Failure!", "File not found File name: " + str(name), 'Double check for typos!', "OK")
 
 func paint(position, tool_type = null, brush_type = null, undo_action = false):
     if hud_message.is_visible():
