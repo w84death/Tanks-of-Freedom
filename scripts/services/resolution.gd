@@ -59,9 +59,8 @@ func apply_resolution():
         var width = Globals.get('display/width')
         var height = Globals.get('display/height')
         newsize = Vector2(width, height)
-        #self.bag.hud_dead_zone.screen_size = Vector2(width, height)
-        #self.bag.workshop_dead_zone.screen_size = Vector2(width, height)
-        #OS.set_window_resizable(true)
+        self.bag.hud_dead_zone.screen_size = Vector2(width, height)
+        self.bag.workshop_dead_zone.screen_size = Vector2(width, height)
         self.root.screen_size = newsize
         self.root.half_screen_size = newsize / 2
         return
