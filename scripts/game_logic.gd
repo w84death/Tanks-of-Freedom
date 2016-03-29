@@ -215,6 +215,8 @@ func unload_map():
     if is_map_loaded == false:
         return
 
+    self.action_controller.ai.flush_cache()
+
     is_map_loaded = false
     current_map_terrain.remove_child(selector)
     scale_root.remove_child(current_map)

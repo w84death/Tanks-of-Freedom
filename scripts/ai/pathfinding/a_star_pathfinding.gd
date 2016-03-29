@@ -18,6 +18,9 @@ var possible_neighbours = Vector2Array([Vector2(-1,-1), Vector2(-1,0), Vector2(-
 
 const CACHE_MINIMUM_PATH_SIZE = 3
 
+func flush_cache():
+    self.path_cache = {}
+
 func pathSearch(startTile, endTile, own_units):
 
     searched_children.append(startTile)

@@ -52,6 +52,10 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 
     player_behaviours = [behaviour_destroyer, behaviour_destroyer]
 
+func flush_cache():
+    self.cost_grid = {}
+    self.pathfinding.flush_cache()
+
 func gather_available_actions(player_ap):
     current_player = action_controller.current_player
     current_player_ap = player_ap
