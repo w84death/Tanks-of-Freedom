@@ -31,6 +31,7 @@ var resolution = preload('res://scripts/services/resolution.gd').new()
 var gamepad = preload('res://scripts/gamepad_input.gd').new()
 var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
+var online_request = preload('res://scripts/online/request.gd').new()
 var online_player = preload('res://scripts/online/player.gd').new()
 
 func init_root(root_node):
@@ -66,4 +67,5 @@ func init_root(root_node):
     self.processing.register(self.camera)
     self.processing.register(self.gamepad)
 
+    self.online_request._init_bag(self)
     self.online_player._init_bag(self)

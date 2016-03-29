@@ -1,6 +1,7 @@
 extends Control
 
 var version_name = "Version 0.4.2-BETA"
+var version_short = "0.4.2"
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
@@ -44,7 +45,9 @@ var settings = {
     'sound_volume': 0.2,
     'camera_zoom': 2,
     'resolution': 0,
-    'easy_mode' : false
+    'easy_mode' : false,
+    'online_player_id' : null,
+    'online_player_pin' : null
 }
 
 var is_map_loaded = false

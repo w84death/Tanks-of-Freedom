@@ -308,6 +308,8 @@ func show_workshop():
 	self.hide_background_map()
 	self.workshop.camera.make_current()
 	self.root.bag.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
+	self.root.bag.online_player.request_player_id()
+	self.root.bag.controllers.workshop_gui_controller.file_panel.refresh_player_id()
 
 func hide_workshop():
 	self.workshop.hide()

@@ -16,6 +16,7 @@ var save_animation
 var load_button
 var pick_button
 var file_name
+var player_id_label
 
 
 var central_container
@@ -36,6 +37,7 @@ func bind_panel(file_panel_wrapper_node):
     self.save_animation = self.file_panel_top_controls.get_node("progress_animation")
     self.pick_button = self.file_panel_top_controls.get_node("load_button_picker")
     self.load_button = self.file_panel_top_controls.get_node("load_button")
+    self.player_id_label = self.file_panel_top_controls.get_node('player_id')
 
     self.toggle_button = self.file_panel.get_node("controls/file_button")
     self.play_button = self.file_panel.get_node("controls/play_button")
@@ -124,3 +126,10 @@ func is_map_picker_visible():
 
 func is_game_setup_visible():
     return self.bag.skirmish_setup.is_attached_to(self.central_container)
+
+func refresh_player_id():
+    var player_id = self.bag.online_player.get_player_id()
+    if player_id == null:
+        self.player_id_label.set_text(str(player_id))
+    else:
+        self.player_id_label.set_text("")
