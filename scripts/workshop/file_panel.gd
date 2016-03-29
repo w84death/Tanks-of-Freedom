@@ -130,6 +130,6 @@ func is_game_setup_visible():
 func refresh_player_id():
     var player_id = self.bag.online_player.get_player_id()
     if player_id == null:
-        self.player_id_label.set_text(str(player_id))
-    else:
         self.player_id_label.set_text("")
+    else:
+        self.player_id_label.set_text(str(player_id))
