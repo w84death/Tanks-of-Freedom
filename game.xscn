@@ -117,7 +117,7 @@
 				<resource  external="0">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
-					<string> "2D" </string>
+					<string> "Script" </string>
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>

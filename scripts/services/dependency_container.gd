@@ -26,13 +26,15 @@ var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
 var fog_controller = preload('res://scripts/fog_controller.gd').new()
 var processing = preload('res://scripts/processing.gd').new()
 var file_handler = preload('res://scripts/services/file_handler.gd').new()
-var saving = preload('res://scripts/saving.gd').new()
+
 var resolution = preload('res://scripts/services/resolution.gd').new()
 var gamepad = preload('res://scripts/gamepad_input.gd').new()
 var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
 var online_request = preload('res://scripts/online/request.gd').new()
 var online_player = preload('res://scripts/online/player.gd').new()
+
+var saving = null
 
 func init_root(root_node):
     self.root = root_node
@@ -51,7 +53,7 @@ func init_root(root_node):
     self.demo_mode._init_bag(self)
     self.action_map._init_bag(self)
     self.ap_gain._init_bag(self)
-    self.saving._init_bag(self)
+
     self.unit_switcher._init_bag(self)
     self.camera._init_bag(self)
     self.migrations._init_bag(self)
@@ -69,3 +71,7 @@ func init_root(root_node):
 
     self.online_request._init_bag(self)
     self.online_player._init_bag(self)
+
+    if Globals.get('tof/enable_save_load'):
+        self.saving = load('res://scripts/saving.gd').new()
+        self.saving._init_bag(self)

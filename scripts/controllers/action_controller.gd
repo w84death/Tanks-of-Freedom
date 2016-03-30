@@ -381,7 +381,7 @@ func switch_to_player(player, save_game=true):
         root_node.unlock_for_player()
         hud_controller.show_in_game_card([], current_player)
         self.root_node.bag.controllers.hud_panel_controller.info_panel.end_button_enable()
-        if save_game:
+        if save_game && self.root_node.bag.saving != null:
             self.root_node.bag.saving.save_state()
         self.refill_ap()
     self.root_node.bag.fog_controller.clear_fog()

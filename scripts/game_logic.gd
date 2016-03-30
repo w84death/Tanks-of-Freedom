@@ -172,7 +172,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     menu.raise()
     self.add_child(hud)
 
-    if load_saved_state:
+    if load_saved_state && self.bag.saving != null:
         self.bag.saving.load_map_state()
 
     game_scale = self.bag.camera.scale
@@ -183,7 +183,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     if not workshop_file_name:
         self.bag.match_state.set_campaign_map(template_name)
 
-    if load_saved_state:
+    if load_saved_state && self.bag.saving != null:
         self.bag.saving.apply_saved_buildings()
         self.bag.saving.apply_saved_environment_settings()
         self.action_controller.switch_to_player(self.bag.saving.get_active_player_id(), false)

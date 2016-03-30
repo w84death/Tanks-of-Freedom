@@ -149,7 +149,7 @@ func _camera_zoom_out_button_pressed():
 	self.root.bag.camera.camera_zoom_out()
 func _close_button_pressed():
 	self.root.sound_controller.play('menu')
-	if not self.root.is_map_loaded:
+	if not self.root.is_map_loaded && self.root.bag.saving != null:
 		self.root.bag.saving.load_state()
 	self.root.toggle_menu()
 func _quit_button_pressed():
@@ -284,11 +284,11 @@ func manage_close_button():
 	if self.root.is_map_loaded:
 		self.close_button.show()
 		self.close_button_label.set_text('< GAME')
-	elif self.root.bag.saving.is_save_available():
+	elif self.root.bag.saving != null && self.root.bag.saving.is_save_available():
 		self.close_button.show()
 		self.close_button_label.set_text('< RESUME')
 	else:
-    	self.close_button.hide()
+		self.close_button.hide()
 
 # WORKSHOP
 func load_workshop():
@@ -332,6 +332,8 @@ func load_map(name, from_workshop):
 	workshop.is_suspended = true
 
 func resume_map():
+	if self.root.bag.saving == null:
+		return
 	self.root.bag.saving.load_state()
 	root.toggle_menu()
 	self.hide_maps_menu()
