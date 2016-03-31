@@ -5,8 +5,10 @@ var map
 var tilemap
 var field_template = preload('abstract_field.gd')
 var cost_map = [[null]]
-# this needs to be in one place (see map_contoreller)
+
 var MAX_MAP_SIZE = 40
+const MAP_MAX_X = 40
+const MAP_MAX_Y = 40
 
 func reset():
 	self.size = Vector2(0, 0)

@@ -110,7 +110,7 @@ func move_to_map(target):
 
 func move_to_map_center():
     if self.root.current_map != null:
-        self.move_to_map(Vector2(self.root.current_map.MAP_MAX_X / 2, self.root.current_map.MAP_MAX_Y / 2))
+        self.move_to_map(Vector2(self.bag.abstract_map.MAP_MAX_X / 2, self.bag.abstract_map.MAP_MAX_Y / 2))
 
 func process(delta):
     if not pos == target:

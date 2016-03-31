@@ -249,7 +249,6 @@ func fill_end_game_stats(stats, turns):
     var red_score = hud_end_game_stats_red.get_node("overall")
 
     hud_end_game_total_turns.set_text(str(turns))
-    print(stats)
     hud_end_game_total_time.set_text(stats["total_time"])
 
     blue_domination.set_text(str(stats["domination"][0]))

@@ -129,7 +129,7 @@ func _input(event):
         self.toggle_menu()
 
 func move_selector_to_map_position(pos):
-    if pos.x < 0 or pos.y < 0 or pos.x > self.bag.workshop.MAP_MAX_X or pos.y > self.bag.workshop.MAP_MAX_Y:
+    if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
         return
 
     var position = current_map_terrain.map_to_world(pos)

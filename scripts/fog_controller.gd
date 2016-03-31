@@ -27,8 +27,8 @@ func build_fog_pattern():
     self.fog_pattern.clear()
     self.current_fog_state.clear()
 
-    for y in range(0, map_controller.MAP_MAX_Y):
-        for x in range(0, map_controller.MAP_MAX_X):
+    for y in range(0, self.map_controller.bag.abstract_map.MAP_MAX_Y):
+        for x in range(0, self.map_controller.bag.abstract_map.MAP_MAX_X):
             sprite = -1
             if terrain.get_cell(x,y) > -1:
                 uniq_num = int(sin(x+y)+cos(x*y))

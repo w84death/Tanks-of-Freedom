@@ -52,6 +52,9 @@ func _ready():
 	self.control_nodes = [self.get_node("top"),self.get_node("middle"),self.get_node("bottom")]
 
 	workshop_button = get_node("bottom/center/workshop")
+	if !Globals.get('tof/enable_workshop'):
+	    workshop_button.hide()
+
 	campaign_button = get_node("bottom/center/start_campaign")
 	self.background_gradient = self.get_node('vigette/center/sprite')
 
@@ -290,35 +293,38 @@ func manage_close_button():
 	else:
 		self.close_button.hide()
 
-# WORKSHOP
+# WORKSHOP TODO - create separate class for this
 func load_workshop():
 	self.workshop = self.root.bag.workshop
 
 func enter_workshop():
-	self.root.unload_map()
-	self.workshop.is_working = true
-	self.workshop.is_suspended = false
-	self.show_workshop()
+    if Globals.get('tof/enable_workshop'):
+        self.root.unload_map()
+        self.workshop.is_working = true
+        self.workshop.is_suspended = false
+        self.show_workshop()
 
 func show_workshop():
-	self.hide()
-	self.root.toggle_menu()
-	self.workshop.show()
-	self.workshop.units.raise()
-	self.hide_background_map()
-	self.workshop.camera.make_current()
-	self.root.bag.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
-	self.root.bag.online_player.request_player_id()
-	self.root.bag.controllers.workshop_gui_controller.file_panel.refresh_player_id()
+    if Globals.get('tof/enable_workshop'):
+        self.hide()
+        self.root.toggle_menu()
+        self.workshop.show()
+        self.workshop.units.raise()
+        self.hide_background_map()
+        self.workshop.camera.make_current()
+        self.root.bag.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
+        self.root.bag.online_player.request_player_id()
+        self.root.bag.controllers.workshop_gui_controller.file_panel.refresh_player_id()
 
 func hide_workshop():
-	self.workshop.hide()
-	self.workshop.camera.clear_current()
-	self.root.bag.camera.camera.make_current()
-	self.show()
-	if not self.root.is_map_loaded:
-		self.show_background_map()
-	self.workshop_button.grab_focus()
+    if Globals.get('tof/enable_workshop'):
+        self.workshop.hide()
+        self.workshop.camera.clear_current()
+        self.root.bag.camera.camera.make_current()
+        self.show()
+        if not self.root.is_map_loaded:
+            self.show_background_map()
+        self.workshop_button.grab_focus()
 
 func load_map(name, from_workshop):
 	if from_workshop:
@@ -327,9 +333,10 @@ func load_map(name, from_workshop):
 		root.load_map(name, false)
 	root.toggle_menu()
 	self.hide_maps_menu()
-	workshop.hide()
-	workshop.is_working = false
-	workshop.is_suspended = true
+	if Globals.get('tof/enable_workshop'):
+        workshop.hide()
+        workshop.is_working = false
+        workshop.is_suspended = true
 
 func resume_map():
 	if self.root.bag.saving == null:
@@ -337,9 +344,10 @@ func resume_map():
 	self.root.bag.saving.load_state()
 	root.toggle_menu()
 	self.hide_maps_menu()
-	workshop.hide()
-	workshop.is_working = false
-	workshop.is_suspended = true
+	if Globals.get('tof/enable_workshop'):
+        workshop.hide()
+        workshop.is_working = false
+        workshop.is_suspended = true
 
 func toggle_sound():
 	root.settings['sound_enabled'] = not root.settings['sound_enabled']

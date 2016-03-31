@@ -87,7 +87,6 @@ func apply_saved_terrain():
         if field['terrain'] > -1:
             self.root_node.current_map_terrain.set_cell(field['x'], field['y'], field['terrain'])
             if field['meta'].has('is_terrain') and field['meta']['is_terrain']:
-                print('terrain: ', field['meta']['type'])
                 terrain_object = self.get_terrain_object_by_unique_type(field['meta']['type'])
                 if field['meta']['frame'] > 0:
                     terrain_object.set_frame(field['meta']['frame'])

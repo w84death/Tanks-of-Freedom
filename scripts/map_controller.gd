@@ -35,10 +35,6 @@ const GEN_FLOWERS = 3
 const GEN_STONES = 6
 const GEN_SNOW_PARTICLES = 5
 
-# this shoudl be in main settings (see abstract_map)
-const MAP_MAX_X = 40
-const MAP_MAX_Y = 40
-
 var map_file = File.new()
 var campaign
 var used_tiles_list = []
@@ -153,7 +149,6 @@ func move_to_map(target):
 func shake_camera():
 	return
 
-
 func generate_map():
 	var temp = null
 	var temp2 = null
@@ -168,8 +163,8 @@ func generate_map():
 	var city_big_elements_count = map_city_big.size()
 	var neigbours = 0
 
-	for x in range(MAP_MAX_X):
-		for y in range(MAP_MAX_Y):
+	for x in range(self.bag.abstract_map.MAP_MAX_X):
+		for y in range(self.bag.abstract_map.MAP_MAX_Y):
 
 			var terrain_cell = terrain.get_cell(x, y)
 			# underground
@@ -546,8 +541,8 @@ func save_map(file_name):
 
 	file_name = str(file_name)
 
-	for x in range(MAP_MAX_X):
-		for y in range(MAP_MAX_Y):
+	for x in range(self.bag.abstract_map.MAP_MAX_X):
+		for y in range(self.bag.abstract_map.MAP_MAX_Y):
 			if terrain.get_cell(x, y) > -1:
 				temp_terrain = terrain.get_cell(x, y)
 
@@ -656,8 +651,8 @@ func fill(width, height):
 
 	terrain.clear()
 	units.clear()
-	offset_x = (MAP_MAX_X*0.5) - (width*0.5)
-	offset_y = (MAP_MAX_Y*0.5) - (height*0.5)
+	offset_x = (self.bag.abstract_map.MAP_MAX_X*0.5) - (width*0.5)
+	offset_y = (self.bag.abstract_map.MAP_MAX_Y*0.5) - (height*0.5)
 
 	for x in range(width):
 		for y in range(height):
@@ -672,8 +667,8 @@ func clear_layer(layer):
 
 func init_background():
 	#print('background generate..')
-	for x in range(MAP_MAX_X):
-		for y in range(MAP_MAX_Y):
+	for x in range(self.bag.abstract_map.MAP_MAX_X):
+		for y in range(self.bag.abstract_map.MAP_MAX_Y):
 			underground.set_cell(x,y,3)
 
 func init_nodes():

@@ -1,7 +1,7 @@
-
 extends Control
 
 var root
+var bag
 var is_working = false
 var is_suspended = true
 
@@ -18,7 +18,6 @@ var hud_message_box_message
 var toolset_active_page = 0
 var tool_type = "terrain"
 var brush_type = 0
-
 
 var restore_file_name = "restore_map"
 
@@ -41,11 +40,9 @@ var settings = {
     fill_selected = [0,0],
 }
 
-const MAP_MAX_X = 64
-const MAP_MAX_Y = 64
-
 func init(root):
     self.root = root
+    self.bag = root.bag
     self.tileset = self.root.bag.map_tiles
     terrain.add_child(selector)
     map.set_default_zoom()
@@ -140,7 +137,7 @@ func paint(position, tool_type = null, brush_type = null, undo_action = false):
         brush_type = self.brush_type
 
 
-    if position.x < 0 or position.y < 0 or position.x >= MAP_MAX_X or position.y >= MAP_MAX_Y:
+    if position.x < 0 or position.y < 0 or position.x >= self.bag.abstract_map.MAP_MAX_X or position.y >= self.bag.abstract_map.MAP_MAX_Y:
         return false
     else:
         if tool_type == "terrain":
@@ -234,18 +231,18 @@ func close_message():
     self.hud_message.hide()
 
 func center_camera():
-    var center_position = Vector2(self.map.MAP_MAX_X / 2, self.map.MAP_MAX_Y / 2)
+    var center_position = Vector2(self.bag.abstract_map.MAP_MAX_X / 2, self.bag.abstract_map.MAP_MAX_Y / 2)
     self.set_camera_map_pos(center_position)
     self.set_selector_map_pos(center_position)
 
 func set_camera_map_pos(position):
-    if position.x < 0 or position.y < 0 or position.x > self.MAP_MAX_X or position.y > self.MAP_MAX_Y:
+    if position.x < 0 or position.y < 0 or position.x > self.bag.abstract_map.MAP_MAX_X or position.y > self.bag.abstract_map.MAP_MAX_Y:
         return
 
     self.camera.set_offset(self.terrain.map_to_world(position))
 
 func set_selector_map_pos(pos):
-    if pos.x < 0 or pos.y < 0 or pos.x > self.MAP_MAX_X or pos.y > self.MAP_MAX_Y:
+    if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
         return
 
     var position = self.terrain.map_to_world(pos)
