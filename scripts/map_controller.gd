@@ -534,12 +534,10 @@ func generate_wave(x, y):
 func set_default_zoom():
 	self.scale = (Vector2(2, 2))
 
-func save_map(file_name):
+func get_map_data_as_array():
 	var temp_data = []
 	var temp_terrain = -1
 	var temp_unit = -1
-
-	file_name = str(file_name)
 
 	for x in range(self.bag.abstract_map.MAP_MAX_X):
 		for y in range(self.bag.abstract_map.MAP_MAX_Y):
@@ -558,6 +556,13 @@ func save_map(file_name):
 
 			temp_terrain = -1
 			temp_unit = -1
+
+	return temp_data
+
+func save_map(file_name):
+	var temp_data = self.get_map_data_as_array()
+
+	file_name = str(file_name)
 
 	if self.check_file_name(file_name):
 		self.store_map_in_binary_file(file_name, temp_data)

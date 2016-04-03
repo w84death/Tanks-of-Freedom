@@ -3,9 +3,15 @@ var bag
 
 var http_client
 
+var enabled = false
+var api_location = null
+
 func _init_bag(bag):
     self.bag = bag
     self.http_client = HTTPClient.new()
+
+    self.enabled = Globals.get('tof/online')
+    self.api_location = Globals.get('tof/api_location')
 
 func get(api, resource, expect_json = true):
     return self.make_request(api, resource, HTTPClient.METHOD_GET, null, expect_json)
@@ -19,6 +25,11 @@ func make_request(api, resource, method, data, expect_json = true):
         'status' : null,
         'data' : {}
     }
+
+    if not self.enabled:
+        result['status'] = 'error'
+        result['message'] = 'Online functions are disabled'
+        return result
 
     var err = self.http_client.connect(api, 80)
 
@@ -40,6 +51,8 @@ func make_request(api, resource, method, data, expect_json = true):
         "User-Agent: ToF/" + self.bag.root.version_short + " (Godot)",
         "Accept: */*"
     ]
+    if data:
+        headers.append("Content-Type: application/json")
 
     err = self.http_client.request(method, resource, headers, data)
 

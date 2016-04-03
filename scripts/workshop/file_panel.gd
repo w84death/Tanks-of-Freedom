@@ -16,7 +16,10 @@ var save_animation
 var load_button
 var pick_button
 var file_name
+
 var player_id_label
+var upload_button
+var download_button
 
 
 var central_container
@@ -37,7 +40,12 @@ func bind_panel(file_panel_wrapper_node):
     self.save_animation = self.file_panel_top_controls.get_node("progress_animation")
     self.pick_button = self.file_panel_top_controls.get_node("load_button_picker")
     self.load_button = self.file_panel_top_controls.get_node("load_button")
+
     self.player_id_label = self.file_panel_top_controls.get_node('player_id')
+    self.download_button = self.file_panel_top_controls.get_node('download_button')
+    self.download_button.connect("pressed", self, "_download_button_pressed")
+    self.upload_button = self.file_panel_top_controls.get_node('upload_button')
+    self.upload_button.connect("pressed", self, "_upload_button_pressed")
 
     self.toggle_button = self.file_panel.get_node("controls/file_button")
     self.play_button = self.file_panel.get_node("controls/play_button")
@@ -53,6 +61,21 @@ func bind_panel(file_panel_wrapper_node):
 func _toggle_button_pressed():
     self.root.sound_controller.play('menu')
     self.toggle_file_panel()
+func _download_button_pressed():
+    self.root.sound_controller.play('menu')
+    if self.bag.online_maps.download_map(self.file_name.get_text()):
+        self.bag.workshop.show_message("Success", 'Map has been downloaded.', "", "OK")
+    else:
+        self.bag.workshop.show_message("Error", 'Could not download a map. Please try again later.', "", "OK")
+func _upload_button_pressed():
+    self.root.sound_controller.play('menu')
+    var map_data = self.bag.workshop.map.get_map_data_as_array()
+    var map_name = self.file_name.get_text()
+    if self.bag.online_maps.upload_map(map_data, map_name):
+        self.bag.workshop.show_message("Success", 'Map has been uploaded.', "", "OK")
+    else:
+        self.bag.workshop.show_message("Error", 'Could not upload a map. Please try again later.', "", "OK")
+
 
 func toggle_file_panel():
     if self.position.y == self.positions[0]:
@@ -133,3 +156,10 @@ func refresh_player_id():
         self.player_id_label.set_text("")
     else:
         self.player_id_label.set_text(str(player_id))
+
+    if self.bag.online_maps.can_transfer():
+        self.upload_button.show()
+        self.download_button.show()
+    else:
+        self.upload_button.hide()
+        self.download_button.hide()

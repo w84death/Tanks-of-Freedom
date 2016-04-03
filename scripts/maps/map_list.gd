@@ -1,6 +1,7 @@
 
 var file_handler = File.new()
 var maps = {}
+var downloaded_maps = {}
 var list_file_path = "user://maps_list.tof"
 
 var default_custom_maps = [

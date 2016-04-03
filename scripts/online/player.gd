@@ -4,24 +4,19 @@ var bag
 var player_id = null
 var player_pin = null
 
-var enabled = false
-var api_location = null
-
 var REGISTER_URL = "/players"
 
 func _init_bag(bag):
     self.bag = bag
-    self.enabled = Globals.get('tof/online')
-    self.api_location = Globals.get('tof/api_location')
 
     self.player_id = self.bag.root.settings['online_player_id']
     self.player_pin = self.bag.root.settings['online_player_pin']
 
 func request_player_id():
-    if not self.enabled or self.player_id != null:
+    if not self.bag.online_request.enabled or self.player_id != null:
         return
 
-    var response = self.bag.online_request.post(self.api_location, self.REGISTER_URL)
+    var response = self.bag.online_request.post(self.bag.online_request.api_location, self.REGISTER_URL)
 
     if response['status'] != 'ok':
         return
@@ -35,7 +30,13 @@ func request_player_id():
 
 
 func get_player_id():
-    if not self.enabled:
+    if not self.bag.online_request.enabled:
         return null
 
     return self.player_id
+
+func get_basic_auth_json():
+    return {
+        'player_id' : self.player_id,
+        'player_pin' : self.player_pin
+    }
