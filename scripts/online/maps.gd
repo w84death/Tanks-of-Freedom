@@ -29,7 +29,10 @@ func upload_map(data, name):
     if result['status'] != 'ok':
         return false
 
-    self.save_map(data, result['data']['code'])
+    var metadata = {
+        'name' : name
+    }
+    self.save_map(data, result['data']['code'], metadata)
 
     return true
 
@@ -45,13 +48,17 @@ func download_map(code):
     if result['status'] != 'ok':
         return false
 
-    self.save_map(result['data']['data']['tiles'], code)
+    var metadata = {
+        'name' : result['data']['data']['name']
+    }
+    self.save_map(result['data']['data']['tiles'], code, metadata)
 
     return true
 
-func save_map(data, code):
+func save_map(data, code, metadata = {}):
     var remote_file_name = self.get_remote_file_name(code)
     self.bag.file_handler.write(remote_file_name, data)
+    self.bag.map_list.store_remote_map(code, metadata)
 
 func get_remote_file_name(code):
     return "user://" + code + self.ONLINE_MAP_EXTENSION

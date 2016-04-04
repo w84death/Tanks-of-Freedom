@@ -1,8 +1,9 @@
 
 var file_handler = File.new()
 var maps = {}
-var downloaded_maps = {}
-var list_file_path = "user://maps_list.tof"
+var remote_maps = {}
+var local_list_file_path = "user://maps_list.tof"
+var remote_list_file_path = "user://remote_maps_list.tof"
 
 var default_custom_maps = [
     {
@@ -49,20 +50,44 @@ var default_custom_maps = [
 ]
 
 func _init():
-    if file_handler.file_exists(self.list_file_path):
-        self.load_list()
+    if file_handler.file_exists(self.local_list_file_path):
+        self.load_local_list()
     else:
-        self.save_list()
+        self.save_local_list()
+
+    if file_handler.file_exists(self.remote_list_file_path):
+        self.load_remote_list()
+    else:
+        self.save_remote_list()
+
     self.add_default_maps()
 
 func load_list():
-    self.file_handler.open(self.list_file_path, File.READ)
+    self.load_local_list()
+    self.load_remote_list()
+
+func save_list():
+    self.save_local_list()
+    self.save_remote_list()
+
+func load_local_list():
+    self.file_handler.open(self.local_list_file_path, File.READ)
     self.maps = self.file_handler.get_var()
     self.file_handler.close()
 
-func save_list():
-    self.file_handler.open(self.list_file_path, File.WRITE)
+func save_local_list():
+    self.file_handler.open(self.local_list_file_path, File.WRITE)
     self.file_handler.store_var(self.maps)
+    self.file_handler.close()
+
+func load_remote_list():
+    self.file_handler.open(self.remote_list_file_path, File.READ)
+    self.remote_maps = self.file_handler.get_var()
+    self.file_handler.close()
+
+func save_remote_list():
+    self.file_handler.open(self.remote_list_file_path, File.WRITE)
+    self.file_handler.store_var(self.remote_maps)
     self.file_handler.close()
 
 func add_map(map_name):
@@ -70,7 +95,7 @@ func add_map(map_name):
 
 func store_map(map_name):
     self.add_map(map_name)
-    self.save_list()
+    self.save_local_list()
 
 func add_default_maps():
     var file_name
@@ -84,4 +109,12 @@ func add_default_maps():
 
 func remove_map(name):
     self.maps.erase(name)
-    self.save_list()
+    self.save_local_list()
+
+func store_remote_map(code, metadata):
+    self.remote_maps[code] = metadata
+    self.save_remote_list()
+
+func remove_remote_map(code):
+    self.remote_maps.erase(code)
+    self.save_remote_list()
