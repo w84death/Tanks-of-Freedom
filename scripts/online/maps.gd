@@ -34,8 +34,24 @@ func upload_map(data, name):
     return true
 
 func download_map(code):
+    if not code:
+        return false
+
+    var remote_file_name = self.get_remote_file_name(code)
+    if self.bag.file_handler.file_exists(remote_file_name):
+        return true
+
+    var result = self.bag.online_request.get(self.bag.online_request.api_location, self.MAPS_URL + "/" + code)
+    if result['status'] != 'ok':
+        return false
+
+    self.save_map(result['data']['data']['tiles'], code)
+
     return true
 
 func save_map(data, code):
-    var remote_file_name = "user://" + code + self.ONLINE_MAP_EXTENSION
+    var remote_file_name = self.get_remote_file_name(code)
     self.bag.file_handler.write(remote_file_name, data)
+
+func get_remote_file_name(code):
+    return "user://" + code + self.ONLINE_MAP_EXTENSION

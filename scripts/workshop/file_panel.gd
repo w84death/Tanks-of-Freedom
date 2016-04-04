@@ -66,7 +66,7 @@ func _download_button_pressed():
     if self.bag.online_maps.download_map(self.file_name.get_text()):
         self.bag.workshop.show_message("Success", 'Map has been downloaded.', "", "OK")
     else:
-        self.bag.workshop.show_message("Error", 'Could not download a map. Please try again later.', "", "OK")
+        self.bag.workshop.show_message("Error", 'Could not download a map. Please check if code is correct or try again later.', "", "OK")
 func _upload_button_pressed():
     self.root.sound_controller.play('menu')
     var map_data = self.bag.workshop.map.get_map_data_as_array()

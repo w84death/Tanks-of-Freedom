@@ -19,3 +19,6 @@ func __create_file_if_no_exists(path):
         return false
 
     return true
+
+func file_exists(path):
+    return self.file.file_exists(path)

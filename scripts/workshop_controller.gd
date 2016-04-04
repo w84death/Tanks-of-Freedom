@@ -208,7 +208,7 @@ func _input(event):
             if event.scancode == KEY_Z && event.pressed:
                 self.undo_last_action()
 
-    if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded:
+    if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
 
 func toggle_menu():

@@ -53,8 +53,9 @@ func make_request(api, resource, method, data, expect_json = true):
     ]
     if data:
         headers.append("Content-Type: application/json")
-
-    err = self.http_client.request(method, resource, headers, data)
+        err = self.http_client.request(method, resource, headers, data)
+    else:
+        err = self.http_client.request(method, resource, headers)
 
     if err != OK:
         result['status'] = 'error'
