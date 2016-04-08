@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/message.gd" type="Script" id=1]
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=2]
@@ -8,9 +8,10 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=8]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=9]
-[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/gui/cloud_spritesheet.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=10]
+[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/gui/cloud_spritesheet.png" type="Texture" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -161,6 +162,15 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Sprite" type="Sprite" parent="button"]
+
+transform/pos = Vector2( 3.60998, 4.5125 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 9 )
+vframes = 2
+hframes = 4
+frame = 2
+
 [node name="title" type="Label" parent="."]
 
 margin/left = -240.0
@@ -170,7 +180,7 @@ margin/bottom = -59.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 9 )
+custom_fonts/font = ExtResource( 10 )
 text = "DID YOU KNOW THAT<..."
 percent_visible = 1.0
 lines_skipped = 0
@@ -192,7 +202,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="flag" parent="." instance=ExtResource( 10 )]
+[node name="flag" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 224, -66 )
 transform/scale = Vector2( 3, 3 )
@@ -202,7 +212,7 @@ frame = 7
 
 transform/pos = Vector2( -224, 81 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 vframes = 2
 hframes = 3
 frame = 3
