@@ -67,7 +67,7 @@ func set_unit_sprite(id, team):
     self.unit_sprite.set_frame(new_frame)
 
 func set_unit_price(price):
-    self.price.set_text("PRICE: "+ str(price) + "AP")
+    self.price.set_text(str(price) + "AP")
 
 func set_unit_stats(attack, health, unit_range):
     self.attack.set_text("attack: " + str(attack))
