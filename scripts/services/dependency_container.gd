@@ -51,8 +51,9 @@ func init_root(root_node):
 
     self.controllers.campaign_menu_controller.init_root(root_node)
     self.controllers.hud_panel_controller.init_root(root_node)
+    self.controllers.online_menu_controller._init_bag(self)
 
-    
+
     self.hud_dead_zone.init_root(root_node)
     self.workshop_dead_zone.init_root(root_node)
 
