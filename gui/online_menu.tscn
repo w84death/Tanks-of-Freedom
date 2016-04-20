@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=6]
 [ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=7]
 
-[node name="maps_list" type="Control"]
+[node name="online" type="Control"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -18,8 +18,10 @@ __meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
 [node name="background" type="Control" parent="."]
 
-margin/top = -30.0
-margin/bottom = -30.0
+margin/left = 538.0
+margin/top = 373.0
+margin/right = 538.0
+margin/bottom = 373.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -190,8 +192,10 @@ frame = 108
 
 [node name="controls" type="Control" parent="."]
 
-margin/top = -30.0
-margin/bottom = -30.0
+margin/left = 538.0
+margin/top = 373.0
+margin/right = 538.0
+margin/bottom = 373.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -264,6 +268,41 @@ size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "UPLOAD MAP"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="back" type="TextureButton" parent="controls"]
+
+margin/left = -149.0
+margin/top = 235.0
+margin/right = -5.0
+margin/bottom = 283.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 6 )
+params/scale = Vector2( 3, 3 )
+
+[node name="Label" type="Label" parent="controls/back"]
+
+margin/left = 6.0
+margin/top = 17.0
+margin/right = 136.0
+margin/bottom = 35.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "< BACK"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0

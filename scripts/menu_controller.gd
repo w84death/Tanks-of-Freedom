@@ -98,6 +98,7 @@ func _ready():
 	campaign_button.connect("pressed", self, "_campaign_button_pressed")
 	workshop_button.connect("pressed", self, "_workshop_button_pressed")
 	play_button.connect("pressed", self, "_play_button_pressed")
+	online_button.connect("pressed", self, "_online_button_pressed")
 
 	sound_toggle_button.connect("pressed", self, "_toggle_sound_button_pressed")
 	music_toggle_button.connect("pressed", self, "_toggle_music_button_pressed")
@@ -185,7 +186,15 @@ func _difficulty_button_pressed():
 	self.root.settings['easy_mode'] = not self.root.settings['easy_mode']
 	self.refresh_buttons_labels()
 	self.root.write_settings_to_file()
+func _online_button_pressed():
+	self.root.sound_controller.play('menu')
+	self.show_online_menu()
 
+
+func show_online_menu():
+	self.root.bag.controllers.online_menu_controller.show()
+	self.hide_control_nodes()
+	#self.root.bag.controllers.campaign_menu_controller.start_button.grab_focus()
 
 func start_demo_mode():
 	self.root.bag.demo_mode.start_demo_mode(false)
