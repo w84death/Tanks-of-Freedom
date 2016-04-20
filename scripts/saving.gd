@@ -88,6 +88,9 @@ func apply_saved_terrain():
             self.root_node.current_map_terrain.set_cell(field['x'], field['y'], field['terrain'])
             if field['meta'].has('is_terrain') and field['meta']['is_terrain']:
                 terrain_object = self.get_terrain_object_by_unique_type(field['meta']['type'])
+                if terrain_object == null:
+                    print('Broken type ', field)
+                    continue
                 if field['meta']['frame'] > 0:
                     terrain_object.set_frame(field['meta']['frame'])
                 for i in range(field['meta']['damage']):

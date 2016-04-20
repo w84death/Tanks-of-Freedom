@@ -59,3 +59,4 @@ const CITY_BIG_4 = 9
 const CITY_STATUE = 10
 const CITY_FENCE = 11
 const COUNTRY_FOREST_MOUNTAIN = 12
+const CITY_FENCE = 14
