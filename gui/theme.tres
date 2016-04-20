@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=28 format=1]
+[gd_resource type="Theme" load_steps=34 format=1]
 
 [ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=1]
 [ext_resource path="res://assets/gui/checkbox/checkbox_off.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/checkbox/checkbox_on.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=4]
+[ext_resource path="res://assets/gui/slider/slider_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/slider/slider_1.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=7]
 
@@ -75,6 +77,53 @@ content_margin/bottom = -1.0
 bg_color = Color( 0.639216, 0.807843, 0.152941, 1 )
 light_color = Color( 0.639216, 0.807843, 0.152941, 1 )
 dark_color = Color( 0.639216, 0.807843, 0.152941, 1 )
+border_size = 2
+border_blend = false
+draw_bg = false
+
+[sub_resource type="ImageTexture" id=34]
+
+flags = 4
+image = Image( 4, 16, 0, RGBA, 0, 0, 0, 0, 152, 152, 152, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 141, 141, 141, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 78, 78, 78, 49, 78, 78, 78, 28, 0, 0, 0, 0, 0, 0, 0, 0, 56, 85, 95, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 172, 184, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 162, 173, 0, 56, 85, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 152, 152, 152, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 141, 141, 141, 121, 78, 78, 78, 49, 0, 0, 0, 0, 0, 0, 0, 0, 130, 130, 130, 121, 78, 78, 78, 49, 0, 0, 0, 0 )
+size = Vector2( 4, 16 )
+storage = 0
+lossy_quality = 0.7
+
+[sub_resource type="StyleBoxFlat" id=35]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.6, 0.6, 0.6, 1 )
+light_color = Color( 0.968627, 0.886275, 0.419608, 1 )
+dark_color = Color( 0.968627, 0.886275, 0.419608, 1 )
+border_size = 2
+border_blend = false
+draw_bg = false
+
+[sub_resource type="StyleBoxFlat" id=36]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.6, 0.6, 0.6, 1 )
+light_color = Color( 0.968627, 0.886275, 0.419608, 1 )
+dark_color = Color( 0.968627, 0.886275, 0.419608, 1 )
+border_size = 4
+border_blend = false
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=37]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+light_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+dark_color = Color( 0.266667, 0.537255, 0.101961, 1 )
 border_size = 2
 border_blend = false
 draw_bg = false
@@ -220,7 +269,7 @@ draw_bg = false
 
 [resource]
 
-default_font = ExtResource( 4 )
+default_font = ExtResource( 6 )
 Button/colors/font_color = Color( 0.639216, 0.807843, 0.152941, 1 )
 Button/colors/font_color_disabled = Color( 0.266667, 0.537255, 0.101961, 1 )
 Button/colors/font_color_hover = Color( 0.968627, 0.886275, 0.419608, 1 )
@@ -248,6 +297,12 @@ CheckButton/styles/normal = SubResource( 25 )
 CheckButton/styles/pressed = SubResource( 25 )
 HSeparator/constants/separation = 4
 HSeparator/styles/separator = SubResource( 29 )
+HSlider/icons/grabber = ExtResource( 4 )
+HSlider/icons/grabber_hilite = ExtResource( 5 )
+HSlider/icons/tick = SubResource( 34 )
+HSlider/styles/focus = SubResource( 35 )
+HSlider/styles/grabber_hilite = SubResource( 36 )
+HSlider/styles/slider = SubResource( 37 )
 Panel/colors/ = Color( 0.223367, 0.730469, 0.194031, 1 )
 Panel/styles/panel = SubResource( 1 )
 Panel/styles/panelf = SubResource( 3 )
