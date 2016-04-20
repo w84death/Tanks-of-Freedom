@@ -2,6 +2,7 @@
 var bag
 
 var online_menu = preload("res://gui/online_menu.tscn").instance()
+var middle_container
 
 var back_button
 var download_button
@@ -13,14 +14,17 @@ func _init_bag(bag):
     self.attach_campaign_menu()
 
 func bind():
-    self.download_button = self.online_menu.get_node("controls/upload")
+    self.download_button = self.online_menu.get_node("controls/download")
     self.download_button.connect("pressed", self, "_download_button_pressed")
 
-    self.upload_button = self.online_menu.get_node("controls/download")
+    self.upload_button = self.online_menu.get_node("controls/upload")
     self.upload_button.connect("pressed", self, "_upload_button_pressed")
 
     self.back_button = self.online_menu.get_node("controls/back")
     self.back_button.connect("pressed", self, "_back_button_pressed")
+
+    self.middle_container = self.online_menu.get_node('middle')
+    self.middle_container.hide()
 
 func _back_button_pressed():
     self.bag.root.sound_controller.play('menu')
@@ -29,13 +33,14 @@ func _back_button_pressed():
 
 
 func _download_button_pressed():
-    self.root.sound_controller.play('menu')
+    self.bag.root.sound_controller.play('menu')
     #if self.bag.online_maps.download_map(self.file_name.get_text()):
     #    self.bag.workshop.show_message("Success", 'Map has been downloaded.', "", "OK")
     #else:
     #    self.bag.workshop.show_message("Error", 'Could not download a map. Please check if code is correct or try again later.', "", "OK")
 func _upload_button_pressed():
-    self.root.sound_controller.play('menu')
+    self.bag.root.sound_controller.play('menu')
+    self.show_maps_list_for_upload()
     #var map_data = self.bag.workshop.map.get_map_data_as_array()
     #var map_name = self.file_name.get_text()
     #if self.bag.online_maps.upload_map(map_data, map_name):
@@ -55,3 +60,16 @@ func hide():
     self.online_menu.hide()
     self.bag.controllers.menu_controller.show_control_nodes()
     self.bag.root.write_settings_to_file()
+
+func show_maps_list_for_upload():
+    self.middle_container.show()
+    self.bag.map_picker.attach_panel(self.middle_container)
+    self.bag.map_picker.connect(self, "upload_custom_map")
+    self.bag.map_picker.lock_delete_mode_button()
+
+func hide_map_list():
+    self.bag.map_picker.detach_panel()
+    self.middle_container.hide()
+
+func upload_custom_map(map_name):
+    self.hide_map_list()
