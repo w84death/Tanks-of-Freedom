@@ -7,6 +7,7 @@ var close_button
 var close_button_label
 var demo_button
 var quit_button
+var online_button
 
 var main_menu_animations
 var settings_animations
@@ -62,6 +63,10 @@ func _ready():
 	close_button = get_node("top/center/close")
 	quit_button = get_node("top/center/quit")
 	demo_button = get_node("bottom/center/demo")
+	online_button = get_node("bottom/center/online")
+
+	if not Globals.get('tof/online'):
+		online_button.hide()
 
 	close_button_label = close_button.get_node('Label')
 
