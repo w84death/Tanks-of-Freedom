@@ -1,0 +1,697 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=2]
+
+[node name="intro_container" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 20.0
+margin/bottom = 20.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+scroll/horizontal = true
+scroll/vertical = true
+
+[node name="VBoxContainer" type="GridContainer" parent="ScrollContainer"]
+
+margin/right = 1216.0
+margin/bottom = 864.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/vseparation = 16
+custom_constants/hseparation = 16
+columns = 7
+__meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
+
+[node name="ReferenceFrame" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/right = 160.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame1" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 176.0
+margin/right = 336.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame1"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame2" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 352.0
+margin/right = 512.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame2"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 13
+
+[node name="ReferenceFrame3" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 528.0
+margin/right = 688.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame3"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame4" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 704.0
+margin/right = 864.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame4"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame5" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 880.0
+margin/right = 1040.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame5"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame6" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 1056.0
+margin/right = 1216.0
+margin/bottom = 160.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame6"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame7" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/top = 176.0
+margin/right = 160.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame7"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 3
+
+[node name="ReferenceFrame8" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 176.0
+margin/top = 176.0
+margin/right = 336.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame8"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame9" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 352.0
+margin/top = 176.0
+margin/right = 512.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame9"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame10" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 528.0
+margin/top = 176.0
+margin/right = 688.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame10"]
+
+transform/pos = Vector2( 8, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 11
+
+[node name="ReferenceFrame11" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 704.0
+margin/top = 176.0
+margin/right = 864.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame11"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame12" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 880.0
+margin/top = 176.0
+margin/right = 1040.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame12"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame13" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 1056.0
+margin/top = 176.0
+margin/right = 1216.0
+margin/bottom = 336.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame13"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame14" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/top = 352.0
+margin/right = 160.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame14"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame15" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 176.0
+margin/top = 352.0
+margin/right = 336.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame15"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 8
+
+[node name="ReferenceFrame16" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 352.0
+margin/top = 352.0
+margin/right = 512.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame16"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame17" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 528.0
+margin/top = 352.0
+margin/right = 688.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame17"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame18" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 704.0
+margin/top = 352.0
+margin/right = 864.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame18"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame19" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 880.0
+margin/top = 352.0
+margin/right = 1040.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame19"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame20" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 1056.0
+margin/top = 352.0
+margin/right = 1216.0
+margin/bottom = 512.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame20"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame21" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/top = 528.0
+margin/right = 160.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame21"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame22" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 176.0
+margin/top = 528.0
+margin/right = 336.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame22"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame23" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 352.0
+margin/top = 528.0
+margin/right = 512.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame23"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame24" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 528.0
+margin/top = 528.0
+margin/right = 688.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame24"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame25" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 704.0
+margin/top = 528.0
+margin/right = 864.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame25"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame26" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 880.0
+margin/top = 528.0
+margin/right = 1040.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame26"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame27" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 1056.0
+margin/top = 528.0
+margin/right = 1216.0
+margin/bottom = 688.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame27"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame28" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/top = 704.0
+margin/right = 160.0
+margin/bottom = 864.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame28"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame29" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 176.0
+margin/top = 704.0
+margin/right = 336.0
+margin/bottom = 864.0
+rect/min_size = Vector2( 160, 160 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/ReferenceFrame29"]
+
+transform/pos = Vector2( 16, 16 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+centered = false
+vframes = 4
+hframes = 6
+
+

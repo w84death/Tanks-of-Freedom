@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://ngui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://ngui/headers/main_header.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ngui/menus/main_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ngui/containters/intro_containter.tscn" type="PackedScene" id=4]
+
+[node name="index" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 48.0
+margin/top = 48.0
+margin/right = 48.0
+margin/bottom = 48.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+
+[node name="header" type="Panel" parent="."]
+
+anchor/right = 1
+margin/bottom = 128.0
+rect/min_size = Vector2( 800, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="main_header" parent="header" instance=ExtResource( 2 )]
+
+[node name="menu" type="Panel" parent="."]
+
+anchor/bottom = 1
+margin/top = 140.0
+margin/right = 384.0
+rect/min_size = Vector2( 256, 400 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="main_menu" parent="menu" instance=ExtResource( 3 )]
+
+[node name="containter" type="Panel" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 400.0
+margin/top = 140.0
+rect/min_size = Vector2( 400, 400 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="intro_container" parent="containter" instance=ExtResource( 4 )]
+
+

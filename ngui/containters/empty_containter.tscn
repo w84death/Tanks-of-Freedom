@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+
+[node name="empty_container" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 20.0
+margin/bottom = 20.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+scroll/horizontal = true
+scroll/vertical = true
+
+
