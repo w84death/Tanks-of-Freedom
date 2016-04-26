@@ -8,6 +8,8 @@ var back_button
 var download_button
 var upload_button
 
+var selected_map_name
+
 func _init_bag(bag):
     self.bag = bag
     self.bind()
@@ -73,3 +75,13 @@ func hide_map_list():
 
 func upload_custom_map(map_name):
     self.hide_map_list()
+    self.selected_map_name = map_name
+
+    self.middle_container.show()
+    self.bag.confirm_popup.attach_panel(self.middle_container)
+    self.bag.confirm_popup.fill_labels('Upload map', map_name, 'Upload', 'Cancel')
+    self.bag.confirm_popup.connect(self, "confirm_map_upload")
+
+func confirm_map_upload(confirmation):
+    self.bag.confirm_popup.detach_panel()
+    self.middle_container.hide()
