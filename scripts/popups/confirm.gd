@@ -1,7 +1,7 @@
 
 var bag
 
-var popup = preload("res://gui/popup.tscn").instance()
+var popup = preload("res://gui/popups/confirm.tscn").instance()
 
 var hud_title
 var hud_message
