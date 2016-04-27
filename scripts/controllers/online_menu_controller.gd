@@ -82,9 +82,10 @@ func show_maps_list_for_upload():
 func upload_custom_map(map_name):
     self.bag.map_picker.detach_panel()
     self.selected_map_name = map_name
+    var message = "Map to upload: " + map_name + ". Proceed?"
 
     self.bag.confirm_popup.attach_panel(self.middle_container)
-    self.bag.confirm_popup.fill_labels('Upload map', map_name, 'Upload', 'Cancel')
+    self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
     self.bag.confirm_popup.connect(self, "confirm_map_upload")
 
 func confirm_map_upload(confirmation):
@@ -93,16 +94,27 @@ func confirm_map_upload(confirmation):
         self.bag.message_popup.attach_panel(self.middle_container)
         self.bag.message_popup.fill_labels("Upload map", "Uploading! Please wait.", "")
         self.bag.message_popup.hide_button()
-        self.bag.timers.set_timeout(1, self, 'map_upload_complete_show', ['Upload complete!'])
+        self.bag.timers.set_timeout(0.5, self, 'execute_map_upload')
     else:
         self.middle_container.hide()
         self.controls.show()
         self.background.show()
 
+func execute_map_upload():
+    var map_data = self.bag.map_list.get_local_map_data(self.selected_map_name)
+    var result = self.bag.online_maps.upload_map(map_data, self.selected_map_name)
+    var message
+
+    if result:
+        message = "Upload successful! New map code: " + self.bag.online_maps.last_upload_code
+    else:
+        message = "Upload failed. Please try again later."
+    self.map_upload_complete_show(message)
+
 func map_upload_complete_show(message):
     self.bag.confirm_popup.detach_panel()
     self.bag.message_popup.attach_panel(self.middle_container)
-    self.bag.message_popup.fill_labels("Upload map", message[0], "Done")
+    self.bag.message_popup.fill_labels("Upload map", message, "Done")
     self.bag.message_popup.connect(self, "map_upload_complete_hide")
 
 func map_upload_complete_hide():
@@ -125,7 +137,7 @@ func register_confirmation(confirmation):
         self.bag.message_popup.attach_panel(self.middle_container)
         self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID! Please wait.", "")
         self.bag.message_popup.hide_button()
-        self.bag.timers.set_timeout(1, self, 'do_online_register')
+        self.bag.timers.set_timeout(0.5, self, 'do_online_register')
     else:
         self.hide()
         self.bag.root.menu.online_button.grab_focus()

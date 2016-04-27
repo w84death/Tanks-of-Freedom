@@ -88,6 +88,8 @@ func init_root(root_node):
     self.online_player._init_bag(self)
     self.online_maps._init_bag(self)
 
+    self.map_list._init_bag(self)
+
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()
         self.saving._init_bag(self)
