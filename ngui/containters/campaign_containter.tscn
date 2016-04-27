@@ -1,0 +1,197 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/campaigns/tutorial.png" type="Texture" id=2]
+[ext_resource path="res://assets/campaigns/winter.png" type="Texture" id=3]
+[ext_resource path="res://assets/campaigns/fall.png" type="Texture" id=4]
+[ext_resource path="res://assets/campaigns/summer.png" type="Texture" id=5]
+
+[node name="campaign_container" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 20.0
+margin/bottom = 20.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+
+anchor/right = 1
+margin/bottom = 288.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+use_top_left = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 300, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+scroll/horizontal = false
+scroll/vertical = true
+
+[node name="VBoxContainer" type="GridContainer" parent="ScrollContainer"]
+
+margin/right = 832.0
+margin/bottom = 288.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/vseparation = 32
+custom_constants/hseparation = 32
+columns = 3
+
+[node name="tutorial" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/right = 256.0
+margin/bottom = 128.0
+rect/min_size = Vector2( 256, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/tutorial"]
+
+texture = ExtResource( 2 )
+centered = false
+
+[node name="play" type="Button" parent="ScrollContainer/VBoxContainer/tutorial"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "PLAY TUTORIAL"
+flat = false
+
+[node name="empty" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 288.0
+margin/right = 544.0
+margin/bottom = 128.0
+rect/min_size = Vector2( 256, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="empty2" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 576.0
+margin/right = 832.0
+margin/bottom = 128.0
+rect/min_size = Vector2( 256, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="tutorial1" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/top = 160.0
+margin/right = 256.0
+margin/bottom = 288.0
+rect/min_size = Vector2( 256, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/tutorial1"]
+
+texture = ExtResource( 3 )
+centered = false
+
+[node name="play" type="Button" parent="ScrollContainer/VBoxContainer/tutorial1"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "WINTER CAMPAIGN"
+flat = false
+
+[node name="tutorial2" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 288.0
+margin/top = 160.0
+margin/right = 544.0
+margin/bottom = 288.0
+rect/min_size = Vector2( 256, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/tutorial2"]
+
+texture = ExtResource( 4 )
+centered = false
+
+[node name="play" type="Button" parent="ScrollContainer/VBoxContainer/tutorial2"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "FALL CAMPAIGN"
+flat = false
+
+[node name="tutorial3" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
+
+margin/left = 576.0
+margin/top = 160.0
+margin/right = 832.0
+margin/bottom = 288.0
+rect/min_size = Vector2( 256, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/tutorial3"]
+
+texture = ExtResource( 5 )
+centered = false
+
+[node name="play" type="Button" parent="ScrollContainer/VBoxContainer/tutorial3"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "SUMMER CAMPAIGN"
+flat = false
+
+

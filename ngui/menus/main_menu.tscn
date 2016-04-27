@@ -124,11 +124,24 @@ toggle_mode = false
 text = "SETTINGS"
 flat = false
 
-[node name="quit" type="Button" parent="."]
+[node name="about" type="Button" parent="."]
 
 margin/top = 175.0
 margin/right = 1240.0
 margin/bottom = 194.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+text = "ABOUT"
+flat = false
+
+[node name="quit" type="Button" parent="."]
+
+margin/top = 198.0
+margin/right = 1240.0
+margin/bottom = 217.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
