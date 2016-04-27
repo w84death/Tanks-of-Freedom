@@ -5,6 +5,8 @@ var MAPS_URL = "/maps"
 
 var ONLINE_MAP_EXTENSION = ".remote"
 
+var last_upload_code
+
 func _init_bag(bag):
     self.bag = bag
 
@@ -33,6 +35,8 @@ func upload_map(data, name):
         'name' : name
     }
     self.save_map(data, result['data']['code'], metadata)
+
+    self.last_upload_code = result['data']['code']
 
     return true
 

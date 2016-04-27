@@ -312,8 +312,9 @@ max_lines_visible = -1
 
 anchor/right = 1
 anchor/bottom = 1
+margin/top = 100.0
 margin/right = -1280.0
-margin/bottom = -720.0
+margin/bottom = -600.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

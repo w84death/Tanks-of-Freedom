@@ -21,11 +21,15 @@ var migrations = preload("res://scripts/migrations/migrations.gd").new()
 var timers = preload("res://scripts/timers.gd").new()
 var menu_background_map = preload("res://maps/menu_map_background.gd").new()
 var helpers = preload("res://scripts/services/helpers.gd").new()
-var map_picker = preload("res://gui/hud/map_picker.gd").new()
-var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
 var fog_controller = preload('res://scripts/fog_controller.gd').new()
 var processing = preload('res://scripts/processing.gd').new()
 var file_handler = preload('res://scripts/services/file_handler.gd').new()
+
+var map_picker = preload("res://gui/hud/map_picker.gd").new()
+var skirmish_setup = preload("res://gui/hud/skirmish_setup_panel.gd").new()
+var confirm_popup = preload("res://scripts/popups/confirm.gd").new()
+var prompt_popup = preload("res://scripts/popups/prompt.gd").new()
+var message_popup = preload("res://scripts/popups/message.gd").new()
 
 var resolution = preload('res://scripts/services/resolution.gd').new()
 var gamepad = preload('res://scripts/gamepad_input.gd').new()
@@ -67,6 +71,9 @@ func init_root(root_node):
     self.migrations._init_bag(self)
     self.timers._init_bag(self)
     self.map_picker._init_bag(self)
+    self.confirm_popup._init_bag(self)
+    self.prompt_popup._init_bag(self)
+    self.message_popup._init_bag(self)
     self.skirmish_setup._init_bag(self)
     self.fog_controller._init_bag(self)
     self.resolution._init_bag(self)
@@ -80,6 +87,8 @@ func init_root(root_node):
     self.online_request._init_bag(self)
     self.online_player._init_bag(self)
     self.online_maps._init_bag(self)
+
+    self.map_list._init_bag(self)
 
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()

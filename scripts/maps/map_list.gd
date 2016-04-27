@@ -1,4 +1,6 @@
 
+var bag
+
 var file_handler = File.new()
 var maps = {}
 var remote_maps = {}
@@ -48,6 +50,9 @@ var default_custom_maps = [
         'file' : preload('res://maps/custom/developer_map.gd').new()
     },
 ]
+
+func _init_bag(bag):
+    self.bag = bag
 
 func _init():
     if file_handler.file_exists(self.local_list_file_path):
@@ -118,3 +123,7 @@ func store_remote_map(code, metadata):
 func remove_remote_map(code):
     self.remote_maps.erase(code)
     self.save_remote_list()
+
+func get_local_map_data(map_name):
+    var file_path = "user://"+map_name+".map"
+    return self.bag.file_handler.read(file_path)
