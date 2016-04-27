@@ -12,6 +12,8 @@ var upload_button
 
 var selected_map_name
 
+var registration_successfull = false
+
 func _init_bag(bag):
     self.bag = bag
     self.bind()
@@ -114,18 +116,40 @@ func show_register_confirmation():
     self.background.hide()
     self.bag.confirm_popup.attach_panel(self.middle_container)
     self.bag.confirm_popup.fill_labels('Welcome to ToF Online!', 'Before you can start using online options, we need to register your device with our online system.', 'Register', 'Maybe later')
-    self.bag.confirm_popup.connect(self, "hide_register_confirmation")
+    self.bag.confirm_popup.connect(self, "register_confirmation")
     self.middle_container.show()
 
-func hide_register_confirmation(confirmation):
+func register_confirmation(confirmation):
     self.bag.confirm_popup.detach_panel()
     if confirmation:
-        pass
-        #self.root.bag.online_player.request_player_id()
+        self.bag.message_popup.attach_panel(self.middle_container)
+        self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID! Please wait.", "")
+        self.bag.message_popup.hide_button()
+        self.bag.timers.set_timeout(1, self, 'do_online_register')
     else:
+        self.hide()
+        self.bag.root.menu.online_button.grab_focus()
+        self.controls.show()
+        self.background.show()
+        self.middle_container.hide()
+
+
+func do_online_register():
+    self.bag.online_player.request_player_id()
+    self.bag.message_popup.attach_panel(self.middle_container)
+    if self.bag.root.settings['online_player_id'] == null:
+        self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID failed. Please try again later.", "Done")
+        self.registration_successfull = false
+    else:
+        self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID successful. Welcome to ToF Online!", "Done")
+        self.registration_successfull = true
+    self.bag.message_popup.connect(self, "hide_register_confirmation")
+
+func hide_register_confirmation():
+    self.bag.message_popup.detach_panel()
+    if not self.registration_successfull:
         self.hide()
         self.bag.root.menu.online_button.grab_focus()
     self.controls.show()
     self.background.show()
     self.middle_container.hide()
-
