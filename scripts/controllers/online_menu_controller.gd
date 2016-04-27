@@ -84,4 +84,20 @@ func upload_custom_map(map_name):
 
 func confirm_map_upload(confirmation):
     self.bag.confirm_popup.detach_panel()
+    if confirmation:
+        self.bag.message_popup.attach_panel(self.middle_container)
+        self.bag.message_popup.fill_labels("Upload map", "Uploading! Please wait.", "")
+        self.bag.message_popup.hide_button()
+        self.bag.timers.set_timeout(1, self, 'map_upload_complete_show', ['Upload complete!'])
+    else:
+        self.middle_container.hide()
+
+func map_upload_complete_show(message):
+    self.bag.confirm_popup.detach_panel()
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels("Upload map", message[0], "Done")
+    self.bag.message_popup.connect(self, "map_upload_complete_hide")
+
+func map_upload_complete_hide():
+    self.bag.confirm_popup.detach_panel()
     self.middle_container.hide()
