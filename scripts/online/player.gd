@@ -26,7 +26,6 @@ func request_player_id():
     self.bag.root.settings['online_player_id'] = self.player_id
     self.bag.root.settings['online_player_pin'] = self.player_pin
     self.bag.root.write_settings_to_file()
-    self.bag.controllers.workshop_gui_controller.file_panel.refresh_player_id()
 
 
 func get_player_id():

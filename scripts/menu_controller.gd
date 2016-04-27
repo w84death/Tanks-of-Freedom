@@ -195,7 +195,6 @@ func show_online_menu():
     self.root.bag.controllers.online_menu_controller.show()
     self.hide_control_nodes()
     self.root.bag.controllers.online_menu_controller.back_button.grab_focus()
-    self.root.bag.online_player.request_player_id()
 
 func start_demo_mode():
     self.root.bag.demo_mode.start_demo_mode(false)

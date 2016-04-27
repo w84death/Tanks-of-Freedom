@@ -2,6 +2,8 @@
 var bag
 
 var online_menu = preload("res://gui/online_menu.tscn").instance()
+var controls
+var background
 var middle_container
 
 var back_button
@@ -16,13 +18,15 @@ func _init_bag(bag):
     self.attach_campaign_menu()
 
 func bind():
-    self.download_button = self.online_menu.get_node("controls/download")
+    self.controls = self.online_menu.get_node("controls")
+    self.background = self.online_menu.get_node("background")
+    self.download_button = self.controls.get_node("download")
     self.download_button.connect("pressed", self, "_download_button_pressed")
 
-    self.upload_button = self.online_menu.get_node("controls/upload")
+    self.upload_button = self.controls.get_node("upload")
     self.upload_button.connect("pressed", self, "_upload_button_pressed")
 
-    self.back_button = self.online_menu.get_node("controls/back")
+    self.back_button = self.controls.get_node("back")
     self.back_button.connect("pressed", self, "_back_button_pressed")
 
     self.middle_container = self.online_menu.get_node('middle')
@@ -56,6 +60,8 @@ func attach_campaign_menu():
 
 func show():
     self.online_menu.show()
+    if self.bag.root.settings['online_player_id'] == null:
+        self.show_register_confirmation()
 
 func hide():
     self.bag.root.menu.refresh_buttons_labels()
@@ -68,16 +74,13 @@ func show_maps_list_for_upload():
     self.bag.map_picker.attach_panel(self.middle_container)
     self.bag.map_picker.connect(self, "upload_custom_map")
     self.bag.map_picker.lock_delete_mode_button()
-
-func hide_map_list():
-    self.bag.map_picker.detach_panel()
-    self.middle_container.hide()
+    self.controls.hide()
+    self.background.hide()
 
 func upload_custom_map(map_name):
-    self.hide_map_list()
+    self.bag.map_picker.detach_panel()
     self.selected_map_name = map_name
 
-    self.middle_container.show()
     self.bag.confirm_popup.attach_panel(self.middle_container)
     self.bag.confirm_popup.fill_labels('Upload map', map_name, 'Upload', 'Cancel')
     self.bag.confirm_popup.connect(self, "confirm_map_upload")
@@ -91,6 +94,8 @@ func confirm_map_upload(confirmation):
         self.bag.timers.set_timeout(1, self, 'map_upload_complete_show', ['Upload complete!'])
     else:
         self.middle_container.hide()
+        self.controls.show()
+        self.background.show()
 
 func map_upload_complete_show(message):
     self.bag.confirm_popup.detach_panel()
@@ -101,3 +106,26 @@ func map_upload_complete_show(message):
 func map_upload_complete_hide():
     self.bag.confirm_popup.detach_panel()
     self.middle_container.hide()
+    self.controls.show()
+    self.background.show()
+
+func show_register_confirmation():
+    self.controls.hide()
+    self.background.hide()
+    self.bag.confirm_popup.attach_panel(self.middle_container)
+    self.bag.confirm_popup.fill_labels('Welcome to ToF Online!', 'Before you can start using online options, we need to register your device with our online system.', 'Register', 'Maybe later')
+    self.bag.confirm_popup.connect(self, "hide_register_confirmation")
+    self.middle_container.show()
+
+func hide_register_confirmation(confirmation):
+    self.bag.confirm_popup.detach_panel()
+    if confirmation:
+        pass
+        #self.root.bag.online_player.request_player_id()
+    else:
+        self.hide()
+        self.bag.root.menu.online_button.grab_focus()
+    self.controls.show()
+    self.background.show()
+    self.middle_container.hide()
+
