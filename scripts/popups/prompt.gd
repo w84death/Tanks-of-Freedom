@@ -76,7 +76,7 @@ func call_bound_object(confirmation):
             input_text = self.input_box.get_text()
         else:
             input_text = ""
-        self.bound_object.call(self.bound_method, [confirmation, input_text])
+        self.bound_object.call(self.bound_method, confirmation, input_text)
 
 func prepopulate(text):
     self.input_box.set_text(str(text))

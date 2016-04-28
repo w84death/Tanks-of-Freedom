@@ -42,6 +42,7 @@ func _back_button_pressed():
 
 func _download_button_pressed():
     self.bag.root.sound_controller.play('menu')
+    self.show_map_download_code_prompt()
     #if self.bag.online_maps.download_map(self.file_name.get_text()):
     #    self.bag.workshop.show_message("Success", 'Map has been downloaded.', "", "OK")
     #else:
@@ -49,12 +50,6 @@ func _download_button_pressed():
 func _upload_button_pressed():
     self.bag.root.sound_controller.play('menu')
     self.show_maps_list_for_upload()
-    #var map_data = self.bag.workshop.map.get_map_data_as_array()
-    #var map_name = self.file_name.get_text()
-    #if self.bag.online_maps.upload_map(map_data, map_name):
-    #    self.bag.workshop.show_message("Success", 'Map has been uploaded.', "", "OK")
-    #else:
-    #    self.bag.workshop.show_message("Error", 'Could not upload a map. Please try again later.', "", "OK")
 
 func attach_campaign_menu():
     self.bag.controllers.menu_controller.add_child(self.online_menu)
@@ -162,6 +157,46 @@ func hide_register_confirmation():
     if not self.registration_successfull:
         self.hide()
         self.bag.root.menu.online_button.grab_focus()
+    self.controls.show()
+    self.background.show()
+    self.middle_container.hide()
+
+func show_map_download_code_prompt():
+    self.controls.hide()
+    self.background.hide()
+    self.bag.prompt_popup.attach_panel(self.middle_container)
+    self.bag.prompt_popup.fill_labels('Download map', 'Please input map code', 'Download', 'Cancel')
+    self.bag.prompt_popup.connect(self, "confirm_map_download")
+    self.bag.prompt_popup.clear_prepopulate()
+    self.middle_container.show()
+    self.bag.prompt_popup.input_box.grab_focus()
+
+func confirm_map_download(confirmation, code):
+    self.bag.prompt_popup.detach_panel()
+    if confirmation:
+        self.bag.message_popup.attach_panel(self.middle_container)
+        self.bag.message_popup.fill_labels("Download map", "Downloading map! Please wait.", "")
+        self.bag.message_popup.hide_button()
+        self.bag.timers.set_timeout(0.5, self, 'perform_map_download', [code])
+    else:
+        self.middle_container.hide()
+        self.controls.show()
+        self.background.show()
+
+func perform_map_download(code):
+    if self.bag.online_maps.download_map(code[0]):
+        self.show_map_download_done_message("Map has been downloaded.")
+    else:
+        self.show_map_download_done_message("Could not download a map. Please check if code is correct and try again.")
+
+func show_map_download_done_message(message):
+    self.bag.message_popup.detach_panel()
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels("Download map", message, "Done")
+    self.bag.message_popup.connect(self, "hide_map_download_done_message")
+
+func hide_map_download_done_message():
+    self.bag.message_popup.detach_panel()
     self.controls.show()
     self.background.show()
     self.middle_container.hide()
