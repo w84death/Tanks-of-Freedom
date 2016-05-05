@@ -14,11 +14,14 @@ var download_button
 var delete_button
 var next_button
 var prev_button
+var online_button
+var online_button_label
 
 var count_label
 var page_label
 
 var current_page = 1
+var current_remote_page = 1
 const PAGE_SIZE = 18
 const OFFSET_X = 235
 const OFFSET_Y = 30
@@ -30,6 +33,7 @@ var bound_object = null
 var bound_method = null
 
 var delete_mode_enabled = false
+var remote_mode_enabled = false
 
 func _init_bag(bag):
     self.bag = bag
@@ -50,11 +54,17 @@ func bind_hud():
     self.prev_button = self.picker.get_node("controls/prev")
     self.count_label = self.picker.get_node("controls/maps")
     self.page_label = self.picker.get_node("controls/page")
+    self.online_button = self.picker.get_node("controls/online")
+    self.online_button_label = self.online_button.get_node("Label")
+
+    if not Globals.get('tof/online'):
+        self.online_button.hide()
 
 func connect_buttons():
     self.prev_button.connect("pressed", self, "_prev_button_pressed")
     self.next_button.connect("pressed", self, "_next_button_pressed")
     self.delete_button.connect("pressed", self, "_delete_button_pressed")
+    self.online_button.connect("pressed", self, "_online_button_pressed")
 
 func _prev_button_pressed():
     self.root.sound_controller.play('menu')
@@ -65,7 +75,12 @@ func _next_button_pressed():
 func _delete_button_pressed():
     self.root.sound_controller.play('menu')
     self.delete_button_pressed()
-
+func _online_button_pressed():
+    self.root.sound_controller.play('menu')
+    if self.remote_mode_enabled:
+        self.switch_to_local_list()
+    else:
+        self.switch_to_remote_list()
 
 func attach_panel(container_node):
     if self.current_container != null:
@@ -85,10 +100,16 @@ func detach_panel():
 
 func fill_page():
     var maps_amount = self.get_maps_amount()
-    var index = (self.current_page - 1) * self.PAGE_SIZE
-    var last_index = index + self.PAGE_SIZE - 1
+    var index
+    var last_index
     var new_block
     var counter = 0
+
+    if self.remote_mode_enabled:
+        index = (self.current_remote_page - 1) * self.PAGE_SIZE
+    else:
+        index = (self.current_page - 1) * self.PAGE_SIZE
+    last_index = index + self.PAGE_SIZE - 1
 
     if last_index > maps_amount - 1:
         last_index = maps_amount - 1
@@ -122,25 +143,38 @@ func get_number_of_pages():
     return full_pages
 
 func get_maps_amount():
-    return self.bag.map_list.maps.size()
+    if self.remote_mode_enabled:
+        return self.bag.map_list.remote_maps.size()
+    else:
+        return self.bag.map_list.maps.size()
 
 func get_map(index):
-    var maps = self.bag.map_list.maps.keys()
+    var maps
+    if self.remote_mode_enabled:
+        maps = self.bag.map_list.remote_maps.keys()
+    else:
+        maps = self.bag.map_list.maps.keys()
     maps.sort()
     return maps[index]
 
 func adjust_page_buttons():
     var pages = self.get_number_of_pages()
     var focus_next_button = false
+    var current_mode_page
 
-    if self.current_page == 1:
+    if self.remote_mode_enabled:
+        current_mode_page = self.current_remote_page
+    else:
+        current_mode_page = self.current_page
+
+    if current_mode_page == 1:
         if self.prev_button.has_focus():
             focus_next_button = true
         self.button_enable_switch(self.prev_button, false)
     else:
         self.button_enable_switch(self.prev_button, true)
 
-    if self.current_page == pages:
+    if current_mode_page == pages:
         if self.next_button.has_focus() and not self.prev_button.is_disabled():
             self.prev_button.grab_focus()
         self.button_enable_switch(self.next_button, false)
@@ -152,19 +186,23 @@ func adjust_page_buttons():
 func next_page():
     var pages = self.get_number_of_pages()
     if self.current_page < pages:
-        self.current_page = self.current_page + 1
+        if self.remote_mode_enabled:
+            self.current_remote_page = self.current_remote_page + 1
+        else:
+            self.current_page = self.current_page + 1
         self.adjust_page_buttons()
         self.fill_page()
 
 func prev_page():
     if self.current_page > 1:
-        self.current_page = self.current_page - 1
+        if self.remote_mode_enabled:
+            self.current_remote_page = self.current_remote_page - 1
+        else:
+            self.current_page = self.current_page - 1
         self.adjust_page_buttons()
         self.fill_page()
 
 func button_enable_switch(button, show):
-    var temp = null
-
     if show:
         button.set_disabled(false)
         button.get_node('Label').show()
@@ -241,3 +279,19 @@ func delete_map(map_name):
 
 func delete_button_pressed():
     self.toggle_delete_mode()
+
+func switch_to_remote_list():
+    self.remote_mode_enabled = true
+    self.fill_page()
+    self.online_button_label.set_text("REMOTE")
+
+func switch_to_local_list():
+    self.remote_mode_enabled = false
+    self.fill_page()
+    self.online_button_label.set_text("LOCAL")
+
+func disable_list_switch():
+    self.button_enable_switch(self.online_button, false)
+
+func enable_list_switch():
+    self.button_enable_switch(self.online_button, true)
