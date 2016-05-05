@@ -59,6 +59,7 @@ var is_from_workshop = false
 var is_camera_drag = false
 var settings_file = File.new()
 var workshop_file_name
+var is_remote = false
 var click_fix_position = Globals.get("tof/selector_offset")
 
 var registered_click = false
@@ -142,7 +143,7 @@ func start_ai_timer():
     ai_timer.inject_action_controller(action_controller, hud_controller)
     ai_timer.start()
 
-func load_map(template_name, workshop_file_name = false, load_saved_state = false):
+func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false):
     var human_player = 'cpu_0'
     self.unload_map()
     self.menu.hide_background_map()
@@ -153,7 +154,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.workshop_file_name = workshop_file_name
     if workshop_file_name:
         self.is_from_workshop = true
-        current_map.load_map(workshop_file_name)
+        self.is_remote = is_remote
+        current_map.load_map(workshop_file_name, is_remote)
     else:
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
