@@ -613,8 +613,12 @@ func check_file_name(name):
 
 	return true
 
-func load_map(file_name):
-	var file_path = "user://"+file_name+".map"
+func load_map(file_name, is_remote = false):
+	var file_path
+	if is_remote:
+	    file_path = "user://" + file_name + ".remote"
+	else:
+		file_path = "user://" + file_name + ".map"
 	return self.load_map_from_file(file_path)
 
 func load_campaign_map(file_name):
@@ -628,11 +632,11 @@ func load_map_from_file(file_path):
 		map_file.open(file_path, File.READ)
 		temp_data = map_file.get_var()
 		self.fill_map_from_data_array(temp_data)
-		#print('ToF: map ' + file_path + ' loaded from file')
+		print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()
 		return true
 	else:
-		#print('ToF: map file not exists!')
+		print('ToF: map file ' + file_path + ' not exists!')
 		return false
 
 func fill_map_from_data_array(data):

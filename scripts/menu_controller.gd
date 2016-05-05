@@ -236,7 +236,7 @@ func switch_to_map_selection_panel():
     self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func play_selected_skirmish_map(map_name, is_remote):
-    self.load_map(map_name, true)
+    self.load_map(map_name, true, is_remote)
 
 func show_control_nodes():
     for nod in self.control_nodes:
@@ -336,9 +336,9 @@ func hide_workshop():
             self.show_background_map()
         self.workshop_button.grab_focus()
 
-func load_map(name, from_workshop):
+func load_map(name, from_workshop, is_remote = false):
     if from_workshop:
-        root.load_map('workshop', name)
+        root.load_map('workshop', name, false, is_remote)
     else:
         root.load_map(name, false)
     root.toggle_menu()
