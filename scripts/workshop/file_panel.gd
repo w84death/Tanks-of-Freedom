@@ -88,7 +88,7 @@ func hide_skirmish_setup_panel():
     self.bag.skirmish_setup.detach_panel()
     self.play_button.grab_focus()
 
-func play_map_from_skirmish_setup_panel(map_name):
+func play_map_from_skirmish_setup_panel(map_name, is_remote = false):
     self.hide_skirmish_setup_panel()
     self.workshop.play_map()
 
@@ -114,8 +114,8 @@ func toggle_map_picker():
     else:
         self.show_map_picker()
 
-func load_map_from_picker(selected_map_name):
-    self.workshop.load_map(selected_map_name)
+func load_map_from_picker(selected_map_name, is_remote):
+    self.workshop.load_map(selected_map_name, false, false, is_remote)
     self.file_name.set_text(selected_map_name)
     self.hide_map_picker()
     self.toggle_button.grab_focus()
