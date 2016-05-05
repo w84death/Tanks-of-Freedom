@@ -20,6 +20,7 @@ var connected_back_method = null
 var connected_play_method = null
 
 var connected_map_name = null
+var connected_map_remote = false
 
 func _init_bag(bag):
     self.bag = bag
@@ -67,8 +68,9 @@ func refresh_labels():
     self.set_player_button_state(0, self.player_0_button_label)
     self.set_player_button_state(1, self.player_1_button_label)
 
-func set_map_name(map_name, map_label):
+func set_map_name(map_name, map_label, is_remote = false):
     self.connected_map_name = map_name
+    self.connected_map_remote = is_remote
     self.map_name_label.set_text(map_label)
 
 func attach_panel(container_node):
@@ -103,7 +105,7 @@ func back_button_pressed():
 
 func play_button_pressed():
     if self.connected_object != null:
-        self.connected_object.call(self.connected_play_method, self.connected_map_name)
+        self.connected_object.call(self.connected_play_method, self.connected_map_name, self.connected_map_remote)
 
 func toggle_player(player):
     self.bag.root.settings['cpu_' + str(player)] = not self.bag.root.settings['cpu_' + str(player)]

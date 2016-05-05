@@ -224,10 +224,10 @@ func show_maps_menu():
     else:
         self.maps_close_button.grab_focus()
 
-func switch_to_skirmish_setup_panel(selected_map_name):
+func switch_to_skirmish_setup_panel(selected_map_name, is_remote):
     self.root.bag.map_picker.detach_panel()
     self.root.bag.skirmish_setup.attach_panel(self.maps_sub_menu_anchor)
-    self.root.bag.skirmish_setup.set_map_name(selected_map_name, selected_map_name)
+    self.root.bag.skirmish_setup.set_map_name(selected_map_name, selected_map_name, is_remote)
     self.root.bag.skirmish_setup.connect(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
     self.root.bag.skirmish_setup.play_button.grab_focus()
 
@@ -237,7 +237,7 @@ func switch_to_map_selection_panel():
     self.root.bag.skirmish_setup.detach_panel()
     self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
-func play_selected_skirmish_map(map_name):
+func play_selected_skirmish_map(map_name, is_remote):
     self.load_map(map_name, true)
 
 func show_control_nodes():

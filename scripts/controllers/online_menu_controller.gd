@@ -43,10 +43,6 @@ func _back_button_pressed():
 func _download_button_pressed():
     self.bag.root.sound_controller.play('menu')
     self.show_map_download_code_prompt()
-    #if self.bag.online_maps.download_map(self.file_name.get_text()):
-    #    self.bag.workshop.show_message("Success", 'Map has been downloaded.', "", "OK")
-    #else:
-    #    self.bag.workshop.show_message("Error", 'Could not download a map. Please check if code is correct or try again later.', "", "OK")
 func _upload_button_pressed():
     self.bag.root.sound_controller.play('menu')
     self.show_maps_list_for_upload()
@@ -71,10 +67,12 @@ func show_maps_list_for_upload():
     self.bag.map_picker.attach_panel(self.middle_container)
     self.bag.map_picker.connect(self, "upload_custom_map")
     self.bag.map_picker.lock_delete_mode_button()
+    self.bag.map_picker.switch_to_local_list()
+    self.bag.map_picker.disable_list_switch()
     self.controls.hide()
     self.background.hide()
 
-func upload_custom_map(map_name):
+func upload_custom_map(map_name, is_remote = false):
     self.bag.map_picker.detach_panel()
     self.selected_map_name = map_name
     var message = "Map to upload: " + map_name + ". Proceed?"

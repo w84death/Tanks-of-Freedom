@@ -97,6 +97,7 @@ func detach_panel():
     self.disconnect()
     self.disable_delete_mode()
     self.lock_delete_mode_button()
+    self.enable_list_switch()
 
 func fill_page():
     var maps_amount = self.get_maps_amount()
@@ -239,7 +240,7 @@ func disconnect():
 func call_bound_object(map_name):
     if self.bound_object != null:
         if not self.delete_mode_enabled:
-            self.bound_object.call(self.bound_method, map_name)
+            self.bound_object.call(self.bound_method, map_name, self.remote_mode_enabled)
         else:
             self.delete_map(map_name)
 
@@ -272,7 +273,10 @@ func is_attached_to(container_node):
     return self.current_container == container_node
 
 func delete_map(map_name):
-    self.bag.map_list.remove_map(map_name)
+    if self.remote_mode_enabled:
+        self.bag.map_list.remove_remote_map(map_name)
+    else:
+        self.bag.map_list.remove_map(map_name)
     self.fill_page()
     self.refresh_labels()
     self.adjust_page_buttons()
