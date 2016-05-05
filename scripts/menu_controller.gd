@@ -62,7 +62,7 @@ func _ready():
     play_button = get_node("bottom/center/play")
     close_button = get_node("top/center/close")
     quit_button = get_node("top/center/quit")
-    demo_button = get_node("bottom/center/demo")
+    demo_button = get_node("top/center/demo")
     online_button = get_node("bottom/center/online")
 
     if not Globals.get('tof/online'):
@@ -75,7 +75,6 @@ func _ready():
     main_menu_animations = get_node("middle/center/menu_anim")
     settings_animations = get_node("middle/center/settings_anim")
 
-    menu_button = get_node("top/center/main_menu")
     settings_button = get_node("top/center/settings")
 
     sound_toggle_button = settings.get_node("sound_toggle")
@@ -111,7 +110,6 @@ func _ready():
 
     close_button.connect("pressed", self, "_close_button_pressed")
     quit_button.connect("pressed", self, "_quit_button_pressed")
-    menu_button.connect("pressed", self, "_menu_button_pressed")
     settings_button.connect("pressed", self, "_settings_button_pressed")
     demo_button.connect("pressed", self, "_demo_button_pressed")
 

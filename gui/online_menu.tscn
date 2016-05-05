@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=2]
@@ -7,9 +7,12 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=6]
 [ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=7]
+[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=8]
 
 [node name="online" type="Control"]
 
+anchor/right = 1
+anchor/bottom = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -18,46 +21,19 @@ __meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
 [node name="background" type="Control" parent="."]
 
-margin/left = 538.0
-margin/top = 373.0
-margin/right = 538.0
-margin/bottom = 373.0
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 __meta__ = { "_editor_collapsed":true }
 
-[node name="Sprite3" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -210, -20 )
-transform/scale = Vector2( 3, 10 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 11
-
-[node name="Sprite3 2" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 0, -30 )
-transform/scale = Vector2( 12, 10 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 12
-
-[node name="Sprite3 3" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 210, -25.4935 )
-transform/scale = Vector2( 3, 9.09334 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 13
-
 [node name="Sprite" type="Sprite" parent="background"]
 
-transform/pos = Vector2( -210, -152 )
+transform/pos = Vector2( -208.149, -33.8506 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 vframes = 8
@@ -66,7 +42,7 @@ frame = 3
 
 [node name="Sprite1" type="Sprite" parent="background"]
 
-transform/pos = Vector2( 210, -152 )
+transform/pos = Vector2( 210, -33.8506 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 vframes = 8
@@ -75,7 +51,7 @@ frame = 5
 
 [node name="Sprite2" type="Sprite" parent="background"]
 
-transform/pos = Vector2( 0, -152 )
+transform/pos = Vector2( 0, -33.8506 )
 transform/scale = Vector2( 12, 3 )
 texture = ExtResource( 1 )
 vframes = 8
@@ -84,7 +60,7 @@ frame = 4
 
 [node name="Sprite4" type="Sprite" parent="background"]
 
-transform/pos = Vector2( -210, 144 )
+transform/pos = Vector2( -208, 62 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 vframes = 8
@@ -93,7 +69,7 @@ frame = 19
 
 [node name="Sprite4 2" type="Sprite" parent="background"]
 
-transform/pos = Vector2( 0, 144 )
+transform/pos = Vector2( 0, 62 )
 transform/scale = Vector2( 12, 3 )
 texture = ExtResource( 1 )
 vframes = 8
@@ -102,111 +78,45 @@ frame = 20
 
 [node name="Sprite4 3" type="Sprite" parent="background"]
 
-transform/pos = Vector2( 210, 144 )
+transform/pos = Vector2( 210, 62 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 vframes = 8
 hframes = 8
 frame = 21
 
-[node name="Sprite33" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -224, -165 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 102
-
-[node name="Sprite34" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 0, -165 )
-transform/scale = Vector2( 25, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 103
-
-[node name="Sprite35" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 224, -165 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 107
-
-[node name="Sprite363" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 0, 106 )
-transform/scale = Vector2( 25, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 119
-
-[node name="Sprite37" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -224, 106 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 118
-
-[node name="Sprite364" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 224, 106 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 123
-
-[node name="Sprite365" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 0, -30 )
-transform/scale = Vector2( 25, 14 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 109
-
-[node name="Sprite365 2" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 224, -30 )
-transform/scale = Vector2( 3, 14 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 111
-
-[node name="Sprite38" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -224, -30 )
-transform/scale = Vector2( 3, 14 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 16
-frame = 108
-
 [node name="controls" type="Control" parent="."]
 
-margin/left = 538.0
-margin/top = 373.0
-margin/right = 538.0
-margin/bottom = 373.0
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+margin/top = 50.0
+margin/bottom = 50.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="download" type="TextureButton" parent="controls"]
+[node name="horizontal" type="HBoxContainer" parent="controls"]
 
-margin/left = -149.0
-margin/top = 137.0
-margin/right = -5.0
-margin/bottom = 185.0
+margin/left = -248.0
+margin/top = 90.0
+margin/right = 248.0
+margin/bottom = 150.0
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/separation = 18
+alignment = 1
+__meta__ = { "_editor_collapsed":true }
+
+[node name="back" type="TextureButton" parent="controls/horizontal"]
+
+margin/left = 14.0
+margin/right = 158.0
+margin/bottom = 60.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -220,78 +130,7 @@ textures/focused = ExtResource( 6 )
 params/scale = Vector2( 3, 3 )
 __meta__ = { "_editor_collapsed":true }
 
-[node name="Label" type="Label" parent="controls/download"]
-
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "DOWNLOAD MAP"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="upload" type="TextureButton" parent="controls"]
-
-margin/left = 4.0
-margin/top = 137.0
-margin/right = 148.0
-margin/bottom = 185.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-toggle_mode = false
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
-
-[node name="Label" type="Label" parent="controls/upload"]
-
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "UPLOAD MAP"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="back" type="TextureButton" parent="controls"]
-
-margin/left = -149.0
-margin/top = 235.0
-margin/right = -5.0
-margin/bottom = 283.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-toggle_mode = false
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/scale = Vector2( 3, 3 )
-
-[node name="Label" type="Label" parent="controls/back"]
+[node name="Label" type="Label" parent="controls/horizontal/back"]
 
 margin/left = 6.0
 margin/top = 17.0
@@ -308,17 +147,116 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="middle" type="CenterContainer" parent="."]
+[node name="download" type="TextureButton" parent="controls/horizontal"]
 
-anchor/right = 1
-anchor/bottom = 1
-margin/top = 100.0
-margin/right = -1280.0
-margin/bottom = -600.0
+margin/left = 176.0
+margin/right = 320.0
+margin/bottom = 60.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-use_top_left = false
+toggle_mode = false
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 6 )
+params/scale = Vector2( 3, 3 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Label" type="Label" parent="controls/horizontal/download"]
+
+margin/left = 6.0
+margin/top = 17.0
+margin/right = 136.0
+margin/bottom = 35.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "DOWNLOAD MAP"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="upload" type="TextureButton" parent="controls/horizontal"]
+
+margin/left = 338.0
+margin/right = 482.0
+margin/bottom = 60.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 6 )
+params/scale = Vector2( 3, 3 )
+__meta__ = { "_editor_collapsed":true }
+
+[node name="Label" type="Label" parent="controls/horizontal/upload"]
+
+margin/left = 6.0
+margin/top = 17.0
+margin/right = 136.0
+margin/bottom = 35.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "UPLOAD MAP"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label" type="Label" parent="controls"]
+
+margin/left = -233.0
+margin/top = -17.0
+margin/right = 237.0
+margin/bottom = 13.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 8 )
+text = "ONLINE MAPS"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="controls"]
+
+margin/left = -227.0
+margin/top = 23.0
+margin/right = 230.0
+margin/bottom = 67.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 7 )
+text = "HERE YOU CAN DOWNLOAD OR UPLOAD YOUR MAPS TO THE CLOUD SERVER"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="middle" type="Control" parent="."]
+
+anchor/left = 3
+anchor/top = 3
+anchor/right = 3
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 
 
