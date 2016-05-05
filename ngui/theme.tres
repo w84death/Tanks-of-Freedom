@@ -1,11 +1,13 @@
-[gd_resource type="Theme" load_steps=34 format=1]
+[gd_resource type="Theme" load_steps=40 format=1]
 
 [ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=1]
 [ext_resource path="res://assets/gui/checkbox/checkbox_off.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/checkbox/checkbox_on.png" type="Texture" id=3]
 [ext_resource path="res://assets/gui/slider/slider_0.png" type="Texture" id=4]
 [ext_resource path="res://assets/gui/slider/slider_1.png" type="Texture" id=5]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=6]
+[ext_resource path="res://assets/gui/scrollbar/scroll_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/scrollbar/scroll_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -254,7 +256,59 @@ content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
 
-[sub_resource type="StyleBoxFlat" id=27]
+[sub_resource type="StyleBoxFlat" id=28]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+light_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+dark_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=29]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+light_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+dark_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=30]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+light_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+dark_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=31]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+light_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+dark_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="StyleBoxFlat" id=32]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -269,7 +323,7 @@ draw_bg = false
 
 [resource]
 
-default_font = ExtResource( 6 )
+default_font = ExtResource( 8 )
 Button/colors/font_color = Color( 0.639216, 0.807843, 0.152941, 1 )
 Button/colors/font_color_disabled = Color( 0.266667, 0.537255, 0.101961, 1 )
 Button/colors/font_color_hover = Color( 0.968627, 0.886275, 0.419608, 1 )
@@ -328,6 +382,14 @@ VButtonArray/styles/focus = SubResource( 23 )
 VButtonArray/styles/hover = SubResource( 24 )
 VButtonArray/styles/normal = SubResource( 25 )
 VButtonArray/styles/selected = SubResource( 26 )
+VScrollBar/icons/decrement = ExtResource( 6 )
+VScrollBar/icons/decrement_hilite = ExtResource( 7 )
+VScrollBar/icons/increment = ExtResource( 6 )
+VScrollBar/icons/increment_hilite = ExtResource( 7 )
+VScrollBar/styles/grabber = SubResource( 28 )
+VScrollBar/styles/grabber_hilite = SubResource( 29 )
+VScrollBar/styles/scroll = SubResource( 30 )
+VScrollBar/styles/scroll_focus = SubResource( 31 )
 VSeparator/constants/separation = 4
-VSeparator/styles/separator = SubResource( 27 )
+VSeparator/styles/separator = SubResource( 32 )
 
