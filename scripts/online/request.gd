@@ -93,6 +93,9 @@ func make_request(api, resource, method, data, expect_json = true):
         else:
             result['data'] = response_text
 
-    result['status'] = 'ok'
+    if result['data'].has('error'):
+        result['status'] = 'error'
+    else:
+        result['status'] = 'ok'
 
     return result
