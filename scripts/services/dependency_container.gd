@@ -45,6 +45,8 @@ var workshop = null
 func init_root(root_node):
     self.root = root_node
 
+    self.migrations._init_bag(self)
+    self.map_list._init_bag(self)
     self.campaign.load_campaign_progress()
 
     if Globals.get('tof/enable_workshop'):
@@ -68,7 +70,6 @@ func init_root(root_node):
 
     self.unit_switcher._init_bag(self)
     self.camera._init_bag(self)
-    self.migrations._init_bag(self)
     self.timers._init_bag(self)
     self.map_picker._init_bag(self)
     self.confirm_popup._init_bag(self)
@@ -88,7 +89,6 @@ func init_root(root_node):
     self.online_player._init_bag(self)
     self.online_maps._init_bag(self)
 
-    self.map_list._init_bag(self)
 
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()

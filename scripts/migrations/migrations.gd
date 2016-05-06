@@ -8,7 +8,8 @@ var version_file_path = "user://version.tof"
 func _init_bag(bag):
     self.bag = bag
     self.migrations = [
-        preload("res://scripts/migrations/version20150730.gd").new(self.bag)
+        preload("res://scripts/migrations/version20150730.gd").new(self.bag),
+        preload("res://scripts/migrations/version20160506.gd").new(self.bag)
     ]
     self.load_version()
     self.run_migrations()

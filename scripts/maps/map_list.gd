@@ -54,7 +54,6 @@ var default_custom_maps = [
 func _init_bag(bag):
     self.bag = bag
 
-func _init():
     if file_handler.file_exists(self.local_list_file_path):
         self.load_local_list()
     else:
@@ -96,7 +95,10 @@ func save_remote_list():
     self.file_handler.close()
 
 func add_map(map_name):
-    self.maps[map_name] = map_name
+    self.maps[map_name] = {
+        'name' : map_name,
+        'completed' : false
+    }
 
 func store_map(map_name):
     self.add_map(map_name)
@@ -125,5 +127,9 @@ func remove_remote_map(code):
     self.save_remote_list()
 
 func get_local_map_data(map_name):
-    var file_path = "user://"+map_name+".map"
+    var file_path = "user://" + map_name + ".map"
     return self.bag.file_handler.read(file_path)
+
+func mark_map_win(map_name):
+    self.maps[map_name]['completed'] = true
+    self.save_local_list()

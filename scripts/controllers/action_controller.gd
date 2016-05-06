@@ -427,6 +427,8 @@ func end_game(winning_player):
                 self.root_node.bag.campaign.update_campaign_progress(mission_num)
                 self.root_node.bag.controllers.campaign_menu_controller.fill_mission_data(mission_num + 1)
                 self.root_node.bag.controllers.menu_controller.update_campaign_progress_label()
+    if not self.root_node.bag.match_state.is_campaign() and winning_player > -1 and not self.root_node.settings['cpu_' + str(winning_player)]:
+        self.root_node.bag.map_list.mark_map_win(self.root_node.workshop_file_name)
     self.root_node.bag.match_state.reset()
     if not self.root_node.is_demo_mode():
         self.root_node.bag.saving.invalidate_save_file()

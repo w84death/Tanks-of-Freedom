@@ -75,11 +75,24 @@ func show_maps_list_for_upload():
 func upload_custom_map(map_name, is_remote = false):
     self.bag.map_picker.detach_panel()
     self.selected_map_name = map_name
-    var message = "Map to upload: " + map_name + ". Proceed?"
+    var message
 
-    self.bag.confirm_popup.attach_panel(self.middle_container)
-    self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
-    self.bag.confirm_popup.connect(self, "confirm_map_upload")
+    if self.bag.map_list.maps[map_name]['completed']:
+        message = "Map to upload: " + map_name + ". Proceed?"
+        self.bag.confirm_popup.attach_panel(self.middle_container)
+        self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
+        self.bag.confirm_popup.connect(self, "confirm_map_upload")
+    else:
+        message = "You need to complete this map first in skirmish mode in order to be able to upload it."
+        self.bag.message_popup.attach_panel(self.middle_container)
+        self.bag.message_popup.fill_labels("Upload map", message, "Got it!")
+        self.bag.message_popup.connect(self, "close_cant_upload_message")
+
+func close_cant_upload_message():
+    self.bag.message_popup.detach_panel()
+    self.middle_container.hide()
+    self.controls.show()
+    self.background.show()
 
 func confirm_map_upload(confirmation):
     self.bag.confirm_popup.detach_panel()
@@ -111,7 +124,7 @@ func map_upload_complete_show(message):
     self.bag.message_popup.connect(self, "map_upload_complete_hide")
 
 func map_upload_complete_hide():
-    self.bag.confirm_popup.detach_panel()
+    self.bag.message_popup.detach_panel()
     self.middle_container.hide()
     self.controls.show()
     self.background.show()
