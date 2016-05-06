@@ -192,7 +192,8 @@ func _online_button_pressed():
 func show_online_menu():
     self.root.bag.controllers.online_menu_controller.show()
     self.hide_control_nodes()
-    self.root.bag.controllers.online_menu_controller.back_button.grab_focus()
+    if self.root.settings['online_player_id'] != null:
+        self.root.bag.controllers.online_menu_controller.download_button.grab_focus()
 
 func start_demo_mode():
     self.root.bag.demo_mode.start_demo_mode(false)

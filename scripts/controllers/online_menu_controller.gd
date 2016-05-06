@@ -38,8 +38,6 @@ func _back_button_pressed():
     self.bag.root.sound_controller.play('menu')
     self.hide()
     self.bag.root.menu.online_button.grab_focus()
-
-
 func _download_button_pressed():
     self.bag.root.sound_controller.play('menu')
     self.show_map_download_code_prompt()
@@ -71,6 +69,8 @@ func show_maps_list_for_upload():
     self.bag.map_picker.disable_list_switch()
     self.controls.hide()
     self.background.hide()
+    if self.bag.map_picker.blocks_cache.size() > 0:
+        self.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func upload_custom_map(map_name, is_remote = false):
     self.bag.map_picker.detach_panel()
@@ -82,17 +82,20 @@ func upload_custom_map(map_name, is_remote = false):
         self.bag.confirm_popup.attach_panel(self.middle_container)
         self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
         self.bag.confirm_popup.connect(self, "confirm_map_upload")
+        self.bag.confirm_popup.confirm_button.grab_focus()
     else:
         message = "You need to complete this map first in skirmish mode in order to be able to upload it."
         self.bag.message_popup.attach_panel(self.middle_container)
         self.bag.message_popup.fill_labels("Upload map", message, "Got it!")
         self.bag.message_popup.connect(self, "close_cant_upload_message")
+        self.bag.message_popup.confirm_button.grab_focus()
 
 func close_cant_upload_message():
     self.bag.message_popup.detach_panel()
     self.middle_container.hide()
     self.controls.show()
     self.background.show()
+    self.upload_button.grab_focus()
 
 func confirm_map_upload(confirmation):
     self.bag.confirm_popup.detach_panel()
@@ -105,6 +108,7 @@ func confirm_map_upload(confirmation):
         self.middle_container.hide()
         self.controls.show()
         self.background.show()
+        self.upload_button.grab_focus()
 
 func execute_map_upload():
     var map_data = self.bag.map_list.get_local_map_data(self.selected_map_name)
@@ -122,12 +126,14 @@ func map_upload_complete_show(message):
     self.bag.message_popup.attach_panel(self.middle_container)
     self.bag.message_popup.fill_labels("Upload map", message, "Done")
     self.bag.message_popup.connect(self, "map_upload_complete_hide")
+    self.bag.message_popup.confirm_button.grab_focus()
 
 func map_upload_complete_hide():
     self.bag.message_popup.detach_panel()
     self.middle_container.hide()
     self.controls.show()
     self.background.show()
+    self.upload_button.grab_focus()
 
 func show_register_confirmation():
     self.controls.hide()
@@ -136,6 +142,7 @@ func show_register_confirmation():
     self.bag.confirm_popup.fill_labels('Welcome to ToF Online!', 'Before you can start using online options, we need to register your device with our online system.', 'Register', 'Maybe later')
     self.bag.confirm_popup.connect(self, "register_confirmation")
     self.middle_container.show()
+    self.bag.confirm_popup.confirm_button.grab_focus()
 
 func register_confirmation(confirmation):
     self.bag.confirm_popup.detach_panel()
@@ -162,15 +169,18 @@ func do_online_register():
         self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID successful. Welcome to ToF Online!", "Done")
         self.registration_successfull = true
     self.bag.message_popup.connect(self, "hide_register_confirmation")
+    self.bag.message_popup.confirm_button.grab_focus()
 
 func hide_register_confirmation():
     self.bag.message_popup.detach_panel()
-    if not self.registration_successfull:
-        self.hide()
-        self.bag.root.menu.online_button.grab_focus()
     self.controls.show()
     self.background.show()
     self.middle_container.hide()
+    if not self.registration_successfull:
+        self.hide()
+        self.bag.root.menu.online_button.grab_focus()
+    else:
+        self.download_button.grab_focus()
 
 func show_map_download_code_prompt():
     self.controls.hide()
@@ -193,6 +203,7 @@ func confirm_map_download(confirmation, code):
         self.middle_container.hide()
         self.controls.show()
         self.background.show()
+        self.download_button.grab_focus()
 
 func perform_map_download(code):
     if self.bag.online_maps.download_map(code[0]):
@@ -205,9 +216,11 @@ func show_map_download_done_message(message):
     self.bag.message_popup.attach_panel(self.middle_container)
     self.bag.message_popup.fill_labels("Download map", message, "Done")
     self.bag.message_popup.connect(self, "hide_map_download_done_message")
+    self.bag.message_popup.confirm_button.grab_focus()
 
 func hide_map_download_done_message():
     self.bag.message_popup.detach_panel()
     self.controls.show()
     self.background.show()
     self.middle_container.hide()
+    self.download_button.grab_focus()
