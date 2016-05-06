@@ -98,6 +98,7 @@ func detach_panel():
     self.disable_delete_mode()
     self.lock_delete_mode_button()
     self.enable_list_switch()
+    self.picker.set_pos(Vector2(0, 0))
 
 func fill_page():
     var maps_amount = self.get_maps_amount()
