@@ -39,9 +39,15 @@ func load_save_file_contents():
         }
 
 func load_state():
+    var is_remote
     self.load_save_file_contents()
 
-    self.bag.root.load_map(self.loaded_data['template_name'], self.loaded_data['from_workshop'], true)
+    if self.loaded_data.has('is_remote'):
+        is_remote = self.loaded_data['is_remote']
+    else:
+        is_remote = false
+
+    self.bag.root.load_map(self.loaded_data['template_name'], self.loaded_data['from_workshop'], true, is_remote)
 
 func load_map_state():
     self.remove_units_from_map()
@@ -224,7 +230,8 @@ func store_map_in_binary_file():
         'player_0_ap' : self.root_node.action_controller.player_ap[0],
         'player_1_ap' : self.root_node.action_controller.player_ap[1],
         'turn': self.root_node.action_controller.turn,
-        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats()
+        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats(),
+        'is_remote' : self.root_node.is_remote
     }
 
     for settings in self.saved_settings:

@@ -152,9 +152,9 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     current_map.get_node('terrain').set_tileset(self.main_tileset)
     current_map.campaign = bag.campaign
     self.workshop_file_name = workshop_file_name
+    self.is_remote = is_remote
     if workshop_file_name:
         self.is_from_workshop = true
-        self.is_remote = is_remote
         current_map.load_map(workshop_file_name, is_remote)
     else:
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
