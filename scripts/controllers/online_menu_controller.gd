@@ -113,13 +113,12 @@ func confirm_map_upload(confirmation):
 func execute_map_upload():
     var map_data = self.bag.map_list.get_local_map_data(self.selected_map_name)
     var result = self.bag.online_maps.upload_map(map_data, self.selected_map_name)
-    var message
 
     if result:
-        message = "Upload successful! New map code: " + self.bag.online_maps.last_upload_code
+        self.map_upload_complete_show("Upload successful! Now you can share your new map code with your friends: ")
+        self.bag.message_popup.fill_important(self.bag.online_maps.last_upload_code)
     else:
-        message = "Upload failed. Please try again later."
-    self.map_upload_complete_show(message)
+        self.map_upload_complete_show("Upload failed. Please try again later.")
 
 func map_upload_complete_show(message):
     self.bag.confirm_popup.detach_panel()

@@ -5,6 +5,7 @@ var popup = preload("res://gui/popups/message.tscn").instance()
 
 var hud_title
 var hud_message
+var hud_important
 var confirm_button
 var confirm_button_label
 
@@ -17,6 +18,7 @@ func _init_bag(bag):
     self.bag = bag
     self.bind_hud()
     self.connect_buttons()
+    self.fill_important("")
 
 func _confirm_button_pressed():
     self.bag.root.sound_controller.play('menu')
@@ -25,6 +27,7 @@ func _confirm_button_pressed():
 func bind_hud():
     self.hud_title = self.popup.get_node("title")
     self.hud_message = self.popup.get_node("message")
+    self.hud_important = self.popup.get_node("important")
     self.confirm_button = self.popup.get_node("confirm")
     self.confirm_button_label = self.confirm_button.get_node("Label")
 
@@ -40,6 +43,7 @@ func detach_panel():
         self.current_container = null
     self.disconnect()
     self.show_button()
+    self.fill_important("")
 
 func connect_buttons():
     self.confirm_button.connect("pressed", self, "_confirm_button_pressed")
@@ -52,6 +56,9 @@ func fill_labels(title, message, confirm):
     self.hud_title.set_text(title)
     self.hud_message.set_text(message)
     self.confirm_button_label.set_text(confirm)
+
+func fill_important(text):
+    self.hud_important.set_text(text)
 
 func connect(bound_object, bound_method):
     self.bound_object = bound_object

@@ -188,4 +188,19 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="important" type="Label" parent="."]
+
+margin/left = -240.0
+margin/top = 17.0
+margin/right = 48.0
+margin/bottom = 40.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 9 )
+text = "IMPORTANT"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 
