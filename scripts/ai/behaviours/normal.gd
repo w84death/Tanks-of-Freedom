@@ -1,5 +1,0 @@
-var action_type_modifiers = IntArray([1, 1, 2, 1, 2, 1])
-var capture_modifiers = IntArray([5, 2, 2])
-var attack_modifiers = IntArray([4, 6, 8])
-var move_capture_modifiers = IntArray([5, 2, 3])
-var move_attack_modifiers = IntArray([2, 2, 5])

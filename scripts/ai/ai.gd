@@ -21,13 +21,6 @@ var enemy_bunker
 var action_builder
 var cost_grid
 
-var behaviour_normal
-var behaviour_destroyer
-var behaviour_explorer
-var behaviours = []
-
-var player_behaviours
-
 var finished_loop = true
 var units_done = false
 var processed_units = {}
@@ -45,12 +38,6 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 
     self.action_builder = preload('actions/action_builder.gd').new(action_controller, abstract_map, positions)
     self.offensive = preload('res://scripts/ai/offensive.gd').new(abstract_map, actions, pathfinding, self.action_builder, positions)
-    behaviour_normal = preload('behaviours/normal.gd').new()
-    behaviour_destroyer = preload('behaviours/destroyer.gd').new()
-    behaviour_explorer = preload('behaviours/explorer.gd').new()
-    behaviours = [behaviour_destroyer]
-
-    player_behaviours = [behaviour_destroyer, behaviour_destroyer]
 
 func flush_cache():
     self.cost_grid = {}
@@ -244,7 +231,7 @@ func __add_action(unit, destination, own_units):
             hiccup = unit.check_hiccup(path[0])
 
 
-        var score = unit.estimate_action(action_type, path_size, unit_ap_cost, hiccup, player_behaviours)
+        var score = unit.estimate_action(action_type, path_size, unit_ap_cost, hiccup)
         var action = self.action_builder.create(action_type, unit, path)
         actions.append_action(action, score)
         if DEBUG:

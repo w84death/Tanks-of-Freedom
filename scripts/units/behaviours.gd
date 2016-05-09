@@ -23,27 +23,32 @@ const AP_MODIFIER = 10
 
 const SAFE_BUILDING_ZONE = 2
 
+var action_type_modifiers = IntArray([2, 1, 1, 1, 2, 1])
+var capture_modifiers = IntArray([5, 2, 2])
+var attack_modifiers = IntArray([4, 6, 8])
+var move_capture_modifiers = IntArray([5, 2, 3])
+var move_attack_modifiers = IntArray([2, 2, 5])
+
 #TODO move the rest of this class somewhere else
-func estimate_action(action_type, path_size, ap_cost, hiccup, player_behaviours):
+func estimate_action(action_type, path_size, ap_cost, hiccup):
 
 	var modifier = 1
 	var modifier_sign = 1
 	var apply_ap_modifier = true
-	var behaviours = player_behaviours[self.player]
 
 	if action_type == ACTION_CAPTURE:
-		modifier = behaviours.capture_modifiers[type]
+		modifier = self.capture_modifiers[type]
 		modifier_sign = -1
 		apply_ap_modifier = false
 	elif action_type == ACTION_ATTACK:
 		if attacks_number > 0:
-			modifier = behaviours.attack_modifiers[type]
+			modifier = self.attack_modifiers[type]
 			apply_ap_modifier = false
 		else:
 			modifier = 1
 	elif action_type == ACTION_MOVE_TO_ATTACK:
 		if attacks_number > 0:
-			modifier = behaviours.move_attack_modifiers[type]
+			modifier = self.move_attack_modifiers[type]
 		else:
 			modifier = 1
 	elif action_type == ACTION_MOVE_TO_CAPTURE:
@@ -51,7 +56,7 @@ func estimate_action(action_type, path_size, ap_cost, hiccup, player_behaviours)
 		if self.type != 0 && path_size <= self.SAFE_BUILDING_ZONE:
 			modifier = -3;
 		else:
-			modifier = behaviours.move_capture_modifiers[type]
+			modifier = self.move_capture_modifiers[type]
 			modifier_sign = -1
 
 	# for capturing better is having lo health an so on
@@ -59,7 +64,7 @@ func estimate_action(action_type, path_size, ap_cost, hiccup, player_behaviours)
 	if hiccup:
 		score = score - HICCUP_MODIFIER
 		
-	score = score * behaviours.action_type_modifiers[action_type]
+	score = score * self.action_type_modifiers[action_type]
 	score = score - ap_cost_modifier * ap_cost
 	score = score - path_size_modifier * path_size
 
