@@ -77,7 +77,7 @@ func upload_custom_map(map_name, is_remote = false):
     self.selected_map_name = map_name
     var message
 
-    if self.bag.map_list.maps[map_name]['completed']:
+    if self.bag.map_list.maps[map_name]['completed'] or not Globals.get('tof/map_upload_win'):
         message = "Map to upload: " + map_name + ". Proceed?"
         self.bag.confirm_popup.attach_panel(self.middle_container)
         self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
