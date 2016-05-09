@@ -12,6 +12,11 @@ var gamepad_detected = false
 var painting = false
 var erasing = false
 
+var gamepad_icons = [
+    'message_card/center/message/button/Sprite',
+    'top_panel/center/game_card/gamepad_buttons'
+]
+
 
 func _init_bag(bag):
     self.bag = bag
@@ -22,7 +27,17 @@ func handle_input(event):
     elif event.type == InputEvent.JOYSTICK_BUTTON:
         self.handle_button(event)
 
-    self.gamepad_detected = true
+    if not self.gamepad_detected:
+        self.gamepad_detected = true
+        self.show_gamepad_icons()
+
+func show_gamepad_icons():
+    if self.bag.root.hud == null:
+        return
+    if not self.gamepad_detected:
+        return
+    for icon in self.gamepad_icons:
+        self.bag.root.hud.get_node(icon).show()
 
 func handle_motion(event):
     if event.axis == 0:

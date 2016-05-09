@@ -1,7 +1,7 @@
 extends Control
 
-var version_name = "Version 0.4.2-BETA"
-var version_short = "0.4.2"
+var version_name = "Version 0.5.0-BETA"
+var version_short = "0.5.0"
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
@@ -166,6 +166,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         current_map.load_campaign_map(template_name)
     current_map.show_blueprint = false
     hud = hud_template.instance()
+    self.bag.gamepad.show_gamepad_icons()
 
     current_map_terrain = current_map.get_node("terrain")
     current_map_terrain.add_child(selector)

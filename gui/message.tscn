@@ -164,6 +164,7 @@ max_lines_visible = -1
 
 [node name="Sprite" type="Sprite" parent="button"]
 
+visibility/visible = false
 transform/pos = Vector2( 3.60998, 4.5125 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 9 )
