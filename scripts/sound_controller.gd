@@ -6,6 +6,8 @@ var sample_player
 var sound_volume = 0.5
 var music_volume = 1.0
 
+var currently_playing
+
 const SOUND_SPAWN = 'spawn'
 const SOUND_MOVE = 'move'
 const SOUND_ATTACK = 'attack'
@@ -45,10 +47,11 @@ var samples = [
 	['tank_spawn', preload('res://assets/sounds/fx/units/02.tank/tank_spawn.wav')],
 ]
 
-var soundtracks = [
-	preload("res://assets/sounds/soundtrack/map_soundtrack_1.ogg"),
-	preload("res://assets/sounds/soundtrack/map_soundtrack_2.ogg")
-]
+var soundtracks = {
+	'game1' : preload("res://assets/sounds/soundtrack/map_soundtrack_1.ogg"),
+	'game2' : preload("res://assets/sounds/soundtrack/map_soundtrack_2.ogg"),
+	'menu' :  preload("res://assets/sounds/soundtrack/menu_soundtrack.ogg")
+}
 
 func init_root(root_node):
 	root = root_node
@@ -60,16 +63,34 @@ func init_root(root_node):
 
 func play_soundtrack():
 	self.stop_soundtrack()
-	if root.settings['music_enabled'] && root.is_map_loaded:
-		randomize()
-		var selected_track = self.soundtracks[randi() % self.soundtracks.size()]
-		stream_player.set_stream(selected_track)
+	if root.settings['music_enabled']:
+		if root.is_map_loaded:
+			var tracks = [
+				'game1',
+				'game2'
+			]
+			randomize()
+			var selected_track = tracks[randi() % tracks.size()]
+			self.play_track(selected_track)
+		else:
+			self.play_track('menu')
+
+
+func play_track(track_name):
+	if root.settings['music_enabled']:
+		if self.currently_playing == track_name:
+			return
+		self.stop_soundtrack()
+		var track = self.soundtracks[track_name]
+		stream_player.set_stream(track)
 		stream_player.set_loop(true)
 		stream_player.play()
+		self.currently_playing = track_name
 
 func stop_soundtrack():
 	stream_player.stop()
 	stream = null
+	self.currently_playing = null
 
 func play(sound):
 	if root.settings['sound_enabled']:

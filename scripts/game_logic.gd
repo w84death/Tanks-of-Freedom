@@ -208,7 +208,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         self.lock_for_cpu()
     else:
         self.unlock_for_player()
-    sound_controller.play_soundtrack()
+    self.sound_controller.play_soundtrack()
 
 func restart_map():
     self.load_map(current_map_name, workshop_file_name)
@@ -236,6 +236,7 @@ func unload_map():
     action_controller = null
     self.menu.show_background_map()
     self.menu.manage_close_button()
+    self.sound_controller.play_soundtrack()
 
 func toggle_menu(target = 'menu'):
     if is_map_loaded:
@@ -275,6 +276,7 @@ func load_menu():
     self.add_child(menu)
     menu.manage_close_button()
     self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
+    self.sound_controller.play_soundtrack()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
@@ -322,7 +324,7 @@ func _ready():
     self.bag.init_root(self)
     self.camera = self.bag.camera
     self.menu = self.bag.controllers.menu_controller
-    sound_controller.init_root(self)
+    self.sound_controller.init_root(self)
     menu.init_root(self)
     menu.hide()
     intro.init_root(self)
