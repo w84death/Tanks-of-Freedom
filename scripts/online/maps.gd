@@ -48,7 +48,7 @@ func download_map(code):
     if self.bag.file_handler.file_exists(remote_file_name):
         return true
 
-    var result = self.bag.online_request.get(self.bag.online_request.api_location, self.MAPS_URL + "/" + code)
+    var result = self.bag.online_request.get(self.bag.online_request.api_location, self.MAPS_URL + "/" + code + ".json")
     if result['status'] != 'ok':
         return false
 
