@@ -48,7 +48,7 @@ func make_request(api, resource, method, data, expect_json = true):
         return result
 
     var headers = [
-        "User-Agent: ToF/" + self.bag.root.version_short + " (Godot)",
+        "User-Agent: ToF/" + self.bag.root.version_short,
         "Accept: */*"
     ]
     if data:
