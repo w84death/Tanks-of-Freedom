@@ -15,9 +15,9 @@ func execute_best_action():
     return false
 
 func get_best_action():
-    if (self.actions.size() > 0):
-        return actions[self.__get_max_key(actions.keys())]
-    return null
+    if self.actions.empty():
+        return null
+    return actions[self.__get_max_key(actions.keys())]
 
 func clear():
     self.actions.clear()

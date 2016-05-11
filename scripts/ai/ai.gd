@@ -11,7 +11,7 @@ var offensive
 var current_player_ap = 0
 var current_player
 
-const SPAWN_LIMIT = 12
+const SPAWN_LIMIT = 20
 const DEBUG = false
 var terrain
 var units
@@ -72,10 +72,12 @@ func gather_available_actions(player_ap):
         self.camera_ready = true
         if best_action != null:
             self.action_controller.move_camera_to_point(best_action.unit.position_on_map)
-        return true
+
+            return true
 
     self.put_on_cooldown()
     self.reset_calculation_state()
+
     return actions.execute_best_action()
 
 func reset_calculation_state():
@@ -110,12 +112,17 @@ func __gather_unit_data(own_buildings, own_units, terrain):
         self.units_done = true
         return
 
-    self.pathfinding.set_cost_grid(cost_grid.prepare_cost_maps(own_buildings, own_units))
+    self.cost_grid.prepare_cost_grid() # TODO - this should be done only once per map
+    self.cost_grid.add_obstacles(own_buildings)
+    self.cost_grid.add_obstacles(own_units)
+
+    self.pathfinding.set_cost_grid(self.cost_grid.grid)
 
     var unit
     var position
     var destinations
     var unit_instance_id
+    var push_units = []
 
     for unit_pos in own_units:
         unit = own_units[unit_pos]
@@ -128,10 +135,21 @@ func __gather_unit_data(own_buildings, own_units, terrain):
 
             destinations = self.__gather_destinations(unit_pos, unit.can_capture_buildings())
             if destinations.size() == 0 && current_player_ap > 5:
-                self.offensive.push_front(unit, self.get_target_buildings(), self.units)
+                push_units.append(unit)
+                # self.offensive.push_front(unit, self.get_target_buildings(), self.units)
             else:
                 for destination in destinations:
                     self.__add_action(unit, destination, own_units)
+
+    if push_units.size() > 0:
+        var target_buildings = self.get_target_buildings()
+        self.cost_grid.add_obstacles(target_buildings)
+        self.pathfinding.set_cost_grid(self.cost_grid.grid)
+
+        for unit in push_units:
+            print('push')
+            self.offensive.push_front(unit, target_buildings, self.units)
+
 
     self.units_done = true
 
@@ -235,7 +253,7 @@ func __add_action(unit, destination, own_units):
         var action = self.action_builder.create(action_type, unit, path)
         actions.append_action(action, score)
         if DEBUG:
-            print("DEBUG : ", action.get_action_name(), " unit: ", unit.get_instance_ID()," score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
+            print("DEBUG : ", action.get_action_name(), " unit: ", unit.get_instance_ID(), " unit_type:", unit.type," score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 
 func __add_building_action(building, enemy_units_nearby, own_units):
 
