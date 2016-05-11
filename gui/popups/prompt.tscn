@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=8]
 [ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=9]
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id=1]
 
 
 [node name="message" type="Control"]
@@ -227,7 +227,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="input" type="TextEdit" parent="."]
+[node name="input" type="LineEdit" parent="."]
 
 margin/left = -241.0
 margin/top = 15.0
@@ -237,6 +237,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = SubResource( 2 )
+theme/theme = SubResource( 1 )
+text = ""
+max_length = 0
+editable = true
+secret = false
 
 
