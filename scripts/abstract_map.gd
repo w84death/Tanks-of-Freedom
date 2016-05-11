@@ -89,44 +89,5 @@ func update_terrain_tile_type_map(terrain):
  		var unit_pos = terrain[pos].get_pos_map()
  		self.cost_map[unit_pos.x][unit_pos.y] = 999
 
-func get_available_directions(unit, current_position):
-	var directions = []
-	var next_position
-
-	next_position = __get_next_position(current_position, Vector2(1, 0))
-	if self.__check_direction_availability(next_position) && !unit.check_hiccup(next_position):
-		directions.append('right')
-
-	next_position = __get_next_position(current_position, Vector2(-1, 0))
-	if self.__check_direction_availability(next_position) && !unit.check_hiccup(next_position):
-		directions.append('left')
-
-	next_position = __get_next_position(current_position, Vector2(0, -1))
-	if self.__check_direction_availability(next_position) && !unit.check_hiccup(next_position):
-		directions.append('up')
-
-	next_position = __get_next_position(current_position, Vector2(0, 1))
-	if self.__check_direction_availability(next_position) && !unit.check_hiccup(next_position):
-		directions.append('down')
-
-	return directions
-
-func __get_next_position(current_position, mod):
-	var tmp = current_position
-	return tmp + mod
-
-func __check_direction_availability(next_position):
-	# we can assume that if building can be catchable it will be handled by standard ai
-
-	if next_position.x < 0 || next_position.y < 0:
-		return false
-
-	var field = get_field(next_position)
-	if field.terrain_type != - 1 && field.object == null:
-		return true
-
-	return false
-
-
 
 

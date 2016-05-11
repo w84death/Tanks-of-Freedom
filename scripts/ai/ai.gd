@@ -6,13 +6,12 @@ var action_controller
 const CLOSE_RANGE = 6
 const LOOKUP_RANGE = 20
 var actions
-var wandering
 var offensive
 var current_player_ap = 0
 var current_player
 
 const SPAWN_LIMIT = 20
-const DEBUG = false
+const DEBUG = true
 var terrain
 var units
 var buildings
