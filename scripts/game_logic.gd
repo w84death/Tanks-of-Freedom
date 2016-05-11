@@ -11,8 +11,8 @@ var game_scale
 var scale_root
 var loading_container
 var camera
-var hud_template = preload('res://gui/gui.xscn')
 var menu
+var hud_template = preload('res://gui/gui.xscn')
 var screen_size
 var half_screen_size = Vector2(0, 0)
 
