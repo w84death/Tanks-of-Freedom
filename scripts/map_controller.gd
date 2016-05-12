@@ -619,18 +619,20 @@ func load_map(file_name, is_remote = false):
 	    file_path = "user://" + file_name + ".remote"
 	else:
 		file_path = "user://" + file_name + ".map"
-	return self.load_map_from_file(file_path)
+	return self.load_map_from_file(file_path, is_remote)
 
 func load_campaign_map(file_name):
 	var campaign_map = self.campaign.get_map_data(file_name)
 	self.fill_map_from_data_array(campaign_map.map_data)
 
-func load_map_from_file(file_path):
+func load_map_from_file(file_path, is_remote = false):
 	var temp_data
 
 	if map_file.file_exists(file_path):
 		map_file.open(file_path, File.READ)
 		temp_data = map_file.get_var()
+		if is_remote:
+			temp_data = temp_data['tiles']
 		self.fill_map_from_data_array(temp_data)
 		print('ToF: map ' + file_path + ' loaded from file')
 		map_file.close()

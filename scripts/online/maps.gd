@@ -55,7 +55,7 @@ func download_map(code):
     var metadata = {
         'name' : result['data']['data']['name']
     }
-    self.save_map(result['data']['data']['tiles'], code, metadata)
+    self.save_map(result['data']['data'], code, metadata)
 
     return true
 
