@@ -19,10 +19,8 @@ func upload_map(data, name):
     var message = self.bag.online_player.get_basic_auth_json()
     var serialized_json = ""
 
-    message['data'] = {
-        'tiles' : data,
-        'name' : name
-    }
+    message['data'] = data
+    message['data']['name'] = name
 
     serialized_json = message.to_json()
 

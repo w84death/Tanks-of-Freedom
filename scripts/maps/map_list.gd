@@ -106,11 +106,15 @@ func store_map(map_name):
 
 func add_default_maps():
     var file_name
+    var map_data
     for map in self.default_custom_maps:
         file_name = 'user://' + map['name'] + '.map'
         if not file_handler.file_exists(file_name):
             self.file_handler.open(file_name, File.WRITE)
-            self.file_handler.store_var(map['file'].map_data)
+            map_data = {
+                'tiles' : map['file'].map_data
+            }
+            self.file_handler.store_var(map_data)
             self.file_handler.close()
             self.store_map(map['name'])
 
