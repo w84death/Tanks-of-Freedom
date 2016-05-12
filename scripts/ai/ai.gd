@@ -11,7 +11,7 @@ var current_player_ap = 0
 var current_player
 
 const SPAWN_LIMIT = 20
-const DEBUG = true
+const DEBUG = false
 var terrain
 var units
 var buildings
@@ -135,7 +135,6 @@ func __gather_unit_data(own_buildings, own_units, terrain):
             destinations = self.__gather_destinations(unit_pos, unit.can_capture_buildings())
             if destinations.size() == 0 && current_player_ap > 5:
                 push_units.append(unit)
-                # self.offensive.push_front(unit, self.get_target_buildings(), self.units)
             else:
                 for destination in destinations:
                     self.__add_action(unit, destination, own_units)
@@ -146,7 +145,6 @@ func __gather_unit_data(own_buildings, own_units, terrain):
         self.pathfinding.set_cost_grid(self.cost_grid.grid)
 
         for unit in push_units:
-            print('push')
             self.offensive.push_front(unit, target_buildings, self.units)
 
 

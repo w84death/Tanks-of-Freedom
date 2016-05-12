@@ -22,8 +22,10 @@ func push_front(unit, buildings, own_units):
     var closest_path_length = 999
     var path
     var distance
+    var destination
     var unit_pos = unit.get_pos_map()
-    for destination in buildings:
+    for position in buildings:
+        destination = buildings[position].spawn_point
         distance = self.pathfinding.__get_manhattan(unit_pos, destination)
         if distance >= self.MINIMAL_DISTANCE :
             if closest_destination == null || distance < closest_path_length:
