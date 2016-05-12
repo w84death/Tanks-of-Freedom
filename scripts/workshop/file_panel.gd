@@ -65,7 +65,6 @@ func toggle_file_panel():
 func save_button_pressed():
     self.root.sound_controller.play('menu')
     self.workshop.save_map(self.file_name, true)
-    self.save_animation.play('flash')
 
 func load_button_pressed():
     self.root.sound_controller.play('menu')
