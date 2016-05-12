@@ -12,7 +12,6 @@ var name_label
 
 func bind(hud_panel):
     self.building_panel = hud_panel.get_node('building_panel')
-    #self.building_panel_units_dock_button = self.building_panel.get_node('units_button')
     self.name_label = self.building_panel.get_node('building_name')
     self.build_card = self.build_card_template.new()
     self.build_card.bind(self.building_panel)

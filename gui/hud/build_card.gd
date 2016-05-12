@@ -3,6 +3,7 @@ var build_card
 
 var deploy_button
 var deploy_button_label
+var deploy_button_icon
 
 var name
 var unit_sprite
@@ -16,6 +17,7 @@ func bind(build_card_node):
     self.build_card = build_card_node
     self.deploy_button = self.build_card.get_node('deploy_button')
     self.deploy_button_label = self.deploy_button.get_node('Label')
+    self.deploy_button_icon = self.deploy_button.get_node('gamepad_button')
 
     self.name = self.build_card.get_node('unit_name')
     self.unit_sprite = self.build_card.get_node('unit_sprite')

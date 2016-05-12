@@ -38,6 +38,7 @@ func show_gamepad_icons():
         return
     for icon in self.gamepad_icons:
         self.bag.root.hud.get_node(icon).show()
+    self.bag.controllers.hud_panel_controller.building_panel.build_card.deploy_button_icon.show()
 
 func handle_motion(event):
     if event.axis == 0:
