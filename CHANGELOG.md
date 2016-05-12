@@ -2,6 +2,25 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.5.0-beta
+- engine updated to Godot 2.0.2
+- added online map sharing
+- added new skirmish maps
+- added secondary map list for downloaded maps
+- streamlined menu buttons for easier navigation with gamepad
+- added new menu soundtrack
+- added gamepad button indicators while in game
+- updated in-game building card to be more readable
+- updated map file format to add space for data other than tiles
+- fixed a bug where AI would sometimes try to walk tank/heli through a building
+- fixed a bug where mouse had an offset when game resolution changed
+- fixed a bug where cinematic bars were too short on higher resolutions
+- fixed minor errors in few campaign maps
+- fixed minor errors in few skirmish maps
+- added feature toggles for online, workshop and save/resume
+- added documentation for making community ports
+
+
 ### 0.4.2-beta
 - ported game source to Godot 2.0
 - added gamepad support

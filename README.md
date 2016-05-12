@@ -66,6 +66,10 @@ To get the latest version of the game you'll need to use the source code and God
 
 Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn how to export the game for each platform.
 
+## Server
+
+For online funcionalities ToF server is required. Sources can be found in a separate repository [https://github.com/P1X-in/Tanks-of-Freedom-Server](https://github.com/P1X-in/Tanks-of-Freedom-Server)
+
 ## Media
 ![Imgur](http://tof.p1x.in/assets/screen1.jpg)
 ![Imgur](http://tof.p1x.in/assets/screen2.jpg)
