@@ -49,6 +49,10 @@ var default_custom_maps = [
         'name' : 'developer_map',
         'file' : preload('res://maps/custom/developer_map.gd').new()
     },
+    {
+        'name' : 'split',
+        'file' : preload('res://maps/custom/split.gd').new()
+    },
 ]
 
 func _init_bag(bag):
