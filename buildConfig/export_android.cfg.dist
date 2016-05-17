@@ -27,7 +27,7 @@ one_click_deploy/clear_previous_install=true
 package/icon=""
 package/name=""
 package/signed=true
-package/unique_name="in.p1x.tof.beta"
+package/unique_name="in.p1x.tof.custom"
 permissions/access_checkin_properties=false
 permissions/access_coarse_location=false
 permissions/access_fine_location=false
@@ -200,8 +200,8 @@ user_permissions/6=""
 user_permissions/7=""
 user_permissions/8=""
 user_permissions/9=""
-version/code=8
-version/name="0.4.1-beta"
+version/code=1
+version/name="custom"
 
 [platform:BlackBerry 10]
 
