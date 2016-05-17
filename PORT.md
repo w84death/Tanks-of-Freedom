@@ -142,25 +142,25 @@ Repository contains a *bin* folder with some bash scripts to help out with game 
 
 All of the commands assume, that you are using bash, and current directory is the project root
 
-*./bin/export*
+#### *./bin/export*
 
 will show you the list of available commands
 
-*./bin/export list*
+#### *./bin/export list*
 
 will show you the list of configured target platforms detected
 
-*./bin/export bootstrap (target name)*
+#### *./bin/export bootstrap (target name)*
 
 will bootstap the configuration for (target) from the buildConfig dir, while preserving current ones
 
 *(target name)* - one of the target names from 'list'
 
-*./bin/export cleanup*
+#### *./bin/export cleanup*
 
 will attempt to remove bootstrapped configs and restore ones, that were present during bootstrap
 
-*./bin/export build (target_name) (destination dir) (base file name)*
+#### *./bin/export build (target_name) (destination dir) (base file name)*
 
 will export a target binary
 
@@ -170,7 +170,7 @@ will export a target binary
 
 *(base file name)* - base for a binary file name, additional suffix defined in build_(target name).cfg will be added (i.e. win64.exe)
 
-*./bin/export all (destination dir) (base file name)*
+#### *./bin/export all (destination dir) (base file name)*
 
 will export all available targets
 
@@ -184,15 +184,15 @@ will export all available targets
 
 There are two scripts dedicated for work with android devices. Only one android device (with developer mode turned on) must be plugged in via usb cable, and adb binary must be available in the PATH.
 
-*./bin/android_debug*
+#### *./bin/android_debug*
 
 will build default 'android' target, and upload it to the device
 
-*./bin/android_debug logcat*
+#### *./bin/android_debug logcat*
 
 same as above, but will start a logcat (log printing) as well
 
-*./bin/android_logcat*
+#### *./bin/android_logcat*
 
 will connect to the android device and start logcat
 
