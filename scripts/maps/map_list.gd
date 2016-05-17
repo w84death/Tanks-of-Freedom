@@ -53,6 +53,10 @@ var default_custom_maps = [
         'name' : 'split',
         'file' : preload('res://maps/custom/split.gd').new()
     },
+    {
+        'name' : 'territorial',
+        'file' : preload('res://maps/custom/territorial.gd').new()
+    },
 ]
 
 func _init_bag(bag):
