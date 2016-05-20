@@ -40,7 +40,6 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
 
 func flush_cache():
     self.cost_grid = {}
-    self.pathfinding.flush_cache()
 
 func gather_available_actions(player_ap):
     current_player = action_controller.current_player
@@ -188,7 +187,7 @@ func __gather_building_data(own_buildings, own_units):
 
 
 func __add_action(unit, destination, own_units):
-    var path = pathfinding.pathSearch(unit.position_on_map, destination.get_pos_map(), own_units)
+    var path = pathfinding.path_search(unit.position_on_map, destination.get_pos_map())
 
     var action_type = self.action_builder.ACTION_MOVE
     var hiccup = false

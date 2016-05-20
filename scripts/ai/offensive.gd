@@ -26,14 +26,14 @@ func push_front(unit, buildings, own_units):
     var unit_pos = unit.get_pos_map()
     for position in buildings:
         destination = buildings[position].spawn_point
-        distance = self.pathfinding.__get_manhattan(unit_pos, destination)
+        distance = self.pathfinding.get_manhattan(unit_pos, destination)
         if distance >= self.MINIMAL_DISTANCE :
             if closest_destination == null || distance < closest_path_length:
                 closest_destination = destination
                 closest_path_length = distance
 
     if closest_destination != null:
-        path = self.pathfinding.pathSearch(unit_pos, closest_destination, own_units)
+        path = self.pathfinding.path_search(unit_pos, closest_destination)
         if path.size() == 0:
             return
         var next_tile = path[0]
