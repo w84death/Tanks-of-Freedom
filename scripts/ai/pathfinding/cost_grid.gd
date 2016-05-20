@@ -1,5 +1,5 @@
 var abstract_map
-var tileObject = preload('tile_object.gd')
+var tile_object = preload('tile_object.gd')
 var grid = {}
 
 #rearrange
@@ -13,9 +13,9 @@ func prepare_cost_grid():
 
 func add_obstacles(obstacles):
 	for position in obstacles:
-		self.grid[position] = tileObject.new(tileObject.NON_WALKABLE)
+		self.grid[position].set_not_walkable()
 
 func __prepareGrid(cost_map):
 	for x in range(self.abstract_map.MAX_MAP_SIZE):
 		for y in range(self.abstract_map.MAX_MAP_SIZE):
-			self.grid[Vector2(x,y)] = tileObject.new(cost_map[x][y])
+			self.grid[Vector2(x,y)] = tile_object.new(cost_map[x][y])
