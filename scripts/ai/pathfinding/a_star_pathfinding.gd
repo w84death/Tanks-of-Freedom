@@ -5,10 +5,6 @@ var prev
 var path
 var searched_children = []
 
-var open_list = []
-var closed_list = []
-
-var last_current
 #var possible_neighbours = Vector2Array([Vector2(-1,-1), Vector2(-1,0), Vector2(-1,1), Vector2(0,-1), Vector2(0,0), Vector2(0,1),Vector2(1,-1), Vector2(1,0), Vector2(1,1)])
 var possible_neighbours = Vector2Array([Vector2(-1,0), Vector2(0,-1), Vector2(0,1), Vector2(1,0)])
 
@@ -16,9 +12,9 @@ func set_cost_grid(cost_grid):
     grid = cost_grid
 
 func path_search(start, goal):
-    var closedset = []    #The set of nodes already evaluated.
-    var openset = []   #The set of tentative nodes to be evaluated, initially containing the start node
-    openset.append(start)
+    var closed_set = Vector2Array()    #The set of nodes already evaluated.
+    var open_set = []   #The set of tentative nodes to be evaluated, initially containing the start node
+    open_set.append(start)
     var current
     var came_from = {}  # The map of navigated nodes.
     var tentative_g_score
@@ -27,25 +23,25 @@ func path_search(start, goal):
     # Estimated total cost from start to goal through y.
     grid[start].F = int(grid[start].G + self.get_manhattan(start, goal))
 
-    while openset.size() > 0:
-        current = self.__smallestF(openset)
+    while open_set.size() > 0:
+        current = self.__smallestF(open_set)
         if current == goal:
             return self.__reconstruct_path(came_from, goal)
 
-        openset.remove(openset.find(current))
-        closedset.append(current)
+        open_set.remove(open_set.find(current))
+        closed_set.push_back(current)
         for neighbor in self.__get_adjacent_tiles(current):
-            if neighbor in closedset:
+            if neighbor in closed_set:
                 continue
 
             tentative_g_score = grid[current].G + 1
 
-            if !(neighbor in openset) or tentative_g_score < grid[neighbor].G :
+            if !(neighbor in open_set) or tentative_g_score < grid[neighbor].G :
                 came_from[neighbor] = current
                 grid[neighbor].G = tentative_g_score
                 grid[neighbor].F = grid[neighbor].G + get_manhattan(neighbor, goal)
-                if !(neighbor in openset):
-                    openset.append(neighbor)
+                if !(neighbor in open_set):
+                    open_set.append(neighbor)
                     searched_children.append(neighbor)
     return {}
 
@@ -53,9 +49,9 @@ func get_manhattan(start, end):
     return abs(start.x - end.x) + abs(start.y - end.y)
 
 # find the tile with the smallest F value that is open
-func __smallestF(openSet):
-    var smallest = openSet[0]
-    for t in openSet:
+func __smallestF(open_set):
+    var smallest = open_set[0]
+    for t in open_set:
         if grid[t].F < grid[smallest].F:
             smallest = t
     return smallest
