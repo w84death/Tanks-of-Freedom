@@ -3,7 +3,6 @@ var start_tile
 var end_tile
 var prev
 var path
-var searched_children = []
 
 #var possible_neighbours = Vector2Array([Vector2(-1,-1), Vector2(-1,0), Vector2(-1,1), Vector2(0,-1), Vector2(0,0), Vector2(0,1),Vector2(1,-1), Vector2(1,0), Vector2(1,1)])
 var possible_neighbours = Vector2Array([Vector2(-1,0), Vector2(0,-1), Vector2(0,1), Vector2(1,0)])
@@ -42,7 +41,6 @@ func path_search(start, goal):
                 grid[neighbor].F = grid[neighbor].G + get_manhattan(neighbor, goal)
                 if !(neighbor in open_set):
                     open_set.append(neighbor)
-                    searched_children.append(neighbor)
     return {}
 
 func get_manhattan(start, end):
