@@ -182,6 +182,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     action_controller = self.bag.controllers.action_controller
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
+    action_controller.ai.prepare_cost_grid()
+
     self.bag.match_state.reset()
     if not workshop_file_name:
         self.bag.match_state.set_campaign_map(template_name)
@@ -189,7 +191,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     if load_saved_state && self.bag.saving != null:
         self.bag.saving.apply_saved_buildings()
         self.bag.saving.apply_saved_environment_settings()
-        self.action_controller.switch_to_player(self.bag.saving.get_active_player_id(), false)
+        action_controller.switch_to_player(self.bag.saving.get_active_player_id(), false)
         human_player = self.bag.saving.get_active_player_key()
         action_controller.refresh_hud()
     else:
@@ -217,8 +219,6 @@ func restart_map():
 func unload_map():
     if is_map_loaded == false:
         return
-
-    self.action_controller.ai.flush_cache()
 
     is_map_loaded = false
     current_map_terrain.remove_child(selector)

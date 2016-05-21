@@ -32,14 +32,15 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
     pathfinding = astar_pathfinding
     abstract_map = self.root.bag.abstract_map
     action_controller = action_controller_object
-    cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
+    self.cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
     actions = preload('actions.gd').new()
 
     self.action_builder = preload('actions/action_builder.gd').new(action_controller, abstract_map, positions)
     self.offensive = preload('res://scripts/ai/offensive.gd').new(abstract_map, actions, pathfinding, self.action_builder, positions)
 
-func flush_cache():
-    self.cost_grid = {}
+func prepare_cost_grid():
+    self.cost_grid.prepare_cost_grid()
+    self.pathfinding.set_cost_grid(self.cost_grid.grid)
 
 func gather_available_actions(player_ap):
     current_player = action_controller.current_player
@@ -110,11 +111,9 @@ func __gather_unit_data(own_buildings, own_units, terrain):
         self.units_done = true
         return
 
-    self.cost_grid.prepare_cost_grid() # TODO - this should be done only once per map
+    self.cost_grid.refresh_cost_grid()
     self.cost_grid.add_obstacles(own_buildings)
     self.cost_grid.add_obstacles(own_units)
-
-    self.pathfinding.set_cost_grid(self.cost_grid.grid)
 
     var unit
     var position
