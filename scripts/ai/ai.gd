@@ -12,9 +12,8 @@ var current_player
 
 const SPAWN_LIMIT = 20
 const DEBUG = false
-var terrain
-var units
-var buildings
+var own_units
+var own_buildings
 var enemy_bunker
 
 var action_builder
@@ -25,6 +24,7 @@ var units_done = false
 var processed_units = {}
 var camera_ready = false
 var ap_for_turn = null
+var thread
 
 func _init(controller, astar_pathfinding, map, action_controller_object):
     self.root = action_controller_object.root_node
@@ -34,6 +34,7 @@ func _init(controller, astar_pathfinding, map, action_controller_object):
     action_controller = action_controller_object
     self.cost_grid = preload('pathfinding/cost_grid.gd').new(abstract_map)
     actions = preload('actions.gd').new()
+    thread = Thread.new()
 
     self.action_builder = preload('actions/action_builder.gd').new(action_controller, abstract_map, positions)
     self.offensive = preload('res://scripts/ai/offensive.gd').new(abstract_map, actions, pathfinding, self.action_builder, positions)
@@ -53,17 +54,16 @@ func gather_available_actions(player_ap):
         #positions.refresh_buildings()
         if DEBUG:
             print('DEBUG -------------------- ')
-        self.buildings = self.positions.get_player_buildings(current_player)
-        self.units     = self.positions.get_player_units(current_player)
-        self.terrain   = self.positions.get_terrain_obstacles()
+        self.own_buildings = self.positions.get_player_buildings(current_player)
+        self.own_units     = self.positions.get_player_units(current_player)
 
-        self.__gather_building_data(buildings, units)
+        self.__gather_building_data()
 
         self.finished_loop = false
         return true
 
     if not self.units_done:
-        self.__gather_unit_data(buildings, units, terrain)
+        self.__gather_unit_data()
         return true
 
     if not self.camera_ready && self.actions:
@@ -106,14 +106,14 @@ func get_target_buildings():
         buildings[building_position] = unclaimed[building_position]
     return buildings
 
-func __gather_unit_data(own_buildings, own_units, terrain):
-    if own_units.size() == 0:
+func __gather_unit_data():
+    if self.own_units.size() == 0:
         self.units_done = true
         return
 
     self.cost_grid.refresh_cost_grid()
-    self.cost_grid.add_obstacles(own_buildings)
-    self.cost_grid.add_obstacles(own_units)
+    self.cost_grid.add_obstacles(self.own_buildings)
+    self.cost_grid.add_obstacles(self.own_units)
 
     var unit
     var position
@@ -121,8 +121,8 @@ func __gather_unit_data(own_buildings, own_units, terrain):
     var unit_instance_id
     var push_units = []
 
-    for unit_pos in own_units:
-        unit = own_units[unit_pos]
+    for unit_pos in self.own_units:
+        unit = self.own_units[unit_pos]
         unit_instance_id = unit.get_instance_ID()
         if self.processed_units.has(unit_instance_id):
             continue
@@ -135,7 +135,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
                 push_units.append(unit)
             else:
                 for destination in destinations:
-                    self.__add_action(unit, destination, own_units)
+                    self.__add_action(unit, destination)
 
     if push_units.size() > 0:
         var target_buildings = self.get_target_buildings()
@@ -143,7 +143,7 @@ func __gather_unit_data(own_buildings, own_units, terrain):
         self.pathfinding.set_cost_grid(self.cost_grid.grid)
 
         for unit in push_units:
-            self.offensive.push_front(unit, target_buildings, self.units)
+            self.offensive.push_front(unit, target_buildings, self.own_units)
 
 
     self.units_done = true
@@ -170,22 +170,22 @@ func __gather_destinations(position, can_capture_building):
 
     return destinations
 
-func __gather_building_data(own_buildings, own_units):
-    if own_units.size() >= SPAWN_LIMIT:
+func __gather_building_data():
+    if self.own_units.size() >= SPAWN_LIMIT:
         return
     var building
     var enemy_units
-    for pos in own_buildings:
-        building = own_buildings[pos]
+    for pos in self.own_buildings:
+        building = self.own_buildings[pos]
 
         if (building.type == 4): # skip tower
             continue
         var nearby_tiles = self.positions.get_nearby_tiles(pos, 3)
         enemy_units = self.positions.get_nearby_enemies(nearby_tiles, self.current_player)
-        self.__add_building_action(building, enemy_units, own_units)
+        self.__add_building_action(building, enemy_units)
 
 
-func __add_action(unit, destination, own_units):
+func __add_action(unit, destination):
     var path = pathfinding.path_search(unit.position_on_map, destination.get_pos_map())
 
     var action_type = self.action_builder.ACTION_MOVE
@@ -250,12 +250,12 @@ func __add_action(unit, destination, own_units):
         if DEBUG:
             print("DEBUG : ", action.get_action_name(), " unit: ", unit.get_instance_ID(), " unit_type:", unit.type," score: ", score, " ap: ", unit_ap_cost," pos: ",unit.get_pos_map()," path: ", path)
 
-func __add_building_action(building, enemy_units_nearby, own_units):
+func __add_building_action(building, enemy_units_nearby):
 
     var action_type = self.action_builder.ACTION_SPAWN
     var spawn_point = abstract_map.get_field(building.spawn_point)
     if (spawn_point.object == null && building.get_required_ap() <= current_player_ap):
-        var score = building.estimate_action(action_type, enemy_units_nearby, own_units, current_player_ap, SPAWN_LIMIT)
+        var score = building.estimate_action(action_type, enemy_units_nearby, self.own_units, current_player_ap, SPAWN_LIMIT)
         var claim_modifier = 15 - (action_controller.turn - building.turn_claimed)
         if claim_modifier < 0:
             claim_modifier = 0
