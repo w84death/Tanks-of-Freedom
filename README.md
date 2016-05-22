@@ -51,20 +51,21 @@ Please note, that changing map name with gamepad is not possible at this time. K
 ### Unofficial ports:
 - [F-Droid](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom) thanks to [est31](https://github.com/est31)!
 - [FreeBSD](http://portsmon.freebsd.org/portoverview.py?category=games&portname=tanks-of-freedom) thanks to amdmi3
+- [Mageia](http://madb.mageia.org/package/show/application/0/name/tanks-of-freedom) thanks to [Akien](https://github.com/akien-mga)
 - [Pandora](https://repo.openpandora.org/?page=detail&app=tanksoffreedom) thanks to Canseco
 
 
 ### Build from sources
 To get the latest version of the game you'll need to use the source code and Godot Engine
 
-- download & install [Godot Engine](http://www.godotengine.org/projects/godot-engine/documents)
+- download & install [Godot Engine](https://godotengine.org/download)
 - download our sources
   - download [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip) and unzip
   - or clone the repository using git
 - open Godot and import our game
 - run :)
 
-Follow [this tutorial](https://github.com/okamstudio/godot/wiki/export) to learn how to export the game for each platform.
+Follow [this tutorial](http://docs.godotengine.org/en/latest/tutorials/asset_pipeline/exporting_projects.html) to learn how to export the game for each platform.
 
 ## Server
 
@@ -96,7 +97,7 @@ For online funcionalities ToF server is required. Sources can be found in a sepa
    - QmYaan (Grand Beats) http://www.grandbeats.com/
 
 ### engine
-   - Godot Engine http://www.godotengine.org/
+   - Godot Engine https://godotengine.org/
 
 ## Public game catalogs
 
