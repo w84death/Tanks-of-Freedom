@@ -44,6 +44,7 @@ var map_movable = preload('res://terrain/terrain_movable.xscn')
 var map_non_movable = preload('res://terrain/terrain_non-movable.xscn')
 var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
+
 var map_city_small = [
     preload('res://terrain/city/city_small_1.xscn'),
     preload('res://terrain/city/city_small_2.xscn'),
@@ -145,9 +146,6 @@ func set_map_pos(position):
 
 func move_to_map(target):
     self.camera.move_to_map(target)
-
-func shake_camera():
-    return
 
 func generate_map():
     var temp = null
@@ -663,8 +661,8 @@ func fill(width, height):
 
     terrain.clear()
     units.clear()
-    offset_x = (self.bag.abstract_map.MAP_MAX_X*0.5) - (width*0.5)
-    offset_y = (self.bag.abstract_map.MAP_MAX_Y*0.5) - (height*0.5)
+    offset_x = (self.bag.abstract_map.MAP_MAX_X * 0.5) - (width * 0.5)
+    offset_y = (self.bag.abstract_map.MAP_MAX_Y * 0.5) - (height * 0.5)
 
     for x in range(width):
         for y in range(height):
@@ -703,13 +701,13 @@ func _ready():
         scale = self.camera.get_scale()
     else:
         self.set_default_zoom()
-    #pos = terrain.get_pos()
+    pos = terrain.get_pos()
 
-    #shake_timer.set_wait_time(shake_time / shakes_max)
-    #shake_timer.set_one_shot(true)
-    #shake_timer.set_autostart(false)
-    #shake_timer.connect('timeout', self, 'do_single_shake')
-    #self.add_child(shake_timer)
+    self.shake_timer.set_wait_time(shake_time / shakes_max)
+    self.shake_timer.set_one_shot(true)
+    self.shake_timer.set_autostart(false)
+    self.shake_timer.connect('timeout', self, 'do_single_shake')
+    self.add_child(shake_timer)
 
     # where the magic happens
     if show_blueprint:
@@ -718,4 +716,34 @@ func _ready():
         self.generate_map()
 
     set_process_input(true)
+
+func shake_camera():
+    if root.settings['shake_enabled'] and not mouse_dragging:
+        self.shakes = 0
+        shake_initial_position = terrain.get_pos()
+        self.do_single_shake()
+
+func do_single_shake():
+    var target
+    if shakes < shakes_max:
+        var direction_x = randf()
+        var direction_y = randf()
+        var distance_x = randi() % shake_boundary
+        var distance_y = randi() % shake_boundary
+        if direction_x <= 0.5:
+            distance_x = -distance_x
+        if direction_y <= 0.5:
+            distance_y = -distance_y
+
+        pos = Vector2(shake_initial_position) + Vector2(distance_x, distance_y)
+        target = pos
+        underground.set_pos(pos)
+        terrain.set_pos(pos)
+        self.shakes += 1
+        self.shake_timer.start()
+    else:
+        pos = shake_initial_position
+        target = pos
+        self.underground.set_pos(shake_initial_position)
+        self.terrain.set_pos(shake_initial_position)
 
