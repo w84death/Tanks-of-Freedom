@@ -183,6 +183,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
     action_controller.ai.prepare_cost_grid()
+    if load_saved_state && self.bag.saving != null:
+        self.bag.saving.apply_saved_ground()
 
     self.bag.match_state.reset()
     if not workshop_file_name:

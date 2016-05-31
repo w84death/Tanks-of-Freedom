@@ -146,7 +146,7 @@ func capture_building(active_field, field):
     sound_controller.play('occupy_building')
     self.root_node.bag.ap_gain.update()
     if field.object.type == 4:
-        active_field.object.takeAllAP()
+        active_field.object.take_all_ap()
     else:
         self.despawn_unit(active_field)
     self.root_node.bag.fog_controller.clear_fog()

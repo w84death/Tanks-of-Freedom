@@ -210,7 +210,7 @@ func update_shield():
 func score_kill():
 	kills = kills + 1
 
-func takeAllAP():
+func take_all_ap():
 	self.ap = 0
 	self.icon_shield.hide()
 	self.set_no_ap_idle()

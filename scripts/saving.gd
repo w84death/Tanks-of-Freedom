@@ -11,6 +11,7 @@ var unit_map
 var loaded_data
 
 var saved_settings = ['cpu_0', 'cpu_1', 'turns_cap', 'easy_mode']
+var destroyed_tile_template = preload("res://terrain/destroyed_tile.xscn")
 
 func _init_bag(bag):
     self.root_node = bag.root
@@ -104,6 +105,14 @@ func apply_saved_terrain():
                 self.root_node.current_map.map_layer_front.add_child(terrain_object)
                 terrain_object.set_pos(self.root_node.current_map_terrain.map_to_world(Vector2(field['x'], field['y'])))
 
+func apply_saved_ground():
+    var abstract_field
+    var damage_layer = self.bag.abstract_map.map.get_node('terrain/destruction')
+    for field in self.loaded_data['map']:
+        if field['meta'].has('ground_damage') and field['meta']['ground_damage']:
+            abstract_field = self.bag.abstract_map.get_field(Vector2(field['x'], field['y']))
+            abstract_field.add_damage_frame(damage_layer, field['meta']['ground_damage'])
+
 func get_terrain_object_by_unique_type(unique_type_id):
     if unique_type_id == self.t.CITY_SMALL_1:
         return self.root_node.current_map.map_city_small[0].instance()
@@ -152,18 +161,37 @@ func get_active_player_key():
 
 func save_state():
     var pos
+    var ground_damage = null
     self.data.clear()
     for field_row in self.root_node.bag.abstract_map.fields:
         for field in field_row:
             pos = Vector2(field.position.x, field.position.y)
             self.data[pos] = {'x' : field.position.x, 'y': field.position.y, 'terrain': field.terrain_type, 'unit' : -1, 'building' : -1, 'meta': {}}
-            if field.object != null and field.object.group == 'terrain' and field.object.unique_type_id != t.CITY_FENCE:
-                self.data[pos]['meta'] = {
-                    'is_terrain' : true,
-                    'damage' : field.object.damage,
-                    'type' : field.object.unique_type_id,
-                    'frame' : field.object.get_frame()
-                }
+            if field.damage == null:
+                ground_damage = null
+            else:
+                ground_damage = field.damage.get_frame()
+
+            if field.object == null:
+                if ground_damage != null:
+                    self.data[pos]['meta'] = {
+                        'is_terrain' : false,
+                        'ground_damage' : ground_damage
+                    }
+            else:
+                if field.object.group == 'terrain' and field.object.unique_type_id != t.CITY_FENCE:
+                    self.data[pos]['meta'] = {
+                        'is_terrain' : true,
+                        'damage' : field.object.damage,
+                        'type' : field.object.unique_type_id,
+                        'frame' : field.object.get_frame()
+                    }
+
+                if field.object.group == 'unit' and ground_damage != null:
+                    self.data[pos]['meta'] = {
+                        'is_terrain' : false,
+                        'ground_damage' : ground_damage
+                    }
 
     #buildings
     self.__fill_building_data('none')
