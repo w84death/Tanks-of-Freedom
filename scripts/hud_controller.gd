@@ -44,7 +44,6 @@ func init_root(root, action_controller_object, hud):
     self.action_controller = action_controller_object
     self.hud_root = hud
     self.attach_hud_panel()
-    self.tip_counter = 1
     self.tips = preload('res://scripts/translations/tips.gd').new()
 
     self.active_map = root.scale_root
@@ -286,8 +285,7 @@ func update_cpu_progress(current_ap, overall_ap):
     self.cinematic_progress.set_frame(percent)
 
 func __show_next_tip():
-	self.tip_counter = (self.tip_counter + 1) % 13
-	return self.tips.tips[self.tip_counter]
+	return self.tips.next_tip()
 
 func __show_general_header():
-	return 'Did you know that...'
+    return self.tips.header()
