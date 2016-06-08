@@ -8,6 +8,7 @@ var info_panel_blink_led_anim
 var info_panel_turn
 var info_panel_ap
 var info_panel_pap
+var info_panel_map_name
 
 func bind(hud_panel):
     self.info_panel = hud_panel.get_node('info_panel')
@@ -19,6 +20,7 @@ func bind(hud_panel):
     self.info_panel_ap = self.info_panel.get_node('ap')
     self.info_panel_pap = self.info_panel.get_node('pap')
     self.info_panel_turn = self.info_panel.get_node('turn')
+    self.info_panel_map_name = self.info_panel.get_node('map_name')
 
 func bind_end_turn(controller, method_name):
     self.info_panel_end_button.connect('pressed', controller, method_name)
@@ -41,6 +43,9 @@ func set_ap(ap):
 
 func set_ap_gain(ap_gain):
     self.info_panel_pap.set_text('+' + str(ap_gain))
+
+func set_map_name(name):
+    self.info_panel_map_name.set_text(str(name))
 
 func set_turn(turn, max_turn=null):
     var display = str(turn)

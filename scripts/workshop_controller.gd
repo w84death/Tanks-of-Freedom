@@ -113,6 +113,7 @@ func play_map():
     self.root.toggle_menu()
     self.root.bag.match_state.set_workshop_map()
     self.root.hud_controller.enable_back_to_workshop()
+    self.bag.controllers.hud_panel_controller.info_panel.set_map_name("workshop temporary map")
 
 func save_map(name, input = false):
     if input:

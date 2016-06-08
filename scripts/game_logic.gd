@@ -156,6 +156,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     if workshop_file_name:
         self.is_from_workshop = true
         current_map.load_map(workshop_file_name, is_remote)
+        self.bag.controllers.hud_panel_controller.info_panel.set_map_name(workshop_file_name)
     else:
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
@@ -164,6 +165,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         self.settings[human_player] = false
         self.settings['turns_cap'] = 0
         current_map.load_campaign_map(template_name)
+        self.bag.controllers.hud_panel_controller.info_panel.set_map_name(self.bag.campaign.get_map_name(template_name))
     current_map.show_blueprint = false
     hud = hud_template.instance()
     self.bag.gamepad.show_gamepad_icons()
