@@ -69,6 +69,7 @@ var registered_click_threshold = 10
 const SETTINGS_PATH = "user://settings.tof"
 
 func _input(event):
+    print(event)
     if is_demo == true:
         is_demo = false
         get_node("DemoTimer").stop()
@@ -82,8 +83,8 @@ func _input(event):
             camera_pos = self.camera.get_pos()
 
             if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
-                    self.is_camera_drag = event.pressed
-                    self.bag.camera.mouse_dragging = event.pressed
+                self.is_camera_drag = event.pressed
+                self.bag.camera.mouse_dragging = event.pressed
 
             if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
                 var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
@@ -125,6 +126,11 @@ func _input(event):
             action_controller.switch_unit(self.bag.unit_switcher.BACK)
         if event.type == InputEvent.KEY && event.scancode == KEY_B && event.pressed:
             self.bag.camera.move_to_map_center()
+
+        if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
+            self.bag.camera.camera_zoom_in()
+        if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_DOWN && event.pressed:
+            self.bag.camera.camera_zoom_out()
 
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()

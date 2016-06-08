@@ -3,7 +3,7 @@ var root
 var game_logic
 var camera
 var camera_zoom_range = [0.5,2.5]
-var camera_zoom_levels = [0.125, 0.25, 0.5, 1, 1.5]
+var camera_zoom_levels = [0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5]
 var camera_zoom_level_pos = 2
 var bag
 
@@ -64,7 +64,7 @@ func apply_default_camera():
 
 func camera_zoom_do(direction):
     var new_scale
-    if ( direction < 0 && scale.x > self.camera_zoom_levels[0] ) or ( direction > 0 && scale.x < self.camera_zoom_levels[4] ):
+    if ( direction < 0 && scale.x > self.camera_zoom_levels[0] ) or ( direction > 0 && scale.x < self.camera_zoom_levels[10] ):
         self.camera_zoom_level_pos = self.camera_zoom_level_pos + direction
         new_scale = self.camera_zoom_levels[self.camera_zoom_level_pos]
         self.scale = Vector2(new_scale, new_scale)
