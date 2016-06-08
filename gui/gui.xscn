@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="19" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="19" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="7"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="7"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="8"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" index="15"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="11"></ext_resource>
 	<ext_resource path="res://gui/vigette.tscn" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://gui/message.tscn" type="PackedScene" index="2"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="10"></ext_resource>
+	<ext_resource path="res://gui/message.tscn" type="PackedScene" index="2"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="12"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" index="16"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="13"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" index="16"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="14"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://gui/stats.xscn" type="PackedScene" index="17"></ext_resource>
 	<ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene" index="1"></ext_resource>
 	<main_resource>
@@ -84,7 +84,7 @@
 				<string> "settings" </string>
 				<string> "gamepad_buttons" </string>
 				<string> "gamepad_button" </string>
-				<string> "gamepad_button 2" </string>
+				<string> "gamepad_button2" </string>
 				<string> "gamepad_button3" </string>
 				<string> "Label1" </string>
 				<string> "end_game" </string>

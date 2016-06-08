@@ -9,12 +9,20 @@ const AXIS_ANGLE_THRESHOLD = 0.2
 const AXIS_OVERALL_THRESHOLD = 0.5
 
 var gamepad_detected = false
+var ouya_gamepad_detected = false
 var painting = false
 var erasing = false
 
-var gamepad_icons = [
+var gamepad_icons_boxes = [
     'message_card/center/message/button/Sprite',
     'top_panel/center/game_card/gamepad_buttons'
+]
+
+var gamepad_icons = [
+    'message_card/center/message/button/Sprite',
+    'top_panel/center/game_card/gamepad_buttons/gamepad_button',
+    'top_panel/center/game_card/gamepad_buttons/gamepad_button2',
+    'top_panel/center/game_card/gamepad_buttons/gamepad_button3',
 ]
 
 
@@ -28,6 +36,9 @@ func handle_input(event):
         self.handle_button(event)
 
     if not self.gamepad_detected:
+        var pad_name = Input.get_joy_name(event.device)
+        if self.is_ouya("is it OUYA? totally OUYA"):
+            self.ouya_gamepad_detected = true
         self.gamepad_detected = true
         self.show_gamepad_icons()
 
@@ -36,9 +47,31 @@ func show_gamepad_icons():
         return
     if not self.gamepad_detected:
         return
-    for icon in self.gamepad_icons:
+    for icon in self.gamepad_icons_boxes:
         self.bag.root.hud.get_node(icon).show()
     self.bag.controllers.hud_panel_controller.building_panel.build_card.deploy_button_icon.show()
+
+    if self.ouya_gamepad_detected:
+        self.switch_buttons_to_ouya()
+
+func is_ouya(name):
+    var validator = RegEx.new()
+    validator.compile("(OUYA)")
+    validator.find(name)
+    var matches = validator.get_captures()
+
+    if matches[1] == "OUYA":
+        return true
+
+    return false
+
+func switch_buttons_to_ouya():
+    var icon_sprite
+    var offset = 4
+    for icon in self.gamepad_icons:
+        icon_sprite = self.bag.root.hud.get_node(icon)
+        icon_sprite.set_frame(icon_sprite.get_frame() + offset)
+
 
 func handle_motion(event):
     if event.axis == 0:
