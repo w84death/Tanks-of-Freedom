@@ -72,9 +72,9 @@ func set_unit_price(price):
     self.price.set_text(str(price) + "AP")
 
 func set_unit_stats(attack, health, unit_range):
-    self.attack.set_text("attack: " + str(attack))
-    self.health.set_text("health: " + str(health))
-    self.unit_range.set_text("range: " + str(unit_range))
+    self.attack.set_text(tr('LABEL_UNIT_ATTACK') + ": " + str(attack))
+    self.health.set_text(tr('LABEL_UNIT_HEALTH') + ": " + str(health))
+    self.unit_range.set_text(tr('LABEL_UNIT_RANGE') + ": " + str(unit_range))
 
 func disable_button():
     self.deploy_button.set_disabled(true)

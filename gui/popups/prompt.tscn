@@ -181,16 +181,16 @@ __meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="confirm"]
 
-margin/left = 4.0
+margin/left = 5.0
 margin/top = 16.0
-margin/right = 134.0
+margin/right = 145.0
 margin/bottom = 31.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "CONFIRM"
+text = "LABEL_CONFIRM"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0

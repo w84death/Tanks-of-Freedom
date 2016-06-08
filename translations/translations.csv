@@ -13,3 +13,28 @@ TIP_10,Mixing unit types in squads gives you a strategic advantage
 TIP_11,You cannot deploy unit when spawning point is blocked and so do the enemy - block factories with your units
 TIP_12,Units can attack only adjacent tiles - so when target is far away you should firstly move your unit
 TIP_13,HQ is the most valuable building in game - if you capture enemy HQ you will win the game, losing it means instant defeat
+LABEL_WORKSHOP,WORKSHOP
+LABEL_MAIN_MENU,MAIN MENU
+LABEL_START_TURN,START TURN
+LABEL_CAMPAIGN,CAMPAIGN
+LABEL_SKIRMISH,SKIRMISH
+LABEL_CONFIRM,CONFIRM
+LABEL_UNIT_ATTACK,attack
+LABEL_UNIT_HEALTH,health
+LABEL_UNIT_RANGE,range
+LABEL_BUILDING_HQ,HQ
+LABEL_BUILDING_BARRACKS,BARRACKS
+LABEL_BUILDING_FACTORY,FACTORY
+LABEL_BUILDING_AIRPORT,AIRPORT
+LABEL_BUILDING_GSM_TOWER,GSM TOWER
+LABEL_REMOTE,REMOTE
+LABEL_LOCAL,LOCAL
+LABEL_OFF,OFF
+LABEL_ON,ON
+LABEL_GAME,GAME
+LABEL_RESUME,RESUME
+LABEL_EASY,EASY
+LABEL_NORMAL,NORMAL
+LABEL_MAPS_CREATED,MAPS CREATED
+LABEL_COMPLETED,COMPLETED
+MSG_START_YOUR_TURN_NOW,Start your turn now!

@@ -299,10 +299,10 @@ func hide_settings():
 func manage_close_button():
     if self.root.is_map_loaded:
         self.close_button.show()
-        self.close_button_label.set_text('< GAME')
+        self.close_button_label.set_text('< ' + tr('LABEL_GAME'))
     elif self.root.bag.saving != null && self.root.bag.saving.is_save_available():
         self.close_button.show()
-        self.close_button_label.set_text('< RESUME')
+        self.close_button_label.set_text('< ' + tr('LABEL_RESUME'))
     else:
         self.close_button.hide()
 
@@ -377,48 +377,48 @@ func toggle_music():
 func toggle_shake():
     root.settings['shake_enabled'] = not root.settings['shake_enabled']
     if root.settings['shake_enabled']:
-        shake_toggle_label.set_text("ON")
+        shake_toggle_label.set_text(tr('LABEL_ON'))
     else:
-        shake_toggle_label.set_text("OFF")
+        shake_toggle_label.set_text(tr('LABEL_OFF'))
     root.write_settings_to_file()
 
 func toggle_follow():
     root.settings['camera_follow'] = not root.settings['camera_follow']
     if root.settings['camera_follow']:
-        camera_follow_label.set_text("ON")
+        camera_follow_label.set_text(tr('LABEL_ON'))
     else:
-        camera_follow_label.set_text("OFF")
+        camera_follow_label.set_text(tr('LABEL_OFF'))
     root.write_settings_to_file()
 
 func refresh_buttons_labels():
     if root.settings['sound_enabled']:
-        sound_toggle_label.set_text("ON")
+        sound_toggle_label.set_text(tr('LABEL_ON'))
     else:
-        sound_toggle_label.set_text("OFF")
+        sound_toggle_label.set_text(tr('LABEL_OFF'))
     if root.settings['music_enabled']:
-        music_toggle_label.set_text("ON")
+        music_toggle_label.set_text(tr('LABEL_ON'))
     else:
-        music_toggle_label.set_text("OFF")
+        music_toggle_label.set_text(tr('LABEL_OFF'))
     if root.settings['shake_enabled']:
-        shake_toggle_label.set_text("ON")
+        shake_toggle_label.set_text(tr('LABEL_ON'))
     else:
-        shake_toggle_label.set_text("OFF")
+        shake_toggle_label.set_text(tr('LABEL_OFF'))
     if root.settings['camera_follow']:
-        camera_follow_label.set_text("ON")
+        camera_follow_label.set_text(tr('LABEL_ON'))
     else:
-        camera_follow_label.set_text("OFF")
+        camera_follow_label.set_text(tr('LABEL_OFF'))
     if root.settings['easy_mode']:
-        difficulty_label.set_text('EASY')
+        difficulty_label.set_text(tr('LABEL_EASY'))
     else:
-        difficulty_label.set_text('NORMAL')
+        difficulty_label.set_text(tr('LABEL_NORMAL'))
 
     if root.bag.resolution.override_resolution:
         self.resolution_button.set_disabled(false)
         self.resolution_label.show()
         if root.settings['resolution'] == root.bag.resolution.UNLOCKED:
-            resolution_label.set_text('ON')
+            resolution_label.set_text(tr('LABEL_ON'))
         else:
-            resolution_label.set_text('OFF')
+            resolution_label.set_text(tr('LABEL_OFF'))
     else:
         self.resolution_button.set_disabled(true)
         self.resolution_label.hide()
@@ -435,12 +435,12 @@ func update_progress_labels():
 
 func update_custom_maps_count_label():
     var maps_created = self.root.bag.map_list.maps.size()
-    self.label_maps_created.set_text("MAPS CREATED: " + str(maps_created))
+    self.label_maps_created.set_text(tr('LABEL_MAPS_CREATED') + ': ' + str(maps_created))
 
 func update_campaign_progress_label():
     var completed_maps = self.root.bag.campaign.get_completed_map_count()
     var total_maps = self.root.bag.campaign.maps.size()
-    self.label_completed.set_text("COMPLETED: " + str(completed_maps) + "/" + str(total_maps))
+    self.label_completed.set_text(tr('LABEL_COMPLETED') + ": " + str(completed_maps) + "/" + str(total_maps))
 
 func update_version_label():
     self.label_version.set_text(self.root.version_name)

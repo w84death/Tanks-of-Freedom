@@ -148,9 +148,9 @@ func manage_switch_buttons():
             self.next_button.grab_focus()
 
     if self.root.settings['easy_mode']:
-        difficulty_label.set_text('EASY')
+        difficulty_label.set_text(tr('LABEL_EASY'))
     else:
-        difficulty_label.set_text('NORMAL')
+        difficulty_label.set_text(tr('LABEL_NORMAL'))
 
 func button_enable_switch(button, show):
 	var temp = null

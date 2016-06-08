@@ -1,4 +1,3 @@
-
 var building_panel
 
 var building_panel_units_dock
@@ -19,7 +18,7 @@ func bind(hud_panel):
 func bind_building(building_object, player_ap):
     var unit_spawned = building_object.spawn_unit(building_object.player)
     self.building = building_object
-    self.name_label.set_text(building_object.get_building_name())
+    self.name_label.set_text(tr('LABEL_BUILDING_' + building_object.get_building_name()))
     self.build_card.fill_card(unit_spawned, building.get_required_ap(), player_ap)
     unit_spawned.queue_free()
 

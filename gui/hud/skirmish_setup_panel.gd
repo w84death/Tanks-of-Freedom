@@ -64,7 +64,7 @@ func refresh_labels():
     if self.bag.root.settings['turns_cap'] > 0:
         self.turn_cap_button_label.set_text(str(self.bag.root.settings['turns_cap']))
     else:
-        self.turn_cap_button_label.set_text("OFF")
+        self.turn_cap_button_label.set_text(tr('LABEL_OFF'))
     self.set_player_button_state(0, self.player_0_button_label)
     self.set_player_button_state(1, self.player_1_button_label)
 

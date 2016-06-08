@@ -10,7 +10,6 @@ var hud_message_card_controller
 var hud_message_card_button
 var hud_message_card_visible = false
 
-
 var cinematic_camera
 var cinematic_camera_anim
 var cinematic_progress
@@ -44,7 +43,7 @@ func init_root(root, action_controller_object, hud):
     self.action_controller = action_controller_object
     self.hud_root = hud
     self.attach_hud_panel()
-    self.tips = preload('res://scripts/translations/tips.gd').new()
+    self.tips = preload('res://scripts/services/tips.gd').new()
 
     self.active_map = root.scale_root
 
@@ -127,11 +126,11 @@ func detach_hud_panel():
 
 func enable_back_to_workshop():
     self.back_to_workshop = true
-    self.menu_button_label.set_text("< WORKSHOP")
+    self.menu_button_label.set_text("< " + tr("LABEL_WORKSHOP"))
 
 func disable_back_to_workshop():
     self.back_to_workshop = false
-    self.menu_button_label.set_text("< MAIN MENU")
+    self.menu_button_label.set_text("< " + tr("LABEL_MAIN_MENU"))
 
 func show_unit_card(unit, player):
     if self.hud_locked:
@@ -156,7 +155,7 @@ func clear_building_card():
 func show_in_game_card(messages, current_player):
     self.lock_hud()
     self.hide_map()
-    hud_message_card_controller.show_message(self.__show_general_header(), self.__show_next_tip(), 'Start your turn now!', "START TURN", current_player)
+    hud_message_card_controller.show_message(self.__show_general_header(), self.__show_next_tip(), tr('MSG_START_YOUR_TURN_NOW'), tr('LABEL_START_TURN'), current_player)
     hud_message_card.show()
     hud_message_card_button.grab_focus()
     hud_message_card_visible = true
@@ -198,13 +197,13 @@ func show_win(player, stats, turns):
 
 func adjust_missions_button():
     if self.root.bag.match_state.is_campaign():
-        self.hud_end_game_missions_button_label.set_text("CAMPAIGN")
+        self.hud_end_game_missions_button_label.set_text(tr('LABEL_CAMPAIGN'))
         self.hud_end_game_missions_button_action = "show_campaign"
     elif self.root.bag.match_state.is_workshop():
-        self.hud_end_game_missions_button_label.set_text("WORKSHOP")
+        self.hud_end_game_missions_button_label.set_text(tr('LABEL_WORKSHOP'))
         self.hud_end_game_missions_button_action = "show_workshop"
     else:
-        self.hud_end_game_missions_button_label.set_text("SKIRMISH")
+        self.hud_end_game_missions_button_label.set_text(tr('LABEL_SKIRMISH'))
         self.hud_end_game_missions_button_action = "show_missions"
 
 func hud_end_game_missions_button_pressed():
