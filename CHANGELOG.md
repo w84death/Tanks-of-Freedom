@@ -2,6 +2,12 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.5.1-beta
+- OUYA style button help will show when using OUYA gamepad
+- fixed Settings button not working correctly when playing from Workshop
+- fixed ground damage not being preserved on save/resume
+- fixed missing screenshake when units are destroyed
+
 ### 0.5.0-beta
 - engine updated to Godot 2.0.2
 - added online map sharing
