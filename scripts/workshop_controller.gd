@@ -209,6 +209,11 @@ func _input(event):
             if event.scancode == KEY_Z && event.pressed:
                 self.undo_last_action()
 
+        if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
+            self.bag.camera.camera_zoom_in()
+        if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_DOWN && event.pressed:
+            self.bag.camera.camera_zoom_out()
+
     if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded && (event.type != InputEvent.KEY || not event.is_echo()):
         self.toggle_menu()
 
