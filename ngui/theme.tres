@@ -256,6 +256,19 @@ content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
 
+[sub_resource type="StyleBoxFlat" id=27]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+light_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+dark_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
 [sub_resource type="StyleBoxFlat" id=28]
 
 content_margin/left = -1.0
@@ -275,9 +288,9 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-bg_color = Color( 0.964706, 0.886275, 0.419608, 1 )
-light_color = Color( 0.964706, 0.886275, 0.419608, 1 )
-dark_color = Color( 0.964706, 0.886275, 0.419608, 1 )
+bg_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+light_color = Color( 0.266667, 0.537255, 0.101961, 1 )
+dark_color = Color( 0.266667, 0.537255, 0.101961, 1 )
 border_size = 0
 border_blend = true
 draw_bg = true
@@ -296,19 +309,6 @@ border_blend = true
 draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=31]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-bg_color = Color( 0.266667, 0.537255, 0.101961, 1 )
-light_color = Color( 0.266667, 0.537255, 0.101961, 1 )
-dark_color = Color( 0.266667, 0.537255, 0.101961, 1 )
-border_size = 0
-border_blend = true
-draw_bg = true
-
-[sub_resource type="StyleBoxFlat" id=32]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
@@ -386,10 +386,10 @@ VScrollBar/icons/decrement = ExtResource( 6 )
 VScrollBar/icons/decrement_hilite = ExtResource( 7 )
 VScrollBar/icons/increment = ExtResource( 6 )
 VScrollBar/icons/increment_hilite = ExtResource( 7 )
-VScrollBar/styles/grabber = SubResource( 28 )
-VScrollBar/styles/grabber_hilite = SubResource( 29 )
-VScrollBar/styles/scroll = SubResource( 30 )
-VScrollBar/styles/scroll_focus = SubResource( 31 )
+VScrollBar/styles/grabber = SubResource( 27 )
+VScrollBar/styles/grabber_hilite = SubResource( 28 )
+VScrollBar/styles/scroll = SubResource( 29 )
+VScrollBar/styles/scroll_focus = SubResource( 30 )
 VSeparator/constants/separation = 4
-VSeparator/styles/separator = SubResource( 32 )
+VSeparator/styles/separator = SubResource( 31 )
 
