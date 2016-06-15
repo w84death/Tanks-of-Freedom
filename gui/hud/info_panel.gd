@@ -1,5 +1,7 @@
 
 var info_panel
+var turn_info
+var end_turn
 
 var info_panel_end_button
 var info_panel_blink_label
@@ -12,15 +14,16 @@ var info_panel_map_name
 
 func bind(hud_panel):
     self.info_panel = hud_panel.get_node('info_panel')
-
-    self.info_panel_end_button = self.info_panel.get_node('end_turn_button')
-    self.info_panel_blink_label = self.info_panel.get_node('end_turn_text')
-    self.info_panel_blink_led = self.info_panel.get_node('end_turn_led')
+    self.turn_info = self.info_panel.get_node('turn_info')
+    self.end_turn = self.info_panel.get_node('end_turn')
+    self.info_panel_turn = self.end_turn.get_node('turn')
+    self.info_panel_end_button = self.end_turn.get_node('end_turn_button')
+    self.info_panel_blink_label = self.end_turn.get_node('end_turn_text')
+    self.info_panel_blink_led = self.end_turn.get_node('end_turn_led')
     self.info_panel_blink_led_anim = self.info_panel_blink_led.get_node('anim')
-    self.info_panel_ap = self.info_panel.get_node('ap')
-    self.info_panel_pap = self.info_panel.get_node('pap')
-    self.info_panel_turn = self.info_panel.get_node('turn')
-    self.info_panel_map_name = self.info_panel.get_node('map_name')
+    self.info_panel_ap = self.turn_info.get_node('ap')
+    self.info_panel_pap = self.turn_info.get_node('pap')
+    self.info_panel_map_name = self.turn_info.get_node('map_name')
 
 func bind_end_turn(controller, method_name):
     self.info_panel_end_button.connect('pressed', controller, method_name)

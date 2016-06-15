@@ -12,6 +12,9 @@ var scale_root
 var loading_container
 var camera
 var menu
+var hud_pandora = preload('res://gui/hud_pandora.tscn')
+#var hud_tv = preload('res://gui/hud_tv.tscn')
+#var hud_pc = preload('res://gui/hud_pc.tscn')
 var hud_template = preload('res://gui/gui.xscn')
 var screen_size
 var half_screen_size = Vector2(0, 0)

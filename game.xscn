@@ -130,7 +130,7 @@
 				<real> 12 </real>
 				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
-				<rect2> 0, 0, 1280, 720 </rect2>
+				<rect2> 0, 0, 800, 480 </rect2>
 				<vector2> 1, 1 </vector2>
 				<int> -10000000 </int>
 				<int> 10000000 </int>

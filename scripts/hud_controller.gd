@@ -47,7 +47,7 @@ func init_root(root, action_controller_object, hud):
 
     self.active_map = root.scale_root
 
-    self.game_card = hud.get_node("top_panel/center/game_card")
+    self.game_card = hud.get_node("top_center/center/game_card")
 
     hud_vigette = hud.get_node("vigette/center/sprite")
 
@@ -88,9 +88,9 @@ func init_root(root, action_controller_object, hud):
     cinematic_camera_anim = cinematic_camera.get_node("anim")
     cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
 
-    self.menu_button = hud.get_node("top_panel/center/game_card/menu")
+    self.menu_button = hud.get_node("top_center/center/game_card/menu")
     self.menu_button_label = self.menu_button.get_node('Label')
-    self.settings_button = hud.get_node("top_panel/center/game_card/settings")
+    self.settings_button = hud.get_node("top_center/center/game_card/settings")
     self.menu_button.connect("pressed", self, "_menu_button_pressed", ['menu'])
     self.settings_button.connect("pressed", self, "_menu_button_pressed", ['settings'])
     self.root.bag.controllers.hud_panel_controller.reset()
@@ -117,7 +117,7 @@ func _end_turn_button_pressed():
 
 
 func attach_hud_panel():
-    self.hud_panel_anchor = self.hud_root.get_node('bottom_panel/center')
+    self.hud_panel_anchor = self.hud_root.get_node('bottom_center/center')
     self.hud_panel_anchor.add_child(self.root.bag.controllers.hud_panel_controller.hud_panel)
     self.root.bag.controllers.hud_panel_controller.info_panel.bind_end_turn(self, '_end_turn_button_pressed')
 

@@ -1,145 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="24" version="2.0" version_name="Godot Engine v2.0.stable.official">
+<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+	<ext_resource path="res://gui/hud/end_turn.tscn" type="PackedScene" index="5"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="3"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="18"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="17"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="19"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="10"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" index="11"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" index="5"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" index="1"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font" index="2"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_0.png" type="Texture" index="7"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/button_end_1.png" type="Texture" index="13"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_60.fnt" type="Font" index="15"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/button_end_0.png" type="Texture" index="12"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" index="8"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/button_end_2.png" type="Texture" index="14"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" index="9"></ext_resource>
-	<ext_resource path="res://assets/gui/dialogs/mini_led_icons.png" type="Texture" index="16"></ext_resource>
-	<ext_resource path="res://assets/gui/dialogs/unit_actions.png" type="Texture" index="4"></ext_resource>
-	<ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" index="6"></ext_resource>
-	<resource type="Animation" path="local://1">
-		<real name="length"> 1 </real>
-		<bool name="loop"> True </bool>
-		<real name="step"> 0.25 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> ".:frame" </node_path>
-		<int name="tracks/0/interp"> 0 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
-			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.25, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="3" shared="false">
-				<int> 2 </int>
-				<int> 3 </int>
-				<int> 3 </int>
-			</array>
-		</dictionary>
-		<string name="tracks/1/type"> "value" </string>
-		<node_path name="tracks/1/path"> "../end_turn_text:custom_colors/font_color" </node_path>
-		<int name="tracks/1/interp"> 0 </int>
-		<dictionary name="tracks/1/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
-			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.25, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="3" shared="false">
-				<color> 1, 1, 1, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://2">
-		<real name="length"> 1 </real>
-		<bool name="loop"> True </bool>
-		<real name="step"> 0.25 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> ".:frame" </node_path>
-		<int name="tracks/0/interp"> 0 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
-			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.25, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="3" shared="false">
-				<int> 4 </int>
-				<int> 5 </int>
-				<int> 5 </int>
-			</array>
-		</dictionary>
-		<string name="tracks/1/type"> "value" </string>
-		<node_path name="tracks/1/path"> "../end_turn_text:custom_colors/font_color" </node_path>
-		<int name="tracks/1/interp"> 0 </int>
-		<dictionary name="tracks/1/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
-			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.25, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="3" shared="false">
-				<color> 1, 1, 1, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-			</array>
-		</dictionary>
-
-	</resource>
-	<resource type="Animation" path="local://3">
-		<real name="length"> 1 </real>
-		<bool name="loop"> True </bool>
-		<real name="step"> 0.25 </real>
-		<string name="tracks/0/type"> "value" </string>
-		<node_path name="tracks/0/path"> ".:frame" </node_path>
-		<int name="tracks/0/interp"> 0 </int>
-		<dictionary name="tracks/0/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
-			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.25, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="3" shared="false">
-				<int> 0 </int>
-				<int> 1 </int>
-				<int> 1 </int>
-			</array>
-		</dictionary>
-		<string name="tracks/1/type"> "value" </string>
-		<node_path name="tracks/1/path"> "../end_turn_text:custom_colors/font_color" </node_path>
-		<int name="tracks/1/interp"> 0 </int>
-		<dictionary name="tracks/1/keys" shared="false">
-			<string> "cont" </string>
-			<bool> False </bool>
-			<string> "times" </string>
-			<real_array  len="3"> 				0, 0.25, 0.5 </real_array>
-			<string> "transitions" </string>
-			<real_array  len="3"> 				1, 1, 1 </real_array>
-			<string> "values" </string>
-			<array  len="3" shared="false">
-				<color> 1, 1, 1, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-				<color> 0, 0, 0, 1 </color>
-			</array>
-		</dictionary>
-
-	</resource>
+	<ext_resource path="res://gui/hud/unit_panel.tscn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://gui/hud/building_panel.tscn" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://gui/hud/turn_info.tscn" type="PackedScene" index="4"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -150,7 +16,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="111">
+			<string_array  len="35">
 				<string> "main_panel" </string>
 				<string> "margin/top" </string>
 				<string> "margin/right" </string>
@@ -161,10 +27,10 @@
 				<string> "size_flags/vertical" </string>
 				<string> "__meta__" </string>
 				<string> "Control" </string>
-				<string> "background" </string>
-				<string> "unit_panel" </string>
+				<string> "default_panel" </string>
+				<string> "margin/left" </string>
+				<string> "left" </string>
 				<string> "visibility/visible" </string>
-				<string> "Sprite4" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/scale" </string>
 				<string> "texture" </string>
@@ -172,106 +38,30 @@
 				<string> "hframes" </string>
 				<string> "frame" </string>
 				<string> "Sprite" </string>
-				<string> "Sprite4 2" </string>
-				<string> "Sprite4 3" </string>
-				<string> "lcd_right2" </string>
-				<string> "lcd_left1" </string>
-				<string> "lcd_right2 2" </string>
-				<string> "attack_" </string>
-				<string> "margin/left" </string>
+				<string> "middle" </string>
+				<string> "right" </string>
+				<string> "Label" </string>
 				<string> "custom_fonts/font" </string>
 				<string> "custom_colors/font_color" </string>
 				<string> "text" </string>
 				<string> "percent_visible" </string>
 				<string> "lines_skipped" </string>
 				<string> "max_lines_visible" </string>
-				<string> "Label" </string>
-				<string> "attack" </string>
-				<string> "attacks_left" </string>
-				<string> "health_" </string>
-				<string> "health" </string>
-				<string> "action_1" </string>
-				<string> "action_2" </string>
-				<string> "action_slots_" </string>
-				<string> "align" </string>
-				<string> "name" </string>
-				<string> "action_points_" </string>
-				<string> "ap" </string>
-				<string> "extras" </string>
+				<string> "unit_panel" </string>
 				<string> "building_panel" </string>
-				<string> "Sprite44" </string>
-				<string> "Sprite5" </string>
-				<string> "unit_sprite" </string>
-				<string> "flip_h" </string>
-				<string> "building_name" </string>
-				<string> "uppercase" </string>
-				<string> "unit_name" </string>
-				<string> "clip_text" </string>
-				<string> "range" </string>
-				<string> "price" </string>
-				<string> "price_" </string>
-				<string> "no_ap" </string>
-				<string> "deploy_button" </string>
-				<string> "toggle_mode" </string>
-				<string> "textures/normal" </string>
-				<string> "textures/pressed" </string>
-				<string> "textures/hover" </string>
-				<string> "textures/disabled" </string>
-				<string> "params/scale" </string>
-				<string> "TextureButton" </string>
-				<string> "gamepad_button" </string>
-				<string> "forground" </string>
-				<string> "Sprite2" </string>
-				<string> "Sprite3" </string>
-				<string> "Sprite6" </string>
-				<string> "Sprite7" </string>
-				<string> "Sprite8" </string>
-				<string> "Sprite9" </string>
 				<string> "info_panel" </string>
-				<string> "Sprite8 2" </string>
-				<string> "end_turn_button" </string>
-				<string> "textures/focused" </string>
-				<string> "end_turn_text" </string>
-				<string> "valign" </string>
-				<string> "lcd_left2" </string>
-				<string> "turn_" </string>
-				<string> "turn" </string>
-				<string> "ap_" </string>
-				<string> "pap" </string>
-				<string> "end_turn_led" </string>
-				<string> "anim" </string>
-				<string> "playback/process_mode" </string>
-				<string> "playback/default_blend_time" </string>
-				<string> "root/root" </string>
-				<string> "anims/blink_blue" </string>
-				<string> "anims/blink_green" </string>
-				<string> "anims/blink_red" </string>
-				<string> "playback/active" </string>
-				<string> "playback/speed" </string>
-				<string> "blend_times" </string>
-				<string> "autoplay" </string>
-				<string> "AnimationPlayer" </string>
-				<string> "debug_button1" </string>
-				<string> "end_turn_text1" </string>
-				<string> "debug_button2" </string>
-				<string> "debug_button3" </string>
-				<string> "debug_button4" </string>
-				<string> "ap_1" </string>
-				<string> "map_name" </string>
-				<string> "default_panel" </string>
-				<string> "left" </string>
-				<string> "middle" </string>
-				<string> "right" </string>
+				<string> "turn_info" </string>
+				<string> "end_turn" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 83 </int>
+			<int> 11 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="2191"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 5, 8, 6, 0, 0, 0, 9, 10, -1, 6, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 0, 0, 0, 9, 11, -1, 8, 12, 3, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 8, 7, 0, 2, 0, 9, 10, -1, 7, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 8, 8, 0, 3, 0, 20, 13, -1, 6, 14, 9, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 3, 0, 20, 21, -1, 6, 14, 14, 15, 15, 16, 11, 17, 12, 18, 12, 19, 16, 0, 3, 0, 20, 22, -1, 6, 14, 17, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 3, 0, 20, 23, -1, 6, 14, 19, 15, 20, 16, 11, 17, 12, 18, 12, 19, 21, 0, 3, 0, 20, 24, -1, 6, 14, 22, 15, 23, 16, 11, 17, 12, 18, 12, 19, 24, 0, 3, 0, 20, 25, -1, 6, 14, 25, 15, 23, 16, 11, 17, 12, 18, 12, 19, 26, 0, 2, 0, 34, 26, -1, 13, 27, 27, 1, 28, 2, 29, 3, 30, 4, 4, 5, 4, 6, 5, 28, 31, 29, 32, 30, 33, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 35, -1, 13, 27, 37, 1, 30, 2, 38, 3, 34, 4, 4, 5, 4, 6, 5, 28, 39, 29, 32, 30, 40, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 36, -1, 13, 27, 27, 1, 41, 2, 42, 3, 43, 4, 4, 5, 4, 6, 5, 28, 44, 29, 32, 30, 45, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 37, -1, 13, 27, 46, 1, 47, 2, 48, 3, 46, 4, 4, 5, 4, 6, 5, 28, 31, 29, 32, 30, 49, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 38, -1, 12, 27, 50, 1, 50, 2, 51, 4, 4, 5, 4, 6, 5, 28, 39, 29, 32, 30, 52, 31, 34, 32, 35, 33, 36, 0, 2, 0, 20, 39, -1, 5, 12, 3, 14, 53, 15, 10, 16, 54, 18, 18, 0, 2, 0, 20, 40, -1, 5, 12, 3, 14, 55, 15, 10, 16, 54, 18, 18, 0, 2, 0, 34, 41, -1, 15, 12, 3, 27, 56, 1, 57, 2, 29, 3, 58, 4, 4, 5, 4, 6, 5, 28, 31, 29, 59, 30, 60, 42, 5, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 43, -1, 14, 12, 3, 27, 61, 1, 62, 2, 63, 3, 64, 4, 4, 5, 4, 6, 5, 28, 65, 29, 59, 30, 66, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 44, -1, 14, 27, 67, 1, 47, 2, 68, 3, 50, 4, 4, 5, 4, 6, 5, 28, 31, 29, 32, 30, 69, 42, 5, 31, 34, 32, 35, 33, 36, 0, 2, 0, 34, 45, -1, 13, 27, 70, 1, 50, 2, 71, 4, 4, 5, 4, 6, 5, 28, 39, 29, 32, 30, 52, 42, 5, 31, 34, 32, 35, 33, 36, 0, 2, 0, 9, 46, -1, 6, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 0, 0, 0, 9, 47, -1, 7, 1, 41, 2, 1, 3, 72, 4, 3, 5, 4, 6, 5, 7, 5, 0, 22, 0, 9, 10, -1, 7, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 8, 73, 0, 23, 0, 20, 48, -1, 6, 14, 74, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 23, 0, 20, 49, -1, 6, 14, 75, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 23, 0, 20, 13, -1, 6, 14, 76, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 23, 0, 20, 21, -1, 6, 14, 77, 15, 15, 16, 11, 17, 12, 18, 12, 19, 16, 0, 23, 0, 20, 22, -1, 6, 14, 78, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 23, 0, 20, 24, -1, 6, 14, 79, 15, 23, 16, 11, 17, 12, 18, 12, 19, 24, 0, 23, 0, 20, 25, -1, 6, 14, 80, 15, 23, 16, 11, 17, 12, 18, 12, 19, 26, 0, 22, 0, 20, 50, -1, 7, 14, 81, 15, 10, 16, 82, 51, 4, 17, 16, 18, 83, 19, 84, 0, 22, 0, 34, 52, -1, 14, 27, 85, 1, 86, 2, 87, 3, 88, 4, 4, 5, 3, 6, 5, 28, 44, 30, 89, 42, 90, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 54, -1, 15, 27, 91, 1, 92, 2, 93, 3, 94, 4, 4, 5, 4, 6, 5, 28, 44, 30, 95, 42, 90, 55, 4, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 35, -1, 13, 27, 96, 1, 30, 2, 41, 3, 97, 4, 4, 5, 4, 6, 5, 28, 31, 30, 33, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 38, -1, 12, 27, 96, 1, 61, 2, 98, 4, 4, 5, 4, 6, 5, 28, 31, 30, 99, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 56, -1, 13, 27, 100, 1, 101, 2, 102, 3, 103, 4, 4, 5, 4, 6, 5, 28, 31, 30, 104, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 57, -1, 14, 27, 105, 1, 106, 2, 107, 3, 103, 4, 4, 5, 4, 6, 5, 28, 39, 30, 108, 42, 5, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 58, -1, 14, 27, 109, 1, 30, 2, 110, 3, 97, 4, 4, 5, 4, 6, 5, 28, 31, 30, 111, 42, 5, 53, 4, 31, 34, 32, 35, 33, 36, 0, 22, 0, 34, 59, -1, 13, 27, 112, 1, 113, 2, 114, 3, 115, 4, 4, 5, 4, 6, 5, 28, 31, 30, 116, 42, 90, 31, 34, 32, 35, 33, 36, 0, 22, 0, 67, 60, -1, 14, 27, 117, 1, 115, 2, 118, 3, 119, 4, 3, 5, 4, 6, 5, 7, 5, 61, 3, 62, 120, 63, 121, 64, 122, 65, 123, 66, 10, 0, 40, 0, 34, 34, -1, 14, 27, 124, 1, 103, 2, 125, 3, 126, 4, 4, 5, 4, 6, 5, 28, 44, 29, 127, 30, 128, 42, 90, 31, 34, 32, 35, 33, 36, 0, 40, 0, 20, 68, -1, 6, 12, 3, 14, 129, 15, 10, 16, 130, 17, 5, 18, 16, 0, 0, 0, 9, 69, -1, 8, 12, 3, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 8, 131, 0, 43, 0, 20, 20, -1, 6, 14, 132, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 43, 0, 20, 70, -1, 6, 14, 133, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 43, 0, 20, 71, -1, 6, 14, 134, 15, 10, 16, 11, 17, 12, 18, 12, 19, 135, 0, 43, 0, 20, 13, -1, 6, 14, 136, 15, 10, 16, 11, 17, 12, 18, 12, 19, 137, 0, 43, 0, 20, 72, -1, 6, 14, 138, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 43, 0, 20, 73, -1, 6, 14, 139, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 43, 0, 20, 74, -1, 6, 14, 140, 15, 10, 16, 11, 17, 12, 18, 12, 19, 137, 0, 43, 0, 20, 75, -1, 6, 14, 141, 15, 10, 16, 11, 17, 12, 18, 12, 19, 135, 0, 0, 0, 9, 76, -1, 6, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 0, 52, 0, 20, 74, -1, 6, 14, 142, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 52, 0, 20, 77, -1, 6, 14, 143, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 52, 0, 20, 73, -1, 6, 14, 144, 15, 10, 16, 11, 17, 12, 18, 12, 19, 18, 0, 52, 0, 20, 72, -1, 6, 14, 145, 15, 10, 16, 11, 17, 12, 18, 12, 19, 13, 0, 52, 0, 67, 78, -1, 14, 27, 146, 1, 113, 2, 147, 3, 72, 4, 3, 5, 4, 6, 5, 7, 5, 61, 3, 62, 148, 63, 149, 64, 150, 79, 150, 66, 10, 0, 52, 0, 34, 80, -1, 15, 27, 151, 1, 98, 2, 152, 3, 153, 4, 4, 5, 4, 6, 5, 28, 31, 29, 32, 30, 154, 42, 90, 81, 90, 31, 34, 32, 35, 33, 36, 0, 52, 0, 20, 24, -1, 7, 12, 3, 14, 155, 15, 10, 16, 11, 17, 12, 18, 12, 19, 156, 0, 52, 0, 20, 82, -1, 7, 12, 3, 14, 157, 15, 10, 16, 11, 17, 12, 18, 12, 19, 158, 0, 52, 0, 34, 83, -1, 12, 27, 159, 1, 160, 2, 161, 3, 47, 4, 4, 5, 4, 6, 5, 28, 31, 30, 162, 31, 34, 32, 35, 33, 36, 0, 52, 0, 34, 84, -1, 13, 27, 163, 1, 164, 2, 147, 3, 165, 4, 4, 5, 4, 6, 5, 28, 65, 30, 166, 42, 5, 31, 34, 32, 35, 33, 36, 0, 52, 0, 34, 45, -1, 13, 27, 167, 1, 160, 2, 168, 3, 169, 4, 4, 5, 4, 6, 5, 28, 170, 30, 171, 42, 5, 31, 34, 32, 35, 33, 36, 0, 52, 0, 34, 85, -1, 12, 27, 172, 1, 173, 2, 174, 3, 175, 4, 4, 5, 4, 6, 5, 28, 31, 30, 176, 31, 34, 32, 35, 33, 36, 0, 52, 0, 34, 86, -1, 13, 27, 177, 1, 106, 2, 168, 3, 178, 4, 4, 5, 4, 6, 5, 28, 65, 30, 179, 42, 5, 31, 34, 32, 35, 33, 36, 0, 52, 0, 20, 87, -1, 5, 14, 180, 15, 10, 16, 181, 17, 13, 18, 5, 0, 66, 0, 99, 88, -1, 10, 89, 90, 90, 182, 91, 183, 92, 184, 93, 185, 94, 186, 95, 4, 96, 34, 97, 187, 98, 188, 0, 52, 0, 67, 100, -1, 17, 12, 3, 27, 189, 1, 190, 2, 191, 3, 192, 4, 3, 5, 4, 6, 5, 7, 5, 61, 3, 62, 193, 63, 194, 64, 195, 65, 123, 79, 195, 66, 10, 8, 196, 0, 68, 0, 34, 101, -1, 14, 27, 197, 1, 103, 2, 198, 3, 126, 4, 4, 5, 4, 6, 5, 28, 31, 29, 127, 30, 199, 42, 90, 31, 34, 32, 35, 33, 36, 0, 52, 0, 67, 102, -1, 17, 12, 3, 27, 200, 1, 201, 2, 202, 3, 203, 4, 3, 5, 4, 6, 5, 7, 5, 61, 3, 62, 193, 63, 194, 64, 195, 65, 123, 79, 195, 66, 10, 8, 196, 0, 70, 0, 34, 101, -1, 14, 27, 197, 1, 103, 2, 198, 3, 126, 4, 4, 5, 4, 6, 5, 28, 31, 29, 127, 30, 204, 42, 90, 31, 34, 32, 35, 33, 36, 0, 52, 0, 67, 103, -1, 17, 12, 3, 27, 205, 1, 206, 2, 207, 3, 208, 4, 3, 5, 4, 6, 5, 7, 5, 61, 3, 62, 193, 63, 194, 64, 195, 65, 123, 79, 195, 66, 10, 8, 196, 0, 72, 0, 34, 101, -1, 14, 27, 197, 1, 103, 2, 198, 3, 126, 4, 4, 5, 4, 6, 5, 28, 31, 29, 127, 30, 209, 42, 90, 31, 34, 32, 35, 33, 36, 0, 52, 0, 67, 104, -1, 17, 12, 3, 27, 205, 1, 210, 2, 207, 3, 211, 4, 3, 5, 4, 6, 5, 7, 5, 61, 3, 62, 193, 63, 194, 64, 195, 65, 123, 79, 195, 66, 10, 8, 196, 0, 74, 0, 34, 101, -1, 14, 27, 197, 1, 103, 2, 198, 3, 126, 4, 4, 5, 4, 6, 5, 28, 31, 29, 127, 30, 212, 42, 90, 31, 34, 32, 35, 33, 36, 0, 52, 0, 34, 105, -1, 12, 27, 213, 1, 214, 2, 215, 3, 101, 4, 4, 5, 4, 6, 5, 28, 31, 30, 216, 31, 34, 32, 35, 33, 36, 0, 52, 0, 34, 106, -1, 12, 27, 172, 1, 217, 2, 218, 3, 219, 4, 4, 5, 4, 6, 5, 28, 31, 30, 220, 31, 34, 32, 35, 33, 36, 0, 0, 0, 9, 107, -1, 9, 27, 221, 1, 222, 2, 223, 3, 224, 4, 3, 5, 4, 6, 5, 7, 5, 8, 225, 0, 78, 0, 20, 108, -1, 7, 12, 3, 14, 226, 15, 10, 16, 11, 17, 12, 18, 12, 19, 156, 0, 78, 0, 20, 109, -1, 7, 12, 3, 14, 227, 15, 228, 16, 11, 17, 12, 18, 12, 19, 229, 0, 78, 0, 20, 110, -1, 7, 12, 3, 14, 230, 15, 10, 16, 11, 17, 12, 18, 12, 19, 158, 0, 78, 0, 34, 34, -1, 14, 12, 3, 27, 231, 1, 232, 2, 233, 3, 234, 4, 4, 5, 4, 6, 5, 28, 31, 29, 59, 30, 235, 31, 34, 32, 35, 33, 36, 0 </int_array>
+			<int_array  len="223"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 5, 8, 6, 0, 0, 0, 9, 10, -1, 9, 11, 7, 1, 8, 2, 9, 3, 10, 4, 3, 5, 4, 6, 5, 7, 5, 8, 11, 0, 1, 0, 20, 12, -1, 7, 13, 3, 14, 12, 15, 13, 16, 14, 17, 15, 18, 15, 19, 16, 0, 1, 0, 20, 21, -1, 7, 13, 3, 14, 17, 15, 18, 16, 14, 17, 15, 18, 15, 19, 19, 0, 1, 0, 20, 22, -1, 7, 13, 3, 14, 20, 15, 13, 16, 14, 17, 15, 18, 15, 19, 21, 0, 1, 0, 23, 23, -1, 14, 13, 3, 11, 22, 1, 23, 2, 24, 3, 25, 4, 4, 5, 4, 6, 5, 24, 26, 25, 27, 26, 28, 27, 29, 28, 30, 29, 31, 0, 0, 0, 2147483647, 30, 32, 3, 1, 33, 2, 1, 3, 34, 0, 0, 0, 2147483647, 31, 35, 4, 11, 36, 1, 33, 2, 37, 3, 34, 0, 0, 0, 9, 32, -1, 6, 2, 1, 3, 1, 4, 3, 5, 4, 6, 5, 7, 5, 0, 8, 0, 2147483647, 33, 38, 4, 11, 39, 1, 40, 2, 39, 3, 40, 0, 8, 0, 2147483647, 34, 41, 4, 11, 42, 1, 43, 2, 42, 3, 43, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="236" shared="false">
+			<array  len="44" shared="false">
 				<real> 30 </real>
 				<real> 40 </real>
 				<real> 70 </real>
@@ -282,236 +72,6 @@
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
 				</dictionary>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<vector2> -112.148, -20 </vector2>
-				<vector2> 3, 3 </vector2>
-				<resource  external="0">  </resource>
-				<int> 8 </int>
-				<int> 3 </int>
-				<vector2> 30.0849, -20 </vector2>
-				<vector2> 9, 3 </vector2>
-				<int> 4 </int>
-				<vector2> 173.085, -20 </vector2>
-				<int> 5 </int>
-				<vector2> 28.2695, -24.661 </vector2>
-				<vector2> 6, 2 </vector2>
-				<int> 28 </int>
-				<vector2> -99.011, -24.67 </vector2>
-				<vector2> 3, 2 </vector2>
-				<int> 27 </int>
-				<vector2> 159.73, -24.661 </vector2>
-				<int> 29 </int>
-				<real> -130 </real>
-				<real> -42 </real>
-				<real> -82 </real>
-				<real> -29 </real>
-				<resource  external="1">  </resource>
-				<color> 1, 1, 1, 1 </color>
-				<string> "LABEL_ATTACK" </string>
-				<real> 1 </real>
-				<int> 0 </int>
-				<int> -1 </int>
-				<real> -107 </real>
-				<real> -45 </real>
-				<resource  external="2">  </resource>
-				<string> "99" </string>
-				<real> -18 </real>
-				<real> -98 </real>
-				<real> -3 </real>
-				<resource  external="3">  </resource>
-				<string> "1x" </string>
-				<real> -28 </real>
-				<real> -43 </real>
-				<real> 109 </real>
-				<string> "LABEL_HEALTH_MAX" </string>
-				<real> -30 </real>
-				<real> 86 </real>
-				<string> "99/99" </string>
-				<vector2> -162.108, -4.5587 </vector2>
-				<resource  external="4">  </resource>
-				<vector2> -104.536, -5.0629 </vector2>
-				<real> -190 </real>
-				<real> -49 </real>
-				<real> -34 </real>
-				<color> 0.192157, 0.631373, 0.94902, 1 </color>
-				<string> "LABEL_ACTION_SLOTS" </string>
-				<real> -13 </real>
-				<real> -199 </real>
-				<real> 105 </real>
-				<real> -176 </real>
-				<resource  external="5">  </resource>
-				<string> "LABEL_INFANTRY" </string>
-				<real> 94 </real>
-				<real> 196 </real>
-				<string> "LABEL_ACTION_POINTS" </string>
-				<real> 76 </real>
-				<real> 192 </real>
-				<real> 22 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<vector2> -56.3926, -24 </vector2>
-				<vector2> -112.393, -24 </vector2>
-				<vector2> -112.049, 0 </vector2>
-				<vector2> 30.0849, 0 </vector2>
-				<vector2> 174.085, 0 </vector2>
-				<vector2> -27.9439, -6.67 </vector2>
-				<vector2> 61.73, -6.661 </vector2>
-				<vector2> -117.952, -14.2204 </vector2>
-				<resource  external="6">  </resource>
-				<int> 6 </int>
-				<int> 12 </int>
-				<real> -146 </real>
-				<real> -65 </real>
-				<real> -21 </real>
-				<real> -50 </real>
-				<string> "LABEL_BUILDING_BARRACKS" </string>
-				<int> 1 </int>
-				<real> -154 </real>
-				<real> 4 </real>
-				<real> -79 </real>
-				<real> 19 </real>
-				<string> "LABEL_UNIT_HELI" </string>
-				<real> -64 </real>
-				<real> -16 </real>
-				<real> -9 </real>
-				<string> "LABEL_HEALTH" </string>
-				<real> -63 </real>
-				<real> 3 </real>
-				<real> -17 </real>
-				<real> 16 </real>
-				<string> "LABEL_RANGE" </string>
-				<real> 2 </real>
-				<real> -14 </real>
-				<real> 97 </real>
-				<string> "99AP" </string>
-				<real> 14 </real>
-				<real> 96 </real>
-				<string> "LABEL_DEPLOY_PRICE" </string>
-				<real> 117 </real>
-				<real> -38 </real>
-				<real> 209 </real>
-				<real> -23 </real>
-				<string> "MSG_NO_ENOUGH_AP" </string>
-				<real> 115 </real>
-				<real> 211 </real>
-				<real> 25 </real>
-				<resource  external="7">  </resource>
-				<resource  external="8">  </resource>
-				<resource  external="9">  </resource>
-				<resource  external="10">  </resource>
-				<real> 10 </real>
-				<real> 83 </real>
-				<real> 31 </real>
-				<color> 0, 0, 0, 1 </color>
-				<string> "LABEL_DEPLOY" </string>
-				<vector2> 84.4429, 36.7297 </vector2>
-				<resource  external="11">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<vector2> -306, -50 </vector2>
-				<vector2> 300, -50 </vector2>
-				<vector2> 299.866, 39.0669 </vector2>
-				<int> 13 </int>
-				<vector2> -305.959, 40.4059 </vector2>
-				<int> 11 </int>
-				<vector2> -210, -50 </vector2>
-				<vector2> 270, -50 </vector2>
-				<vector2> 270.067, 28.1339 </vector2>
-				<vector2> -210, 30 </vector2>
-				<vector2> 279.536, -19.4013 </vector2>
-				<vector2> 319.442, -19.4013 </vector2>
-				<vector2> -218.668, -20.0203 </vector2>
-				<vector2> -300.574, -20.0203 </vector2>
-				<real> 278 </real>
-				<real> 356 </real>
-				<resource  external="12">  </resource>
-				<resource  external="13">  </resource>
-				<resource  external="14">  </resource>
-				<real> 240 </real>
-				<real> 273 </real>
-				<real> 17 </real>
-				<string> "LABEL_END_TURN" </string>
-				<vector2> -294.337, -14.0253 </vector2>
-				<int> 24 </int>
-				<vector2> -224.621, -14.0253 </vector2>
-				<int> 26 </int>
-				<real> 242 </real>
-				<real> -58 </real>
-				<real> 305 </real>
-				<string> "LABEL_TURN" </string>
-				<real> 262 </real>
-				<real> -62 </real>
-				<real> -39 </real>
-				<string> "99/120" </string>
-				<real> -271 </real>
-				<real> -184 </real>
-				<real> -20 </real>
-				<resource  external="15">  </resource>
-				<string> "999" </string>
-				<real> -338 </real>
-				<real> -57 </real>
-				<real> -296 </real>
-				<real> -31 </real>
-				<string> "LABEL_ACTION_POINTS" </string>
-				<real> -239 </real>
-				<real> 9 </real>
-				<string> "120" </string>
-				<vector2> 257.214, -25.1493 </vector2>
-				<resource  external="16">  </resource>
-				<real> 0 </real>
-				<node_path> ".." </node_path>
-				<resource  resource_type="Animation" path="local://1">  </resource>
-				<resource  resource_type="Animation" path="local://2">  </resource>
-				<resource  resource_type="Animation" path="local://3">  </resource>
-				<array  len="0" shared="false">
-				</array>
-				<string> "" </string>
-				<real> 368 </real>
-				<real> -465 </real>
-				<real> 464 </real>
-				<real> -417 </real>
-				<resource  external="17">  </resource>
-				<resource  external="18">  </resource>
-				<resource  external="19">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<real> 8 </real>
-				<real> 89 </real>
-				<string> "LABEL_NEW_TURN" </string>
-				<real> 369 </real>
-				<real> -406 </real>
-				<real> 465 </real>
-				<real> -358 </real>
-				<string> "LABEL_UNIT" </string>
-				<real> 372 </real>
-				<real> -345 </real>
-				<real> 468 </real>
-				<real> -297 </real>
-				<string> "LABEL_BUILDING" </string>
-				<real> -285 </real>
-				<real> -237 </real>
-				<string> "NO AP" </string>
-				<real> -339 </real>
-				<real> -10 </real>
-				<real> -231 </real>
-				<string> "LABEL_NEXT_TURN_GAIN" </string>
-				<real> -85 </real>
-				<real> -180 </real>
-				<real> -72 </real>
-				<string> "LABEL_MAP_NAME" </string>
 				<real> -156 </real>
 				<real> -135 </real>
 				<real> -116 </real>
@@ -523,15 +83,37 @@
 					<bool> True </bool>
 				</dictionary>
 				<vector2> -285.113, -15 </vector2>
+				<vector2> 3, 3 </vector2>
+				<resource  external="0">  </resource>
+				<int> 8 </int>
+				<int> 24 </int>
 				<vector2> -149.062, -15 </vector2>
 				<vector2> 6, 3 </vector2>
 				<int> 25 </int>
 				<vector2> -13.8454, -15 </vector2>
+				<int> 26 </int>
 				<real> -322 </real>
 				<real> -11 </real>
 				<real> -115 </real>
 				<real> 21 </real>
+				<resource  external="1">  </resource>
+				<color> 0.192157, 0.631373, 0.94902, 1 </color>
 				<string> "MSG_EMPTY_DISPLAY" </string>
+				<real> 1 </real>
+				<int> 0 </int>
+				<int> -1 </int>
+				<resource  external="2">  </resource>
+				<real> 10 </real>
+				<real> 50 </real>
+				<resource  external="3">  </resource>
+				<real> -8 </real>
+				<real> 32 </real>
+				<resource  external="4">  </resource>
+				<real> -320 </real>
+				<real> -14 </real>
+				<resource  external="5">  </resource>
+				<real> 296 </real>
+				<real> -6 </real>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
