@@ -146,7 +146,7 @@
 				<real> 35 </real>
 				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "TERRAIN" </string>
+				<string> "LABEL_WORKSHOP_TERRAIN" </string>
 				<int> 1 </int>
 				<real> 1 </real>
 				<int> 0 </int>
@@ -157,14 +157,14 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<string> "BUILDINGS" </string>
+				<string> "LABEL_WORKSHOP_BUILDINGS" </string>
 				<real> 269 </real>
 				<real> 413 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<string> "UNITS" </string>
+				<string> "LABEL_WORKSHOP_UNITS" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

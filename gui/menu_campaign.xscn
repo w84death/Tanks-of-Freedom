@@ -204,10 +204,10 @@
 				<real> 85 </real>
 				<real> 34 </real>
 				<color> 0.105882, 0.14902, 0.196078, 1 </color>
-				<string> "EASY" </string>
+				<string> "LABEL_EASY" </string>
 				<real> 80 </real>
 				<real> 198 </real>
-				<string> "DIFFICULTY" </string>
+				<string> "LABEL_DIFFICULTY" </string>
 				<real> -224 </real>
 				<real> -190 </real>
 				<real> 238 </real>
@@ -218,7 +218,7 @@
 				<real> -106 </real>
 				<real> -192 </real>
 				<resource  external="8">  </resource>
-				<string> "MISSION #" </string>
+				<string> "LABEL_MISSION" </string>
 				<real> -81 </real>
 				<string> "1" </string>
 				<dictionary  shared="false">
@@ -233,14 +233,14 @@
 				<real> 74 </real>
 				<real> 91 </real>
 				<color> 0.192157, 0.635294, 0.94902, 1 </color>
-				<string> "BLUE TEAM" </string>
+				<string> "LABEL_BLUE_TEAM" </string>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
 				<int> 3 </int>
 				<color> 0.745098, 0.14902, 0.2, 1 </color>
-				<string> "RED TEAM" </string>
+				<string> "LABEL_RED_TEAM" </string>
 				<dictionary  shared="false">
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
@@ -287,10 +287,10 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 136 </real>
-				<string> "START" </string>
+				<string> "LABEL_START" </string>
 				<real> 234 </real>
 				<real> 43 </real>
-				<string> "MISSION&#000a;COMPLETED" </string>
+				<string> "LABEL_MISSION_COMPLETED" </string>
 				<real> -130 </real>
 				<real> 14 </real>
 				<real> -10 </real>
@@ -300,7 +300,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 130 </real>
-				<string> "PREVIOUS" </string>
+				<string> "LABEL_PREVIOUS" </string>
 				<real> 17 </real>
 				<real> 161 </real>
 				<dictionary  shared="false">
@@ -308,7 +308,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 131 </real>
-				<string> "NEXT" </string>
+				<string> "LABEL_NEXT" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

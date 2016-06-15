@@ -125,8 +125,8 @@ func toggle_turns_cap():
 func set_player_button_state(player, button_label):
     var label
     if self.bag.root.settings['cpu_' + str(player)]:
-        label = "CPU"
+        label = "LABEL_CPU"
     else:
-        label = "HUMAN"
+        label = "LABEL_HUMAN"
 
-    button_label.set_text(label)
+    button_label.set_text(tr(label))

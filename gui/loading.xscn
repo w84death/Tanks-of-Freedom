@@ -234,7 +234,7 @@
 				<real> 93 </real>
 				<real> 113 </real>
 				<resource  resource_type="Font" path="res://assets/fonts/courier_prime_24.fnt">  </resource>
-				<string> "PLEASE WAIT..." </string>
+				<string> "LABEL_PLEASE_WAIT" </string>
 				<real> -1 </real>
 			</array>
 			<string> "version" </string>

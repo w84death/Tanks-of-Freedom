@@ -314,7 +314,7 @@
 				<real> -29 </real>
 				<resource  external="1">  </resource>
 				<color> 1, 1, 1, 1 </color>
-				<string> "ATTACK" </string>
+				<string> "LABEL_ATTACK" </string>
 				<real> 1 </real>
 				<int> 0 </int>
 				<int> -1 </int>
@@ -330,7 +330,7 @@
 				<real> -28 </real>
 				<real> -43 </real>
 				<real> 109 </real>
-				<string> "HEALTH / MAX" </string>
+				<string> "LABEL_HEALTH_MAX" </string>
 				<real> -30 </real>
 				<real> 86 </real>
 				<string> "99/99" </string>
@@ -341,16 +341,16 @@
 				<real> -49 </real>
 				<real> -34 </real>
 				<color> 0.192157, 0.631373, 0.94902, 1 </color>
-				<string> "ACTION SLOTS" </string>
+				<string> "LABEL_ACTION_SLOTS" </string>
 				<real> -13 </real>
 				<real> -199 </real>
 				<real> 105 </real>
 				<real> -176 </real>
 				<resource  external="5">  </resource>
-				<string> "INFANTRY" </string>
+				<string> "LABEL_INFANTRY" </string>
 				<real> 94 </real>
 				<real> 196 </real>
-				<string> "ACTION POINTS" </string>
+				<string> "LABEL_ACTION_POINTS" </string>
 				<real> 76 </real>
 				<real> 192 </real>
 				<real> 22 </real>
@@ -373,34 +373,34 @@
 				<real> -65 </real>
 				<real> -21 </real>
 				<real> -50 </real>
-				<string> "BARRACKS" </string>
+				<string> "LABEL_BUILDING_BARRACKS" </string>
 				<int> 1 </int>
 				<real> -154 </real>
 				<real> 4 </real>
 				<real> -79 </real>
 				<real> 19 </real>
-				<string> "HELI" </string>
+				<string> "LABEL_UNIT_HELI" </string>
 				<real> -64 </real>
 				<real> -16 </real>
 				<real> -9 </real>
-				<string> "HEALTH" </string>
+				<string> "LABEL_HEALTH" </string>
 				<real> -63 </real>
 				<real> 3 </real>
 				<real> -17 </real>
 				<real> 16 </real>
-				<string> "RANGE" </string>
+				<string> "LABEL_RANGE" </string>
 				<real> 2 </real>
 				<real> -14 </real>
 				<real> 97 </real>
 				<string> "99AP" </string>
 				<real> 14 </real>
 				<real> 96 </real>
-				<string> "DEPLOY PRICE" </string>
+				<string> "LABEL_DEPLOY_PRICE" </string>
 				<real> 117 </real>
 				<real> -38 </real>
 				<real> 209 </real>
 				<real> -23 </real>
-				<string> "NO ENOUGH AP" </string>
+				<string> "MSG_NO_ENOUGH_AP" </string>
 				<real> 115 </real>
 				<real> 211 </real>
 				<real> 25 </real>
@@ -412,7 +412,7 @@
 				<real> 83 </real>
 				<real> 31 </real>
 				<color> 0, 0, 0, 1 </color>
-				<string> "DEPLOY" </string>
+				<string> "LABEL_DEPLOY" </string>
 				<vector2> 84.4429, 36.7297 </vector2>
 				<resource  external="11">  </resource>
 				<dictionary  shared="false">
@@ -441,7 +441,7 @@
 				<real> 240 </real>
 				<real> 273 </real>
 				<real> 17 </real>
-				<string> "END&#000a;TURN" </string>
+				<string> "LABEL_END_TURN" </string>
 				<vector2> -294.337, -14.0253 </vector2>
 				<int> 24 </int>
 				<vector2> -224.621, -14.0253 </vector2>
@@ -449,7 +449,7 @@
 				<real> 242 </real>
 				<real> -58 </real>
 				<real> 305 </real>
-				<string> "TURN" </string>
+				<string> "LABEL_TURN" </string>
 				<real> 262 </real>
 				<real> -62 </real>
 				<real> -39 </real>
@@ -463,7 +463,7 @@
 				<real> -57 </real>
 				<real> -296 </real>
 				<real> -31 </real>
-				<string> "ACTION&#000a;POINTS" </string>
+				<string> "LABEL_ACTION_POINTS" </string>
 				<real> -239 </real>
 				<real> 9 </real>
 				<string> "120" </string>
@@ -490,28 +490,28 @@
 				</dictionary>
 				<real> 8 </real>
 				<real> 89 </real>
-				<string> "NEW TURN" </string>
+				<string> "LABEL_NEW_TURN" </string>
 				<real> 369 </real>
 				<real> -406 </real>
 				<real> 465 </real>
 				<real> -358 </real>
-				<string> "UNIT" </string>
+				<string> "LABEL_UNIT" </string>
 				<real> 372 </real>
 				<real> -345 </real>
 				<real> 468 </real>
 				<real> -297 </real>
-				<string> "BUILDING" </string>
+				<string> "LABEL_BUILDING" </string>
 				<real> -285 </real>
 				<real> -237 </real>
 				<string> "NO AP" </string>
 				<real> -339 </real>
 				<real> -10 </real>
 				<real> -231 </real>
-				<string> "NEXT TURN GAIN" </string>
+				<string> "LABEL_NEXT_TURN_GAIN" </string>
 				<real> -85 </real>
 				<real> -180 </real>
 				<real> -72 </real>
-				<string> "MAP NAME" </string>
+				<string> "LABEL_MAP_NAME" </string>
 				<real> -156 </real>
 				<real> -135 </real>
 				<real> -116 </real>
@@ -531,7 +531,7 @@
 				<real> -11 </real>
 				<real> -115 </real>
 				<real> 21 </real>
-				<string> "&lt; NOTHING TO DISPLAY&#000a;&lt; SELECT UNIT OR BUILDING" </string>
+				<string> "MSG_EMPTY_DISPLAY" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

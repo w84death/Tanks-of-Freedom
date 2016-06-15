@@ -194,11 +194,11 @@
 				<real> 198 </real>
 				<real> 20 </real>
 				<real> 306 </real>
-				<string> "SELECT UNIT" </string>
+				<string> "LABEL_SELECT_UNIT" </string>
 				<vector2> -285.406, 26.7812 </vector2>
 				<real> -253 </real>
 				<real> -165 </real>
-				<string> "NEXT TURN" </string>
+				<string> "LABEL_NEXT_TURN" </string>
 				<resource  external="17">  </resource>
 			</array>
 			<string> "version" </string>

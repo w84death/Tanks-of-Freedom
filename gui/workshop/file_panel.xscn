@@ -200,7 +200,7 @@
 				<real> 134 </real>
 				<real> 33 </real>
 				<color> 0, 0, 0, 1 </color>
-				<string> "FILES MANAGER" </string>
+				<string> "LABEL_WORKSHOP_FILES_MANAGER" </string>
 				<real> 0 </real>
 				<node_path> ".." </node_path>
 				<resource  resource_type="Animation" path="local://1">  </resource>
@@ -211,7 +211,7 @@
 				<real> -33 </real>
 				<real> 139 </real>
 				<real> -18 </real>
-				<string> "USE UNIQUE NAME" </string>
+				<string> "MSG_WORKSHOP_USE_UNIQUE_NAME" </string>
 				<real> -39 </real>
 				<real> -17 </real>
 				<real> -13 </real>
@@ -242,10 +242,10 @@
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<string> "PICK MAP" </string>
+				<string> "LABEL_WORKSHOP_PICK_MAP" </string>
 				<real> 5 </real>
 				<real> 20 </real>
-				<string> "FILE SAVED" </string>
+				<string> "LABEL_WORKSHOP_FILE_SAVED" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

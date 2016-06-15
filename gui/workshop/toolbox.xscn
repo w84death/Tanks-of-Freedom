@@ -156,7 +156,7 @@
 				<real> 34 </real>
 				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "CREATE" </string>
+				<string> "LABEL_WORKSHOP_CREATE" </string>
 				<int> 1 </int>
 				<real> 1 </real>
 				<int> 0 </int>
@@ -165,18 +165,18 @@
 				<real> 539 </real>
 				<real> 126 </real>
 				<resource  external="7">  </resource>
-				<string> "TOOLBOX" </string>
+				<string> "LABEL_WORKSHOP_TOOLBOX" </string>
 				<real> 21 </real>
 				<real> 170 </real>
 				<real> 537 </real>
 				<real> 193 </real>
 				<resource  external="8">  </resource>
-				<string> "CREATE NEW ISLAND IN THE CENTER" </string>
+				<string> "MSG_WORKSHOP_CREATE_NEW_ISLAND" </string>
 				<real> 132 </real>
 				<real> 256 </real>
 				<real> 421 </real>
 				<real> 279 </real>
-				<string> "CLEAR LAYERS" </string>
+				<string> "LABEL_WORKSHOP_CLEAR_LAYERS" </string>
 				<real> 197 </real>
 				<real> 208 </real>
 				<real> 228 </real>
@@ -216,22 +216,22 @@
 				<resource  external="17">  </resource>
 				<real> 11 </real>
 				<real> 133 </real>
-				<string> "UNITS" </string>
+				<string> "LABEL_WORKSHOP_UNITS" </string>
 				<real> 284 </real>
 				<real> 428 </real>
 				<real> 332 </real>
 				<real> 136 </real>
-				<string> "TERRAIN" </string>
+				<string> "LABEL_WORKSHOP_TERRAIN" </string>
 				<real> 18 </real>
 				<real> 210 </real>
 				<real> 97 </real>
-				<string> "SIZE:" </string>
+				<string> "LABEL_WORKSHOP_SIZE" </string>
 				<real> -1 </real>
 				<real> 127 </real>
 				<real> 557 </real>
 				<real> 150 </real>
 				<color> 0.745098, 0.14902, 0.2, 1 </color>
-				<string> "YOU WILL LOSE MAP DATA!" </string>
+				<string> "MSG_WORKSHOP_LOSE_MAP_DATA" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

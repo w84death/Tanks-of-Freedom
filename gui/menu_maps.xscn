@@ -119,7 +119,7 @@
 				<real> 34 </real>
 				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "&gt; BACK" </string>
+				<string> "LABEL_BACK" </string>
 				<real> 1 </real>
 				<int> 0 </int>
 				<int> -1 </int>

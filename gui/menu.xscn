@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="28" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="28" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="4"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="16"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="4"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="20"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="18"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="7"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="19"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="8"></ext_resource>
 	<ext_resource path="res://gui/vigette.tscn" type="PackedScene" index="1"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="7"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="11"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" index="13"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" index="14"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" index="15"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" index="13"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="18"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="10"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="20"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="11"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="19"></ext_resource>
-	<ext_resource path="res://gui/stats.xscn" type="PackedScene" index="22"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" index="21"></ext_resource>
+	<ext_resource path="res://gui/stats.xscn" type="PackedScene" index="22"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" index="3"></ext_resource>
 	<ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font" index="12"></ext_resource>
 	<ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" index="17"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_11.fnt" type="Font" index="5"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" index="3"></ext_resource>
 	<ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_11.fnt" type="Font" index="5"></ext_resource>
 	<ext_resource path="res://scripts/menu_controller.gd" type="Script" index="0"></ext_resource>
 	<resource type="Animation" path="local://4">
 		<string name="resource/name"> "hide_main_menu" </string>

@@ -121,7 +121,7 @@
 				<real> 33 </real>
 				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "TOOLBOX" </string>
+				<string> "LABEL_WORKSHOP_TOOLBOX" </string>
 				<int> 1 </int>
 				<real> 1 </real>
 				<int> 0 </int>
@@ -135,15 +135,15 @@
 				</dictionary>
 				<real> 5 </real>
 				<real> 119 </real>
-				<string> "&gt; BACK" </string>
+				<string> "LABEL_BACK" </string>
 				<real> 162 </real>
 				<real> 16 </real>
 				<real> 135 </real>
 				<real> 31 </real>
-				<string> "UNDO BUILD" </string>
+				<string> "LABEL_WORKSHOP_UNDO_BUILD" </string>
 				<real> 165 </real>
 				<real> 309 </real>
-				<string> "MOVE MAP" </string>
+				<string> "LABEL_WORKSHOP_MOVE_MAP" </string>
 				<real> 164 </real>
 				<real> -102 </real>
 				<real> 308 </real>
@@ -156,11 +156,11 @@
 				<real> 19 </real>
 				<real> 138 </real>
 				<real> 34 </real>
-				<string> "BUILD TERRAIN" </string>
+				<string> "LABEL_WORKSHOP_BUILD_TERRAIN" </string>
 				<real> 8 </real>
 				<resource  external="9">  </resource>
 				<color> 1, 1, 1, 1 </color>
-				<string> "SELECTED TOOL" </string>
+				<string> "LABEL_WORKSHOP_SELECTED_TOOL" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

@@ -86,7 +86,7 @@
 				<real> 35 </real>
 				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "NAME" </string>
+				<string> "LABEL_NAME" </string>
 				<int> 1 </int>
 				<real> 1 </real>
 				<int> 0 </int>

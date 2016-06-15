@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="13" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
+<resource_file type="PackedScene" subresource_count="13" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="7"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="6"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" index="10"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_special_0.png" type="Texture" index="8"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" index="10"></ext_resource>
 	<ext_resource path="res://gui/hud/skirmish_maps_block.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_special_4.png" type="Texture" index="11"></ext_resource>
 	<main_resource>
@@ -201,7 +201,7 @@
 				<real> 16 </real>
 				<real> 89 </real>
 				<real> 34 </real>
-				<string> "NEXT" </string>
+				<string> "LABEL_NEXT" </string>
 				<real> -249 </real>
 				<real> -153 </real>
 				<resource  external="8">  </resource>
@@ -216,11 +216,11 @@
 				<real> 90 </real>
 				<real> 39 </real>
 				<color> 0.745098, 0.14902, 0.2, 1 </color>
-				<string> "DELETE&#000a;MODE" </string>
+				<string> "LABEL_DELETE&#000a;MODE" </string>
 				<real> -150 </real>
 				<real> -54 </real>
 				<real> 88 </real>
-				<string> "LOCAL" </string>
+				<string> "LABEL_LOCAL" </string>
 				<real> 161 </real>
 				<real> 147 </real>
 				<real> 220 </real>

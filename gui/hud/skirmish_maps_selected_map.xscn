@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="23" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="7"></ext_resource>
-	<ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" index="16"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" index="20"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" index="21"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="11"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="17"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="10"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="8"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" index="13"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" index="18"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" index="19"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" index="13"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" index="21"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" index="20"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture" index="15"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="4"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="8"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="9"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="6"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="17"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="11"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" index="14"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="10"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" index="16"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" index="12"></ext_resource>
+	<ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -183,7 +183,7 @@
 				<real> 32 </real>
 				<resource  external="7">  </resource>
 				<color> 0, 0, 0, 1 </color>
-				<string> "OFF" </string>
+				<string> "LABEL_OFF" </string>
 				<int> 1 </int>
 				<real> 1 </real>
 				<int> 0 </int>
@@ -192,7 +192,7 @@
 				<real> -242 </real>
 				<real> 291 </real>
 				<real> -227 </real>
-				<string> "TURNS CAP:" </string>
+				<string> "LABEL_TURNS_CAP" </string>
 				<real> -151 </real>
 				<real> -76 </real>
 				<real> -7 </real>
@@ -208,14 +208,14 @@
 				</dictionary>
 				<real> 136 </real>
 				<real> 35 </real>
-				<string> "HUMAN" </string>
+				<string> "LABEL_HUMAN" </string>
 				<real> 7 </real>
 				<real> 151 </real>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<string> "CPU" </string>
+				<string> "LABEL_CPU" </string>
 				<real> -22 </real>
 				<real> -100 </real>
 				<real> 20 </real>
@@ -231,7 +231,7 @@
 				<real> 114 </real>
 				<real> -212 </real>
 				<color> 0.0666667, 0.368627, 0.2, 1 </color>
-				<string> "SELECTED MAP:" </string>
+				<string> "LABEL_SELECTED_MAP" </string>
 				<real> -306 </real>
 				<real> -225 </real>
 				<real> -162 </real>
@@ -241,7 +241,7 @@
 				<resource  external="16">  </resource>
 				<resource  external="17">  </resource>
 				<real> 124 </real>
-				<string> "&gt; BACK" </string>
+				<string> "LABEL_BACK" </string>
 				<real> -72 </real>
 				<real> -10 </real>
 				<real> 72 </real>
@@ -251,7 +251,7 @@
 				<resource  external="20">  </resource>
 				<resource  external="21">  </resource>
 				<color> 0.741176, 0.14902, 0.2, 1 </color>
-				<string> "PLAY" </string>
+				<string> "LABEL_PLAY" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
