@@ -50,6 +50,9 @@ func download_map(code):
     if result['status'] != 'ok':
         return false
 
+    if not result.has('data') or not result['data'].has('data'):
+        return false
+
     var metadata = {
         'name' : result['data']['data']['name']
     }
