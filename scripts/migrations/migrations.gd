@@ -31,7 +31,6 @@ func save_version():
     self.file_handler.close()
 
 func run_migrations():
-    print(self.current_version)
     for migration in self.migrations:
         if migration.version > self.current_version:
             migration.migrate()
