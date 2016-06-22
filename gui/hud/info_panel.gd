@@ -1,4 +1,6 @@
 
+var bag
+
 var turn_info
 var end_turn
 var zoom_panel
@@ -12,6 +14,12 @@ var info_panel_ap
 var info_panel_pap
 var info_panel_map_name
 
+var zoom_panel_zoom_in
+var zoom_panel_zoom_out
+
+func _init_bag(bag):
+    self.bag = bag
+
 func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
     self.turn_info = info_panel_scene
     self.end_turn = end_turn_panel_scene
@@ -24,6 +32,11 @@ func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
     self.info_panel_ap = self.turn_info.get_node('ap')
     self.info_panel_pap = self.turn_info.get_node('pap')
     self.info_panel_map_name = self.turn_info.get_node('map_name')
+
+    self.zoom_panel_zoom_in = self.zoom_panel.get_node('zoom_in')
+    self.zoom_panel_zoom_in.connect('pressed', self.bag.camera, 'camera_zoom_in')
+    self.zoom_panel_zoom_out = self.zoom_panel.get_node('zoom_out')
+    self.zoom_panel_zoom_out.connect('pressed', self.bag.camera, 'camera_zoom_out')
 
 func bind_end_turn(controller, method_name):
     self.info_panel_end_button.connect('pressed', controller, method_name)

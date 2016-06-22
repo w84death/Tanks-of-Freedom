@@ -16,6 +16,8 @@ func init_root(root_node):
 	self.default_panel = self.hud_panel.get_node('default_panel')
 	self.unit_panel.bind(self.hud_panel)
 	self.building_panel.bind(self.hud_panel)
+
+	self.info_panel._init_bag(root_node.bag)
 	self.info_panel.bind(self.end_turn_panel_scene, self.info_panel_scene, self.zoom_panel_scene)
 
 func bind_panels(card_anchor, end_anchor, info_anchor, zoom_anchor):
