@@ -116,6 +116,14 @@ Values: string/URL
 Enable controls specific for Pandora handheld console
 Values: true/false
 
+#### tof/hud_layout
+Default HUD layout to be loaded into the game
+Values: "default", "overscan", "pandora"
+
+#### tof/hud_allow_overscan
+Allow HUD layout to be switched to overscan
+Values: true/false
+
 ## Export configuration
 
 ToF export settings has very few particular requirements. In most cases, you can use your own settings file.

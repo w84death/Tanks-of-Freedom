@@ -50,7 +50,8 @@ var settings = {
     'resolution': 0,
     'easy_mode' : false,
     'online_player_id' : null,
-    'online_player_pin' : null
+    'online_player_pin' : null,
+    'is_overscan' : false
 }
 
 var is_map_loaded = false
@@ -65,6 +66,7 @@ var workshop_file_name
 var is_remote = false
 var is_pandora = Globals.get("tof/pandora_input")
 var click_fix_position = Globals.get("tof/selector_offset")
+var hud_layout = Globals.get("tof/hud_layout")
 
 var registered_click = false
 var registered_click_position = Vector2(0, 0)
@@ -339,7 +341,12 @@ func _ready():
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
-    self.hud_template = self.hud_pc
+    if self.settings['is_overscan'] or self.hud_layout == "overscan":
+        self.hud_template = self.hud_tv
+    elif self.hud_layout == "pandora":
+        self.hud_template = self.hud_pandora
+    else:
+        self.hud_template = self.hud_pc
     self.bag.init_root(self)
     self.camera = self.bag.camera
     self.menu = self.bag.controllers.menu_controller
