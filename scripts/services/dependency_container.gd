@@ -33,6 +33,7 @@ var message_popup = preload("res://scripts/popups/message.gd").new()
 
 var resolution = preload('res://scripts/services/resolution.gd').new()
 var gamepad = preload('res://scripts/gamepad_input.gd').new()
+var pandora = preload('res://scripts/pandora_input.gd').new()
 var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
 var online_request = preload('res://scripts/online/request.gd').new()
@@ -79,6 +80,7 @@ func init_root(root_node):
     self.fog_controller._init_bag(self)
     self.resolution._init_bag(self)
     self.gamepad._init_bag(self)
+    self.pandora._init_bag(self)
 
     self.processing._init_bag(self)
     self.processing.ready = true

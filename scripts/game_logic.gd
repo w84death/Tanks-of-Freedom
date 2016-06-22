@@ -63,6 +63,7 @@ var is_camera_drag = false
 var settings_file = File.new()
 var workshop_file_name
 var is_remote = false
+var is_pandora = Globals.get("tof/pandora_input")
 var click_fix_position = Globals.get("tof/selector_offset")
 
 var registered_click = false
@@ -81,6 +82,8 @@ func _input(event):
         if is_locked_for_cpu == false:
             if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
                 self.bag.gamepad.handle_input(event)
+            if self.is_pandora and event.type == InputEvent.KEY:
+                self.bag.pandora.handle_input(event)
 
             game_scale = self.camera.get_scale()
             camera_pos = self.camera.get_pos()

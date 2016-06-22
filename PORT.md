@@ -112,6 +112,10 @@ Values: integer
 A url where a ToF server is hosted. This parameter must be set up correctly for online functions to work.
 Values: string/URL
 
+#### tof/pandora_input
+Enable controls specific for Pandora handheld console
+Values: true/false
+
 ## Export configuration
 
 ToF export settings has very few particular requirements. In most cases, you can use your own settings file.
