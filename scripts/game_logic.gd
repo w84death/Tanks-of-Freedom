@@ -13,9 +13,9 @@ var loading_container
 var camera
 var menu
 var hud_pandora = preload('res://gui/hud_pandora.tscn')
-#var hud_tv = preload('res://gui/hud_tv.tscn')
-#var hud_pc = preload('res://gui/hud_pc.tscn')
-var hud_template = preload('res://gui/gui.xscn')
+var hud_tv = preload('res://gui/hud_tv.tscn')
+var hud_pc = preload('res://gui/hud_pc.tscn')
+var hud_template
 var screen_size
 var half_screen_size = Vector2(0, 0)
 
@@ -339,6 +339,7 @@ func _ready():
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
+    self.hud_template = self.hud_pc
     self.bag.init_root(self)
     self.camera = self.bag.camera
     self.menu = self.bag.controllers.menu_controller
