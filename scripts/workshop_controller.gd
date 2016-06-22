@@ -171,6 +171,8 @@ func _input(event):
 
         if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
             self.root.bag.gamepad.handle_input(event)
+        if self.root.is_pandora and event.type == InputEvent.KEY:
+            self.root.bag.pandora.handle_input(event)
 
         if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT:
             if not self.movement_mode:
