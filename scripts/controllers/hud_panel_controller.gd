@@ -1,6 +1,9 @@
 
 var root
 var hud_panel = preload("res://gui/hud/hud_panel.xscn").instance()
+var end_turn_panel_scene = preload("res://gui/hud/end_turn.tscn").instance()
+var info_panel_scene = preload("res://gui/hud/turn_info.tscn").instance()
+var zoom_panel_scene = preload("res://gui/hud/zoom_panel.tscn").instance()
 
 var default_panel = null
 var unit_panel = preload("res://gui/hud/unit_panel.gd").new()
@@ -10,13 +13,22 @@ var info_panel = preload("res://gui/hud/info_panel.gd").new()
 
 func init_root(root_node):
 	root = root_node
-	self.bind_panels()
-
-func bind_panels():
 	self.default_panel = self.hud_panel.get_node('default_panel')
-	self.unit_panel.bind(hud_panel)
-	self.building_panel.bind(hud_panel)
-	self.info_panel.bind(hud_panel)
+	self.unit_panel.bind(self.hud_panel)
+	self.building_panel.bind(self.hud_panel)
+	self.info_panel.bind(self.end_turn_panel_scene, self.info_panel_scene, self.zoom_panel_scene)
+
+func bind_panels(card_anchor, end_anchor, info_anchor, zoom_anchor):
+	card_anchor.add_child(self.hud_panel)
+	end_anchor.add_child(self.end_turn_panel_scene)
+	info_anchor.add_child(self.info_panel_scene)
+	zoom_anchor.add_child(self.zoom_panel_scene)
+
+func unbind_panels(card_anchor, end_anchor, info_anchor, zoom_anchor):
+	card_anchor.remove_child(self.hud_panel)
+	end_anchor.remove_child(self.end_turn_panel_scene)
+	info_anchor.remove_child(self.info_panel_scene)
+	zoom_anchor.remove_child(self.zoom_panel_scene)
 
 func show_default_panel():
 	default_panel.show()

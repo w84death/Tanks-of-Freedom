@@ -1,7 +1,7 @@
 
-var info_panel
 var turn_info
 var end_turn
+var zoom_panel
 
 var info_panel_end_button
 var info_panel_blink_label
@@ -12,10 +12,10 @@ var info_panel_ap
 var info_panel_pap
 var info_panel_map_name
 
-func bind(hud_panel):
-    self.info_panel = hud_panel.get_node('info_panel')
-    self.turn_info = self.info_panel.get_node('turn_info')
-    self.end_turn = self.info_panel.get_node('end_turn')
+func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
+    self.turn_info = info_panel_scene
+    self.end_turn = end_turn_panel_scene
+    self.zoom_panel = zoom_panel_scene
     self.info_panel_turn = self.end_turn.get_node('turn')
     self.info_panel_end_button = self.end_turn.get_node('end_turn_button')
     self.info_panel_blink_label = self.end_turn.get_node('end_turn_text')
@@ -29,10 +29,14 @@ func bind_end_turn(controller, method_name):
     self.info_panel_end_button.connect('pressed', controller, method_name)
 
 func show():
-    self.info_panel.show()
+    self.turn_info.show()
+    self.end_turn.show()
+    self.zoom_panel.show()
 
 func hide():
-    self.info_panel.hide()
+    self.turn_info.hide()
+    self.end_turn.hide()
+    self.zoom_panel.hide()
 
 func reset():
     self.end_button_enable()

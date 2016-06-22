@@ -3,7 +3,10 @@ var action_controller
 var active_map
 
 var hud_root
-var hud_panel_anchor
+var hud_panel_anchor_bottom_left
+var hud_panel_anchor_bottom_middle
+var hud_panel_anchor_bottom_right
+var hud_panel_anchor_top_right
 
 var hud_message_card
 var hud_message_card_controller
@@ -117,12 +120,17 @@ func _end_turn_button_pressed():
 
 
 func attach_hud_panel():
-    self.hud_panel_anchor = self.hud_root.get_node('bottom_center/center')
-    self.hud_panel_anchor.add_child(self.root.bag.controllers.hud_panel_controller.hud_panel)
+    self.hud_panel_anchor_bottom_left = self.hud_root.get_node('bottom_left')
+    self.hud_panel_anchor_bottom_middle = self.hud_root.get_node('bottom_center/center')
+    self.hud_panel_anchor_bottom_right = self.hud_root.get_node('bottom_right')
+    self.hud_panel_anchor_top_right = self.hud_root.get_node('top_right_panel')
+
+    self.root.bag.controllers.hud_panel_controller.bind_panels(self.hud_panel_anchor_bottom_middle, self.hud_panel_anchor_bottom_right, self.hud_panel_anchor_bottom_left, self.hud_panel_anchor_top_right)
+
     self.root.bag.controllers.hud_panel_controller.info_panel.bind_end_turn(self, '_end_turn_button_pressed')
 
 func detach_hud_panel():
-    self.hud_panel_anchor.remove_child(self.root.bag.controllers.hud_panel_controller.hud_panel)
+    self.root.bag.controllers.hud_panel_controller.unbind_panels(self.hud_panel_anchor_bottom_middle, self.hud_panel_anchor_bottom_right, self.hud_panel_anchor_bottom_left, self.hud_panel_anchor_top_right)
 
 func enable_back_to_workshop():
     self.back_to_workshop = true
