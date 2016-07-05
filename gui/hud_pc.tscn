@@ -64,6 +64,10 @@ size_flags/vertical = 2
 
 [node name="top_left_panel" type="Control" parent="."]
 
+margin/left = 128.0
+margin/top = 80.0
+margin/right = 128.0
+margin/bottom = 80.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -304,9 +308,9 @@ max_lines_visible = -1
 anchor/left = 1
 anchor/right = 1
 margin/left = 128.0
-margin/top = 64.0
+margin/top = 80.0
 margin/right = 128.0
-margin/bottom = 64.0
+margin/bottom = 80.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

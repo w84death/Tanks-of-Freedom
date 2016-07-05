@@ -313,6 +313,10 @@ max_lines_visible = -1
 
 anchor/left = 1
 anchor/right = 1
+margin/left = 256.0
+margin/top = 160.0
+margin/right = 256.0
+margin/bottom = 160.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -321,11 +325,17 @@ size_flags/vertical = 2
 [node name="end_game" parent="." instance=ExtResource( 19 )]
 
 visibility/visible = false
+margin/top = 512.0
+margin/bottom = 512.0
 
 [node name="bottom_left" type="Control" parent="."]
 
 anchor/top = 1
 anchor/bottom = 1
+margin/left = 256.0
+margin/top = 128.0
+margin/right = 256.0
+margin/bottom = 128.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -336,8 +346,8 @@ size_flags/vertical = 2
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
-margin/top = 48.0
-margin/bottom = 60.0
+margin/top = 128.0
+margin/bottom = 128.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -361,6 +371,10 @@ anchor/left = 1
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
+margin/left = 256.0
+margin/top = 128.0
+margin/right = 256.0
+margin/bottom = 128.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

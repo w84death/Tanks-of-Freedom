@@ -51,10 +51,10 @@ __meta__ = { "_editor_collapsed":true }
 
 [node name="center" type="Control" parent="message_card"]
 
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+margin/left = 400.0
+margin/top = 240.0
+margin/right = 400.0
+margin/bottom = 240.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -64,6 +64,10 @@ size_flags/vertical = 2
 
 [node name="top_left_panel" type="Control" parent="."]
 
+margin/left = 128.0
+margin/top = 96.0
+margin/right = 128.0
+margin/bottom = 96.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -82,9 +86,9 @@ __meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
 
 [node name="center" type="Control" parent="top_center"]
 
-margin/left = 640.0
+margin/left = 400.0
 margin/top = 30.0
-margin/right = 640.0
+margin/right = 400.0
 margin/bottom = 30.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -303,6 +307,10 @@ max_lines_visible = -1
 
 anchor/left = 1
 anchor/right = 1
+margin/left = 128.0
+margin/top = 96.0
+margin/right = 128.0
+margin/bottom = 96.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -316,6 +324,10 @@ visibility/visible = false
 
 anchor/top = 1
 anchor/bottom = 1
+margin/left = 96.0
+margin/top = 32.0
+margin/right = 96.0
+margin/bottom = 32.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -350,6 +362,10 @@ anchor/left = 1
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
+margin/left = 96.0
+margin/top = 32.0
+margin/right = 96.0
+margin/bottom = 32.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
