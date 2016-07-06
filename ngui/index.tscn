@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://ngui/theme.tres" type="Theme" id=1]
-[ext_resource path="res://ngui/headers/main_header.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ngui/menus/main_menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ngui/containters/intro_containter.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ngui/containters/campaign_containter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
+[ext_resource path="res://ngui/headers/main_header.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ngui/menus/main_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=5]
+[ext_resource path="res://ngui/containters/intro_containter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ngui/containters/campaign_containter.tscn" type="PackedScene" id=7]
 
 [node name="index" type="Control"]
 
@@ -25,13 +27,27 @@ theme/theme = ExtResource( 1 )
 anchor/right = 1
 margin/top = -20.0
 margin/bottom = 44.0
-rect/min_size = Vector2( 600, 64 )
+rect/min_size = Vector2( 660, 64 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="main_header" parent="header" instance=ExtResource( 2 )]
+[node name="background" type="Patch9Frame" parent="header"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+texture = ExtResource( 2 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="main_header" parent="header" instance=ExtResource( 3 )]
 
 [node name="menu" type="Panel" parent="."]
 
@@ -45,7 +61,21 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="main_menu" parent="menu" instance=ExtResource( 3 )]
+[node name="background" type="Patch9Frame" parent="menu"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+texture = ExtResource( 2 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="main_menu" parent="menu" instance=ExtResource( 4 )]
 
 [node name="containter" type="Panel" parent="."]
 
@@ -60,10 +90,24 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 
-[node name="intro_container" parent="containter" instance=ExtResource( 4 )]
+[node name="background" type="Patch9Frame" parent="containter"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+texture = ExtResource( 5 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="intro_container" parent="containter" instance=ExtResource( 6 )]
 
 visibility/visible = false
 
-[node name="campaign_container" parent="containter" instance=ExtResource( 5 )]
+[node name="campaign_container" parent="containter" instance=ExtResource( 7 )]
 
 
