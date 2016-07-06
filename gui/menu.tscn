@@ -769,6 +769,7 @@ max_lines_visible = -1
 
 [node name="overscan_group" type="Control" parent="middle/center/settings_panel"]
 
+visibility/visible = false
 margin/left = -212.0
 margin/top = 140.0
 margin/right = 223.0
@@ -777,6 +778,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
 [node name="overscan_label" type="Label" parent="middle/center/settings_panel/overscan_group"]
 
@@ -844,6 +846,86 @@ custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "THIS SETTING \nREQUIRES \nMAP RESTART"
 valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="language_group" type="Control" parent="middle/center/settings_panel"]
+
+margin/left = -276.0
+margin/top = 158.0
+margin/right = 281.0
+margin/bottom = 216.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="language_label" type="Label" parent="middle/center/settings_panel/language_group"]
+
+margin/left = 16.0
+margin/top = 10.0
+margin/right = 96.0
+margin/bottom = 25.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LANGUAGE"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="language_button" type="TextureButton" parent="middle/center/settings_panel/language_group"]
+
+margin/left = 109.0
+margin/top = -4.0
+margin/right = 205.0
+margin/bottom = 44.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+toggle_mode = false
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
+params/scale = Vector2( 3, 3 )
+
+[node name="Label" type="Label" parent="middle/center/settings_panel/language_group/language_button"]
+
+margin/left = 10.0
+margin/top = 15.0
+margin/right = 86.0
+margin/bottom = 33.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "EN"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="language_notification" type="Label" parent="middle/center/settings_panel/language_group"]
+
+margin/left = 215.0
+margin/top = 10.0
+margin/right = 295.0
+margin/bottom = 25.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This settings requires game restart"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

@@ -289,11 +289,13 @@ func switch_to_remote_list():
     self.remote_mode_enabled = true
     self.fill_page()
     self.online_button_label.set_text(tr('LABEL_REMOTE'))
+    self.adjust_page_buttons()
 
 func switch_to_local_list():
     self.remote_mode_enabled = false
     self.fill_page()
     self.online_button_label.set_text(tr('LABEL_LOCAL'))
+    self.adjust_page_buttons()
 
 func disable_list_switch():
     self.button_enable_switch(self.online_button, false)

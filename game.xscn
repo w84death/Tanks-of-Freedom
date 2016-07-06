@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://scripts/game_logic.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://gui/corners.xscn" type="PackedScene" index="1"></ext_resource>
 	<ext_resource path="res://scripts/camera.gd" type="Script" index="4"></ext_resource>
-	<ext_resource path="res://scripts/ai_timer.gd" type="Script" index="2"></ext_resource>
 	<ext_resource path="res://scripts/demo_timer.gd" type="Script" index="3"></ext_resource>
+	<ext_resource path="res://scripts/ai_timer.gd" type="Script" index="2"></ext_resource>
 	<resource type="SampleLibrary" path="local://1">
 
 	</resource>
@@ -130,7 +130,7 @@
 				<real> 12 </real>
 				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
-				<rect2> 0, 0, 800, 480 </rect2>
+				<rect2> 0, 0, 1280, 720 </rect2>
 				<vector2> 1, 1 </vector2>
 				<int> -10000000 </int>
 				<int> 10000000 </int>

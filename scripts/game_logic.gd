@@ -51,7 +51,8 @@ var settings = {
     'easy_mode' : false,
     'online_player_id' : null,
     'online_player_pin' : null,
-    'is_overscan' : false
+    'is_overscan' : false,
+    'language' : 'en'
 }
 
 var is_map_loaded = false
@@ -339,10 +340,10 @@ func write_settings_to_file():
     self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
-    TranslationServer.set_locale("en")
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
+    TranslationServer.set_locale(self.settings['language'])
     if self.hud_layout == "overscan":
         self.hud_template = self.hud_tv
     elif self.hud_layout == "pandora":

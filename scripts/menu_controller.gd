@@ -29,6 +29,7 @@ var workshop_button
 var workshop
 
 var overscan_group
+var language_group
 
 var sound_toggle_button
 var music_toggle_button
@@ -39,6 +40,7 @@ var camera_zoom_out_button
 var resolution_button
 var difficulty_button
 var overscan_toggle_button
+var language_cycle_button
 
 var sound_toggle_label
 var music_toggle_label
@@ -48,6 +50,7 @@ var camera_zoom_label
 var resolution_label
 var difficulty_label
 var overscan_toggle_label
+var language_cycle_label
 
 var background_map
 var root_tree
@@ -81,6 +84,7 @@ func _ready():
 
     settings_button = get_node("top/center/settings")
     overscan_group = settings.get_node("overscan_group")
+    language_group = settings.get_node("language_group")
 
     sound_toggle_button = settings.get_node("sound_toggle")
     music_toggle_button = settings.get_node("music_toggle")
@@ -91,6 +95,7 @@ func _ready():
     resolution_button = settings.get_node("display_mode_toggle")
     difficulty_button = settings.get_node("difficulty_mode_toggle")
     overscan_toggle_button = overscan_group.get_node('overscan_button')
+    language_cycle_button = language_group.get_node('language_button')
 
     sound_toggle_label = sound_toggle_button.get_node("Label")
     music_toggle_label = music_toggle_button.get_node("Label")
@@ -100,6 +105,7 @@ func _ready():
     resolution_label = resolution_button.get_node("Label")
     difficulty_label = difficulty_button.get_node("Label")
     overscan_toggle_label = overscan_toggle_button.get_node('Label')
+    language_cycle_label = language_cycle_button.get_node('Label')
 
     campaign_button.connect("pressed", self, "_campaign_button_pressed")
     workshop_button.connect("pressed", self, "_workshop_button_pressed")
@@ -115,6 +121,7 @@ func _ready():
     resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
     overscan_toggle_button.connect("pressed", self, "_overscan_toggle_button_pressed")
+    language_cycle_button.connect("pressed", self, "_language_cycle_button_pressed")
 
     close_button.connect("pressed", self, "_close_button_pressed")
     quit_button.connect("pressed", self, "_quit_button_pressed")
@@ -165,6 +172,10 @@ func _camera_zoom_out_button_pressed():
 func _overscan_toggle_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.settings['is_overscan'] = not self.root.settings['is_overscan']
+    self.refresh_buttons_labels()
+func _language_cycle_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.root.bag.language.switch_to_next_language()
     self.refresh_buttons_labels()
 func _close_button_pressed():
     self.root.sound_controller.play('menu')
@@ -427,6 +438,8 @@ func refresh_buttons_labels():
         overscan_toggle_label.set_text(tr('LABEL_ON'))
     else:
         overscan_toggle_label.set_text(tr('LABEL_OFF'))
+
+    language_cycle_label.set_text(self.root.settings['language'])
 
     if Globals.get('tof/hud_allow_overscan'):
         self.overscan_group.show()

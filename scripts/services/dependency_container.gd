@@ -2,6 +2,7 @@ var root
 
 var controllers = preload("res://scripts/controllers/controllers.gd").new()
 
+var language = preload("res://scripts/language.gd").new()
 var map_list = preload("res://scripts/maps/map_list.gd").new()
 var campaign = preload("res://maps/campaign.gd").new()
 var abstract_map = preload('res://scripts/abstract_map.gd').new()
@@ -46,6 +47,7 @@ var workshop = null
 func init_root(root_node):
     self.root = root_node
 
+    self.language._init_bag(self)
     self.migrations._init_bag(self)
     self.map_list._init_bag(self)
     self.campaign.load_campaign_progress()
