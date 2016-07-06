@@ -24,7 +24,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=22]
 [ext_resource path="res://gui/stats.xscn" type="PackedScene" id=23]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 
 resource/name = "hide_main_menu"
 length = 1.0
@@ -43,9 +43,8 @@ tracks/2/path = NodePath("game_panel/under_logo:visibility/opacity")
 tracks/2/interp = 1
 tracks/2/keys = { "cont":true, "times":FloatArray( 0, 0.2, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 1.0, 1.0, 0.0 ] }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
-resource/name = "show_main_menu"
 length = 1.0
 loop = false
 step = 0.1
@@ -77,7 +76,7 @@ tracks/1/path = NodePath("settings_panel:visibility/visible")
 tracks/1/interp = 1
 tracks/1/keys = { "cont":false, "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "values":[ false ] }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 resource/name = "show_settings"
 length = 0.5
@@ -254,10 +253,11 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+__meta__ = { "_editor_collapsed":true }
 
 [node name="Sprite17" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -172, -62 )
+transform/pos = Vector2( -240, -56 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -266,7 +266,7 @@ frame = 3
 
 [node name="Sprite17 2" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 2, -62 )
+transform/pos = Vector2( 3.05176e-05, -56 )
 transform/scale = Vector2( 12, 3 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -275,7 +275,7 @@ frame = 4
 
 [node name="Sprite17 3" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 178, -62 )
+transform/pos = Vector2( 240, -56 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -284,7 +284,7 @@ frame = 5
 
 [node name="Sprite18" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -172, 8.24545 )
+transform/pos = Vector2( -240, 14.2455 )
 transform/scale = Vector2( 3, 3.64034 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -293,7 +293,7 @@ frame = 11
 
 [node name="Sprite173" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 0, 11.3821 )
+transform/pos = Vector2( 0, 12.1542 )
 transform/scale = Vector2( 12, 4.25964 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -302,7 +302,7 @@ frame = 12
 
 [node name="Sprite174" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 178, 6.40787 )
+transform/pos = Vector2( 240, 12.4079 )
 transform/scale = Vector2( 3, 4.15049 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -311,7 +311,7 @@ frame = 13
 
 [node name="Sprite19" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -172, 88 )
+transform/pos = Vector2( -240, 104 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -320,7 +320,7 @@ frame = 19
 
 [node name="Sprite175" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -8, 88 )
+transform/pos = Vector2( 1.52588e-05, 104 )
 transform/scale = Vector2( 12, 3 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -329,7 +329,7 @@ frame = 20
 
 [node name="Sprite175 2" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 178, 88 )
+transform/pos = Vector2( 240, 104 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 vframes = 8
@@ -338,10 +338,10 @@ frame = 21
 
 [node name="sound_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -100.0
-margin/top = -40.0
-margin/right = -4.0
-margin/bottom = 8.0
+margin/left = 56.0
+margin/top = -32.0
+margin/right = 152.0
+margin/bottom = 16.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -374,10 +374,10 @@ max_lines_visible = -1
 
 [node name="music_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 120.0
-margin/top = -40.0
-margin/right = 216.0
-margin/bottom = 8.0
+margin/left = 56.0
+margin/top = 24.0
+margin/right = 152.0
+margin/bottom = 72.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -410,9 +410,10 @@ max_lines_visible = -1
 
 [node name="effects" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -180.0
-margin/top = -30.0
-margin/right = -109.0
+margin/left = -16.0
+margin/top = -24.0
+margin/right = 55.0
+margin/bottom = 6.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -426,9 +427,9 @@ max_lines_visible = -1
 
 [node name="music" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = 60.0
-margin/top = -30.0
-margin/right = 113.0
+margin/top = 32.0
+margin/right = 53.0
+margin/bottom = 62.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -443,10 +444,10 @@ max_lines_visible = -1
 
 [node name="shake_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 120.0
-margin/top = 20.0
-margin/right = 216.0
-margin/bottom = 68.0
+margin/left = -161.0
+margin/top = 24.0
+margin/right = -65.0
+margin/bottom = 72.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -480,10 +481,10 @@ max_lines_visible = -1
 
 [node name="shake" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = 49.0
-margin/top = 30.0
-margin/right = 110.0
-margin/bottom = 60.0
+margin/left = -232.0
+margin/top = 32.0
+margin/right = -171.0
+margin/bottom = 62.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -498,10 +499,10 @@ max_lines_visible = -1
 
 [node name="auto_follow_" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -210.0
-margin/top = 30.0
-margin/right = -108.0
-margin/bottom = 60.0
+margin/left = -272.0
+margin/top = -24.0
+margin/right = -164.0
+margin/bottom = 6.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -516,10 +517,10 @@ max_lines_visible = -1
 
 [node name="camera_follow" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -100.0
-margin/top = 20.0
-margin/right = -4.0
-margin/bottom = 68.0
+margin/left = -160.0
+margin/top = -32.0
+margin/right = -64.0
+margin/bottom = 16.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -550,12 +551,31 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="camera_zoom_level" type="Label" parent="middle/center/settings_panel"]
+
+visibility/visible = false
+margin/left = 144.0
+margin/top = -80.0
+margin/right = 188.0
+margin/bottom = -50.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "7"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="zoom_level_" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -210.0
-margin/top = 90.0
-margin/right = -110.0
-margin/bottom = 120.0
+margin/left = -48.0
+margin/top = -80.0
+margin/right = 52.0
+margin/bottom = -50.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -570,10 +590,10 @@ max_lines_visible = -1
 
 [node name="camera_zoom_in" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 10.0
-margin/top = 80.0
-margin/right = 106.0
-margin/bottom = 128.0
+margin/left = 176.0
+margin/top = -88.0
+margin/right = 272.0
+margin/bottom = -40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -589,10 +609,10 @@ __meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_zoom_in"]
 
-margin/left = 9.0
-margin/top = 17.0
-margin/right = 86.0
-margin/bottom = 35.0
+margin/left = 8.0
+margin/top = 16.0
+margin/right = 85.0
+margin/bottom = 34.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -606,10 +626,10 @@ max_lines_visible = -1
 
 [node name="camera_zoom_out" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -100.0
-margin/top = 80.0
-margin/right = -4.0
-margin/bottom = 128.0
+margin/left = 56.0
+margin/top = -88.0
+margin/right = 152.0
+margin/bottom = -40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -640,30 +660,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="camera_zoom_level" type="Label" parent="middle/center/settings_panel"]
-
-margin/left = 120.0
-margin/top = 90.0
-margin/right = 164.0
-margin/bottom = 120.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 13 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "7"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
 [node name="display_mode_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 120.0
-margin/top = -100.0
-margin/right = 216.0
-margin/bottom = -52.0
+margin/left = -160.0
+margin/top = 80.0
+margin/right = -64.0
+margin/bottom = 128.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -696,10 +698,10 @@ max_lines_visible = -1
 
 [node name="display_mode_" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = 50.0
-margin/top = -90.0
-margin/right = 113.0
-margin/bottom = -60.0
+margin/left = -224.0
+margin/top = 88.0
+margin/right = -161.0
+margin/bottom = 118.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -713,10 +715,10 @@ max_lines_visible = -1
 
 [node name="effects1" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -210.0
-margin/top = -90.0
-margin/right = -112.0
-margin/bottom = -60.0
+margin/left = -264.0
+margin/top = -80.0
+margin/right = -164.0
+margin/bottom = -50.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -731,10 +733,10 @@ max_lines_visible = -1
 
 [node name="difficulty_mode_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -100.0
-margin/top = -100.0
-margin/right = -4.0
-margin/bottom = -52.0
+margin/left = -160.0
+margin/top = -88.0
+margin/right = -64.0
+margin/bottom = -40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -778,10 +780,10 @@ size_flags/vertical = 2
 
 [node name="overscan_label" type="Label" parent="middle/center/settings_panel/overscan_group"]
 
-margin/left = 4.0
-margin/top = 7.0
-margin/right = 104.0
-margin/bottom = 37.0
+margin/left = 164.0
+margin/top = -52.0
+margin/right = 264.0
+margin/bottom = -22.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -796,9 +798,10 @@ max_lines_visible = -1
 
 [node name="overscan_button" type="TextureButton" parent="middle/center/settings_panel/overscan_group"]
 
-margin/left = 112.0
-margin/right = 208.0
-margin/bottom = 48.0
+margin/left = 268.0
+margin/top = -60.0
+margin/right = 364.0
+margin/bottom = -12.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -830,16 +833,16 @@ max_lines_visible = -1
 
 [node name="overscan_notification" type="Label" parent="middle/center/settings_panel/overscan_group"]
 
-margin/left = 221.0
-margin/top = 7.0
-margin/right = 543.0
-margin/bottom = 37.0
+margin/left = 372.0
+margin/top = -60.0
+margin/right = 498.0
+margin/bottom = -15.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "THIS SETTING REQUIRES MAP RESTART"
+text = "THIS SETTING \nREQUIRES \nMAP RESTART"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -868,8 +871,8 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/hide_main_menu = SubResource( 4 )
-anims/show_main_menu = SubResource( 1 )
+anims/hide_main_menu = SubResource( 1 )
+anims/show_main_menu = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -881,7 +884,7 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/hide_settings = SubResource( 3 )
-anims/show_settings = SubResource( 5 )
+anims/show_settings = SubResource( 4 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
