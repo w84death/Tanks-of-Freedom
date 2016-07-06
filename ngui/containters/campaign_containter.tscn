@@ -45,15 +45,15 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="VBoxContainer" type="GridContainer" parent="ScrollContainer"]
 
-margin/right = 256.0
-margin/bottom = 608.0
+margin/right = 832.0
+margin/bottom = 288.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 custom_constants/vseparation = 32
 custom_constants/hseparation = 32
-columns = 1
+columns = 3
 
 [node name="tutorial" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
 
@@ -85,7 +85,6 @@ flat = false
 
 [node name="empty" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
 
-visibility/visible = false
 margin/left = 288.0
 margin/right = 544.0
 margin/bottom = 128.0
@@ -97,9 +96,8 @@ size_flags/vertical = 2
 
 [node name="empty2" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
 
-visibility/visible = false
-margin/left = 288.0
-margin/right = 544.0
+margin/left = 576.0
+margin/right = 832.0
 margin/bottom = 128.0
 rect/min_size = Vector2( 256, 128 )
 focus/ignore_mouse = false
@@ -138,9 +136,10 @@ flat = false
 
 [node name="tutorial2" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
 
-margin/top = 320.0
-margin/right = 256.0
-margin/bottom = 448.0
+margin/left = 288.0
+margin/top = 160.0
+margin/right = 544.0
+margin/bottom = 288.0
 rect/min_size = Vector2( 256, 128 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -167,9 +166,10 @@ flat = false
 
 [node name="tutorial3" type="ReferenceFrame" parent="ScrollContainer/VBoxContainer"]
 
-margin/top = 480.0
-margin/right = 256.0
-margin/bottom = 608.0
+margin/left = 576.0
+margin/top = 160.0
+margin/right = 832.0
+margin/bottom = 288.0
 rect/min_size = Vector2( 256, 128 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
