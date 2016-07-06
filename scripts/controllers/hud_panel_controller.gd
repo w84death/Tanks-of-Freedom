@@ -60,9 +60,13 @@ func hide_unit_panel():
 
 func hide_panel():
 	self.hud_panel.hide()
+	self.info_panel_scene.hide()
+	self.end_turn_panel_scene.hide()
 
 func show_panel():
 	self.hud_panel.show()
+	self.info_panel_scene.show()
+	self.end_turn_panel_scene.show()
 
 func clear_panels():
 	self.hide_unit_panel()
