@@ -15,8 +15,8 @@ def process_file( name ):
     return values
 
 def compare_dict( dict1, dict2 ):
-    dict1 = list(dict1.values())
-    dict2 = list(dict2.values())
+    dict1 = list(dict1.keys())
+    dict2 = list(dict2.keys())
     #remove lang
     dict1.pop(0)
     dict2.pop(0)
