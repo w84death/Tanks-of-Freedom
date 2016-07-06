@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=1]
 
 [node name="intro_container" type="Control"]
 
@@ -15,7 +14,6 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
 __meta__ = { "_edit_lock_":true }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -57,7 +55,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -78,7 +76,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -99,7 +97,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -121,7 +119,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -142,7 +140,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -163,7 +161,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -184,7 +182,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -205,7 +203,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -228,7 +226,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -250,7 +248,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -272,7 +270,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 8, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -295,7 +293,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -317,7 +315,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -339,7 +337,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -360,7 +358,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -382,7 +380,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -405,7 +403,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -427,7 +425,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -449,7 +447,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -471,7 +469,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -493,7 +491,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -514,7 +512,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -536,7 +534,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -558,7 +556,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -580,7 +578,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -602,7 +600,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -624,7 +622,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -646,7 +644,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -667,7 +665,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6
@@ -689,7 +687,7 @@ __meta__ = { "_editor_collapsed":true }
 
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 centered = false
 vframes = 4
 hframes = 6

@@ -106,8 +106,8 @@ patch_margin/bottom = 24
 
 [node name="intro_container" parent="containter" instance=ExtResource( 6 )]
 
-visibility/visible = false
-
 [node name="campaign_container" parent="containter" instance=ExtResource( 7 )]
+
+visibility/visible = false
 
 
