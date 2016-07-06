@@ -180,7 +180,10 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         current_map.load_campaign_map(template_name)
         self.bag.controllers.hud_panel_controller.info_panel.set_map_name(self.bag.campaign.get_map_name(template_name))
     current_map.show_blueprint = false
-    hud = hud_template.instance()
+    if self.settings['is_overscan']:
+        hud = self.hud_tv.instance()
+    else:
+        hud = hud_template.instance()
     self.bag.gamepad.show_gamepad_icons()
 
     current_map_terrain = current_map.get_node("terrain")
@@ -340,7 +343,7 @@ func _ready():
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
-    if self.settings['is_overscan'] or self.hud_layout == "overscan":
+    if self.hud_layout == "overscan":
         self.hud_template = self.hud_tv
     elif self.hud_layout == "pandora":
         self.hud_template = self.hud_pandora

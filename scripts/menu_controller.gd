@@ -28,6 +28,8 @@ var maps_close_button
 var workshop_button
 var workshop
 
+var overscan_group
+
 var sound_toggle_button
 var music_toggle_button
 var shake_toggle_button
@@ -36,6 +38,7 @@ var camera_zoom_in_button
 var camera_zoom_out_button
 var resolution_button
 var difficulty_button
+var overscan_toggle_button
 
 var sound_toggle_label
 var music_toggle_label
@@ -44,6 +47,7 @@ var camera_follow_label
 var camera_zoom_label
 var resolution_label
 var difficulty_label
+var overscan_toggle_label
 
 var background_map
 var root_tree
@@ -76,6 +80,7 @@ func _ready():
     settings_animations = get_node("middle/center/settings_anim")
 
     settings_button = get_node("top/center/settings")
+    overscan_group = settings.get_node("overscan_group")
 
     sound_toggle_button = settings.get_node("sound_toggle")
     music_toggle_button = settings.get_node("music_toggle")
@@ -85,6 +90,7 @@ func _ready():
     camera_zoom_out_button = settings.get_node("camera_zoom_out")
     resolution_button = settings.get_node("display_mode_toggle")
     difficulty_button = settings.get_node("difficulty_mode_toggle")
+    overscan_toggle_button = overscan_group.get_node('overscan_button')
 
     sound_toggle_label = sound_toggle_button.get_node("Label")
     music_toggle_label = music_toggle_button.get_node("Label")
@@ -93,6 +99,7 @@ func _ready():
     camera_zoom_label = settings.get_node("camera_zoom_level")
     resolution_label = resolution_button.get_node("Label")
     difficulty_label = difficulty_button.get_node("Label")
+    overscan_toggle_label = overscan_toggle_button.get_node('Label')
 
     campaign_button.connect("pressed", self, "_campaign_button_pressed")
     workshop_button.connect("pressed", self, "_workshop_button_pressed")
@@ -107,6 +114,7 @@ func _ready():
     camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
     resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
+    overscan_toggle_button.connect("pressed", self, "_overscan_toggle_button_pressed")
 
     close_button.connect("pressed", self, "_close_button_pressed")
     quit_button.connect("pressed", self, "_quit_button_pressed")
@@ -154,6 +162,10 @@ func _camera_zoom_in_button_pressed():
 func _camera_zoom_out_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.bag.camera.camera_zoom_out()
+func _overscan_toggle_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.root.settings['is_overscan'] = not self.root.settings['is_overscan']
+    self.refresh_buttons_labels()
 func _close_button_pressed():
     self.root.sound_controller.play('menu')
     if not self.root.is_map_loaded && self.root.bag.saving != null:
@@ -411,6 +423,13 @@ func refresh_buttons_labels():
         difficulty_label.set_text(tr('LABEL_EASY'))
     else:
         difficulty_label.set_text(tr('LABEL_NORMAL'))
+    if root.settings['is_overscan']:
+        overscan_toggle_label.set_text(tr('LABEL_ON'))
+    else:
+        overscan_toggle_label.set_text(tr('LABEL_OFF'))
+
+    if Globals.get('tof/hud_allow_overscan'):
+        self.overscan_group.show()
 
     if root.bag.resolution.override_resolution:
         self.resolution_button.set_disabled(false)
