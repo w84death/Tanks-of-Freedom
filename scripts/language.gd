@@ -3,7 +3,8 @@ var bag
 
 var language_cycle = {
     'en' : 'pl',
-    'pl' : 'en'
+    'pl' : 'fr',
+    'fr' : 'en'
 }
 
 func _init_bag(bag):
