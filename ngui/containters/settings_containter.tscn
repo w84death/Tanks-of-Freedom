@@ -1,0 +1,676 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="BitmapFont" id=1]
+
+[node name="settings_container" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 20.0
+margin/bottom = 20.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 0.0
+margin/right = -1.0
+margin/bottom = 0.0
+alignment = 1
+
+[node name="game_col" type="VBoxContainer" parent="GridContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 260.0
+margin/top = 0.0
+margin/right = 388.0
+margin/bottom = 680.0
+custom_constants/separation = 32
+alignment = 0
+
+[node name="game" type="Label" parent="GridContainer/game_col"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "game"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="game_difficulty" type="VBoxContainer" parent="GridContainer/game_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 62.0
+margin/right = 128.0
+margin/bottom = 116.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/game_col/game_difficulty"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 15.0
+text = "difficulty"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/game_col/game_difficulty"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 128.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "NORMAL"
+flat = false
+
+[node name="camera_zoom" type="VBoxContainer" parent="GridContainer/game_col"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 128.0
+margin/bottom = 279.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/game_col/camera_zoom"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 15.0
+text = "map zoom"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/game_col/camera_zoom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 128.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "SMALLER"
+flat = false
+
+[node name="Button1" type="Button" parent="GridContainer/game_col/camera_zoom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 58.0
+margin/right = 128.0
+margin/bottom = 93.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "BIGGER"
+flat = false
+
+[node name="Label1" type="Label" parent="GridContainer/game_col/camera_zoom"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 97.0
+margin/right = 128.0
+margin/bottom = 112.0
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+text = "current level"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="GridContainer/game_col/camera_zoom"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 116.0
+margin/right = 128.0
+margin/bottom = 131.0
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+text = "0.5x"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="split 3" type="VSeparator" parent="GridContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 420.0
+margin/top = 0.0
+margin/right = 423.0
+margin/bottom = 680.0
+
+[node name="system_col" type="VBoxContainer" parent="GridContainer"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 455.0
+margin/top = 0.0
+margin/right = 569.0
+margin/bottom = 680.0
+custom_constants/separation = 32
+alignment = 0
+
+[node name="system" type="Label" parent="GridContainer/system_col"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 114.0
+margin/bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "system"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="game_fullscreen" type="VBoxContainer" parent="GridContainer/system_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 62.0
+margin/right = 114.0
+margin/bottom = 116.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/system_col/game_fullscreen"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 114.0
+margin/bottom = 15.0
+text = "full screen"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/system_col/game_fullscreen"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 114.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "WINDOW"
+flat = false
+
+[node name="system_language" type="VBoxContainer" parent="GridContainer/system_col"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 114.0
+margin/bottom = 302.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/system_col/system_language"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 114.0
+margin/bottom = 15.0
+text = "language"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/system_col/system_language"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 114.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ENGLISH"
+flat = false
+
+[node name="Label1" type="Label" parent="GridContainer/system_col/system_language"]
+
+rect/min_size = Vector2( 0, 96 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 58.0
+margin/right = 114.0
+margin/bottom = 154.0
+custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+text = "This settings requires game restart"
+align = 1
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="split 2" type="VSeparator" parent="GridContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 601.0
+margin/top = 0.0
+margin/right = 604.0
+margin/bottom = 680.0
+
+[node name="camera_col" type="VBoxContainer" parent="GridContainer"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 636.0
+margin/top = 0.0
+margin/right = 754.0
+margin/bottom = 680.0
+custom_constants/separation = 32
+alignment = 0
+
+[node name="camera" type="Label" parent="GridContainer/camera_col"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 118.0
+margin/bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "camera"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="gameplay_difficult" type="VBoxContainer" parent="GridContainer/camera_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 62.0
+margin/right = 118.0
+margin/bottom = 116.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/camera_col/gameplay_difficult"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 118.0
+margin/bottom = 15.0
+text = "camera shake"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/camera_col/gameplay_difficult"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 118.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
+
+[node name="camera_shake" type="VBoxContainer" parent="GridContainer/camera_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 118.0
+margin/bottom = 202.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/camera_col/camera_shake"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 118.0
+margin/bottom = 15.0
+text = "screen shake"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/camera_col/camera_shake"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 118.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
+
+[node name="camera_follow" type="VBoxContainer" parent="GridContainer/camera_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 234.0
+margin/right = 118.0
+margin/bottom = 288.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/camera_col/camera_follow"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 118.0
+margin/bottom = 15.0
+text = "auto follow"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/camera_col/camera_follow"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 118.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
+
+[node name="split" type="VSeparator" parent="GridContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 786.0
+margin/top = 0.0
+margin/right = 789.0
+margin/bottom = 680.0
+
+[node name="sound_col" type="VBoxContainer" parent="GridContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 821.0
+margin/top = 0.0
+margin/right = 979.0
+margin/bottom = 680.0
+custom_constants/separation = 32
+alignment = 0
+
+[node name="sound" type="Label" parent="GridContainer/sound_col"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 158.0
+margin/bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "sound"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="sound_music" type="VBoxContainer" parent="GridContainer/sound_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 62.0
+margin/right = 158.0
+margin/bottom = 116.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/sound_col/sound_music"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 158.0
+margin/bottom = 15.0
+text = "background music"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/sound_col/sound_music"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 158.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
+
+[node name="sound_effects" type="VBoxContainer" parent="GridContainer/sound_col"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 158.0
+margin/bottom = 202.0
+alignment = 0
+
+[node name="Label" type="Label" parent="GridContainer/sound_col/sound_effects"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 158.0
+margin/bottom = 15.0
+text = "effects & gui"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Button" type="Button" parent="GridContainer/sound_col/sound_effects"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 158.0
+margin/bottom = 54.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
+
+

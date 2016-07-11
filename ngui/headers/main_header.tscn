@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=1]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=2]
 
 [node name="main_header" type="Control"]
 
@@ -11,6 +12,92 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="left" type="HBoxContainer" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+custom_constants/separation = 8
+alignment = 0
+
+[node name="ReferenceFrame" type="ReferenceFrame" parent="left"]
+
+rect/min_size = Vector2( 64, 64 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 64.0
+margin/bottom = 64.0
+
+[node name="Sprite" type="Sprite" parent="left/ReferenceFrame"]
+
+transform/pos = Vector2( 8, 8 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+vframes = 4
+hframes = 6
+
+[node name="ReferenceFrame1" type="ReferenceFrame" parent="left"]
+
+rect/min_size = Vector2( 64, 64 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 72.0
+margin/top = 0.0
+margin/right = 136.0
+margin/bottom = 64.0
+
+[node name="Sprite" type="Sprite" parent="left/ReferenceFrame1"]
+
+transform/pos = Vector2( 8, 8 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+vframes = 4
+hframes = 6
+frame = 6
+
+[node name="ReferenceFrame2" type="ReferenceFrame" parent="left"]
+
+rect/min_size = Vector2( 64, 64 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 144.0
+margin/top = 0.0
+margin/right = 208.0
+margin/bottom = 64.0
+
+[node name="Sprite" type="Sprite" parent="left/ReferenceFrame2"]
+
+transform/pos = Vector2( 8, 8 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+vframes = 4
+hframes = 6
+frame = 12
 
 [node name="logo" type="Control" parent="."]
 
@@ -20,65 +107,95 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
 [node name="Sprite" type="Sprite" parent="logo"]
 
 transform/pos = Vector2( 0, 20 )
 transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="right" type="HBoxContainer" parent="."]
+
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 68.0
+custom_constants/separation = 8
+alignment = 2
+
+[node name="ReferenceFrame" type="ReferenceFrame" parent="right"]
+
+rect/min_size = Vector2( 64, 64 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1072.0
+margin/top = 0.0
+margin/right = 1136.0
+margin/bottom = 68.0
+
+[node name="Sprite" type="Sprite" parent="right/ReferenceFrame"]
+
+transform/pos = Vector2( 8, 8 )
+transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 3
 
-[node name="version" type="Control" parent="."]
+[node name="ReferenceFrame1" type="ReferenceFrame" parent="right"]
 
-anchor/bottom = 1
-margin/left = 20.0
-margin/top = 20.0
-margin/bottom = 20.0
+rect/min_size = Vector2( 64, 64 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 1144.0
+margin/top = 0.0
+margin/right = 1208.0
+margin/bottom = 68.0
 
-[node name="Label" type="Label" parent="version"]
+[node name="Sprite" type="Sprite" parent="right/ReferenceFrame1"]
 
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-text = "VERSION:\n0.5.0 BETA"
-valign = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+transform/pos = Vector2( 8, 8 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 9
 
-[node name="ad" type="Control" parent="."]
+[node name="ReferenceFrame2" type="ReferenceFrame" parent="right"]
 
-anchor/left = 1
-anchor/right = 1
-anchor/bottom = 1
-margin/left = 20.0
-margin/top = 20.0
-margin/right = 20.0
-margin/bottom = 20.0
+rect/min_size = Vector2( 64, 64 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 1216.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 68.0
 
-[node name="Label" type="Label" parent="ad"]
+[node name="Sprite" type="Sprite" parent="right/ReferenceFrame2"]
 
-anchor/right = 1
-anchor/bottom = 1
-margin/left = -128.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-text = "HTTP://P1X.IN"
-align = 2
-valign = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+transform/pos = Vector2( 8, 8 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 4
+hframes = 6
+frame = 16
 
 

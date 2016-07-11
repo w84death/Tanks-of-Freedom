@@ -4,149 +4,181 @@
 
 anchor/right = 1
 anchor/bottom = 1
-margin/left = 20.0
-margin/top = 20.0
-margin/right = 20.0
-margin/bottom = 20.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 20.0
+margin/bottom = 20.0
 alignment = 0
 
 [node name="resume_game" type="Button" parent="."]
 
-margin/right = 1240.0
-margin/bottom = 19.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1240.0
+margin/bottom = 20.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "RESUME GAME"
 flat = false
 
-[node name="separator" type="HSeparator" parent="."]
+[node name="split" type="Control" parent="."]
 
-margin/top = 23.0
-margin/right = 1240.0
-margin/bottom = 26.0
+rect/min_size = Vector2( 0, 16 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 24.0
+margin/right = 1240.0
+margin/bottom = 40.0
 
 [node name="campaign" type="Button" parent="."]
 
-margin/top = 30.0
-margin/right = 1240.0
-margin/bottom = 49.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 44.0
+margin/right = 1240.0
+margin/bottom = 64.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "CAMPAIGN"
 flat = false
 
 [node name="skirmish" type="Button" parent="."]
 
-margin/top = 53.0
-margin/right = 1240.0
-margin/bottom = 72.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 68.0
+margin/right = 1240.0
+margin/bottom = 88.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "SKIRMISH"
 flat = false
 
 [node name="online" type="Button" parent="."]
 
-margin/top = 76.0
-margin/right = 1240.0
-margin/bottom = 95.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 92.0
+margin/right = 1240.0
+margin/bottom = 112.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ONLINE"
 flat = false
 
-[node name="demo" type="Button" parent="."]
+[node name="split1" type="Control" parent="."]
 
-margin/top = 99.0
-margin/right = 1240.0
-margin/bottom = 118.0
+rect/min_size = Vector2( 0, 16 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 116.0
+margin/right = 1240.0
+margin/bottom = 132.0
+
+[node name="demo" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 136.0
+margin/right = 1240.0
+margin/bottom = 156.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "DEMO"
 flat = false
 
-[node name="separator2" type="HSeparator" parent="."]
-
-margin/top = 122.0
-margin/right = 1240.0
-margin/bottom = 125.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-
 [node name="workshop" type="Button" parent="."]
 
-margin/top = 129.0
-margin/right = 1240.0
-margin/bottom = 148.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 160.0
+margin/right = 1240.0
+margin/bottom = 180.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "WORKSHOP"
 flat = false
 
 [node name="settings" type="Button" parent="."]
 
-margin/top = 152.0
-margin/right = 1240.0
-margin/bottom = 171.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 184.0
+margin/right = 1240.0
+margin/bottom = 204.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "SETTINGS"
 flat = false
 
 [node name="about" type="Button" parent="."]
 
-margin/top = 175.0
-margin/right = 1240.0
-margin/bottom = 194.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 208.0
+margin/right = 1240.0
+margin/bottom = 228.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ABOUT"
 flat = false
 
 [node name="quit" type="Button" parent="."]
 
-margin/top = 198.0
-margin/right = 1240.0
-margin/bottom = 217.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 232.0
+margin/right = 1240.0
+margin/bottom = 252.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "QUIT"
 flat = false
 
