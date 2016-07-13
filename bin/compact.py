@@ -27,6 +27,9 @@ def compare_dict( dict1, dict2 ):
     diff_12 = dict1 - dict2
     diff_21 = dict2 - dict1
 
+    # print (diff_21)
+    # print (diff_12)
+
     return (bool(diff_12 | diff_21), diff_12, diff_21)
 
 def get_translations_files(dir, input_files_prefix):
@@ -51,21 +54,23 @@ def validate(directory, input_file_prefix):
         result = compare_dict(default_trans, trans[lang])
         if result[0]:
             if bool(result[1]):
-                differences[' default > '+ lang] = result[1]
+                differences['(-) default > '+ lang] = result[1]
             if bool(result[2]):
-                differences[' default < '+ lang] = result[2]
+                differences['(+) default < '+ lang] = result[2]
 
     return differences
 
 def compact_translations(directory, output_file_name):
     output = {}
-    for lang in translations:
+
+    default_trans = translations.pop('en')
+    for row in default_trans:
+        output[row] = [default_trans[row]]
+
+    for lang in sorted(translations):
         translation = translations[lang]
         for row in translation:
-            if row in output:
-                output[row].append(translation[row])
-            else:
-                output[row] = [translation[row]]
+            output[row].append(translation[row])
 
     with open(directory + output_file_name, 'w') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -80,11 +85,14 @@ def execute(directory, input_files_prefix, output_file_name):
     differences = validate(directory, input_files_prefix)
     if bool(differences):
         print ('Error - translation files are different')
+        print('')
         print ('Directory: ' + directory)
         print ('---------------------------------------')
         for diffs in differences:
-            print(diffs + ": ")
+            print(diffs + ': ')
+            print(", ".join(differences[diffs]))
         print ('---------------------------------------')
+        print('')
     else:
         compact_translations(directory, output_file_name)
         print ('Translations in directory: ' + directory + ' compacted!')
