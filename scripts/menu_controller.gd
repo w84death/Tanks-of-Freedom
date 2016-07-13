@@ -320,6 +320,8 @@ func hide_settings():
     self.settings_animations.play('hide_settings')
 
 func manage_close_button():
+    if not self.close_button:
+        return
     if self.root.is_map_loaded:
         self.close_button.show()
         self.close_button_label.set_text('< ' + tr('LABEL_GAME'))

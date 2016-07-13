@@ -30,7 +30,7 @@ var current_map_name
 var hud
 var ai_timer
 
-var bag = preload('res://scripts/services/dependency_container.gd').new()
+var bag
 
 var map_template = preload('res://maps/workshop.xscn')
 var main_tileset = preload("res://maps/map_tileset.xml")
@@ -299,6 +299,7 @@ func load_menu():
     menu.manage_close_button()
     self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
     self.sound_controller.play_soundtrack()
+    self.bag.language.reload_labels()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
@@ -340,6 +341,7 @@ func write_settings_to_file():
     self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
+    self.bag = preload('res://scripts/services/dependency_container.gd').new()
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
@@ -358,3 +360,5 @@ func _ready():
     menu.hide()
     intro.init_root(self)
     self.add_child(intro)
+    self.bag.language.reload_labels()
+
