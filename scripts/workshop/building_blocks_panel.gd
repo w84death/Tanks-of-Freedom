@@ -49,7 +49,7 @@ func init_root(root_node):
         ["FACTORY", self.tiles.TERRAIN_FACTORY_FREE, "terrain", self.tiles.TERRAIN_FACTORY_FREE],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_FREE, "terrain", self.tiles.TERRAIN_AIRPORT_FREE],
         ["SPAWN", self.tiles.TERRAIN_SPAWN, "terrain", self.tiles.TERRAIN_SPAWN],
-        ["GSM TOWER", self.tiles.TERRAIN_TOWER_FREE, "terrain", self.tiles.TERRAIN_TOWER_FREE],
+        ["GSM_TOWER", self.tiles.TERRAIN_TOWER_FREE, "terrain", self.tiles.TERRAIN_TOWER_FREE],
         ["BARRACKS", self.tiles.TERRAIN_BARRACKS_RED, "terrain", self.tiles.TERRAIN_BARRACKS_RED],
         ["FACTORY", self.tiles.TERRAIN_FACTORY_RED, "terrain", self.tiles.TERRAIN_FACTORY_RED],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_RED, "terrain", self.tiles.TERRAIN_AIRPORT_RED],
