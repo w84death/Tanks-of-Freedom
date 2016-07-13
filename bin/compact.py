@@ -1,6 +1,8 @@
 import csv
 import glob
 
+MAX_LABEL_LENGTH = 35
+
 translations = {}
 default_translation = {}
 
@@ -58,7 +60,23 @@ def validate(directory, input_file_prefix):
             if bool(result[2]):
                 differences['(+) default < '+ lang] = result[2]
 
+        msgs_length = check_msg_length(trans[lang], MAX_LABEL_LENGTH)
+        if bool(msgs_length):
+            differences['(&) too long labels '+ lang] = msgs_length
+
+
+
     return differences
+
+def check_msg_length(dict, max_length):
+    result = {}
+    for label in dict:
+        length = len(dict[label])
+        if label.startswith('LABEL_') and length > max_length:
+            result[label] = length
+
+    return result
+
 
 def compact_translations(directory, output_file_name):
     output = {}
