@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://assets/gui/progressbar/progressbar.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" id=2]
+
+[node name="progressbar" type="Control"]
+
+rect/min_size = Vector2( 384, 96 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 384.0
+margin/bottom = 88.0
+
+[node name="all" type="Sprite" parent="."]
+
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+frame = 1
+
+[node name="done" type="Sprite" parent="."]
+
+transform/pos = Vector2( 3, 0 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+centered = false
+vframes = 2
+region = true
+region_rect = Rect2( 70, 0, 58, 16 )
+
+[node name="progress" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 8.0
+margin/top = 56.0
+margin/right = 120.0
+margin/bottom = 79.0
+custom_fonts/font = ExtResource( 2 )
+text = "progress"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="number" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 320.0
+margin/top = 56.0
+margin/right = 376.0
+margin/bottom = 79.0
+custom_fonts/font = ExtResource( 2 )
+text = "2/16"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

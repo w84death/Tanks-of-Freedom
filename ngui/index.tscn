@@ -1,14 +1,32 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://ngui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/background.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=3]
 [ext_resource path="res://ngui/headers/main_header.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ngui/menus/main_menu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=6]
-[ext_resource path="res://ngui/containters/intro_containter.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ngui/containters/campaign_containter.tscn" type="PackedScene" id=8]
-[ext_resource path="res://ngui/containters/settings_containter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/buildings/flags_spritesheet.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=7]
+[ext_resource path="res://ngui/containters/intro_containter.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ngui/containters/campaign_containter.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ngui/containters/settings_containter.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "demo"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("blue:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.4, 0.6, 0.8 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":1, "values":[ 4, 5, 6, 7, 5 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("red:frame")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0.1, 0.3, 0.5, 0.7, 0.9 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":1, "values":[ 9, 8, 9, 10, 11 ] }
 
 [node name="index" type="Control"]
 
@@ -66,7 +84,6 @@ patch_margin/bottom = 24
 
 [node name="menu" type="Panel" parent="."]
 
-anchor/right = 1
 rect/min_size = Vector2( 240, 480 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -74,7 +91,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 60.0
-margin/right = 848.0
+margin/right = 240.0
 margin/bottom = 540.0
 
 [node name="background 2" type="Patch9Frame" parent="menu"]
@@ -98,6 +115,49 @@ patch_margin/bottom = 24
 [node name="main_menu" parent="menu" instance=ExtResource( 5 )]
 
 editor/display_folded = true
+
+[node name="flags" type="Control" parent="menu"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="blue" type="Sprite" parent="menu/flags"]
+
+transform/pos = Vector2( 8, -4 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+vframes = 3
+hframes = 4
+frame = 7
+
+[node name="red" type="Sprite" parent="menu/flags"]
+
+transform/pos = Vector2( 232, -4 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+flip_h = true
+vframes = 3
+hframes = 4
+frame = 10
+
+[node name="flags_animation" type="AnimationPlayer" parent="menu/flags"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/demo = SubResource( 1 )
+next/demo = ""
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "demo"
 
 [node name="containter" type="Panel" parent="."]
 
@@ -124,19 +184,19 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
 patch_margin/bottom = 24
 
-[node name="intro_container" parent="containter" instance=ExtResource( 7 )]
-
-[node name="campaign_container" parent="containter" instance=ExtResource( 8 )]
+[node name="intro_container" parent="containter" instance=ExtResource( 8 )]
 
 visibility/visible = false
 
-[node name="settings_container" parent="containter" instance=ExtResource( 9 )]
+[node name="campaign_container" parent="containter" instance=ExtResource( 9 )]
+
+[node name="settings_container" parent="containter" instance=ExtResource( 10 )]
 
 visibility/visible = false
 
