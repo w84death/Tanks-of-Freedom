@@ -1,7 +1,7 @@
 import csv
 import glob
 
-MAX_LABEL_LENGTH = 35
+MAX_LABEL_LENGTH = 20
 
 translations = {}
 default_translation = {}
@@ -28,9 +28,6 @@ def compare_dict( dict1, dict2 ):
 
     diff_12 = dict1 - dict2
     diff_21 = dict2 - dict1
-
-    # print (diff_21)
-    # print (diff_12)
 
     return (bool(diff_12 | diff_21), diff_12, diff_21)
 
