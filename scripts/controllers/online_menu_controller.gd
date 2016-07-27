@@ -78,15 +78,19 @@ func upload_custom_map(map_name, is_remote = false):
     var message
 
     if self.bag.map_list.maps[map_name]['completed'] or not Globals.get('tof/map_upload_win'):
-        message = "Map to upload: " + map_name + ". Proceed?"
+        #message = "Map to upload: " + map_name + ". Proceed?"
+        message = tr('LABEL_MAP_TO_UPLOAD') + ': ' + map_name + '. ' + tr('LABEL_PROCEED_QUESTION')
         self.bag.confirm_popup.attach_panel(self.middle_container)
-        self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
+        #self.bag.confirm_popup.fill_labels('Upload map', message, 'Upload', 'Cancel')
+        self.bag.confirm_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_UPLOAD'), tr('LABEL_CANCEL'))
         self.bag.confirm_popup.connect(self, "confirm_map_upload")
         self.bag.confirm_popup.confirm_button.grab_focus()
     else:
-        message = "You need to complete this map first in skirmish mode in order to be able to upload it."
+        #message = "You need to complete this map first in skirmish mode in order to be able to upload it."
+        message = tr('TIP_COMPLETE_MAP_FIRST')
         self.bag.message_popup.attach_panel(self.middle_container)
-        self.bag.message_popup.fill_labels("Upload map", message, "Got it!")
+        #self.bag.message_popup.fill_labels("Upload map", message, "Got it!")
+        self.bag.message_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_GOT_IT'))
         self.bag.message_popup.connect(self, "close_cant_upload_message")
         self.bag.message_popup.confirm_button.grab_focus()
 
@@ -101,7 +105,8 @@ func confirm_map_upload(confirmation):
     self.bag.confirm_popup.detach_panel()
     if confirmation:
         self.bag.message_popup.attach_panel(self.middle_container)
-        self.bag.message_popup.fill_labels("Upload map", "Uploading! Please wait.", "")
+        #self.bag.message_popup.fill_labels("Upload map", "Uploading! Please wait.", "")
+        self.bag.message_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), tr('TIP_UPLOADING_WAIT'), "")
         self.bag.message_popup.hide_button()
         self.bag.timers.set_timeout(0.5, self, 'execute_map_upload')
     else:
@@ -115,15 +120,18 @@ func execute_map_upload():
     var result = self.bag.online_maps.upload_map(map_data, self.selected_map_name)
 
     if result:
-        self.map_upload_complete_show("Upload successful! Now you can share your new map code with your friends: ")
+        #self.map_upload_complete_show("Upload successful! Now you can share your new map code with your friends: ")
+        self.map_upload_complete_show(tr('TIP_UPLOADING_SUCCESS'))
         self.bag.message_popup.fill_important(self.bag.online_maps.last_upload_code)
     else:
-        self.map_upload_complete_show("Upload failed. Please try again later.")
+        #self.map_upload_complete_show("Upload failed. Please try again later.")
+        self.map_upload_complete_show(tr('TIP_UPLOADING_FAIL'))
 
 func map_upload_complete_show(message):
     self.bag.confirm_popup.detach_panel()
     self.bag.message_popup.attach_panel(self.middle_container)
-    self.bag.message_popup.fill_labels("Upload map", message, "Done")
+    #self.bag.message_popup.fill_labels("Upload map", message, "Done")
+    self.bag.message_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_DONE'))
     self.bag.message_popup.connect(self, "map_upload_complete_hide")
     self.bag.message_popup.confirm_button.grab_focus()
 
@@ -138,7 +146,8 @@ func show_register_confirmation():
     self.controls.hide()
     self.background.hide()
     self.bag.confirm_popup.attach_panel(self.middle_container)
-    self.bag.confirm_popup.fill_labels('Welcome to ToF Online!', 'Before you can start using online options, we need to register your device with our online system.', 'Register', 'Maybe later')
+    #self.bag.confirm_popup.fill_labels('Welcome to ToF Online!', 'Before you can start using online options, we need to register your device with our online system.', 'Register', 'Maybe later')
+    self.bag.confirm_popup.fill_labels(tr('TIP_WELCOME_ONLINE'), tr('TIP_NEED_REGISTER'), tr('LABEL_REGISTER'), tr('LABEL_LATER'))
     self.bag.confirm_popup.connect(self, "register_confirmation")
     self.middle_container.show()
     self.bag.confirm_popup.confirm_button.grab_focus()
@@ -147,7 +156,8 @@ func register_confirmation(confirmation):
     self.bag.confirm_popup.detach_panel()
     if confirmation:
         self.bag.message_popup.attach_panel(self.middle_container)
-        self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID! Please wait.", "")
+        #self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID! Please wait.", "")
+        self.bag.message_popup.fill_labels(tr('LABEL_REGISTER_PLAYER'), tr('TIP_REQUESTING_PLAYER_ID'), "")
         self.bag.message_popup.hide_button()
         self.bag.timers.set_timeout(0.5, self, 'do_online_register')
     else:
@@ -162,10 +172,12 @@ func do_online_register():
     self.bag.online_player.request_player_id()
     self.bag.message_popup.attach_panel(self.middle_container)
     if self.bag.root.settings['online_player_id'] == null:
-        self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID failed. Please try again later.", "Done")
+        #self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID failed. Please try again later.", "Done")
+        self.bag.message_popup.fill_labels(tr('LABEL_REGISTER_PLAYER'), tr('TIP_REQUESTING_PLAYER_FAIL'), tr('LABEL_DONE'))
         self.registration_successfull = false
     else:
-        self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID successful. Welcome to ToF Online!", "Done")
+        #self.bag.message_popup.fill_labels("Register Player", "Requesting Player ID successful. Welcome to ToF Online!", "Done")
+        self.bag.message_popup.fill_labels(tr('LABEL_REGISTER_PLAYER'), tr('TIP_REQUESTING_PLAYER_SUCCESS'), tr('LABEL_DONE'))
         self.registration_successfull = true
     self.bag.message_popup.connect(self, "hide_register_confirmation")
     self.bag.message_popup.confirm_button.grab_focus()
@@ -185,7 +197,8 @@ func show_map_download_code_prompt():
     self.controls.hide()
     self.background.hide()
     self.bag.prompt_popup.attach_panel(self.middle_container)
-    self.bag.prompt_popup.fill_labels('Download map', 'Please input map code', 'Download', 'Cancel')
+    #self.bag.prompt_popup.fill_labels('Download map', 'Please input map code', 'Download', 'Cancel')
+    self.bag.prompt_popup.fill_labels(tr('LABEL_DOWNLOAD_MAP'), tr('TIP_INPUT_CODE'), tr('LABEL_DOWNLOAD'), tr('LABEL_CANCEL'))
     self.bag.prompt_popup.connect(self, "confirm_map_download")
     self.bag.prompt_popup.clear_prepopulate()
     self.middle_container.show()
@@ -195,7 +208,8 @@ func confirm_map_download(confirmation, code):
     self.bag.prompt_popup.detach_panel()
     if confirmation:
         self.bag.message_popup.attach_panel(self.middle_container)
-        self.bag.message_popup.fill_labels("Download map", "Downloading map! Please wait.", "")
+        #self.bag.message_popup.fill_labels("Download map", "Downloading map! Please wait.", "")
+        self.bag.message_popup.fill_labels(tr('LABEL_DOWNLOAD_MAP'), tr('TIP_DOWNLOADING_WAIT'), "")
         self.bag.message_popup.hide_button()
         self.bag.timers.set_timeout(0.5, self, 'perform_map_download', [code])
     else:
@@ -206,14 +220,17 @@ func confirm_map_download(confirmation, code):
 
 func perform_map_download(code):
     if self.bag.online_maps.download_map(code[0]):
-        self.show_map_download_done_message("Map has been downloaded.")
+        #self.show_map_download_done_message("Map has been downloaded.")
+        self.show_map_download_done_message(tr('TIP_MAP_DOWNLOAD_SUCCESS'))
     else:
-        self.show_map_download_done_message("Could not download a map. Please check if code is correct and try again.")
+        #self.show_map_download_done_message("Could not download a map. Please check if code is correct and try again.")
+        self.show_map_download_done_message(tr('TIP_MAP_DOWNLOAD_FAIL'))
 
 func show_map_download_done_message(message):
     self.bag.message_popup.detach_panel()
     self.bag.message_popup.attach_panel(self.middle_container)
-    self.bag.message_popup.fill_labels("Download map", message, "Done")
+    #self.bag.message_popup.fill_labels("Download map", message, "Done")
+    self.bag.message_popup.fill_labels(tr('LABEL_DOWNLOAD_MAP'), message, tr('LABEL_DONE'))
     self.bag.message_popup.connect(self, "hide_map_download_done_message")
     self.bag.message_popup.confirm_button.grab_focus()
 

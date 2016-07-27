@@ -74,6 +74,12 @@ func reload_labels():
     self.reload_label(self.bag.skirmish_setup.panel.get_node('controls/selected_map_'), 'LABEL_SELECTED_MAP')
     self.reload_label(self.bag.skirmish_setup.panel.get_node('controls/maps_page'), 'LABEL_TURNS_CAP')
 
+    #ONLINE
+    self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/Label'), 'LABEL_ONLINE_MENU')
+    self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/Label1'), 'LABEL_ONLINE_MENU_DESC')
+    self.reload_button(self.bag.controllers.online_menu_controller.back_button, 'LABEL_BACK')
+    self.reload_button(self.bag.controllers.online_menu_controller.download_button, 'LABEL_DOWNLOAD')
+    self.reload_button(self.bag.controllers.online_menu_controller.upload_button, 'LABEL_UPLOAD')
 
 func reload_button(button, translation, label_node_name="Label"):
     if button:
