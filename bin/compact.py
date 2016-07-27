@@ -117,7 +117,7 @@ def execute(directory, input_files_prefix, output_file_name):
 
 
 # EXECUTE
-execute('../translations/', 'translations', 'translations.csv')
-execute('../maps/translations/', 'campaign', 'campaign.csv')
+execute('translations/', 'translations', 'translations.csv')
+execute('translations/campaigns/', 'campaign', 'campaign.csv')
 # -------
 
