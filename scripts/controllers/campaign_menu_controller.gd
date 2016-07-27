@@ -72,6 +72,7 @@ func attach_campaign_menu():
 
 func show_campaign_menu():
     self.manage_switch_buttons()
+    self.fill_mission_data(self.current_campaign_map)
     self.campaign_menu.show()
 
 func hide_campaign_menu():

@@ -49,6 +49,19 @@ func reload_labels():
         self.reload_label(settings.get_node('overscan_group/overscan_label'), 'LABEL_OVERSCAN')
         self.reload_label(settings.get_node('overscan_group/overscan_notification'), 'LABEL_REQUIES_RESTART')
 
+    #CAMPAIGN LABELS AND BUTTONS
+    var campaign = self.bag.controllers.campaign_menu_controller
+    if campaign:
+        self.reload_button(campaign.back_button, 'LABEL_BACK')
+        self.reload_button(campaign.prev_button, 'LABEL_PREVIOUS', 'title')
+        self.reload_button(campaign.next_button, 'LABEL_NEXT', 'title')
+        self.reload_button(campaign.start_button, 'LABEL_START', 'title')
+        self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/playing_as'), 'LABEL_PLAYING_AS')
+        self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/difficulty_'), 'LABEL_DIFFICULTY')
+        self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/red/blue_team'), 'LABEL_RED_TEAM')
+        self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/blue/blue_team'), 'LABEL_BLUE_TEAM')
+        self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/mission_num_'), 'LABEL_MISSION')
+
 
 func reload_button(button, translation, label_node_name="Label"):
     if button:
