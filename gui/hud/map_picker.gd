@@ -8,9 +8,6 @@ var block_template = preload("res://gui/hud/skirmish_maps_block.xscn")
 var blocks_cache = []
 
 var blocks_container
-var local_button
-var cloud_button
-var download_button
 var delete_button
 var next_button
 var prev_button
@@ -46,9 +43,6 @@ func _init_bag(bag):
 
 func bind_hud():
     self.blocks_container = self.picker.get_node("controls/blocks")
-    #self.local_button = self.picker.get_node("controls/local")
-    #self.cloud_button = self.picker.get_node("controls/cloud")
-    #self.download_button = self.picker.get_node("controls/load_map")
     self.delete_button = self.picker.get_node("controls/delete_mode")
     self.next_button = self.picker.get_node("controls/next")
     self.prev_button = self.picker.get_node("controls/prev")
@@ -184,6 +178,14 @@ func adjust_page_buttons():
         self.button_enable_switch(self.next_button, true)
         if focus_next_button:
             self.next_button.grab_focus()
+
+    if self.remote_mode_enabled:
+        self.online_button_label.set_text(tr('LABEL_REMOTE'))
+    else:
+        self.online_button_label.set_text(tr('LABEL_LOCAL'))
+
+    self.prev_button.get_node('Label').set_text('LABEL_PREVIOUS')
+    self.next_button.get_node('Label').set_text('LABEL_NEXT')
 
 func next_page():
     var pages = self.get_number_of_pages()

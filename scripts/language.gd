@@ -22,7 +22,7 @@ func switch_to_next_language():
 
 
 func reload_labels():
-    #MAIN MENU BUTTONS
+    #MAIN MENU
     var menu = self.bag.controllers.menu_controller
     menu.manage_close_button()
     self.reload_button(menu.demo_button, 'LABEL_RUN_DEMO', 'Label1')
@@ -33,7 +33,7 @@ func reload_labels():
     self.reload_button(menu.online_button, 'LABEL_ONLINE')
     self.reload_button(menu.workshop_button, 'LABEL_MAP EDITOR')
 
-    #SETTINGS LABELS AND BUTTONS
+    #SETTINGS
     var settings = menu.settings
     if settings:
         self.reload_label(settings.get_node('effects1'), 'LABEL_DIFFICULTY')
@@ -49,7 +49,7 @@ func reload_labels():
         self.reload_label(settings.get_node('overscan_group/overscan_label'), 'LABEL_OVERSCAN')
         self.reload_label(settings.get_node('overscan_group/overscan_notification'), 'LABEL_REQUIES_RESTART')
 
-    #CAMPAIGN LABELS AND BUTTONS
+    #CAMPAIGN
     var campaign = self.bag.controllers.campaign_menu_controller
     if campaign:
         self.reload_button(campaign.back_button, 'LABEL_BACK')
@@ -61,6 +61,18 @@ func reload_labels():
         self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/red/blue_team'), 'LABEL_RED_TEAM')
         self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/blue/blue_team'), 'LABEL_BLUE_TEAM')
         self.reload_label(campaign.campaign_menu.get_node('middle/control/dialog_controls/mission_num_'), 'LABEL_MISSION')
+
+    #SKIRMISH
+    var skirmish = menu.maps_sub_menu
+    self.reload_button(skirmish.get_node("bottom/control/menu_controls/close"), 'LABEL_BACK')
+    self.reload_button(self.bag.map_picker.delete_button, 'LABEL_DELETE_MODE')
+    self.reload_label(self.bag.map_picker.picker.get_node('controls/maps_label'), 'LABEL_MAPS')
+    self.reload_label(self.bag.map_picker.picker.get_node('controls/page_label'), 'LABEL_PAGE')
+
+    self.reload_button(self.bag.skirmish_setup.back_button, 'LABEL_BACK')
+    self.reload_button(self.bag.skirmish_setup.play_button, 'LABEL_PLAY')
+    self.reload_label(self.bag.skirmish_setup.panel.get_node('controls/selected_map_'), 'LABEL_SELECTED_MAP')
+    self.reload_label(self.bag.skirmish_setup.panel.get_node('controls/maps_page'), 'LABEL_TURNS_CAP')
 
 
 func reload_button(button, translation, label_node_name="Label"):
