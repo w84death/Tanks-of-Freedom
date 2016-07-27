@@ -41,7 +41,6 @@ margin/left = 96.0
 margin/top = 96.0
 margin/right = 96.0
 margin/bottom = 96.0
-__meta__ = { "_edit_lock_":true }
 
 [node name="Sprite" type="Sprite" parent="."]
 
@@ -189,6 +188,7 @@ patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
 patch_margin/bottom = 24
+__meta__ = { "_edit_lock_":true }
 
 [node name="intro_container" parent="containter" instance=ExtResource( 8 )]
 
@@ -196,8 +196,90 @@ visibility/visible = false
 
 [node name="campaign_container" parent="containter" instance=ExtResource( 9 )]
 
+[node name="header" parent="containter/campaign_container"]
+
+margin/right = 788.0
+
+[node name="campaign_name" parent="containter/campaign_container/header"]
+
+margin/left = 25.0
+margin/right = 345.0
+
+[node name="progressbar" parent="containter/campaign_container/header"]
+
+margin/left = 377.0
+margin/right = 763.0
+
+[node name="campaign" parent="containter/campaign_container"]
+
+editor/display_folded = true
+margin/right = 788.0
+
+[node name="prompt" parent="containter/campaign_container/campaign"]
+
+margin/right = 788.0
+
+[node name="select_mission" parent="containter/campaign_container/campaign/prompt"]
+
+margin/right = 788.0
+
+[node name="Label1" parent="containter/campaign_container/campaign/prompt"]
+
+margin/right = 788.0
+
+[node name="maps" parent="containter/campaign_container/campaign"]
+
+margin/right = 788.0
+
+[node name="maps" parent="containter/campaign_container/campaign/maps"]
+
+margin/left = 108.0
+margin/right = 680.0
+
+[node name="detailed" parent="containter/campaign_container"]
+
+margin/right = 788.0
+
+[node name="header" parent="containter/campaign_container/detailed"]
+
+margin/right = 788.0
+
+[node name="mission_header" parent="containter/campaign_container/detailed/header"]
+
+margin/left = 204.0
+margin/right = 584.0
+
+[node name="body" parent="containter/campaign_container/detailed"]
+
+margin/right = 788.0
+
+[node name="mission_description" parent="containter/campaign_container/detailed/body"]
+
+margin/left = 74.0
+margin/right = 714.0
+
+[node name="footer" parent="containter/campaign_container/detailed"]
+
+margin/right = 788.0
+
+[node name="button_prev" parent="containter/campaign_container/detailed/footer"]
+
+margin/left = 162.0
+margin/right = 262.0
+
+[node name="button_lunch" parent="containter/campaign_container/detailed/footer"]
+
+margin/left = 294.0
+margin/right = 494.0
+
+[node name="button_next" parent="containter/campaign_container/detailed/footer"]
+
+margin/left = 526.0
+margin/right = 626.0
+
 [node name="settings_container" parent="containter" instance=ExtResource( 10 )]
 
 visibility/visible = false
 
 
+[editable path="containter/campaign_container"]

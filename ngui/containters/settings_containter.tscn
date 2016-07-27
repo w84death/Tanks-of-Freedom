@@ -1,53 +1,62 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font" id=1]
+[ext_resource path="res://ngui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://ngui/font_h1.tres" type="Theme" id=2]
+[ext_resource path="res://ngui/font_small.tres" type="Theme" id=3]
 
 [node name="settings_container" type="Control"]
 
 anchor/right = 1
 anchor/bottom = 1
-margin/left = 20.0
-margin/top = 20.0
-margin/right = 20.0
-margin/bottom = 20.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 20.0
+margin/bottom = 20.0
 __meta__ = { "_edit_lock_":true }
 
 [node name="GridContainer" type="HBoxContainer" parent="."]
 
 anchor/right = 1
 anchor/bottom = 1
-margin/left = 1.0
-margin/right = -1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 0.0
+margin/right = -1.0
+margin/bottom = 0.0
 alignment = 1
 
 [node name="game_col" type="VBoxContainer" parent="GridContainer"]
 
-margin/left = 374.0
-margin/right = 475.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 290.0
+margin/top = 0.0
+margin/right = 400.0
+margin/bottom = 680.0
 custom_constants/separation = 32
 alignment = 0
 
 [node name="game" type="Label" parent="GridContainer/game_col"]
 
-margin/right = 101.0
-margin/bottom = 30.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 110.0
+margin/bottom = 32.0
 text = "game"
 align = 1
 uppercase = true
@@ -57,22 +66,26 @@ max_lines_visible = -1
 
 [node name="game_difficulty" type="VBoxContainer" parent="GridContainer/game_col"]
 
-margin/top = 62.0
-margin/right = 101.0
-margin/bottom = 98.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 110.0
+margin/bottom = 116.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/game_col/game_difficulty"]
 
-margin/right = 101.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 110.0
+margin/bottom = 18.0
 text = "difficulty"
 align = 1
 uppercase = true
@@ -82,35 +95,42 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/game_col/game_difficulty"]
 
-margin/top = 17.0
-margin/right = 101.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 110.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "NORMAL"
 flat = false
 
 [node name="camera_zoom" type="VBoxContainer" parent="GridContainer/game_col"]
 
-margin/top = 130.0
-margin/right = 101.0
-margin/bottom = 223.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 110.0
+margin/bottom = 270.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/game_col/camera_zoom"]
 
-margin/right = 101.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 110.0
+margin/bottom = 18.0
 text = "map zoom"
 align = 1
 uppercase = true
@@ -120,38 +140,47 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/game_col/camera_zoom"]
 
-margin/top = 17.0
-margin/right = 101.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 110.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "SMALLER"
 flat = false
 
 [node name="Button1" type="Button" parent="GridContainer/game_col/camera_zoom"]
 
-margin/top = 40.0
-margin/right = 101.0
-margin/bottom = 59.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 56.0
+margin/right = 110.0
+margin/bottom = 86.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "BIGGER"
 flat = false
 
 [node name="Label1" type="Label" parent="GridContainer/game_col/camera_zoom"]
 
-margin/top = 63.0
-margin/right = 101.0
-margin/bottom = 76.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = 0.0
+margin/top = 90.0
+margin/right = 110.0
+margin/bottom = 104.0
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 text = "current level"
 align = 1
@@ -162,12 +191,15 @@ max_lines_visible = -1
 
 [node name="Label2" type="Label" parent="GridContainer/game_col/camera_zoom"]
 
-margin/top = 80.0
-margin/right = 101.0
-margin/bottom = 93.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = 0.0
+margin/top = 108.0
+margin/right = 110.0
+margin/bottom = 122.0
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 text = "0.5x"
 align = 1
@@ -178,34 +210,39 @@ max_lines_visible = -1
 
 [node name="split 3" type="VSeparator" parent="GridContainer"]
 
-margin/left = 479.0
-margin/right = 482.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 432.0
+margin/top = 0.0
+margin/right = 435.0
+margin/bottom = 680.0
 
 [node name="system_col" type="VBoxContainer" parent="GridContainer"]
 
-margin/left = 486.0
-margin/right = 600.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 467.0
+margin/top = 0.0
+margin/right = 588.0
+margin/bottom = 680.0
 custom_constants/separation = 32
 alignment = 0
 
 [node name="system" type="Label" parent="GridContainer/system_col"]
 
-margin/right = 114.0
-margin/bottom = 30.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 121.0
+margin/bottom = 32.0
 text = "system"
 align = 1
 uppercase = true
@@ -215,22 +252,26 @@ max_lines_visible = -1
 
 [node name="game_fullscreen" type="VBoxContainer" parent="GridContainer/system_col"]
 
-margin/top = 62.0
-margin/right = 114.0
-margin/bottom = 98.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 121.0
+margin/bottom = 116.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/system_col/game_fullscreen"]
 
-margin/right = 114.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 121.0
+margin/bottom = 18.0
 text = "full screen"
 align = 1
 uppercase = true
@@ -240,35 +281,42 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/system_col/game_fullscreen"]
 
-margin/top = 17.0
-margin/right = 114.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 121.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "WINDOW"
 flat = false
 
 [node name="system_language" type="VBoxContainer" parent="GridContainer/system_col"]
 
-margin/top = 130.0
-margin/right = 114.0
-margin/bottom = 210.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 121.0
+margin/bottom = 264.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/system_col/system_language"]
 
-margin/right = 114.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 121.0
+margin/bottom = 18.0
 text = "language"
 align = 1
 uppercase = true
@@ -278,26 +326,32 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/system_col/system_language"]
 
-margin/top = 17.0
-margin/right = 114.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 121.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ENGLISH"
 flat = false
 
 [node name="Label1" type="Label" parent="GridContainer/system_col/system_language"]
 
-margin/top = 40.0
-margin/right = 114.0
-margin/bottom = 80.0
-rect/min_size = Vector2( 0, 40 )
+rect/min_size = Vector2( 0, 60 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = 0.0
+margin/top = 56.0
+margin/right = 121.0
+margin/bottom = 116.0
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 text = "This settings requires game restart"
 align = 1
@@ -309,22 +363,26 @@ max_lines_visible = -1
 
 [node name="system_language1" type="VBoxContainer" parent="GridContainer/system_col"]
 
-margin/top = 242.0
-margin/right = 114.0
-margin/bottom = 322.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 296.0
+margin/right = 121.0
+margin/bottom = 412.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/system_col/system_language1"]
 
-margin/right = 114.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 121.0
+margin/bottom = 18.0
 text = "overscan"
 align = 1
 uppercase = true
@@ -334,26 +392,32 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/system_col/system_language1"]
 
-margin/top = 17.0
-margin/right = 114.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 121.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "OFF"
 flat = false
 
 [node name="Label1" type="Label" parent="GridContainer/system_col/system_language1"]
 
-margin/top = 40.0
-margin/right = 114.0
-margin/bottom = 80.0
-rect/min_size = Vector2( 0, 40 )
+rect/min_size = Vector2( 0, 60 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = 0.0
+margin/top = 56.0
+margin/right = 121.0
+margin/bottom = 116.0
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 text = "This settings requires game restart"
 align = 1
@@ -365,34 +429,39 @@ max_lines_visible = -1
 
 [node name="split 2" type="VSeparator" parent="GridContainer"]
 
-margin/left = 604.0
-margin/right = 607.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 620.0
+margin/top = 0.0
+margin/right = 623.0
+margin/bottom = 680.0
 
 [node name="camera_col" type="VBoxContainer" parent="GridContainer"]
 
-margin/left = 611.0
-margin/right = 725.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 655.0
+margin/top = 0.0
+margin/right = 787.0
+margin/bottom = 680.0
 custom_constants/separation = 32
 alignment = 0
 
 [node name="camera" type="Label" parent="GridContainer/camera_col"]
 
-margin/right = 114.0
-margin/bottom = 30.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 132.0
+margin/bottom = 32.0
 text = "camera"
 align = 1
 uppercase = true
@@ -402,22 +471,26 @@ max_lines_visible = -1
 
 [node name="gameplay_difficult" type="VBoxContainer" parent="GridContainer/camera_col"]
 
-margin/top = 62.0
-margin/right = 114.0
-margin/bottom = 98.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 132.0
+margin/bottom = 116.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/camera_col/gameplay_difficult"]
 
-margin/right = 114.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 132.0
+margin/bottom = 18.0
 text = "camera shake"
 align = 1
 uppercase = true
@@ -427,35 +500,42 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/camera_col/gameplay_difficult"]
 
-margin/top = 17.0
-margin/right = 114.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 132.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ON"
 flat = false
 
 [node name="camera_shake" type="VBoxContainer" parent="GridContainer/camera_col"]
 
-margin/top = 130.0
-margin/right = 114.0
-margin/bottom = 166.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 132.0
+margin/bottom = 200.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/camera_col/camera_shake"]
 
-margin/right = 114.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 132.0
+margin/bottom = 18.0
 text = "screen shake"
 align = 1
 uppercase = true
@@ -465,35 +545,42 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/camera_col/camera_shake"]
 
-margin/top = 17.0
-margin/right = 114.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 132.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ON"
 flat = false
 
 [node name="camera_follow" type="VBoxContainer" parent="GridContainer/camera_col"]
 
-margin/top = 198.0
-margin/right = 114.0
-margin/bottom = 234.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 232.0
+margin/right = 132.0
+margin/bottom = 284.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/camera_col/camera_follow"]
 
-margin/right = 114.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 132.0
+margin/bottom = 18.0
 text = "auto follow"
 align = 1
 uppercase = true
@@ -503,47 +590,55 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/camera_col/camera_follow"]
 
-margin/top = 17.0
-margin/right = 114.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 132.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ON"
 flat = false
 
 [node name="split" type="VSeparator" parent="GridContainer"]
 
-margin/left = 729.0
-margin/right = 732.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 819.0
+margin/top = 0.0
+margin/right = 822.0
+margin/bottom = 680.0
 
 [node name="sound_col" type="VBoxContainer" parent="GridContainer"]
 
-margin/left = 736.0
-margin/right = 865.0
-margin/bottom = 680.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 854.0
+margin/top = 0.0
+margin/right = 949.0
+margin/bottom = 680.0
 custom_constants/separation = 32
 alignment = 0
 
 [node name="sound" type="Label" parent="GridContainer/sound_col"]
 
-margin/right = 129.0
-margin/bottom = 30.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 95.0
+margin/bottom = 32.0
 text = "sound"
 align = 1
 uppercase = true
@@ -553,23 +648,27 @@ max_lines_visible = -1
 
 [node name="sound_music" type="VBoxContainer" parent="GridContainer/sound_col"]
 
-margin/top = 62.0
-margin/right = 129.0
-margin/bottom = 98.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 64.0
+margin/right = 95.0
+margin/bottom = 116.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/sound_col/sound_music"]
 
-margin/right = 129.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-text = "background music"
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 95.0
+margin/bottom = 18.0
+text = "MUSIC"
 align = 1
 uppercase = true
 percent_visible = 1.0
@@ -578,36 +677,43 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/sound_col/sound_music"]
 
-margin/top = 17.0
-margin/right = 129.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 95.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ON"
 flat = false
 
 [node name="sound_effects" type="VBoxContainer" parent="GridContainer/sound_col"]
 
-margin/top = 130.0
-margin/right = 129.0
-margin/bottom = 166.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 148.0
+margin/right = 95.0
+margin/bottom = 200.0
 alignment = 0
 
 [node name="Label" type="Label" parent="GridContainer/sound_col/sound_effects"]
 
-margin/right = 129.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-text = "effects & gui"
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 95.0
+margin/bottom = 18.0
+text = "effects"
 align = 1
 uppercase = true
 percent_visible = 1.0
@@ -616,14 +722,17 @@ max_lines_visible = -1
 
 [node name="Button" type="Button" parent="GridContainer/sound_col/sound_effects"]
 
-margin/top = 17.0
-margin/right = 129.0
-margin/bottom = 36.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 95.0
+margin/bottom = 52.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 text = "ON"
 flat = false
 

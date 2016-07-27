@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://assets/gui/progressbar/progressbar.png" type="Texture" id=1]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://ngui/font_h2.tres" type="Theme" id=2]
 
 [node name="progressbar" type="Control"]
 
@@ -39,11 +39,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = 8.0
 margin/top = 56.0
 margin/right = 120.0
 margin/bottom = 79.0
-custom_fonts/font = ExtResource( 2 )
 text = "progress"
 uppercase = true
 percent_visible = 1.0
@@ -56,11 +56,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = 320.0
 margin/top = 56.0
 margin/right = 376.0
 margin/bottom = 79.0
-custom_fonts/font = ExtResource( 2 )
 text = "2/16"
 percent_visible = 1.0
 lines_skipped = 0

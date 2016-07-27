@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://ngui/theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://ngui/font_h1.tres" type="Theme" id=2]
 [ext_resource path="res://ngui/containters/campaing_progressbar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://ngui/font_h2.tres" type="Theme" id=4]
 
-[node name="campaign_container" type="Control"]
+[node name="campaign_container" type="VBoxContainer"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -18,25 +18,12 @@ margin/left = 20.0
 margin/top = 20.0
 margin/right = 20.0
 margin/bottom = 20.0
+alignment = 0
 __meta__ = { "_edit_lock_":true }
 
-[node name="campaign" type="VBoxContainer" parent="."]
+[node name="header" type="HBoxContainer" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = -100.0
-custom_constants/separation = 32
-alignment = 0
-
-[node name="header" type="HBoxContainer" parent="campaign"]
-
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -47,18 +34,18 @@ margin/right = 1240.0
 margin/bottom = 96.0
 alignment = 1
 
-[node name="campaign_name" type="Label" parent="campaign/header"]
+[node name="campaign_name" type="Label" parent="header"]
 
 rect/min_size = Vector2( 320, 96 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = 251.0
 margin/top = 0.0
 margin/right = 571.0
 margin/bottom = 96.0
-custom_fonts/font = ExtResource( 2 )
 text = "summer campaign"
 autowrap = true
 uppercase = true
@@ -66,23 +53,37 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="progressbar" parent="campaign/header" instance=ExtResource( 3 )]
+[node name="progressbar" parent="header" instance=ExtResource( 3 )]
 
 rect/min_size = Vector2( 386, 96 )
 margin/left = 603.0
 margin/right = 989.0
 margin/bottom = 96.0
 
-[node name="prompt" type="VBoxContainer" parent="campaign"]
+[node name="campaign" type="VBoxContainer" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 128.0
+margin/top = 100.0
 margin/right = 1240.0
-margin/bottom = 181.0
+margin/bottom = 296.0
+custom_constants/separation = 32
+alignment = 0
+
+[node name="prompt" type="VBoxContainer" parent="campaign"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1240.0
+margin/bottom = 32.0
 custom_constants/separation = 8
 alignment = 1
 
@@ -92,29 +93,12 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 1240.0
-margin/bottom = 30.0
-custom_fonts/font = ExtResource( 2 )
+margin/bottom = 32.0
 text = "SELECT MISSION"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label1" type="Label" parent="campaign/prompt"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 38.0
-margin/right = 1240.0
-margin/bottom = 53.0
-custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
-text = "BEAT THE LAST MISSION TO UNLOCK NEW MISSIONS"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -128,9 +112,9 @@ focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 213.0
+margin/top = 64.0
 margin/right = 1240.0
-margin/bottom = 365.0
+margin/bottom = 196.0
 alignment = 1
 
 [node name="maps" type="GridContainer" parent="campaign/maps"]
@@ -140,22 +124,23 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 314.0
+margin/left = 334.0
 margin/top = 0.0
-margin/right = 926.0
-margin/bottom = 152.0
+margin/right = 906.0
+margin/bottom = 132.0
 columns = 4
 
 [node name="Button" type="Button" parent="campaign/maps/maps"]
 
+rect/min_size = Vector2( 140, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 150.0
-margin/bottom = 35.0
+margin/right = 140.0
+margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -164,14 +149,15 @@ flat = false
 
 [node name="Button1" type="Button" parent="campaign/maps/maps"]
 
+rect/min_size = Vector2( 140, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 154.0
+margin/left = 144.0
 margin/top = 0.0
-margin/right = 304.0
-margin/bottom = 35.0
+margin/right = 284.0
+margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -180,14 +166,15 @@ flat = false
 
 [node name="Button2" type="Button" parent="campaign/maps/maps"]
 
+rect/min_size = Vector2( 140, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 308.0
+margin/left = 288.0
 margin/top = 0.0
-margin/right = 458.0
-margin/bottom = 35.0
+margin/right = 428.0
+margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -196,14 +183,15 @@ flat = false
 
 [node name="Button3" type="Button" parent="campaign/maps/maps"]
 
+rect/min_size = Vector2( 140, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 462.0
+margin/left = 432.0
 margin/top = 0.0
-margin/right = 612.0
-margin/bottom = 35.0
+margin/right = 572.0
+margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -217,9 +205,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 39.0
-margin/right = 150.0
-margin/bottom = 74.0
+margin/top = 34.0
+margin/right = 140.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -232,10 +220,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 154.0
-margin/top = 39.0
-margin/right = 304.0
-margin/bottom = 74.0
+margin/left = 144.0
+margin/top = 34.0
+margin/right = 284.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -248,10 +236,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 308.0
-margin/top = 39.0
-margin/right = 458.0
-margin/bottom = 74.0
+margin/left = 288.0
+margin/top = 34.0
+margin/right = 428.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -264,10 +252,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 462.0
-margin/top = 39.0
-margin/right = 612.0
-margin/bottom = 74.0
+margin/left = 432.0
+margin/top = 34.0
+margin/right = 572.0
+margin/bottom = 64.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -282,9 +270,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 78.0
-margin/right = 150.0
-margin/bottom = 113.0
+margin/top = 68.0
+margin/right = 140.0
+margin/bottom = 98.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -298,10 +286,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 154.0
-margin/top = 78.0
-margin/right = 304.0
-margin/bottom = 113.0
+margin/left = 144.0
+margin/top = 68.0
+margin/right = 284.0
+margin/bottom = 98.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -315,10 +303,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 308.0
-margin/top = 78.0
-margin/right = 458.0
-margin/bottom = 113.0
+margin/left = 288.0
+margin/top = 68.0
+margin/right = 428.0
+margin/bottom = 98.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -332,10 +320,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 462.0
-margin/top = 78.0
-margin/right = 612.0
-margin/bottom = 113.0
+margin/left = 432.0
+margin/top = 68.0
+margin/right = 572.0
+margin/bottom = 98.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -350,9 +338,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 117.0
-margin/right = 150.0
-margin/bottom = 152.0
+margin/top = 102.0
+margin/right = 140.0
+margin/bottom = 132.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -366,10 +354,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 154.0
-margin/top = 117.0
-margin/right = 304.0
-margin/bottom = 152.0
+margin/left = 144.0
+margin/top = 102.0
+margin/right = 284.0
+margin/bottom = 132.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -383,10 +371,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 308.0
-margin/top = 117.0
-margin/right = 458.0
-margin/bottom = 152.0
+margin/left = 288.0
+margin/top = 102.0
+margin/right = 428.0
+margin/bottom = 132.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -400,10 +388,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 462.0
-margin/top = 117.0
-margin/right = 612.0
-margin/bottom = 152.0
+margin/left = 432.0
+margin/top = 102.0
+margin/right = 572.0
+margin/bottom = 132.0
 disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
@@ -411,102 +399,202 @@ shortcut = null
 text = "MISSION 16"
 flat = false
 
-[node name="detailed" type="Control" parent="."]
+[node name="detailed" type="VBoxContainer" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/top = 326.0
+margin/right = 1240.0
+margin/bottom = 654.0
+custom_constants/separation = 40
+alignment = 0
 
-[node name="Label1" type="Label" parent="detailed"]
+[node name="header" type="HBoxContainer" parent="detailed"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1240.0
+margin/bottom = 68.0
+alignment = 1
+
+[node name="mission_header" type="VBoxContainer" parent="detailed/header"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 430.0
+margin/top = 0.0
+margin/right = 810.0
+margin/bottom = 68.0
+alignment = 0
+
+[node name="mission_number" type="HBoxContainer" parent="detailed/header/mission_header"]
+
+rect/min_size = Vector2( 0, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 380.0
+margin/bottom = 32.0
+alignment = 1
+
+[node name="mission_label" type="Label" parent="detailed/header/mission_header/mission_number"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 500.0
-margin/top = 52.0
-margin/right = 598.0
-margin/bottom = 75.0
-custom_fonts/font = ExtResource( 4 )
+theme/theme = ExtResource( 4 )
+margin/left = 122.0
+margin/top = 5.0
+margin/right = 213.0
+margin/bottom = 27.0
 text = "mission"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="detailed"]
+[node name="mission_number" type="Label" parent="detailed/header/mission_header/mission_number"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 500.0
-margin/top = 76.0
-margin/right = 874.0
-margin/bottom = 106.0
-custom_fonts/font = ExtResource( 2 )
-text = "title of the mission"
-uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label4" type="Label" parent="detailed"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 500.0
-margin/top = 132.0
-margin/right = 970.0
-margin/bottom = 332.0
-custom_fonts/font = ExtResource( 4 )
-text = "Sample sentence about this awesome campaign full off zasadzkas."
-autowrap = true
-uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Label2" type="Label" parent="detailed"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 620.0
-margin/top = 52.0
-margin/right = 634.0
-margin/bottom = 75.0
-custom_fonts/font = ExtResource( 4 )
+theme/theme = ExtResource( 4 )
+margin/left = 245.0
+margin/top = 5.0
+margin/right = 258.0
+margin/bottom = 27.0
 text = "3"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Button" type="Button" parent="detailed"]
+[node name="mission_title" type="Label" parent="detailed/header/mission_header"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 36.0
+margin/right = 380.0
+margin/bottom = 68.0
+text = "title of the mission"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="body" type="HBoxContainer" parent="detailed"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 108.0
+margin/right = 1240.0
+margin/bottom = 258.0
+alignment = 1
+
+[node name="mission_description" type="Label" parent="detailed/body"]
+
+rect/min_size = Vector2( 640, 150 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 300.0
+margin/top = 0.0
+margin/right = 940.0
+margin/bottom = 150.0
+text = "Thanks to the airport equipment, we have intercepted a transmission about an important military airplane, that will be flying over the area. We have identified the perfect spot to launch missiles from, but it is guarded by the enemy. Muster your forces and get into position to shoot down the transport."
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="footer" type="HBoxContainer" parent="detailed"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 298.0
+margin/right = 1240.0
+margin/bottom = 328.0
+alignment = 1
+
+[node name="button_prev" type="Button" parent="detailed/footer"]
+
+rect/min_size = Vector2( 100, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 756.0
-margin/top = 388.0
-margin/right = 960.0
-margin/bottom = 423.0
+margin/left = 388.0
+margin/top = 0.0
+margin/right = 488.0
+margin/bottom = 30.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "PREVIOUS"
+flat = false
+
+[node name="button_lunch" type="Button" parent="detailed/footer"]
+
+rect/min_size = Vector2( 200, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 520.0
+margin/top = 0.0
+margin/right = 720.0
+margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "LUNCH THIS MAP"
+flat = false
+
+[node name="button_next" type="Button" parent="detailed/footer"]
+
+rect/min_size = Vector2( 100, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 752.0
+margin/top = 0.0
+margin/right = 852.0
+margin/bottom = 30.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "NEXT"
 flat = false
 
 
