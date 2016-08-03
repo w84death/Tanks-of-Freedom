@@ -112,6 +112,29 @@ func reload_labels():
     self.reload_button(workshop.file_panel.pick_button, 'LABEL_WORKSHOP_PICK_MAP')
     self.reload_label(workshop.file_panel.file_panel.get_node('controls/top/map_name_'), 'MSG_WORKSHOP_USE_UNIQUE_NAME')
 
+    #IN-GAME
+    var hud = self.bag.root.hud
+    var hud_controller = self.bag.controllers.action_controller.hud_controller
+    var hud_panel = self.bag.controllers.hud_panel_controller
+    if hud:
+        self.reload_button(hud_controller.menu_button, 'LABEL_MENU')
+        self.reload_label(hud_panel.info_panel_scene.get_node('map_name'), 'LABEL_MAP_NAME')
+        self.reload_label(hud_panel.info_panel_scene.get_node('ap_'), 'LABEL_ACTION_POINTS')
+        self.reload_label(hud_panel.info_panel_scene.get_node('ap_1'), 'LABEL_NEXT_TURN_GAIN')
+
+        self.reload_label(hud_panel.building_panel.building_panel.get_node('attack'), 'LABEL_ATTACK')
+        self.reload_label(hud_panel.building_panel.building_panel.get_node('health'), 'LABEL_HEALTH')
+        self.reload_label(hud_panel.building_panel.building_panel.get_node('range'), 'LABEL_RANGE')
+        self.reload_label(hud_panel.building_panel.building_panel.get_node('price_'), 'LABEL_DEPLOY_PRICE')
+        self.reload_label(hud_panel.building_panel.building_panel.get_node('no_ap'), 'MSG_NO_ENOUGH_AP')
+        self.reload_button(hud_panel.building_panel.build_card.deploy_button, 'LABEL_DEPLOY')
+
+        self.reload_label(hud_panel.unit_panel.unit_panel.get_node('attack_'), 'LABEL_ATTACK')
+        self.reload_label(hud_panel.unit_panel.unit_panel.get_node('health_'), 'LABEL_HEALTH')
+        self.reload_label(hud_panel.unit_panel.unit_panel.get_node('action_points_'), 'LABEL_ACTION_POINTS')
+
+        self.reload_label(hud_panel.end_turn_panel_scene.get_node('turn_'), 'LABEL_TURN')
+
 
 
 func reload_button(button, translation, label_node_name="Label"):

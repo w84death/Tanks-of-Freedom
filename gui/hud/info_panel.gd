@@ -84,15 +84,15 @@ func end_button_toggle():
 
 func end_button_enable():
     info_panel_end_button.set_disabled(false)
-    self.info_panel_blink_message(false, 'PLAY')
+    self.info_panel_blink_message(false, tr('LABEL_PLAY'))
 
 func end_button_disable():
     self.info_panel_end_button.set_disabled(true)
-    self.info_panel_blink_message(true, 'WAIT', 'blue')
+    self.info_panel_blink_message(true, tr('LABEL_WAIT'), 'blue')
 
 func end_button_flash():
     info_panel_end_button.set_disabled(false)
-    self.info_panel_blink_message(true, 'END', 'red')
+    self.info_panel_blink_message(true, tr('LABEL_END'), 'red')
 
 func info_panel_blink_message(blink, msg=false, colour=false):
     if blink:

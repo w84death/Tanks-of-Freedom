@@ -234,6 +234,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     else:
         self.unlock_for_player()
     self.sound_controller.play_soundtrack()
+    self.bag.language.reload_labels()
 
 func restart_map():
     self.load_map(current_map_name, workshop_file_name)
