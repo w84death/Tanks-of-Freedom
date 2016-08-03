@@ -33,7 +33,7 @@ var ai_timer
 var bag
 
 var map_template = preload('res://maps/workshop.xscn')
-var main_tileset = preload("res://maps/map_tileset.xml")
+var main_tileset = preload("res://maps/tilesets/summer_tileset.xml")
 
 var settings = {
     'is_ok' : true,

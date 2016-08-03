@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="TileSet" subresource_count="58" version="1.1" version_name="Godot Engine v1.1.stable.custom_build">
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<ext_resource path="res://assets/terrain/fall/ground.png" type="Texture"></ext_resource>
+	<main_resource>
+		<string name="0/name"> "ground" </string>
+		<resource name="0/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="0/tex_offset"> 0, -14 </vector2>
+		<resource name="0/material"></resource>		<rect2 name="0/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="0/occluder_offset"> 32, 32 </vector2>
+		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 32, 32 </vector2>
+		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 0, 0 </vector2>
+		<array name="0/shapes" len="0" shared="false">
+		</array>
+		<string name="1/name"> "grass" </string>
+		<resource name="1/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="1/tex_offset"> 0, -14 </vector2>
+		<resource name="1/material"></resource>		<rect2 name="1/region"> 64, 0, 64, 64 </rect2>
+		<vector2 name="1/occluder_offset"> 32, 32 </vector2>
+		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 32, 32 </vector2>
+		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 0, 0 </vector2>
+		<array name="1/shapes" len="0" shared="false">
+		</array>
+		<string name="2/name"> "forest" </string>
+		<resource name="2/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="2/tex_offset"> 0, -14 </vector2>
+		<resource name="2/material"></resource>		<rect2 name="2/region"> 128, 0, 64, 64 </rect2>
+		<vector2 name="2/occluder_offset"> 32, 32 </vector2>
+		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 32, 32 </vector2>
+		<resource name="2/navigation"></resource>		<vector2 name="2/shape_offset"> 0, 0 </vector2>
+		<array name="2/shapes" len="0" shared="false">
+		</array>
+		<string name="3/name"> "mountain" </string>
+		<resource name="3/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="3/tex_offset"> 0, -14 </vector2>
+		<resource name="3/material"></resource>		<rect2 name="3/region"> 192, 0, 64, 64 </rect2>
+		<vector2 name="3/occluder_offset"> 32, 32 </vector2>
+		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 32, 32 </vector2>
+		<resource name="3/navigation"></resource>		<vector2 name="3/shape_offset"> 0, 0 </vector2>
+		<array name="3/shapes" len="0" shared="false">
+		</array>
+		<string name="4/name"> "city" </string>
+		<resource name="4/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="4/tex_offset"> 0, -14 </vector2>
+		<resource name="4/material"></resource>		<rect2 name="4/region"> 256, 0, 64, 64 </rect2>
+		<vector2 name="4/occluder_offset"> 32, 32 </vector2>
+		<resource name="4/occluder"></resource>		<vector2 name="4/navigation_offset"> 32, 32 </vector2>
+		<resource name="4/navigation"></resource>		<vector2 name="4/shape_offset"> 0, 0 </vector2>
+		<array name="4/shapes" len="0" shared="false">
+		</array>
+		<string name="5/name"> "statue" </string>
+		<resource name="5/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="5/tex_offset"> 0, -14 </vector2>
+		<resource name="5/material"></resource>		<rect2 name="5/region"> 320, 0, 64, 64 </rect2>
+		<vector2 name="5/occluder_offset"> 32, 32 </vector2>
+		<resource name="5/occluder"></resource>		<vector2 name="5/navigation_offset"> 32, 32 </vector2>
+		<resource name="5/navigation"></resource>		<vector2 name="5/shape_offset"> 0, 0 </vector2>
+		<array name="5/shapes" len="0" shared="false">
+		</array>
+		<string name="6/name"> "hq blue" </string>
+		<resource name="6/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="6/tex_offset"> 0, -14 </vector2>
+		<resource name="6/material"></resource>		<rect2 name="6/region"> 384, 0, 64, 64 </rect2>
+		<vector2 name="6/occluder_offset"> 32, 32 </vector2>
+		<resource name="6/occluder"></resource>		<vector2 name="6/navigation_offset"> 32, 32 </vector2>
+		<resource name="6/navigation"></resource>		<vector2 name="6/shape_offset"> 0, 0 </vector2>
+		<array name="6/shapes" len="0" shared="false">
+		</array>
+		<string name="7/name"> "hq red 2" </string>
+		<resource name="7/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="7/tex_offset"> 0, -14 </vector2>
+		<resource name="7/material"></resource>		<rect2 name="7/region"> 448, 0, 64, 64 </rect2>
+		<vector2 name="7/occluder_offset"> 32, 32 </vector2>
+		<resource name="7/occluder"></resource>		<vector2 name="7/navigation_offset"> 32, 32 </vector2>
+		<resource name="7/navigation"></resource>		<vector2 name="7/shape_offset"> 0, 0 </vector2>
+		<array name="7/shapes" len="0" shared="false">
+		</array>
+		<string name="8/name"> "barracks" </string>
+		<resource name="8/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="8/tex_offset"> 0, -14 </vector2>
+		<resource name="8/material"></resource>		<rect2 name="8/region"> 0, 64, 64, 64 </rect2>
+		<vector2 name="8/occluder_offset"> 32, 32 </vector2>
+		<resource name="8/occluder"></resource>		<vector2 name="8/navigation_offset"> 32, 32 </vector2>
+		<resource name="8/navigation"></resource>		<vector2 name="8/shape_offset"> 0, 0 </vector2>
+		<array name="8/shapes" len="0" shared="false">
+		</array>
+		<string name="9/name"> "factory" </string>
+		<resource name="9/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="9/tex_offset"> 0, -14 </vector2>
+		<resource name="9/material"></resource>		<rect2 name="9/region"> 64, 64, 64, 64 </rect2>
+		<vector2 name="9/occluder_offset"> 32, 32 </vector2>
+		<resource name="9/occluder"></resource>		<vector2 name="9/navigation_offset"> 32, 32 </vector2>
+		<resource name="9/navigation"></resource>		<vector2 name="9/shape_offset"> 0, 0 </vector2>
+		<array name="9/shapes" len="0" shared="false">
+		</array>
+		<string name="10/name"> "airport" </string>
+		<resource name="10/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="10/tex_offset"> 0, -14 </vector2>
+		<resource name="10/material"></resource>		<rect2 name="10/region"> 128, 64, 64, 64 </rect2>
+		<vector2 name="10/occluder_offset"> 32, 32 </vector2>
+		<resource name="10/occluder"></resource>		<vector2 name="10/navigation_offset"> 32, 32 </vector2>
+		<resource name="10/navigation"></resource>		<vector2 name="10/shape_offset"> 0, 0 </vector2>
+		<array name="10/shapes" len="0" shared="false">
+		</array>
+		<string name="11/name"> "tower" </string>
+		<resource name="11/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="11/tex_offset"> 0, -14 </vector2>
+		<resource name="11/material"></resource>		<rect2 name="11/region"> 192, 64, 64, 64 </rect2>
+		<vector2 name="11/occluder_offset"> 32, 32 </vector2>
+		<resource name="11/occluder"></resource>		<vector2 name="11/navigation_offset"> 32, 32 </vector2>
+		<resource name="11/navigation"></resource>		<vector2 name="11/shape_offset"> 0, 0 </vector2>
+		<array name="11/shapes" len="0" shared="false">
+		</array>
+		<string name="12/name"> "fence" </string>
+		<resource name="12/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="12/tex_offset"> 0, -14 </vector2>
+		<resource name="12/material"></resource>		<rect2 name="12/region"> 256, 64, 64, 64 </rect2>
+		<vector2 name="12/occluder_offset"> 32, 32 </vector2>
+		<resource name="12/occluder"></resource>		<vector2 name="12/navigation_offset"> 32, 32 </vector2>
+		<resource name="12/navigation"></resource>		<vector2 name="12/shape_offset"> 0, 0 </vector2>
+		<array name="12/shapes" len="0" shared="false">
+		</array>
+		<string name="13/name"> "exit" </string>
+		<resource name="13/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="13/tex_offset"> 0, -14 </vector2>
+		<resource name="13/material"></resource>		<rect2 name="13/region"> 320, 64, 64, 64 </rect2>
+		<vector2 name="13/occluder_offset"> 32, 32 </vector2>
+		<resource name="13/occluder"></resource>		<vector2 name="13/navigation_offset"> 32, 32 </vector2>
+		<resource name="13/navigation"></resource>		<vector2 name="13/shape_offset"> 0, 0 </vector2>
+		<array name="13/shapes" len="0" shared="false">
+		</array>
+		<string name="14/name"> "city road" </string>
+		<resource name="14/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="14/tex_offset"> 0, -14 </vector2>
+		<resource name="14/material"></resource>		<rect2 name="14/region"> 384, 64, 64, 64 </rect2>
+		<vector2 name="14/occluder_offset"> 32, 32 </vector2>
+		<resource name="14/occluder"></resource>		<vector2 name="14/navigation_offset"> 32, 32 </vector2>
+		<resource name="14/navigation"></resource>		<vector2 name="14/shape_offset"> 0, 0 </vector2>
+		<array name="14/shapes" len="0" shared="false">
+		</array>
+		<string name="15/name"> "country road" </string>
+		<resource name="15/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="15/tex_offset"> 0, -14 </vector2>
+		<resource name="15/material"></resource>		<rect2 name="15/region"> 448, 64, 64, 64 </rect2>
+		<vector2 name="15/occluder_offset"> 32, 32 </vector2>
+		<resource name="15/occluder"></resource>		<vector2 name="15/navigation_offset"> 32, 32 </vector2>
+		<resource name="15/navigation"></resource>		<vector2 name="15/shape_offset"> 0, 0 </vector2>
+		<array name="15/shapes" len="0" shared="false">
+		</array>
+		<string name="16/name"> "road mix" </string>
+		<resource name="16/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="16/tex_offset"> 0, -14 </vector2>
+		<resource name="16/material"></resource>		<rect2 name="16/region"> 0, 128, 64, 64 </rect2>
+		<vector2 name="16/occluder_offset"> 32, 32 </vector2>
+		<resource name="16/occluder"></resource>		<vector2 name="16/navigation_offset"> 32, 32 </vector2>
+		<resource name="16/navigation"></resource>		<vector2 name="16/shape_offset"> 0, 0 </vector2>
+		<array name="16/shapes" len="0" shared="false">
+		</array>
+		<string name="17/name"> "river" </string>
+		<resource name="17/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="17/tex_offset"> 0, -14 </vector2>
+		<resource name="17/material"></resource>		<rect2 name="17/region"> 64, 128, 64, 64 </rect2>
+		<vector2 name="17/occluder_offset"> 32, 32 </vector2>
+		<resource name="17/occluder"></resource>		<vector2 name="17/navigation_offset"> 32, 32 </vector2>
+		<resource name="17/navigation"></resource>		<vector2 name="17/shape_offset"> 0, 0 </vector2>
+		<array name="17/shapes" len="0" shared="false">
+		</array>
+		<string name="18/name"> "bridge" </string>
+		<resource name="18/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="18/tex_offset"> 0, -14 </vector2>
+		<resource name="18/material"></resource>		<rect2 name="18/region"> 128, 128, 64, 64 </rect2>
+		<vector2 name="18/occluder_offset"> 32, 32 </vector2>
+		<resource name="18/occluder"></resource>		<vector2 name="18/navigation_offset"> 32, 32 </vector2>
+		<resource name="18/navigation"></resource>		<vector2 name="18/shape_offset"> 0, 0 </vector2>
+		<array name="18/shapes" len="0" shared="false">
+		</array>
+		<string name="19/name"> "road 1" </string>
+		<resource name="19/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="19/tex_offset"> 0, -14 </vector2>
+		<resource name="19/material"></resource>		<rect2 name="19/region"> 0, 192, 64, 64 </rect2>
+		<vector2 name="19/occluder_offset"> 32, 32 </vector2>
+		<resource name="19/occluder"></resource>		<vector2 name="19/navigation_offset"> 32, 32 </vector2>
+		<resource name="19/navigation"></resource>		<vector2 name="19/shape_offset"> 0, 0 </vector2>
+		<array name="19/shapes" len="0" shared="false">
+		</array>
+		<string name="20/name"> "road 2" </string>
+		<resource name="20/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="20/tex_offset"> 0, -14 </vector2>
+		<resource name="20/material"></resource>		<rect2 name="20/region"> 64, 192, 64, 64 </rect2>
+		<vector2 name="20/occluder_offset"> 32, 32 </vector2>
+		<resource name="20/occluder"></resource>		<vector2 name="20/navigation_offset"> 32, 32 </vector2>
+		<resource name="20/navigation"></resource>		<vector2 name="20/shape_offset"> 0, 0 </vector2>
+		<array name="20/shapes" len="0" shared="false">
+		</array>
+		<string name="21/name"> "road 3" </string>
+		<resource name="21/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="21/tex_offset"> 0, -14 </vector2>
+		<resource name="21/material"></resource>		<rect2 name="21/region"> 128, 192, 64, 64 </rect2>
+		<vector2 name="21/occluder_offset"> 32, 32 </vector2>
+		<resource name="21/occluder"></resource>		<vector2 name="21/navigation_offset"> 32, 32 </vector2>
+		<resource name="21/navigation"></resource>		<vector2 name="21/shape_offset"> 0, 0 </vector2>
+		<array name="21/shapes" len="0" shared="false">
+		</array>
+		<string name="22/name"> "road 4" </string>
+		<resource name="22/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="22/tex_offset"> 0, -14 </vector2>
+		<resource name="22/material"></resource>		<rect2 name="22/region"> 192, 192, 64, 64 </rect2>
+		<vector2 name="22/occluder_offset"> 32, 32 </vector2>
+		<resource name="22/occluder"></resource>		<vector2 name="22/navigation_offset"> 32, 32 </vector2>
+		<resource name="22/navigation"></resource>		<vector2 name="22/shape_offset"> 0, 0 </vector2>
+		<array name="22/shapes" len="0" shared="false">
+		</array>
+		<string name="23/name"> "road 5" </string>
+		<resource name="23/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="23/tex_offset"> 0, -14 </vector2>
+		<resource name="23/material"></resource>		<rect2 name="23/region"> 256, 192, 64, 64 </rect2>
+		<vector2 name="23/occluder_offset"> 32, 32 </vector2>
+		<resource name="23/occluder"></resource>		<vector2 name="23/navigation_offset"> 32, 32 </vector2>
+		<resource name="23/navigation"></resource>		<vector2 name="23/shape_offset"> 0, 0 </vector2>
+		<array name="23/shapes" len="0" shared="false">
+		</array>
+		<string name="24/name"> "road 6" </string>
+		<resource name="24/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="24/tex_offset"> 0, -14 </vector2>
+		<resource name="24/material"></resource>		<rect2 name="24/region"> 320, 192, 64, 64 </rect2>
+		<vector2 name="24/occluder_offset"> 32, 32 </vector2>
+		<resource name="24/occluder"></resource>		<vector2 name="24/navigation_offset"> 32, 32 </vector2>
+		<resource name="24/navigation"></resource>		<vector2 name="24/shape_offset"> 0, 0 </vector2>
+		<array name="24/shapes" len="0" shared="false">
+		</array>
+		<string name="25/name"> "road 7" </string>
+		<resource name="25/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="25/tex_offset"> 0, -14 </vector2>
+		<resource name="25/material"></resource>		<rect2 name="25/region"> 384, 192, 64, 64 </rect2>
+		<vector2 name="25/occluder_offset"> 32, 32 </vector2>
+		<resource name="25/occluder"></resource>		<vector2 name="25/navigation_offset"> 32, 32 </vector2>
+		<resource name="25/navigation"></resource>		<vector2 name="25/shape_offset"> 0, 0 </vector2>
+		<array name="25/shapes" len="0" shared="false">
+		</array>
+		<string name="26/name"> "road 8" </string>
+		<resource name="26/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="26/tex_offset"> 0, -14 </vector2>
+		<resource name="26/material"></resource>		<rect2 name="26/region"> 448, 192, 64, 64 </rect2>
+		<vector2 name="26/occluder_offset"> 32, 32 </vector2>
+		<resource name="26/occluder"></resource>		<vector2 name="26/navigation_offset"> 32, 32 </vector2>
+		<resource name="26/navigation"></resource>		<vector2 name="26/shape_offset"> 0, 0 </vector2>
+		<array name="26/shapes" len="0" shared="false">
+		</array>
+		<string name="27/name"> "road 9" </string>
+		<resource name="27/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="27/tex_offset"> 0, -14 </vector2>
+		<resource name="27/material"></resource>		<rect2 name="27/region"> 0, 256, 64, 64 </rect2>
+		<vector2 name="27/occluder_offset"> 32, 32 </vector2>
+		<resource name="27/occluder"></resource>		<vector2 name="27/navigation_offset"> 32, 32 </vector2>
+		<resource name="27/navigation"></resource>		<vector2 name="27/shape_offset"> 0, 0 </vector2>
+		<array name="27/shapes" len="0" shared="false">
+		</array>
+		<string name="28/name"> "road 10" </string>
+		<resource name="28/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="28/tex_offset"> 0, -14 </vector2>
+		<resource name="28/material"></resource>		<rect2 name="28/region"> 64, 256, 64, 64 </rect2>
+		<vector2 name="28/occluder_offset"> 32, 32 </vector2>
+		<resource name="28/occluder"></resource>		<vector2 name="28/navigation_offset"> 32, 32 </vector2>
+		<resource name="28/navigation"></resource>		<vector2 name="28/shape_offset"> 0, 0 </vector2>
+		<array name="28/shapes" len="0" shared="false">
+		</array>
+		<string name="29/name"> "road 11" </string>
+		<resource name="29/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="29/tex_offset"> 0, -14 </vector2>
+		<resource name="29/material"></resource>		<rect2 name="29/region"> 128, 256, 64, 64 </rect2>
+		<vector2 name="29/occluder_offset"> 32, 32 </vector2>
+		<resource name="29/occluder"></resource>		<vector2 name="29/navigation_offset"> 32, 32 </vector2>
+		<resource name="29/navigation"></resource>		<vector2 name="29/shape_offset"> 0, 0 </vector2>
+		<array name="29/shapes" len="0" shared="false">
+		</array>
+		<string name="30/name"> "bridge 1" </string>
+		<resource name="30/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="30/tex_offset"> 0, -14 </vector2>
+		<resource name="30/material"></resource>		<rect2 name="30/region"> 192, 256, 64, 64 </rect2>
+		<vector2 name="30/occluder_offset"> 32, 32 </vector2>
+		<resource name="30/occluder"></resource>		<vector2 name="30/navigation_offset"> 32, 32 </vector2>
+		<resource name="30/navigation"></resource>		<vector2 name="30/shape_offset"> 0, 0 </vector2>
+		<array name="30/shapes" len="0" shared="false">
+		</array>
+		<string name="31/name"> "bridge 2" </string>
+		<resource name="31/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="31/tex_offset"> 0, -14 </vector2>
+		<resource name="31/material"></resource>		<rect2 name="31/region"> 256, 256, 64, 64 </rect2>
+		<vector2 name="31/occluder_offset"> 32, 32 </vector2>
+		<resource name="31/occluder"></resource>		<vector2 name="31/navigation_offset"> 32, 32 </vector2>
+		<resource name="31/navigation"></resource>		<vector2 name="31/shape_offset"> 0, 0 </vector2>
+		<array name="31/shapes" len="0" shared="false">
+		</array>
+		<string name="32/name"> "road mix 1" </string>
+		<resource name="32/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="32/tex_offset"> 0, -14 </vector2>
+		<resource name="32/material"></resource>		<rect2 name="32/region"> 320, 256, 64, 64 </rect2>
+		<vector2 name="32/occluder_offset"> 32, 32 </vector2>
+		<resource name="32/occluder"></resource>		<vector2 name="32/navigation_offset"> 32, 32 </vector2>
+		<resource name="32/navigation"></resource>		<vector2 name="32/shape_offset"> 0, 0 </vector2>
+		<array name="32/shapes" len="0" shared="false">
+		</array>
+		<string name="33/name"> "road mix 2" </string>
+		<resource name="33/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="33/tex_offset"> 0, -14 </vector2>
+		<resource name="33/material"></resource>		<rect2 name="33/region"> 384, 256, 64, 64 </rect2>
+		<vector2 name="33/occluder_offset"> 32, 32 </vector2>
+		<resource name="33/occluder"></resource>		<vector2 name="33/navigation_offset"> 32, 32 </vector2>
+		<resource name="33/navigation"></resource>		<vector2 name="33/shape_offset"> 0, 0 </vector2>
+		<array name="33/shapes" len="0" shared="false">
+		</array>
+		<string name="34/name"> "road mix 3" </string>
+		<resource name="34/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="34/tex_offset"> 0, -14 </vector2>
+		<resource name="34/material"></resource>		<rect2 name="34/region"> 448, 256, 64, 64 </rect2>
+		<vector2 name="34/occluder_offset"> 32, 32 </vector2>
+		<resource name="34/occluder"></resource>		<vector2 name="34/navigation_offset"> 32, 32 </vector2>
+		<resource name="34/navigation"></resource>		<vector2 name="34/shape_offset"> 0, 0 </vector2>
+		<array name="34/shapes" len="0" shared="false">
+		</array>
+		<string name="35/name"> "road mix 4" </string>
+		<resource name="35/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="35/tex_offset"> 0, -14 </vector2>
+		<resource name="35/material"></resource>		<rect2 name="35/region"> 0, 320, 64, 64 </rect2>
+		<vector2 name="35/occluder_offset"> 32, 32 </vector2>
+		<resource name="35/occluder"></resource>		<vector2 name="35/navigation_offset"> 32, 32 </vector2>
+		<resource name="35/navigation"></resource>		<vector2 name="35/shape_offset"> 0, 0 </vector2>
+		<array name="35/shapes" len="0" shared="false">
+		</array>
+		<string name="36/name"> "country road 1" </string>
+		<resource name="36/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="36/tex_offset"> 0, -14 </vector2>
+		<resource name="36/material"></resource>		<rect2 name="36/region"> 64, 320, 64, 64 </rect2>
+		<vector2 name="36/occluder_offset"> 32, 32 </vector2>
+		<resource name="36/occluder"></resource>		<vector2 name="36/navigation_offset"> 32, 32 </vector2>
+		<resource name="36/navigation"></resource>		<vector2 name="36/shape_offset"> 0, 0 </vector2>
+		<array name="36/shapes" len="0" shared="false">
+		</array>
+		<string name="37/name"> "country road 2" </string>
+		<resource name="37/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="37/tex_offset"> 0, -14 </vector2>
+		<resource name="37/material"></resource>		<rect2 name="37/region"> 128, 320, 64, 64 </rect2>
+		<vector2 name="37/occluder_offset"> 32, 32 </vector2>
+		<resource name="37/occluder"></resource>		<vector2 name="37/navigation_offset"> 32, 32 </vector2>
+		<resource name="37/navigation"></resource>		<vector2 name="37/shape_offset"> 0, 0 </vector2>
+		<array name="37/shapes" len="0" shared="false">
+		</array>
+		<string name="38/name"> "country road 3" </string>
+		<resource name="38/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="38/tex_offset"> 0, -14 </vector2>
+		<resource name="38/material"></resource>		<rect2 name="38/region"> 192, 320, 64, 64 </rect2>
+		<vector2 name="38/occluder_offset"> 32, 32 </vector2>
+		<resource name="38/occluder"></resource>		<vector2 name="38/navigation_offset"> 32, 32 </vector2>
+		<resource name="38/navigation"></resource>		<vector2 name="38/shape_offset"> 0, 0 </vector2>
+		<array name="38/shapes" len="0" shared="false">
+		</array>
+		<string name="39/name"> "country road 4" </string>
+		<resource name="39/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="39/tex_offset"> 0, -14 </vector2>
+		<resource name="39/material"></resource>		<rect2 name="39/region"> 256, 320, 64, 64 </rect2>
+		<vector2 name="39/occluder_offset"> 32, 32 </vector2>
+		<resource name="39/occluder"></resource>		<vector2 name="39/navigation_offset"> 32, 32 </vector2>
+		<resource name="39/navigation"></resource>		<vector2 name="39/shape_offset"> 0, 0 </vector2>
+		<array name="39/shapes" len="0" shared="false">
+		</array>
+		<string name="40/name"> "country road 5" </string>
+		<resource name="40/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="40/tex_offset"> 0, -14 </vector2>
+		<resource name="40/material"></resource>		<rect2 name="40/region"> 320, 320, 64, 64 </rect2>
+		<vector2 name="40/occluder_offset"> 32, 32 </vector2>
+		<resource name="40/occluder"></resource>		<vector2 name="40/navigation_offset"> 32, 32 </vector2>
+		<resource name="40/navigation"></resource>		<vector2 name="40/shape_offset"> 0, 0 </vector2>
+		<array name="40/shapes" len="0" shared="false">
+		</array>
+		<string name="41/name"> "country road 6" </string>
+		<resource name="41/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="41/tex_offset"> 0, -14 </vector2>
+		<resource name="41/material"></resource>		<rect2 name="41/region"> 384, 320, 64, 64 </rect2>
+		<vector2 name="41/occluder_offset"> 32, 32 </vector2>
+		<resource name="41/occluder"></resource>		<vector2 name="41/navigation_offset"> 32, 32 </vector2>
+		<resource name="41/navigation"></resource>		<vector2 name="41/shape_offset"> 0, 0 </vector2>
+		<array name="41/shapes" len="0" shared="false">
+		</array>
+		<string name="42/name"> "country road 7" </string>
+		<resource name="42/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="42/tex_offset"> 0, -14 </vector2>
+		<resource name="42/material"></resource>		<rect2 name="42/region"> 448, 320, 64, 64 </rect2>
+		<vector2 name="42/occluder_offset"> 32, 32 </vector2>
+		<resource name="42/occluder"></resource>		<vector2 name="42/navigation_offset"> 32, 32 </vector2>
+		<resource name="42/navigation"></resource>		<vector2 name="42/shape_offset"> 0, 0 </vector2>
+		<array name="42/shapes" len="0" shared="false">
+		</array>
+		<string name="43/name"> "country road 8" </string>
+		<resource name="43/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="43/tex_offset"> 0, -14 </vector2>
+		<resource name="43/material"></resource>		<rect2 name="43/region"> 0, 384, 64, 64 </rect2>
+		<vector2 name="43/occluder_offset"> 32, 32 </vector2>
+		<resource name="43/occluder"></resource>		<vector2 name="43/navigation_offset"> 32, 32 </vector2>
+		<resource name="43/navigation"></resource>		<vector2 name="43/shape_offset"> 0, 0 </vector2>
+		<array name="43/shapes" len="0" shared="false">
+		</array>
+		<string name="44/name"> "country road 9" </string>
+		<resource name="44/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="44/tex_offset"> 0, -14 </vector2>
+		<resource name="44/material"></resource>		<rect2 name="44/region"> 64, 384, 64, 64 </rect2>
+		<vector2 name="44/occluder_offset"> 32, 32 </vector2>
+		<resource name="44/occluder"></resource>		<vector2 name="44/navigation_offset"> 32, 32 </vector2>
+		<resource name="44/navigation"></resource>		<vector2 name="44/shape_offset"> 0, 0 </vector2>
+		<array name="44/shapes" len="0" shared="false">
+		</array>
+		<string name="45/name"> "country road 10" </string>
+		<resource name="45/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="45/tex_offset"> 0, -14 </vector2>
+		<resource name="45/material"></resource>		<rect2 name="45/region"> 128, 384, 64, 64 </rect2>
+		<vector2 name="45/occluder_offset"> 32, 32 </vector2>
+		<resource name="45/occluder"></resource>		<vector2 name="45/navigation_offset"> 32, 32 </vector2>
+		<resource name="45/navigation"></resource>		<vector2 name="45/shape_offset"> 0, 0 </vector2>
+		<array name="45/shapes" len="0" shared="false">
+		</array>
+		<string name="46/name"> "country road 11" </string>
+		<resource name="46/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="46/tex_offset"> 0, -14 </vector2>
+		<resource name="46/material"></resource>		<rect2 name="46/region"> 192, 384, 64, 64 </rect2>
+		<vector2 name="46/occluder_offset"> 32, 32 </vector2>
+		<resource name="46/occluder"></resource>		<vector2 name="46/navigation_offset"> 32, 32 </vector2>
+		<resource name="46/navigation"></resource>		<vector2 name="46/shape_offset"> 0, 0 </vector2>
+		<array name="46/shapes" len="0" shared="false">
+		</array>
+		<string name="47/name"> "river 1" </string>
+		<resource name="47/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="47/tex_offset"> 0, -14 </vector2>
+		<resource name="47/material"></resource>		<rect2 name="47/region"> 0, 448, 64, 64 </rect2>
+		<vector2 name="47/occluder_offset"> 32, 32 </vector2>
+		<resource name="47/occluder"></resource>		<vector2 name="47/navigation_offset"> 32, 32 </vector2>
+		<resource name="47/navigation"></resource>		<vector2 name="47/shape_offset"> 0, 0 </vector2>
+		<array name="47/shapes" len="0" shared="false">
+		</array>
+		<string name="48/name"> "river 2" </string>
+		<resource name="48/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="48/tex_offset"> 0, -14 </vector2>
+		<resource name="48/material"></resource>		<rect2 name="48/region"> 64, 448, 64, 64 </rect2>
+		<vector2 name="48/occluder_offset"> 32, 32 </vector2>
+		<resource name="48/occluder"></resource>		<vector2 name="48/navigation_offset"> 32, 32 </vector2>
+		<resource name="48/navigation"></resource>		<vector2 name="48/shape_offset"> 0, 0 </vector2>
+		<array name="48/shapes" len="0" shared="false">
+		</array>
+		<string name="49/name"> "river 3" </string>
+		<resource name="49/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="49/tex_offset"> 0, -14 </vector2>
+		<resource name="49/material"></resource>		<rect2 name="49/region"> 128, 448, 64, 64 </rect2>
+		<vector2 name="49/occluder_offset"> 32, 32 </vector2>
+		<resource name="49/occluder"></resource>		<vector2 name="49/navigation_offset"> 32, 32 </vector2>
+		<resource name="49/navigation"></resource>		<vector2 name="49/shape_offset"> 0, 0 </vector2>
+		<array name="49/shapes" len="0" shared="false">
+		</array>
+		<string name="50/name"> "river 4" </string>
+		<resource name="50/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="50/tex_offset"> 0, -14 </vector2>
+		<resource name="50/material"></resource>		<rect2 name="50/region"> 192, 448, 64, 64 </rect2>
+		<vector2 name="50/occluder_offset"> 32, 32 </vector2>
+		<resource name="50/occluder"></resource>		<vector2 name="50/navigation_offset"> 32, 32 </vector2>
+		<resource name="50/navigation"></resource>		<vector2 name="50/shape_offset"> 0, 0 </vector2>
+		<array name="50/shapes" len="0" shared="false">
+		</array>
+		<string name="51/name"> "river 5" </string>
+		<resource name="51/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="51/tex_offset"> 0, -14 </vector2>
+		<resource name="51/material"></resource>		<rect2 name="51/region"> 256, 448, 64, 64 </rect2>
+		<vector2 name="51/occluder_offset"> 32, 32 </vector2>
+		<resource name="51/occluder"></resource>		<vector2 name="51/navigation_offset"> 32, 32 </vector2>
+		<resource name="51/navigation"></resource>		<vector2 name="51/shape_offset"> 0, 0 </vector2>
+		<array name="51/shapes" len="0" shared="false">
+		</array>
+		<string name="52/name"> "river 6" </string>
+		<resource name="52/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="52/tex_offset"> 0, -14 </vector2>
+		<resource name="52/material"></resource>		<rect2 name="52/region"> 320, 448, 64, 64 </rect2>
+		<vector2 name="52/occluder_offset"> 32, 32 </vector2>
+		<resource name="52/occluder"></resource>		<vector2 name="52/navigation_offset"> 32, 32 </vector2>
+		<resource name="52/navigation"></resource>		<vector2 name="52/shape_offset"> 0, 0 </vector2>
+		<array name="52/shapes" len="0" shared="false">
+		</array>
+		<string name="53/name"> "river 7" </string>
+		<resource name="53/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="53/tex_offset"> 0, -14 </vector2>
+		<resource name="53/material"></resource>		<rect2 name="53/region"> 384, 448, 64, 64 </rect2>
+		<vector2 name="53/occluder_offset"> 32, 32 </vector2>
+		<resource name="53/occluder"></resource>		<vector2 name="53/navigation_offset"> 32, 32 </vector2>
+		<resource name="53/navigation"></resource>		<vector2 name="53/shape_offset"> 0, 0 </vector2>
+		<array name="53/shapes" len="0" shared="false">
+		</array>
+		<string name="54/name"> "river 8" </string>
+		<resource name="54/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="54/tex_offset"> 0, -14 </vector2>
+		<resource name="54/material"></resource>		<rect2 name="54/region"> 448, 448, 64, 64 </rect2>
+		<vector2 name="54/occluder_offset"> 32, 32 </vector2>
+		<resource name="54/occluder"></resource>		<vector2 name="54/navigation_offset"> 32, 32 </vector2>
+		<resource name="54/navigation"></resource>		<vector2 name="54/shape_offset"> 0, 0 </vector2>
+		<array name="54/shapes" len="0" shared="false">
+		</array>
+		<string name="55/name"> "bridge1" </string>
+		<resource name="55/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="55/tex_offset"> 0, -14 </vector2>
+		<resource name="55/material"></resource>		<rect2 name="55/region"> 192, 128, 64, 64 </rect2>
+		<vector2 name="55/occluder_offset"> 32, 32 </vector2>
+		<resource name="55/occluder"></resource>		<vector2 name="55/navigation_offset"> 32, 32 </vector2>
+		<resource name="55/navigation"></resource>		<vector2 name="55/shape_offset"> 0, 0 </vector2>
+		<array name="55/shapes" len="0" shared="false">
+		</array>
+		<string name="56/name"> "bridge2" </string>
+		<resource name="56/texture" resource_type="Texture" path="res://assets/terrain/fall/ground.png">  </resource>
+		<vector2 name="56/tex_offset"> 0, -14 </vector2>
+		<resource name="56/material"></resource>		<rect2 name="56/region"> 256, 128, 64, 64 </rect2>
+		<vector2 name="56/occluder_offset"> 32, 32 </vector2>
+		<resource name="56/occluder"></resource>		<vector2 name="56/navigation_offset"> 32, 32 </vector2>
+		<resource name="56/navigation"></resource>		<vector2 name="56/shape_offset"> 0, 0 </vector2>
+		<array name="56/shapes" len="0" shared="false">
+		</array>
+
+	</main_resource>
+</resource_file>
