@@ -169,7 +169,7 @@ size_flags/vertical = 2
 margin/left = 260.0
 margin/top = 60.0
 margin/right = 0.0
-margin/bottom = 0.0
+margin/bottom = 540.0
 
 [node name="background" type="Patch9Frame" parent="containter"]
 
@@ -223,10 +223,6 @@ margin/right = 788.0
 
 margin/right = 788.0
 
-[node name="Label1" parent="containter/campaign_container/campaign/prompt"]
-
-margin/right = 788.0
-
 [node name="maps" parent="containter/campaign_container/campaign"]
 
 margin/right = 788.0
@@ -238,7 +234,9 @@ margin/right = 680.0
 
 [node name="detailed" parent="containter/campaign_container"]
 
+margin/top = 100.0
 margin/right = 788.0
+margin/bottom = 428.0
 
 [node name="header" parent="containter/campaign_container/detailed"]
 
