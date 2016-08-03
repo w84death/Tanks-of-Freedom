@@ -81,6 +81,39 @@ func reload_labels():
     self.reload_button(self.bag.controllers.online_menu_controller.download_button, 'LABEL_DOWNLOAD')
     self.reload_button(self.bag.controllers.online_menu_controller.upload_button, 'LABEL_UPLOAD')
 
+    #WORKSHOP
+    var workshop = self.bag.controllers.workshop_gui_controller
+    self.reload_button(workshop.navigation_panel.menu_button, 'LABEL_BACK')
+    self.reload_button(workshop.navigation_panel.toolbox_button, 'LABEL_WORKSHOP_TOOLBOX')
+    self.reload_button(workshop.navigation_panel.undo_button, 'LABEL_WORKSHOP_UNDO_BUILD')
+    self.reload_button(workshop.navigation_panel.drag_button, 'LABEL_WORKSHOP_MOVE_MAP')
+    self.reload_label(workshop.navigation_panel.navigation_panel.get_node('controls/building_blocks_button/Label1'), 'LABEL_WORKSHOP_SELECTED_TOOL')
+    workshop.navigation_panel.drag_button_pressed()
+    workshop.navigation_panel.reset_block_label()
+
+    self.reload_label(workshop.toolbox_panel.toolbox_panel.get_node('front/Label'), 'LABEL_WORKSHOP_TOOLBOX')
+    self.reload_label(workshop.toolbox_panel.toolbox_panel.get_node('front/Label6'), 'MSG_WORKSHOP_LOSE_MAP_DATA')
+    self.reload_label(workshop.toolbox_panel.toolbox_panel.get_node('front/Label 2'), 'MSG_WORKSHOP_CREATE_NEW_ISLAND')
+    self.reload_label(workshop.toolbox_panel.toolbox_panel.get_node('front/Label3'), 'LABEL_WORKSHOP_SIZE')
+    self.reload_label(workshop.toolbox_panel.toolbox_panel.get_node('front/Label 3'), 'LABEL_WORKSHOP_CLEAR_LAYERS')
+    self.reload_button(workshop.toolbox_panel.fill_button, 'LABEL_WORKSHOP_CREATE', 'label')
+    self.reload_button(workshop.toolbox_panel.clear_terrain_button, 'LABEL_WORKSHOP_TERRAIN', 'label')
+    self.reload_button(workshop.toolbox_panel.clear_units_button, 'LABEL_WORKSHOP_UNITS', 'label')
+
+    self.reload_button(workshop.building_blocks_panel.terrain_button, 'LABEL_WORKSHOP_TERRAIN')
+    self.reload_button(workshop.building_blocks_panel.buildings_button, 'LABEL_WORKSHOP_BUILDINGS')
+    self.reload_button(workshop.building_blocks_panel.units_button, 'LABEL_WORKSHOP_UNITS')
+    workshop.building_blocks_panel.reload_blocks()
+
+    self.reload_button(workshop.file_panel.toggle_button, 'LABEL_WORKSHOP_FILES_MANAGER')
+    self.reload_button(workshop.file_panel.play_button, 'LABEL_PLAY')
+    self.reload_button(workshop.file_panel.load_button, 'LABEL_WORKSHOP_LOAD')
+    self.reload_button(workshop.file_panel.save_button, 'LABEL_WORKSHOP_SAVE')
+    self.reload_button(workshop.file_panel.pick_button, 'LABEL_WORKSHOP_PICK_MAP')
+    self.reload_label(workshop.file_panel.file_panel.get_node('controls/top/map_name_'), 'MSG_WORKSHOP_USE_UNIQUE_NAME')
+
+
+
 func reload_button(button, translation, label_node_name="Label"):
     if button:
         button.get_node(label_node_name).set_text(tr(translation))

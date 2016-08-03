@@ -44,7 +44,7 @@ func drag_button_pressed():
     self.root.sound_controller.play('menu')
     self.mark_drag_button()
     self.workshop.movement_mode = true
-    self.set_block_label("MOVE MAP")
+    self.set_block_label(tr("LABEL_WORKSHOP_MOVE_MAP"))
 
 func reset_buttons():
     return
@@ -64,7 +64,7 @@ func block_button_pressed():
     self.workshop_gui_controller.toggle_block_blocks()
 
 func reset_block_label():
-    self.set_block_label("BUILD TERRAIN")
+    self.set_block_label(tr("LABEL_WORKSHOP_BUILD_TERRAIN"))
 
 func set_block_label(label):
     self.block_button_label.set_text(label)

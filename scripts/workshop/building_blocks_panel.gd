@@ -18,6 +18,8 @@ var terrain_blocks
 var buildings_blocks
 var units_blocks
 
+var currently_selected_blocks
+
 var current_blocks = []
 
 func init_root(root_node):
@@ -26,7 +28,7 @@ func init_root(root_node):
     self.workshop_gui_controller = self.root.bag.controllers.workshop_gui_controller
     self.tiles = self.root.bag.map_tiles
 
-    self.terrain_blocks = self.__trans([
+    self.terrain_blocks = [
         # name, tile id in sprite, type, blueprint id
         ["EREASE", self.tiles.ICON_EREASE, "terrain", -1],
         ["PLAIN", self.tiles.TERRAIN_PLAIN, "terrain", self.tiles.TERRAIN_PLAIN],
@@ -41,8 +43,8 @@ func init_root(root_node):
         ["FENCE", self.tiles.TERRAIN_FENCE, "terrain", self.tiles.TERRAIN_FENCE],
         ["ROAD#1", self.tiles.TERRAIN_ROAD, "terrain", self.tiles.TERRAIN_ROAD],
         ["ROAD#2", self.tiles.TERRAIN_DIRT_ROAD, "terrain", self.tiles.TERRAIN_DIRT_ROAD]
-    ])
-    self.buildings_blocks = self.__trans([
+    ]
+    self.buildings_blocks = [
         ["HQ", self.tiles.TERRAIN_HQ_BLUE, "terrain", self.tiles.TERRAIN_HQ_BLUE],
         ["HQ", self.tiles.TERRAIN_HQ_RED, "terrain", self.tiles.TERRAIN_HQ_RED],
         ["BARRACKS", self.tiles.TERRAIN_BARRACKS_FREE, "terrain", self.tiles.TERRAIN_BARRACKS_FREE],
@@ -58,15 +60,15 @@ func init_root(root_node):
         ["FACTORY", self.tiles.TERRAIN_FACTORY_BLUE, "terrain", self.tiles.TERRAIN_FACTORY_BLUE],
         ["AIRPORT", self.tiles.TERRAIN_AIRPORT_BLUE, "terrain", self.tiles.TERRAIN_AIRPORT_BLUE],
         ["TOWER", self.tiles.TERRAIN_TOWER_BLUE, "terrain", self.tiles.TERRAIN_TOWER_BLUE],
-    ])
-    self.units_blocks = self.__trans([
+    ]
+    self.units_blocks = [
         ["INFANTRY", self.tiles.UNIT_INFANTRY_BLUE, "units", 0],
         ["TANK", self.tiles.UNIT_TANK_BLUE, "units", 1],
         ["HELI", self.tiles.UNIT_HELICOPTER_BLUE, "units", 2],
         ["INFANTRY", self.tiles.UNIT_INFANTRY_RED, "units", 3],
         ["TANK", self.tiles.UNIT_TANK_RED, "units", 4],
         ["HELI", self.tiles.UNIT_HELICOPTER_RED, "units", 5]
-    ])
+    ]
 
 func bind_panel(building_block_panel_wrapper_node):
     self.building_block_panel_wrapper = building_block_panel_wrapper_node
@@ -85,7 +87,14 @@ func bind_panel(building_block_panel_wrapper_node):
 
 func _category_button_pressed(category):
     self.root.sound_controller.play('menu')
+    self.currently_selected_blocks = category
     self.fill_blocks_panel(category)
+
+func reload_blocks():
+    if self.currently_selected_blocks != null:
+        self.fill_blocks_panel(self.currently_selected_blocks)
+    else:
+        self.fill_blocks_panel(self.terrain_blocks)
 
 func show():
     self.building_block_panel_wrapper.show()
@@ -108,7 +117,7 @@ func fill_blocks_panel(blocks):
     for block in blocks:
         new_block = self.block_template.instance()
         new_block.get_node("tile").set_frame(block[1])
-        new_block.get_node("select/name").set_text(block[0])
+        new_block.get_node("select/name").set_text(tr("LABEL_WORKSHOP_" + block[0]))
         new_block.get_node("select").connect("pressed", self, "set_building_block_type", [block[2], block[3], block[0]])
         self.blocks_area.add_child(new_block)
         if index > 0 && index % 5 == 0:

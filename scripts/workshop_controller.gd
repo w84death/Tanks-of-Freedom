@@ -119,14 +119,14 @@ func save_map(name, input = false):
     if input:
         name = name.get_text()
     if not map.save_map(name):
-        self.show_message("Failure!", "File error File name: "+str(name), 'Double check for typos!', "OK")
+        self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_ERROR_NAME") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 
 func load_map(name, input = false, suppress=false, is_remote = false):
     if input:
         name = name.get_text()
     if not map.load_map(name, is_remote):
         if not suppress:
-            self.show_message("Failure!", "File not found File name: " + str(name), 'Double check for typos!', "OK")
+            self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_NOT_FOUND") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 
 func paint(position, tool_type = null, brush_type = null, undo_action = false):
     if hud_message.is_visible():
