@@ -193,6 +193,8 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="intro_container" parent="containter" instance=ExtResource( 8 )]
 
+visibility/visible = false
+
 [node name="campaign_container" parent="containter" instance=ExtResource( 9 )]
 
 visibility/visible = false
@@ -282,8 +284,6 @@ margin/right = 626.0
 visibility/visible = false
 
 [node name="gamepad_container" parent="containter" instance=ExtResource( 11 )]
-
-visibility/visible = false
 
 
 [editable path="containter/campaign_container"]

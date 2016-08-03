@@ -21,12 +21,12 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-light_color = Color( 0.745098, 0.14902, 0.2, 1 )
-dark_color = Color( 0.745098, 0.14902, 0.2, 1 )
+bg_color = Color( 1, 1, 1, 1 )
+light_color = Color( 0, 0.341176, 0.517647, 1 )
+dark_color = Color( 0, 0.341176, 0.517647, 1 )
 border_size = 6
 border_blend = false
-draw_bg = false
+draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=3]
 
@@ -34,12 +34,12 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-light_color = Color( 0.745098, 0.14902, 0.2, 1 )
-dark_color = Color( 0.745098, 0.14902, 0.2, 1 )
+bg_color = Color( 1, 1, 1, 1 )
+light_color = Color( 0, 0.341176, 0.517647, 1 )
+dark_color = Color( 0, 0.341176, 0.517647, 1 )
 border_size = 6
 border_blend = false
-draw_bg = false
+draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=4]
 
@@ -47,12 +47,12 @@ content_margin/left = 6.0
 content_margin/right = 6.0
 content_margin/top = 6.0
 content_margin/bottom = 6.0
-bg_color = Color( 0.6, 0.6, 0.6, 1 )
-light_color = Color( 1, 1, 1, 1 )
-dark_color = Color( 1, 1, 1, 1 )
-border_size = 3
+bg_color = Color( 0.8, 0.8, 0.8, 1 )
+light_color = Color( 0.105882, 0.14902, 0.196078, 1 )
+dark_color = Color( 0.105882, 0.14902, 0.196078, 1 )
+border_size = 4
 border_blend = false
-draw_bg = false
+draw_bg = true
 
 [sub_resource type="StyleBoxFlat" id=5]
 
@@ -60,9 +60,9 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-bg_color = Color( 0.745098, 0.14902, 0.2, 1 )
-light_color = Color( 0.745098, 0.14902, 0.2, 1 )
-dark_color = Color( 0.745098, 0.14902, 0.2, 1 )
+bg_color = Color( 0, 0.341176, 0.517647, 1 )
+light_color = Color( 0, 0.341176, 0.517647, 1 )
+dark_color = Color( 0, 0.341176, 0.517647, 1 )
 border_size = 0
 border_blend = false
 draw_bg = true
@@ -372,10 +372,10 @@ font/font = ExtResource( 7 )
 [resource]
 
 default_font = SubResource( 35 )
-Button/colors/font_color = Color( 1, 1, 1, 1 )
+Button/colors/font_color = Color( 0.105882, 0.14902, 0.196078, 1 )
 Button/colors/font_color_disabled = Color( 0.396078, 0.427451, 0.443137, 1 )
-Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
-Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/colors/font_color_hover = Color( 0.105882, 0.14902, 0.196078, 1 )
+Button/colors/font_color_pressed = Color( 0.105882, 0.14902, 0.196078, 1 )
 Button/constants/hseparation = 20
 Button/fonts/font = null
 Button/styles/disabled = SubResource( 1 )
