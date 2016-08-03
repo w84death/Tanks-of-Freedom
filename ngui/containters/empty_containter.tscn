@@ -1,6 +1,6 @@
 [gd_scene format=1]
 
-[node name="empty_container" type="Control"]
+[node name="empty_container" type="HBoxContainer"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -12,21 +12,7 @@ margin/left = 20.0
 margin/top = 20.0
 margin/right = 20.0
 margin/bottom = 20.0
+alignment = 0
 __meta__ = { "_edit_lock_":true }
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-scroll/horizontal = true
-scroll/vertical = true
 
 

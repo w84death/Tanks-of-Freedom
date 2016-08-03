@@ -150,7 +150,7 @@ shortcut = null
 text = "SETTINGS"
 flat = false
 
-[node name="about" type="Button" parent="."]
+[node name="gamepad" type="Button" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -160,6 +160,22 @@ margin/left = 0.0
 margin/top = 208.0
 margin/right = 1240.0
 margin/bottom = 228.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "GAMEPAD"
+flat = false
+
+[node name="about" type="Button" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 232.0
+margin/right = 1240.0
+margin/bottom = 252.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -173,9 +189,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 232.0
+margin/top = 256.0
 margin/right = 1240.0
-margin/bottom = 252.0
+margin/bottom = 276.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

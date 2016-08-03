@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://ngui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/background.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ngui/containters/intro_containter.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ngui/containters/campaign_containter.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ngui/containters/settings_containter.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ngui/containters/gamepad_containter.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -192,9 +193,9 @@ __meta__ = { "_edit_lock_":true }
 
 [node name="intro_container" parent="containter" instance=ExtResource( 8 )]
 
-visibility/visible = false
-
 [node name="campaign_container" parent="containter" instance=ExtResource( 9 )]
+
+visibility/visible = false
 
 [node name="header" parent="containter/campaign_container"]
 
@@ -234,6 +235,7 @@ margin/right = 680.0
 
 [node name="detailed" parent="containter/campaign_container"]
 
+editor/display_folded = true
 margin/top = 100.0
 margin/right = 788.0
 margin/bottom = 428.0
@@ -276,6 +278,10 @@ margin/left = 526.0
 margin/right = 626.0
 
 [node name="settings_container" parent="containter" instance=ExtResource( 10 )]
+
+visibility/visible = false
+
+[node name="gamepad_container" parent="containter" instance=ExtResource( 11 )]
 
 visibility/visible = false
 
