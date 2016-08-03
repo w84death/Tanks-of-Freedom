@@ -38,7 +38,7 @@ python bin/compact.py
 - import
 - choose source file (campaigns/campaign.csv) and choose target path (translations/_imported/)
 - import
-- check your translations in working game :)
+- add translation identifier to translations/languages.gd file in in_develop array
 
 
  

@@ -1,25 +1,25 @@
 
 var bag
 
-var language_cycle = {
-    'en' : 'pl',
-    'pl' : 'fr',
-    'fr' : 'en'
-}
+var available_languages = []
 
 func _init_bag(bag):
     self.bag = bag
+    self.available_languages = self.__get_available_languages()
 
 func switch_to_next_language():
     var old_language = self.bag.root.settings['language']
-    var new_language = self.language_cycle[old_language]
+
+    var old_lang_pos = self.available_languages.find(old_language)
+    var new_lang_pos = ( old_lang_pos + 1 ) % self.available_languages.size()
+
+    var new_language = self.available_languages[new_lang_pos]
 
     self.bag.root.settings['language'] = new_language
     TranslationServer.set_locale(new_language)
     self.bag.root.write_settings_to_file()
 
     self.reload_labels()
-
 
 func reload_labels():
     #MAIN MENU
@@ -88,3 +88,11 @@ func reload_button(button, translation, label_node_name="Label"):
 func reload_label(label, translation):
     if label:
         label.set_text(tr(translation))
+
+func __get_available_languages():
+    var languages = load('res://translations/languages.gd').new()
+    if self.bag.root.settings['ENV'] == 'dev' :
+        return languages.available + languages.in_develop
+
+    return languages.available
+

@@ -52,7 +52,8 @@ var settings = {
     'online_player_id' : null,
     'online_player_pin' : null,
     'is_overscan' : false,
-    'language' : 'en'
+    'language' : 'en',
+    'ENV' : 'dev'
 }
 
 var is_map_loaded = false
