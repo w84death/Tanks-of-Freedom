@@ -40,8 +40,8 @@ var campaign
 var used_tiles_list = []
 
 var tileset
-var map_movable = preload('res://terrain/terrain_movable.xscn')
-var map_non_movable = preload('res://terrain/terrain_non-movable.xscn')
+var map_movable = preload('res://terrain/summer/terrain_movable.xscn')
+var map_non_movable = preload('res://terrain/summer/terrain_non-movable.xscn')
 var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
 
