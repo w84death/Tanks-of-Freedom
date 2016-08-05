@@ -3,6 +3,8 @@
 ## Changelog
 
 ### 0.5.1-beta
+- Added French and Polish language
+- Added Overscan setting for TV setups
 - OUYA style button help will show when using OUYA gamepad
 - fixed Settings button not working correctly when playing from Workshop
 - fixed ground damage not being preserved on save/resume
