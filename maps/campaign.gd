@@ -2,92 +2,98 @@
 var progress_file = File.new()
 var campaign_progression = -1
 
-var maps = [
-    {
-        'label': tr('MISSION_TITLE_MAYDAY_SQUARE'), #'MayDay Square'
-        'player': 0,
-        'file': preload("res://maps/campaign/maidan.gd").new(),
-        'description': tr('MISSION_DESR_MAYDAY_SQUARE')
-    },
-    {
-        'label': tr('MISSION_TITLE_EASTERN_CITY'), #'Eastern city'
-        'player': 0,
-        'file': preload("res://maps/campaign/eastern_city.gd").new(),
-        'description': tr('MISSION_DESR_EASTERN_CITY')
-    },
-    {
-        'label': tr('MISSION_TITLE_RIOTS'), #'Riots'
-        'player': 1,
-        'file': preload("res://maps/campaign/administration_riot.gd").new(),
-        'description': tr('MISSION_DESR_RIOTS')
-    },
-    {
-        'label': tr('MISSION_TITLE_BASE_ASSAULT'), #'Base Assault'
-        'player': 1,
-        'file': preload("res://maps/campaign/base_assault.gd").new(),
-        'description': tr('MISSION_DESR_BASE_ASSAULT')
-    },
-    {
-        'label': tr('MISSION_TITLE_PENINSULA'), #'Peninsula'
-        'player': 1,
-        'file': preload("res://maps/campaign/peninsula.gd").new(),
-        'description': tr('MISSION_DESR_PENINSULA')
-    },
-    {
-        'label': tr('MISSION_TITLE_RECAPTURE'), #'Recapture'
-        'player': 0,
-        'file': preload("res://maps/campaign/administration_recapture.gd").new(),
-        'description': tr('MISSION_DESR_RECAPTURE')
-    },
-    {
-        'label': tr('MISSION_TITLE_BASE_DEFENCE'), #'Base Defence'
-        'player': 0,
-        'file': preload("res://maps/campaign/base_defence.gd").new(),
-        'description': tr('MISSION_DESR_BASE_DEFENCE')
-    },
-    {
-        'label': tr('MISSION_TITLE_AIRPORT_PT_1'), #'Airport Pt.1'
-        'player': 1,
-        'file': preload("res://maps/campaign/airport_part_1.gd").new(),
-        'description': tr('MISSION_DESR_AIRPORT_PT_1')
-    },
-    {
-        'label': tr('MISSION_TITLE_AIRPLANE'), #'Airplane'
-        'player': 1,
-        'file': preload("res://maps/campaign/airplane.gd").new(),
-        'description': tr('MISSION_DESR_AIRPLANE')
-    },
-    {
-        'label': tr('MISSION_TITLE_FIELD_COMMAND'), #'Field Command'
-        'player': 0,
-        'file': preload("res://maps/campaign/field_command.gd").new(),
-        'description': tr('MISSION_DESR_FIELD_COMMAND')
-    },
-    {
-        'label': tr('MISSION_TITLE_AIRPORT_PT_2'), #'Airport Pt.2'
-        'player': 0,
-        'file': preload("res://maps/campaign/airport_part_2.gd").new(),
-        'description': tr('MISSION_DESR_AIRPORT_PT_2')
-    },
-    {
-        'label': tr('MISSION_TITLE_CONVOY'), #'Convoy'
-        'player': 1,
-        'file': preload("res://maps/campaign/convoy.gd").new(),
-        'description': tr('MISSION_DESR_CONVOY')
-    },
-    {
-        'label': tr('MISSION_TITLE_CRASH_SITE'), #'Crash Site'
-        'player': 1,
-        'file': preload("res://maps/campaign/crash_site.gd").new(),
-        'description': tr('MISSION_DESR_CRASH_SITE')
-    },
-    {
-        'label': tr('MISSION_TITLE_AIRPORT_PT_3'), #'Airport Pt.3'
-        'player': 1,
-        'file': preload("res://maps/campaign/airport_part_3.gd").new(),
-        'description': tr('MISSION_DESR_AIRPORT_PT_3')
-    },
-]
+var maps = []
+
+func _init():
+    self.reload_maps_definition()
+
+func reload_maps_definition():
+    self.maps = [
+        {
+            'label': tr('MISSION_TITLE_MAYDAY_SQUARE'), #'MayDay Square'
+            'player': 0,
+            'file': preload("res://maps/campaign/maidan.gd").new(),
+            'description': tr('MISSION_DESR_MAYDAY_SQUARE')
+        },
+        {
+            'label': tr('MISSION_TITLE_EASTERN_CITY'), #'Eastern city'
+            'player': 0,
+            'file': preload("res://maps/campaign/eastern_city.gd").new(),
+            'description': tr('MISSION_DESR_EASTERN_CITY')
+        },
+        {
+            'label': tr('MISSION_TITLE_RIOTS'), #'Riots'
+            'player': 1,
+            'file': preload("res://maps/campaign/administration_riot.gd").new(),
+            'description': tr('MISSION_DESR_RIOTS')
+        },
+        {
+            'label': tr('MISSION_TITLE_BASE_ASSAULT'), #'Base Assault'
+            'player': 1,
+            'file': preload("res://maps/campaign/base_assault.gd").new(),
+            'description': tr('MISSION_DESR_BASE_ASSAULT')
+        },
+        {
+            'label': tr('MISSION_TITLE_PENINSULA'), #'Peninsula'
+            'player': 1,
+            'file': preload("res://maps/campaign/peninsula.gd").new(),
+            'description': tr('MISSION_DESR_PENINSULA')
+        },
+        {
+            'label': tr('MISSION_TITLE_RECAPTURE'), #'Recapture'
+            'player': 0,
+            'file': preload("res://maps/campaign/administration_recapture.gd").new(),
+            'description': tr('MISSION_DESR_RECAPTURE')
+        },
+        {
+            'label': tr('MISSION_TITLE_BASE_DEFENCE'), #'Base Defence'
+            'player': 0,
+            'file': preload("res://maps/campaign/base_defence.gd").new(),
+            'description': tr('MISSION_DESR_BASE_DEFENCE')
+        },
+        {
+            'label': tr('MISSION_TITLE_AIRPORT_PT_1'), #'Airport Pt.1'
+            'player': 1,
+            'file': preload("res://maps/campaign/airport_part_1.gd").new(),
+            'description': tr('MISSION_DESR_AIRPORT_PT_1')
+        },
+        {
+            'label': tr('MISSION_TITLE_AIRPLANE'), #'Airplane'
+            'player': 1,
+            'file': preload("res://maps/campaign/airplane.gd").new(),
+            'description': tr('MISSION_DESR_AIRPLANE')
+        },
+        {
+            'label': tr('MISSION_TITLE_FIELD_COMMAND'), #'Field Command'
+            'player': 0,
+            'file': preload("res://maps/campaign/field_command.gd").new(),
+            'description': tr('MISSION_DESR_FIELD_COMMAND')
+        },
+        {
+            'label': tr('MISSION_TITLE_AIRPORT_PT_2'), #'Airport Pt.2'
+            'player': 0,
+            'file': preload("res://maps/campaign/airport_part_2.gd").new(),
+            'description': tr('MISSION_DESR_AIRPORT_PT_2')
+        },
+        {
+            'label': tr('MISSION_TITLE_CONVOY'), #'Convoy'
+            'player': 1,
+            'file': preload("res://maps/campaign/convoy.gd").new(),
+            'description': tr('MISSION_DESR_CONVOY')
+        },
+        {
+            'label': tr('MISSION_TITLE_CRASH_SITE'), #'Crash Site'
+            'player': 1,
+            'file': preload("res://maps/campaign/crash_site.gd").new(),
+            'description': tr('MISSION_DESR_CRASH_SITE')
+        },
+        {
+            'label': tr('MISSION_TITLE_AIRPORT_PT_3'), #'Airport Pt.3'
+            'player': 1,
+            'file': preload("res://maps/campaign/airport_part_3.gd").new(),
+            'description': tr('MISSION_DESR_AIRPORT_PT_3')
+        },
+    ]
 
 func get_map_data(map_number):
     return maps[map_number]['file']

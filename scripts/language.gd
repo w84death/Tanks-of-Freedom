@@ -159,6 +159,8 @@ func reload_labels():
 
         self.reload_button(hud_game_over.get_node('center/controls/restart'), 'LABEL_PLAY_AGAIN')
 
+    self.bag.campaign.reload_maps_definition()
+
 
 
 func reload_button(button, translation, label_node_name="Label"):
