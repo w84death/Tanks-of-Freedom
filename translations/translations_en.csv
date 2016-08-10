@@ -193,3 +193,4 @@ LABEL_DOWNLOAD,Download
 TIP_DOWNLOADING_WAIT,"Downloading map! Please wait."
 TIP_MAP_DOWNLOAD_SUCCESS,"Map has been downloaded."
 TIP_MAP_DOWNLOAD_FAIL,"Could not download a map. Please check if code is correct and try again."
+LABEL_PLAY_AGAIN,PLAY AGAIN
