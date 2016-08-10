@@ -161,3 +161,35 @@ LABEL_GAME_TIME,TEMPS DE JEU
 LABEL_TURNS,TOURS
 LABEL_BLUE_WINS,LES BLEUS GAGNENT
 LABEL_RED_WINS,LES ROUGES GAGNENT
+LABEL_PLAYING_AS,PLAYING AS
+LABEL_MAPS,MAPS
+LABEL_PAGE,PAGE
+LABEL_WORKSHOP_SAVE,SAVE
+LABEL_WORKSHOP_LOAD,LOAD
+LABEL_MAP_TO_UPLOAD,Map to upload
+LABEL_PROCEED_QUESTION,"Proceed?"
+LABEL_UPLOAD_MAP,Upload Map
+LABEL_UPLOAD,Upload
+LABEL_CANCEL,Cancel
+TIP_COMPLETE_MAP_FIRST,"You need to complete this map first in skirmish mode in order to be able to upload it."
+LABEL_GOT_IT,"Got it!"
+LABEL_ONLINE_MENU,ONLINE MAPS
+LABEL_ONLINE_MENU_DESC,"DOWNLOAD NEW MAPS OR SHARE YOUR OWN CREATIONS WITH THE WORLD!"
+TIP_UPLOADING_WAIT,"Uploading! Please wait."
+TIP_UPLOADING_SUCCESS,"Upload successful! Now you can share your new map code with your friends: "
+TIP_UPLOADING_FAIL,"Upload failed. Please try again later."
+LABEL_DONE,Done
+TIP_WELCOME_ONLINE,"Welcome to ToF Online!"
+TIP_NEED_REGISTER,"Before you can start using online options, we need to register your device with our online system."
+LABEL_REGISTER,Register
+LABEL_LATER,"Maybe later"
+LABEL_REGISTER_PLAYER,"Register Player"
+TIP_REQUESTING_PLAYER_ID,"Requesting Player ID! Please wait."
+TIP_REQUESTING_PLAYER_FAIL,"Requesting Player ID failed. Please try again later."
+TIP_REQUESTING_PLAYER_SUCCESS,"Requesting Player ID successful. Welcome to ToF Online!"
+LABEL_DOWNLOAD_MAP,Upload Map
+TIP_INPUT_CODE,"Please input map code"
+LABEL_DOWNLOAD,Download
+TIP_DOWNLOADING_WAIT,"Downloading map! Please wait."
+TIP_MAP_DOWNLOAD_SUCCESS,"Map has been downloaded."
+TIP_MAP_DOWNLOAD_FAIL,"Could not download a map. Please check if code is correct and try again."
