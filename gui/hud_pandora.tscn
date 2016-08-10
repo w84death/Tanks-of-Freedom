@@ -9,14 +9,14 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=8]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" id=9]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=15]
-[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=16]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=17]
 [ext_resource path="res://gui/stats.xscn" type="PackedScene" id=18]
 
 [node name="GUI" type="Control"]
@@ -27,18 +27,31 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 __meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
 [node name="vigette" parent="." instance=ExtResource( 1 )]
 
 visibility/visible = false
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
 [node name="cinematic_camera" parent="." instance=ExtResource( 2 )]
 
 visibility/visible = false
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
 [node name="message_card" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -46,73 +59,84 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 use_top_left = false
-__meta__ = { "_editor_collapsed":true }
 
 [node name="center" type="Control" parent="message_card"]
 
-margin/left = 400.0
-margin/top = 240.0
-margin/right = 400.0
-margin/bottom = 240.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 
 [node name="message" parent="message_card/center" instance=ExtResource( 3 )]
 
 [node name="top_left_panel" type="Control" parent="."]
 
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 margin/left = 128.0
 margin/top = 96.0
 margin/right = 128.0
 margin/bottom = 96.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 
 [node name="top_center" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
-margin/bottom = 60.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 60.0
 use_top_left = false
-__meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
+__meta__ = { "_edit_lock_":true }
 
 [node name="center" type="Control" parent="top_center"]
 
-margin/left = 400.0
-margin/top = 30.0
-margin/right = 400.0
-margin/bottom = 30.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 30.0
+margin/right = 640.0
+margin/bottom = 30.0
 
 [node name="game_card" type="Control" parent="top_center/center"]
 
-margin/top = -30.0
-margin/bottom = -30.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -30.0
+margin/right = 0.0
+margin/bottom = -30.0
 
 [node name="Control" type="Control" parent="top_center/center/game_card"]
 
-margin/right = 40.0
-margin/bottom = 40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="Sprite" type="Sprite" parent="top_center/center/game_card/Control"]
 
@@ -170,35 +194,37 @@ frame = 4
 
 [node name="menu" type="TextureButton" parent="top_center/center/game_card"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
-margin/left = -128.0
-margin/top = 14.0
-margin/right = -16.0
-margin/bottom = -62.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -128.0
+margin/top = 14.0
+margin/right = -16.0
+margin/bottom = -62.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 textures/normal = ExtResource( 5 )
 textures/pressed = ExtResource( 6 )
 textures/hover = ExtResource( 7 )
 textures/disabled = ExtResource( 8 )
 textures/focused = ExtResource( 9 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="top_center/center/game_card/menu"]
 
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 127.0
-margin/bottom = 35.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 10 )
+size_flags/vertical = 0
+margin/left = -2.0
+margin/top = 17.0
+margin/right = 140.0
+margin/bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MAIN_MENU"
 align = 1
@@ -209,48 +235,52 @@ max_lines_visible = -1
 
 [node name="settings" type="TextureButton" parent="top_center/center/game_card"]
 
-margin/left = 32.0
-margin/top = 14.0
-margin/right = 128.0
-margin/bottom = 62.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 32.0
+margin/top = 14.0
+margin/right = 128.0
+margin/bottom = 62.0
 toggle_mode = false
-textures/normal = ExtResource( 11 )
-textures/pressed = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 15 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 14 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Sprite" type="Sprite" parent="top_center/center/game_card/settings"]
 
 transform/pos = Vector2( 50, 23 )
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 vframes = 2
 hframes = 2
 frame = 1
 
 [node name="gamepad_buttons" type="Control" parent="top_center/center/game_card"]
 
+editor/display_folded = true
 visibility/visible = false
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="gamepad_button" type="Sprite" parent="top_center/center/game_card/gamepad_buttons"]
 
 transform/pos = Vector2( -109.711, 44.6217 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 vframes = 2
 hframes = 4
 frame = 3
@@ -259,21 +289,22 @@ frame = 3
 
 transform/pos = Vector2( 171.103, 28.9972 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 vframes = 2
 hframes = 4
 frame = 2
 
 [node name="Label" type="Label" parent="top_center/center/game_card/gamepad_buttons"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 198.0
 margin/top = 20.0
 margin/right = 306.0
 margin/bottom = 35.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 17 )
 text = "LABEL_SELECT_UNIT"
 percent_visible = 1.0
 lines_skipped = 0
@@ -283,21 +314,22 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -285.406, 26.7812 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 vframes = 2
 hframes = 4
 frame = 1
 
 [node name="Label1" type="Label" parent="top_center/center/game_card/gamepad_buttons"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -253.0
 margin/top = 20.0
 margin/right = -165.0
 margin/bottom = 35.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 17 )
 text = "LABEL_NEXT_TURN"
 percent_visible = 1.0
 lines_skipped = 0
@@ -307,14 +339,14 @@ max_lines_visible = -1
 
 anchor/left = 1
 anchor/right = 1
-margin/left = 128.0
-margin/top = 96.0
-margin/right = 128.0
-margin/bottom = 96.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 128.0
+margin/top = 96.0
+margin/right = 128.0
+margin/bottom = 96.0
 
 [node name="end_game" parent="." instance=ExtResource( 18 )]
 
@@ -324,36 +356,41 @@ visibility/visible = false
 
 anchor/top = 1
 anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 margin/left = 96.0
 margin/top = 32.0
 margin/right = 96.0
 margin/bottom = 32.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 
 [node name="bottom_center" type="Control" parent="."]
 
+editor/display_folded = true
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
-margin/top = 48.0
-margin/bottom = 60.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 0.0
+margin/bottom = 60.0
+__meta__ = { "_edit_lock_":true }
 
 [node name="center" type="Control" parent="bottom_center"]
 
-margin/left = 416.0
-margin/right = 416.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 416.0
+margin/top = 0.0
+margin/right = 416.0
+margin/bottom = 0.0
 __meta__ = { "_edit_lock_":true }
 
 [node name="bottom_right" type="Control" parent="."]
@@ -362,13 +399,13 @@ anchor/left = 1
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
-margin/left = 96.0
-margin/top = 32.0
-margin/right = 96.0
-margin/bottom = 32.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 96.0
+margin/top = 32.0
+margin/right = 96.0
+margin/bottom = 32.0
 
 

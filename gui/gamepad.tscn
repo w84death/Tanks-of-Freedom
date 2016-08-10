@@ -1,28 +1,31 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://assets/gamepad.png" type="Texture" id=2]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=3]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=4]
+[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=3]
 
 [node name="Control" type="Control"]
 
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="background" type="Control" parent="."]
 
-margin/right = 40.0
-margin/bottom = 40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="Sprite" type="Sprite" parent="background"]
 
@@ -111,14 +114,15 @@ texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 
-margin/left = -144.0
-margin/top = -176.0
-margin/right = 148.0
-margin/bottom = -153.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = -152.0
+margin/top = -176.0
+margin/right = 148.0
+margin/bottom = -153.0
 text = "GAMEPAD CONFIGURATION"
 align = 1
 percent_visible = 1.0
@@ -127,14 +131,14 @@ max_lines_visible = -1
 
 [node name="left_shoulder" type="Label" parent="."]
 
-margin/left = -326.0
-margin/top = -94.0
-margin/right = -198.0
-margin/bottom = -79.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+size_flags/vertical = 0
+margin/left = -326.0
+margin/top = -94.0
+margin/right = -136.0
+margin/bottom = -79.0
 text = "LABEL_PREVIOUS_UNIT"
 percent_visible = 1.0
 lines_skipped = 0
@@ -142,14 +146,14 @@ max_lines_visible = -1
 
 [node name="right_shoulder" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 192.0
 margin/top = -96.0
 margin/right = 342.0
 margin/bottom = -81.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "LABEL_NEXT_UNIT"
 align = 2
 percent_visible = 1.0
@@ -158,14 +162,14 @@ max_lines_visible = -1
 
 [node name="analog" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -328.0
 margin/top = -56.0
 margin/right = -152.0
 margin/bottom = -41.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "LABEL_SELECTOR_MOVEMENT"
 percent_visible = 1.0
 lines_skipped = 0
@@ -173,14 +177,14 @@ max_lines_visible = -1
 
 [node name="dpad" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -327.0
 margin/top = 84.0
 margin/right = -151.0
 margin/bottom = 99.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "LABEL_GAME_MENU_MOVEMENT"
 percent_visible = 1.0
 lines_skipped = 0
@@ -188,14 +192,14 @@ max_lines_visible = -1
 
 [node name="x" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 170.0
 margin/top = 74.0
 margin/right = 340.0
 margin/bottom = 89.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "LABEL_DEPLOY_UNIT"
 align = 2
 percent_visible = 1.0
@@ -204,14 +208,14 @@ max_lines_visible = -1
 
 [node name="y" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 202.0
 margin/top = -37.0
 margin/right = 342.0
 margin/bottom = -22.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "LABEL_END_TURN"
 align = 2
 percent_visible = 1.0
@@ -220,13 +224,14 @@ max_lines_visible = -1
 
 [node name="b" type="Label" parent="."]
 
-margin/left = 160.0
-margin/right = 340.0
-margin/bottom = 15.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+size_flags/vertical = 0
+margin/left = 160.0
+margin/top = 0.0
+margin/right = 340.0
+margin/bottom = 15.0
 text = "LABEL_BACK_TO_MENU"
 align = 2
 percent_visible = 1.0
@@ -235,14 +240,14 @@ max_lines_visible = -1
 
 [node name="a" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 194.0
 margin/top = 41.0
 margin/right = 340.0
 margin/bottom = 56.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "LABEL_SELECT"
 align = 2
 percent_visible = 1.0

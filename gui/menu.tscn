@@ -289,7 +289,7 @@ margin/bottom = 40.0
 
 [node name="Sprite17" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -264, -56 )
+transform/pos = Vector2( -336, -56 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 vframes = 8
@@ -299,7 +299,7 @@ frame = 3
 [node name="Sprite17 2" type="Sprite" parent="middle/center/settings_panel/background"]
 
 transform/pos = Vector2( 0, -56 )
-transform/scale = Vector2( 14, 3 )
+transform/scale = Vector2( 18, 3 )
 texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
@@ -307,7 +307,7 @@ frame = 4
 
 [node name="Sprite17 3" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 256, -56 )
+transform/pos = Vector2( 336, -56 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 vframes = 8
@@ -316,7 +316,7 @@ frame = 5
 
 [node name="Sprite18" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -264, 42 )
+transform/pos = Vector2( -336, 42 )
 transform/scale = Vector2( 3, 5.375 )
 texture = ExtResource( 4 )
 vframes = 8
@@ -326,7 +326,7 @@ frame = 11
 [node name="Sprite173" type="Sprite" parent="middle/center/settings_panel/background"]
 
 transform/pos = Vector2( 0, 32 )
-transform/scale = Vector2( 14, 5.5 )
+transform/scale = Vector2( 18, 5.5 )
 texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
@@ -334,7 +334,7 @@ frame = 12
 
 [node name="Sprite174" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 256, 37 )
+transform/pos = Vector2( 336, 37 )
 transform/scale = Vector2( 3, 5.6875 )
 texture = ExtResource( 4 )
 vframes = 8
@@ -343,7 +343,7 @@ frame = 13
 
 [node name="Sprite19" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -264, 152 )
+transform/pos = Vector2( -336, 152 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 vframes = 8
@@ -353,7 +353,7 @@ frame = 19
 [node name="Sprite175" type="Sprite" parent="middle/center/settings_panel/background"]
 
 transform/pos = Vector2( 1.52588e-05, 152 )
-transform/scale = Vector2( 14, 3 )
+transform/scale = Vector2( 18, 3 )
 texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
@@ -361,7 +361,7 @@ frame = 20
 
 [node name="Sprite175 2" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 256, 152 )
+transform/pos = Vector2( 336, 152 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 4 )
 vframes = 8
@@ -375,9 +375,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 56.0
+margin/left = 152.0
 margin/top = -32.0
-margin/right = 152.0
+margin/right = 248.0
 margin/bottom = 16.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -413,9 +413,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 56.0
+margin/left = 152.0
 margin/top = 24.0
-margin/right = 152.0
+margin/right = 248.0
 margin/bottom = 72.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -450,9 +450,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -136.0
+margin/left = -40.0
 margin/top = -16.0
-margin/right = 54.0
+margin/right = 150.0
 margin/bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SOUND_EFFECTS"
@@ -467,9 +467,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -56.0
+margin/left = 40.0
 margin/top = 40.0
-margin/right = 54.0
+margin/right = 150.0
 margin/bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MUSIC"
@@ -618,9 +618,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -113.0
+margin/left = -17.0
 margin/top = -72.0
-margin/right = 47.0
+margin/right = 143.0
 margin/bottom = -55.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_ZOOM_LEVEL"
@@ -637,9 +637,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 176.0
+margin/left = 272.0
 margin/top = -88.0
-margin/right = 272.0
+margin/right = 368.0
 margin/bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -675,9 +675,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 56.0
+margin/left = 152.0
 margin/top = -88.0
-margin/right = 152.0
+margin/right = 248.0
 margin/bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -819,7 +819,6 @@ max_lines_visible = -1
 
 [node name="overscan_group" type="Control" parent="middle/center/settings_panel"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -835,9 +834,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 124.0
+margin/left = 220.0
 margin/top = -44.0
-margin/right = 264.0
+margin/right = 360.0
 margin/bottom = -28.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_OVERSCAN"
@@ -853,9 +852,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 268.0
+margin/left = 364.0
 margin/top = -60.0
-margin/right = 364.0
+margin/right = 460.0
 margin/bottom = -12.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -891,10 +890,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 372.0
-margin/top = -44.0
-margin/right = 581.0
-margin/bottom = -23.0
+margin/left = 228.0
+margin/top = -4.0
+margin/right = 437.0
+margin/bottom = 17.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_REQUIES_RESTART"
 valign = 1
