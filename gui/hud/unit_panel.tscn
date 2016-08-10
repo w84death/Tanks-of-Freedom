@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
-[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" id=2]
-[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font" id=3]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=4]
-[ext_resource path="res://assets/gui/dialogs/unit_actions.png" type="Texture" id=5]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=6]
+[ext_resource path="res://gui/very_big_theme.tres" type="Theme" id=2]
+[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/gui/dialogs/unit_actions.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" id=6]
 
 [node name="unit_panel" type="Control"]
 
@@ -13,16 +13,22 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
 [node name="background" type="Control" parent="."]
 
-margin/right = 40.0
-margin/bottom = 40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="Sprite4" type="Sprite" parent="background"]
 
@@ -107,14 +113,14 @@ frame = 29
 
 [node name="attack_" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -162.0
 margin/top = -60.0
 margin/right = -78.0
 margin/bottom = -47.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "LABEL_ATTACK"
 percent_visible = 1.0
@@ -123,15 +129,15 @@ max_lines_visible = -1
 
 [node name="attack" type="Label" parent="."]
 
-margin/left = -139.0
-margin/top = -47.0
-margin/right = -77.0
-margin/bottom = -17.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = -139.0
+margin/top = -47.0
+margin/right = -101.0
+margin/bottom = -15.0
 text = "99"
 percent_visible = 1.0
 lines_skipped = 0
@@ -139,15 +145,15 @@ max_lines_visible = -1
 
 [node name="attacks_left" type="Label" parent="."]
 
-margin/left = -162.0
-margin/top = -36.0
-margin/right = -130.0
-margin/bottom = -21.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
+margin/left = -162.0
+margin/top = -36.0
+margin/right = -130.0
+margin/bottom = -14.0
 text = "1x"
 percent_visible = 1.0
 lines_skipped = 0
@@ -155,14 +161,14 @@ max_lines_visible = -1
 
 [node name="health_" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -60.0
 margin/top = -61.0
 margin/right = 77.0
 margin/bottom = -46.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "LABEL_HEALTH_MAX"
 percent_visible = 1.0
@@ -171,15 +177,15 @@ max_lines_visible = -1
 
 [node name="health" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = -62.0
 margin/top = -48.0
 margin/right = 54.0
 margin/bottom = -18.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "99/99"
 percent_visible = 1.0
 lines_skipped = 0
@@ -190,7 +196,7 @@ max_lines_visible = -1
 visibility/visible = false
 transform/pos = Vector2( -162.108, -4.5587 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 hframes = 5
 
 [node name="action_2" type="Sprite" parent="."]
@@ -198,20 +204,21 @@ hframes = 5
 visibility/visible = false
 transform/pos = Vector2( -104.536, -5.0629 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 hframes = 5
 
 [node name="action_slots_" type="Label" parent="."]
 
 visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -190.0
 margin/top = -49.0
 margin/right = -82.0
 margin/bottom = -34.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.192157, 0.631373, 0.94902, 1 )
 text = "LABEL_ACTION_SLOTS"
 align = 2
@@ -222,13 +229,14 @@ max_lines_visible = -1
 [node name="name" type="Label" parent="."]
 
 visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -13.0
 margin/top = -199.0
 margin/right = 105.0
 margin/bottom = -176.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.192157, 0.631373, 0.94902, 1 )
 text = "LABEL_INFANTRY"
@@ -238,14 +246,14 @@ max_lines_visible = -1
 
 [node name="action_points_" type="Label" parent="."]
 
-margin/left = 32.0
-margin/top = -61.0
-margin/right = 165.0
-margin/bottom = -48.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 2 )
+size_flags/vertical = 0
+margin/left = 16.0
+margin/top = -61.0
+margin/right = 165.0
+margin/bottom = -47.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "LABEL_ACTION_POINTS"
 align = 2
@@ -255,15 +263,15 @@ max_lines_visible = -1
 
 [node name="ap" type="Label" parent="."]
 
-margin/left = 44.0
-margin/top = -48.0
-margin/right = 160.0
-margin/bottom = -18.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = 52.0
+margin/top = -48.0
+margin/right = 168.0
+margin/bottom = -16.0
 text = "99/99"
 align = 2
 percent_visible = 1.0
@@ -272,11 +280,13 @@ max_lines_visible = -1
 
 [node name="extras" type="Control" parent="."]
 
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 

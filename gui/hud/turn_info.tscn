@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
-[ext_resource path="res://assets/fonts/courier_prime_60.fnt" type="Font" id=2]
-[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" id=3]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" id=4]
-[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font" id=5]
+[ext_resource path="res://gui/very_big_theme.tres" type="Theme" id=2]
+[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=3]
 
 [node name="turn_info" type="Control"]
 
@@ -12,6 +10,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
 [node name="Sprite9" type="Sprite" parent="."]
 
@@ -69,14 +71,15 @@ frame = 3
 
 [node name="ap" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = -55.0
 margin/top = -74.0
 margin/right = 32.0
 margin/bottom = -36.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 2 )
 text = "999"
 align = 2
 percent_visible = 1.0
@@ -85,14 +88,14 @@ max_lines_visible = -1
 
 [node name="ap_" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -80.0
 margin/top = -88.0
 margin/right = 53.0
 margin/bottom = -62.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
 text = "LABEL_ACTION_POINTS"
 percent_visible = 1.0
 lines_skipped = 0
@@ -100,14 +103,15 @@ max_lines_visible = -1
 
 [node name="pap" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 3 )
 margin/left = 24.0
 margin/top = -32.0
 margin/right = 79.0
 margin/bottom = -9.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
 text = "120"
 align = 2
 percent_visible = 1.0
@@ -116,14 +120,14 @@ max_lines_visible = -1
 
 [node name="ap_1" type="Label" parent="."]
 
-margin/left = -80.0
-margin/top = -24.0
-margin/right = 60.0
-margin/bottom = -11.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
+size_flags/vertical = 0
+margin/left = -80.0
+margin/top = -24.0
+margin/right = 78.0
+margin/bottom = -10.0
 text = "LABEL_NEXT_TURN_GAIN"
 percent_visible = 1.0
 lines_skipped = 0
@@ -131,14 +135,14 @@ max_lines_visible = -1
 
 [node name="map_name" type="Label" parent="."]
 
-margin/left = -80.0
-margin/top = -112.0
-margin/right = 78.0
-margin/bottom = -99.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 3 )
+size_flags/vertical = 0
+margin/left = -80.0
+margin/top = -112.0
+margin/right = 86.0
+margin/bottom = -99.0
 text = "LABEL_MAP_NAME"
 percent_visible = 1.0
 lines_skipped = 0
@@ -146,14 +150,15 @@ max_lines_visible = -1
 
 [node name="ap1" type="Label" parent="."]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
 margin/left = 40.0
 margin/top = -74.0
 margin/right = 78.0
 margin/bottom = -44.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
 text = "AP"
 align = 2
 percent_visible = 1.0

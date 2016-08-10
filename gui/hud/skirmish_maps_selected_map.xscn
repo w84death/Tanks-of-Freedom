@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="23" version="2.0" version_name="Godot Engine v2.0.stable.official">
-	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="7"></ext_resource>
-	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="11"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="17"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="10"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="8"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="4"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="9"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="Font" index="13"></ext_resource>
+<resource_file type="PackedScene" subresource_count="22" version="2.1" version_name="Godot Engine v2.1.stable.official">
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" index="20"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="16"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="6"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="10"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" index="18"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" index="19"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="7"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="8"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="3"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="5"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" index="18"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" index="19"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" index="21"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" index="20"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture" index="15"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" index="14"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" index="16"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" index="12"></ext_resource>
 	<ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" index="15"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" index="13"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture" index="14"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" index="17"></ext_resource>
+	<ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" index="12"></ext_resource>
+	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" index="11"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -32,18 +31,20 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="65">
+			<string_array  len="68">
 				<string> "selected_map" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
 				<string> "__meta__" </string>
 				<string> "Control" </string>
 				<string> "background" </string>
-				<string> "margin/top" </string>
-				<string> "margin/bottom" </string>
-				<string> "Sprite44" </string>
+				<string> "Sprite45" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/scale" </string>
 				<string> "texture" </string>
@@ -51,6 +52,9 @@
 				<string> "hframes" </string>
 				<string> "frame" </string>
 				<string> "Sprite" </string>
+				<string> "Sprite6" </string>
+				<string> "Sprite45 2" </string>
+				<string> "Sprite44" </string>
 				<string> "Sprite5" </string>
 				<string> "Sprite43" </string>
 				<string> "Sprite1" </string>
@@ -62,9 +66,6 @@
 				<string> "Sprite34" </string>
 				<string> "Sprite35" </string>
 				<string> "Sprite363" </string>
-				<string> "Sprite45" </string>
-				<string> "Sprite6" </string>
-				<string> "Sprite45 2" </string>
 				<string> "Sprite37" </string>
 				<string> "Sprite364" </string>
 				<string> "Sprite38" </string>
@@ -72,9 +73,10 @@
 				<string> "Sprite39" </string>
 				<string> "controls" </string>
 				<string> "turns_cap" </string>
-				<string> "margin/left" </string>
-				<string> "margin/right" </string>
+				<string> "editor/display_folded" </string>
 				<string> "toggle_mode" </string>
+				<string> "enabled_focus_mode" </string>
+				<string> "shortcut" </string>
 				<string> "textures/normal" </string>
 				<string> "textures/pressed" </string>
 				<string> "textures/hover" </string>
@@ -83,7 +85,6 @@
 				<string> "params/scale" </string>
 				<string> "TextureButton" </string>
 				<string> "Label" </string>
-				<string> "custom_fonts/font" </string>
 				<string> "custom_colors/font_color" </string>
 				<string> "text" </string>
 				<string> "align" </string>
@@ -94,6 +95,7 @@
 				<string> "blue_player" </string>
 				<string> "red_player" </string>
 				<string> "vs_" </string>
+				<string> "custom_fonts/font" </string>
 				<string> "map_name" </string>
 				<string> "selected_map_" </string>
 				<string> "back" </string>
@@ -105,12 +107,13 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="935"> 				-1, -1, 6, 0, -1, 5, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 0, 0, 0, 6, 7, -1, 7, 8, 4, 9, 4, 1, 0, 2, 1, 3, 2, 4, 2, 5, 5, 0, 1, 0, 17, 10, -1, 6, 11, 6, 12, 7, 13, 8, 14, 9, 15, 9, 16, 10, 0, 1, 0, 17, 18, -1, 6, 11, 11, 12, 7, 13, 8, 14, 9, 15, 9, 16, 12, 0, 1, 0, 17, 19, -1, 6, 11, 13, 12, 14, 13, 8, 14, 9, 15, 9, 16, 15, 0, 1, 0, 17, 17, -1, 6, 11, 16, 12, 7, 13, 8, 14, 9, 15, 9, 16, 17, 0, 1, 0, 17, 20, -1, 6, 11, 18, 12, 7, 13, 8, 14, 9, 15, 9, 16, 19, 0, 1, 0, 17, 21, -1, 6, 11, 20, 12, 21, 13, 8, 14, 9, 15, 9, 16, 22, 0, 1, 0, 17, 22, -1, 6, 11, 23, 12, 7, 13, 8, 14, 9, 15, 9, 16, 12, 0, 1, 0, 17, 23, -1, 5, 12, 24, 13, 8, 14, 9, 15, 9, 16, 15, 0, 1, 0, 17, 24, -1, 6, 11, 25, 12, 7, 13, 8, 14, 9, 15, 9, 16, 10, 0, 1, 0, 17, 25, -1, 6, 11, 26, 12, 7, 13, 8, 14, 27, 15, 27, 16, 28, 0, 1, 0, 17, 26, -1, 6, 11, 29, 12, 30, 13, 8, 14, 27, 15, 27, 16, 31, 0, 1, 0, 17, 27, -1, 6, 11, 32, 12, 7, 13, 8, 14, 27, 15, 27, 16, 33, 0, 1, 0, 17, 28, -1, 6, 11, 34, 12, 35, 13, 8, 14, 27, 15, 27, 16, 36, 0, 1, 0, 17, 29, -1, 6, 11, 37, 12, 7, 13, 8, 14, 9, 15, 9, 16, 19, 0, 1, 0, 17, 30, -1, 6, 11, 38, 12, 7, 13, 8, 14, 9, 15, 9, 16, 17, 0, 1, 0, 17, 31, -1, 6, 11, 39, 12, 24, 13, 8, 14, 9, 15, 9, 16, 22, 0, 1, 0, 17, 32, -1, 6, 11, 40, 12, 7, 13, 8, 14, 27, 15, 27, 16, 41, 0, 1, 0, 17, 33, -1, 6, 11, 42, 12, 7, 13, 8, 14, 27, 15, 27, 16, 43, 0, 1, 0, 17, 34, -1, 6, 11, 44, 12, 7, 13, 45, 35, 1, 14, 22, 15, 46, 0, 1, 0, 17, 36, -1, 6, 11, 47, 12, 7, 13, 45, 14, 22, 15, 46, 16, 17, 0, 0, 0, 6, 37, -1, 6, 8, 4, 9, 4, 1, 0, 2, 1, 3, 2, 4, 2, 0, 22, 0, 48, 38, -1, 16, 39, 48, 8, 49, 40, 50, 9, 51, 1, 0, 2, 1, 3, 2, 4, 2, 41, 0, 42, 52, 43, 53, 44, 54, 45, 55, 46, 56, 47, 7, 5, 57, 0, 23, 0, 49, 49, -1, 14, 39, 58, 8, 59, 40, 60, 9, 61, 1, 1, 2, 1, 3, 2, 50, 62, 51, 63, 52, 64, 53, 65, 54, 66, 55, 67, 56, 68, 0, 22, 0, 49, 57, -1, 13, 39, 69, 8, 70, 40, 71, 9, 72, 1, 1, 2, 1, 3, 2, 50, 62, 52, 73, 53, 65, 54, 66, 55, 67, 56, 68, 0, 22, 0, 48, 58, -1, 16, 39, 74, 8, 75, 40, 76, 9, 77, 1, 0, 2, 1, 3, 2, 4, 2, 41, 0, 42, 78, 43, 79, 44, 80, 45, 81, 46, 82, 47, 7, 5, 83, 0, 26, 0, 49, 49, -1, 14, 39, 58, 8, 59, 40, 84, 9, 85, 1, 1, 2, 1, 3, 2, 50, 62, 51, 63, 52, 86, 53, 65, 54, 66, 55, 67, 56, 68, 0, 22, 0, 48, 59, -1, 16, 39, 87, 8, 75, 40, 88, 9, 77, 1, 0, 2, 1, 3, 2, 4, 2, 41, 0, 42, 78, 43, 79, 44, 80, 45, 81, 46, 82, 47, 7, 5, 89, 0, 28, 0, 49, 49, -1, 14, 39, 58, 8, 59, 40, 84, 9, 85, 1, 1, 2, 1, 3, 2, 50, 62, 51, 63, 52, 90, 53, 65, 54, 66, 55, 67, 56, 68, 0, 22, 0, 49, 60, -1, 13, 39, 91, 8, 92, 40, 93, 9, 94, 1, 1, 2, 1, 3, 2, 50, 95, 52, 96, 53, 65, 54, 66, 55, 67, 56, 68, 0, 22, 0, 49, 61, -1, 13, 39, 97, 8, 98, 40, 99, 9, 100, 1, 1, 2, 1, 3, 2, 50, 62, 51, 101, 52, 102, 54, 66, 55, 67, 56, 68, 0, 22, 0, 49, 62, -1, 13, 39, 97, 8, 72, 40, 103, 9, 104, 1, 1, 2, 1, 3, 2, 50, 62, 51, 105, 52, 106, 54, 66, 55, 67, 56, 68, 0, 22, 0, 48, 63, -1, 16, 39, 107, 8, 108, 40, 109, 9, 110, 1, 0, 2, 1, 3, 2, 4, 2, 41, 0, 42, 111, 43, 112, 44, 113, 45, 81, 46, 114, 47, 7, 5, 83, 0, 33, 0, 49, 49, -1, 13, 39, 58, 8, 59, 40, 115, 9, 85, 1, 1, 2, 1, 3, 2, 50, 62, 52, 116, 53, 65, 54, 66, 55, 67, 56, 68, 0, 22, 0, 48, 64, -1, 16, 39, 117, 8, 118, 40, 119, 9, 120, 1, 0, 2, 1, 3, 2, 4, 2, 41, 0, 42, 121, 43, 122, 44, 123, 45, 81, 46, 124, 47, 7, 5, 83, 0, 35, 0, 49, 49, -1, 14, 39, 58, 8, 59, 40, 115, 9, 85, 1, 1, 2, 1, 3, 2, 50, 62, 51, 125, 52, 126, 53, 65, 54, 66, 55, 67, 56, 68, 0 </int_array>
+			<int_array  len="973"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 3, 8, 3, 9, 4, 0, 0, 0, 10, 11, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 5, 7, 3, 8, 5, 0, 1, 0, 19, 12, -1, 6, 13, 6, 14, 7, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 20, -1, 6, 13, 11, 14, 12, 15, 8, 16, 9, 17, 9, 18, 13, 0, 1, 0, 19, 21, -1, 6, 13, 14, 14, 15, 15, 8, 16, 9, 17, 9, 18, 16, 0, 1, 0, 19, 22, -1, 6, 13, 17, 14, 12, 15, 8, 16, 9, 17, 9, 18, 18, 0, 1, 0, 19, 23, -1, 6, 13, 19, 14, 12, 15, 8, 16, 9, 17, 9, 18, 20, 0, 1, 0, 19, 24, -1, 6, 13, 21, 14, 22, 15, 8, 16, 9, 17, 9, 18, 23, 0, 1, 0, 19, 19, -1, 6, 13, 24, 14, 12, 15, 8, 16, 9, 17, 9, 18, 13, 0, 1, 0, 19, 25, -1, 6, 13, 25, 14, 12, 15, 8, 16, 9, 17, 9, 18, 10, 0, 1, 0, 19, 26, -1, 6, 13, 26, 14, 27, 15, 8, 16, 9, 17, 9, 18, 16, 0, 1, 0, 19, 27, -1, 6, 13, 28, 14, 12, 15, 8, 16, 9, 17, 9, 18, 20, 0, 1, 0, 19, 28, -1, 6, 13, 29, 14, 15, 15, 8, 16, 9, 17, 9, 18, 23, 0, 1, 0, 19, 29, -1, 6, 13, 30, 14, 7, 15, 8, 16, 9, 17, 9, 18, 18, 0, 1, 0, 19, 30, -1, 6, 13, 31, 14, 12, 15, 8, 16, 32, 17, 32, 18, 33, 0, 1, 0, 19, 31, -1, 6, 13, 34, 14, 35, 15, 8, 16, 32, 17, 32, 18, 36, 0, 1, 0, 19, 32, -1, 6, 13, 37, 14, 12, 15, 8, 16, 32, 17, 32, 18, 38, 0, 1, 0, 19, 33, -1, 6, 13, 39, 14, 40, 15, 8, 16, 32, 17, 32, 18, 41, 0, 1, 0, 19, 34, -1, 6, 13, 42, 14, 12, 15, 8, 16, 32, 17, 32, 18, 43, 0, 1, 0, 19, 35, -1, 6, 13, 44, 14, 12, 15, 8, 16, 32, 17, 32, 18, 45, 0, 1, 0, 19, 36, -1, 6, 13, 46, 14, 12, 15, 47, 37, 1, 16, 16, 17, 48, 0, 1, 0, 19, 38, -1, 6, 13, 49, 14, 12, 15, 47, 16, 16, 17, 48, 18, 13, 0, 0, 0, 10, 39, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 5, 7, 3, 8, 5, 0, 22, 0, 51, 40, -1, 18, 41, 1, 1, 0, 2, 1, 3, 2, 4, 2, 5, 50, 6, 51, 7, 52, 8, 53, 42, 0, 43, 2, 44, 54, 45, 55, 46, 56, 47, 57, 48, 58, 49, 59, 50, 12, 0, 23, 0, 52, 52, -1, 14, 1, 1, 2, 1, 3, 2, 4, 60, 5, 61, 6, 62, 7, 63, 8, 64, 53, 65, 54, 66, 55, 67, 56, 68, 57, 60, 58, 69, 0, 22, 0, 52, 59, -1, 13, 1, 1, 2, 1, 3, 2, 4, 60, 5, 70, 6, 71, 7, 72, 8, 73, 54, 74, 55, 67, 56, 68, 57, 60, 58, 69, 0, 22, 0, 51, 60, -1, 18, 41, 1, 1, 0, 2, 1, 3, 2, 4, 2, 5, 75, 6, 76, 7, 77, 8, 78, 42, 0, 43, 2, 44, 54, 45, 79, 46, 80, 47, 81, 48, 82, 49, 83, 50, 12, 0, 26, 0, 52, 52, -1, 14, 1, 1, 2, 1, 3, 2, 4, 60, 5, 61, 6, 62, 7, 84, 8, 85, 53, 65, 54, 86, 55, 67, 56, 68, 57, 60, 58, 69, 0, 22, 0, 51, 61, -1, 18, 41, 1, 1, 0, 2, 1, 3, 2, 4, 2, 5, 87, 6, 76, 7, 88, 8, 78, 42, 0, 43, 2, 44, 54, 45, 79, 46, 80, 47, 81, 48, 82, 49, 83, 50, 12, 0, 28, 0, 52, 52, -1, 14, 1, 1, 2, 1, 3, 2, 4, 60, 5, 61, 6, 62, 7, 84, 8, 85, 53, 65, 54, 89, 55, 67, 56, 68, 57, 60, 58, 69, 0, 22, 0, 52, 62, -1, 14, 1, 1, 2, 1, 3, 2, 4, 60, 5, 90, 6, 91, 7, 76, 8, 92, 63, 93, 54, 94, 55, 67, 56, 68, 57, 60, 58, 69, 0, 22, 0, 52, 64, -1, 13, 1, 1, 2, 1, 3, 2, 4, 60, 5, 95, 6, 96, 7, 97, 8, 98, 53, 99, 54, 100, 56, 68, 57, 60, 58, 69, 0, 22, 0, 52, 65, -1, 13, 1, 1, 2, 1, 3, 2, 4, 60, 5, 95, 6, 73, 7, 101, 8, 102, 53, 103, 54, 104, 56, 68, 57, 60, 58, 69, 0, 22, 0, 51, 66, -1, 18, 41, 1, 1, 0, 2, 1, 3, 2, 4, 2, 5, 105, 6, 106, 7, 107, 8, 108, 42, 0, 43, 2, 44, 54, 45, 109, 46, 110, 47, 111, 48, 82, 49, 112, 50, 12, 0, 33, 0, 52, 52, -1, 13, 1, 1, 2, 1, 3, 2, 4, 60, 5, 113, 6, 62, 7, 114, 8, 85, 54, 115, 55, 67, 56, 68, 57, 60, 58, 69, 0, 22, 0, 51, 67, -1, 18, 41, 1, 1, 0, 2, 1, 3, 2, 4, 2, 5, 84, 6, 116, 7, 117, 8, 118, 42, 0, 43, 2, 44, 54, 45, 119, 46, 120, 47, 121, 48, 82, 49, 122, 50, 12, 0, 35, 0, 52, 52, -1, 14, 1, 1, 2, 1, 3, 2, 4, 60, 5, 61, 6, 62, 7, 123, 8, 85, 53, 124, 54, 125, 55, 67, 56, 68, 57, 60, 58, 69, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="127" shared="false">
+			<array  len="126" shared="false">
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
+				<real> 0 </real>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -118,14 +121,18 @@
 					<bool> True </bool>
 				</dictionary>
 				<real> 70 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<vector2> 270, -204 </vector2>
+				<vector2> 254, -146 </vector2>
 				<vector2> 3, 3 </vector2>
 				<resource  external="0">  </resource>
 				<int> 8 </int>
+				<int> 5 </int>
+				<vector2> -254, -146 </vector2>
+				<vector2> 3, 3 </vector2>
+				<int> 3 </int>
+				<vector2> 0, -146 </vector2>
+				<vector2> 14, 3 </vector2>
+				<int> 4 </int>
+				<vector2> 270, -204 </vector2>
 				<int> 21 </int>
 				<vector2> -270, -204 </vector2>
 				<int> 19 </int>
@@ -133,15 +140,12 @@
 				<vector2> 14.928, 3 </vector2>
 				<int> 20 </int>
 				<vector2> -270, -210 </vector2>
-				<int> 3 </int>
 				<vector2> 270, -210 </vector2>
-				<int> 5 </int>
 				<vector2> -0.898064, -210 </vector2>
 				<vector2> 15.862, 3 </vector2>
-				<int> 4 </int>
-				<vector2> -110, 0 </vector2>
-				<vector2> 8, 3 </vector2>
-				<vector2> 110, 0 </vector2>
+				<vector2> -254, -72 </vector2>
+				<vector2> 0, -72 </vector2>
+				<vector2> 254, -72 </vector2>
 				<vector2> -120, -220.223 </vector2>
 				<int> 16 </int>
 				<int> 102 </int>
@@ -153,74 +157,57 @@
 				<vector2> 0, -198.223 </vector2>
 				<vector2> 12.9573, 3 </vector2>
 				<int> 119 </int>
-				<vector2> 110, -90 </vector2>
-				<vector2> -110, -90 </vector2>
-				<vector2> 0, -90 </vector2>
 				<vector2> -120, -198.223 </vector2>
 				<int> 118 </int>
 				<vector2> 120, -198.223 </vector2>
 				<int> 123 </int>
-				<vector2> -41.7616, -105.445 </vector2>
+				<vector2> -201.762, -121.445 </vector2>
 				<resource  external="1">  </resource>
 				<int> 6 </int>
-				<vector2> 41.1995, -103.769 </vector2>
+				<vector2> -22.8006, -119.769 </vector2>
 				<real> 183 </real>
 				<real> -223 </real>
 				<real> 279 </real>
 				<real> -175 </real>
-				<resource  external="2">  </resource>
+				<resource name=""></resource>				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
 				<resource  external="4">  </resource>
 				<resource  external="5">  </resource>
 				<resource  external="6">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<real> 6 </real>
+				<int> 0 </int>
+				<real> -2 </real>
 				<real> 17 </real>
-				<real> 90 </real>
+				<real> 96 </real>
 				<real> 32 </real>
-				<resource  external="7">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "LABEL_OFF" </string>
 				<int> 1 </int>
 				<real> 1 </real>
-				<int> 0 </int>
 				<int> -1 </int>
-				<real> 174 </real>
+				<real> 150 </real>
 				<real> -242 </real>
-				<real> 291 </real>
+				<real> 308 </real>
 				<real> -227 </real>
 				<string> "LABEL_TURNS_CAP" </string>
-				<real> -151 </real>
-				<real> -76 </real>
-				<real> -7 </real>
-				<real> -28 </real>
+				<real> -279 </real>
+				<real> -92 </real>
+				<real> -135 </real>
+				<real> -44 </real>
+				<resource  external="7">  </resource>
 				<resource  external="8">  </resource>
 				<resource  external="9">  </resource>
 				<resource  external="10">  </resource>
 				<resource  external="11">  </resource>
-				<resource  external="12">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<real> 136 </real>
+				<real> 144 </real>
 				<real> 35 </real>
 				<string> "LABEL_HUMAN" </string>
-				<real> 7 </real>
-				<real> 151 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
+				<real> -97 </real>
+				<real> 47 </real>
 				<string> "LABEL_CPU" </string>
-				<real> -22 </real>
-				<real> -100 </real>
-				<real> 20 </real>
-				<real> -77 </real>
-				<resource  external="13">  </resource>
+				<real> -134 </real>
+				<real> -116 </real>
+				<real> -93 </real>
+				<resource  external="12">  </resource>
 				<string> "VS" </string>
 				<real> -133 </real>
 				<real> -208 </real>
@@ -236,20 +223,21 @@
 				<real> -225 </real>
 				<real> -162 </real>
 				<real> -177 </real>
+				<resource  external="13">  </resource>
 				<resource  external="14">  </resource>
 				<resource  external="15">  </resource>
 				<resource  external="16">  </resource>
-				<resource  external="17">  </resource>
-				<real> 124 </real>
+				<real> 6 </real>
+				<real> 140 </real>
 				<string> "LABEL_BACK" </string>
-				<real> -72 </real>
-				<real> -10 </real>
-				<real> 72 </real>
-				<real> 38 </real>
+				<real> -90 </real>
+				<real> 288 </real>
+				<real> -42 </real>
+				<resource  external="17">  </resource>
 				<resource  external="18">  </resource>
 				<resource  external="19">  </resource>
 				<resource  external="20">  </resource>
-				<resource  external="21">  </resource>
+				<real> 148 </real>
 				<color> 0.741176, 0.14902, 0.2, 1 </color>
 				<string> "LABEL_PLAY" </string>
 			</array>
