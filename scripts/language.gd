@@ -116,6 +116,7 @@ func reload_labels():
     var hud = self.bag.root.hud
     var hud_controller = self.bag.controllers.action_controller.hud_controller
     var hud_panel = self.bag.controllers.hud_panel_controller
+    var hud_game_over
     if hud:
         self.reload_button(hud_controller.menu_button, 'LABEL_MENU')
         self.reload_label(hud_panel.info_panel_scene.get_node('map_name'), 'LABEL_MAP_NAME')
@@ -134,6 +135,29 @@ func reload_labels():
         self.reload_label(hud_panel.unit_panel.unit_panel.get_node('action_points_'), 'LABEL_ACTION_POINTS')
 
         self.reload_label(hud_panel.end_turn_panel_scene.get_node('turn_'), 'LABEL_TURN')
+
+    #GAME OVER
+        hud_controller.adjust_missions_button()
+        hud_game_over = hud_controller.hud_end_game
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/game_over'), 'LABEL_GAME_OVER')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/domination'), 'LABEL_DOMINATION')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/unit_moves'), 'LABEL_MOVES')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/spawn_count'), 'LABEL_DEPLOYED')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/kills'), 'LABEL_ELIMINATED')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/game_time'), 'LABEL_GAME_TIME')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/turns'), 'LABEL_TURNS')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/time'), 'LABEL_TIME')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/turn_time'), 'LABEL_PLAYERS_TIME')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/game_time'), 'LABEL_GAME_TIME')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/headers/overall'), 'LABEL_TOTAL_SCORE')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue1'), 'LABEL_BLUE')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue2'), 'LABEL_BLUE_TEAM')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue3'), 'LABEL_BLUE')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/red/red1'), 'LABEL_RED')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/red/red2'), 'LABEL_RED_TEAM')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/red/red3'), 'LABEL_RED')
+
+        self.reload_button(hud_game_over.get_node('center/controls/restart'), 'LABEL_PLAY_AGAIN')
 
 
 
