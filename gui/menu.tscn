@@ -1,28 +1,29 @@
-[gd_scene load_steps=28 format=1]
+[gd_scene load_steps=29 format=1]
 
-[ext_resource path="res://scripts/menu_controller.gd" type="Script" id=1]
-[ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="Font" id=4]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" id=5]
-[ext_resource path="res://assets/fonts/courier_prime_11.fnt" type="Font" id=6]
-[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=12]
-[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="Font" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=15]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=17]
-[ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=18]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=19]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=20]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=21]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=22]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=23]
+[ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/menu_controller.gd" type="Script" id=2]
+[ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://assets/fonts/courier_prime_11.fnt" type="BitmapFont" id=7]
+[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=13]
+[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="BitmapFont" id=14]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=18]
+[ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=19]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=20]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=21]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=22]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=23]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=24]
 
 [sub_resource type="Animation" id=1]
 
@@ -33,15 +34,18 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("game_panel:visibility/opacity")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0.2, 0.5 ), "transitions":FloatArray( 1, 1 ), "values":[ 1.0, 0.0 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0.2, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("game_panel/under_logo:rect/pos")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":true, "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, 0 ), Vector2( 0, -60 ) ] }
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, -60 ) ] }
 tracks/2/type = "value"
 tracks/2/path = NodePath("game_panel/under_logo:visibility/opacity")
 tracks/2/interp = 1
-tracks/2/keys = { "cont":true, "times":FloatArray( 0, 0.2, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 1.0, 1.0, 0.0 ] }
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.2, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 1.0, 1.0, 0.0 ] }
 
 [sub_resource type="Animation" id=2]
 
@@ -51,15 +55,18 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("game_panel:visibility/opacity")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ 0.0, 1.0 ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("game_panel/under_logo:rect/pos")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":true, "times":FloatArray( 0, 0.3, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ Vector2( 0, -60 ), Vector2( 0, -60 ), Vector2( 0, 0 ) ] }
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.3, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, -60 ), Vector2( 0, -60 ), Vector2( 0, 0 ) ] }
 tracks/2/type = "value"
 tracks/2/path = NodePath("game_panel/under_logo:visibility/opacity")
 tracks/2/interp = 1
-tracks/2/keys = { "cont":true, "times":FloatArray( 0, 0.2, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "values":[ 0.0, 0.0, 1.0 ] }
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.2, 0.3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 0.0, 1.0 ] }
 
 [sub_resource type="Animation" id=3]
 
@@ -70,11 +77,13 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("settings_panel:rect/pos")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, 0 ), Vector2( 0, -800 ) ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, -800 ) ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("settings_panel:visibility/visible")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":false, "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "values":[ false ] }
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0.3 ), "transitions":FloatArray( 1 ), "update":1, "values":[ false ] }
 
 [sub_resource type="Animation" id=4]
 
@@ -85,11 +94,13 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("settings_panel:rect/pos")
 tracks/0/interp = 1
-tracks/0/keys = { "cont":true, "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "values":[ Vector2( 0, -600 ), Vector2( 0, 0 ) ] }
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, -600 ), Vector2( 0, 0 ) ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("settings_panel:visibility/visible")
 tracks/1/interp = 1
-tracks/1/keys = { "cont":false, "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "values":[ true ] }
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":1, "values":[ true ] }
 
 [node name="menu" type="Control"]
 
@@ -99,14 +110,21 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-script/script = ExtResource( 1 )
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 2 )
 __meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
-[node name="vigette" parent="." instance=ExtResource( 2 )]
+[node name="vigette" parent="." instance=ExtResource( 3 )]
 
-[node name="sprite" parent="center/vigette"]
-
-visibility/opacity = 0.6
+editor/display_folded = true
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
 [node name="middle" type="CenterContainer" parent="."]
 
@@ -116,48 +134,55 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 use_top_left = false
 __meta__ = { "_edit_lock_":true }
 
 [node name="center" type="Control" parent="middle"]
 
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
 margin/left = 640.0
 margin/top = 360.0
 margin/right = 640.0
 margin/bottom = 360.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 
 [node name="game_panel" type="Control" parent="middle/center"]
 
+editor/display_folded = true
 visibility/opacity = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="under_logo" type="Control" parent="middle/center/game_panel"]
 
+editor/display_folded = true
 visibility/opacity = 0.0
-margin/top = -60.0
-margin/right = 40.0
-margin/bottom = -20.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = -60.0
+margin/right = 40.0
+margin/bottom = -20.0
 
 [node name="Sprite 7" type="Sprite" parent="middle/center/game_panel/under_logo"]
 
 transform/pos = Vector2( -144, 66 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 16
@@ -166,7 +191,7 @@ frame = 16
 
 transform/pos = Vector2( 0, 66 )
 transform/scale = Vector2( 6, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 17
@@ -175,21 +200,22 @@ frame = 17
 
 transform/pos = Vector2( 144, 66 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 18
 
 [node name="copy" type="Label" parent="middle/center/game_panel/under_logo"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -150.0
 margin/top = 68.0
 margin/right = 150.0
 margin/bottom = 84.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.745098, 0.14902, 0.2, 1 )
 text = "Version 0.x.x-BETA"
 align = 1
@@ -199,14 +225,15 @@ max_lines_visible = -1
 
 [node name="title3" type="Label" parent="middle/center/game_panel/under_logo"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -150.0
 margin/top = 36.0
 margin/right = 150.0
 margin/bottom = 66.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "FREE* & OPEN-SOURCE\nTURN-BASED STRATEGY GAME"
 align = 1
@@ -216,14 +243,15 @@ max_lines_visible = -1
 
 [node name="title4" type="Label" parent="middle/center/game_panel/under_logo"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -148.0
 margin/top = 91.0
 margin/right = 152.0
 margin/bottom = 106.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.643137, 0.392157, 0.133333, 1 )
 text = "* FREE AS FREEDOM, NOT FREE AS IN FREE BEER"
 align = 1
@@ -234,59 +262,63 @@ max_lines_visible = -1
 [node name="ToF_logo" type="Sprite" parent="middle/center/game_panel"]
 
 transform/pos = Vector2( 0, -40 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 
 [node name="settings_panel" type="Control" parent="middle/center"]
 
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="background" type="Control" parent="middle/center/settings_panel"]
 
-margin/right = 40.0
-margin/bottom = 40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="Sprite17" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -240, -56 )
+transform/pos = Vector2( -264, -56 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 3
 
 [node name="Sprite17 2" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 3.05176e-05, -56 )
-transform/scale = Vector2( 12, 3 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 0, -56 )
+transform/scale = Vector2( 14, 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 4
 
 [node name="Sprite17 3" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 240, -56 )
+transform/pos = Vector2( 256, -56 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 5
 
 [node name="Sprite18" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -240, 42 )
+transform/pos = Vector2( -264, 42 )
 transform/scale = Vector2( 3, 5.375 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 11
@@ -294,26 +326,26 @@ frame = 11
 [node name="Sprite173" type="Sprite" parent="middle/center/settings_panel/background"]
 
 transform/pos = Vector2( 0, 32 )
-transform/scale = Vector2( 12, 5.5 )
-texture = ExtResource( 3 )
+transform/scale = Vector2( 14, 5.5 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 12
 
 [node name="Sprite174" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 240, 37 )
+transform/pos = Vector2( 256, 37 )
 transform/scale = Vector2( 3, 5.6875 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 13
 
 [node name="Sprite19" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( -240, 152 )
+transform/pos = Vector2( -264, 152 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 19
@@ -321,50 +353,52 @@ frame = 19
 [node name="Sprite175" type="Sprite" parent="middle/center/settings_panel/background"]
 
 transform/pos = Vector2( 1.52588e-05, 152 )
-transform/scale = Vector2( 12, 3 )
-texture = ExtResource( 3 )
+transform/scale = Vector2( 14, 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 20
 
 [node name="Sprite175 2" type="Sprite" parent="middle/center/settings_panel/background"]
 
-transform/pos = Vector2( 240, 152 )
+transform/pos = Vector2( 256, 152 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 21
 
 [node name="sound_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 56.0
-margin/top = -32.0
-margin/right = 152.0
-margin/bottom = 16.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 56.0
+margin/top = -32.0
+margin/right = 152.0
+margin/bottom = 16.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/sound_toggle"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 10.0
 margin/top = 16.0
 margin/right = 85.0
 margin/bottom = 34.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
@@ -374,33 +408,35 @@ max_lines_visible = -1
 
 [node name="music_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 56.0
-margin/top = 24.0
-margin/right = 152.0
-margin/bottom = 72.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 56.0
+margin/top = 24.0
+margin/right = 152.0
+margin/bottom = 72.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/music_toggle"]
 
-margin/left = 12.0
-margin/top = 16.0
-margin/right = 86.0
-margin/bottom = 34.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 16.0
+margin/right = 84.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
@@ -410,14 +446,14 @@ max_lines_visible = -1
 
 [node name="effects" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -136.0
-margin/top = -16.0
-margin/right = 54.0
-margin/bottom = -1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -136.0
+margin/top = -16.0
+margin/right = 54.0
+margin/bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SOUND_EFFECTS"
 align = 2
@@ -427,14 +463,14 @@ max_lines_visible = -1
 
 [node name="music" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -56.0
-margin/top = 40.0
-margin/right = 54.0
-margin/bottom = 55.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -56.0
+margin/top = 40.0
+margin/right = 54.0
+margin/bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MUSIC"
 align = 2
@@ -445,33 +481,35 @@ max_lines_visible = -1
 
 [node name="shake_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -161.0
-margin/top = 24.0
-margin/right = -65.0
-margin/bottom = 72.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -161.0
+margin/top = 24.0
+margin/right = -65.0
+margin/bottom = 72.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/shake_toggle"]
 
-margin/left = 9.0
-margin/top = 15.0
-margin/right = 86.0
-margin/bottom = 33.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 16.0
+margin/right = 87.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ON"
 align = 1
@@ -482,14 +520,14 @@ max_lines_visible = -1
 
 [node name="shake" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -344.0
-margin/top = 40.0
-margin/right = -164.0
-margin/bottom = 70.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -352.0
+margin/top = 40.0
+margin/right = -172.0
+margin/bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_CAMERA_SHAKE"
 align = 2
@@ -500,14 +538,14 @@ max_lines_visible = -1
 
 [node name="auto_follow_" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -400.0
-margin/top = -24.0
-margin/right = -160.0
-margin/bottom = 6.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -408.0
+margin/top = -16.0
+margin/right = -168.0
+margin/bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_AUTO_FOLLOW"
 align = 2
@@ -518,33 +556,35 @@ max_lines_visible = -1
 
 [node name="camera_follow" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -160.0
-margin/top = -32.0
-margin/right = -64.0
-margin/bottom = 16.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -160.0
+margin/top = -32.0
+margin/right = -64.0
+margin/bottom = 16.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_follow"]
 
-margin/left = 9.0
-margin/top = 16.0
-margin/right = 87.0
-margin/bottom = 33.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 16.0
+margin/right = 88.0
+margin/bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ON"
 align = 1
@@ -555,14 +595,15 @@ max_lines_visible = -1
 [node name="camera_zoom_level" type="Label" parent="middle/center/settings_panel"]
 
 visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 144.0
 margin/top = -80.0
 margin/right = 188.0
 margin/bottom = -50.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "7"
 align = 1
@@ -573,52 +614,53 @@ max_lines_visible = -1
 
 [node name="zoom_level_" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -57.0
-margin/top = -80.0
-margin/right = 56.0
-margin/bottom = -50.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -113.0
+margin/top = -72.0
+margin/right = 47.0
+margin/bottom = -55.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_ZOOM_LEVEL"
 align = 2
 valign = 1
-autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="camera_zoom_in" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 176.0
-margin/top = -88.0
-margin/right = 272.0
-margin/bottom = -40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 176.0
+margin/top = -88.0
+margin/right = 272.0
+margin/bottom = -40.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_zoom_in"]
 
-margin/left = 8.0
-margin/top = 16.0
-margin/right = 85.0
-margin/bottom = 34.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -14.0
+margin/top = 16.0
+margin/right = 106.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_BIGGER"
 align = 1
@@ -628,33 +670,35 @@ max_lines_visible = -1
 
 [node name="camera_zoom_out" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = 56.0
-margin/top = -88.0
-margin/right = 152.0
-margin/bottom = -40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 56.0
+margin/top = -88.0
+margin/right = 152.0
+margin/bottom = -40.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_zoom_out"]
 
-margin/left = 8.0
-margin/top = 16.0
-margin/right = 85.0
-margin/bottom = 34.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -22.0
+margin/top = 16.0
+margin/right = 108.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SMALLER"
 align = 1
@@ -664,33 +708,35 @@ max_lines_visible = -1
 
 [node name="display_mode_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -160.0
-margin/top = 80.0
-margin/right = -64.0
-margin/bottom = 128.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -160.0
+margin/top = 80.0
+margin/right = -64.0
+margin/bottom = 128.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/display_mode_toggle"]
 
-margin/left = 10.0
-margin/top = 15.0
-margin/right = 86.0
-margin/bottom = 33.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 16.0
+margin/right = 86.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WINDOW"
 align = 1
@@ -700,14 +746,14 @@ max_lines_visible = -1
 
 [node name="display_mode_" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -320.0
-margin/top = 96.0
-margin/right = -150.0
-margin/bottom = 111.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -336.0
+margin/top = 96.0
+margin/right = -166.0
+margin/bottom = 112.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_FULL_SCREEN"
 align = 2
@@ -717,14 +763,14 @@ max_lines_visible = -1
 
 [node name="effects1" type="Label" parent="middle/center/settings_panel"]
 
-margin/left = -320.0
-margin/top = -80.0
-margin/right = -160.0
-margin/bottom = -50.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -328.0
+margin/top = -72.0
+margin/right = -168.0
+margin/bottom = -56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_DIFFICULTY"
 align = 2
@@ -735,33 +781,35 @@ max_lines_visible = -1
 
 [node name="difficulty_mode_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-margin/left = -160.0
-margin/top = -88.0
-margin/right = -64.0
-margin/bottom = -40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -160.0
+margin/top = -88.0
+margin/right = -64.0
+margin/bottom = -40.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/difficulty_mode_toggle"]
 
-margin/left = 11.0
-margin/top = 15.0
-margin/right = 86.0
-margin/bottom = 33.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 2.0
+margin/top = 16.0
+margin/right = 93.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "NORMAL"
 align = 1
@@ -771,26 +819,26 @@ max_lines_visible = -1
 
 [node name="overscan_group" type="Control" parent="middle/center/settings_panel"]
 
-margin/left = -212.0
-margin/top = 140.0
-margin/right = 223.0
-margin/bottom = 195.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = -212.0
+margin/top = 140.0
+margin/right = 223.0
+margin/bottom = 195.0
 
 [node name="overscan_label" type="Label" parent="middle/center/settings_panel/overscan_group"]
 
-margin/left = 124.0
-margin/top = -44.0
-margin/right = 264.0
-margin/bottom = -29.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 124.0
+margin/top = -44.0
+margin/right = 264.0
+margin/bottom = -28.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_OVERSCAN"
 align = 2
@@ -801,32 +849,35 @@ max_lines_visible = -1
 
 [node name="overscan_button" type="TextureButton" parent="middle/center/settings_panel/overscan_group"]
 
-margin/left = 268.0
-margin/top = -60.0
-margin/right = 364.0
-margin/bottom = -12.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 268.0
+margin/top = -60.0
+margin/right = 364.0
+margin/bottom = -12.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/overscan_group/overscan_button"]
 
-margin/left = 9.0
-margin/top = 17.0
-margin/right = 86.0
-margin/bottom = 35.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 16.0
+margin/right = 87.0
+margin/bottom = 34.0
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
@@ -836,14 +887,14 @@ max_lines_visible = -1
 
 [node name="overscan_notification" type="Label" parent="middle/center/settings_panel/overscan_group"]
 
-margin/left = 372.0
-margin/top = -60.0
-margin/right = 581.0
-margin/bottom = -15.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 372.0
+margin/top = -44.0
+margin/right = 581.0
+margin/bottom = -23.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_REQUIES_RESTART"
 valign = 1
@@ -854,25 +905,25 @@ max_lines_visible = -1
 
 [node name="language_group" type="Control" parent="middle/center/settings_panel"]
 
-margin/left = -280.0
-margin/top = 154.0
-margin/right = -58.0
-margin/bottom = 176.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -280.0
+margin/top = 154.0
+margin/right = -58.0
+margin/bottom = 176.0
 
 [node name="language_label" type="Label" parent="middle/center/settings_panel/language_group"]
 
-margin/left = -24.0
-margin/top = -2.0
-margin/right = 116.0
-margin/bottom = 13.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -24.0
+margin/top = -2.0
+margin/right = 116.0
+margin/bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_LANGUAGE"
 align = 2
@@ -882,32 +933,34 @@ max_lines_visible = -1
 
 [node name="language_button" type="TextureButton" parent="middle/center/settings_panel/language_group"]
 
-margin/left = 120.0
-margin/top = -18.0
-margin/right = 216.0
-margin/bottom = 30.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 120.0
+margin/top = -18.0
+margin/right = 216.0
+margin/bottom = 30.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/language_group/language_button"]
 
-margin/left = 10.0
-margin/top = 15.0
-margin/right = 86.0
-margin/bottom = 33.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 16.0
+margin/right = 86.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "EN"
 align = 1
@@ -919,14 +972,15 @@ max_lines_visible = -1
 [node name="wins" type="Label" parent="middle/center"]
 
 visibility/visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -73.0
 margin/top = 340.0
 margin/right = 74.0
 margin/bottom = 352.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WINS: 4"
 align = 1
@@ -960,39 +1014,47 @@ autoplay = ""
 
 [node name="top" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 use_top_left = false
-__meta__ = { "_editor_collapsed":true }
 
 [node name="center" type="Control" parent="top"]
 
-margin/left = 640.0
-margin/right = 640.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 0.0
 
 [node name="resume" type="Control" parent="top/center"]
 
+editor/display_folded = true
 visibility/visible = false
-margin/right = 40.0
-margin/bottom = 40.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
 
 [node name="Sprite143" type="Sprite" parent="top/center/resume"]
 
 transform/pos = Vector2( -270, 88 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 19
@@ -1001,41 +1063,44 @@ frame = 19
 
 transform/pos = Vector2( -190, 88 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 21
 
 [node name="resume_button" type="TextureButton" parent="top/center/resume"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
-margin/left = -301.0
-margin/top = 73.0
-margin/right = 157.0
-margin/bottom = -121.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -301.0
+margin/top = 73.0
+margin/right = 157.0
+margin/bottom = -121.0
 toggle_mode = false
-textures/normal = ExtResource( 14 )
-textures/pressed = ExtResource( 15 )
-textures/hover = ExtResource( 16 )
-textures/disabled = ExtResource( 17 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="top/center/resume/resume_button"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 5.0
 margin/top = 17.0
 margin/right = 139.0
 margin/bottom = 35.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RESUME GAME"
 align = 1
@@ -1046,27 +1111,28 @@ max_lines_visible = -1
 
 [node name="menu_background" type="Control" parent="top/center"]
 
-margin/top = 30.0
-margin/right = 40.0
-margin/bottom = 70.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 30.0
+margin/right = 40.0
+margin/bottom = 70.0
 
 [node name="Sprite 14" type="Sprite" parent="top/center/menu_background"]
 
 transform/pos = Vector2( 589, -315 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="Sprite14" type="Sprite" parent="top/center/menu_background"]
 
 transform/pos = Vector2( 270, -12 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 21
@@ -1075,7 +1141,7 @@ frame = 21
 
 transform/pos = Vector2( -270, -12 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 19
@@ -1084,21 +1150,22 @@ frame = 19
 
 transform/pos = Vector2( 0, -12 )
 transform/scale = Vector2( 15, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 20
 
 [node name="credits" type="Label" parent="top/center"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -256.0
 margin/top = 9.0
 margin/right = -161.0
 margin/bottom = 54.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "INDIE GAME\nDESIGN & \nDEVELOP"
 percent_visible = 1.0
@@ -1109,38 +1176,40 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -284, 29 )
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 18 )
+texture = ExtResource( 19 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="settings" type="TextureButton" parent="top/center"]
 
-margin/left = 6.0
-margin/top = 8.0
-margin/right = 150.0
-margin/bottom = 56.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 6.0
+margin/top = 8.0
+margin/right = 150.0
+margin/bottom = 56.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="top/center/settings"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 2.0
 margin/top = 16.0
 margin/right = 142.0
 margin/bottom = 34.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SETTINGS"
 align = 1
@@ -1151,35 +1220,37 @@ max_lines_visible = -1
 
 [node name="close" type="TextureButton" parent="top/center"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
-margin/left = -301.0
-margin/top = 8.0
-margin/right = 157.0
-margin/bottom = -56.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -301.0
+margin/top = 8.0
+margin/right = 157.0
+margin/bottom = -56.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="top/center/close"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -19.0
 margin/top = 16.0
 margin/right = 161.0
 margin/bottom = 34.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_BACK_TO_GAME"
 align = 1
@@ -1190,32 +1261,35 @@ max_lines_visible = -1
 
 [node name="quit" type="TextureButton" parent="top/center"]
 
-margin/left = 160.0
-margin/top = 8.0
-margin/right = 304.0
-margin/bottom = 56.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 160.0
+margin/top = 8.0
+margin/right = 304.0
+margin/bottom = 56.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="top/center/quit"]
 
-margin/top = 16.0
-margin/right = 150.0
-margin/bottom = 34.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -8.0
+margin/top = 16.0
+margin/right = 150.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_QUIT_GAME"
 align = 1
@@ -1226,33 +1300,35 @@ max_lines_visible = -1
 
 [node name="demo" type="TextureButton" parent="top/center"]
 
-margin/left = -149.0
-margin/top = 7.0
-margin/right = -5.0
-margin/bottom = 55.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -149.0
+margin/top = 7.0
+margin/right = -5.0
+margin/bottom = 55.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label1" type="Label" parent="top/center/demo"]
 
-margin/left = 5.0
-margin/top = 17.0
-margin/right = 145.0
-margin/bottom = 35.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = 5.0
+margin/top = 16.0
+margin/right = 145.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_RUN_DEMO"
 align = 1
@@ -1263,6 +1339,7 @@ max_lines_visible = -1
 
 [node name="bottom" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
@@ -1270,33 +1347,41 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 use_top_left = false
-__meta__ = { "_editor_collapsed":true }
 
 [node name="center" type="Control" parent="bottom"]
 
-margin/left = 640.0
-margin/right = 640.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 0.0
 
 [node name="menu_background" type="Control" parent="bottom/center"]
 
-margin/right = 40.0
-margin/bottom = 40.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-__meta__ = { "_edit_lock_":true, "_editor_collapsed":true }
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+__meta__ = { "_edit_lock_":true }
 
 [node name="Sprite 11" type="Sprite" parent="bottom/center/menu_background"]
 
 transform/pos = Vector2( -240, -22 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 3
@@ -1305,7 +1390,7 @@ frame = 3
 
 transform/pos = Vector2( 0, -22 )
 transform/scale = Vector2( 15, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 4
@@ -1314,40 +1399,43 @@ frame = 4
 
 transform/pos = Vector2( 240, -22 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 8
 hframes = 8
 frame = 5
 
 [node name="play" type="TextureButton" parent="bottom/center"]
 
-margin/left = -124.0
-margin/top = -62.0
-margin/right = 20.0
-margin/bottom = -14.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -124.0
+margin/top = -62.0
+margin/right = 20.0
+margin/bottom = -14.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="bottom/center/play"]
 
-margin/left = 4.0
-margin/top = 14.0
-margin/right = 144.0
-margin/bottom = 32.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -4.0
+margin/top = 16.0
+margin/right = 144.0
+margin/bottom = 34.0
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SKIRMISH"
 align = 1
@@ -1357,33 +1445,35 @@ max_lines_visible = -1
 
 [node name="workshop" type="TextureButton" parent="bottom/center"]
 
-margin/left = 138.0
-margin/top = -62.0
-margin/right = 282.0
-margin/bottom = -14.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 138.0
+margin/top = -62.0
+margin/right = 282.0
+margin/bottom = -14.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="bottom/center/workshop"]
 
-margin/left = -10.0
-margin/top = 14.0
-margin/right = 148.0
-margin/bottom = 32.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -10.0
+margin/top = 16.0
+margin/right = 150.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MAP EDITOR"
 align = 1
@@ -1393,33 +1483,35 @@ max_lines_visible = -1
 
 [node name="start_campaign" type="TextureButton" parent="bottom/center"]
 
-margin/left = -279.0
-margin/top = -62.0
-margin/right = -135.0
-margin/bottom = -14.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -279.0
+margin/top = -62.0
+margin/right = -135.0
+margin/bottom = -14.0
 toggle_mode = false
-textures/normal = ExtResource( 19 )
-textures/pressed = ExtResource( 20 )
-textures/hover = ExtResource( 21 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 22 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 20 )
+textures/pressed = ExtResource( 21 )
+textures/hover = ExtResource( 22 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 23 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Label" type="Label" parent="bottom/center/start_campaign"]
 
-margin/left = 7.0
-margin/top = 14.0
-margin/right = 147.0
-margin/bottom = 32.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -1.0
+margin/top = 16.0
+margin/right = 147.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_CAMPAIGN"
 align = 1
@@ -1429,14 +1521,15 @@ max_lines_visible = -1
 
 [node name="completed" type="Label" parent="bottom/center"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = -279.0
 margin/top = -12.0
 margin/right = -135.0
 margin/bottom = 3.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "COMPLETED: 2/12"
 align = 1
 percent_visible = 1.0
@@ -1445,14 +1538,15 @@ max_lines_visible = -1
 
 [node name="maps_created" type="Label" parent="bottom/center"]
 
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
 margin/left = 142.0
 margin/top = -12.0
 margin/right = 282.0
 margin/bottom = 1.0
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "MAPS CREATED: 3"
 align = 1
 percent_visible = 1.0
@@ -1461,32 +1555,34 @@ max_lines_visible = -1
 
 [node name="online" type="TextureButton" parent="bottom/center"]
 
-margin/left = 31.0
-margin/top = -62.0
-margin/right = 127.0
-margin/bottom = -14.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 31.0
+margin/top = -62.0
+margin/right = 127.0
+margin/bottom = -14.0
 toggle_mode = false
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 9 )
+textures/pressed = ExtResource( 10 )
+textures/hover = ExtResource( 11 )
+textures/disabled = ExtResource( 12 )
+textures/focused = ExtResource( 13 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="bottom/center/online"]
 
-margin/left = -7.0
-margin/top = 14.0
-margin/right = 113.0
-margin/bottom = 32.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
-custom_fonts/font = ExtResource( 5 )
+size_flags/vertical = 0
+margin/left = -15.0
+margin/top = 16.0
+margin/right = 105.0
+margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_ONLINE"
 align = 1
@@ -1494,7 +1590,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_game" parent="." instance=ExtResource( 23 )]
+[node name="end_game" parent="." instance=ExtResource( 24 )]
 
 visibility/visible = false
 

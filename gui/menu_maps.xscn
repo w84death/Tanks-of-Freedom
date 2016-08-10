@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="9" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
-	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="4"></ext_resource>
-	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="Font" index="6"></ext_resource>
+<resource_file type="PackedScene" subresource_count="8" version="2.1" version_name="Godot Engine v2.1.stable.official">
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="3"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
 	<resource type="GDScript" path="local://1">
 		<string name="script/source"> "&#000a;func load_map(name):&#000a;&#0009;get_parent().load_map(name)&#000a;" </string>
 
@@ -21,7 +20,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="48">
+			<string_array  len="50">
 				<string> "menu_maps" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
@@ -29,6 +28,10 @@
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "Control" </string>
@@ -38,10 +41,7 @@
 				<string> "bottom" </string>
 				<string> "anchor/top" </string>
 				<string> "control" </string>
-				<string> "margin/left" </string>
-				<string> "margin/right" </string>
 				<string> "menu_background" </string>
-				<string> "margin/bottom" </string>
 				<string> "Sprite1" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/scale" </string>
@@ -53,8 +53,10 @@
 				<string> "Sprite2" </string>
 				<string> "menu_controls" </string>
 				<string> "close" </string>
-				<string> "margin/top" </string>
+				<string> "editor/display_folded" </string>
 				<string> "toggle_mode" </string>
+				<string> "enabled_focus_mode" </string>
+				<string> "shortcut" </string>
 				<string> "textures/normal" </string>
 				<string> "textures/pressed" </string>
 				<string> "textures/hover" </string>
@@ -63,7 +65,6 @@
 				<string> "params/scale" </string>
 				<string> "TextureButton" </string>
 				<string> "Label" </string>
-				<string> "custom_fonts/font" </string>
 				<string> "custom_colors/font_color" </string>
 				<string> "text" </string>
 				<string> "align" </string>
@@ -77,13 +78,14 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="236"> 				-1, -1, 9, 0, -1, 8, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 0, 0, 0, 12, 10, -1, 7, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 11, 1, 0, 0, 0, 12, 13, -1, 8, 14, 0, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 11, 1, 0, 2, 0, 9, 15, -1, 6, 16, 6, 17, 6, 3, 1, 4, 2, 5, 3, 6, 3, 0, 3, 0, 9, 18, -1, 6, 17, 7, 19, 7, 3, 1, 4, 2, 5, 3, 6, 3, 0, 4, 0, 27, 20, -1, 6, 21, 8, 22, 9, 23, 10, 24, 11, 25, 11, 26, 12, 0, 4, 0, 27, 28, -1, 6, 21, 13, 22, 9, 23, 10, 24, 11, 25, 11, 26, 14, 0, 3, 0, 9, 29, -1, 6, 17, 7, 19, 7, 3, 1, 4, 2, 5, 3, 6, 3, 0, 7, 0, 39, 30, -1, 16, 16, 15, 31, 16, 17, 17, 19, 18, 3, 1, 4, 2, 5, 3, 6, 3, 32, 1, 33, 19, 34, 20, 35, 21, 36, 22, 37, 23, 38, 9, 8, 24, 0, 8, 0, 40, 40, -1, 14, 16, 25, 31, 26, 17, 27, 19, 28, 3, 2, 4, 2, 5, 3, 41, 29, 42, 30, 43, 31, 44, 0, 45, 32, 46, 33, 47, 34, 0 </int_array>
+			<int_array  len="276"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 16, 14, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 0, 0, 16, 17, -1, 12, 18, 0, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 2, 0, 13, 19, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 4, 9, 7, 10, 4, 0, 3, 0, 13, 20, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 8, 10, 8, 0, 4, 0, 28, 21, -1, 6, 22, 9, 23, 10, 24, 11, 25, 12, 26, 12, 27, 13, 0, 4, 0, 28, 29, -1, 6, 22, 14, 23, 10, 24, 11, 25, 12, 26, 12, 27, 15, 0, 3, 0, 13, 30, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 8, 10, 8, 0, 7, 0, 42, 31, -1, 18, 32, 2, 3, 1, 4, 2, 5, 3, 6, 3, 7, 16, 8, 17, 9, 18, 10, 19, 33, 1, 34, 3, 35, 20, 36, 21, 37, 22, 38, 23, 39, 24, 40, 25, 41, 10, 0, 8, 0, 43, 43, -1, 14, 3, 2, 4, 2, 5, 3, 6, 26, 7, 27, 8, 28, 9, 29, 10, 30, 44, 31, 45, 32, 46, 0, 47, 27, 48, 26, 49, 33, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="35" shared="false">
+			<array  len="34" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
+				<real> 0 </real>
 				<resource  resource_type="Script" path="local://1">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -104,24 +106,18 @@
 				<real> -59 </real>
 				<real> -163 </real>
 				<real> -11 </real>
-				<resource  external="1">  </resource>
+				<resource name=""></resource>				<resource  external="1">  </resource>
 				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
 				<resource  external="4">  </resource>
 				<resource  external="5">  </resource>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<real> 2 </real>
+				<int> 0 </int>
+				<real> 1 </real>
 				<real> 16 </real>
-				<real> 127 </real>
+				<real> 142 </real>
 				<real> 34 </real>
-				<resource  external="6">  </resource>
 				<color> 0, 0, 0, 1 </color>
 				<string> "LABEL_BACK" </string>
-				<real> 1 </real>
-				<int> 0 </int>
 				<int> -1 </int>
 			</array>
 			<string> "version" </string>
