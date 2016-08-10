@@ -3,9 +3,14 @@
 ## Changelog
 
 ### 0.5.1-beta
-- Added French and Polish language
-- Added Overscan setting for TV setups
+- ported project to Godot 2.1-stable
+- added partial French and Polish language
+- reworked all labels to use new font support
+- added Overscan setting for TV setups
 - OUYA style button help will show when using OUYA gamepad
+- added clear indication which team won the battle
+- added zoom buttons and mouse scroll zoom
+- added specific gamepad binds for Pandora
 - fixed Settings button not working correctly when playing from Workshop
 - fixed ground damage not being preserved on save/resume
 - fixed missing screenshake when units are destroyed
