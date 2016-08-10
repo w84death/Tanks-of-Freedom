@@ -109,15 +109,15 @@
 					<string> "_edit_lock_" </string>
 					<bool> True </bool>
 				</dictionary>
-				<real> 640 </real>
-				<real> 360 </real>
+				<real> 400 </real>
+				<real> 240 </real>
 				<resource  external="1">  </resource>
 				<real> -24 </real>
 				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
 				<resource  external="4">  </resource>
 				<resource  external="5">  </resource>
-				<rect2> 0, 0, 1280, 720 </rect2>
+				<rect2> 0, 0, 800, 480 </rect2>
 				<resource name=""></resource>				<vector2> 1, 1 </vector2>
 				<int> -10000000 </int>
 				<int> 10000000 </int>

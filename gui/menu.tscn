@@ -78,7 +78,7 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("settings_panel:rect/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 0, -800 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, -48 ), Vector2( 0, -800 ) ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("settings_panel:visibility/visible")
 tracks/1/interp = 1
@@ -95,7 +95,7 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("settings_panel:rect/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, -600 ), Vector2( 0, 0 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 0, -600 ), Vector2( 0, -48 ) ] }
 tracks/1/type = "value"
 tracks/1/path = NodePath("settings_panel:visibility/visible")
 tracks/1/interp = 1
@@ -126,6 +126,13 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 
+[node name="center" parent="vigette"]
+
+margin/left = 400.0
+margin/top = 240.0
+margin/right = 400.0
+margin/bottom = 240.0
+
 [node name="middle" type="CenterContainer" parent="."]
 
 anchor/right = 1
@@ -147,10 +154,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+margin/left = 400.0
+margin/top = 240.0
+margin/right = 400.0
+margin/bottom = 240.0
 
 [node name="game_panel" type="Control" parent="middle/center"]
 
@@ -266,6 +273,7 @@ texture = ExtResource( 8 )
 
 [node name="settings_panel" type="Control" parent="middle/center"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1031,9 +1039,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 640.0
+margin/left = 400.0
 margin/top = 0.0
-margin/right = 640.0
+margin/right = 400.0
 margin/bottom = 0.0
 
 [node name="resume" type="Control" parent="top/center"]
@@ -1358,9 +1366,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 640.0
+margin/left = 400.0
 margin/top = 0.0
-margin/right = 640.0
+margin/right = 400.0
 margin/bottom = 0.0
 
 [node name="menu_background" type="Control" parent="bottom/center"]
