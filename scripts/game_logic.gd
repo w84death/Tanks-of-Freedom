@@ -33,7 +33,7 @@ var ai_timer
 var bag
 
 var map_template = preload('res://maps/workshop.xscn')
-var main_tileset = preload("res://maps/tilesets/summer_tileset.xml")
+var main_tileset
 
 var settings = {
     'is_ok' : true,
@@ -355,6 +355,7 @@ func _ready():
     else:
         self.hud_template = self.hud_pc
     self.bag.init_root(self)
+    self.main_tileset = self.bag.tileset_handler.get_current_tileset()
     self.camera = self.bag.camera
     self.menu = self.bag.controllers.menu_controller
     self.sound_controller.init_root(self)
