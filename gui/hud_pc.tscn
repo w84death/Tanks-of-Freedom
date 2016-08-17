@@ -3,7 +3,7 @@
 [ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/message.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=4]
 [ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=5]
 [ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=7]
@@ -91,7 +91,6 @@ margin/bottom = 80.0
 
 [node name="top_center" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -126,71 +125,23 @@ margin/top = -30.0
 margin/right = 0.0
 margin/bottom = -30.0
 
-[node name="Control" type="Control" parent="top_center/center/game_card"]
+[node name="background" type="Patch9Frame" parent="top_center/center/game_card"]
 
-editor/display_folded = true
-focus/ignore_mouse = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-
-[node name="Sprite" type="Sprite" parent="top_center/center/game_card/Control"]
-
-transform/pos = Vector2( -88, 46 )
-transform/scale = Vector2( 3, 3 )
+margin/left = -136.0
+margin/top = 8.0
+margin/right = -136.0
+margin/bottom = -72.0
 texture = ExtResource( 4 )
-vframes = 16
-hframes = 8
-frame = 43
-
-[node name="Sprite1" type="Sprite" parent="top_center/center/game_card/Control"]
-
-transform/pos = Vector2( 88, 46 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 4 )
-vframes = 16
-hframes = 8
-frame = 45
-
-[node name="Sprite2" type="Sprite" parent="top_center/center/game_card/Control"]
-
-transform/pos = Vector2( 4.05312e-05, 46 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 4 )
-vframes = 16
-hframes = 8
-frame = 44
-
-[node name="Sprite3" type="Sprite" parent="top_center/center/game_card/Control"]
-
-transform/pos = Vector2( -88, 30 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 4 )
-vframes = 16
-hframes = 8
-frame = 3
-
-[node name="Sprite3 2" type="Sprite" parent="top_center/center/game_card/Control"]
-
-transform/pos = Vector2( 88, 30 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 4 )
-vframes = 16
-hframes = 8
-frame = 5
-
-[node name="Sprite3 3" type="Sprite" parent="top_center/center/game_card/Control"]
-
-transform/pos = Vector2( 4.05312e-05, 30 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 4 )
-vframes = 16
-hframes = 8
-frame = 4
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
 
 [node name="menu" type="TextureButton" parent="top_center/center/game_card"]
 
@@ -202,9 +153,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -128.0
-margin/top = 14.0
+margin/top = 16.0
 margin/right = -16.0
-margin/bottom = -62.0
+margin/bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -241,9 +192,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 32.0
-margin/top = 14.0
+margin/top = 16.0
 margin/right = 128.0
-margin/bottom = 62.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

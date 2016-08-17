@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=4]
@@ -14,89 +14,49 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
 
-[node name="background" type="Control" parent="."]
+[node name="background" type="Patch9Frame" parent="."]
 
-margin/top = -32.0
-margin/right = 40.0
-margin/bottom = 8.0
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -112.0
+margin/top = -64.0
+margin/right = -112.0
+margin/bottom = 0.0
+texture = ExtResource( 1 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="zoom_in" type="TextureButton" parent="."]
+
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-
-[node name="Sprite1" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 63.9999, 8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 45
-
-[node name="Sprite" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 63.9999, -8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 5
-
-[node name="Sprite2" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -32, -8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 4
-
-[node name="Sprite2 2" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -32, 8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 44
-
-[node name="Sprite23" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -64, 8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 43
-
-[node name="Sprite3" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -64, -8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 3
-
-[node name="zoom_in" type="TextureButton" parent="."]
-
 margin/left = 8.0
 margin/top = -56.0
 margin/right = 104.0
 margin/bottom = -8.0
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 textures/normal = ExtResource( 2 )
 textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Sprite" type="Sprite" parent="zoom_in"]
 
@@ -109,22 +69,24 @@ frame = 3
 
 [node name="zoom_out" type="TextureButton" parent="."]
 
-margin/left = -104.0
-margin/top = -56.0
-margin/right = -8.0
-margin/bottom = -8.0
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+margin/left = -104.0
+margin/top = -56.0
+margin/right = -8.0
+margin/bottom = -8.0
 toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
 textures/normal = ExtResource( 2 )
 textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
 params/scale = Vector2( 3, 3 )
-__meta__ = { "_editor_collapsed":true }
 
 [node name="Sprite" type="Sprite" parent="zoom_out"]
 

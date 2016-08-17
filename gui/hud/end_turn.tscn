@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/button_end_0.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/buttons/button_end_1.png" type="Texture" id=3]
 [ext_resource path="res://assets/gui/buttons/button_end_2.png" type="Texture" id=4]
@@ -66,41 +66,23 @@ margin/top = 1.0
 margin/right = 1.0
 margin/bottom = 1.0
 
-[node name="Sprite9" type="Sprite" parent="."]
+[node name="background" type="Patch9Frame" parent="."]
 
-transform/pos = Vector2( -16, -48 )
-transform/scale = Vector2( 3, 3 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -65.0
+margin/top = -113.0
+margin/right = -71.0
+margin/bottom = 1.0
 texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 19
-
-[node name="Sprite83" type="Sprite" parent="."]
-
-transform/pos = Vector2( 24, -48 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 21
-
-[node name="Sprite8" type="Sprite" parent="."]
-
-transform/pos = Vector2( -16, -88 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 3
-
-[node name="Sprite8 2" type="Sprite" parent="."]
-
-transform/pos = Vector2( 24, -88 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 16
-hframes = 8
-frame = 5
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
 
 [node name="end_turn_text" type="Label" parent="."]
 
