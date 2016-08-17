@@ -5,21 +5,17 @@ var available_tilesets = {
 }
 var bag
 
+var seasons = {
+    'summer' : {'day' : 21, 'month': 4},
+    'fall' : {'day' : 21, 'month': 8},
+    'winter' : {'day' : 21, 'month': 12}
+}
+
 func _init_bag(bag):
     self.bag = bag
 
 func get_current_tileset():
-    return available_tilesets['summer']
+    for theme in self.seasons:
+        if self.bag.helpers.comp_days(self.seasons[theme], OS.get_date()) != 1:
+            return available_tilesets[theme]
 
-
-func comp_dates(date1, date2):
-    var result = 0
-    var params = ['year', 'month', 'day']
-
-    for param in params:
-        result = comp(date1[param], date2[param])
-        if result != 0:
-            return result
-
-func comp(a, b):
-    return clamp(a - b , -1, 1)
