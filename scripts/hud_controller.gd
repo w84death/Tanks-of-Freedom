@@ -203,6 +203,17 @@ func show_win(player, stats, turns):
     self.fill_end_game_stats(stats, turns)
     self.hud_end_game.show()
 
+    var blue_win = hud_end_game_controls.get_node("win/blue_win")
+    var red_win = hud_end_game_controls.get_node("win/red_win")
+
+    red_win.hide()
+    blue_win.hide()
+
+    if player == 0:
+        blue_win.show()
+    elif player == 1:
+        red_win.show()
+
 func adjust_missions_button():
     if self.root.bag.match_state.is_campaign():
         self.hud_end_game_missions_button_label.set_text(tr('LABEL_CAMPAIGN'))
@@ -254,9 +265,6 @@ func fill_end_game_stats(stats, turns):
     var red_spawns = hud_end_game_stats_red.get_node("spawn_count")
     var red_score = hud_end_game_stats_red.get_node("overall")
 
-    var blue_win = hud_end_game_controls.get_node("win/blue_win")
-    var red_win = hud_end_game_controls.get_node("win/red_win")
-
     hud_end_game_total_turns.set_text(str(turns))
     hud_end_game_total_time.set_text(stats["total_time"])
 
@@ -273,13 +281,6 @@ func fill_end_game_stats(stats, turns):
     red_kills.set_text(str(stats["kills"][1]))
     red_spawns.set_text(str(stats["spawns"][1]))
     red_score.set_text(str(stats["score"][1]))
-
-    if red_score > blue_score:
-        red_win.show()
-        blue_win.hide()
-    else:
-        red_win.hide()
-        blue_win.show()
 
 func show_cinematic_camera():
     self.cinematic_camera.show()
