@@ -173,6 +173,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         current_map.load_map(workshop_file_name, is_remote)
         self.bag.controllers.hud_panel_controller.info_panel.set_map_name(workshop_file_name)
     else:
+        current_map.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[self.bag.campaign.get_map_tileset(template_name)])
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
         self.settings['cpu_0'] = true
