@@ -4,7 +4,8 @@ var ready = false
 var screen_size
 
 var top_hud_size = Vector2(166, 65)
-var bottom_hud_size = Vector2(696, 83)
+var bottom_hud_size = Vector2(350, 83)
+var bottom_hud_overscan_offset = Vector2(0, 80)
 var selected_panel_size = Vector2(350, 83)
 
 
@@ -32,10 +33,14 @@ func is_dead_zone(x, y):
         if self.check_if_in_zone(x, y, self.popup_top_offset, self.popup_size):
             return true
 
-    if self.root.bag.controllers.hud_panel_controller.hud_panel.is_visible():
-        if self.check_if_in_zone(x, y, self.screen_size.y - self.bottom_hud_size.y, self.bottom_hud_size):
+    var overscan_offset = 0
+    if self.root.hud_layout == "overscan" or self.root.settings['is_overscan']:
+        overscan_offset = self.bottom_hud_overscan_offset.y
 
-            if not self.root.bag.controllers.hud_panel_controller.building_panel.building_panel.is_visible() and not self.root.bag.controllers.hud_panel_controller.unit_panel.unit_panel.is_visible() and self.check_if_in_zone(x, y, self.screen_size.y - self.selected_panel_size.y, self.selected_panel_size):
+    if self.root.bag.controllers.hud_panel_controller.hud_panel.is_visible():
+        if self.check_if_in_zone(x, y, self.screen_size.y - self.bottom_hud_size.y - overscan_offset, self.bottom_hud_size):
+
+            if not self.root.bag.controllers.hud_panel_controller.building_panel.building_panel.is_visible() and not self.root.bag.controllers.hud_panel_controller.unit_panel.unit_panel.is_visible() and self.check_if_in_zone(x, y, self.screen_size.y - self.selected_panel_size.y - overscan_offset, self.selected_panel_size):
                 return false
             return true
 
