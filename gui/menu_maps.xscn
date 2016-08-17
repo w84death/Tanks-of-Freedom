@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="8" version="2.1" version_name="Godot Engine v2.1.stable.official">
-	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="5"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="4"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="8" version="2.1" version_name="Godot Engine v2.1.stable.custom_build">
 	<ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" index="4"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" index="5"></ext_resource>
+	<ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" index="0"></ext_resource>
 	<resource type="GDScript" path="local://1">
 		<string name="script/source"> "&#000a;func load_map(name):&#000a;&#0009;get_parent().load_map(name)&#000a;" </string>
 
@@ -20,7 +20,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="50">
+			<string_array  len="48">
 				<string> "menu_maps" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
@@ -42,18 +42,16 @@
 				<string> "anchor/top" </string>
 				<string> "control" </string>
 				<string> "menu_background" </string>
-				<string> "Sprite1" </string>
-				<string> "transform/pos" </string>
-				<string> "transform/scale" </string>
+				<string> "editor/display_folded" </string>
+				<string> "background" </string>
 				<string> "texture" </string>
-				<string> "vframes" </string>
-				<string> "hframes" </string>
-				<string> "frame" </string>
-				<string> "Sprite" </string>
-				<string> "Sprite2" </string>
+				<string> "patch_margin/left" </string>
+				<string> "patch_margin/top" </string>
+				<string> "patch_margin/right" </string>
+				<string> "patch_margin/bottom" </string>
+				<string> "Patch9Frame" </string>
 				<string> "menu_controls" </string>
 				<string> "close" </string>
-				<string> "editor/display_folded" </string>
 				<string> "toggle_mode" </string>
 				<string> "enabled_focus_mode" </string>
 				<string> "shortcut" </string>
@@ -73,12 +71,12 @@
 				<string> "max_lines_visible" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 10 </int>
+			<int> 9 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="276"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 16, 14, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 0, 0, 16, 17, -1, 12, 18, 0, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 2, 0, 13, 19, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 4, 9, 7, 10, 4, 0, 3, 0, 13, 20, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 8, 10, 8, 0, 4, 0, 28, 21, -1, 6, 22, 9, 23, 10, 24, 11, 25, 12, 26, 12, 27, 13, 0, 4, 0, 28, 29, -1, 6, 22, 14, 23, 10, 24, 11, 25, 12, 26, 12, 27, 15, 0, 3, 0, 13, 30, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 8, 10, 8, 0, 7, 0, 42, 31, -1, 18, 32, 2, 3, 1, 4, 2, 5, 3, 6, 3, 7, 16, 8, 17, 9, 18, 10, 19, 33, 1, 34, 3, 35, 20, 36, 21, 37, 22, 38, 23, 39, 24, 40, 25, 41, 10, 0, 8, 0, 43, 43, -1, 14, 3, 2, 4, 2, 5, 3, 6, 26, 7, 27, 8, 28, 9, 29, 10, 30, 44, 31, 45, 32, 46, 0, 47, 27, 48, 26, 49, 33, 0 </int_array>
+			<int_array  len="277"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 16, 14, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 0, 0, 16, 17, -1, 12, 18, 0, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 2, 0, 13, 19, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 4, 9, 7, 10, 4, 0, 3, 0, 13, 20, -1, 9, 21, 2, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 8, 10, 8, 0, 4, 0, 28, 22, -1, 15, 1, 0, 2, 0, 3, 2, 4, 2, 5, 3, 6, 3, 7, 9, 8, 10, 9, 11, 10, 12, 23, 13, 24, 14, 25, 14, 26, 14, 27, 14, 0, 3, 0, 13, 29, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 8, 10, 8, 0, 6, 0, 40, 30, -1, 18, 21, 2, 3, 1, 4, 2, 5, 3, 6, 3, 7, 15, 8, 16, 9, 17, 10, 18, 31, 1, 32, 3, 33, 19, 34, 20, 35, 21, 36, 22, 37, 23, 38, 24, 39, 25, 0, 7, 0, 41, 41, -1, 14, 3, 2, 4, 2, 5, 3, 6, 26, 7, 27, 8, 28, 9, 29, 10, 30, 42, 31, 43, 32, 44, 0, 45, 27, 46, 26, 47, 33, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="34" shared="false">
 				<int> 1 </int>
@@ -95,22 +93,22 @@
 				</dictionary>
 				<real> 640 </real>
 				<real> 40 </real>
-				<vector2> -270, -22 </vector2>
-				<vector2> 3, 3 </vector2>
+				<real> -312 </real>
+				<real> -72 </real>
+				<real> 192 </real>
+				<real> 45 </real>
 				<resource  external="0">  </resource>
-				<int> 8 </int>
-				<int> 3 </int>
-				<vector2> -200, -22 </vector2>
-				<int> 5 </int>
-				<real> -307 </real>
-				<real> -59 </real>
-				<real> -163 </real>
-				<real> -11 </real>
+				<int> 24 </int>
+				<real> -304 </real>
+				<real> -64 </real>
+				<real> -160 </real>
+				<real> -16 </real>
 				<resource name=""></resource>				<resource  external="1">  </resource>
 				<resource  external="2">  </resource>
 				<resource  external="3">  </resource>
 				<resource  external="4">  </resource>
 				<resource  external="5">  </resource>
+				<vector2> 3, 3 </vector2>
 				<int> 0 </int>
 				<real> 1 </real>
 				<real> 16 </real>
