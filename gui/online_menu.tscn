@@ -23,24 +23,6 @@ margin/right = 0.0
 margin/bottom = 0.0
 __meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
-[node name="background" type="Patch9Frame" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 384.0
-margin/top = 280.0
-margin/right = 384.0
-margin/bottom = 256.0
-texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
-
 [node name="controls" type="Control" parent="."]
 
 anchor/left = 3
@@ -55,6 +37,25 @@ margin/left = 0.0
 margin/top = 50.0
 margin/right = 0.0
 margin/bottom = 50.0
+
+[node name="background" type="Patch9Frame" parent="controls"]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 512, 184 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -256.0
+margin/top = -30.0
+margin/right = -256.0
+margin/bottom = -154.0
+texture = ExtResource( 1 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
 
 [node name="horizontal" type="HBoxContainer" parent="controls"]
 
