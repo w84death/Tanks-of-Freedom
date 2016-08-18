@@ -318,7 +318,6 @@ margin/bottom = 64.0
 
 [node name="bottom_center" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
@@ -327,9 +326,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 48.0
+margin/top = 64.0
 margin/right = 0.0
-margin/bottom = 60.0
+margin/bottom = 64.0
 use_top_left = false
 __meta__ = { "_edit_lock_":true }
 

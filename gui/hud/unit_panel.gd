@@ -20,7 +20,7 @@ func bind(hud_panel):
 
     self.unit_panel_extras = self.unit_panel.get_node('extras')
     #self.unit_panel_extras_button = self.unit_panel.get_node('extras_button')
-    self.unit_panel_name = self.unit_panel.get_node('name')
+    #self.unit_panel_name = self.unit_panel.get_node('name')
     self.unit_panel_attack = self.unit_panel.get_node('attack')
     self.unit_panel_health = self.unit_panel.get_node('health')
     self.unit_panel_ap = self.unit_panel.get_node('ap')
@@ -40,7 +40,6 @@ func update_hud():
         return
     self.set_attack(self.unit.attack)
     self.set_health(self.unit.life, self.unit.max_life)
-    self.set_name(self.unit.type_name)
     self.set_ap(self.unit.ap, self.unit.max_ap)
     self.set_attacks(self.unit.attacks_number)
 
@@ -62,9 +61,6 @@ func set_attacks(value):
 
 func set_health(value, max_value):
     self.unit_panel_health.set_text(str(value) + '/' + str(max_value))
-
-func set_name(value):
-    self.unit_panel_name.set_text(str(value))
 
 func set_ap(value, max_value):
 	self.unit_panel_ap.set_text(str(value) + '/' + str(max_value))
