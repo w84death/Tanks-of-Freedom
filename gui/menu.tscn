@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=1]
+[gd_scene load_steps=32 format=1]
 
 [ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/menu_controller.gd" type="Script" id=2]
@@ -25,7 +25,8 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=23]
 [ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=24]
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=25]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=26]
+[ext_resource path="res://gui/small_theme.tres" type="Theme" id=26]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=27]
 
 [sub_resource type="Animation" id=1]
 
@@ -1039,15 +1040,14 @@ max_lines_visible = -1
 
 [node name="menu_background" type="Control" parent="top/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 30.0
+margin/top = 40.0
 margin/right = 40.0
-margin/bottom = 70.0
+margin/bottom = 80.0
 
 [node name="background" type="Patch9Frame" parent="top/center/menu_background"]
 
@@ -1058,10 +1058,28 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -312.0
-margin/top = -70.0
-margin/right = -272.0
-margin/bottom = 6.0
+margin/top = -32.0
+margin/right = -112.0
+margin/bottom = 8.0
 texture = ExtResource( 9 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="background1" type="Patch9Frame" parent="top/center/menu_background"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 160.0
+margin/top = -32.0
+margin/right = -280.0
+margin/bottom = 8.0
+texture = ExtResource( 16 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -1073,10 +1091,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -256.0
-margin/top = 9.0
+margin/left = -259.0
+margin/top = 18.0
 margin/right = -161.0
-margin/bottom = 54.0
+margin/bottom = 69.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "INDIE GAME\nDESIGN & \nDEVELOP"
@@ -1086,7 +1104,7 @@ max_lines_visible = -1
 
 [node name="p1x" type="Sprite" parent="top/center"]
 
-transform/pos = Vector2( -284, 29 )
+transform/pos = Vector2( -287, 38 )
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 21 )
 modulate = Color( 0, 0, 0, 1 )
@@ -1098,10 +1116,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 6.0
-margin/top = 8.0
-margin/right = 150.0
-margin/bottom = 56.0
+margin/left = 0.0
+margin/top = 16.0
+margin/right = 144.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1139,10 +1157,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -301.0
-margin/top = 8.0
-margin/right = 157.0
-margin/bottom = -56.0
+margin/left = -304.0
+margin/top = 16.0
+margin/right = 160.0
+margin/bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1178,10 +1196,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 160.0
-margin/top = 8.0
-margin/right = 304.0
-margin/bottom = 56.0
+margin/left = 168.0
+margin/top = 16.0
+margin/right = 312.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1217,10 +1235,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -149.0
-margin/top = 7.0
-margin/right = -5.0
-margin/bottom = 55.0
+margin/left = -152.0
+margin/top = 16.0
+margin/right = -8.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1251,7 +1269,6 @@ max_lines_visible = -1
 
 [node name="bottom" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
@@ -1267,7 +1284,6 @@ use_top_left = false
 
 [node name="center" type="Control" parent="bottom"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1285,9 +1301,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
+margin/top = -16.0
 margin/right = 40.0
-margin/bottom = 40.0
+margin/bottom = 24.0
 
 [node name="background" type="Patch9Frame" parent="bottom/center/menu_background"]
 
@@ -1299,8 +1315,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -288.0
 margin/top = -72.0
-margin/right = -248.0
-margin/bottom = 8.0
+margin/right = -240.0
+margin/bottom = 32.0
 texture = ExtResource( 9 )
 patch_margin/left = 24
 patch_margin/top = 24
@@ -1314,10 +1330,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -124.0
-margin/top = -62.0
-margin/right = 20.0
-margin/bottom = -14.0
+margin/left = -128.0
+margin/top = -80.0
+margin/right = 16.0
+margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1353,10 +1369,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 138.0
-margin/top = -62.0
-margin/right = 282.0
-margin/bottom = -14.0
+margin/left = 128.0
+margin/top = -80.0
+margin/right = 272.0
+margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1391,10 +1407,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -279.0
-margin/top = -62.0
-margin/right = -135.0
-margin/bottom = -14.0
+margin/left = -280.0
+margin/top = -80.0
+margin/right = -136.0
+margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1428,11 +1444,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -279.0
-margin/top = -12.0
-margin/right = -135.0
-margin/bottom = 3.0
-custom_fonts/font = ExtResource( 5 )
+theme/theme = ExtResource( 26 )
+margin/left = -280.0
+margin/top = -28.0
+margin/right = -136.0
+margin/bottom = -16.0
 text = "COMPLETED: 2/12"
 align = 1
 percent_visible = 1.0
@@ -1445,11 +1461,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 142.0
-margin/top = -12.0
-margin/right = 282.0
-margin/bottom = 1.0
-custom_fonts/font = ExtResource( 5 )
+theme/theme = ExtResource( 26 )
+margin/left = 136.0
+margin/top = -29.0
+margin/right = 272.0
+margin/bottom = -16.0
 text = "MAPS CREATED: 3"
 align = 1
 percent_visible = 1.0
@@ -1462,10 +1478,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 31.0
-margin/top = -62.0
-margin/right = 127.0
-margin/bottom = -14.0
+margin/left = 24.0
+margin/top = -80.0
+margin/right = 120.0
+margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1493,7 +1509,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_game" parent="." instance=ExtResource( 26 )]
+[node name="end_game" parent="." instance=ExtResource( 27 )]
 
 visibility/visible = false
 
