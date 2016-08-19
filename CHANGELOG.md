@@ -4,16 +4,18 @@
 
 ### 0.5.1-beta
 - ported project to Godot 2.1-stable
+- added seasons to campaign missions
 - added partial French and Polish language
 - reworked all labels to use new font support
 - added Overscan setting for TV setups
 - OUYA style button help will show when using OUYA gamepad
 - added clear indication which team won the battle
-- added zoom buttons and mouse scroll zoom
+- re-added zoom buttons and mouse scroll zoom
 - added specific gamepad binds for Pandora
 - fixed Settings button not working correctly when playing from Workshop
 - fixed ground damage not being preserved on save/resume
 - fixed missing screenshake when units are destroyed
+- fixed missing tips when list runs out and cycles back
 
 ### 0.5.0-beta
 - engine updated to Godot 2.0.2
