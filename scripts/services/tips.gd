@@ -7,7 +7,7 @@ func _init():
     self.tip_counter = int(1)
 
 func next_tip():
-    self.tip_counter = (self.tip_counter + 1) % self.TIP_COUNT
+    self.tip_counter = self.tip_counter % self.TIP_COUNT + 1
     return tr(self.TIP_PREFIX + str(self.tip_counter))
 
 func header():
