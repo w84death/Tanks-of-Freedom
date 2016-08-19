@@ -298,7 +298,7 @@ func hide_main_menu():
 
 # SETTINGS
 func get_settings_visibility():
-    return settings.get_pos().y == 0
+    return settings.is_visible()
 
 func toggle_settings():
     if self.get_settings_visibility():

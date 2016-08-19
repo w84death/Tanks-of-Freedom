@@ -131,7 +131,6 @@ margin/bottom = 0.0
 
 [node name="middle" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -277,9 +276,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
+margin/top = -800.0
 margin/right = 40.0
-margin/bottom = 40.0
+margin/bottom = -760.0
 
 [node name="background" type="Patch9Frame" parent="middle/center/settings_panel"]
 
@@ -944,6 +943,7 @@ autoplay = ""
 
 [node name="top" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = false
