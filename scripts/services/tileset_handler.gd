@@ -3,6 +3,21 @@ var available_tilesets = {
     'fall'   : preload("res://maps/tilesets/fall_tileset.xml"),
     'winter' : preload("res://maps/tilesets/winter_tileset.xml")
 }
+
+var available_objects = {
+    'summer' : {
+        'movable' : preload('res://terrain/tilesets/summer_movable.xscn'),
+        'non-movable' : preload('res://terrain/tilesets/summer_non_movable.xscn')
+    },
+    'fall' : {
+        'movable' : preload('res://terrain/tilesets/fall_movable.xscn'),
+        'non-movable' : preload('res://terrain/tilesets/fall_non_movable.xscn')
+    },
+    'winter' : {
+        'movable' : preload('res://terrain/tilesets/winter_movable.xscn'),
+        'non-movable' : preload('res://terrain/tilesets/winter_non_movable.xscn')
+    }
+}
 var bag
 
 var seasons = {
