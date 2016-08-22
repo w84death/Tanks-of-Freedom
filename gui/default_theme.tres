@@ -2,14 +2,16 @@
 
 [ext_resource path="res://assets/fonts/ttf/Courier Prime Bold.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 
 font/size = 16
+extra_spacing/char = -1
+extra_spacing/space = 1
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 1 )
 
 [resource]
 
-default_font = SubResource( 1 )
+default_font = SubResource( 3 )
 
