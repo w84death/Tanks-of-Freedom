@@ -17,6 +17,8 @@ var info_panel_map_name
 var zoom_panel_zoom_in
 var zoom_panel_zoom_out
 
+const MAP_NAME_LENGTH = 17
+
 func _init_bag(bag):
     self.bag = bag
 
@@ -65,6 +67,8 @@ func set_ap_gain(ap_gain):
     self.info_panel_pap.set_text('+' + str(ap_gain))
 
 func set_map_name(name):
+    if name.length() > self.MAP_NAME_LENGTH:
+        name = name.substr(0, self.MAP_NAME_LENGTH - 3) + "..."
     self.info_panel_map_name.set_text(str(name))
 
 func set_turn(turn, max_turn=null):

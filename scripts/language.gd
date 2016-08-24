@@ -126,7 +126,6 @@ func reload_labels():
     var hud_game_over
     if hud:
         self.reload_button(hud_controller.menu_button, 'LABEL_MENU')
-        self.reload_label(hud_panel.info_panel_scene.get_node('map_name'), 'LABEL_MAP_NAME')
         self.reload_label(hud_panel.info_panel_scene.get_node('ap_'), 'LABEL_ACTION_POINTS')
         self.reload_label(hud_panel.info_panel_scene.get_node('ap_1'), 'LABEL_NEXT_TURN_GAIN')
 

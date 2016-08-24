@@ -22,7 +22,7 @@ var current_remote_page = 1
 const PAGE_SIZE = 18
 const OFFSET_X = 235
 const OFFSET_Y = 30
-const LABEL_LENGTH = 21
+const LABEL_LENGTH = 20
 
 var current_container = null
 
