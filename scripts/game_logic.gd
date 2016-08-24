@@ -171,6 +171,9 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     if workshop_file_name:
         current_map.map_movable = self.bag.tileset_handler.available_objects['summer']['movable']
         current_map.map_non_movable = self.bag.tileset_handler.available_objects['summer']['non-movable']
+        current_map.map_city_small = self.bag.tileset_handler.available_city['summer']['small']
+        current_map.map_city_big = self.bag.tileset_handler.available_city['summer']['large']
+        current_map.map_statue = self.bag.tileset_handler.available_city['summer']['statue']
         self.is_from_workshop = true
         current_map.load_map(workshop_file_name, is_remote)
         self.bag.controllers.hud_panel_controller.info_panel.set_map_name(workshop_file_name)
@@ -179,6 +182,9 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         current_map.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[campaign_tileset])
         current_map.map_movable = self.bag.tileset_handler.available_objects[campaign_tileset]['movable']
         current_map.map_non_movable = self.bag.tileset_handler.available_objects[campaign_tileset]['non-movable']
+        current_map.map_city_small = self.bag.tileset_handler.available_city[campaign_tileset]['small']
+        current_map.map_city_big = self.bag.tileset_handler.available_city[campaign_tileset]['large']
+        current_map.map_statue = self.bag.tileset_handler.available_city[campaign_tileset]['statue']
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
         self.settings['cpu_0'] = true
