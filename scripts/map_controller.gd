@@ -46,18 +46,18 @@ var wave = preload('res://terrain/wave.xscn')
 var underground_rock = preload('res://terrain/underground.xscn')
 
 var map_city_small = [
-    preload('res://terrain/city/city_small_1.xscn'),
-    preload('res://terrain/city/city_small_2.xscn'),
-    preload('res://terrain/city/city_small_3.xscn'),
-    preload('res://terrain/city/city_small_4.xscn'),
-    preload('res://terrain/city/city_small_5.xscn'),
-    preload('res://terrain/city/city_small_6.xscn')]
+    preload('res://terrain/city/summer/city_small_1.xscn'),
+    preload('res://terrain/city/summer/city_small_2.xscn'),
+    preload('res://terrain/city/summer/city_small_3.xscn'),
+    preload('res://terrain/city/summer/city_small_4.xscn'),
+    preload('res://terrain/city/summer/city_small_5.xscn'),
+    preload('res://terrain/city/summer/city_small_6.xscn')]
 var map_city_big = [
-    preload('res://terrain/city/city_big_1.xscn'),
-    preload('res://terrain/city/city_big_2.xscn'),
-    preload('res://terrain/city/city_big_3.xscn'),
-    preload('res://terrain/city/city_big_4.xscn')]
-var map_statue = preload('res://terrain/city/city_statue.xscn')
+    preload('res://terrain/city/summer/city_big_1.xscn'),
+    preload('res://terrain/city/summer/city_big_2.xscn'),
+    preload('res://terrain/city/summer/city_big_3.xscn'),
+    preload('res://terrain/city/summer/city_big_4.xscn')]
+var map_statue = preload('res://terrain/city/summer/city_statue.xscn')
 var map_buildings = [
     preload('res://buildings/bunker_blue.xscn'),
     preload('res://buildings/bunker_red.xscn'),
