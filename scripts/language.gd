@@ -166,6 +166,18 @@ func reload_labels():
 
         self.reload_button(hud_game_over.get_node('center/controls/restart'), 'LABEL_PLAY_AGAIN')
 
+    #GAMEPAD INFO
+    var gamepad_popup = self.bag.gamepad_popup.popup
+    self.reload_label(gamepad_popup.get_node('Label'), 'TITLE_GAMEPAD_CONFIG')
+    self.reload_label(gamepad_popup.get_node('left_shoulder'), 'LABEL_PREVIOUS_UNIT')
+    self.reload_label(gamepad_popup.get_node('right_shoulder'), 'LABEL_NEXT_UNIT')
+    self.reload_label(gamepad_popup.get_node('analog'), 'LABEL_SELECTOR_MOVEMENT')
+    self.reload_label(gamepad_popup.get_node('dpad'), 'LABEL_GAME_MENU_MOVEMENT')
+    self.reload_label(gamepad_popup.get_node('x'), 'LABEL_DEPLOY_UNIT')
+    self.reload_label(gamepad_popup.get_node('y'), 'LABEL_END_TURN')
+    self.reload_label(gamepad_popup.get_node('a'), 'LABEL_SELECT')
+    self.reload_label(gamepad_popup.get_node('b'), 'LABEL_BACK_TO_MENU')
+
     self.bag.campaign.reload_maps_definition()
 
 
