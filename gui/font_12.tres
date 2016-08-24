@@ -1,0 +1,11 @@
+[gd_resource type="DynamicFont" load_steps=2 format=1]
+
+[ext_resource path="res://assets/fonts/ttf/Courier Prime Bold.ttf" type="DynamicFontData" id=1]
+
+[resource]
+
+font/size = 12
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 1 )
+

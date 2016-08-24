@@ -1,20 +1,20 @@
-[gd_scene load_steps=32 format=1]
+[gd_scene load_steps=31 format=1]
 
 [ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/menu_controller.gd" type="Script" id=2]
 [ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=4]
-[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="BitmapFont" id=5]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=6]
-[ext_resource path="res://assets/fonts/courier_prime_11.fnt" type="BitmapFont" id=7]
-[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=14]
-[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="BitmapFont" id=15]
+[ext_resource path="res://gui/small_gray_theme.tres" type="Theme" id=5]
+[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="BitmapFont" id=13]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=14]
+[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="BitmapFont" id=15]
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=16]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=17]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=18]
@@ -25,8 +25,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=23]
 [ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=24]
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=25]
-[ext_resource path="res://gui/small_theme.tres" type="Theme" id=26]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=27]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=26]
 
 [sub_resource type="Animation" id=1]
 
@@ -129,13 +128,6 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 
-[node name="center" parent="vigette"]
-
-margin/left = 400.0
-margin/top = 240.0
-margin/right = 400.0
-margin/bottom = 240.0
-
 [node name="middle" type="CenterContainer" parent="."]
 
 anchor/right = 1
@@ -157,10 +149,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 240.0
-margin/right = 400.0
-margin/bottom = 240.0
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 
 [node name="game_panel" type="Control" parent="middle/center"]
 
@@ -221,12 +213,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -150.0
-margin/top = 68.0
-margin/right = 150.0
-margin/bottom = 84.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.745098, 0.14902, 0.2, 1 )
+theme/theme = ExtResource( 5 )
+margin/left = -176.0
+margin/top = 34.0
+margin/right = 176.0
+margin/bottom = 50.0
 text = "Version 0.x.x-BETA"
 align = 1
 percent_visible = 1.0
@@ -239,14 +230,32 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -150.0
-margin/top = 36.0
-margin/right = 150.0
+margin/left = -184.0
+margin/top = 50.0
+margin/right = 176.0
 margin/bottom = 66.0
-custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "FREE* & OPEN-SOURCE\nTURN-BASED STRATEGY GAME"
+text = "FREE* & OPEN-SOURCE"
 align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="title5" type="Label" parent="middle/center/game_panel/under_logo"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -184.0
+margin/top = 65.0
+margin/right = 176.0
+margin/bottom = 81.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "TURN-BASED STRATEGY GAME"
+align = 1
+uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -257,12 +266,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -148.0
-margin/top = 91.0
-margin/right = 152.0
-margin/bottom = 106.0
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0.643137, 0.392157, 0.133333, 1 )
+theme/theme = ExtResource( 5 )
+margin/left = -184.0
+margin/top = 84.0
+margin/right = 176.0
+margin/bottom = 96.0
 text = "* FREE AS FREEDOM, NOT FREE AS IN FREE BEER"
 align = 1
 percent_visible = 1.0
@@ -272,19 +280,20 @@ max_lines_visible = -1
 [node name="ToF_logo" type="Sprite" parent="middle/center/game_panel"]
 
 transform/pos = Vector2( 0, -40 )
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 
 [node name="settings_panel" type="Control" parent="middle/center"]
 
 editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = -48.0
+margin/top = -800.0
 margin/right = 40.0
-margin/bottom = -8.0
+margin/bottom = -760.0
 
 [node name="background" type="Patch9Frame" parent="middle/center/settings_panel"]
 
@@ -298,7 +307,7 @@ margin/left = -376.0
 margin/top = -96.0
 margin/right = -336.0
 margin/bottom = -152.0
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -318,11 +327,11 @@ margin/bottom = 16.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/sound_toggle"]
@@ -356,11 +365,11 @@ margin/bottom = 72.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/music_toggle"]
@@ -429,11 +438,11 @@ margin/bottom = 72.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/shake_toggle"]
@@ -504,11 +513,11 @@ margin/bottom = 16.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_follow"]
@@ -539,7 +548,7 @@ margin/left = 144.0
 margin/top = -80.0
 margin/right = 188.0
 margin/bottom = -50.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "7"
 align = 1
@@ -580,11 +589,11 @@ margin/bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_zoom_in"]
@@ -618,11 +627,11 @@ margin/bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/camera_zoom_out"]
@@ -656,11 +665,11 @@ margin/bottom = 128.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/display_mode_toggle"]
@@ -729,11 +738,11 @@ margin/bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/difficulty_mode_toggle"]
@@ -795,11 +804,11 @@ margin/bottom = -12.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/overscan_group/overscan_button"]
@@ -812,7 +821,7 @@ margin/left = 10.0
 margin/top = 16.0
 margin/right = 87.0
 margin/bottom = 34.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
@@ -879,11 +888,11 @@ margin/bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/language_group/language_button"]
@@ -915,7 +924,7 @@ margin/left = -73.0
 margin/top = 340.0
 margin/right = 74.0
 margin/bottom = 352.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WINS: 4"
 align = 1
@@ -967,9 +976,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
+margin/left = 640.0
 margin/top = 0.0
-margin/right = 400.0
+margin/right = 640.0
 margin/bottom = 0.0
 
 [node name="resume" type="Control" parent="top/center"]
@@ -1035,7 +1044,7 @@ margin/left = 5.0
 margin/top = 17.0
 margin/right = 139.0
 margin/bottom = 35.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RESUME GAME"
 align = 1
@@ -1067,7 +1076,7 @@ margin/left = -312.0
 margin/top = -32.0
 margin/right = -112.0
 margin/bottom = 8.0
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -1101,7 +1110,7 @@ margin/left = -259.0
 margin/top = 18.0
 margin/right = -161.0
 margin/bottom = 69.0
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "INDIE GAME\nDESIGN & \nDEVELOP"
 percent_visible = 1.0
@@ -1295,9 +1304,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
+margin/left = 640.0
 margin/top = 0.0
-margin/right = 400.0
+margin/right = 640.0
 margin/bottom = 0.0
 
 [node name="menu_background" type="Control" parent="bottom/center"]
@@ -1324,7 +1333,7 @@ margin/left = -288.0
 margin/top = -72.0
 margin/right = -240.0
 margin/bottom = 32.0
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -1450,7 +1459,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 26 )
+theme/theme = ExtResource( 5 )
 margin/left = -280.0
 margin/top = -28.0
 margin/right = -136.0
@@ -1467,7 +1476,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 26 )
+theme/theme = ExtResource( 5 )
 margin/left = 136.0
 margin/top = -29.0
 margin/right = 272.0
@@ -1491,11 +1500,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="bottom/center/online"]
@@ -1515,7 +1524,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_game" parent="." instance=ExtResource( 27 )]
+[node name="end_game" parent="." instance=ExtResource( 26 )]
 
 visibility/visible = false
 
