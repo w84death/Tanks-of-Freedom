@@ -25,14 +25,14 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -88.0
-margin/top = -141.0
+margin/top = -117.0
 margin/right = -88.0
 margin/bottom = 93.0
 texture = ExtResource( 1 )
 patch_margin/left = 24
-patch_margin/top = 24
+patch_margin/top = 12
 patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin/bottom = 12
 
 [node name="background_bottom" type="Patch9Frame" parent="."]
 
@@ -140,12 +140,12 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -80.0
-margin/top = -132.0
-margin/right = 86.0
-margin/bottom = -100.0
+margin/left = -86.0
+margin/top = -111.0
+margin/right = 84.0
+margin/bottom = -97.0
 text = "LABEL_MAP_NAME"
-autowrap = true
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
