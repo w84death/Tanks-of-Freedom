@@ -4,10 +4,11 @@
 
 ### 0.5.2-beta
 - added changing terrain and city tiles to seasons
-- modified menu timer to start fall a month later
+- modified menu timer to start Fall a month later
 - modified Pandora layout to maximize map view
 - fixed some labels in menus not having non-latin chars
 - fixed some labels changing positions when too long text was set
+- fixed many translation errors in PL and EN
 
 ### 0.5.1.1-beta
 - hotfixed engine config for android not loading translations
