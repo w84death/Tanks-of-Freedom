@@ -9,6 +9,7 @@
 - fixed some labels in menus not having non-latin chars
 - fixed some labels changing positions when too long text was set
 - fixed many translation errors in PL and EN
+- translated campaign mission descriptions to Polish
 - fixed background gradient not expanding when game starts in fullscreen
 - game should now not quit when using 'back' on android devices
 - fixed crash when trying to use Online Menu functions
