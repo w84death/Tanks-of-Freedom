@@ -311,6 +311,7 @@ func load_menu():
     intro.queue_free()
     self.add_child(menu)
     menu.manage_close_button()
+    self.bag.resolution.refresh_menu_background()
     self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
