@@ -21,7 +21,7 @@ func _init_bag(bag):
 
 func bind():
     self.controls = self.online_menu.get_node("controls")
-    self.background = self.online_menu.get_node("background")
+    self.background = self.controls.get_node("background")
     self.download_button = self.controls.get_node("horizontal/download")
     self.download_button.connect("pressed", self, "_download_button_pressed")
 
@@ -159,7 +159,9 @@ func register_confirmation(confirmation):
 
 
 func do_online_register():
-    self.bag.online_player.request_player_id()
+    self.bag.online_player.request_player_id_async()
+
+func online_register_done():
     self.bag.message_popup.attach_panel(self.middle_container)
     if self.bag.root.settings['online_player_id'] == null:
         self.bag.message_popup.fill_labels(tr('LABEL_REGISTER_PLAYER'), tr('TIP_REQUESTING_PLAYER_FAIL'), tr('LABEL_DONE'))

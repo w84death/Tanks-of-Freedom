@@ -61,6 +61,6 @@ func _execute_callback():
 
     if calling_object != null:
         if response.has('response_code') and callbacks.has("handle_" + str(response['response_code'])):
-            calling_object.call(callbacks["handle_" + str(response['response_code'])], [response])
+            calling_object.call(callbacks["handle_" + str(response['response_code'])], response)
         else:
-            calling_object.call("handle_error", [response])
+            calling_object.call("handle_error", response)

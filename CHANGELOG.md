@@ -11,6 +11,8 @@
 - fixed many translation errors in PL and EN
 - fixed background gradient not expanding when game starts in fullscreen
 - game should now not quit when using 'back' on android devices
+- fixed crash when trying to use Online Menu functions
+- changed Player registration to be not block rendering
 
 ### 0.5.1.1-beta
 - hotfixed engine config for android not loading translations
