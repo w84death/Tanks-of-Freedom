@@ -23,6 +23,7 @@ func post(api, resource, data = "", expect_json = true):
 func make_request(api, resource, method, data, expect_json = true):
     var result = {
         'status' : null,
+        'response_code' : 0,
         'data' : {}
     }
 

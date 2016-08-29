@@ -39,6 +39,7 @@ var pandora = preload('res://scripts/pandora_input.gd').new()
 var unit_switcher = preload('res://scripts/unit_switcher.gd').new()
 
 var online_request = preload('res://scripts/online/request.gd').new()
+var online_request_async = preload('res://scripts/online/request_async.gd').new()
 var online_player = preload('res://scripts/online/player.gd').new()
 var online_maps = preload('res://scripts/online/maps.gd').new()
 var tileset_handler = preload('res://scripts/services/tileset_handler.gd').new()
@@ -93,6 +94,7 @@ func init_root(root_node):
     self.processing.register(self.gamepad)
 
     self.online_request._init_bag(self)
+    self.online_request_async._init_bag(self)
     self.online_player._init_bag(self)
     self.online_maps._init_bag(self)
     self.tileset_handler._init_bag(self)
