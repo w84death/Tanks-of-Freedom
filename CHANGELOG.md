@@ -9,6 +9,8 @@
 - fixed some labels in menus not having non-latin chars
 - fixed some labels changing positions when too long text was set
 - fixed many translation errors in PL and EN
+- fixed background gradient not expanding when game starts in fullscreen
+- game should now not quit when using 'back' on android devices
 
 ### 0.5.1.1-beta
 - hotfixed engine config for android not loading translations
