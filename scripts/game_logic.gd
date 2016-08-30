@@ -164,27 +164,17 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.menu.hide_background_map()
     current_map_name = template_name
     current_map = map_template.instance()
-    current_map.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets['summer'])
     current_map.campaign = bag.campaign
     self.workshop_file_name = workshop_file_name
     self.is_remote = is_remote
     if workshop_file_name:
-        current_map.map_movable = self.bag.tileset_handler.available_objects['summer']['movable']
-        current_map.map_non_movable = self.bag.tileset_handler.available_objects['summer']['non-movable']
-        current_map.map_city_small = self.bag.tileset_handler.available_city['summer']['small']
-        current_map.map_city_big = self.bag.tileset_handler.available_city['summer']['large']
-        current_map.map_statue = self.bag.tileset_handler.available_city['summer']['statue']
+        current_map.switch_to_tileset('summer', self.bag)
         self.is_from_workshop = true
         current_map.load_map(workshop_file_name, is_remote)
         self.bag.controllers.hud_panel_controller.info_panel.set_map_name(workshop_file_name)
     else:
         var campaign_tileset = self.bag.campaign.get_map_tileset(template_name)
-        current_map.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[campaign_tileset])
-        current_map.map_movable = self.bag.tileset_handler.available_objects[campaign_tileset]['movable']
-        current_map.map_non_movable = self.bag.tileset_handler.available_objects[campaign_tileset]['non-movable']
-        current_map.map_city_small = self.bag.tileset_handler.available_city[campaign_tileset]['small']
-        current_map.map_city_big = self.bag.tileset_handler.available_city[campaign_tileset]['large']
-        current_map.map_statue = self.bag.tileset_handler.available_city[campaign_tileset]['statue']
+        current_map.switch_to_tileset(campaign_tileset, self.bag)
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
         self.settings['cpu_0'] = true

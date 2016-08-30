@@ -747,3 +747,16 @@ func do_single_shake():
         self.underground.set_pos(shake_initial_position)
         self.terrain.set_pos(shake_initial_position)
 
+func switch_to_tileset(tileset, bag=null):
+    if bag != null:
+        self.bag = bag
+
+    if self.bag == null:
+        return
+
+    self.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[tileset])
+    self.map_movable = self.bag.tileset_handler.available_objects[tileset]['movable']
+    self.map_non_movable = self.bag.tileset_handler.available_objects[tileset]['non-movable']
+    self.map_city_small = self.bag.tileset_handler.available_city[tileset]['small']
+    self.map_city_big = self.bag.tileset_handler.available_city[tileset]['large']
+    self.map_statue = self.bag.tileset_handler.available_city[tileset]['statue']

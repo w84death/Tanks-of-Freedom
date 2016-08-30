@@ -87,5 +87,5 @@ func _init_bag(bag):
 func get_current_tileset():
     for theme in self.seasons:
         if self.bag.helpers.comp_days(self.seasons[theme], OS.get_date()) != 1:
-            return available_tilesets[theme]
+            return theme
 
