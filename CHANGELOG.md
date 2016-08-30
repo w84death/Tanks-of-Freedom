@@ -15,6 +15,7 @@
 - fixed crash when trying to use Online Menu functions
 - changed Player registration to be not block rendering
 - fixed map name not being shown correctly in-game
+- fixed skirmish maps defaulting to Fall
 
 ### 0.5.1.1-beta
 - hotfixed engine config for android not loading translations

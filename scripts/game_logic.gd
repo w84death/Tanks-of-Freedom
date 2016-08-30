@@ -164,7 +164,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.menu.hide_background_map()
     current_map_name = template_name
     current_map = map_template.instance()
-    current_map.get_node('terrain').set_tileset(self.main_tileset)
+    current_map.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets['summer'])
     current_map.campaign = bag.campaign
     self.workshop_file_name = workshop_file_name
     self.is_remote = is_remote
