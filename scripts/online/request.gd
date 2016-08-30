@@ -32,7 +32,7 @@ func make_request(api, resource, method, data, expect_json = true):
         result['message'] = 'Online functions are disabled'
         return result
 
-    var err = self.http_client.connect(api, 80)
+    var err = self.http_client.connect(api, 443, true)
 
     if err != OK:
         result['status'] = 'error'
