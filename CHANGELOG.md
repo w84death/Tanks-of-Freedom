@@ -4,6 +4,7 @@
 
 ### 0.5.2-beta
 - added changing terrain and city tiles to seasons
+- added SSL to all online communication
 - modified menu timer to start Fall a month later
 - modified Pandora layout to maximize map view
 - fixed some labels in menus not having non-latin chars
