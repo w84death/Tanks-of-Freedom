@@ -41,6 +41,7 @@ var resolution_button
 var difficulty_button
 var overscan_toggle_button
 var language_cycle_button
+var gamepad_info_button
 
 var sound_toggle_label
 var music_toggle_label
@@ -96,6 +97,7 @@ func _ready():
     difficulty_button = settings.get_node("difficulty_mode_toggle")
     overscan_toggle_button = overscan_group.get_node('overscan_button')
     language_cycle_button = language_group.get_node('language_button')
+    self.gamepad_info_button = settings.get_node('gamepad_info')
 
     sound_toggle_label = sound_toggle_button.get_node("Label")
     music_toggle_label = music_toggle_button.get_node("Label")
@@ -122,6 +124,9 @@ func _ready():
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
     overscan_toggle_button.connect("pressed", self, "_overscan_toggle_button_pressed")
     language_cycle_button.connect("pressed", self, "_language_cycle_button_pressed")
+    self.gamepad_info_button.connect("pressed", self.root.bag.gamepad_popup, "show")
+    if self.root.is_pandora:
+        self.gamepad_info_button.set_disabled(true)
 
     close_button.connect("pressed", self, "_close_button_pressed")
     quit_button.connect("pressed", self, "_quit_button_pressed")

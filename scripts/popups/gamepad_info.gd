@@ -19,9 +19,13 @@ func _close_button_pressed():
 
 func show():
     self.bag.root.menu.add_child(popup)
-    self.close_button.grab_focus()
     self.bag.root.menu.hide_control_nodes()
+    self.bag.timers.set_timeout(0.1, self.close_button, "grab_focus")
 
 func hide():
     self.bag.root.menu.remove_child(popup)
     self.bag.root.menu.show_control_nodes()
+    if self.bag.root.menu.get_settings_visibility():
+        self.bag.timers.set_timeout(0.1, self.bag.root.menu.gamepad_info_button, "grab_focus")
+    else:
+        self.bag.timers.set_timeout(0.1, self.bag.root.menu.campaign_button, "grab_focus")

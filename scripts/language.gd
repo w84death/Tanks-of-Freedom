@@ -166,7 +166,7 @@ func reload_labels():
         self.reload_button(hud_game_over.get_node('center/controls/restart'), 'LABEL_PLAY_AGAIN')
 
     #GAMEPAD INFO
-    var gamepad_popup = self.bag.gamepad_popup.popup
+    var gamepad_popup = self.bag.gamepad_popup.popup.get_node('center')
     self.reload_label(gamepad_popup.get_node('Label'), 'TITLE_GAMEPAD_CONFIG')
     self.reload_label(gamepad_popup.get_node('left_shoulder'), 'LABEL_PREVIOUS_UNIT')
     self.reload_label(gamepad_popup.get_node('right_shoulder'), 'LABEL_NEXT_UNIT')

@@ -129,6 +129,13 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 
+[node name="center" parent="vigette"]
+
+margin/left = 400.0
+margin/top = 240.0
+margin/right = 400.0
+margin/bottom = 240.0
+
 [node name="middle" type="CenterContainer" parent="."]
 
 anchor/right = 1
@@ -150,10 +157,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+margin/left = 400.0
+margin/top = 240.0
+margin/right = 400.0
+margin/bottom = 240.0
 
 [node name="game_panel" type="Control" parent="middle/center"]
 
@@ -837,10 +844,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 316.0
-margin/top = -4.0
-margin/right = 525.0
-margin/bottom = 17.0
+margin/left = 476.0
+margin/top = -76.0
+margin/right = 572.0
+margin/bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_REQUIES_RESTART"
 valign = 1
@@ -915,6 +922,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="gamepad_info" type="Button" parent="middle/center/settings_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 93.0
+margin/top = 134.0
+margin/right = 304.0
+margin/bottom = 195.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "LABEL_GAMEPAD_CONTROLS"
+flat = false
+
 [node name="wins" type="Label" parent="middle/center"]
 
 visibility/visible = false
@@ -978,9 +1001,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 640.0
+margin/left = 400.0
 margin/top = 0.0
-margin/right = 640.0
+margin/right = 400.0
 margin/bottom = 0.0
 
 [node name="resume" type="Control" parent="top/center"]
@@ -1306,9 +1329,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 640.0
+margin/left = 400.0
 margin/top = 0.0
-margin/right = 640.0
+margin/right = 400.0
 margin/bottom = 0.0
 
 [node name="menu_background" type="Control" parent="bottom/center"]
