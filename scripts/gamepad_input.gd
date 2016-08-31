@@ -8,7 +8,7 @@ const INPUT_DELAY = 0.2
 const AXIS_ANGLE_THRESHOLD = 0.2
 const AXIS_OVERALL_THRESHOLD = 0.5
 
-var gamepad_detected = true
+var gamepad_detected = false
 var ouya_gamepad_detected = false
 var painting = false
 var erasing = false
