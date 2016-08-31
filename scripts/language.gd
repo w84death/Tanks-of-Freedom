@@ -157,10 +157,10 @@ func reload_labels():
         self.reload_label(hud_game_over.get_node('center/controls/labels/headers/game_time'), 'LABEL_GAME_TIME')
         self.reload_label(hud_game_over.get_node('center/controls/labels/headers/overall'), 'LABEL_TOTAL_SCORE')
         self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue1'), 'LABEL_BLUE')
-        self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue2'), 'LABEL_BLUE_TEAM')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue2'), 'LABEL_BLUE')
         self.reload_label(hud_game_over.get_node('center/controls/labels/blue/blue3'), 'LABEL_BLUE')
         self.reload_label(hud_game_over.get_node('center/controls/labels/red/red1'), 'LABEL_RED')
-        self.reload_label(hud_game_over.get_node('center/controls/labels/red/red2'), 'LABEL_RED_TEAM')
+        self.reload_label(hud_game_over.get_node('center/controls/labels/red/red2'), 'LABEL_RED')
         self.reload_label(hud_game_over.get_node('center/controls/labels/red/red3'), 'LABEL_RED')
 
         self.reload_button(hud_game_over.get_node('center/controls/restart'), 'LABEL_PLAY_AGAIN')
