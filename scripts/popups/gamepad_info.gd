@@ -10,7 +10,7 @@ func _init_bag(bag):
     self.bind()
 
 func bind():
-    self.close_button = self.popup.get_node('close')
+    self.close_button = self.popup.get_node('center/close')
     self.close_button.connect('pressed', self, '_close_button_pressed')
 
 func _close_button_pressed():

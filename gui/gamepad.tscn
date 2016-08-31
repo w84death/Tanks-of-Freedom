@@ -1,118 +1,81 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gamepad.png" type="Texture" id=2]
 [ext_resource path="res://gui/h1_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=8]
 
-[node name="Control" type="Control"]
+[node name="gamepad" type="CenterContainer"]
 
+anchor/right = 1
+anchor/bottom = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
 
-[node name="background" type="Control" parent="."]
+[node name="center" type="Control" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 
-[node name="Sprite" type="Sprite" parent="background"]
+[node name="background_small" type="Patch9Frame" parent="center"]
 
-transform/pos = Vector2( -320, -160 )
-transform/scale = Vector2( 3, 3 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 260.0
+margin/top = 214.0
+margin/right = -372.0
+margin/bottom = -278.0
 texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 3
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
 
-[node name="Sprite1" type="Sprite" parent="background"]
+[node name="background_big" type="Patch9Frame" parent="center"]
 
-transform/pos = Vector2( 0, -160 )
-transform/scale = Vector2( 18, 3 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -364.0
+margin/top = -206.0
+margin/right = -380.0
+margin/bottom = -210.0
 texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 4
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
 
-[node name="Sprite2" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 336, -160 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 5
-
-[node name="Sprite3" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -320, 0 )
-transform/scale = Vector2( 3, 8 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 11
-
-[node name="Sprite3 2" type="Sprite" parent="background"]
-
-transform/scale = Vector2( 18, 8 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 12
-
-[node name="Sprite3 3" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 336, 0 )
-transform/scale = Vector2( 3, 8 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 13
-
-[node name="Sprite4" type="Sprite" parent="background"]
-
-transform/pos = Vector2( -320, 160 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 19
-
-[node name="Sprite34" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 336, 160 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 21
-
-[node name="Sprite33" type="Sprite" parent="background"]
-
-transform/pos = Vector2( 0, 160 )
-transform/scale = Vector2( 18, 3 )
-texture = ExtResource( 1 )
-vframes = 8
-hframes = 8
-frame = 20
-
-[node name="gamepad" type="Sprite" parent="."]
+[node name="gamepad" type="Sprite" parent="center"]
 
 transform/pos = Vector2( 7, 63 )
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -129,7 +92,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="left_shoulder" type="Label" parent="."]
+[node name="left_shoulder" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -144,7 +107,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="right_shoulder" type="Label" parent="."]
+[node name="right_shoulder" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -160,7 +123,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="analog" type="Label" parent="."]
+[node name="analog" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -168,14 +131,14 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -328.0
 margin/top = -56.0
-margin/right = -152.0
+margin/right = -141.0
 margin/bottom = -41.0
 text = "LABEL_SELECTOR_MOVEMENT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="dpad" type="Label" parent="."]
+[node name="dpad" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -183,14 +146,14 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -327.0
 margin/top = 84.0
-margin/right = -151.0
+margin/right = -119.0
 margin/bottom = 99.0
 text = "LABEL_GAME_MENU_MOVEMENT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="x" type="Label" parent="."]
+[node name="x" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -206,7 +169,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="y" type="Label" parent="."]
+[node name="y" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -222,7 +185,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="b" type="Label" parent="."]
+[node name="b" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -238,7 +201,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="a" type="Label" parent="."]
+[node name="a" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -254,19 +217,42 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="close" type="Button" parent="."]
+[node name="close" type="TextureButton" parent="center"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 252.0
-margin/top = 166.0
-margin/right = 339.0
-margin/bottom = 243.0
+margin/left = 268.0
+margin/top = 222.0
+margin/right = 364.0
+margin/bottom = 270.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-flat = false
+textures/normal = ExtResource( 4 )
+textures/pressed = ExtResource( 5 )
+textures/hover = ExtResource( 6 )
+textures/disabled = ExtResource( 7 )
+textures/focused = ExtResource( 8 )
+params/scale = Vector2( 3, 3 )
+
+[node name="Label" type="Label" parent="center/close"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 16.0
+margin/right = 96.0
+margin/bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "OK"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
