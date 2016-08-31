@@ -3,5 +3,25 @@ var bag
 
 var popup = preload("res://gui/gamepad.tscn").instance()
 
+var close_button
+
 func _init_bag(bag):
     self.bag = bag
+    self.bind()
+
+func bind():
+    self.close_button = self.popup.get_node('close')
+    self.close_button.connect('pressed', self, '_close_button_pressed')
+
+func _close_button_pressed():
+    self.bag.root.sound_controller.play('menu')
+    self.hide()
+
+func show():
+    self.bag.root.add_child(popup)
+    self.close_button.grab_focus()
+    self.bag.root.menu.hide()
+
+func hide():
+    self.bag.root.remove_child(popup)
+    self.bag.root.menu.show()

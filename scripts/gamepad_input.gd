@@ -8,7 +8,7 @@ const INPUT_DELAY = 0.2
 const AXIS_ANGLE_THRESHOLD = 0.2
 const AXIS_OVERALL_THRESHOLD = 0.5
 
-var gamepad_detected = false
+var gamepad_detected = true
 var ouya_gamepad_detected = false
 var painting = false
 var erasing = false
@@ -43,16 +43,28 @@ func handle_input(event):
         self.show_gamepad_icons()
 
 func show_gamepad_icons():
-    if self.bag.root.hud == null:
-        return
     if not self.gamepad_detected:
         return
+
+    #if not self.bag.root.settings['seen_gamepad'] and not self.bag.root.is_pandora:
+    if true:
+        self.bag.gamepad_popup.show()
+        self.bag.root.settings['seen_gamepad'] = true
+        self.bag.root.write_settings_to_file()
+
+    if self.bag.root.hud == null:
+        return
+
+    var icon_node
     for icon in self.gamepad_icons_boxes:
-        self.bag.root.hud.get_node(icon).show()
+        icon_node = self.bag.root.hud.get_node(icon)
+        if icon_node != null:
+            icon_node.show()
     self.bag.controllers.hud_panel_controller.building_panel.build_card.deploy_button_icon.show()
 
     if self.ouya_gamepad_detected:
         self.switch_buttons_to_ouya()
+
 
 func is_ouya(name):
     var validator = RegEx.new()

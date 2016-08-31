@@ -53,7 +53,8 @@ var settings = {
     'online_player_pin' : null,
     'is_overscan' : false,
     'language' : 'en',
-    'ENV' : 'dev'
+    'ENV' : 'dev',
+    'seen_gamepad' : false
 }
 
 var is_map_loaded = false
@@ -305,6 +306,7 @@ func load_menu():
     self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
+    self.bag.gamepad.show_gamepad_icons()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
