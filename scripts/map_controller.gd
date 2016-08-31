@@ -569,10 +569,8 @@ func save_map(file_name):
     if self.check_file_name(file_name):
         self.store_map_in_binary_file(file_name, temp_data)
         self.store_map_in_plain_file(file_name, temp_data)
-        #print('ToF: map saved to file')
         return true
     else:
-        #print('ToF: wrong file name')
         return false
 
 func store_map_in_binary_file(file_name, data):
@@ -605,11 +603,13 @@ func check_file_name(name):
     return true
 
 func load_map(file_name, is_remote = false, switch_tileset=true):
-    print('load map')
     if self.map_file.load_data_from_file(file_name, is_remote):
         if switch_tileset:
             self.switch_to_tileset(self.map_file.get_theme())
         self.fill_map_from_data_array(self.map_file.get_tiles())
+        self.theme = self.map_file.get_theme()
+        return true
+    return false
 
 func load_campaign_map(file_name):
     var campaign_map = self.campaign.get_map_data(file_name)
@@ -651,7 +651,6 @@ func clear_layer(layer):
         self.units.clear()
 
 func init_background():
-    #print('background generate..')
     for x in range(self.bag.abstract_map.MAP_MAX_X):
         for y in range(self.bag.abstract_map.MAP_MAX_Y):
             self.underground.set_cell(x,y,3)

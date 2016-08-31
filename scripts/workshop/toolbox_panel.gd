@@ -12,6 +12,18 @@ var fill_y_button_label
 var fill_button
 var clear_terrain_button
 var clear_units_button
+var theme_button
+
+var theme_rotation = {
+    'summer' : 'fall',
+    'fall' : 'winter',
+    'winter' : 'summer'
+}
+var theme_names = {
+    'summer' : 'LABEL_SUMMER',
+    'fall' : 'LABEL_FALL',
+    'winter' : 'LABEL_WINTER'
+}
 
 func init_root(root_node):
     self.root = root_node
@@ -29,6 +41,7 @@ func bind_panel(toolbox_panel_wrapper_node):
     self.fill_button = self.toolbox_panel.get_node("front/fill")
     self.clear_terrain_button = self.toolbox_panel.get_node("front/clear_terrain")
     self.clear_units_button = self.toolbox_panel.get_node("front/clear_units")
+    self.theme_button = self.toolbox_panel.get_node('front/theme')
 
     self.fill_x_button.connect("pressed", self, "fill_axis_button_pressed", [self.fill_x_button_label, 0])
     self.fill_y_button.connect("pressed", self, "fill_axis_button_pressed", [self.fill_y_button_label, 1])
@@ -38,13 +51,21 @@ func bind_panel(toolbox_panel_wrapper_node):
     self.fill_button.connect("pressed", self, "fill_button_pressed")
     self.clear_terrain_button.connect("pressed", self ,"_clear_button_pressed", [0])
     self.clear_units_button.connect("pressed", self, "_clear_button_pressed", [1])
+    self.theme_button.connect("pressed", self, "_theme_button_pressed")
+
+    self.refresh_theme_button()
 
 func _clear_button_pressed(layer_id):
     self.root.sound_controller.play('menu')
     self.workshop.toolbox_clear(layer_id)
 
+func _theme_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.cycle_theme()
+
 func show():
     self.toolbox_panel_wrapper.show()
+    self.refresh_theme_button()
 
 func hide():
     self.toolbox_panel_wrapper.hide()
@@ -65,3 +86,9 @@ func fill_axis_button_pressed(label, axis_index):
 func refresh_axis_button_label(label, axis_index):
     label.set_text(str(self.workshop.settings.fill[self.workshop.settings.fill_selected[axis_index]]))
 
+func cycle_theme():
+    self.workshop.selected_tileset = self.theme_rotation[self.workshop.selected_tileset]
+    self.refresh_theme_button()
+
+func refresh_theme_button():
+    self.theme_button.get_node('label').set_text(tr(self.theme_names[self.workshop.selected_tileset]))

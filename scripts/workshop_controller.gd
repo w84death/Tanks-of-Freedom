@@ -40,6 +40,8 @@ var settings = {
     fill_selected = [0,0],
 }
 
+var selected_tileset = 'summer'
+
 func init(root):
     self.root = root
     self.bag = root.bag
@@ -47,6 +49,7 @@ func init(root):
     terrain.add_child(selector)
     map.set_default_zoom()
     set_process_input(true)
+    self.selected_tileset = self.map.map_file.DEFAULT_THEME
 
 func _ready():
     init_gui()
@@ -118,6 +121,7 @@ func play_map():
 func save_map(name, input = false):
     if input:
         name = name.get_text()
+    self.map.theme = self.selected_tileset
     if not map.save_map(name):
         self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_ERROR_NAME") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 
@@ -127,6 +131,8 @@ func load_map(name, input = false, suppress=false, is_remote = false):
     if not map.load_map(name, is_remote, false):
         if not suppress:
             self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_NOT_FOUND") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
+    else:
+        self.selected_tileset = self.map.theme
 
 func paint(position, tool_type = null, brush_type = null, undo_action = false):
     if hud_message.is_visible():
@@ -221,7 +227,6 @@ func _input(event):
 
 func toggle_menu():
     if not self.is_working:
-        #print('skip')
         return
 
     if self.is_hidden():

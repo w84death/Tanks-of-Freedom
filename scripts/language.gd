@@ -107,6 +107,8 @@ func reload_labels():
     self.reload_button(workshop.toolbox_panel.fill_button, 'LABEL_WORKSHOP_CREATE', 'label')
     self.reload_button(workshop.toolbox_panel.clear_terrain_button, 'LABEL_WORKSHOP_TERRAIN', 'label')
     self.reload_button(workshop.toolbox_panel.clear_units_button, 'LABEL_WORKSHOP_UNITS', 'label')
+    workshop.toolbox_panel.refresh_theme_button()
+    self.reload_label(workshop.toolbox_panel.toolbox_panel.get_node('front/Label4'), 'LABEL_WORKSHOP_THEME')
 
     self.reload_button(workshop.building_blocks_panel.terrain_button, 'LABEL_WORKSHOP_TERRAIN')
     self.reload_button(workshop.building_blocks_panel.buildings_button, 'LABEL_WORKSHOP_BUILDINGS')
@@ -119,6 +121,7 @@ func reload_labels():
     self.reload_button(workshop.file_panel.save_button, 'LABEL_WORKSHOP_SAVE')
     self.reload_button(workshop.file_panel.pick_button, 'LABEL_WORKSHOP_PICK_MAP')
     self.reload_label(workshop.file_panel.file_panel.get_node('controls/top/map_name_'), 'MSG_WORKSHOP_USE_UNIQUE_NAME')
+
 
     #IN-GAME
     var hud = self.bag.root.hud
