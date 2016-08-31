@@ -490,8 +490,9 @@ func init_root(root_node):
 
 func load_background_map():
     self.background_map = self.root.map_template.instance()
+    self.background_map._init_bag(self.root.bag)
     self.background_map.is_dead = true
-    self.background_map.switch_to_tileset(self.root.main_tileset, self.root.bag)
+    self.background_map.switch_to_tileset(self.root.main_tileset)
     self.background_map.fill_map_from_data_array(self.root.bag.menu_background_map.map_data)
     self.background_map.show_blueprint = false
     self.background_map.get_node('fog_of_war').hide()

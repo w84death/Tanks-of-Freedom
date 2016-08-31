@@ -165,17 +165,19 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.menu.hide_background_map()
     current_map_name = template_name
     current_map = map_template.instance()
-    current_map.campaign = bag.campaign
+    current_map._init_bag(self.bag)
+    current_map.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[self.main_tileset])
+
+    # current_map.campaign = bag.campaign
     self.workshop_file_name = workshop_file_name
     self.is_remote = is_remote
     if workshop_file_name:
-        current_map.switch_to_tileset('summer', self.bag)
         self.is_from_workshop = true
         current_map.load_map(workshop_file_name, is_remote)
         self.bag.controllers.hud_panel_controller.info_panel.set_map_name(workshop_file_name)
     else:
         var campaign_tileset = self.bag.campaign.get_map_tileset(template_name)
-        current_map.switch_to_tileset(campaign_tileset, self.bag)
+        current_map.switch_to_tileset(campaign_tileset)
         human_player = 'cpu_' + str(self.bag.campaign.get_map_player(template_name))
         self.is_from_workshop = false
         self.settings['cpu_0'] = true

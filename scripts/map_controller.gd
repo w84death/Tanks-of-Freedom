@@ -20,6 +20,7 @@ var game_size
 var scale
 var root
 var camera
+var theme
 
 var shake_timer = Timer.new()
 var shakes = 0
@@ -35,7 +36,7 @@ const GEN_FLOWERS = 3
 const GEN_STONES = 6
 const GEN_SNOW_PARTICLES = 5
 
-var map_file = File.new()
+var map_file = load('res://scripts/services/map_file_handler.gd').new()
 var campaign
 var used_tiles_list = []
 
@@ -559,7 +560,8 @@ func get_map_data_as_array():
 
 func save_map(file_name):
     var temp_data = {
-        'tiles' : self.get_map_data_as_array()
+        'tiles' : self.get_map_data_as_array(),
+        'theme' : self.theme
     }
 
     file_name = str(file_name)
@@ -574,26 +576,15 @@ func save_map(file_name):
         return false
 
 func store_map_in_binary_file(file_name, data):
-    var the_file = map_file.open("user://" + file_name + ".map", File.WRITE)
-    map_file.store_var(data)
-    map_file.close()
+    var file_path = "user://" + file_name + ".map"
+    map_file.write(file_path, data)
     if file_name != "restore_map":
         self.root.bag.map_list.store_map(file_name)
         self.root.bag.controllers.menu_controller.update_custom_maps_count_label()
 
 func store_map_in_plain_file(file_name, data):
-    var the_file = map_file.open("user://" + file_name + ".gd", File.WRITE)
-    map_file.store_line("var map_data = [")
-    var cell_line
-    var cell
-    for cell in data['tiles']:
-        cell_line = "'x': " + str(cell.x) + ", "
-        cell_line += "'y': " + str(cell.y) + ", "
-        cell_line += "'terrain': " + str(cell.terrain) + ", "
-        cell_line += "'unit': " + str(cell.unit)
-        map_file.store_line("   {" + cell_line + "},")
-    map_file.store_line("]")
-    map_file.close()
+    var file_path = "user://" + file_name + ".gd"
+    map_file.write_as_plain_file(file_path, data)
 
 func check_file_name(name):
     # we need to check here for unusual charracters
@@ -613,32 +604,16 @@ func check_file_name(name):
 
     return true
 
-func load_map(file_name, is_remote = false):
-    var file_path
-    if is_remote:
-        file_path = "user://" + file_name + ".remote"
-    else:
-        file_path = "user://" + file_name + ".map"
-    return self.load_map_from_file(file_path)
+func load_map(file_name, is_remote = false, switch_tileset=true):
+    print('load map')
+    if self.map_file.load_data_from_file(file_name, is_remote):
+        if switch_tileset:
+            self.switch_to_tileset(self.map_file.get_theme())
+        self.fill_map_from_data_array(self.map_file.get_tiles())
 
 func load_campaign_map(file_name):
     var campaign_map = self.campaign.get_map_data(file_name)
     self.fill_map_from_data_array(campaign_map.map_data)
-
-func load_map_from_file(file_path):
-    var temp_data
-
-    if map_file.file_exists(file_path):
-        map_file.open(file_path, File.READ)
-        temp_data = map_file.get_var()
-        temp_data = temp_data['tiles']
-        self.fill_map_from_data_array(temp_data)
-        print('ToF: map ' + file_path + ' loaded from file')
-        map_file.close()
-        return true
-    else:
-        print('ToF: map file ' + file_path + ' not exists!')
-        return false
 
 func fill_map_from_data_array(data):
     var cell
@@ -670,24 +645,24 @@ func fill(width, height):
 
 func clear_layer(layer):
     if layer == 0:
-        units.clear()
-        terrain.clear()
+        self.units.clear()
+        self.terrain.clear()
     if layer == 1:
-        units.clear()
+        self.units.clear()
 
 func init_background():
     #print('background generate..')
     for x in range(self.bag.abstract_map.MAP_MAX_X):
         for y in range(self.bag.abstract_map.MAP_MAX_Y):
-            underground.set_cell(x,y,3)
+            self.underground.set_cell(x,y,3)
 
 func init_nodes():
-    underground = self.get_node("underground")
-    terrain = self.get_node("terrain")
-    units = terrain.get_node("units")
-    map_layer_back = terrain.get_node("back")
-    map_layer_front = terrain.get_node("front")
-    action_layer = terrain.get_node("actions")
+    self.underground = self.get_node("underground")
+    self.terrain = self.get_node("terrain")
+    self.units = terrain.get_node("units")
+    self.map_layer_back = terrain.get_node("back")
+    self.map_layer_front = terrain.get_node("front")
+    self.action_layer = terrain.get_node("actions")
 
 func _ready():
     root = get_node("/root/game")
@@ -747,16 +722,15 @@ func do_single_shake():
         self.underground.set_pos(shake_initial_position)
         self.terrain.set_pos(shake_initial_position)
 
-func switch_to_tileset(tileset, bag=null):
-    if bag != null:
-        self.bag = bag
-
-    if self.bag == null:
-        return
-
+func switch_to_tileset(tileset):
     self.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[tileset])
     self.map_movable = self.bag.tileset_handler.available_objects[tileset]['movable']
     self.map_non_movable = self.bag.tileset_handler.available_objects[tileset]['non-movable']
     self.map_city_small = self.bag.tileset_handler.available_city[tileset]['small']
     self.map_city_big = self.bag.tileset_handler.available_city[tileset]['large']
     self.map_statue = self.bag.tileset_handler.available_city[tileset]['statue']
+
+func _init_bag(bag):
+    self.bag = bag
+    self.campaign = bag.campaign
+

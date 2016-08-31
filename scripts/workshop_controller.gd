@@ -124,7 +124,7 @@ func save_map(name, input = false):
 func load_map(name, input = false, suppress=false, is_remote = false):
     if input:
         name = name.get_text()
-    if not map.load_map(name, is_remote):
+    if not map.load_map(name, is_remote, false):
         if not suppress:
             self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_NOT_FOUND") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 
