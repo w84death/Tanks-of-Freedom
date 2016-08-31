@@ -55,6 +55,7 @@ func reload_labels():
         self.reload_label(settings.get_node('music'), 'LABEL_MUSIC')
         self.reload_label(settings.get_node('overscan_group/overscan_label'), 'LABEL_OVERSCAN')
         self.reload_label(settings.get_node('overscan_group/overscan_notification'), 'LABEL_REQUIES_RESTART')
+        self.reload_button(menu.gamepad_info_button, 'LABEL_GAMEPAD_INFO')
 
     #CAMPAIGN
     var campaign = self.bag.controllers.campaign_menu_controller
@@ -183,7 +184,7 @@ func reload_labels():
 
 func reload_button(button, translation, label_node_name="Label"):
     if button:
-        button.get_node(label_node_name).set_text(tr(translation))
+        self.reload_label(button.get_node(label_node_name), translation)
 
 func reload_label(label, translation):
     if label:

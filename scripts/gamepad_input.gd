@@ -46,8 +46,7 @@ func show_gamepad_icons():
     if not self.gamepad_detected:
         return
 
-    #if not self.bag.root.settings['seen_gamepad'] and not self.bag.root.is_pandora:
-    if true:
+    if not self.bag.root.settings['seen_gamepad'] and not self.bag.root.is_pandora:
         self.bag.gamepad_popup.show()
         self.bag.root.settings['seen_gamepad'] = true
         self.bag.root.write_settings_to_file()
