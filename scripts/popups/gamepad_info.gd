@@ -18,10 +18,10 @@ func _close_button_pressed():
     self.hide()
 
 func show():
-    self.bag.root.add_child(popup)
+    self.bag.root.menu.add_child(popup)
     self.close_button.grab_focus()
-    self.bag.root.menu.hide()
+    self.bag.root.menu.hide_control_nodes()
 
 func hide():
-    self.bag.root.remove_child(popup)
-    self.bag.root.menu.show()
+    self.bag.root.menu.remove_child(popup)
+    self.bag.root.menu.show_control_nodes()
