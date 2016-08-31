@@ -306,7 +306,6 @@ func load_menu():
     self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
-    self.bag.gamepad_popup.show()
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
