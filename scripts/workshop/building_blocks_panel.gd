@@ -133,7 +133,7 @@ func set_building_block_type(layer, tile_id, tile_name):
     self.root.sound_controller.play('menu')
     self.workshop.tool_type = layer
     self.workshop.brush_type = tile_id
-    self.workshop_gui_controller.navigation_panel.set_block_label(tile_name)
+    self.workshop_gui_controller.navigation_panel.set_block_label(tr("LABEL_WORKSHOP_" + tile_name))
     self.workshop.movement_mode = false
     self.hide()
 
