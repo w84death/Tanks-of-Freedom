@@ -3,7 +3,7 @@ var root
 var ready = false
 var screen_size
 
-var file_panel_size = Vector2(640, 210)
+var file_panel_size = Vector2(640, 230)
 var file_panel_top_offset = 108
 var bottom_panel_size = Vector2(640, 70)
 var pick_button_size = Vector2(135, 130)
