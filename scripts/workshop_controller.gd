@@ -123,14 +123,14 @@ func save_map(name, input = false):
         name = name.get_text()
     self.map.theme = self.selected_tileset
     if not map.save_map(name):
-        self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_ERROR_NAME") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
+        self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_ERROR_NAME"), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 
 func load_map(name, input = false, suppress=false, is_remote = false):
     if input:
         name = name.get_text()
     if not map.load_map(name, is_remote, false):
         if not suppress:
-            self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_NOT_FOUND") + str(name), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
+            self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_NOT_FOUND"), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
     else:
         self.selected_tileset = self.map.theme
 

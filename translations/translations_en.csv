@@ -210,3 +210,8 @@ LABEL_WORKSHOP_THEME,MAP THEME
 LABEL_SUMMER,SUMMER
 LABEL_FALL,FALL
 LABEL_WINTER,WINTER
+LABEL_WORKSHOP_FAILURE,OPERATION FAILURE
+MSG_WORKSHOP_FILE_ERROR_NAME,"Map name may only contain alphanumeric characters and an underscore sign."
+MSG_WORKSHOP_FILE_NOT_FOUND,"Map with specified name does not exists."
+MSG_WORKSHOP_CHECK_TYPOS,"Please re-check file name"
+LABEL_OK,OK
