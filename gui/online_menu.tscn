@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=4]
 [ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=6]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" id=7]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=7]
 
 [node name="online" type="Control"]
 
@@ -189,11 +188,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
+theme/theme = ExtResource( 7 )
 margin/left = -233.0
 margin/top = -17.0
 margin/right = 237.0
 margin/bottom = 13.0
-custom_fonts/font = ExtResource( 7 )
 text = "ONLINE MAPS"
 percent_visible = 1.0
 lines_skipped = 0
@@ -209,7 +208,6 @@ margin/left = -227.0
 margin/top = 23.0
 margin/right = 230.0
 margin/bottom = 67.0
-custom_fonts/font = ExtResource( 8 )
 text = "DOWNLOAD NEW MAPS OR SHARE YOUR OWN CREATIONS WITH THE WORLD!"
 autowrap = true
 percent_visible = 1.0
