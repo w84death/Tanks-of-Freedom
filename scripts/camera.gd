@@ -21,6 +21,7 @@ var camera_follow = true
 var temp_delta = 0
 var panning = false
 
+const CAMERA_ACCELERATION = 1.5
 const MAP_STEP = 0.01
 const NEAR_THRESHOLD = 20
 const NEAR_SCREEN_THRESHOLD = 0.2
@@ -123,8 +124,8 @@ func process(delta):
             if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
                 target = pos
             else:
-                self.sX = self.sX + diff_x * temp_delta;
-                self.sY = self.sY + diff_y * temp_delta;
+                self.sX = self.sX + diff_x * temp_delta * self.CAMERA_ACCELERATION;
+                self.sY = self.sY + diff_y * temp_delta * self.CAMERA_ACCELERATION;
                 var new_pos = Vector2(self.sX, self.sY)
                 self.camera.set_offset(new_pos)
             temp_delta = 0
