@@ -137,7 +137,7 @@ func reload_labels():
         self.reload_label(hud_panel.building_panel.building_panel.get_node('health'), 'LABEL_HEALTH')
         self.reload_label(hud_panel.building_panel.building_panel.get_node('range'), 'LABEL_RANGE')
         self.reload_label(hud_panel.building_panel.building_panel.get_node('price_'), 'LABEL_DEPLOY_PRICE')
-        self.reload_label(hud_panel.building_panel.building_panel.get_node('no_ap'), 'MSG_NO_ENOUGH_AP')
+        self.reload_label(hud_panel.building_panel.building_panel.get_node('no_ap/no_ap'), 'MSG_NO_ENOUGH_AP')
         self.reload_button(hud_panel.building_panel.build_card.deploy_button, 'LABEL_DEPLOY')
 
         self.reload_label(hud_panel.unit_panel.unit_panel.get_node('attack_'), 'LABEL_ATTACK')
