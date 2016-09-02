@@ -11,6 +11,7 @@
 - modified Pandora layout to maximize map view
 - translated campaign mission descriptions to Polish
 - game should now not quit when using 'back' on android devices
+- lowered resolution for Android to make game more eligible on phones
 - fixed some labels in menus not having non-latin chars
 - fixed some labels changing positions when too long text was set
 - fixed many translation errors in PL and EN

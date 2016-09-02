@@ -3,12 +3,17 @@
 action="none"
 compress_quality=0.7
 formats="png"
-shrink=1
+shrink=1.0
+
+[convert_scenes]
+
+convert_text_scenes=true
 
 [export_filter]
 
 filter=""
-type="resources"
+filter_exclude=""
+type="all"
 
 [platform:Android]
 
@@ -20,6 +25,7 @@ architecture/x86=false
 command_line/extra_args=""
 custom_package/debug=""
 custom_package/release=""
+debug/debugging_enabled=false
 keystore/release=""
 keystore/release_password=""
 keystore/release_user=""
