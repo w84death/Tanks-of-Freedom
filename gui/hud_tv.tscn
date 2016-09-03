@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=19 format=1]
 
 [ext_resource path="res://assets/overscan1920.jpg" type="Texture" id=1]
 [ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=2]
@@ -17,8 +17,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=15]
 [ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=16]
 [ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=17]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=18]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=19]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=18]
 
 [node name="GUI" type="Control"]
 
@@ -226,7 +225,6 @@ frame = 1
 
 [node name="gamepad_buttons" type="Control" parent="top_center/center/game_card"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -265,7 +263,6 @@ margin/left = 198.0
 margin/top = 20.0
 margin/right = 306.0
 margin/bottom = 35.0
-custom_fonts/font = ExtResource( 18 )
 text = "LABEL_SELECT_UNIT"
 percent_visible = 1.0
 lines_skipped = 0
@@ -290,7 +287,6 @@ margin/left = -253.0
 margin/top = 20.0
 margin/right = -165.0
 margin/bottom = 35.0
-custom_fonts/font = ExtResource( 18 )
 text = "LABEL_NEXT_TURN"
 percent_visible = 1.0
 lines_skipped = 0
@@ -309,7 +305,7 @@ margin/top = 160.0
 margin/right = 256.0
 margin/bottom = 160.0
 
-[node name="end_game" parent="." instance=ExtResource( 19 )]
+[node name="end_game" parent="." instance=ExtResource( 18 )]
 
 visibility/visible = false
 margin/top = 512.0

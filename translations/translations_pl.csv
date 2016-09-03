@@ -215,3 +215,4 @@ MSG_WORKSHOP_FILE_ERROR_NAME,"Nazwa mapy może zawierać jedynie symbole alfanum
 MSG_WORKSHOP_FILE_NOT_FOUND,"Mapa o podanej nazwie nie istnieje."
 MSG_WORKSHOP_CHECK_TYPOS,"Sprawdź literówki."
 LABEL_OK,OK
+LABEL_NEXT_TURN,KONIEC TURY

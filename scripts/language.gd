@@ -146,6 +146,9 @@ func reload_labels():
 
         self.reload_label(hud_panel.end_turn_panel_scene.get_node('turn_'), 'LABEL_TURN')
 
+        self.reload_label(hud.get_node('top_center/center/game_card/gamepad_buttons/Label'), 'LABEL_SELECT_UNIT')
+        self.reload_label(hud.get_node('top_center/center/game_card/gamepad_buttons/Label1'), 'LABEL_NEXT_TURN')
+
     #GAME OVER
         hud_controller.adjust_missions_button()
         hud_game_over = hud_controller.hud_end_game

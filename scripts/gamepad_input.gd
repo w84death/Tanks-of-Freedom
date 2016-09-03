@@ -15,14 +15,14 @@ var erasing = false
 
 var gamepad_icons_boxes = [
     'message_card/center/message/button/Sprite',
-    'top_panel/center/game_card/gamepad_buttons'
+    'top_center/center/game_card/gamepad_buttons'
 ]
 
 var gamepad_icons = [
     'message_card/center/message/button/Sprite',
-    'top_panel/center/game_card/gamepad_buttons/gamepad_button',
-    'top_panel/center/game_card/gamepad_buttons/gamepad_button2',
-    'top_panel/center/game_card/gamepad_buttons/gamepad_button3',
+    'top_center/center/game_card/gamepad_buttons/gamepad_button',
+    'top_center/center/game_card/gamepad_buttons/gamepad_button2',
+    'top_center/center/game_card/gamepad_buttons/gamepad_button3',
 ]
 
 
@@ -36,11 +36,14 @@ func handle_input(event):
         self.handle_button(event)
 
     if not self.gamepad_detected:
-        var pad_name = Input.get_joy_name(event.device)
-        if self.is_ouya("is it OUYA? totally OUYA"):
-            self.ouya_gamepad_detected = true
-        self.gamepad_detected = true
-        self.show_gamepad_icons()
+        self.mark_gamepad(event)
+
+func mark_gamepad(event):
+    var pad_name = Input.get_joy_name(event.device)
+    if self.is_ouya(pad_name):
+        self.ouya_gamepad_detected = true
+    self.gamepad_detected = true
+    self.show_gamepad_icons()
 
 func show_gamepad_icons():
     if not self.gamepad_detected:
@@ -59,6 +62,8 @@ func show_gamepad_icons():
         icon_node = self.bag.root.hud.get_node(icon)
         if icon_node != null:
             icon_node.show()
+        else:
+            print(icon)
     self.bag.controllers.hud_panel_controller.building_panel.build_card.deploy_button_icon.show()
 
     if self.ouya_gamepad_detected:
@@ -81,7 +86,8 @@ func switch_buttons_to_ouya():
     var offset = 4
     for icon in self.gamepad_icons:
         icon_sprite = self.bag.root.hud.get_node(icon)
-        icon_sprite.set_frame(icon_sprite.get_frame() + offset)
+        if icon_sprite != null:
+            icon_sprite.set_frame(icon_sprite.get_frame() + offset)
 
 
 func handle_motion(event):
