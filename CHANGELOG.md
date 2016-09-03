@@ -2,6 +2,9 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.5.3-beta
+- improved French translation
+
 ### 0.5.2-beta
 - added changing terrain and city tiles to seasons
 - added SSL to all online communication

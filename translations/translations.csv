@@ -4,16 +4,16 @@ LABEL_ACTION_SLOTS,ACTION SLOTS,ACTION SLOTS,SLOTY AKCJI
 LABEL_ATTACK,ATTACK,ATTAQUER,ATAK
 LABEL_AUTO_FOLLOW,CAMERA AUTO FOLLOW,SUIVI AUTO CAMÉRA,AUT. ŚLEDZ. KAMERY
 LABEL_BACK,BACK,RETOUR,COFNIJ
-LABEL_BACK_TO_MENU,OPEN MAIN MENU,OPEN MAIN MENU,OTWÓRZ MENU GŁÓWNE
+LABEL_BACK_TO_MENU,OPEN MAIN MENU,MENU PRINCIPAL,OTWÓRZ MENU GŁÓWNE
 LABEL_BIGGER,BIGGER,+ GROS,BLIŻEJ
 LABEL_BLUE,BLUE,BLEU,NIEBIESKA
 LABEL_BLUE_TEAM,BLUE TEAM,ÉQUIPE BLEUE,DRUŻYNA NIEBIESKA
 LABEL_BLUE_WINS,BLUE WINS,LES BLEUS GAGNENT,ZWYCIĘŻYLI NIEBIESCY
 LABEL_BUILDING,BUILDING,BÂTIMENT,BUDYNEK
 LABEL_BUILDING_AIRPORT,AIRPORT,AÉROPORTS,LOTNISKO
-LABEL_BUILDING_BARRACKS,BARRACKS,CASERNES,KOSZARY
+LABEL_BUILDING_BARRACKS,BARRACKS,CASERNE,KOSZARY
 LABEL_BUILDING_FACTORY,FACTORY,USINES,FABRYKA
-LABEL_BUILDING_GSM_TOWER,GSM TOWER,TOUR RADAR,WIEŻA RTV
+LABEL_BUILDING_GSM_TOWER,GSM TOWER,RADAR,WIEŻA RTV
 LABEL_BUILDING_HQ,HQ,QG,CENTRALA
 LABEL_CAMERA_SHAKE,CAMERA SHAKE,SECOUSSES CAMERA,WSTRZĄSY KAMERY
 LABEL_CAMPAIGN,CAMPAIGN,CAMPAGNE,KAMPANIA
@@ -25,7 +25,7 @@ LABEL_DELETE_MODE,DELETE,DELETE MODE,USUWANIE
 LABEL_DEPLOY,DEPLOY,DÉPLOYER,ROZLOKUJ
 LABEL_DEPLOYED,DEPLOYED,DEPLOYÉ,JEDNOSTKI
 LABEL_DEPLOY_PRICE,DEPLOY PRICE,PRIX,KOSZT
-LABEL_DEPLOY_UNIT,BUY NEW UNIT,BUY NEW UNIT,KUP JEDNOSTKĘ
+LABEL_DEPLOY_UNIT,BUY NEW UNIT,ACH. NOUV. UNITÉ,KUP JEDNOSTKĘ
 LABEL_DIFFICULTY,DIFFICULTY,DIFFICULTÉ,POZIOM TRUDNOŚCI
 LABEL_DOMINATION,DOMINATION,DOMINATION,DOMINACJA
 LABEL_DONE,Done,Terminé,Zakończ
@@ -33,8 +33,8 @@ LABEL_DOWNLOAD,Download,Téléchargement,Pobierz
 LABEL_DOWNLOAD_MAP,Download Map,Envoyer une carte,Pobierz mapę
 LABEL_EASY,EASY,FACILE,ŁATWY
 LABEL_ELIMINATED,ELIMINATED,ÉLÉMINÉ,WYELIMINOWANE
-LABEL_END_TURN,END YOUR TURN,END YOUR TURN,ZAKOŃCZ TURĘ
-LABEL_FALL,FALL,FALL,JESIEŃ
+LABEL_END_TURN,END YOUR TURN,FIN DU TOUR,ZAKOŃCZ TURĘ
+LABEL_FALL,FALL,AUTOMNE,JESIEŃ
 LABEL_FULL_SCREEN,FULL SCREEN,PLEIN ÉCRAN,PEŁNY EKRAN
 LABEL_GAME,GAME,JEU,GRA
 LABEL_GAMEPAD_INFO,GAMEPAD INFO,GAMEPAD INFO,KONTROLER
@@ -50,8 +50,8 @@ LABEL_LANGUAGE,LANGUAGE,LANGUE,JĘZYK
 LABEL_LATER,Maybe later,Plus tard...,Może później
 LABEL_LOCAL,LOCAL,LOCAL,LOKALNE
 LABEL_MAIN_MENU,MAIN MENU,MENU,MENU GŁÓWNE
-LABEL_MAP EDITOR,MAP EDITOR,ÉDITEUR DE CARTE,EDYTOR MAP
-LABEL_MAPS,MAPS,CARTES,MAPY
+LABEL_MAP EDITOR,MAP EDITOR,ÉDITEUR,EDYTOR MAP
+LABEL_MAPS,MAPS,CARTE,MAPY
 LABEL_MAPS_CREATED,MAPS CREATED,CARTE CRÉÉE,STWORZONYCH MAP
 LABEL_MAP_NAME,MAP NAME,NOM CARTE,NAZWA MAPY
 LABEL_MAP_TO_UPLOAD,Map to upload,Carte à envoyer,Mapa do wysłania
@@ -63,9 +63,9 @@ LABEL_MUSIC,MUSIC,MUSIQUE,MUZYKA
 LABEL_NAME,NAME,NOM,IMIĘ
 LABEL_NEW_TURN,NEW TURN,NOUV. TOUR,NOWA TURA
 LABEL_NEXT,NEXT,SUIVANT,NASTĘPNY
-LABEL_NEXT_TURN,END TURN,END TURN,KONIEC TURY
-LABEL_NEXT_TURN_GAIN,NEXT TURN GAIN,GAIN TOUR SUIVANT,ZYSK NA TURĘ
-LABEL_NEXT_UNIT,SELECT NEXT UNIT,SELECT NEXT UNIT,NASTĘPNA JEDNOSTKA
+LABEL_NEXT_TURN,END TURN,FINIR TOUR,KONIEC TURY
+LABEL_NEXT_TURN_GAIN,NEXT TURN GAIN,TOUR SUIVANT,ZYSK NA TURĘ
+LABEL_NEXT_UNIT,SELECT NEXT UNIT,UNITÉ SUIVANTE,NASTĘPNA JEDNOSTKA
 LABEL_NORMAL,NORMAL,NORMAL,NORMALNY
 LABEL_OFF,OFF,OFF,NIE
 LABEL_OK,OK,OK,OK
@@ -80,7 +80,7 @@ LABEL_PLAYING_AS,PLAYING AS,JOUER,GRASZ JAKO
 LABEL_PLAY_AGAIN,PLAY AGAIN,REJOUER,REWANŻ
 LABEL_PLEASE_WAIT,PLEASE WAIT...,UN INSTANT...,PROSZĘ CZEKAĆ...
 LABEL_PREVIOUS,PREVIOUS,PRÉCÉDANT,POPRZEDNI
-LABEL_PREVIOUS_UNIT,SELECT PREVIOUS UNIT,SELECT PREVIOUS UNIT,POPRZEDNIA JEDNOSTKA
+LABEL_PREVIOUS_UNIT,SELECT PREVIOUS UNIT,UNITÉ PRÉCÉDANTE,POPRZEDNIA JEDNOSTKA
 LABEL_PROCEED_QUESTION,Proceed?,Continuer?,Kontynuować?
 LABEL_QUIT_GAME,QUIT GAME,QUITTER,WYJDŹ
 LABEL_RANGE,RANGE,RANG,ZASIĘG
@@ -93,7 +93,7 @@ LABEL_REMOTE,REMOTE,REMOTE,ZDALNE
 LABEL_REQUIES_RESTART,MAP RESTART REQUIRED,REDÉMARRAGE REQUIS,WYMAGA RESTARTU MAPY
 LABEL_RESUME,RESUME,CONTINUER,KONTYNUUJ
 LABEL_RUN_DEMO,RUN DEMO,DÉMO,DEMO
-LABEL_SELECT,PERFORM ACTION,PERFORM ACTION,WYKONAJ AKCJĘ
+LABEL_SELECT,PERFORM ACTION,EFFECTUER,WYKONAJ AKCJĘ
 LABEL_SELECTED_MAP,SELECTED MAP:,CARTE CHOISIE :,WYBRANA MAPA
 LABEL_SELECTOR_MOVEMENT,MOVE FIELD SELECTOR,MOVE FIELD SELECTOR,PORUSZ WSKAŹNIKIEM
 LABEL_SELECT_UNIT,SELECT UNIT,CHOISIR,WYBIERZ JEDNOSTKĘ
@@ -103,7 +103,7 @@ LABEL_SMALLER,SMALLER,+ PETIT,DALEJ
 LABEL_SOUND_EFFECTS,SOUND EFFECTS,EFFETS SONORES,EFEKTY DZWIĘKOWE
 LABEL_START,START,DÉMARRER,START
 LABEL_START_TURN,START TURN,GO !,START TURY
-LABEL_SUMMER,SUMMER,SUMMER,LATO
+LABEL_SUMMER,SUMMER,ÉTÉ,LATO
 LABEL_TIME,TIME,TEMPS,CZAS
 LABEL_TOTAL_SCORE,TOTAL SCORE,SCORE TOTAL,PUNKTACJA
 LABEL_TURN,TURN,TOUR,TURA
@@ -120,31 +120,31 @@ LABEL_UPLOAD_MAP,Upload Map,Envoyer la carte,Wysyłanie mapy
 LABEL_VERSION,Version,Version,Wersja
 LABEL_WINDOW,WINDOW,FENÊTRE,OKNO
 LABEL_WINS,WINS,VICTOIRES,WYGRANE
-LABEL_WINTER,WINTER,WINTER,ZIMA
+LABEL_WINTER,WINTER,HIVER,ZIMA
 LABEL_WORKSHOP,WORKSHOP,WORKSHOP,EDYTOR
 LABEL_WORKSHOP_AIRPORT,AIRPORT,AÉROPORT,LOTNISKO
-LABEL_WORKSHOP_BARRACKS,BARRACKS,CASERNES,KOSZARY
+LABEL_WORKSHOP_BARRACKS,BARRACKS,CASERNE,KOSZARY
 LABEL_WORKSHOP_BRIDGE,BRIDGE,PONT,MOST
-LABEL_WORKSHOP_BUILDINGS,BUILDINGS,BATIMENTS,BUDYNKI
-LABEL_WORKSHOP_BUILD_TERRAIN,BUILD TERRAIN,CONSTRUIRE TERRAIN,BUDUJ TEREN
+LABEL_WORKSHOP_BUILDINGS,BUILDINGS,BÂTIMENTS,BUDYNKI
+LABEL_WORKSHOP_BUILD_TERRAIN,BUILD TERRAIN,TERRAIN,BUDUJ TEREN
 LABEL_WORKSHOP_CITY,CITY,VILLE,MIASTO
-LABEL_WORKSHOP_CLEAR_LAYERS,CLEAR LAYERS,COUCHES CLAIRES,WYCZYŚĆ WARSTWY
+LABEL_WORKSHOP_CLEAR_LAYERS,CLEAR LAYERS,TOUT SUPPRIMER :,WYCZYŚĆ WARSTWY
 LABEL_WORKSHOP_CREATE,CREATE,CRÉER,STWÓRZ
 LABEL_WORKSHOP_DIRT,DIRT,BOUE,PIASEK
 LABEL_WORKSHOP_EREASE,EREASE,EFFACER,USUŃ
 LABEL_WORKSHOP_FACTORY,FACTORY,USINE,FABRYKA
-LABEL_WORKSHOP_FAILURE,OPERATION FAILURE,OPERATION FAILURE,BŁĄD OPERACJI
+LABEL_WORKSHOP_FAILURE,OPERATION FAILURE,ÉCHEC DE L'OPÉRATION,BŁĄD OPERACJI
 LABEL_WORKSHOP_FENCE,FENCE,CLÔTURE,PŁOT
 LABEL_WORKSHOP_FILES_MANAGER,FILES MANAGER,FICHIERS,PLIKI
 LABEL_WORKSHOP_FILE_SAVED,FILE SAVED,FICH. SAUV.,PLIK ZAPISANY
 LABEL_WORKSHOP_FOREST,FOREST,FÔRET,LAS
-LABEL_WORKSHOP_GSM_TOWER,GSM TOWER,TOUR RADAR,WIEŻA
-LABEL_WORKSHOP_HELI,HELI,HELI,ŚMIGŁOWIEC
+LABEL_WORKSHOP_GSM_TOWER,GSM TOWER,RADAR,WIEŻA
+LABEL_WORKSHOP_HELI,HELI,HÉLICO,ŚMIGŁOWIEC
 LABEL_WORKSHOP_HQ,HQ,QG,CENTRALA
-LABEL_WORKSHOP_INFANTRY,INFANTRY,INFANTRY,PIECHOTA
+LABEL_WORKSHOP_INFANTRY,INFANTRY,INFANTRIE,PIECHOTA
 LABEL_WORKSHOP_LOAD,LOAD,CHARGER,WCZYTAJ
 LABEL_WORKSHOP_MOUNTAIN,MOUNTAIN,MONTAGNE,GÓRY
-LABEL_WORKSHOP_MOVE_MAP,MOVE MAP,BOUGER LA CARTE,PRZESUŃ MAPĘ
+LABEL_WORKSHOP_MOVE_MAP,MOVE MAP,BOUGER CARTE,PRZESUŃ MAPĘ
 LABEL_WORKSHOP_PICK_MAP,PICK MAP,CHOISIR CARTE,WYBIERZ MAPĘ
 LABEL_WORKSHOP_PLAIN,PLAIN,PLAINE,TRAWA
 LABEL_WORKSHOP_RIVER,RIVER,RIVIÈRE,RZEKA
@@ -158,38 +158,38 @@ LABEL_WORKSHOP_SPAWN,SPAWN,SPAWN,WYJSCIE
 LABEL_WORKSHOP_STATUE,STATUE,STATUE,POSĄG
 LABEL_WORKSHOP_TANK,TANK,TANK,CZOŁG
 LABEL_WORKSHOP_TERRAIN,TERRAIN,TERRAIN,TEREN
-LABEL_WORKSHOP_THEME,MAP THEME,MAP THEME,ZESTAW KAFELKÓW
+LABEL_WORKSHOP_THEME,MAP THEME,THÈME CARTE,ZESTAW KAFELKÓW
 LABEL_WORKSHOP_TOOLBOX,TOOLBOX,TOOLBOX,NARZĘDZIA
-LABEL_WORKSHOP_TOWER,TOWER,TOUR,WIEŻA
+LABEL_WORKSHOP_TOWER,TOWER,RADAR,WIEŻA
 LABEL_WORKSHOP_UNDO_BUILD,UNDO BUILD,DÉFAIRE,COFNIJ RUCH
 LABEL_WORKSHOP_UNITS,UNITS,UNITÉS,JEDNOSTKI
-LABEL_ZOOM_LEVEL,ZOOM LEVEL,NIVEAU DE ZOOM,POZIOM PRZYBLIŻENIA
+LABEL_ZOOM_LEVEL,ZOOM LEVEL,ZOOM,POZIOM PRZYBLIŻENIA
 MSG_EMPTY_DISPLAY,&lt; NOTHING TO DISPLAY&#000a;&lt; SELECT UNIT OR BUILDING,&lt; RIEN À AFFICHER&#000a;&lt; SÉLECTIONNEZ UNE UNITÉ OU UN BÂTIMENT,NIC DO WYŚWIETLENIA - ZAZNACZ JEDNOSTKĘ LUB BUDYNEK
 MSG_FREE_AS_FREEDOM,"* FREE AS FREEDOM, NOT FREE AS IN FREE BEER","* FREE AS FREEDOM, NOT FREE AS IN FREE BEER","* WOLNA JAK WOLNOŚĆ, NIE JAK ŻÓŁW"
-MSG_GAME_DESCRIPTION_1,FREE* & OPEN-SOURCE,FREE* & OPEN-SOURCE,"WOLNA*, OTWARTA"
-MSG_GAME_DESCRIPTION_2,TURN-BASED STRATEGY GAME,JEU DE STRATÉGIE TOUR PAR TOUR,TUROWA STRATEGIA
+MSG_GAME_DESCRIPTION_1,FREE* & OPEN-SOURCE,JEU DE STRATÉGIE AU TOUR PAR TOUR,"WOLNA*, OTWARTA"
+MSG_GAME_DESCRIPTION_2,TURN-BASED STRATEGY GAME,LIBRE ET OPEN SOURCE,TUROWA STRATEGIA
 MSG_INDIE_GAME,INDIE GAME&#000a;DESIGN &amp; &#000a;DEVELOP,INDIE GAME&#000a;DESIGN &amp; &#000a;DEVELOP,GRA NIEZALEŻNA
 MSG_NO_ENOUGH_AP,NOT ENOUGH AP,AP INSUFFISANT,BRAK PUNKTOW AKCJI
 MSG_ONLINE_MENU_DESC,DOWNLOAD NEW MAPS OR SHARE YOUR OWN CREATIONS WITH THE WORLD!,TÉLÉCHARGEZ DE NOUVELLES CARTES OU PARTAGEZ VOS CRÉATIONS AVEC LE MONDE!,POBIERAJ NOWE MAPY I DZIEL SIĘ SWOIMI DZIEŁAMI ZE ŚWIATEM!
 MSG_START_YOUR_TURN_NOW,Start your turn now!,À votre tour maintenant !,ROZPOCZNIJ SWOJA TURE!
-MSG_WORKSHOP_CHECK_TYPOS,Please re-check file name,Please re-check file name,Sprawdź literówki.
-MSG_WORKSHOP_CREATE_NEW_ISLAND,CREATE NEW ISLAND IN THE CENTER,CRÉER UNE NOUVELLE ILE AU CENTRE,TWORZY NOWA WYSPĘ NA ŚRODKU MAPY
-MSG_WORKSHOP_FILE_ERROR_NAME,Map name may only contain alphanumeric characters and an underscore sign.,Map name may only contain alphanumeric characters and an underscore sign.,Nazwa mapy może zawierać jedynie symbole alfanumeryczne.
-MSG_WORKSHOP_FILE_NOT_FOUND,Map with specified name does not exists.,Map with specified name does not exists.,Mapa o podanej nazwie nie istnieje.
+MSG_WORKSHOP_CHECK_TYPOS,Please re-check file name,Revérifiez le nom du fichier SVP,Sprawdź literówki.
+MSG_WORKSHOP_CREATE_NEW_ISLAND,CREATE NEW ISLAND IN THE CENTER,CRÉER UNE NOUVELLE ÎLE AU CENTRE,TWORZY NOWA WYSPĘ NA ŚRODKU MAPY
+MSG_WORKSHOP_FILE_ERROR_NAME,Map name may only contain alphanumeric characters and an underscore sign.,Les noms de carte ne doivent contenir que des symboles alphanumériques et underscores.,Nazwa mapy może zawierać jedynie symbole alfanumeryczne.
+MSG_WORKSHOP_FILE_NOT_FOUND,Map with specified name does not exists.,Ce nom ne correspond à aucune carte.,Mapa o podanej nazwie nie istnieje.
 MSG_WORKSHOP_LOSE_MAP_DATA,YOU WILL LOSE MAP DATA!,VOUS PERDREZ LA CARTE CRÉÉE!,STRACISZ CAŁĄ MAPĘ!
 MSG_WORKSHOP_USE_UNIQUE_NAME,USE UNIQUE NAME,UTILISEZ UN NOM UNIQUE,UŻYJ UNIKALNEJ NAZWY
 TIP_1,Each unit can attack only once a turn,Chaque unité ne peut attaquer qu'une seule fois par tour,Każda jednostka może zaatakować tylko raz na turę
 TIP_10,Mixing unit types in squads gives you a strategic advantage,Mélanger différents types d'unités dans un bataillon vous donne un avantage stratégique,Oddziały o zróżnicowanym składzie mają większe szanse na sukces
-TIP_11,You cannot deploy unit when spawning point is blocked and so do the enemy - block factories with your units,Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi,Nie można kupowac nowych oddziałów
-TIP_12,Units can attack only adjacent tiles - so when target is far away you should firstly move your unit,Une unité  n peut attaquer que les cases adjacentes à sa position - si votre cible se trouve loin,Jednostki mogą atakować tylko pola obok siebie - jeżeli cel jest dalej
-TIP_13,HQ is the most valuable building in game - if you capture enemy HQ you will win the game,Le QG est le bâtiment le plus important du jeu - Si vous capturez le QG ennemi vous gagnerez,Kwatera Główna jest najważniejszym budynkiem - przejęcie Kwatery oznacza zwycięstwo
-TIP_2,Units have own weaknesses and advantages - only troops can capture buildings but they have almost no chance against tanks and tanks can’t attack helis,Chaque unité à ses forces et ses faiblesses - seul les fantassins peuvent capturer les batiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères,Jednostki mają wady i zalety - piechota może zajmowac budynki
-TIP_3,You can deploy soldiers in HQ but it is cheaper to do so in the barracks,Vous pouvez déployer des soldats dans le QG mais c'est moins cher de le faire dans les casernes,Możesz rekrutować piechotę w Kwaterze Głównej
-TIP_4,Unit losses all his remaining AP in turn when capturing Tower,Les unités perdent tout leurs points d'action quand ils capturent un bâtiment,Piechota traci całe AP na bierzącą turę
-TIP_5,All production buildings require a soldier to maintain it - capturing them will cost you a soldier unit,Chaque batiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat,Wszystkie budynki produkcyjne wymagają żołnierza do obsługi - zajęcie ich kosztuje Cię jednostkę
-TIP_6,HQ and captured Towers or Airports will produce cash in every turn,Le QG,Kwatera Główna
-TIP_7,Cash can be spend for deploying units and movement,Le cash peut être dépensé pour déployer des unités,Punkty Akcji służą do poruszania jednostek oraz do kupowania nowych wojsk
-TIP_8,Use your cash wisely - a big army will be slower and less effective than a small squad,Utilisez votre argent avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon,Używaj swoich Punktów Akcji rozważnie - duża armia porusza się wolniej
+TIP_11,You cannot deploy unit when spawning point is blocked and so do the enemy - block factories with your units,Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats!,Nie można kupowac nowych oddziałów
+TIP_12,Units can attack only adjacent tiles - so when target is far away you should firstly move your unit,Une unité ne peut attaquer que les cases adjacentes à sa position - vous devez d'abord déplacer votre unité si votre cible se trouve trop loin,Jednostki mogą atakować tylko pola obok siebie - jeżeli cel jest dalej
+TIP_13,HQ is the most valuable building in game - if you capture enemy HQ you will win the game,Le QG est le bâtiment le plus important du jeu. Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate...,Kwatera Główna jest najważniejszym budynkiem - przejęcie Kwatery oznacza zwycięstwo
+TIP_2,Units have own weaknesses and advantages - only troops can capture buildings but they have almost no chance against tanks and tanks can’t attack helis,Chaque unité à ses forces et ses faiblesses - seul les fantassins peuvent capturer les bâtiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères,Jednostki mają wady i zalety - piechota może zajmowac budynki
+TIP_3,You can deploy soldiers in HQ but it is cheaper to do so in the barracks,Vous pouvez déployer des soldats dans le QG mais il est moins cher de le faire dans les casernes,Możesz rekrutować piechotę w Kwaterze Głównej
+TIP_4,Unit losses all his remaining AP in turn when capturing Tower,Les unités qui capturent un bâtiment ne peuvent plus rien faire jusqu'au tour suivant,Piechota traci całe AP na bierzącą turę
+TIP_5,All production buildings require a soldier to maintain it - capturing them will cost you a soldier unit,Chaque bâtiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat,Wszystkie budynki produkcyjne wymagają żołnierza do obsługi - zajęcie ich kosztuje Cię jednostkę
+TIP_6,HQ and captured Towers or Airports will produce cash in every turn,Le QG et les tours ainsi que les aéroports capturés fournissent du cash à chaque tour,Kwatera Główna
+TIP_7,Cash can be spend for deploying units and movement,Les points d'action peuvent être dépensé pour déployer des unités ou bien les faire bouger et attaquer,Punkty Akcji służą do poruszania jednostek oraz do kupowania nowych wojsk
+TIP_8,Use your cash wisely - a big army will be slower and less effective than a small squad,Utilisez vos points d'action avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon,Używaj swoich Punktów Akcji rozważnie - duża armia porusza się wolniej
 TIP_9,It’s never a good idea to send a unit alone to the battlefield,Ce n'est jamais une bonne idée d'envoyer une unité seule sur le champ de bataille,Wysyłanie jednostek na front samotnie jest bardzo ryzykowne
 TIP_COMPLETE_MAP_FIRST,You need to complete this map first in skirmish mode in order to be able to upload it.,Vous devez d'abord remporter la victoire sur cette carte en mode escarmouche avant de pouvoir la partager en ligne.,Przed wysłaniem mapy musisz najpierw ją ukończyć w trybie potyczki.
 TIP_DOWNLOADING_WAIT,Downloading map! Please wait.,Téléchargement de la carte! Patientez.,Pobieranie mapy! Proszę czekać.
@@ -201,7 +201,7 @@ TIP_NEED_REGISTER,"Before you can start using online options, we need to registe
 TIP_REQUESTING_PLAYER_FAIL,Requesting Player ID failed. Please try again later.,La requète de l'ID du joueur a échoué. Réessayez plus tard.,Pobieranie identyfikatora nie powiodło się. Proszę spróbować ponownie później.
 TIP_REQUESTING_PLAYER_ID,Requesting Player ID! Please wait.,Requète de l'ID du joueur! Patientez.,Pobieranie identyfikatora gracza! Proszę czekać.
 TIP_REQUESTING_PLAYER_SUCCESS,Requesting Player ID successful. Welcome to ToF Online!,La requète de l'ID du joueur a réussi. Bienvenue sur ToF Online!,Pobieranie identyfikatora zakończone sukcesem. Witamy w ToF Online!
-TIP_UPLOADING_FAIL,Upload failed. Please try again later.,"Lenvoie a échoué. Réessayez plus tard.""",Wysyłanie nieudane. Proszę spróbować ponownie później.
+TIP_UPLOADING_FAIL,Upload failed. Please try again later.,L'envoie a échoué. Réessayez plus tard.,Wysyłanie nieudane. Proszę spróbować ponownie później.
 TIP_UPLOADING_SUCCESS,Upload successful! Now you can share your new map code with your friends: ,Envoi réussi! Vous pouvez maintenant partager votre nouvelle carte avec vos amis : ,Wysyłanie udane! Możesz teraz podzielić się swoją mapą ze znajomymi używając poniższego kodu: 
 TIP_UPLOADING_WAIT,Uploading! Please wait.,Envoie en cours! Patientez.,Wysyłanie! Proszę czekać.
 TIP_WELCOME_ONLINE,Welcome to ToF Online!,Bienvenue sur ToF Online!,Witamy w ToF Online!
