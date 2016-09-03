@@ -1,18 +1,18 @@
 ,fr
 TIP_HEADER,Saviez-vous que...
 TIP_1,Chaque unité ne peut attaquer qu'une seule fois par tour
-TIP_2,Chaque unité à ses forces et ses faiblesses - seul les fantassins peuvent capturer les batiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères
-TIP_3,Vous pouvez déployer des soldats dans le QG mais c'est moins cher de le faire dans les casernes
-TIP_4,Les unités perdent tout leurs points d'action quand ils capturent un bâtiment
-TIP_5,Chaque batiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat
+TIP_2,Chaque unité à ses forces et ses faiblesses - seul les fantassins peuvent capturer les bâtiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères
+TIP_3,Vous pouvez déployer des soldats dans le QG mais il est moins cher de le faire dans les casernes
+TIP_4,Les unités qui capturent un bâtiment ne peuvent plus rien faire jusqu'au tour suivant
+TIP_5,Chaque bâtiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat
 TIP_6,Le QG, les tours ainsi que les aéroports capturés fournissent du cash à chaque tour
-TIP_7,Le cash peut être dépensé pour déployer des unités, les faire bouger et attaquer
-TIP_8,Utilisez votre argent avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon
+TIP_7,Les points d'action peuvent être dépensé pour déployer des unités ou bien les faire bouger et attaquer
+TIP_8,Utilisez vos points d'action avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon
 TIP_9,Ce n'est jamais une bonne idée d'envoyer une unité seule sur le champ de bataille
 TIP_10,Mélanger différents types d'unités dans un bataillon vous donne un avantage stratégique
-TIP_11,Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi, et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats!
-TIP_12,Une unité  n peut attaquer que les cases adjacentes à sa position - si votre cible se trouve loin, vous devez d'abord déplacer votre unité
-TIP_13,Le QG est le bâtiment le plus important du jeu - Si vous capturez le QG ennemi vous gagnerez, perdre le votre signifie la défaite immédiate
+TIP_11,Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats!
+TIP_12,Une unité ne peut attaquer que les cases adjacentes à sa position - si votre cible se trouve loin, vous devez d'abord déplacer votre unité
+TIP_13,Le QG est le bâtiment le plus important du jeu - Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate...
 LABEL_WORKSHOP,WORKSHOP
 LABEL_MAIN_MENU,MENU
 LABEL_START_TURN,GO !
@@ -23,10 +23,10 @@ LABEL_UNIT_ATTACK,ATTAQUER
 LABEL_UNIT_HEALTH,VIE
 LABEL_UNIT_RANGE,RANG
 LABEL_BUILDING_HQ,QG
-LABEL_BUILDING_BARRACKS,CASERNES
+LABEL_BUILDING_BARRACKS,CASERNE
 LABEL_BUILDING_FACTORY,USINES
 LABEL_BUILDING_AIRPORT,AÉROPORTS
-LABEL_BUILDING_GSM_TOWER,TOUR RADAR
+LABEL_BUILDING_GSM_TOWER,RADAR
 LABEL_REMOTE,REMOTE
 LABEL_LOCAL,LOCAL
 LABEL_OFF,OFF
@@ -61,7 +61,7 @@ LABEL_NEW_TURN,NOUV. TOUR
 LABEL_ACTION_POINTS,POINTS D'ACTION
 LABEL_UNIT,UNITÉ
 LABEL_BUILDING,BÂTIMENT
-LABEL_NEXT_TURN_GAIN,GAIN TOUR SUIVANT
+LABEL_NEXT_TURN_GAIN,TOUR SUIVANT
 LABEL_ACTION_POINTS,POINTS D'ACTION
 LABEL_MAP_NAME,NOM CARTE
 LABEL_SELECT_UNIT,CHOISIR
@@ -70,7 +70,7 @@ LABEL_SOUND_EFFECTS,EFFETS SONORES
 LABEL_MUSIC,MUSIQUE
 LABEL_CAMERA_SHAKE,SECOUSSES CAMERA
 LABEL_AUTO_FOLLOW,SUIVI AUTO CAMÉRA
-LABEL_ZOOM_LEVEL,NIVEAU DE ZOOM
+LABEL_ZOOM_LEVEL,ZOOM
 LABEL_BIGGER,+ GROS
 LABEL_SMALLER,+ PETIT
 LABEL_WINDOW,FENÊTRE
@@ -82,7 +82,7 @@ LABEL_BACK,RETOUR
 LABEL_QUIT_GAME,QUITTER
 LABEL_RUN_DEMO,DÉMO
 LABEL_SKIRMISH,ESCARMOUCHE
-LABEL_MAP EDITOR,ÉDITEUR DE CARTE
+LABEL_MAP EDITOR,ÉDITEUR
 LABEL_CAMPAIGN,CAMPAGNE
 LABEL_COMPLETED,TERMINÉE
 LABEL_MAPS_CREATED,CARTE CRÉÉE
@@ -96,19 +96,19 @@ LABEL_PREVIOUS,PRÉCÉDANT
 LABEL_NEXT,SUIVANT
 LABEL_NAME,NOM
 LABEL_WORKSHOP_UNITS,UNITÉS
-LABEL_WORKSHOP_BUILDINGS,BATIMENTS
+LABEL_WORKSHOP_BUILDINGS,BÂTIMENTS
 LABEL_WORKSHOP_TERRAIN,TERRAIN
 LABEL_WORKSHOP_FILES_MANAGER,FICHIERS
 LABEL_WORKSHOP_PICK_MAP,CHOISIR CARTE
 LABEL_WORKSHOP_FILE_SAVED,FICH. SAUV.
 LABEL_WORKSHOP_TOOLBOX,TOOLBOX
 LABEL_WORKSHOP_UNDO_BUILD,DÉFAIRE
-LABEL_WORKSHOP_MOVE_MAP,BOUGER LA CARTE
-LABEL_WORKSHOP_BUILD_TERRAIN,CONSTRUIRE TERRAIN
+LABEL_WORKSHOP_MOVE_MAP,BOUGER CARTE
+LABEL_WORKSHOP_BUILD_TERRAIN,TERRAIN
 LABEL_WORKSHOP_SELECTED_TOOL,OUTIL ACTIVÉ
 LABEL_WORKSHOP_CREATE,CRÉER
 LABEL_WORKSHOP_SIZE,TAILLE
-LABEL_WORKSHOP_CLEAR_LAYERS,COUCHES CLAIRES
+LABEL_WORKSHOP_CLEAR_LAYERS,TOUT SUPPRIMER :
 LABEL_WORKSHOP_EREASE,EFFACER
 LABEL_WORKSHOP_PLAIN,PLAINE
 LABEL_WORKSHOP_DIRT,BOUE
@@ -123,24 +123,24 @@ LABEL_WORKSHOP_FENCE,CLÔTURE
 LABEL_WORKSHOP_ROAD#1,ROUTE#1
 LABEL_WORKSHOP_ROAD#2,ROUTE#2
 LABEL_WORKSHOP_HQ,QG
-LABEL_WORKSHOP_BARRACKS,CASERNES
+LABEL_WORKSHOP_BARRACKS,CASERNE
 LABEL_WORKSHOP_FACTORY,USINE
 LABEL_WORKSHOP_AIRPORT,AÉROPORT
 LABEL_WORKSHOP_SPAWN,SPAWN
-LABEL_WORKSHOP_GSM_TOWER,TOUR RADAR
-LABEL_WORKSHOP_TOWER,TOUR
-LABEL_WORKSHOP_INFANTRY,INFANTRY
+LABEL_WORKSHOP_GSM_TOWER,RADAR
+LABEL_WORKSHOP_TOWER,RADAR
+LABEL_WORKSHOP_INFANTRY,INFANTRIE
 LABEL_WORKSHOP_TANK,TANK
-LABEL_WORKSHOP_HELI,HELI
+LABEL_WORKSHOP_HELI,HÉLICO
 MSG_NO_ENOUGH_AP,AP INSUFFISANT
 MSG_START_YOUR_TURN_NOW,À votre tour maintenant !
 MSG_EMPTY_DISPLAY,&lt; RIEN À AFFICHER&#000a;&lt; SÉLECTIONNEZ UNE UNITÉ OU UN BÂTIMENT
-MSG_GAME_DESCRIPTION_1,FREE* & OPEN-SOURCE
-MSG_GAME_DESCRIPTION_2,JEU DE STRATÉGIE TOUR PAR TOUR
+MSG_GAME_DESCRIPTION_1,JEU DE STRATÉGIE AU TOUR PAR TOUR
+MSG_GAME_DESCRIPTION_2,LIBRE ET OPEN SOURCE
 MSG_FREE_AS_FREEDOM,"* FREE AS FREEDOM, NOT FREE AS IN FREE BEER"
 MSG_INDIE_GAME,INDIE GAME&#000a;DESIGN &amp; &#000a;DEVELOP
 MSG_WORKSHOP_USE_UNIQUE_NAME,UTILISEZ UN NOM UNIQUE
-MSG_WORKSHOP_CREATE_NEW_ISLAND,CRÉER UNE NOUVELLE ILE AU CENTRE
+MSG_WORKSHOP_CREATE_NEW_ISLAND,CRÉER UNE NOUVELLE ÎLE AU CENTRE
 MSG_WORKSHOP_LOSE_MAP_DATA,VOUS PERDREZ LA CARTE CRÉÉE!
 LABEL_GAME_OVER,DÉFAITE
 LABEL_DOMINATION,DOMINATION
@@ -163,7 +163,7 @@ LABEL_TURNS,TOURS
 LABEL_BLUE_WINS,LES BLEUS GAGNENT
 LABEL_RED_WINS,LES ROUGES GAGNENT
 LABEL_PLAYING_AS,JOUER
-LABEL_MAPS,CARTES
+LABEL_MAPS,CARTE
 LABEL_PAGE,PAGE
 LABEL_WORKSHOP_SAVE,SAUVEGARDER
 LABEL_WORKSHOP_LOAD,CHARGER
@@ -197,22 +197,22 @@ TIP_MAP_DOWNLOAD_FAIL,"Impossible de télécharger la carte. Vérifiez que le co
 LABEL_PLAY_AGAIN,REJOUER
 LABEL_VERSION,Version
 TITLE_GAMEPAD_CONFIG,GAMEPAD CONFIGURATION
-LABEL_PREVIOUS_UNIT,SELECT PREVIOUS UNIT
-LABEL_NEXT_UNIT,SELECT NEXT UNIT
+LABEL_PREVIOUS_UNIT,UNITÉ PRÉCÉDANTE
+LABEL_NEXT_UNIT,UNITÉ SUIVANTE
 LABEL_SELECTOR_MOVEMENT,MOVE FIELD SELECTOR
 LABEL_GAME_MENU_MOVEMENT,NAVIGATE MENU
-LABEL_END_TURN,END YOUR TURN
-LABEL_BACK_TO_MENU,OPEN MAIN MENU
-LABEL_SELECT,PERFORM ACTION
-LABEL_DEPLOY_UNIT,BUY NEW UNIT
+LABEL_END_TURN,FIN DU TOUR
+LABEL_BACK_TO_MENU,MENU PRINCIPAL
+LABEL_SELECT,EFFECTUER
+LABEL_DEPLOY_UNIT,ACH. NOUV. UNITÉ
 LABEL_GAMEPAD_INFO,GAMEPAD INFO
-LABEL_WORKSHOP_THEME,MAP THEME
-LABEL_SUMMER,SUMMER
-LABEL_FALL,FALL
-LABEL_WINTER,WINTER
-LABEL_WORKSHOP_FAILURE,OPERATION FAILURE
-MSG_WORKSHOP_FILE_ERROR_NAME,"Map name may only contain alphanumeric characters and an underscore sign."
-MSG_WORKSHOP_FILE_NOT_FOUND,"Map with specified name does not exists."
-MSG_WORKSHOP_CHECK_TYPOS,"Please re-check file name"
+LABEL_WORKSHOP_THEME,THÈME CARTE
+LABEL_SUMMER,ÉTÉ
+LABEL_FALL,AUTOMNE
+LABEL_WINTER,HIVER
+LABEL_WORKSHOP_FAILURE,ÉCHEC DE L'OPÉRATION
+MSG_WORKSHOP_FILE_ERROR_NAME,"Les noms de carte ne doivent contenir que des symboles alphanumériques et underscores."
+MSG_WORKSHOP_FILE_NOT_FOUND,"Ce nom ne correspond à aucune carte."
+MSG_WORKSHOP_CHECK_TYPOS,"Revérifiez le nom du fichier SVP"
 LABEL_OK,OK
-LABEL_NEXT_TURN,END TURN
+LABEL_NEXT_TURN,FINIR TOUR
