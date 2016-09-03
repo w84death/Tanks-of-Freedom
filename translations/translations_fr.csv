@@ -178,7 +178,7 @@ LABEL_ONLINE_MENU,CARTES EN LIGNE
 MSG_ONLINE_MENU_DESC,"TÉLÉCHARGEZ DE NOUVELLES CARTES OU PARTAGEZ VOS CRÉATIONS AVEC LE MONDE!"
 TIP_UPLOADING_WAIT,"Envoie en cours! Patientez."
 TIP_UPLOADING_SUCCESS,"Envoi réussi! Vous pouvez maintenant partager votre nouvelle carte avec vos amis : "
-TIP_UPLOADING_FAIL,"L"envoie a échoué. Réessayez plus tard."
+TIP_UPLOADING_FAIL,"L'envoie a échoué. Réessayez plus tard."
 LABEL_DONE,Terminé
 TIP_WELCOME_ONLINE,"Bienvenue sur ToF Online!"
 TIP_NEED_REGISTER,"Avant que vous puissiez utiliser le jeu en ligne, nous devons enregistrer votre appareil grâce à notre système en ligne."
