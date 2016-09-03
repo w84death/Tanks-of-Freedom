@@ -170,6 +170,8 @@ func move_selector(offset):
         if self.erasing:
             self.bag.workshop.paint(new_position, 'terrain', -1)
     else:
-        new_position = self.bag.root.selector_position + offset
-        self.bag.root.move_selector_to_map_position(new_position)
-        self.bag.camera.move_to_map(new_position)
+        var current_position = self.bag.root.selector_position
+        if current_position != null:
+            new_position = current_position + offset
+            self.bag.root.move_selector_to_map_position(new_position)
+            self.bag.camera.move_to_map(new_position)
