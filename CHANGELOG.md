@@ -20,6 +20,7 @@
 - fixed crash when trying to use Online Menu functions
 - fixed map name not being shown correctly in-game
 - fixed skirmish maps defaulting to Fall
+- fixed replay not working on remote maps
 - changed Player registration to not block rendering
 
 ### 0.5.1.1-beta

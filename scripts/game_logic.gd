@@ -242,7 +242,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.bag.language.reload_labels()
 
 func restart_map():
-    self.load_map(current_map_name, workshop_file_name)
+    self.load_map(current_map_name, workshop_file_name, false, self.is_remote)
 
 func unload_map():
     if is_map_loaded == false:
