@@ -213,13 +213,13 @@ func generate_map():
             # forest
             if terrain_cell == self.tileset.TERRAIN_FOREST:
                 temp = map_non_movable.instance()
-                temp.set_frame(randi()%8)
+                temp.set_frame(randi()%10)
                 cells_to_change.append({x=x, y=y, type=1})
 
             # mountains
             if terrain_cell == self.tileset.TERRAIN_MOUNTAINS:
                 temp = map_non_movable.instance()
-                temp.set_frame(9 + (randi()%2))
+                temp.set_frame(11 + (randi()%2))
                 if randi()%10 < GEN_SNOW_PARTICLES :
                     temp.particle_enabled = true;
                 cells_to_change.append({x=x, y=y, type=1})
