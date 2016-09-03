@@ -5,14 +5,14 @@ TIP_2,Chaque unité à ses forces et ses faiblesses - seul les fantassins peuven
 TIP_3,Vous pouvez déployer des soldats dans le QG mais il est moins cher de le faire dans les casernes
 TIP_4,Les unités qui capturent un bâtiment ne peuvent plus rien faire jusqu'au tour suivant
 TIP_5,Chaque bâtiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat
-TIP_6,Le QG, les tours ainsi que les aéroports capturés fournissent du cash à chaque tour
+TIP_6,Le QG et les tours ainsi que les aéroports capturés fournissent du cash à chaque tour
 TIP_7,Les points d'action peuvent être dépensé pour déployer des unités ou bien les faire bouger et attaquer
 TIP_8,Utilisez vos points d'action avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon
 TIP_9,Ce n'est jamais une bonne idée d'envoyer une unité seule sur le champ de bataille
 TIP_10,Mélanger différents types d'unités dans un bataillon vous donne un avantage stratégique
 TIP_11,Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats!
-TIP_12,Une unité ne peut attaquer que les cases adjacentes à sa position - si votre cible se trouve loin, vous devez d'abord déplacer votre unité
-TIP_13,Le QG est le bâtiment le plus important du jeu - Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate...
+TIP_12,Une unité ne peut attaquer que les cases adjacentes à sa position - vous devez d'abord déplacer votre unité si votre cible se trouve trop loin
+TIP_13,Le QG est le bâtiment le plus important du jeu. Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate...
 LABEL_WORKSHOP,WORKSHOP
 LABEL_MAIN_MENU,MENU
 LABEL_START_TURN,GO !
