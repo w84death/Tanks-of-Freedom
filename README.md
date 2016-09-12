@@ -50,7 +50,7 @@ Please note, that changing map name with gamepad is not possible at this time. K
 
 ### Unofficial ports:
 - [F-Droid](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom) thanks to [est31](https://github.com/est31)!
-- [FreeBSD](http://portsmon.freebsd.org/portoverview.py?category=games&portname=tanks-of-freedom) thanks to amdmi3
+- [FreeBSD](http://www.freshports.org/games/tanks-of-freedom/) thanks to [AMDmi3](https://github.com/AMDmi3)
 - [Mageia](http://madb.mageia.org/package/show/application/0/name/tanks-of-freedom) thanks to [Akien](https://github.com/akien-mga)
 - [Pandora](https://repo.openpandora.org/?page=detail&app=tanksoffreedom) thanks to Canseco
 
