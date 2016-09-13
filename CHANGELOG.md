@@ -4,6 +4,7 @@
 
 ### 0.5.3-beta
 - improved French translation
+- added more configuration options for server
 
 ### 0.5.2-beta
 - added changing terrain and city tiles to seasons

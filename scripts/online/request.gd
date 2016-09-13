@@ -5,6 +5,8 @@ var http_client
 
 var enabled = false
 var api_location = null
+var api_port = null
+var api_use_ssl = false
 
 func _init_bag(bag):
     self.bag = bag
@@ -12,6 +14,8 @@ func _init_bag(bag):
 
     self.enabled = Globals.get('tof/online')
     self.api_location = Globals.get('tof/api_location')
+    self.api_port = Globals.get('tof/api_port')
+    self.api_use_ssl = Globals.get('tof/api_use_ssl')
 
 func get(api, resource, expect_json = true):
     return self.make_request(api, resource, HTTPClient.METHOD_GET, null, expect_json)
@@ -32,7 +36,7 @@ func make_request(api, resource, method, data, expect_json = true):
         result['message'] = 'Online functions are disabled'
         return result
 
-    var err = self.http_client.connect(api, 443, true)
+    var err = self.http_client.connect(api, self.api_port, self.api_use_ssl)
 
     if err != OK:
         result['status'] = 'error'
