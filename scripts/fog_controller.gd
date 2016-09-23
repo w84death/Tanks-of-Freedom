@@ -75,6 +75,12 @@ func add_cloud(x, y, sprite):
 func move_cloud(pos):
     fog_of_war.set_pos(pos)
 
+func toggle_fog():
+    if self.fog_of_war.is_visible():
+        self.fog_of_war.hide()
+    else:
+        self.fog_of_war.show()
+
 func clear_fog():
     self.fill_fog()
     var current_player = 0
