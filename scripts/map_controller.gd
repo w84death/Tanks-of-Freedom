@@ -641,7 +641,7 @@ func fill(width, height):
 
     for x in range(width):
         for y in range(height):
-            terrain.set_cell(x+offset_x, y+offset_y, 1)
+            terrain.set_cell(x+offset_x, y+offset_y, 0)
 
 func clear_layer(layer):
     if layer == 0:

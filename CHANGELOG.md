@@ -3,6 +3,7 @@
 ## Changelog
 
 ### 0.5.3-beta
+- workshop fill now places plains
 - improved French translation
 - added more configuration options for server
 
