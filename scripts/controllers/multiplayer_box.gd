@@ -26,3 +26,6 @@ func show_fill():
 func hide():
     self.match_panel.hide()
     self.fill_panel.hide()
+
+func bind_match_data(data):
+    print(data)

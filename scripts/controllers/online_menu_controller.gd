@@ -14,6 +14,7 @@ var upload_button
 var selected_map_name
 
 var registration_successfull = false
+var refreshed = false
 
 func _init_bag(bag):
     self.bag = bag
@@ -57,6 +58,9 @@ func show():
     self.online_menu.show()
     if self.bag.root.settings['online_player_id'] == null:
         self.show_register_confirmation()
+    elif not self.refreshed:
+        self.multiplayer.refresh_matches_list()
+
 
 func hide():
     self.bag.root.menu.refresh_buttons_labels()

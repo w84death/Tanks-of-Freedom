@@ -373,4 +373,3 @@ func _ready():
     self.add_child(intro)
     self.bag.language.reload_labels()
     self.get_tree().set_auto_accept_quit(false)
-

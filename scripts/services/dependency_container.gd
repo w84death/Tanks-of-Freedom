@@ -42,6 +42,7 @@ var online_request = preload('res://scripts/online/request.gd').new()
 var online_request_async = preload('res://scripts/online/request_async.gd').new()
 var online_player = preload('res://scripts/online/player.gd').new()
 var online_maps = preload('res://scripts/online/maps.gd').new()
+var online_multiplayer = preload('res://scripts/online/multiplayer.gd').new()
 var tileset_handler = preload('res://scripts/services/tileset_handler.gd').new()
 
 var saving = null
@@ -97,6 +98,7 @@ func init_root(root_node):
     self.online_request_async._init_bag(self)
     self.online_player._init_bag(self)
     self.online_maps._init_bag(self)
+    self.online_multiplayer._init_bag(self)
     self.tileset_handler._init_bag(self)
 
     if Globals.get('tof/enable_save_load'):
