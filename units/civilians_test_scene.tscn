@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://maps/map_sample.xscn" type="PackedScene" id=1]
+[ext_resource path="res://units/civilian_protest_guy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://units/civilian_refugee.tscn" type="PackedScene" id=3]
+
+[node name="Control" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/scale = Vector2( 4, 4 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+
+[node name="map" parent="." instance=ExtResource( 1 )]
+
+margin/left = 150.0
+margin/top = -14.0
+margin/right = 190.0
+margin/bottom = 26.0
+script/script = null
+
+[node name="civilian_protest_guy" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 118.716, 68.7304 )
+
+[node name="civilian_protest_guy1" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 148.253, 57.938 )
+
+[node name="civilian_protest_guy2" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 171.542, 102.812 )
+flip_h = true
+
+[node name="civilian_refugee" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 105.652, 94.2913 )
+
+[node name="civilian_refugee3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 136.325, 99.4034 )
+
+[node name="civilian_refugee1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 159.614, 89.1791 )
+flip_h = true
+
+[node name="civilian_refugee2" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 204.487, 72.7065 )
+flip_h = true
+
+
