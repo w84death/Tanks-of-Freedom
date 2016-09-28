@@ -187,11 +187,12 @@ max_lines_visible = -1
 
 [node name="horizontal2" type="HBoxContainer" parent="controls"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -180.0
+margin/left = 154.0
 margin/top = -141.0
 margin/right = 314.0
 margin/bottom = -81.0
@@ -205,10 +206,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 175.0
-margin/top = 0.0
-margin/right = 319.0
-margin/bottom = 60.0
+margin/left = 60.0
+margin/top = 2.0
+margin/right = 204.0
+margin/bottom = 62.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -277,8 +278,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -166.0
 margin/top = -138.0
-margin/right = -71.0
-margin/bottom = -119.0
+margin/right = 191.0
+margin/bottom = -108.0
 text = "MULTIPLAYER"
 autowrap = true
 percent_visible = 1.0
@@ -296,23 +297,23 @@ margin/top = -75.0
 margin/right = 351.0
 margin/bottom = 222.0
 
-[node name="match" parent="controls/matches" instance=ExtResource( 8 )]
+[node name="match1" parent="controls/matches" instance=ExtResource( 8 )]
 
-[node name="match 2" parent="controls/matches" instance=ExtResource( 8 )]
+[node name="match2" parent="controls/matches" instance=ExtResource( 8 )]
 
 margin/left = 258.0
 margin/top = 11.0
 margin/right = 484.0
 margin/bottom = 126.0
 
-[node name="match 3" parent="controls/matches" instance=ExtResource( 8 )]
+[node name="match3" parent="controls/matches" instance=ExtResource( 8 )]
 
 margin/left = 11.0
 margin/top = 138.0
 margin/right = 237.0
 margin/bottom = 253.0
 
-[node name="match 4" parent="controls/matches" instance=ExtResource( 8 )]
+[node name="match4" parent="controls/matches" instance=ExtResource( 8 )]
 
 margin/left = 255.0
 margin/top = 136.0
