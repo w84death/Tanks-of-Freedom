@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=2]
 
 [node name="match" type="Control"]
 
@@ -11,20 +12,21 @@ size_flags/vertical = 2
 theme/theme = ExtResource( 1 )
 margin/left = 0.0
 margin/top = 1.0
-margin/right = 226.0
-margin/bottom = 116.0
+margin/right = 270.0
+margin/bottom = 131.0
 
 [node name="free" type="Control" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/right = 225.0
+margin/bottom = 115.0
 
 [node name="create" type="TextureButton" parent="free"]
 
@@ -94,7 +96,118 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin/right = 270.0
+margin/bottom = 130.0
+
+[node name="map_code" type="Label" parent="used"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 110.0
+margin/top = 20.0
+margin/right = 240.0
+margin/bottom = 36.0
+text = "MAP: LLUU3XAP"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="match_code" type="Label" parent="used"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 110.0
+margin/top = 0.0
+margin/right = 230.0
+margin/bottom = 16.0
+text = "MATCH: E4MAH"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="blue" type="Sprite" parent="used"]
+
+transform/pos = Vector2( 50, 65 )
+transform/scale = Vector2( 6, 6 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 6
+
+[node name="red" type="Sprite" parent="used"]
+
+transform/pos = Vector2( 50, 65 )
+transform/scale = Vector2( 6, 6 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 6
+frame = 3
+
+[node name="state" type="Label" parent="used"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 110.0
+margin/top = 40.0
+margin/right = 220.0
+margin/bottom = 56.0
+text = "NEW"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="play" type="Button" parent="used"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 60.0
+margin/right = 167.0
+margin/bottom = 82.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "PLAY"
+flat = false
+
+[node name="forfeit" type="Button" parent="used"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 90.0
+margin/right = 192.0
+margin/bottom = 112.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "FORFEIT"
+flat = false
+
+[node name="clear" type="Button" parent="used"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 110.0
+margin/top = 60.0
+margin/right = 172.0
+margin/bottom = 82.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "CLEAR"
+flat = false
 
 

@@ -206,10 +206,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 60.0
-margin/top = 2.0
-margin/right = 204.0
-margin/bottom = 62.0
+margin/left = 8.0
+margin/top = 0.0
+margin/right = 152.0
+margin/bottom = 60.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -299,26 +299,31 @@ margin/bottom = 222.0
 
 [node name="match1" parent="controls/matches" instance=ExtResource( 8 )]
 
+margin/left = -10.0
+margin/top = 0.0
+margin/right = 260.0
+margin/bottom = 130.0
+
 [node name="match2" parent="controls/matches" instance=ExtResource( 8 )]
 
-margin/left = 258.0
-margin/top = 11.0
-margin/right = 484.0
-margin/bottom = 126.0
+margin/left = 270.0
+margin/top = 0.0
+margin/right = 540.0
+margin/bottom = 130.0
 
 [node name="match3" parent="controls/matches" instance=ExtResource( 8 )]
 
-margin/left = 11.0
-margin/top = 138.0
-margin/right = 237.0
-margin/bottom = 253.0
+margin/left = -10.0
+margin/top = 140.0
+margin/right = 260.0
+margin/bottom = 270.0
 
 [node name="match4" parent="controls/matches" instance=ExtResource( 8 )]
 
-margin/left = 255.0
-margin/top = 136.0
-margin/right = 481.0
-margin/bottom = 251.0
+margin/left = 270.0
+margin/top = 140.0
+margin/right = 540.0
+margin/bottom = 270.0
 
 [node name="middle" type="Control" parent="."]
 
