@@ -7,7 +7,7 @@ var online_menu_controller
 var middle_container
 var controls
 var background
-var multiplayer_box_template = preload("res://scripts/controllers/multiplayer_box.gd")
+var multiplayer_box_template = preload("res://scripts/controllers/online/multiplayer_box.gd")
 
 var refresh_button
 
