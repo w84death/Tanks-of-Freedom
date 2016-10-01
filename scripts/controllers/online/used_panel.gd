@@ -16,6 +16,16 @@ const MATCH_PLAYER_STATE_DISMISSED = 4
 var bag
 var panel
 
+var match_code_label
+var map_code_label
+var status_label
+var side_red
+var side_blue
+var play_button
+var forfeit_button
+var clear_button
+var replay_button
+
 var match_join_code
 var player_side
 var map_code
@@ -30,7 +40,15 @@ func _init_bag(bag, panel):
     self.bind()
 
 func bind():
-    return
+    self.match_code_label = self.panel.get_node('match_code')
+    self.map_code_label = self.panel.get_node('map_code')
+    self.status_label = self.panel.get_node('status')
+    self.side_red = self.panel.get_node('red')
+    self.side_blue = self.panel.get_node('blue')
+    self.play_button = self.panel.get_node('play')
+    self.forfeit_button = self.panel.get_node('forfeit')
+    self.clear_button = self.panel.get_node('clear')
+    self.replay_button = self.panel.get_node('replay')
 
 func bind_match_data(data):
     self.match_join_code = data['join_code']
@@ -56,7 +74,15 @@ func apply_proper_state():
         self.switch_to_error_layout()
 
 func reset_layout():
-    return
+    self.match_code_label.hide()
+    self.map_code_label.hide()
+    self.status_label.hide()
+    self.side_red.hide()
+    self.side_blue.hide()
+    self.play_button.hide()
+    self.forfeit_button.hide()
+    self.clear_button.hide()
+    self.replay_button.hide()
 
 func switch_to_new_layout():
     self.show_side()
@@ -92,34 +118,62 @@ func switch_to_error_layout():
     self.show_clear_button()
 
 func show_match_code():
-    return
+    self.match_code_label.set_text(tr('LABEL_MATCH_CODE') + self.match_join_code)
+    self.match_code_label.show()
 
 func show_side():
-    return
+    if self.player_side == self.MATCH_SIDE_BLUE:
+        self.side_blue.show()
+    elif self.player_side == self.MATCH_SIDE_RED:
+        self.side_red.show()
 
 func show_player_status():
-    return
+    var status
+    if self.player_status == MATCH_PLAYER_STATE_ACTIVE:
+        status = tr('LABEL_YOUR_TURN')
+    elif self.player_status == MATCH_PLAYER_STATE_INACTIVE:
+        status = tr('LABEL_ENEMY_TURN')
+    elif self.player_status == MATCH_PLAYER_STATE_WIN:
+        status = tr('LABEL_YOU_WIN')
+    elif self.player_status == MATCH_PLAYER_STATE_LOSS:
+        status = tr('LABEL_YOU_LOSE')
+
+    self.status_label.set_text(status)
+    self.status_label.show()
 
 func show_match_status():
-    return
+    var status
+    if self.match_status == MATCH_STATE_NEW:
+        status = tr('LABEL_NEW_MATCH')
+    elif self.match_status == MATCH_STATE_IN_PROGRESS:
+        status = tr('LABEL_MATCH_IN_PROGRESS')
+    elif self.match_status == MATCH_STATE_ENDED:
+        status = tr('LABEL_MATCH_ENDED')
+    elif self.match_status == MATCH_STATE_FORFEIT:
+        status = tr('LABEL_MATCH_FORFEIT')
+
+    self.status_label.set_text(status)
+    self.status_label.show()
 
 func show_map_code():
-    return
+    self.map_code_label.set_text(tr('LABEL_MAP_CODE') + self.map_code)
+    self.map_code_label.show()
 
 func show_forfeit_button():
-    return
+    self.forfeit_button.show()
 
 func show_play_button():
-    return
+    self.play_button.show()
 
 func show_replay_button():
-    return
+    self.replay_button.show()
 
 func show_clear_button():
-    return
+    self.clear_button.show()
 
 func show_error():
-    return
+    self.map_code_label.set_text(tr('LABEL_INVALID_MATCH') + self.map_code)
+    self.map_code_label.show()
 
 func show():
     self.panel.show()
