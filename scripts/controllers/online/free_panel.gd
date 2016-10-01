@@ -37,6 +37,7 @@ func _create_button_pressed():
 
 func _join_button_pressed():
     self.bag.root.sound_controller.play('menu')
+    self.show_join_code_prompt()
 
 func begin_create_match_process():
     self.ask_if_really_want_to_create()
@@ -119,6 +120,32 @@ func operation_failed(response={}):
     self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
     self.bag.message_popup.connect(self, "match_creation_complete")
     self.bag.message_popup.confirm_button.grab_focus()
+
+
+func show_join_code_prompt():
+    self.controls.hide()
+    self.background.hide()
+    self.bag.prompt_popup.attach_panel(self.middle_container)
+    self.bag.prompt_popup.fill_labels(tr('LABEL_JOIN_MATCH'), tr('MSG_INPUT_MATCH_CODE'), tr('LABEL_JOIN'), tr('LABEL_CANCEL'))
+    self.bag.prompt_popup.connect(self, "confirm_join_match")
+    self.bag.prompt_popup.clear_prepopulate()
+    self.middle_container.show()
+    self.bag.prompt_popup.input_box.grab_focus()
+
+func confirm_join_match(confirmation, code):
+    self.bag.prompt_popup.detach_panel()
+    if confirmation:
+        self.perform_join_match(code)
+    else:
+        self.middle_container.hide()
+        self.controls.show()
+        self.background.show()
+        self.join_button.grab_focus()
+
+func perform_join_match(code):
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels(tr('LABEL_JOIN_MATCH'), tr('MSG_JOINING_MATCH_WAIT'), "")
+    self.bag.message_popup.hide_button()
 
 func show():
     self.panel.show()
