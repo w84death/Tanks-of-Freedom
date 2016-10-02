@@ -20,7 +20,7 @@ func switch_to_next_language():
     self.bag.root.write_settings_to_file()
 
     self.reload_labels()
-    self.bag.online_menu_controller.refreshed = false
+    self.bag.controllers.online_menu_controller.refreshed = false
 
 func reload_labels():
     #MAIN MENU

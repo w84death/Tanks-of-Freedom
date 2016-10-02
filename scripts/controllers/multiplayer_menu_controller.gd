@@ -67,3 +67,11 @@ func refresh_matches_list_done():
     self.background.show()
     self.middle_container.hide()
     self.refresh_button.grab_focus()
+
+
+func has_match(code):
+    for box in self.match_boxes:
+        if self.match_boxes[box].match_panel.match_join_code == code:
+            return true
+
+    return false
