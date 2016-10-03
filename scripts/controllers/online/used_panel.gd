@@ -16,6 +16,11 @@ const MATCH_PLAYER_STATE_DISMISSED = 4
 var bag
 var panel
 
+var online_menu_controller
+var middle_container
+var controls
+var background
+
 var match_code_label
 var map_code_label
 var status_label
@@ -55,14 +60,21 @@ func bind():
     self.clear_button.connect("pressed", self, "_clear_button_pressed")
     self.replay_button.connect("pressed", self, "_replay_button_pressed")
 
+    self.online_menu_controller = self.bag.controllers.online_menu_controller
+    self.controls = self.online_menu_controller.controls
+    self.middle_container = self.online_menu_controller.middle_container
+    self.background = self.online_menu_controller.background
+
 func _play_button_pressed():
     self.bag.root.sound_controller.play('menu')
 
 func _forfeit_button_pressed():
     self.bag.root.sound_controller.play('menu')
+    self.ask_if_really_want_to_abandon()
 
 func _clear_button_pressed():
     self.bag.root.sound_controller.play('menu')
+    self.clear_without_asking()
 
 func _replay_button_pressed():
     self.bag.root.sound_controller.play('menu')
@@ -202,5 +214,43 @@ func hide():
 
 
 
-func show_abandon_confirmation():
-    return
+func ask_if_really_want_to_abandon():
+    self.middle_container.show()
+    self.controls.hide()
+    self.background.hide()
+    self.bag.confirm_popup.attach_panel(self.middle_container)
+    self.bag.confirm_popup.fill_labels(tr('LABEL_ABANDON_MATCH'), tr('MSG_CONFIRM_ABANDON'), tr('LABEL_PROCEED'), tr('LABEL_CANCEL'))
+    self.bag.confirm_popup.connect(self, "confirm_abandon_match")
+    self.bag.confirm_popup.confirm_button.grab_focus()
+
+func clear_without_asking():
+    self.middle_container.show()
+    self.controls.hide()
+    self.background.hide()
+    self.perform_abandon_match()
+
+func confirm_abandon_match(confirmation):
+    self.bag.confirm_popup.detach_panel()
+    if confirmation:
+        self.perform_abandon_match()
+    else:
+        self.middle_container.hide()
+        self.controls.show()
+        self.background.show()
+        self.create_button.grab_focus()
+
+func perform_abandon_match():
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels(tr('LABEL_CLEAR_SLOT'), tr('MSG_CLEARING_SLOT_WAIT'), "")
+    self.bag.message_popup.hide_button()
+    self.bag.online_multiplayer.clear_match(self.match_join_code, self, 'operation_completed', 'operation_failed')
+
+func operation_completed(response={}):
+    self.bag.message_popup.detach_panel()
+    self.online_menu_controller.multiplayer.refresh_matches_list()
+
+func operation_failed(response={}):
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
+    self.bag.message_popup.connect(self, "operation_completed")
+    self.bag.message_popup.confirm_button.grab_focus()

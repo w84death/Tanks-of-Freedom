@@ -3,6 +3,7 @@ const MATCHES_LIST_URL = "/matches/my"
 const MATCH_CREATE_URL = "/matches"
 const MATCH_DETAILS_URL = "/match/"
 const MATCH_JOIN_URL = "/match/join/"
+const MATCH_ABANDON_URL = "/match/abandon/"
 
 var bag
 
@@ -73,4 +74,18 @@ func join_match(code, bound_object, bound_method_success, bound_method_fail):
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
 
 func clear_match(code, bound_object, bound_method_success, bound_method_fail):
-    return
+    if not self.bag.online_request.enabled or self.bag.online_player.player_id == null:
+        return
+
+    var url = self.MATCH_ABANDON_URL + code + ".json"
+
+    var callbacks = {
+        "handle_200" : bound_method_success,
+        "handle_403" : bound_method_fail,
+        "handle_error" : bound_method_fail
+    }
+
+    var message = self.bag.online_player.get_basic_auth_json()
+    var serialized_json = message.to_json()
+
+    self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
