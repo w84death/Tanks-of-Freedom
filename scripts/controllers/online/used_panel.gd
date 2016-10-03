@@ -38,6 +38,8 @@ var map_code
 var match_status
 var player_status
 
+var match_state_loading_follow_up = ""
+
 func _init_bag(bag, panel):
     self.bag = bag
     self.panel = panel
@@ -67,6 +69,7 @@ func bind():
 
 func _play_button_pressed():
     self.bag.root.sound_controller.play('menu')
+    self.start_loading_match()
 
 func _forfeit_button_pressed():
     self.bag.root.sound_controller.play('menu')
@@ -78,6 +81,7 @@ func _clear_button_pressed():
 
 func _replay_button_pressed():
     self.bag.root.sound_controller.play('menu')
+    self.start_loading_last_replay()
 
 func bind_match_data(data):
     self.match_join_code = data['join_code']
@@ -254,3 +258,68 @@ func operation_failed(response={}):
     self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
     self.bag.message_popup.connect(self, "operation_completed")
     self.bag.message_popup.confirm_button.grab_focus()
+
+
+
+
+func start_loading_match():
+    self.prepare_match_data_and_perform_action("continue_loading_match")
+
+func continue_loading_match():
+    print(self.bag.match_state.current_loaded_multiplayer_state)
+
+func ask_load_replay_or_turn():
+    return
+
+func start_loading_replay():
+    self.prepare_match_data_and_perform_action("continue_loading_replay")
+
+func continue_loading_replay():
+    print(self.bag.match_state.current_loaded_multiplayer_state)
+
+
+
+func prepare_match_data_and_perform_action(follow_up_method):
+    self.match_state_loading_follow_up = follow_up_method
+    self.middle_container.show()
+    self.controls.hide()
+    self.background.hide()
+    self.load_match_state()
+
+func finished_preparing_match_data():
+    self.middle_container.hide()
+    self.controls.show()
+    self.background.show()
+    self.create_button.grab_focus()
+    self.call(self.match_state_loading_follow_up)
+
+func load_match_state():
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels(tr('LABEL_LOADING_MATCH'), tr('MSG_LOADING_MATCH_WAIT'), "")
+    self.bag.message_popup.hide_button()
+    self.bag.online_multiplayer.load_match_state(self.match_join_code, self, "finished_loading_match_state", 'operation_failed')
+
+func finished_loading_match_state(response):
+    self.bag.message_popup.detach_panel()
+    self.bag.match_state.current_loaded_multiplayer_state = response['data']
+    self.verify_map_availability()
+
+func verify_map_availability():
+    var map_code = self.bag.match_state.current_loaded_multiplayer_state['map_code']
+    if self.bag.map_list.has_remote_map(map_code):
+        self.finished_preparing_match_data()
+    else:
+        self.download_remote_map(map_code)
+
+func download_remote_map(code):
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels(tr('LABEL_DOWNLOAD_MAP'), tr('TIP_DOWNLOADING_WAIT'), "")
+    self.bag.message_popup.hide_button()
+    self.bag.timers.set_timeout(0.5, self, 'perform_map_download', [code])
+
+func perform_map_download(code):
+    if self.bag.online_maps.download_map(code):
+        self.bag.message_popup.detach_panel()
+        self.finished_preparing_match_data()
+    else:
+        self.operation_failed({})

@@ -3,6 +3,9 @@ var is_campaign_map = false
 var is_workshop_map = false
 var current_map_number = 0
 
+var is_multiplayer = false
+var current_loaded_multiplayer_state = null
+
 func reset():
     self.is_campaign_map = false
     self.is_workshop_map = false

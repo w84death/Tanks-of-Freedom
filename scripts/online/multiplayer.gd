@@ -89,3 +89,6 @@ func clear_match(code, bound_object, bound_method_success, bound_method_fail):
     var serialized_json = message.to_json()
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
+
+func load_match_state(code, bound_object, bound_method_success, bound_method_fail):
+    return
