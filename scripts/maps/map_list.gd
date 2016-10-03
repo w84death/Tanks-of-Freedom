@@ -145,3 +145,6 @@ func get_local_map_data(map_name):
 func mark_map_win(map_name):
     self.maps[map_name]['completed'] = true
     self.save_local_list()
+
+func has_remote_map(map_code):
+    return self.remote_maps.has(map_code)
