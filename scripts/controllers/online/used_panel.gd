@@ -50,6 +50,23 @@ func bind():
     self.clear_button = self.panel.get_node('clear')
     self.replay_button = self.panel.get_node('replay')
 
+    self.play_button.connect("pressed", self, "_play_button_pressed")
+    self.forfeit_button.connect("pressed", self, "_forfeit_button_pressed")
+    self.clear_button.connect("pressed", self, "_clear_button_pressed")
+    self.replay_button.connect("pressed", self, "_replay_button_pressed")
+
+func _play_button_pressed():
+    self.bag.root.sound_controller.play('menu')
+
+func _forfeit_button_pressed():
+    self.bag.root.sound_controller.play('menu')
+
+func _clear_button_pressed():
+    self.bag.root.sound_controller.play('menu')
+
+func _replay_button_pressed():
+    self.bag.root.sound_controller.play('menu')
+
 func bind_match_data(data):
     self.match_join_code = data['join_code']
     self.player_side = data['side']
@@ -180,3 +197,10 @@ func show():
 
 func hide():
     self.panel.hide()
+
+
+
+
+
+func show_abandon_confirmation():
+    return
