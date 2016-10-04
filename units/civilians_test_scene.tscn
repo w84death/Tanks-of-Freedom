@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://maps/map_sample.xscn" type="PackedScene" id=1]
 [ext_resource path="res://units/civilian_protest_guy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://units/civilian_refugee.tscn" type="PackedScene" id=3]
 [ext_resource path="res://units/civilian_old_woman.tscn" type="PackedScene" id=4]
+[ext_resource path="res://units/civilian_protest_guy2.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="Control"]
 
@@ -78,6 +79,28 @@ flip_h = true
 [node name="civilian_old_woman3" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 142.655, 75.6696 )
+flip_h = true
+
+[node name="civilian_protest_guy2 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 171.734, 64.5923 )
+
+[node name="civilian_protest_guy23" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 145.589, 95.3506 )
+
+[node name="civilian_protest_guy24" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 127.134, 102.015 )
+
+[node name="civilian_protest_guy25" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 154.817, 106.629 )
+flip_h = true
+
+[node name="civilian_protest_guy26" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 211.207, 74.8451 )
 flip_h = true
 
 
