@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+<resource_file type="TileSet" subresource_count="2" version="2.1" version_name="Godot Engine v2.1.stable.official">
 	<ext_resource path="res://assets/gui/workshop/building_blocks.png" type="Texture" index="0"></ext_resource>
 	<main_resource>
 		<string name="0/name"> "tile1" </string>
@@ -307,6 +307,15 @@
 		<resource name="33/occluder"></resource>		<vector2 name="33/navigation_offset"> 32, 32 </vector2>
 		<resource name="33/navigation"></resource>		<vector2 name="33/shape_offset"> 0, 0 </vector2>
 		<array name="33/shapes" len="0" shared="false">
+		</array>
+		<string name="34/name"> "tile35" </string>
+		<resource name="34/texture" external="0">  </resource>
+		<vector2 name="34/tex_offset"> 0, -14 </vector2>
+		<resource name="34/material"></resource>		<rect2 name="34/region"> 128, 256, 64, 64 </rect2>
+		<vector2 name="34/occluder_offset"> 32, 32 </vector2>
+		<resource name="34/occluder"></resource>		<vector2 name="34/navigation_offset"> 32, 32 </vector2>
+		<resource name="34/navigation"></resource>		<vector2 name="34/shape_offset"> 0, 0 </vector2>
+		<array name="34/shapes" len="0" shared="false">
 		</array>
 
 	</main_resource>

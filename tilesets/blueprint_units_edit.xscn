@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.stable.custom_build">
+<resource_file type="PackedScene" subresource_count="2" version="2.1" version_name="Godot Engine v2.1.stable.official">
 	<ext_resource path="res://assets/units/blueprint_units.png" type="Texture" index="0"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
@@ -11,7 +11,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="15">
+			<string_array  len="16">
 				<string> "units_blueprint" </string>
 				<string> "__meta__" </string>
 				<string> "Node2D" </string>
@@ -27,16 +27,17 @@
 				<string> "soldier red" </string>
 				<string> "tank red" </string>
 				<string> "helicopter red" </string>
+				<string> "protesters" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 7 </int>
+			<int> 8 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="111"> 				-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 9, 3, -1, 5, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 5, 4, 6, 5, 2, 6, 3, 7, 4, 8, 7, 0, 0, 0, 9, 11, -1, 5, 4, 8, 5, 2, 6, 3, 7, 4, 8, 9, 0, 0, 0, 9, 12, -1, 5, 4, 10, 5, 2, 6, 3, 7, 4, 8, 11, 0, 0, 0, 9, 13, -1, 5, 4, 12, 5, 2, 6, 3, 7, 4, 8, 13, 0, 0, 0, 9, 14, -1, 5, 4, 14, 5, 2, 6, 3, 7, 4, 8, 15, 0 </int_array>
+			<int_array  len="128"> 				-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 9, 3, -1, 5, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 0, 0, 0, 9, 10, -1, 5, 4, 6, 5, 2, 6, 3, 7, 4, 8, 7, 0, 0, 0, 9, 11, -1, 5, 4, 8, 5, 2, 6, 3, 7, 4, 8, 9, 0, 0, 0, 9, 12, -1, 5, 4, 10, 5, 2, 6, 3, 7, 4, 8, 11, 0, 0, 0, 9, 13, -1, 5, 4, 12, 5, 2, 6, 3, 7, 4, 8, 13, 0, 0, 0, 9, 14, -1, 5, 4, 14, 5, 2, 6, 3, 7, 4, 8, 15, 0, 0, 0, 9, 15, -1, 5, 4, 16, 5, 2, 6, 3, 7, 4, 8, 17, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="16" shared="false">
+			<array  len="18" shared="false">
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
 					<string> "2D" </string>
@@ -54,8 +55,10 @@
 				<rect2> 96, 0, 32, 32 </rect2>
 				<vector2> 141, 29 </vector2>
 				<rect2> 128, 0, 32, 32 </rect2>
-				<vector2> 170, 29 </vector2>
+				<vector2> 170.663, 28.3366 </vector2>
 				<rect2> 160, 0, 32, 32 </rect2>
+				<vector2> 18.6537, 67.1516 </vector2>
+				<rect2> 0, 32, 32, 32 </rect2>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
