@@ -217,17 +217,6 @@ func hide():
 
 
 
-func operation_completed(response={}):
-    self.bag.message_popup.detach_panel()
-    self.online_menu_controller.multiplayer.refresh_matches_list()
-
-func operation_failed(response={}):
-    self.bag.message_popup.attach_panel(self.middle_container)
-    self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
-    self.bag.message_popup.connect(self, "operation_completed")
-    self.bag.message_popup.confirm_button.grab_focus()
-
-
 
 
 func ask_if_really_want_to_abandon():
