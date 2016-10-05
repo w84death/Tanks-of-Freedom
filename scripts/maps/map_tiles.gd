@@ -40,9 +40,10 @@ const UNIT_INFANTRY_RED = 30
 const UNIT_TANK_RED = 31
 const UNIT_HELICOPTER_RED = 32
 
+const TERRAIN_CONCRETE = 34
+const UNIT_CIVILIAN = 35
+
 const ICON_EREASE = 18
-
-
 
 const CITY_SMALL_1 = 0
 const CITY_SMALL_2 = 1

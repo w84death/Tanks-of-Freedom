@@ -42,7 +42,8 @@ func init_root(root_node):
         ["STATUE", self.tiles.TERRAIN_STATUE, "terrain", self.tiles.TERRAIN_STATUE],
         ["FENCE", self.tiles.TERRAIN_FENCE, "terrain", self.tiles.TERRAIN_FENCE],
         ["ROAD#1", self.tiles.TERRAIN_ROAD, "terrain", self.tiles.TERRAIN_ROAD],
-        ["ROAD#2", self.tiles.TERRAIN_DIRT_ROAD, "terrain", self.tiles.TERRAIN_DIRT_ROAD]
+        ["ROAD#2", self.tiles.TERRAIN_DIRT_ROAD, "terrain", self.tiles.TERRAIN_DIRT_ROAD],
+        ["CONCRETE", self.tiles.TERRAIN_CONCRETE, "terrain", self.tiles.TERRAIN_CONCRETE]
     ]
     self.buildings_blocks = [
         ["HQ", self.tiles.TERRAIN_HQ_BLUE, "terrain", self.tiles.TERRAIN_HQ_BLUE],
@@ -67,7 +68,8 @@ func init_root(root_node):
         ["HELI", self.tiles.UNIT_HELICOPTER_BLUE, "units", 2],
         ["INFANTRY", self.tiles.UNIT_INFANTRY_RED, "units", 3],
         ["TANK", self.tiles.UNIT_TANK_RED, "units", 4],
-        ["HELI", self.tiles.UNIT_HELICOPTER_RED, "units", 5]
+        ["HELI", self.tiles.UNIT_HELICOPTER_RED, "units", 5],
+        ["CIVILIAN", self.tiles.UNIT_CIVILIAN, "units", self.tiles.UNIT_CIVILIAN]
     ]
 
 func bind_panel(building_block_panel_wrapper_node):
