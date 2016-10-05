@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://units/unit_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/units/civilians_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://scripts/units/randomizing_animation_for_civilians.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -20,7 +21,7 @@ tracks/0/keys = { "times":FloatArray( 0, 0.4, 0.7 ), "transitions":FloatArray( 1
 texture = ExtResource( 2 )
 centered = false
 frame = 9
-script/script = null
+script/script = ExtResource( 3 )
 
 [node name="anim" parent="."]
 
