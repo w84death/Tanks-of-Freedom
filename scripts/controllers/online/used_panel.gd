@@ -291,7 +291,6 @@ func finished_preparing_match_data():
     self.middle_container.hide()
     self.controls.show()
     self.background.show()
-    self.create_button.grab_focus()
     self.call(self.match_state_loading_follow_up)
 
 func load_match_state():
@@ -319,7 +318,7 @@ func download_remote_map(code):
     self.bag.timers.set_timeout(0.5, self, 'perform_map_download', [code])
 
 func perform_map_download(code):
-    if self.bag.online_maps.download_map(code):
+    if self.bag.online_maps.download_map(code[0]):
         self.bag.message_popup.detach_panel()
         self.finished_preparing_match_data()
     else:

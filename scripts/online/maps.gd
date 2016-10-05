@@ -43,7 +43,7 @@ func download_map(code):
         return false
 
     var remote_file_name = self.get_remote_file_name(code)
-    if self.bag.file_handler.file_exists(remote_file_name):
+    if self.bag.map_list.has_remote_map(code):
         return true
 
     var result = self.bag.online_request.get(self.bag.online_request.api_location, self.MAPS_URL + "/" + code + ".json")
