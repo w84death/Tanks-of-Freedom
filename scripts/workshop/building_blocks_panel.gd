@@ -69,7 +69,7 @@ func init_root(root_node):
         ["INFANTRY", self.tiles.UNIT_INFANTRY_RED, "units", 3],
         ["TANK", self.tiles.UNIT_TANK_RED, "units", 4],
         ["HELI", self.tiles.UNIT_HELICOPTER_RED, "units", 5],
-        ["CIVILIAN", self.tiles.UNIT_CIVILIAN, "units", self.tiles.UNIT_CIVILIAN]
+        ["CIVILIAN", self.tiles.UNIT_CIVILIAN, "units", 6]
     ]
 
 func bind_panel(building_block_panel_wrapper_node):

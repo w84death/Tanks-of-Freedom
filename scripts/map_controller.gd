@@ -81,7 +81,7 @@ var map_units = [
     preload('res://units/helicopter_red.xscn')
 ]
 
-var civilian_units = [
+var map_civilians = [
     preload('res://units/civilians/old_woman.tscn'),
     preload('res://units/civilians/protest_guy.tscn'),
     preload('res://units/civilians/protest_guy2.tscn'),
@@ -514,7 +514,11 @@ func build_sprite_path(x, y, type):
     return false
 
 func spawn_unit(x, y, type):
-    var temp = map_units[type].instance()
+    var temp
+    if type == 6:
+        temp = map_civilians[randi() % map_civilians.size()].instance()
+    else:
+        temp = map_units [type].instance()
     temp.set_pos(terrain.map_to_world(Vector2(x,y)))
     map_layer_front.add_child(temp)
     return temp
