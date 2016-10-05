@@ -13,6 +13,7 @@ var map_layer_back
 var map_layer_front
 var action_layer
 var bag
+var random_tile
 
 var mouse_dragging = false
 var pos
@@ -256,6 +257,14 @@ func generate_map():
 
             if terrain_cell == self.tileset.TERRAIN_SPAWN:
                 cells_to_change.append({x=x, y=y, type=13})
+
+            # concrete
+            if terrain_cell == self.tileset.TERRAIN_CONCRETE:
+                if randi() % 10 > 5:
+                    random_tile = 3
+                else:
+                    random_tile = 4
+                cells_to_change.append({x=x, y=y, type=random_tile})
 
             # military buildings
 
