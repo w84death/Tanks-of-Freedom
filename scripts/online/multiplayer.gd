@@ -4,6 +4,7 @@ const MATCH_CREATE_URL = "/matches"
 const MATCH_DETAILS_URL = "/match/"
 const MATCH_JOIN_URL = "/match/join/"
 const MATCH_ABANDON_URL = "/match/abandon/"
+const MATCH_TURN_URL = "/match/turn/"
 
 var bag
 
@@ -104,6 +105,27 @@ func load_match_state(code, bound_object, bound_method_success, bound_method_fai
     }
 
     var message = self.bag.online_player.get_basic_auth_json()
+    var serialized_json = message.to_json()
+
+    self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
+
+
+func upload_turn_state(code, turn_data, bound_object, bound_method_success, bound_method_fail):
+    if not self.bag.online_request.enabled or self.bag.online_player.player_id == null:
+        return
+
+    var url = self.MATCH_TURN_URL + code + ".json"
+
+    var callbacks = {
+        "handle_200" : bound_method_success,
+        "handle_400" : bound_method_fail,
+        "handle_403" : bound_method_fail,
+        "handle_500" : bound_method_fail,
+        "handle_error" : bound_method_fail
+    }
+
+    var message = self.bag.online_player.get_basic_auth_json()
+    message['turn_data'] = turn_data
     var serialized_json = message.to_json()
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
