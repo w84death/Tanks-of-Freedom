@@ -217,13 +217,25 @@ func hide():
 
 
 
+func operation_completed(response={}):
+    self.bag.message_popup.detach_panel()
+    self.online_menu_controller.multiplayer.refresh_matches_list()
+
+func operation_failed(response={}):
+    self.bag.message_popup.attach_panel(self.middle_container)
+    self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
+    self.bag.message_popup.connect(self, "operation_completed")
+    self.bag.message_popup.confirm_button.grab_focus()
+
+
+
 
 func ask_if_really_want_to_abandon():
     self.middle_container.show()
     self.controls.hide()
     self.background.hide()
     self.bag.confirm_popup.attach_panel(self.middle_container)
-    self.bag.confirm_popup.fill_labels(tr('LABEL_ABANDON_MATCH'), tr('MSG_CONFIRM_ABANDON'), tr('LABEL_PROCEED'), tr('LABEL_CANCEL'))
+    self.bag.confirm_popup.fill_labels(tr('LABEL_ABANDON_MATCH'), tr('MAG_ABANDON_MATCH'), tr('LABEL_PROCEED'), tr('LABEL_CANCEL'))
     self.bag.confirm_popup.connect(self, "confirm_abandon_match")
     self.bag.confirm_popup.confirm_button.grab_focus()
 
@@ -231,7 +243,7 @@ func clear_without_asking():
     self.middle_container.show()
     self.controls.hide()
     self.background.hide()
-    self.perform_abandon_match()
+    self.confirm_abandon_match(true)
 
 func confirm_abandon_match(confirmation):
     self.bag.confirm_popup.detach_panel()
@@ -247,7 +259,7 @@ func perform_abandon_match():
     self.bag.message_popup.attach_panel(self.middle_container)
     self.bag.message_popup.fill_labels(tr('LABEL_CLEAR_SLOT'), tr('MSG_CLEARING_SLOT_WAIT'), "")
     self.bag.message_popup.hide_button()
-    self.bag.online_multiplayer.clear_match(self.match_join_code, self, 'operation_completed', 'operation_failed')
+    self.bag.online_multiplayer.abandon_match(self.match_join_code, self, 'operation_completed', 'operation_failed')
 
 func operation_completed(response={}):
     self.bag.message_popup.detach_panel()

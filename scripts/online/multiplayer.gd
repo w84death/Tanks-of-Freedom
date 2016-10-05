@@ -73,7 +73,8 @@ func join_match(code, bound_object, bound_method_success, bound_method_fail):
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
 
-func clear_match(code, bound_object, bound_method_success, bound_method_fail):
+
+func abandon_match(code, bound_object, bound_method_success, bound_method_fail):
     if not self.bag.online_request.enabled or self.bag.online_player.player_id == null:
         return
 
