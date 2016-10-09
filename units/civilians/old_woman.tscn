@@ -35,4 +35,13 @@ visibility/visible = false
 
 visibility/visible = false
 
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+transform/pos = Vector2( 0.852638, 5.10784 )
+transform/scale = Vector2( 0.152972, 0.060096 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
 

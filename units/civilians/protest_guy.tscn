@@ -19,7 +19,6 @@ tracks/0/keys = { "times":FloatArray( 0, 0.3, 0.7 ), "transitions":FloatArray( 1
 [node name="civilian_protest_guy" instance=ExtResource( 1 )]
 
 texture = ExtResource( 2 )
-centered = false
 frame = 4
 script/script = ExtResource( 3 )
 
