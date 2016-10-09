@@ -515,12 +515,22 @@ func build_sprite_path(x, y, type):
 
 func spawn_unit(x, y, type):
     var temp
+    var new_x
+    var new_y
+    var MOVE_OFFSET = 32
+    var MAX_CIVILIANS_ON_TILE = 6
+
     if type == 6:
-        temp = map_civilians[randi() % map_civilians.size()].instance()
+        for civil in range(MAX_CIVILIANS_ON_TILE):
+            temp = map_civilians[randi() % map_civilians.size()].instance()
+            new_x = (randi() % MOVE_OFFSET) - (MOVE_OFFSET/2)
+            new_y = (randi() % MOVE_OFFSET) - (MOVE_OFFSET/2)
+            temp.set_pos(terrain.map_to_world(Vector2(x,y)) + Vector2(new_x, new_y))
+            map_layer_front.add_child(temp)
     else:
         temp = map_units [type].instance()
-    temp.set_pos(terrain.map_to_world(Vector2(x,y)))
-    map_layer_front.add_child(temp)
+        temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+        map_layer_front.add_child(temp)
     return temp
 
 func generate_underground(x, y):

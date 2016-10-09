@@ -160,7 +160,7 @@ func paint(position, tool_type = null, brush_type = null, undo_action = false):
 
         if tool_type == "units":
             if units.get_cell(position.x,position.y) != brush_type:
-                if terrain.get_cell(position.x, position.y) in [self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN]:
+                if terrain.get_cell(position.x, position.y) in [self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN, self.tileset.TERRAIN_CONCRETE]:
                     if not undo_action:
                         add_action({position=Vector2(position.x,position.y),tool_type="units"})
                     units.set_cell(position.x,position.y,brush_type)
