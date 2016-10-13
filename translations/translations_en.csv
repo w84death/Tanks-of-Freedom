@@ -1,18 +1,18 @@
 ,en
 TIP_HEADER,Did you know that...
 TIP_1,Each unit can attack only once a turn
-TIP_2,Units have own weaknesses and advantages - only troops can capture buildings but they have almost no chance against tanks and tanks can’t attack helis
+TIP_2,Units have weaknesses and advantages - only troops can capture buildings but they have almost no chance against tanks and tanks can’t attack helis
 TIP_3,You can deploy soldiers in HQ but it is cheaper to do so in the barracks
-TIP_4,Unit losses all his remaining AP in turn when capturing Tower
+TIP_4,A unit loses all its remaining AP for the turn when capturing a Tower
 TIP_5,All production buildings require a soldier to maintain it - capturing them will cost you a soldier unit
 TIP_6,HQ and captured Towers or Airports will produce cash in every turn
-TIP_7,Cash can be spend for deploying units and movement
+TIP_7,Cash can be spent for deploying units and movement
 TIP_8,Use your cash wisely - a big army will be slower and less effective than a small squad
-TIP_9,It’s never a good idea to send a unit alone to the battlefield
+TIP_9,It’s never a good idea to send a unit onto the battlefield alone
 TIP_10,Mixing unit types in squads gives you a strategic advantage
-TIP_11,You cannot deploy unit when spawning point is blocked and so do the enemy - block factories with your units
-TIP_12,Units can attack only adjacent tiles - so when target is far away you should firstly move your unit
-TIP_13,HQ is the most valuable building in game - if you capture enemy HQ you will win the game, losing it means instant defeat
+TIP_11,You cannot deploy a unit when the spawning point is blocked and neither can the enemy - block enemy factories with your units
+TIP_12,Units can attack only adjacent tiles - so when your target is far away you should first move your unit closer
+TIP_13,HQ is the most valuable building in game - if you capture the enemy HQ you will win the game
 LABEL_WORKSHOP,WORKSHOP
 LABEL_MAIN_MENU,MAIN MENU
 LABEL_START_TURN,START TURN
