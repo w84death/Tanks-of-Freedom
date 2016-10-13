@@ -129,3 +129,11 @@ func upload_turn_state(code, turn_data, bound_object, bound_method_success, boun
     var serialized_json = message.to_json()
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
+
+
+func load_game_from_state():
+    return
+
+func load_replay_from_state():
+    return
+
