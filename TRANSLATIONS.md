@@ -42,5 +42,7 @@ python bin/compact.py
 
 Godot 2.1 note: it seems, that Editor rebuilds .xl files on it's own after .csv files are updated and compacted.
 
+## About contributing translations
 
+Due to translations files being auto-generated from apropriate country-coded ones, please create pull requests only containing modified files for a particular language, or adding new ones. Please do not add compacted files to the PR. If possible, please run the compacting script before creating PR to make sure, that there aren't any missing keys, and labels are not too long.
 
