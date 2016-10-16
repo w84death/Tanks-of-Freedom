@@ -248,6 +248,10 @@ func perform_abandon_match():
     self.bag.message_popup.attach_panel(self.middle_container)
     self.bag.message_popup.fill_labels(tr('LABEL_CLEAR_SLOT'), tr('MSG_CLEARING_SLOT_WAIT'), "")
     self.bag.message_popup.hide_button()
+
+    if self.is_already_loaded():
+        self.bag.root.unload_map()
+
     self.bag.online_multiplayer.abandon_match(self.match_join_code, self, 'operation_completed', 'operation_failed')
 
 func operation_completed(response={}):
@@ -261,22 +265,67 @@ func operation_failed(response={}):
     self.bag.message_popup.confirm_button.grab_focus()
 
 
+func is_already_loaded():
+    if not self.bag.match_state.current_loaded_multiplayer_state.has('join_code'):
+        return false
+
+    if self.bag.match_state.current_loaded_multiplayer_state['join_code'] == self.match_join_code:
+        return true
+
+    return false
 
 
 func start_loading_match():
+    if self.is_already_loaded():
+        self.bag.controllers.online_menu_controller.hide()
+        self.bag.root.toggle_menu()
+        return
+
     self.prepare_match_data_and_perform_action("continue_loading_match")
 
 func continue_loading_match():
-    print(self.bag.match_state.current_loaded_multiplayer_state)
+    if self.bag.match_state.is_replay_available():
+        self.ask_load_replay_or_turn()
+    else:
+        self.bag.controllers.online_menu_controller.hide()
+        self.bag.online_multiplayer.load_game_from_state()
+        self.bag.root.toggle_menu()
 
 func ask_load_replay_or_turn():
-    return
+    self.middle_container.show()
+    self.controls.hide()
+    self.background.hide()
+    self.bag.confirm_popup.attach_panel(self.middle_container)
+    self.bag.confirm_popup.fill_labels(tr('LABEL_SHOW_REPLAY'), tr('MSG_SHOW_REPLAY'), tr('LABEL_REPLAY'), tr('LABEL_SKIP'))
+    self.bag.confirm_popup.connect(self, "confirm_abandon_match")
+    self.bag.confirm_popup.confirm_button.grab_focus()
+
+func confirm_load_replay_or_turn(confirmation):
+    self.bag.confirm_popup.detach_panel()
+    self.controls.hide()
+    self.background.hide()
+    self.load_match_state()
+
+    self.bag.controllers.online_menu_controller.hide()
+
+    if confirmation:
+        self.bag.online_multiplayer.load_replay_from_state()
+    else:
+        self.bag.online_multiplayer.load_game_from_state()
+    self.bag.root.toggle_menu()
 
 func start_loading_replay():
+    if self.is_already_loaded():
+        self.bag.controllers.online_menu_controller.hide()
+        self.bag.root.toggle_menu()
+        return
+
     self.prepare_match_data_and_perform_action("continue_loading_replay")
 
 func continue_loading_replay():
-    print(self.bag.match_state.current_loaded_multiplayer_state)
+    self.bag.controllers.online_menu_controller.hide()
+    self.bag.online_multiplayer.load_replay_from_state()
+    self.bag.root.toggle_menu()
 
 
 

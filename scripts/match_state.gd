@@ -15,6 +15,8 @@ func reset():
     self.is_campaign_map = false
     self.is_workshop_map = false
     self.current_map_number = 0
+    self.is_multiplayer = false
+    self.current_loaded_multiplayer_state = {}
 
 func is_campaign():
     return self.is_campaign_map

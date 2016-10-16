@@ -384,6 +384,7 @@ func switch_to_player(player, save_game=true):
         if save_game && self.root_node.bag.saving != null:
             self.root_node.bag.saving.save_state()
         self.refill_ap()
+        root_node.ai_timer.reset_state()
     self.root_node.bag.fog_controller.clear_fog()
     self.root_node.bag.ap_gain.update()
 

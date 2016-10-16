@@ -131,9 +131,40 @@ func upload_turn_state(code, turn_data, bound_object, bound_method_success, boun
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
 
 
+
+
+
+
+
+
+
 func load_game_from_state():
-    return
+    var state_copy = self.bag.match_state.current_loaded_multiplayer_state
+    var final_state = self.bag.match_state.get_final_state()
+    var map_code = self.bag.match_state.current_loaded_multiplayer_state['map_code']
+
+    self._apply_player_sides_from_state()
+
+    if final_state.size() > 0:
+        self.bag.root.load_map('workshop', map_code, false, true)
+    else:
+        self.bag.root.load_map('workshop', map_code, false, true)
+
+    self.bag.match_state.current_loaded_multiplayer_state = state_copy
+    self.bag.root.ai_timer.reset_state()
+    self.bag.match_state.is_multiplayer = true
 
 func load_replay_from_state():
     return
+
+
+func _apply_player_sides_from_state():
+    var player_side = self.bag.match_state.current_loaded_multiplayer_state['player_side']
+
+    self.bag.root.settings['cpu_0'] = true
+    self.bag.root.settings['cpu_1'] = true
+    self.bag.root.settings['cpu_' + str(player_side)] = false
+    self.bag.root.settings['turns_cap'] = 0
+
+
 
