@@ -153,6 +153,7 @@ func load_game_from_state():
     self.bag.match_state.current_loaded_multiplayer_state = state_copy
     self.bag.root.ai_timer.reset_state()
     self.bag.match_state.is_multiplayer = true
+    self.bag.match_state.reset_actions_taken()
 
 func load_replay_from_state():
     return

@@ -11,12 +11,15 @@ var current_map_number = 0
 var is_multiplayer = false
 var current_loaded_multiplayer_state = {}
 
+var actions_taken = []
+
 func reset():
     self.is_campaign_map = false
     self.is_workshop_map = false
     self.current_map_number = 0
     self.is_multiplayer = false
     self.current_loaded_multiplayer_state = {}
+    self.actions_taken = []
 
 func is_campaign():
     return self.is_campaign_map
@@ -87,3 +90,12 @@ func get_state_component(component):
 
     return {}
 
+
+
+func reset_actions_taken():
+    self.actions_taken = []
+
+func register_action_taken(action):
+    self.actions_taken.append(action)
+
+    
