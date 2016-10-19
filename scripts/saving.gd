@@ -159,7 +159,13 @@ func get_active_player_id():
 func get_active_player_key():
     return 'cpu_' + str(self.loaded_data['active_player'])
 
+
 func save_state():
+    self.collect_state_data()
+    self.store_map_in_binary_file()
+
+
+func collect_state_data():
     var pos
     var ground_damage = null
     self.data.clear()
@@ -200,7 +206,35 @@ func save_state():
     #units
     self.__fill_unit_data()
 
-    self.store_map_in_binary_file()
+
+func get_current_state():
+    self.collect_state_data()
+
+    var current_data
+    var map_array = []
+    var element
+    for pos in self.data:
+        element = self.data[pos]
+        if self._is_empty(element):
+            continue
+        map_array.append(element)
+
+    current_data = {
+        'map' : map_array,
+        'from_workshop' : self.root_node.workshop_file_name,
+        'player_0_ap' : self.root_node.action_controller.player_ap[0],
+        'player_1_ap' : self.root_node.action_controller.player_ap[1],
+        'turn': self.root_node.action_controller.turn,
+        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats(),
+    }
+
+    return current_data
+
+func _is_empty(element):
+    if element["meta"].size() < 1 and element["building"] == -1 and element["unit"] == -1 and element["terrain"] == -1:
+        return true
+    return false
+
 
 func invalidate_save_file():
     var save_data = {

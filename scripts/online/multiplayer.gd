@@ -126,6 +126,7 @@ func upload_turn_state(code, turn_data, bound_object, bound_method_success, boun
 
     var message = self.bag.online_player.get_basic_auth_json()
     message['turn_data'] = turn_data
+
     var serialized_json = message.to_json()
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
@@ -168,4 +169,32 @@ func _apply_player_sides_from_state():
     self.bag.root.settings['turns_cap'] = 0
 
 
+
+
+
+
+
+func update_turn_state():
+    var updated_state = self.get_updated_turn_state()
+    var match_code = self.bag.match_state.current_loaded_multiplayer_state['join_code']
+
+    self.upload_turn_state(match_code, updated_state, self, "finished_updating_state", "updating_state_went_bad")
+
+
+func finished_updating_state(response):
+    return
+
+func updating_state_went_bad(response):
+    print(response)
+    return
+
+
+func get_updated_turn_state():
+    var updated_state = {
+        'initial_state': self.bag.match_state.get_final_state(),
+        'moves': self.bag.match_state.actions_taken,
+        'final_state': self.bag.saving.get_current_state()
+    }
+
+    return updated_state
 

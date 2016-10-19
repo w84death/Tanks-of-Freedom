@@ -297,7 +297,7 @@ func ask_load_replay_or_turn():
     self.background.hide()
     self.bag.confirm_popup.attach_panel(self.middle_container)
     self.bag.confirm_popup.fill_labels(tr('LABEL_SHOW_REPLAY'), tr('MSG_SHOW_REPLAY'), tr('LABEL_REPLAY'), tr('LABEL_SKIP'))
-    self.bag.confirm_popup.connect(self, "confirm_abandon_match")
+    self.bag.confirm_popup.connect(self, "confirm_load_replay_or_turn")
     self.bag.confirm_popup.confirm_button.grab_focus()
 
 func confirm_load_replay_or_turn(confirmation):

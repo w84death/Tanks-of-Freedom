@@ -276,15 +276,19 @@ func attach_objects(collection):
 
 func end_turn():
     self.stats_set_time()
+    sound_controller.play('end_turn')
+    if self.root_node.bag.match_state.is_multiplayer:
+        self.multiplayer_end_turn()
+    else:
+        self.local_end_turn()
+
+
+func local_end_turn():
     if self.root_node.settings['turns_cap'] > 0:
         if self.turn >= self.root_node.settings['turns_cap']:
             self.end_game(-1)
             return
 
-    if self.root_node.bag.match_state.is_multiplayer:
-        print(self.root_node.bag.match_state.actions_taken)
-
-    sound_controller.play('end_turn')
     if self.current_player == 0:
         self.switch_to_player(1)
     else:
@@ -294,6 +298,13 @@ func end_turn():
 
     #gather stats
     self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
+
+func multiplayer_end_turn():
+    self.root_node.lock_for_cpu()
+    self.root_node.bag.online_multiplayer.update_turn_state()
+
+func go_into_multiplayer_wait_mode():
+    return
 
 func move_camera_to_active_bunker():
     var bunker_position = self.positions.get_player_bunker_position(current_player)
@@ -384,7 +395,7 @@ func switch_to_player(player, save_game=true):
             root_node.start_ai_timer()
             self.show_bonus_ap()
             self.ai.set_ap_for_turn(self.player_ap[player])
-        root_node.lock_for_cpu()
+            root_node.lock_for_cpu()
         self.move_camera_to_active_bunker()
     else:
         root_node.unlock_for_player()
