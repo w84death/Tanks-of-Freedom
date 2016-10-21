@@ -1,15 +1,15 @@
 ,de
-TIP_HEADER,Wussten Sie dass…
-TIP_1,Jede Einheit kann nur einmal pro Runde angreifen
-TIP_2,Units have own weaknesses and advantages - only troops can capture buildings but they have almost no chance against tanks and tanks can’t attack helis
+TIP_HEADER,"Wussten Sie dass…"
+TIP_1,"Jede Einheit kann nur einmal pro Runde angreifen"
+TIP_2,"Units have own weaknesses and advantages - only troops can capture buildings but they have almost no chance against tanks and tanks can’t attack helis"
 TIP_3,"Sie können Soldaten im HQ bauen, aber es ist günstiger in den Kasernen"
 TIP_4,"Einheit verliert all ihre AP in dieser Runde, wenn sie einen Tower einnimmt"
 TIP_5,"Alle Produktionsgebäude benötigen einen Soldaten, um sie zu betreiben. Wird das Gebäude erobert, kostet das einen Soldaten"
-TIP_6,HQ and eroberte Towers oder Flughäfen produzieren jede Runde Geld
-TIP_7,Geld kann in Einheiten oder Bewegungspunkte investiert werden
-TIP_8,Benutze Geld mit Bedacht! Eine große Armee ist langsamer und ineffektiver als ein kleiner Trupp
+TIP_6,"HQ and eroberte Towers oder Flughäfen produzieren jede Runde Geld"
+TIP_7,"Geld kann in Einheiten oder Bewegungspunkte investiert werden"
+TIP_8,"Benutze Geld mit Bedacht! Eine große Armee ist langsamer und ineffektiver als ein kleiner Trupp"
 TIP_9,"Es ist nie eine gute Idee, eine Einheit alleine in die Schlacht zu schicken"
-TIP_10,Verschiedene Einheiten zu mischen bringt strategische Vorteile
+TIP_10,"Verschiedene Einheiten zu mischen bringt strategische Vorteile"
 TIP_11,"Einheiten können nicht gebaut werden, wenn der Startpunkt blockiert ist. Gleiches gilt für den Feind: blockiere dessen Fabriken."
 TIP_12,"Einheiten können nur angrenzende Felder angreifen – ist das Ziel zu weit entfernt, müssen Sie Ihre Einheit zuerst bewegen"
 TIP_13,"Das HQ ist das wertvollste Gebäude im Spiel – wenn Sie das gegnerische HQ erobern, gewinnen Sie das Spiel","es zu verlieren, bedeutet die sofortige Niederlage"
@@ -183,7 +183,7 @@ TIP_UPLOADING_SUCCESS,Upload erfolgreich! Jetzt können Sie Ihre neue Karte mit 
 TIP_UPLOADING_FAIL,Upload fehlgeschlagen. Bitte versuche es später noch einmal.
 LABEL_DONE,Erledigt
 TIP_WELCOME_ONLINE,Willkommen zu  ToF Online!
-TIP_NEED_REGISTER,"BEvor Sie online spielen können, müssen Sie sich registrieren."
+TIP_NEED_REGISTER,"Bevor Sie online spielen können, müssen Sie sich registrieren."
 LABEL_REGISTER,Registrieren
 LABEL_LATER,Vielleicht später
 LABEL_REGISTER_PLAYER,Spieler registrieren

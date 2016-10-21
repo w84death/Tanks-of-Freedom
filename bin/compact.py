@@ -1,7 +1,7 @@
 import csv
 import glob
 
-MAX_LABEL_LENGTH = 20
+MAX_LABEL_LENGTH = 30
 
 translations = {}
 default_translation = {}
@@ -88,7 +88,7 @@ def compact_translations(directory, output_file_name):
             output[row].append(translation[row])
 
     with open(directory + output_file_name, 'w') as csvfile:
-        csvwriter = csv.writer(csvfile, delimiter=',')
+        csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         for row in sorted(output):
             csvwriter.writerow([row] + output[row])
 

@@ -1,18 +1,18 @@
 ,pl
-TIP_HEADER,Czy wiesz, że...
-TIP_1,Każda jednostka może zaatakować tylko raz na turę
-TIP_2,Jednostki mają wady i zalety - piechota może zajmowac budynki, lecz nie mają szans w starciu z czołgami, które z kolei nie mogą walczyć z helikopterami
-TIP_3,Możesz rekrutować piechotę w Kwaterze Głównej, lecz kupowanie w Barakach jest tańsze
-TIP_4,Piechota traci całe AP na bierzącą turę, kiedy zajmuje Wierzę
-TIP_5,Wszystkie budynki produkcyjne wymagają żołnierza do obsługi - zajęcie ich kosztuje Cię jednostkę, która wchodzi do budynku
-TIP_6,Kwatera Główna, Wierze i Lotniska produkują co turę Punkty Akcji
-TIP_7,Punkty Akcji służą do poruszania jednostek oraz do kupowania nowych wojsk
-TIP_8,Używaj swoich Punktów Akcji rozważnie - duża armia porusza się wolniej, jeżeli masz ich za mało
-TIP_9,Wysyłanie jednostek na front samotnie jest bardzo ryzykowne
-TIP_10,Oddziały o zróżnicowanym składzie mają większe szanse na sukces
-TIP_11,Nie można kupowac nowych oddziałów, jeżeli pole wyjścia z budynku jest zajęte - możesz tego użyć, aby uzyskać przewagę
-TIP_12,Jednostki mogą atakować tylko pola obok siebie - jeżeli cel jest dalej, muszą do niego najpierw podejść
-TIP_13,Kwatera Główna jest najważniejszym budynkiem - przejęcie Kwatery oznacza zwycięstwo, utrata własnej kończy się porażką
+TIP_HEADER,"Czy wiesz, że..."
+TIP_1,"Każda jednostka może zaatakować tylko raz na turę"
+TIP_2,"Jednostki mają wady i zalety - piechota może zajmowac budynki, lecz nie mają szans w starciu z czołgami, które z kolei nie mogą walczyć z helikopterami"
+TIP_3,"Możesz rekrutować piechotę w Kwaterze Głównej, lecz kupowanie w Barakach jest tańsze"
+TIP_4,"Piechota traci całe AP na bierzącą turę, kiedy zajmuje Wierzę"
+TIP_5,"Wszystkie budynki produkcyjne wymagają żołnierza do obsługi - zajęcie ich kosztuje Cię jednostkę, która wchodzi do budynku"
+TIP_6,"Kwatera Główna, Wierze i Lotniska produkują co turę Punkty Akcji"
+TIP_7,"Punkty Akcji służą do poruszania jednostek oraz do kupowania nowych wojsk"
+TIP_8,"Używaj swoich Punktów Akcji rozważnie - duża armia porusza się wolniej, jeżeli masz ich za mało"
+TIP_9,"Wysyłanie jednostek na front samotnie jest bardzo ryzykowne"
+TIP_10,"Oddziały o zróżnicowanym składzie mają większe szanse na sukces"
+TIP_11,"Nie można kupowac nowych oddziałów, jeżeli pole wyjścia z budynku jest zajęte - możesz tego użyć, aby uzyskać przewagę"
+TIP_12,"Jednostki mogą atakować tylko pola obok siebie - jeżeli cel jest dalej, muszą do niego najpierw podejść"
+TIP_13,"Kwatera Główna jest najważniejszym budynkiem - przejęcie Kwatery oznacza zwycięstwo, utrata własnej kończy się porażką"
 LABEL_WORKSHOP,EDYTOR
 LABEL_MAIN_MENU,MENU GŁÓWNE
 LABEL_START_TURN,START TURY

@@ -200,7 +200,8 @@ func reload_label(label, translation):
 func __get_available_languages():
     var languages = load('res://translations/languages.gd').new()
     if self.bag.root.settings['ENV'] == 'dev' :
-        return languages.available + languages.in_develop
+        var langs = languages.available + languages.in_develop
+        return langs.sort()
 
     return languages.available
 
