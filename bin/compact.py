@@ -1,7 +1,7 @@
 import csv
 import glob
 
-MAX_LABEL_LENGTH = 30
+MAX_LABEL_LENGTH = 20
 
 translations = {}
 default_translation = {}
