@@ -147,7 +147,8 @@ func load_game_from_state():
     self._apply_player_sides_from_state()
 
     if final_state.size() > 0:
-        self.bag.root.load_map('workshop', map_code, false, true)
+        self.bag.saving.apply_multiplayer_state(final_state, self._get_active_player(state_copy))
+        self.bag.root.load_map('workshop', map_code, true, true)
     else:
         self.bag.root.load_map('workshop', map_code, false, true)
 
@@ -159,6 +160,18 @@ func load_game_from_state():
 func load_replay_from_state():
     return
 
+
+func _get_active_player(state):
+    if state['player_side'] == 0:
+        if state['player_status'] == 0:
+            return 0
+        else:
+            return 1
+    else:
+        if state['player_status'] == 0:
+            return 1
+        else:
+            return 0
 
 func _apply_player_sides_from_state():
     var player_side = self.bag.match_state.current_loaded_multiplayer_state['player_side']

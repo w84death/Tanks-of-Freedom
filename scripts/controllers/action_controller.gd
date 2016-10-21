@@ -429,6 +429,7 @@ func apply_handicap():
     return false
 
 func reset_player_units(player):
+    self.positions.refresh_units()
     var units = self.positions.get_player_units(player)
     var limit_ap = self.apply_handicap()
     for unit_pos in units:

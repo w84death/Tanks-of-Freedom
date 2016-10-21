@@ -302,9 +302,9 @@ func ask_load_replay_or_turn():
 
 func confirm_load_replay_or_turn(confirmation):
     self.bag.confirm_popup.detach_panel()
-    self.controls.hide()
-    self.background.hide()
-    self.load_match_state()
+    self.middle_container.hide()
+    self.controls.show()
+    self.background.show()
 
     self.bag.controllers.online_menu_controller.hide()
 

@@ -144,7 +144,8 @@ func get_terrain_object_by_unique_type(unique_type_id):
 
 func apply_saved_environment_settings():
     for settings in self.saved_settings:
-        self.root_node.settings[settings] = self.loaded_data[settings]
+        if self.loaded_data.has(settings):
+            self.root_node.settings[settings] = self.loaded_data[settings]
     self.apply_saved_action_state()
 
 func apply_saved_action_state():
@@ -229,6 +230,20 @@ func get_current_state():
     }
 
     return current_data
+
+func apply_multiplayer_state(state, active_player):
+    self.loaded_data = {
+        'map' : state['map'],
+        'is_current' : true,
+        'template_name' : 'multiplayer',
+        'from_workshop' : state['from_workshop'],
+        'active_player' : active_player,
+        'player_0_ap' : state['player_0_ap'],
+        'player_1_ap' : state['player_1_ap'],
+        'turn': state['turn'],
+        'battle_stats' : state['battle_stats'],
+        'is_remote' : true
+    }
 
 func _is_empty(element):
     if element["meta"].size() < 1 and element["building"] == -1 and element["unit"] == -1 and element["terrain"] == -1:
