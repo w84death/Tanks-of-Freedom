@@ -244,8 +244,10 @@ func destroy_unit(field):
     field.object = null
 
 func spawn_unit_from_active_building():
+    if active_field == null:
+        return
     var active_object = active_field.object
-    if active_field == null || active_object.group != 'building' || active_object.can_spawn == false:
+    if active_object == null || active_object.group != 'building' || active_object.can_spawn == false:
         return
     var spawn_point = self.root_node.bag.abstract_map.get_field(active_object.spawn_point)
     var required_ap = active_object.get_required_ap()
