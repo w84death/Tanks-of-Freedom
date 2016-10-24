@@ -291,6 +291,10 @@ func toggle_menu(target = 'menu'):
             if action_controller.game_ended:
                 hud_controller.hud_end_game_missions_button.grab_focus()
 
+func show_menu():
+    if is_map_loaded and menu.is_hidden():
+        self.toggle_menu()
+
 func show_missions():
     self.toggle_menu()
     menu.show_maps_menu()

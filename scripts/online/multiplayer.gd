@@ -195,14 +195,14 @@ func update_turn_state():
     var updated_state = self.get_updated_turn_state()
     var match_code = self.bag.match_state.current_loaded_multiplayer_state['join_code']
 
-    self.upload_turn_state(match_code, updated_state, self, "finished_updating_state", "updating_state_went_bad")
+    self.upload_turn_state(match_code, updated_state, self, "finished_updating_state", "server_call_state_went_bad")
 
 
 func finished_updating_state(response):
     self.start_polling_state(response['data']['join_code'])
 
-func updating_state_went_bad(response):
-    self.bag.root.toggle_menu()
+func server_call_state_went_bad(response):
+    self.bag.root.show_menu()
     self.bag.root.unload_map()
 
 
@@ -238,9 +238,23 @@ func polling_step(match_code):
 
 func poll_state(match_code):
     self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_CHECKING_STATE'))
-    self.finished_polling_state(match_code)
+    var updated_state = self.load_match_state(match_code, self, 'finished_polling_state', 'server_call_state_went_bad')
 
-func finished_polling_state(match_code):
-    self.bag.match_state.polling_counter = 0
-    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
-    self.polling_step([match_code])
+func finished_polling_state(response):
+    var data = response['data']
+    var match_code = data['join_code']
+
+    if self.bag.match_state.current_loaded_multiplayer_state['join_code'] != match_code:
+        return
+
+    if data['player_status'] == 0:
+        self.bag.match_state.current_loaded_multiplayer_state = data
+        self.update_turn_with_polled_data()
+    else:
+        self.bag.match_state.polling_counter = 0
+        self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
+        self.polling_step([match_code])
+
+
+func update_turn_with_polled_data():
+    print('new data available')
