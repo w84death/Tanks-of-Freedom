@@ -302,6 +302,7 @@ func local_end_turn():
     self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func multiplayer_end_turn():
+    self.root_node.hud_controller.switch_cinematic_to_multiplayer()
     self.root_node.lock_for_cpu()
     self.root_node.bag.online_multiplayer.update_turn_state()
 

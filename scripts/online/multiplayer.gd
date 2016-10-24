@@ -143,11 +143,12 @@ func load_game_from_state():
     var state_copy = self.bag.match_state.current_loaded_multiplayer_state
     var final_state = self.bag.match_state.get_final_state()
     var map_code = self.bag.match_state.current_loaded_multiplayer_state['map_code']
+    var active_player = self._get_active_player(state_copy)
 
     self._apply_player_sides_from_state()
 
     if final_state.size() > 0:
-        self.bag.saving.apply_multiplayer_state(final_state, self._get_active_player(state_copy))
+        self.bag.saving.apply_multiplayer_state(final_state, active_player)
         self.bag.root.load_map('workshop', map_code, true, true)
     else:
         self.bag.root.load_map('workshop', map_code, false, true)
@@ -156,6 +157,9 @@ func load_game_from_state():
     self.bag.root.ai_timer.reset_state()
     self.bag.match_state.is_multiplayer = true
     self.bag.match_state.reset_actions_taken()
+
+    if state_copy['player_status'] == 1:
+        self.start_polling_state(self.bag.match_state.current_loaded_multiplayer_state['join_code'])
 
 func load_replay_from_state():
     return
@@ -195,11 +199,11 @@ func update_turn_state():
 
 
 func finished_updating_state(response):
-    return
+    self.start_polling_state(response['data']['join_code'])
 
 func updating_state_went_bad(response):
-    print(response)
-    return
+    self.bag.root.toggle_menu()
+    self.bag.root.unload_map()
 
 
 func get_updated_turn_state():
@@ -211,3 +215,32 @@ func get_updated_turn_state():
 
     return updated_state
 
+
+
+func start_polling_state(match_code):
+    self.bag.match_state.is_polling = true
+
+    self.bag.match_state.polling_counter = 0
+    self.polling_step([match_code])
+
+
+func polling_step(match_code):
+    match_code = match_code[0]
+    if self.bag.match_state.current_loaded_multiplayer_state['join_code'] != match_code:
+        return
+
+    self.bag.root.hud_controller.cinematic_progress.set_frame(self.bag.match_state.polling_counter)
+    if self.bag.match_state.polling_counter == self.bag.match_state.POLLING_INTERVAL:
+        self.poll_state(match_code)
+        return
+    self.bag.match_state.polling_counter = self.bag.match_state.polling_counter + 1
+    self.bag.timers.set_timeout(1, self, 'polling_step', [match_code])
+
+func poll_state(match_code):
+    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_CHECKING_STATE'))
+    self.finished_polling_state(match_code)
+
+func finished_polling_state(match_code):
+    self.bag.match_state.polling_counter = 0
+    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
+    self.polling_step([match_code])

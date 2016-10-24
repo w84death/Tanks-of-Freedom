@@ -16,6 +16,7 @@ var hud_message_card_visible = false
 var cinematic_camera
 var cinematic_camera_anim
 var cinematic_progress
+var cinematic_label
 var menu_button
 var menu_button_label
 var settings_button
@@ -90,6 +91,7 @@ func init_root(root, action_controller_object, hud):
     cinematic_camera = hud.get_node("cinematic_camera")
     cinematic_camera_anim = cinematic_camera.get_node("anim")
     cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
+    cinematic_label = cinematic_camera.get_node("bottom/bottom_block/wait")
 
     self.menu_button = hud.get_node("top_center/center/game_card/menu")
     self.menu_button_label = self.menu_button.get_node('Label')
@@ -282,6 +284,12 @@ func fill_end_game_stats(stats, turns):
     red_spawns.set_text(str(stats["spawns"][1]))
     red_score.set_text(str(stats["score"][1]))
 
+func switch_cinematic_to_cpu_meter():
+    self.update_cinematic_label(tr('LABEL_CPU_TURN'))
+
+func switch_cinematic_to_multiplayer():
+    self.update_cinematic_label('LABEL_OPPONENT_WAIT')
+
 func show_cinematic_camera():
     self.cinematic_camera.show()
     self.cinematic_camera_anim.play("on")
@@ -301,6 +309,9 @@ func update_cpu_progress(current_ap, overall_ap):
     if percent > 9:
         percent = 9
     self.cinematic_progress.set_frame(percent)
+
+func update_cinematic_label(text):
+    self.cinematic_label.set_text(text)
 
 func __show_next_tip():
 	return self.tips.next_tip()

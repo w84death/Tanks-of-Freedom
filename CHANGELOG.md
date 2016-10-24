@@ -2,6 +2,12 @@
 # Tanks of Freedom
 ## Changelog
 
+
+### 0.6.0-beta
+- added German translation
+- added online multiplayer
+- fixed crash when pressing 'buy' button on gamepad without active field
+
 ### 0.5.3-beta
 - workshop fill now places plains
 - improved French translation

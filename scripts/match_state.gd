@@ -4,11 +4,15 @@ const MOVES = 'moves'
 const FINAL_STATE = 'final_state'
 const MATCH_STATE_ENDED = 2
 
+const POLLING_INTERVAL = 10
+
 var is_campaign_map = false
 var is_workshop_map = false
 var current_map_number = 0
 
 var is_multiplayer = false
+var is_polling = false
+var polling_counter = 0
 var current_loaded_multiplayer_state = {}
 
 var actions_taken = []
@@ -18,6 +22,8 @@ func reset():
     self.is_workshop_map = false
     self.current_map_number = 0
     self.is_multiplayer = false
+    self.is_polling = false
+    self.polling_counter = 0
     self.current_loaded_multiplayer_state = {}
     self.actions_taken = []
 
@@ -98,4 +104,3 @@ func reset_actions_taken():
 func register_action_taken(action):
     self.actions_taken.append(action)
 
-    

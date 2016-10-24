@@ -147,6 +147,8 @@ func apply_saved_environment_settings():
         if self.loaded_data.has(settings):
             self.root_node.settings[settings] = self.loaded_data[settings]
     self.apply_saved_action_state()
+    if self.loaded_data.has('is_multiplayer'):
+        self.bag.match_state.is_multiplayer = self.loaded_data.has('is_multiplayer')
 
 func apply_saved_action_state():
     self.root_node.action_controller.player_ap[0] = self.loaded_data['player_0_ap']
@@ -242,7 +244,8 @@ func apply_multiplayer_state(state, active_player):
         'player_1_ap' : state['player_1_ap'],
         'turn': state['turn'],
         'battle_stats' : state['battle_stats'],
-        'is_remote' : true
+        'is_remote' : true,
+        'is_multiplayer' : true
     }
 
 func _is_empty(element):
