@@ -204,7 +204,8 @@ func finished_updating_state(response):
 func server_call_state_went_bad(response):
     self.bag.root.show_menu()
     self.bag.root.unload_map()
-
+    self.bag.controllers.refreshed = false
+    self.bag.controllers.online_menu_controller.show()
 
 func get_updated_turn_state():
     var updated_state = {
