@@ -220,12 +220,21 @@ func adjust_missions_button():
     if self.root.bag.match_state.is_campaign():
         self.hud_end_game_missions_button_label.set_text(tr('LABEL_CAMPAIGN'))
         self.hud_end_game_missions_button_action = "show_campaign"
+    elif self.root.bag.match_state.is_multiplayer:
+        self.hud_end_game_missions_button_action = "show_multiplayer"
     elif self.root.bag.match_state.is_workshop():
         self.hud_end_game_missions_button_label.set_text(tr('LABEL_WORKSHOP'))
         self.hud_end_game_missions_button_action = "show_workshop"
     else:
         self.hud_end_game_missions_button_label.set_text(tr('LABEL_SKIRMISH'))
         self.hud_end_game_missions_button_action = "show_missions"
+
+    if self.root.bag.match_state.is_multiplayer:
+        self.hud_end_game_missions_button.hide()
+        self.hud_end_game_restart_button.hide()
+    else:
+        self.hud_end_game_missions_button.show()
+        self.hud_end_game_restart_button.show()
 
 func hud_end_game_missions_button_pressed():
     self.root.sound_controller.play('menu')

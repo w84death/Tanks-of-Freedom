@@ -284,6 +284,10 @@ func start_loading_match():
     self.prepare_match_data_and_perform_action("continue_loading_match")
 
 func continue_loading_match():
+    if self.bag.match_state.is_current_multiplayer_game_ended():
+        self.online_menu_controller.multiplayer.refresh_matches_list()
+        return
+
     if self.bag.match_state.is_replay_available():
         self.ask_load_replay_or_turn()
     else:

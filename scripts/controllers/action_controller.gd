@@ -451,6 +451,8 @@ func reset_player_units(player):
         units[unit_pos].reset_ap(limit_ap)
 
 func end_game(winning_player):
+    if self.root_node.bag.match_state.is_multiplayer and not self.root_node.settings['cpu_' + str(winning_player)]:
+        self.root_node.bag.online_multiplayer.end_game()
     self.root_node.ai_timer.reset_state()
     self.clear_active_field()
     game_ended = true
@@ -471,9 +473,10 @@ func end_game(winning_player):
     if not self.root_node.bag.match_state.is_campaign() and winning_player > -1 and not self.root_node.settings['cpu_' + str(winning_player)] and self.root_node.workshop_file_name != 'restore_map' and not self.root_node.is_remote:
         self.root_node.bag.map_list.mark_map_win(self.root_node.workshop_file_name)
     self.root_node.bag.match_state.reset()
-    if not self.root_node.is_demo_mode():
+    if not self.root_node.is_demo_mode() and not self.root_node.bag.match_state.is_multiplayer:
         self.root_node.bag.saving.invalidate_save_file()
     self.root_node.bag.timers.set_timeout(0.1, hud_controller.hud_end_game_missions_button, "grab_focus")
+
 
 func play_destroy(field):
     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)

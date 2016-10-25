@@ -199,6 +199,17 @@ func update_turn_state():
     self.upload_turn_state(match_code, updated_state, self, "finished_updating_state", "server_call_state_went_bad")
 
 
+func end_game():
+    var updated_state = self.get_updated_turn_state()
+    updated_state['win'] = true
+    var match_code = self.bag.match_state.current_loaded_multiplayer_state['join_code']
+
+    self.upload_turn_state(match_code, updated_state, self, "end_game_success", "server_call_state_went_bad")
+
+func end_game_success(response):
+    return # stub method
+
+
 func finished_updating_state(response):
     self.start_polling_state(response['data']['join_code'])
 
@@ -206,7 +217,7 @@ func server_call_state_went_bad(response):
     self.bag.root.show_menu()
     self.bag.root.unload_map()
     self.bag.controllers.online_menu_controller.refreshed = false
-    self.bag.controllers.online_menu_controller.show()
+    self.bag.controllers.menu_controller.show_online_menu()
 
 func get_updated_turn_state():
     var updated_state = {
@@ -255,6 +266,12 @@ func finished_polling_state(response):
         self.bag.match_state.current_loaded_multiplayer_state = data
         self.update_turn_with_polled_data()
         self.bag.root.action_controller.switch_to_player(data['player_side'], false)
+    elif data['player_status'] == 3:
+        self.bag.match_state.is_multiplayer = true
+        self.bag.match_state.current_loaded_multiplayer_state = data
+        self.update_turn_with_polled_data()
+        self.bag.root.unlock_for_player()
+        self.bag.root.action_controller.end_game((int(data['player_side']) + 1) % 2)
     else:
         self.bag.match_state.polling_counter = 0
         self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))

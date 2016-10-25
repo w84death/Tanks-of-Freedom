@@ -57,7 +57,7 @@ func is_current_multiplayer_game_ended():
     if not self.current_loaded_multiplayer_state.has('match_status'):
         return false
 
-    if self.current_loaded_multiplayer_state['match_status'] == self.MATCH_STATE_ENDED:
+    if self.current_loaded_multiplayer_state['match_status'] == 2:
         return true
 
     return false

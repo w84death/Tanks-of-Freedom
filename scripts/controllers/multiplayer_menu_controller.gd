@@ -59,6 +59,10 @@ func fill_matches_list_with_data(returned_request):
             i = i+1
         if i <= self.MATCH_LIMIT:
             self.match_boxes[i].show_fill()
+            i = i+1
+        while i <= self.MATCH_LIMIT:
+            self.match_boxes[i].hide()
+            i = i+1
     self.refresh_matches_list_done()
 
 func refresh_matches_list_done():
