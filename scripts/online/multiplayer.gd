@@ -130,6 +130,7 @@ func upload_turn_state(code, turn_data, bound_object, bound_method_success, boun
     var serialized_json = message.to_json()
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
+    self.bag.controllers.refreshed = false
 
 
 
@@ -227,6 +228,8 @@ func start_polling_state(match_code):
 
 func polling_step(match_code):
     match_code = match_code[0]
+    if not self.bag.match_state.current_loaded_multiplayer_state.has('join_code'):
+        return
     if self.bag.match_state.current_loaded_multiplayer_state['join_code'] != match_code:
         return
 
@@ -251,6 +254,7 @@ func finished_polling_state(response):
     if data['player_status'] == 0:
         self.bag.match_state.current_loaded_multiplayer_state = data
         self.update_turn_with_polled_data()
+        self.bag.root.action_controller.switch_to_player(data['player_side'], false)
     else:
         self.bag.match_state.polling_counter = 0
         self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
@@ -258,4 +262,7 @@ func finished_polling_state(response):
 
 
 func update_turn_with_polled_data():
-    print('new data available')
+    self.bag.saving.load_map_state()
+    self.bag.saving.apply_saved_ground()
+    self.bag.saving.apply_saved_buildings()
+    self.bag.saving.apply_saved_environment_settings()

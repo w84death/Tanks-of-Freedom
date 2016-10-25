@@ -111,6 +111,8 @@ func apply_saved_ground():
     for field in self.loaded_data['map']:
         if field['meta'].has('ground_damage') and field['meta']['ground_damage']:
             abstract_field = self.bag.abstract_map.get_field(Vector2(field['x'], field['y']))
+            if abstract_field.damage != null:
+                continue
             abstract_field.add_damage_frame(damage_layer, field['meta']['ground_damage'])
 
 func get_terrain_object_by_unique_type(unique_type_id):

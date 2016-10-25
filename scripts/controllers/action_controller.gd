@@ -306,6 +306,12 @@ func multiplayer_end_turn():
     self.root_node.lock_for_cpu()
     self.root_node.bag.online_multiplayer.update_turn_state()
 
+    if self.current_player == 1:
+        self.turn += 1
+    hud_controller.set_turn(turn)
+
+    self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
+
 func go_into_multiplayer_wait_mode():
     return
 
