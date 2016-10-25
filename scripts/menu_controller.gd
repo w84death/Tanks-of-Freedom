@@ -343,6 +343,7 @@ func load_workshop():
 func enter_workshop():
     if Globals.get('tof/enable_workshop'):
         self.root.unload_map()
+        self.root.bag.match_state.reset()
         self.workshop.is_working = true
         self.workshop.is_suspended = false
         self.show_workshop()

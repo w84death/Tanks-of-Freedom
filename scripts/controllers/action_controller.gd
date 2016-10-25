@@ -95,6 +95,14 @@ func init_root(root, map, hud):
 
     demo_timer = root_node.get_node("DemoTimer")
 
+func refresh_abstract_map():
+    self.root_node.bag.abstract_map.reset()
+    self.root_node.bag.abstract_map.init_map(self.root_node.current_map)
+    self.import_objects()
+    self.root_node.bag.abstract_map.create_tile_type_map()
+    self.root_node.bag.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
+
+
 func set_active_field(position):
     var field = self.root_node.bag.abstract_map.get_field(position)
     self.clear_active_field()
@@ -302,13 +310,13 @@ func local_end_turn():
     self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func multiplayer_end_turn():
-    self.root_node.hud_controller.switch_cinematic_to_multiplayer()
-    self.root_node.lock_for_cpu()
-    self.root_node.bag.online_multiplayer.update_turn_state()
-
     if self.current_player == 1:
         self.turn += 1
     hud_controller.set_turn(turn)
+
+    self.root_node.hud_controller.switch_cinematic_to_multiplayer()
+    self.root_node.lock_for_cpu()
+    self.root_node.bag.online_multiplayer.update_turn_state()
 
     self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 

@@ -528,8 +528,9 @@ func spawn_unit(x, y, type):
             temp.set_pos(terrain.map_to_world(Vector2(x,y)) + Vector2(new_x, new_y))
             map_layer_front.add_child(temp)
     else:
-        temp = map_units [type].instance()
+        temp = map_units[type].instance()
         temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+        temp.position_on_map = Vector2(x,y)
         map_layer_front.add_child(temp)
     return temp
 

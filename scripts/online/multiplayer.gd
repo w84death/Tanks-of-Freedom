@@ -130,7 +130,7 @@ func upload_turn_state(code, turn_data, bound_object, bound_method_success, boun
     var serialized_json = message.to_json()
 
     self.bag.online_request_async.post(self.bag.online_request.api_location, url, serialized_json, bound_object, callbacks)
-    self.bag.controllers.refreshed = false
+    self.bag.controllers.online_menu_controller.refreshed = false
 
 
 
@@ -205,7 +205,7 @@ func finished_updating_state(response):
 func server_call_state_went_bad(response):
     self.bag.root.show_menu()
     self.bag.root.unload_map()
-    self.bag.controllers.refreshed = false
+    self.bag.controllers.online_menu_controller.refreshed = false
     self.bag.controllers.online_menu_controller.show()
 
 func get_updated_turn_state():
@@ -262,7 +262,13 @@ func finished_polling_state(response):
 
 
 func update_turn_with_polled_data():
+    var final_state = self.bag.match_state.get_final_state()
+    var active_player = self.bag.match_state.current_loaded_multiplayer_state['player_side']
+    self.bag.saving.apply_multiplayer_state(final_state, active_player)
+
     self.bag.saving.load_map_state()
     self.bag.saving.apply_saved_ground()
     self.bag.saving.apply_saved_buildings()
     self.bag.saving.apply_saved_environment_settings()
+    self.bag.root.action_controller.positions.refresh()
+    self.bag.root.action_controller.refresh_abstract_map()

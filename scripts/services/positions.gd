@@ -53,6 +53,23 @@ func bootstrap():
     prepare_nearby_tiles()
     prepare_nearby_tiles_ranges()
 
+func refresh():
+    self.units_player_blue = {}
+    self.units_player_red = {}
+    self.all_units = {}
+    self.all_buildings = {}
+    self.buildings_player_none = {}
+    self.buildings_player_blue = {}
+    self.buildings_player_red = {}
+    self.terrain_obstacles = {}
+    self.get_bunkers()
+    self.get_terrain()
+    self.refresh_units()
+    self.refresh_buildings()
+    self.prepare_nearby_tiles()
+    self.prepare_nearby_tiles_ranges()
+
+
 func refresh_units():
     units_player_blue.clear()
     units_player_red.clear()
