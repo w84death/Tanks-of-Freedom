@@ -153,9 +153,12 @@ func apply_saved_environment_settings():
         self.bag.match_state.is_multiplayer = self.loaded_data.has('is_multiplayer')
 
 func apply_saved_action_state():
-    self.root_node.action_controller.player_ap[0] = self.loaded_data['player_0_ap']
-    self.root_node.action_controller.player_ap[1] = self.loaded_data['player_1_ap']
-    self.root_node.action_controller.turn         = self.loaded_data['turn']
+    if self.loaded_data.has('player_0_ap'):
+        self.root_node.action_controller.player_ap[0] = self.loaded_data['player_0_ap']
+    if self.loaded_data.has('player_1_ap'):
+        self.root_node.action_controller.player_ap[1] = self.loaded_data['player_1_ap']
+    if self.loaded_data.has('turn'):
+        self.root_node.action_controller.turn         = self.loaded_data['turn']
     #self.root_node.action_controller.battle_stats = self.loaded_data['battle_stats']
 
 func get_active_player_id():
