@@ -6,6 +6,8 @@ const MATCH_JOIN_URL = "/match/join/"
 const MATCH_ABANDON_URL = "/match/abandon/"
 const MATCH_TURN_URL = "/match/turn/"
 
+const REPLAY_INTERVAL = 0.5
+
 var bag
 
 func _init_bag(bag):
@@ -165,7 +167,30 @@ func load_game_from_state():
         self.start_polling_state(self.bag.match_state.current_loaded_multiplayer_state['join_code'])
 
 func load_replay_from_state():
-    return
+    var state_copy = self.bag.match_state.current_loaded_multiplayer_state
+    var initial_state = self.bag.match_state.get_initial_state()
+    var map_code = self.bag.match_state.current_loaded_multiplayer_state['map_code']
+    var active_player = (int(state_copy['player_side']) + 1) % 2
+
+    self.bag.root.unload_map()
+
+    self._apply_player_sides_from_state()
+
+    if initial_state.size() > 0:
+        self.bag.saving.apply_multiplayer_state(initial_state, active_player)
+        self.bag.root.load_map('workshop', map_code, true, true)
+    else:
+        self.bag.root.load_map('workshop', map_code, false, true)
+
+    self.bag.root.lock_for_cpu()
+
+    self.bag.match_state.current_loaded_multiplayer_state = state_copy
+    self.bag.root.ai_timer.reset_state()
+    self.bag.match_state.is_multiplayer = true
+    self.bag.match_state.reset_actions_taken()
+
+    self.bag.root.action_controller.show_bonus_ap()
+    self.start_reproducing_moves(self.bag.match_state.current_loaded_multiplayer_state['join_code'])
 
 
 func _get_active_player(state):
@@ -233,6 +258,7 @@ func get_updated_turn_state():
 
 
 func start_polling_state(match_code):
+    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
     self.bag.match_state.is_polling = true
 
     self.bag.match_state.polling_counter = 0
@@ -266,8 +292,19 @@ func finished_polling_state(response):
 
     if data['player_status'] == 0:
         self.bag.match_state.current_loaded_multiplayer_state = data
+        if self.bag.match_state.is_replay_available():
+            self.bag.root.action_controller.refill_ap()
+            self.bag.root.action_controller.show_bonus_ap()
+            self.start_reproducing_moves(match_code)
+        else:
+            self.update_turn_with_polled_data()
+            self.bag.root.action_controller.switch_to_player(data['player_side'], false)
+    elif data['player_status'] == 2:
+        self.bag.match_state.is_multiplayer = true
+        self.bag.match_state.current_loaded_multiplayer_state = data
         self.update_turn_with_polled_data()
-        self.bag.root.action_controller.switch_to_player(data['player_side'], false)
+        self.bag.root.unlock_for_player()
+        self.bag.root.action_controller.end_game(data['player_side'])
     elif data['player_status'] == 3:
         self.bag.match_state.is_multiplayer = true
         self.bag.match_state.current_loaded_multiplayer_state = data
@@ -282,6 +319,8 @@ func finished_polling_state(response):
 
 func update_turn_with_polled_data():
     var final_state = self.bag.match_state.get_final_state()
+    if final_state.size() == 0:
+        return
     var active_player = self.bag.match_state.current_loaded_multiplayer_state['player_side']
     self.bag.saving.apply_multiplayer_state(final_state, active_player)
 
@@ -291,3 +330,78 @@ func update_turn_with_polled_data():
     self.bag.saving.apply_saved_environment_settings()
     self.bag.root.action_controller.positions.refresh()
     self.bag.root.action_controller.refresh_abstract_map()
+
+
+
+func start_reproducing_moves(match_code):
+    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_REPLAYING_MOVES'))
+    self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'replay_step', [0, match_code, false])
+
+func replay_step(args):
+    var action = args[0]
+    var match_code = args[1]
+    var execute = args[2]
+    if not self.bag.match_state.current_loaded_multiplayer_state.has('join_code'):
+        return
+    if self.bag.match_state.current_loaded_multiplayer_state['join_code'] != match_code:
+        return
+
+    if self.bag.camera.panning or self.bag.root.is_paused:
+        self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'replay_step', args)
+        return
+
+    var moves = self.bag.match_state.get_replay_moves()
+    var current_move = moves[action]
+    self.bag.root.hud_controller.update_cpu_progress(moves.size() - action , moves.size())
+
+    if execute:
+        self.perform_action(current_move)
+    else:
+        self.move_camera_to_action(current_move)
+        self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'replay_step', [action, match_code, true])
+        return
+
+
+    action = action + 1
+    if action < moves.size():
+        self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'replay_step', [action, match_code, false])
+    else:
+        self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'end_replay')
+
+
+func end_replay():
+    self.update_turn_with_polled_data()
+    self.bag.root.action_controller.local_end_turn()
+
+func move_camera_to_action(move):
+    var position
+    if move['action'] == 'spawn':
+        position = move['from']
+    elif move['action'] == 'move':
+        position = move['from']
+    elif move['action'] == 'capture':
+        position = move['who']
+    elif move['action'] == 'attack':
+        position = move['who']
+
+    position = Vector2(position[0], position[1])
+    self.bag.camera.move_to_map(position)
+    self.bag.root.action_controller.set_active_field(position)
+
+
+func perform_action(move):
+    var position
+    if move['action'] == 'spawn':
+        self.bag.root.action_controller.spawn_unit_from_active_building()
+    elif move['action'] == 'move':
+        position = move['to']
+        position = Vector2(position[0], position[1])
+        self.bag.root.action_controller.handle_action(position)
+    elif move['action'] == 'capture':
+        position = move['what']
+        position = Vector2(position[0], position[1])
+        self.bag.root.action_controller.handle_action(position)
+    elif move['action'] == 'attack':
+        position = move['whom']
+        position = Vector2(position[0], position[1])
+        self.bag.root.action_controller.handle_action(position)

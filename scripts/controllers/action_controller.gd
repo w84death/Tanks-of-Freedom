@@ -70,8 +70,6 @@ func init_root(root, map, hud):
     self.import_objects()
     hud_controller.init_root(root, self, hud)
     hud_controller.set_turn(turn)
-    if not root_node.settings['cpu_0']:
-        hud_controller.show_in_game_card([], self.current_player)
 
     self.positions = self.root_node.bag.positions
     self.positions.get_player_bunker_position(self.current_player)
@@ -151,7 +149,7 @@ func capture_building(active_field, field):
     self.use_ap(field)
 
     if self.root_node.bag.match_state.is_multiplayer:
-        self.root_node.bag.match_state.register_action_taken({'action': 'capture', 'who': active_field.position, 'what': field.position})
+        self.root_node.bag.match_state.register_action_taken({'action': 'capture', 'who': [active_field.position.x, active_field.position.y], 'what': [field.position.x, field.position.y]})
 
     field.object.claim(self.current_player, self.turn)
     sound_controller.play('occupy_building')
@@ -261,7 +259,7 @@ func spawn_unit_from_active_building():
     var required_ap = active_object.get_required_ap()
     if spawn_point.object == null && self.has_enough_ap(required_ap):
         if self.root_node.bag.match_state.is_multiplayer:
-            self.root_node.bag.match_state.register_action_taken({'action': 'spawn', 'from': active_field.position})
+            self.root_node.bag.match_state.register_action_taken({'action': 'spawn', 'from': [active_field.position.x, active_field.position.y]})
         var unit = active_object.spawn_unit(current_player)
         ysort.add_child(unit)
         unit.set_pos_map(spawn_point.position)
@@ -285,7 +283,6 @@ func attach_objects(collection):
         self.root_node.bag.abstract_map.get_field(entity.get_initial_pos()).object = entity
 
 func end_turn():
-    self.stats_set_time()
     sound_controller.play('end_turn')
     if self.root_node.bag.match_state.is_multiplayer:
         self.multiplayer_end_turn()
@@ -294,24 +291,33 @@ func end_turn():
 
 
 func local_end_turn():
+    self.stats_set_time()
     if self.root_node.settings['turns_cap'] > 0:
         if self.turn >= self.root_node.settings['turns_cap']:
             self.end_game(-1)
             return
 
+    var save = true
+    if self.root_node.bag.match_state.is_multiplayer:
+        save = false
+
     if self.current_player == 0:
-        self.switch_to_player(1)
+        self.switch_to_player(1, save)
     else:
         self.turn += 1
-        self.switch_to_player(0)
+        self.switch_to_player(0, save)
     hud_controller.set_turn(turn)
 
     #gather stats
     self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func multiplayer_end_turn():
-    if self.current_player == 1:
+    self.stats_set_time()
+    if self.current_player == 0:
+        self.switch_to_player(1, false)
+    else:
         self.turn += 1
+        self.switch_to_player(0, false)
     hud_controller.set_turn(turn)
 
     self.root_node.hud_controller.switch_cinematic_to_multiplayer()
@@ -356,7 +362,10 @@ func use_ap(field):
 func is_movement_possible(field, active_field):
     #TODO hack for AI
     if self.is_cpu_player:
-        return active_field.is_adjacent(field)
+        if self.root_node.bag.match_state.is_multiplayer:
+            return true
+        else:
+            return active_field.is_adjacent(field)
 
     var position = field.position
     if self.actual_movement_tiles.has(position):
@@ -437,7 +446,7 @@ func perform_ai_stuff():
     return player_ap[current_player] > 0 && success
 
 func apply_handicap():
-    if self.root_node.settings['easy_mode']:
+    if self.root_node.settings['easy_mode'] and not self.root_node.bag.match_state.is_multiplayer:
         if self.is_cpu_player && !(root_node.settings['cpu_1'] && root_node.settings['cpu_0']):
             return true
 
@@ -493,7 +502,7 @@ func move_unit(active_field, field):
 
     if self.root_node.bag.movement_controller.move_object(active_field, field, action_cost):
         if self.root_node.bag.match_state.is_multiplayer:
-            self.root_node.bag.match_state.register_action_taken({'action': 'move', 'from': active_field.position, 'to': field.position})
+            self.root_node.bag.match_state.register_action_taken({'action': 'move', 'from': [active_field.position.x, active_field.position.y], 'to': [field.position.x, field.position.y]})
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
         self.use_ap(field)
         self.activate_field(field)
@@ -517,7 +526,7 @@ func handle_battle(active_field, field):
 
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
         if self.root_node.bag.match_state.is_multiplayer:
-            self.root_node.bag.match_state.register_action_taken({'action': 'attack', 'who': active_field.position, 'whom': field.position})
+            self.root_node.bag.match_state.register_action_taken({'action': 'attack', 'who': [active_field.position.x, active_field.position.y], 'whom': [field.position.x, field.position.y]})
 
         if (self.root_node.bag.battle_controller.resolve_fight(active_field.object, field.object)):
             self.play_destroy(field)

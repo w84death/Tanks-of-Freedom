@@ -250,6 +250,7 @@ func perform_abandon_match():
     self.bag.message_popup.hide_button()
 
     if self.is_already_loaded():
+        self.bag.match_state.reset()
         self.bag.root.unload_map()
 
     self.bag.online_multiplayer.abandon_match(self.match_join_code, self, 'operation_completed', 'operation_failed')
@@ -327,9 +328,16 @@ func start_loading_replay():
     self.prepare_match_data_and_perform_action("continue_loading_replay")
 
 func continue_loading_replay():
-    self.bag.controllers.online_menu_controller.hide()
-    self.bag.online_multiplayer.load_replay_from_state()
-    self.bag.root.toggle_menu()
+    if self.bag.match_state.is_current_multiplayer_game_ended():
+        self.online_menu_controller.multiplayer.refresh_matches_list()
+        return
+
+    if self.bag.match_state.is_replay_available():
+        self.ask_load_replay_or_turn()
+    else:
+        self.bag.controllers.online_menu_controller.hide()
+        self.bag.online_multiplayer.load_game_from_state()
+        self.bag.root.toggle_menu()
 
 
 
