@@ -146,6 +146,8 @@ func load_game_from_state():
     var map_code = self.bag.match_state.current_loaded_multiplayer_state['map_code']
     var active_player = self._get_active_player(state_copy)
 
+    self.bag.root.unload_map()
+
     self._apply_player_sides_from_state()
 
     if final_state.size() > 0:
