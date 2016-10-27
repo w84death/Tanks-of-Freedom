@@ -451,6 +451,8 @@ func refresh_buttons_labels():
 
     if Globals.get('tof/hud_allow_overscan'):
         self.overscan_group.show()
+    else:
+        self.overscan_group.hide()
 
     if root.bag.resolution.override_resolution:
         self.resolution_button.set_disabled(false)
