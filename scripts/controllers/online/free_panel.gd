@@ -195,6 +195,7 @@ func show():
     self.panel.show()
     self.create_button.get_node('Label').set_text(tr('LABEL_CREATE'))
     self.join_button.get_node('Label').set_text(tr('LABEL_JOIN'))
+    self.panel.get_node('Label').set_text(tr('LABEL_NEW_MATCH'))
 
 func hide():
     self.panel.hide()
