@@ -10,6 +10,7 @@
 - campaign mission 3 now has tank factory and extra tank on start
 - fixed broken road pieces on Airplane and Recapture
 - fixed a bug where user could not do anything when trying to upload a map with empty list
+- fixed game crash when pressing 'end turn' with analog stick off-centre
 - disabled overscan for android
 - enabled screen rotation for android
 

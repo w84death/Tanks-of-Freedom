@@ -129,6 +129,10 @@ func process(delta):
     var selector_move = Vector2(0, 0)
     self.accumulated_time = self.accumulated_time + delta
 
+    if self.bag.root.is_locked_for_cpu:
+        self.axis_controll = Vector2(0, 0)
+        return
+
     if abs(axis_controll.x) < self.AXIS_ANGLE_THRESHOLD and abs(axis_controll.y) < self.AXIS_ANGLE_THRESHOLD:
         self.accumulated_time = 2*self.INPUT_DELAY
         return
