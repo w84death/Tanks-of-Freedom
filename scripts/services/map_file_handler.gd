@@ -33,7 +33,7 @@ func write_as_plain_file(path, data):
         cell_line += "'y': " + str(cell.y) + ", "
         cell_line += "'terrain': " + str(cell.terrain) + ", "
         cell_line += "'unit': " + str(cell.unit)
-        file.store_line("   {" + cell_line + "},")
+        file.store_line("    {" + cell_line + "},")
     file.store_line("]")
     file.close()
 
