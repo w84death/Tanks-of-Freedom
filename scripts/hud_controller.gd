@@ -297,7 +297,7 @@ func switch_cinematic_to_cpu_meter():
     self.update_cinematic_label(tr('LABEL_CPU_TURN'))
 
 func switch_cinematic_to_multiplayer():
-    self.update_cinematic_label('LABEL_OPPONENT_WAIT')
+    self.update_cinematic_label('MSG_OPPONENT_WAIT')
 
 func show_cinematic_camera():
     self.cinematic_camera.show()

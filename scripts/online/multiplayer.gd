@@ -259,7 +259,7 @@ func get_updated_turn_state():
 
 
 func start_polling_state(match_code):
-    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
+    self.bag.root.hud_controller.update_cinematic_label(tr('MSG_OPPONENT_WAIT'))
     self.bag.match_state.is_polling = true
 
     self.bag.match_state.polling_counter = 0
@@ -281,7 +281,7 @@ func polling_step(match_code):
     self.bag.timers.set_timeout(1, self, 'polling_step', [match_code])
 
 func poll_state(match_code):
-    self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_CHECKING_STATE'))
+    self.bag.root.hud_controller.update_cinematic_label(tr('MSG_CHECKING_STATE'))
     var updated_state = self.load_match_state(match_code, self, 'finished_polling_state', 'server_call_state_went_bad')
 
 func finished_polling_state(response):
@@ -314,7 +314,7 @@ func finished_polling_state(response):
         self.bag.root.action_controller.end_game((int(data['player_side']) + 1) % 2)
     else:
         self.bag.match_state.polling_counter = 0
-        self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_OPPONENT_WAIT'))
+        self.bag.root.hud_controller.update_cinematic_label(tr('MSG_OPPONENT_WAIT'))
         self.polling_step([match_code])
 
 

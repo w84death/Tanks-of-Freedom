@@ -75,7 +75,7 @@ func select_side(map_code, is_remote = true):
     self.bag.map_picker.detach_panel()
     self.selected_map = map_code
     self.bag.confirm_popup.attach_panel(self.middle_container)
-    self.bag.confirm_popup.fill_labels(tr('LABEL_PICK_SIDE'), tr('MSG_PICK_SIDE'), tr('LABEL_BLUE_TEAM'), tr('LABEL_RED_TEAM'))
+    self.bag.confirm_popup.fill_labels(tr('LABEL_PICK_SIDE'), tr('MSG_PICK_SIDE'), tr('LABEL_BLUE'), tr('LABEL_RED'))
     self.bag.confirm_popup.connect(self, "ask_if_selected_data_is_ok")
     self.bag.confirm_popup.confirm_button.grab_focus()
 
@@ -85,10 +85,10 @@ func ask_if_selected_data_is_ok(selected_side):
 
     if selected_side:
         self.selected_side = 0
-        side_name = tr('LABEL_BLUE_TEAM')
+        side_name = tr('LABEL_BLUE')
     else:
         self.selected_side = 1
-        side_name = tr('LABEL_RED_TEAM')
+        side_name = tr('LABEL_RED')
 
     message = tr('MSG_SELECTED_MAP') + self.selected_map + '. ' + tr('MSG_SELECTED_SIDE') + side_name + '. ' + tr('MSG_READY_TO_CREATE')
 
@@ -193,12 +193,14 @@ func perform_join_match():
 
 func show():
     self.panel.show()
+    self.create_button.get_node('Label').set_text(tr('LABEL_CREATE'))
+    self.join_button.get_node('Label').set_text(tr('LABEL_JOIN'))
 
 func hide():
     self.panel.hide()
 
 func get_side_name(side):
     if side == 0:
-        return tr('LABEL_BLUE_TEAM')
+        return tr('LABEL_BLUE')
     elif side == 1:
-        return tr('LABEL_RED_TEAM')
+        return tr('LABEL_RED')

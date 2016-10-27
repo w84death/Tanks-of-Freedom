@@ -90,6 +90,10 @@ func reload_labels():
     self.reload_button(self.bag.controllers.online_menu_controller.download_button, 'LABEL_DOWNLOAD')
     self.reload_button(self.bag.controllers.online_menu_controller.upload_button, 'LABEL_UPLOAD')
 
+    self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/Label2'), 'LABEL_MULTIPLAYER')
+    self.reload_button(self.bag.controllers.online_menu_controller.multiplayer.refresh_button, 'LABEL_REFRESH')
+    self.bag.controllers.online_menu_controller.refreshed = false
+
     #WORKSHOP
     var workshop = self.bag.controllers.workshop_gui_controller
     self.reload_button(workshop.navigation_panel.menu_button, 'LABEL_BACK')
