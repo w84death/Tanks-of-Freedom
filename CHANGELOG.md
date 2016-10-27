@@ -8,6 +8,8 @@
 - fixed crash when pressing 'buy' button on gamepad without active field
 - improved English translation
 - campaign mission 3 now has tank factory and extra tank on start
+- fixed broken road pieces on Airplane and Recapture
+- fixed a bug where user could not do anything when trying to upload a map with empty list
 - disabled overscan for android
 - enabled screen rotation for android
 

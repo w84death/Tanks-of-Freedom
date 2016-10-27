@@ -197,6 +197,13 @@ func show():
     self.join_button.get_node('Label').set_text(tr('LABEL_JOIN'))
     self.panel.get_node('Label').set_text(tr('LABEL_NEW_MATCH'))
 
+    if self.bag.map_list.remote_maps.size() == 0:
+        self.create_button.set_disabled(true)
+        self.create_button.get_node('Label').hide()
+    else:
+        self.create_button.set_disabled(false)
+        self.create_button.get_node('Label').show()
+
 func hide():
     self.panel.hide()
 
