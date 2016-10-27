@@ -189,6 +189,7 @@ func load_replay_from_state():
     self.bag.match_state.is_multiplayer = true
     self.bag.match_state.reset_actions_taken()
 
+    self.bag.root.action_controller.refill_ap()
     self.bag.root.action_controller.show_bonus_ap()
     self.start_reproducing_moves(self.bag.match_state.current_loaded_multiplayer_state['join_code'])
 
@@ -391,6 +392,7 @@ func move_camera_to_action(move):
 
 func perform_action(move):
     var position
+    print(move)
     if move['action'] == 'spawn':
         self.bag.root.action_controller.spawn_unit_from_active_building()
     elif move['action'] == 'move':
