@@ -127,6 +127,7 @@ func _ready():
     self.gamepad_info_button.connect("pressed", self.root.bag.gamepad_popup, "show")
     if self.root.is_pandora:
         self.gamepad_info_button.set_disabled(true)
+        self.gamepad_info_button.get_node('Label').hide()
 
     close_button.connect("pressed", self, "_close_button_pressed")
     quit_button.connect("pressed", self, "_quit_button_pressed")
