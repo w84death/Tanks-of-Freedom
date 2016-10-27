@@ -7,7 +7,9 @@
 - added online multiplayer
 - fixed crash when pressing 'buy' button on gamepad without active field
 - improved English translation
+- campaign mission 3 now has tank factory and extra tank on start
 - disabled overscan for android
+- enabled screen rotation for android
 
 ### 0.5.3-beta
 - workshop fill now places plains
