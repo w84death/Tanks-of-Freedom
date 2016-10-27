@@ -42,10 +42,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 50.0
-margin/right = 0.0
-margin/bottom = 50.0
+margin/left = 80.0
+margin/top = 110.0
+margin/right = 80.0
+margin/bottom = 110.0
 
 [node name="background" type="Patch9Frame" parent="controls"]
 
@@ -59,29 +59,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 222.0
-margin/top = 109.0
-margin/right = -423.0
-margin/bottom = -249.0
-texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
-
-[node name="background1" type="Patch9Frame" parent="controls"]
-
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 387.0
-margin/top = -12.0
-margin/right = 227.0
-margin/bottom = -166.0
+margin/top = 126.0
+margin/right = -403.0
+margin/bottom = -220.0
 texture = ExtResource( 2 )
 patch_margin/left = 24
 patch_margin/top = 24
@@ -98,10 +78,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 388.0
-margin/top = -175.0
-margin/right = 228.0
-margin/bottom = -243.0
+margin/left = 222.0
+margin/top = -222.0
+margin/right = 62.0
+margin/bottom = -290.0
 texture = ExtResource( 3 )
 patch_margin/left = 24
 patch_margin/top = 24
@@ -127,10 +107,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -24.0
-margin/top = 255.0
-margin/right = 120.0
-margin/bottom = 303.0
+margin/left = 143.0
+margin/top = 302.0
+margin/right = 287.0
+margin/bottom = 350.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -164,10 +144,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -21.0
-margin/top = 122.0
-margin/right = 123.0
-margin/bottom = 182.0
+margin/left = 222.0
+margin/top = -48.0
+margin/right = 366.0
+margin/bottom = 12.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -202,10 +182,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -22.0
-margin/top = 177.0
-margin/right = 122.0
-margin/bottom = 237.0
+margin/left = 371.0
+margin/top = -48.0
+margin/right = 515.0
+margin/bottom = 12.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -239,10 +219,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 149.0
-margin/top = -150.0
-margin/right = 309.0
-margin/bottom = -90.0
+margin/left = 246.0
+margin/top = -146.0
+margin/right = 406.0
+margin/bottom = -86.0
 
 [node name="refresh" type="TextureButton" parent="controls/horizontal2"]
 
@@ -250,10 +230,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 117.0
-margin/top = 52.0
-margin/right = 261.0
-margin/bottom = 112.0
+margin/left = 4.0
+margin/top = 30.0
+margin/right = 148.0
+margin/bottom = 78.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -290,12 +270,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 15 )
-margin/left = -380.0
-margin/top = 22.0
-margin/right = -237.0
-margin/bottom = 47.0
+margin/left = -204.0
+margin/top = -110.0
+margin/right = -152.0
+margin/bottom = -85.0
 text = "MAPS"
-align = 1
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -325,11 +304,12 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 15 )
-margin/left = -204.0
-margin/top = -85.0
-margin/right = 140.0
-margin/bottom = -57.0
+margin/left = -206.0
+margin/top = -59.0
+margin/right = 390.0
+margin/bottom = -31.0
 text = "ONLINE MULTIPLAYER LOBBY"
+align = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
@@ -341,12 +321,12 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -211.0
-margin/top = -35.0
-margin/right = 413.0
-margin/bottom = 232.0
-custom_constants/vseparation = 24
-custom_constants/hseparation = 24
+margin/left = -213.0
+margin/top = -36.0
+margin/right = 411.0
+margin/bottom = 231.0
+custom_constants/vseparation = 8
+custom_constants/hseparation = 8
 columns = 2
 
 [node name="match1" parent="controls/matches" instance=ExtResource( 16 )]
@@ -356,22 +336,22 @@ margin/bottom = 120.0
 
 [node name="match2" parent="controls/matches" instance=ExtResource( 16 )]
 
-margin/left = 324.0
+margin/left = 308.0
 margin/top = 0.0
-margin/right = 624.0
+margin/right = 608.0
 margin/bottom = 120.0
 
 [node name="match3" parent="controls/matches" instance=ExtResource( 16 )]
 
-margin/top = 144.0
-margin/bottom = 264.0
+margin/top = 128.0
+margin/bottom = 248.0
 
 [node name="match4" parent="controls/matches" instance=ExtResource( 16 )]
 
-margin/left = 324.0
-margin/top = 144.0
-margin/right = 624.0
-margin/bottom = 264.0
+margin/left = 308.0
+margin/top = 128.0
+margin/right = 608.0
+margin/bottom = 248.0
 
 [node name="middle" type="Control" parent="."]
 
