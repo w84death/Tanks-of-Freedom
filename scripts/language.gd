@@ -205,7 +205,7 @@ func __get_available_languages():
     var languages = load('res://translations/languages.gd').new()
     if self.bag.root.settings['ENV'] == 'dev' :
         var langs = languages.available + languages.in_develop
-        langs.sort()
+        #langs.sort()
         return langs
 
     return languages.available
