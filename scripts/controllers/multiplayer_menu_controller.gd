@@ -19,8 +19,7 @@ func _init_bag(bag):
 
 func bind():
     self.controls = self.online_menu_controller.controls
-    self.refresh_button = self.controls.get_node('horizontal2/refresh')
-
+    self.refresh_button = self.controls.get_node('buttons/refresh')
     self.refresh_button.connect("pressed", self, "_refresh_button_pressed")
 
     var match_boxes_wrapper = self.controls.get_node('matches')

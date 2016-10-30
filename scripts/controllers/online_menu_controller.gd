@@ -25,16 +25,16 @@ func _init_bag(bag):
 func bind():
     self.controls = self.online_menu.get_node("controls")
     self.background = self.controls.get_node("background")
-    self.download_button = self.controls.get_node("horizontal/download")
+    self.download_button = self.controls.get_node("buttons/download")
     self.download_button.connect("pressed", self, "_download_button_pressed")
 
-    self.upload_button = self.controls.get_node("horizontal/upload")
+    self.upload_button = self.controls.get_node("buttons/upload")
     self.upload_button.connect("pressed", self, "_upload_button_pressed")
 
-    self.back_button = self.controls.get_node("horizontal/back")
+    self.back_button = self.controls.get_node("buttons/back")
     self.back_button.connect("pressed", self, "_back_button_pressed")
 
-    self.middle_container = self.online_menu.get_node('middle')
+    self.middle_container = self.online_menu.get_node('middle/anchor')
     self.middle_container.hide()
 
     self.multiplayer.bind()
