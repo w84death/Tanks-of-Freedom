@@ -48,18 +48,21 @@ def validate(directory, input_file_prefix):
     trans = translations.copy()
     default_trans = trans.pop('en')
 
-    differences = {}
+    differences = {
+        'keys': {},
+        'length': {}
+    }
     for lang in trans:
         result = compare_dict(default_trans, trans[lang])
         if result[0]:
             if bool(result[1]):
-                differences['(-) default > '+ lang] = result[1]
+                differences['keys']['(-) default > '+ lang] = result[1]
             if bool(result[2]):
-                differences['(+) default < '+ lang] = result[2]
+                differences['keys']['(+) default < '+ lang] = result[2]
 
         msgs_length = check_msg_length(trans[lang], MAX_LABEL_LENGTH)
         if bool(msgs_length):
-            differences['(&) too long labels '+ lang] = msgs_length
+            differences['length']['(&) too long labels '+ lang] = msgs_length
 
 
 
@@ -92,22 +95,27 @@ def compact_translations(directory, output_file_name):
         for row in sorted(output):
             csvwriter.writerow([row] + output[row])
 
+def print_differences(differences, directory):
+    print('')
+    print ('Directory: ' + directory)
+    print ('---------------------------------------')
+    for diffs in differences:
+        print(diffs + ': ')
+        print(", ".join(differences[diffs]))
+    print ('---------------------------------------')
+    print('')
 
 def execute(directory, input_files_prefix, output_file_name):
     translations.clear()
     default_translation.clear()
 
     differences = validate(directory, input_files_prefix)
-    if bool(differences):
+    if bool(differences['length']):
+        print ('Warning - translation files have too long labels')
+        print_differences(differences['length'], directory)
+    if bool(differences['keys']):
         print ('Error - translation files are different')
-        print('')
-        print ('Directory: ' + directory)
-        print ('---------------------------------------')
-        for diffs in differences:
-            print(diffs + ': ')
-            print(", ".join(differences[diffs]))
-        print ('---------------------------------------')
-        print('')
+        print_differences(differences['keys'], directory)
     else:
         compact_translations(directory, output_file_name)
         print ('Translations in directory: ' + directory + ' compacted!')
