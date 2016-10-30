@@ -59,8 +59,8 @@ func perform_refresh_list():
     self.bag.online_multiplayer.get_matches_list(self, 'fill_matches_list_with_data')
 
 func fill_matches_list_with_data(returned_request):
+    var i = 1
     if returned_request.has('data') and returned_request['data'].has('matches'):
-        var i = 1
         for match in returned_request['data']['matches']:
             self.match_boxes[i].bind_match_data(match)
             i = i+1
@@ -70,7 +70,16 @@ func fill_matches_list_with_data(returned_request):
         while i <= self.MATCH_LIMIT:
             self.match_boxes[i].hide()
             i = i+1
-    self.refresh_matches_list_done()
+        self.refresh_matches_list_done()
+    else:
+        self.bag.message_popup.detach_panel()
+        self.bag.message_popup.attach_panel(self.middle_container)
+        self.bag.message_popup.fill_labels(tr('LABEL_REFRESHING_MATCHES'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
+        self.bag.message_popup.connect(self, "refresh_matches_list_done")
+        self.bag.message_popup.confirm_button.grab_focus()
+        while i <= self.MATCH_LIMIT:
+            self.match_boxes[i].hide()
+            i = i+1
 
 func refresh_matches_list_done():
     self.bag.message_popup.detach_panel()
