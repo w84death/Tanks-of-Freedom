@@ -10,6 +10,7 @@ var background
 var multiplayer_box_template = preload("res://scripts/controllers/online/multiplayer_box.gd")
 
 var refresh_button
+var help_button
 
 var match_boxes = {}
 
@@ -21,6 +22,9 @@ func bind():
     self.controls = self.online_menu_controller.controls
     self.refresh_button = self.controls.get_node('buttons/refresh')
     self.refresh_button.connect("pressed", self, "_refresh_button_pressed")
+
+    self.help_button = self.controls.get_node('buttons/help')
+    self.help_button.connect("pressed", self, "_help_button_pressed")
 
     var match_boxes_wrapper = self.controls.get_node('matches')
     var new_box
@@ -36,6 +40,10 @@ func bind():
 func _refresh_button_pressed():
     self.bag.root.sound_controller.play('menu')
     self.refresh_matches_list()
+
+func _help_button_pressed():
+    self.bag.root.sound_controller.play('menu')
+    self.show_help()
 
 func refresh_matches_list():
     self.online_menu_controller.refreshed = true
@@ -78,3 +86,23 @@ func has_match(code):
             return true
 
     return false
+
+func show_help():
+    var messages = [
+        tr('TIP_ONLINE_HELP_1'),
+        tr('TIP_ONLINE_HELP_2'),
+        tr('TIP_ONLINE_HELP_3'),
+    ]
+    self.controls.hide()
+    self.background.hide()
+    self.bag.message_big_popup.attach_panel(self.middle_container)
+    self.bag.message_big_popup.fill_labels(tr('MSG_MULTIPLAYER_WELCOME'), messages, "LABEL_BACK")
+    self.bag.message_big_popup.connect(self, "close_help")
+    self.middle_container.show()
+
+func close_help():
+    self.bag.message_big_popup.detach_panel()
+    self.controls.show()
+    self.background.show()
+    self.middle_container.hide()
+    self.help_button.grab_focus()

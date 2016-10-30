@@ -39,10 +39,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 240.0
-margin/right = 400.0
-margin/bottom = 240.0
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 
 [node name="background" type="Patch9Frame" parent="controls"]
 
@@ -269,6 +269,46 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="help" type="TextureButton" parent="controls/buttons"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -305.0
+margin/top = -160.0
+margin/right = -161.0
+margin/bottom = -112.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 12 )
+textures/pressed = ExtResource( 13 )
+textures/hover = ExtResource( 14 )
+textures/disabled = ExtResource( 7 )
+textures/focused = ExtResource( 11 )
+params/scale = Vector2( 3, 3 )
+
+[node name="Label" type="Label" parent="controls/buttons/help"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 8.0
+margin/top = 16.0
+margin/right = 138.0
+margin/bottom = 32.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "HELP"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="online_headline" type="Label" parent="controls"]
 
 focus/ignore_mouse = true
@@ -349,10 +389,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 400.0
-margin/top = 240.0
-margin/right = 400.0
-margin/bottom = 240.0
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 
 [node name="anchor" type="Control" parent="middle"]
 

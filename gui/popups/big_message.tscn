@@ -35,10 +35,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 512.0
-margin/top = 288.0
-margin/right = 512.0
-margin/bottom = 288.0
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
 
 [node name="background" type="Patch9Frame" parent="controls"]
 
@@ -83,6 +83,7 @@ patch_margin/bottom = 24
 
 [node name="background3" type="Patch9Frame" parent="controls"]
 
+visibility/visible = false
 anchor/left = 3
 anchor/top = 3
 anchor/right = 3
@@ -152,6 +153,7 @@ max_lines_visible = -1
 [node name="previous" type="TextureButton" parent="controls/buttons"]
 
 editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -191,6 +193,7 @@ max_lines_visible = -1
 [node name="next" type="TextureButton" parent="controls/buttons"]
 
 editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -227,7 +230,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="online_help_headline" type="Label" parent="controls"]
+[node name="title" type="Label" parent="controls"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -245,7 +248,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="online_help_text" type="Label" parent="controls"]
+[node name="message" type="Label" parent="controls"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -264,6 +267,7 @@ max_lines_visible = -1
 
 [node name="online_help_text1" type="Label" parent="controls"]
 
+visibility/visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2

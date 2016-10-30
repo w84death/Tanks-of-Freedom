@@ -92,6 +92,7 @@ func reload_labels():
 
     self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/Label2'), 'LABEL_MULTIPLAYER')
     self.reload_button(self.bag.controllers.online_menu_controller.multiplayer.refresh_button, 'LABEL_REFRESH')
+    self.reload_button(self.bag.controllers.online_menu_controller.multiplayer.help_button, 'LABEL_HELP')
     self.bag.controllers.online_menu_controller.refreshed = false
 
     #WORKSHOP
