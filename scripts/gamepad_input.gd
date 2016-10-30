@@ -99,7 +99,7 @@ func handle_motion(event):
 
 
 func handle_button(event):
-    if self.bag.workshop.is_working:
+    if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:
         if event.button_index == JOY_BUTTON_2:
             if event.pressed:
                 self.bag.root.sound_controller.play('menu')
@@ -166,7 +166,7 @@ func process(delta):
 func move_selector(offset):
     var new_position
 
-    if self.bag.workshop.is_working:
+    if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:
         new_position = self.bag.workshop.selector_position + offset
         self.bag.workshop.set_selector_map_pos(new_position)
         self.bag.workshop.set_camera_map_pos(new_position)
