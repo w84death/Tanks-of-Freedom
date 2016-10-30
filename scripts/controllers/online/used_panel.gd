@@ -247,7 +247,7 @@ func confirm_abandon_match(confirmation):
         self.middle_container.hide()
         self.controls.show()
         self.background.show()
-        self.create_button.grab_focus()
+        self.forfeit_button.grab_focus()
 
 func perform_abandon_match():
     self.bag.message_popup.attach_panel(self.middle_container)
