@@ -192,7 +192,7 @@ func clear_active_field():
 
 func add_movement_indicators(field):
     self.root_node.bag.action_map.reset()
-    if player_ap[self.current_player] > 0 && field.object.ap > 0 && not self.is_cpu_player:
+    if player_ap[self.current_player] > 0 && field.object.ap > 0 && not self.is_cpu_player && player_ap[self.current_player] >= 1:
         # calculating range
         var tiles_range = min(field.object.ap, player_ap[self.current_player])
         var first_action_range = max(0, ceil(field.object.ap - 1))
@@ -207,7 +207,7 @@ func add_movement_indicators(field):
             self.actual_movement_tiles[tile] = tiles[tile]
 
         self.root_node.bag.action_map.mark_movement_tiles(field, tiles, first_action_range, self.current_player)
-    self.add_interaction_indicators(field)
+        self.add_interaction_indicators(field)
 
 func add_interaction_indicators(field):
     var neighbour

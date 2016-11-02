@@ -62,6 +62,9 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
         tile_type = 1
 
         for neighbour in field.get_neighbours():
+            if self.bag.fog_controller.is_fogged(neighbour.position):
+                continue
+
             if neighbour.has_capturable_building(source.object):
                 tile_type = 3
                 break
