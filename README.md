@@ -99,6 +99,12 @@ For online funcionalities ToF server is required. Sources can be found in a sepa
 ### engine
    - Godot Engine https://godotengine.org/
 
+### translations
+  - French - [Poussinou](https://github.com/Poussinou)
+  - German - [cyberbeat](https://github.com/cyberbeat)
+  - English - P1X
+  - Polish - P1X
+
 ## Public game catalogs
 
 - itch.io [http://w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
