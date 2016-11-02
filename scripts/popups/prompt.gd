@@ -1,7 +1,10 @@
 
 var bag
 
-var popup = preload("res://gui/popups/prompt.tscn").instance()
+var popup_regular_template = preload("res://gui/popups/prompt.tscn")
+var popup_mobile_template = preload("res://gui/popups/prompt_mobile.tscn")
+
+var popup
 
 var hud_title
 var hud_message
@@ -18,8 +21,15 @@ var current_container
 
 func _init_bag(bag):
     self.bag = bag
+    self.select_prompt_template()
     self.bind_hud()
     self.connect_buttons()
+
+func select_prompt_template():
+    if Globals.get("tof/mobile_prompt"):
+        self.popup = self.popup_mobile_template.instance()
+    else:
+        self.popup = self.popup_regular_template.instance()
 
 func _confirm_button_pressed():
     self.bag.root.sound_controller.play('menu')
