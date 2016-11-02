@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=22 format=1]
 
 [ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
@@ -14,8 +14,13 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=12]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=13]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=14]
-[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=15]
-[ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=18]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=19]
+[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=20]
+[ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=21]
 
 [node name="online" type="CenterContainer"]
 
@@ -64,6 +69,7 @@ patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
 patch_margin/bottom = 24
+__meta__ = { "_edit_lock_":true }
 
 [node name="background2" type="Patch9Frame" parent="controls"]
 
@@ -95,7 +101,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
+margin/left = 110.0
 margin/top = -152.0
 margin/right = -320.0
 margin/bottom = -216.0
@@ -276,18 +282,18 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -305.0
-margin/top = -160.0
-margin/right = -161.0
-margin/bottom = -112.0
+margin/left = -105.0
+margin/top = 193.0
+margin/right = -9.0
+margin/bottom = 241.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 12 )
-textures/pressed = ExtResource( 13 )
-textures/hover = ExtResource( 14 )
-textures/disabled = ExtResource( 7 )
-textures/focused = ExtResource( 11 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="controls/buttons/help"]
@@ -296,10 +302,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 16.0
-margin/right = 138.0
-margin/bottom = 32.0
+margin/left = 7.0
+margin/top = 17.0
+margin/right = 90.0
+margin/bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "HELP"
 align = 1
@@ -315,7 +321,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 15 )
+theme/theme = ExtResource( 20 )
 margin/left = -296.0
 margin/top = -184.0
 margin/right = 149.0
@@ -359,24 +365,24 @@ custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 2
 
-[node name="match1" parent="controls/matches" instance=ExtResource( 16 )]
+[node name="match1" parent="controls/matches" instance=ExtResource( 21 )]
 
 margin/top = 0.0
 margin/bottom = 120.0
 
-[node name="match2" parent="controls/matches" instance=ExtResource( 16 )]
+[node name="match2" parent="controls/matches" instance=ExtResource( 21 )]
 
 margin/left = 308.0
 margin/top = 0.0
 margin/right = 608.0
 margin/bottom = 120.0
 
-[node name="match3" parent="controls/matches" instance=ExtResource( 16 )]
+[node name="match3" parent="controls/matches" instance=ExtResource( 21 )]
 
 margin/top = 128.0
 margin/bottom = 248.0
 
-[node name="match4" parent="controls/matches" instance=ExtResource( 16 )]
+[node name="match4" parent="controls/matches" instance=ExtResource( 21 )]
 
 margin/left = 308.0
 margin/top = 128.0
