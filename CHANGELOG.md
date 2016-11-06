@@ -10,6 +10,7 @@
 - added German translation
 - campaign mission 3 now has tank factory and extra tank on start
 - modified input prompt for Android to not be covered by keyboard
+- added information about blocked building spawn
 - fixed broken road pieces on Airplane and Recapture
 - fixed a bug where user could not do anything when trying to upload a map with empty list
 - fixed game crash when pressing 'end turn' with analog stick off-centre
