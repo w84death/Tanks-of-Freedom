@@ -275,3 +275,5 @@ TIP_ONLINE_HELP_1,"Aby rozpocząć grę online, użyj przycisku Utwórz. Jeżeli
 TIP_ONLINE_HELP_2,"W trakcie meczu nie ma żadnego limitu czasu na turę. Pamiętaj, że nie musisz bezczynnie czekać na ruch przeciwnika - możesz w tym czasie rozpocząć misję kampanii lub rozgrywać inne mecze online! Możesz także wyjść z gry, tylko czemu?"
 TIP_ONLINE_HELP_3,"Możesz na raz rozgrywać jedynie cztery mecze online. Pamiętaj o czyszczeniu slotów zakończonych meczy."
 MSG_SPAWN_BLOCKED,"WYJŚCIE ZABLOKOWANE"
+MSG_MULTIPLAYER_LOBBY_HEADLINE,"TRYB WIELOOSOBOWY"
+MSG_MULTIPLAYER_LOBBY_SUB,"MOŻESZ PROWADZIĆ DO CZTERECH GIER RÓWNOLEGLE"

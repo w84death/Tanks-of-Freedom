@@ -275,3 +275,5 @@ TIP_ONLINE_HELP_1,"To start your online game, use Create button on one of the fr
 TIP_ONLINE_HELP_2,"While in a match, there is no time limit for you, or your opponent, for taking a turn. Remember, that you don't have to wait for your turn idly - you are free to play campaign, skirmish, or load into a different multiplayer match! Quitting the game is also an option, but would you do that?"
 TIP_ONLINE_HELP_3,"You are limited to only four match slots, so remember to clear the ones, that have ended."
 MSG_SPAWN_BLOCKED,SPAWN BLOCKED
+MSG_MULTIPLAYER_LOBBY_HEADLINE,ONLINE MULTIPLAYER LOBBY
+MSG_MULTIPLAYER_LOBBY_SUB,"you may have up to four simultaneous games"
