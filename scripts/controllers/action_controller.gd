@@ -7,7 +7,6 @@ var selector
 var active_field = null
 var active_indicator = preload('res://gui/selector.xscn').instance()
 var hud_controller = preload('res://scripts/hud_controller.gd').new()
-var battle_stats
 var sound_controller
 var ai
 var pathfinding
@@ -40,7 +39,6 @@ func reset():
     self.damage_layer = null
     self.selector = null
     self.active_field = null
-    self.battle_stats = null
     self.sound_controller = null
     self.ai = null
     self.pathfinding = null
@@ -62,6 +60,7 @@ func init_root(root, map, hud):
     self.root_node.bag.abstract_map.reset()
     self.root_node.bag.abstract_map.init_map(map)
     self.root_node.bag.action_map.init_map(map)
+    self.root_node.bag.battle_stats.reset()
 
     camera = root.scale_root
     ysort = map.get_node('terrain/front')
@@ -74,8 +73,6 @@ func init_root(root, map, hud):
     self.positions = self.root_node.bag.positions
     self.positions.get_player_bunker_position(self.current_player)
     self.positions.bootstrap()
-
-    self.battle_stats = preload("res://scripts/battle_stats.gd").new()
 
     sound_controller = root.sound_controller
 
@@ -99,7 +96,6 @@ func refresh_abstract_map():
     self.import_objects()
     self.root_node.bag.abstract_map.create_tile_type_map()
     self.root_node.bag.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
-
 
 func set_active_field(position):
     var field = self.root_node.bag.abstract_map.get_field(position)
@@ -271,7 +267,7 @@ func spawn_unit_from_active_building():
         self.move_camera_to_point(spawn_point.position)
 
         #gather stats
-        self.battle_stats.add_spawn(self.current_player)
+        self.root_node.bag.battle_stats.add_spawn(self.current_player)
         self.root_node.bag.fog_controller.clear_fog()
 
 func import_objects():
@@ -310,7 +306,7 @@ func local_end_turn():
     hud_controller.set_turn(turn)
 
     #gather stats
-    self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
+    self.root_node.bag.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func multiplayer_end_turn():
     self.stats_set_time()
@@ -325,7 +321,7 @@ func multiplayer_end_turn():
     self.root_node.lock_for_cpu()
     self.root_node.bag.online_multiplayer.update_turn_state()
 
-    self.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
+    self.root_node.bag.battle_stats.add_domination(self.current_player, self.positions.get_player_buildings(self.current_player).size())
 
 func go_into_multiplayer_wait_mode():
     return
@@ -468,7 +464,7 @@ func end_game(winning_player):
     game_ended = true
     if root_node.hud.is_hidden():
         root_node.hud.show()
-    hud_controller.show_win(winning_player, self.battle_stats.get_stats(), turn)
+    hud_controller.show_win(winning_player, self.root_node.bag.battle_stats.get_stats(), turn)
     selector.hide()
     if (root_node.is_demo):
         demo_timer.reset(demo_timer.STATS)
@@ -509,17 +505,17 @@ func move_unit(active_field, field):
         self.activate_field(field)
         self.root_node.bag.fog_controller.clear_fog()
         #gather stats
-        self.battle_stats.add_moves(self.current_player)
+        self.root_node.bag.battle_stats.add_moves(self.current_player)
         self.update_unit(self.active_field)
 
     else:
         sound_controller.play('no_moves')
 
 func stats_start_time():
-    self.battle_stats.start_counting_time()
+    self.root_node.bag.battle_stats.start_counting_time()
 
 func stats_set_time():
-    self.battle_stats.set_counting_time(self.current_player)
+    self.root_node.bag.battle_stats.set_counting_time(self.current_player)
 
 func handle_battle(active_field, field):
     if (self.root_node.bag.battle_controller.can_attack(active_field.object, field.object)):
@@ -535,7 +531,7 @@ func handle_battle(active_field, field):
             self.update_unit(active_field)
 
             #gather stats
-            self.battle_stats.add_kills(current_player)
+            self.root_node.bag.battle_stats.add_kills(current_player)
             self.collateral_damage(field.position)
         else:
             sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
@@ -549,7 +545,7 @@ func handle_battle(active_field, field):
                     self.clear_active_field()
 
                     #gather stats
-                    self.battle_stats.add_kills(abs(current_player - 1))
+                    self.root_node.bag.battle_stats.add_kills(abs(current_player - 1))
                     self.collateral_damage(active_field.position)
                 else:
                     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)

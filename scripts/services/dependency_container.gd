@@ -46,6 +46,7 @@ var online_maps = preload('res://scripts/online/maps.gd').new()
 var online_multiplayer = preload('res://scripts/online/multiplayer.gd').new()
 var tileset_handler = preload('res://scripts/services/tileset_handler.gd').new()
 var script_player = preload('res://scripts/services/script_player.gd').new()
+var battle_stats = preload("res://scripts/battle_stats.gd").new()
 
 var saving = null
 var workshop = null

@@ -7,18 +7,12 @@ const SPAWNS        = "spawns"
 const SCORE         = "score"
 const TIME_FORMATED = "time_formated"
 
-var stats = {
-    self.DOMINATION    : [0, 0],
-    self.MOVES         : [0, 0],
-    self.KILLS         : [0, 0],
-    self.TIME          : [0, 0],
-    self.SPAWNS        : [0, 0],
-    self.SCORE         : [0, 0],
-    self.TOTAL_TIME    : 1,
-    self.TIME_FORMATED : ['0:00', '0:00'],
-}
+var stats = null
 
 var start_time
+
+func _init():
+    self.reset()
 
 func add_domination(player, value):
     self.__increment(self.DOMINATION, player, value)
@@ -47,7 +41,24 @@ func get_stats():
     self.stats[self.TOTAL_TIME] = __time_format(self.stats[self.TIME][0] + self.stats[self.TIME][1])
     self.stats[self.TIME_FORMATED] = [__time_format(self.stats[self.TIME][0]), __time_format(self.stats[self.TIME][1])]
 
-    return self.stats;
+    return self.stats
+
+func apply(values):
+    for param in values:
+        self.stats[param] = values[param]
+    return self
+
+func reset():
+    self.stats = {
+        self.DOMINATION    : [0, 0],
+        self.MOVES         : [0, 0],
+        self.KILLS         : [0, 0],
+        self.TIME          : [0, 0],
+        self.SPAWNS        : [0, 0],
+        self.SCORE         : [0, 0],
+        self.TOTAL_TIME    : 1,
+        self.TIME_FORMATED : ['0:00', '0:00'],
+    }
 
 func __calculate_score():
     self.stats[self.SCORE][0] = (self.stats[self.DOMINATION][0] * 3 + self.stats[self.KILLS][0] * 2 + self.stats[self.MOVES][0] + self.stats[self.SPAWNS][0]) * 10

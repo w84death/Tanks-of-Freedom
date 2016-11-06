@@ -159,7 +159,10 @@ func apply_saved_action_state():
         self.root_node.action_controller.player_ap[1] = self.loaded_data['player_1_ap']
     if self.loaded_data.has('turn'):
         self.root_node.action_controller.turn         = self.loaded_data['turn']
-    #self.root_node.action_controller.battle_stats = self.loaded_data['battle_stats']
+    self.apply_battle_stats()
+
+func apply_battle_stats():
+    self.root_node.action_controller.battle_stats = self.bag.battle_stats.apply(self.loaded_data['battle_stats'])
 
 func get_active_player_id():
     return self.loaded_data['active_player']
@@ -167,11 +170,9 @@ func get_active_player_id():
 func get_active_player_key():
     return 'cpu_' + str(self.loaded_data['active_player'])
 
-
 func save_state():
     self.collect_state_data()
     self.store_map_in_binary_file()
-
 
 func collect_state_data():
     var pos
@@ -258,7 +259,6 @@ func _is_empty(element):
         return true
     return false
 
-
 func invalidate_save_file():
     var save_data = {
         'map' : [],
@@ -274,7 +274,6 @@ func validate_data(save_data):
         return true
 
     return false
-
 
 func __fill_building_data(owner):
     if owner == 'red':
@@ -299,7 +298,6 @@ func __fill_unit_data():
 func __get_building_id(type, owner):
     return self.building_map[owner][type]
 
-
 func store_map_in_binary_file():
     var save_data
     var map_array = []
@@ -315,7 +313,7 @@ func store_map_in_binary_file():
         'player_0_ap' : self.root_node.action_controller.player_ap[0],
         'player_1_ap' : self.root_node.action_controller.player_ap[1],
         'turn': self.root_node.action_controller.turn,
-        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats(),
+        'battle_stats' : self.bag.battle_stats.get_stats(),
         'is_remote' : self.root_node.is_remote
     }
 
