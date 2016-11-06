@@ -478,12 +478,14 @@ func update_progress_labels():
 
 func update_custom_maps_count_label():
     var maps_created = self.root.bag.map_list.maps.size()
-    self.label_maps_created.set_text(tr('LABEL_MAPS_CREATED') + ': ' + str(maps_created))
+    if self.label_maps_created != null:
+        self.label_maps_created.set_text(tr('LABEL_MAPS_CREATED') + ': ' + str(maps_created))
 
 func update_campaign_progress_label():
     var completed_maps = self.root.bag.campaign.get_completed_map_count()
     var total_maps = self.root.bag.campaign.maps.size()
-    self.label_completed.set_text(tr('LABEL_COMPLETED') + ": " + str(completed_maps) + "/" + str(total_maps))
+    if self.label_completed != null:
+        self.label_completed.set_text(tr('LABEL_COMPLETED') + ": " + str(completed_maps) + "/" + str(total_maps))
 
 func update_version_label():
     self.label_version.set_text(self.root.version_name)

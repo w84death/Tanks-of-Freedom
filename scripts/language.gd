@@ -33,6 +33,8 @@ func reload_labels():
     self.reload_button(menu.play_button, 'LABEL_SKIRMISH')
     self.reload_button(menu.online_button, 'LABEL_ONLINE')
     self.reload_button(menu.workshop_button, 'LABEL_MAP EDITOR')
+    menu.update_campaign_progress_label()
+    menu.update_custom_maps_count_label()
 
     #TITLE SCREEN
     var title_screen = self.bag.controllers.menu_controller.get_node('middle/center/game_panel/under_logo')
