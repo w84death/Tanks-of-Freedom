@@ -19,7 +19,7 @@ func bind_building(building_object, player_ap):
     var unit_spawned = building_object.spawn_unit(building_object.player)
     self.building = building_object
     self.name_label.set_text(tr('LABEL_BUILDING_' + building_object.get_building_name()))
-    self.build_card.fill_card(unit_spawned, building.get_required_ap(), player_ap)
+    self.build_card.fill_card(unit_spawned, building.get_required_ap(), player_ap, building.spawn_field)
     unit_spawned.queue_free()
 
 func bind_spawn_unit(controller, method_name):

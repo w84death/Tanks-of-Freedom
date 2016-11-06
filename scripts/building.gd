@@ -9,6 +9,7 @@ export var can_spawn = true
 var current_map
 var group = 'building'
 var spawn_point = Vector2(0, 0)
+var spawn_field = null
 export var spawn_point_position = Vector2(0, 1)
 var flag
 var turn_claimed = -1

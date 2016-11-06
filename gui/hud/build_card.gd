@@ -12,6 +12,7 @@ var health
 var unit_range
 var price
 var no_enough_ap
+var no_enough_ap_label
 
 func bind(build_card_node):
     self.build_card = build_card_node
@@ -26,6 +27,7 @@ func bind(build_card_node):
     self.unit_range = self.build_card.get_node('range')
     self.price = self.build_card.get_node('price')
     self.no_enough_ap = self.build_card.get_node('no_ap')
+    self.no_enough_ap_label = self.no_enough_ap.get_node('no_ap')
 
 func show():
     self.build_card.show()
@@ -33,17 +35,25 @@ func show():
 func hide():
     self.build_card.hide()
 
-func fill_card(unit, cost, player_ap):
+func fill_card(unit, cost, player_ap, spawn_field):
     self.set_unit_name(unit.type_name)
     self.set_unit_sprite(unit.type, unit.player)
     self.set_unit_price(cost)
     self.set_unit_stats(unit.attack, unit.life, unit.max_ap)
+    self.check_block_conditions(cost,player_ap, spawn_field)
+
+func check_block_conditions(cost, player_ap, spawn_field):
+    self.enable_button()
+    self.no_enough_ap.hide()
+
     if cost > player_ap:
         self.disable_button()
         self.no_enough_ap.show()
-    else:
-        self.enable_button()
-        self.no_enough_ap.hide()
+        self.no_enough_ap_label.set_text(tr('MSG_NO_ENOUGH_AP'))
+    elif spawn_field != null and spawn_field.object != null:
+        self.disable_button()
+        self.no_enough_ap.show()
+        self.no_enough_ap_label.set_text(tr('MSG_SPAWN_BLOCKED'))
 
 func bind_spawn_unit(controller, method_name):
     self.deploy_button.connect("pressed", controller, method_name)

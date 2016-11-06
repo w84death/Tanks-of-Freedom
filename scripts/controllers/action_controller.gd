@@ -178,6 +178,7 @@ func activate_field(field):
             self.hud_controller.show_unit_card(field.object, self.current_player)
             self.add_movement_indicators(field)
         if field.object.group == 'building' && not self.is_cpu_player:
+            field.object.spawn_field = self.root_node.bag.abstract_map.get_field(field.object.spawn_point)
             self.hud_controller.show_building_card(field.object, player_ap[self.current_player])
 
 func clear_active_field():

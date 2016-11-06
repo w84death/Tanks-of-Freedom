@@ -274,3 +274,4 @@ MSG_MULTIPLAYER_WELCOME,"Welcome to ToF multiplayer!"
 TIP_ONLINE_HELP_1,"To start your online game, use Create button on one of the free slots. If the button is disabled, it means, you need to download an online map first, or upload your own. You may start by downloading 'CHEKLEEN' map! Once you have hosted a game, give the match code to your friend, so they can join."
 TIP_ONLINE_HELP_2,"While in a match, there is no time limit for you, or your opponent, for taking a turn. Remember, that you don't have to wait for your turn idly - you are free to play campaign, skirmish, or load into a different multiplayer match! Quitting the game is also an option, but would you do that?"
 TIP_ONLINE_HELP_3,"You are limited to only four match slots, so remember to clear the ones, that have ended."
+MSG_SPAWN_BLOCKED,SPAWN BLOCKED
