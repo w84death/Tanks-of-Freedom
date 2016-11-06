@@ -68,6 +68,7 @@ var settings_file = File.new()
 var workshop_file_name
 var is_remote = false
 var is_pandora = Globals.get("tof/pandora_input")
+var is_mobile = Globals.get("tof/mobile_prompt")
 var click_fix_position = Globals.get("tof/selector_offset")
 var hud_layout = Globals.get("tof/hud_layout")
 
@@ -380,4 +381,5 @@ func _ready():
     intro.init_root(self)
     self.add_child(intro)
     self.bag.language.reload_labels()
-    self.get_tree().set_auto_accept_quit(false)
+    if self.is_mobile:
+        self.get_tree().set_auto_accept_quit(false)
