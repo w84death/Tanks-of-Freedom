@@ -198,7 +198,7 @@ func clear_floating_damage():
 
 func die_after_explosion(ysort):
 	die = true
-	parent = ysort
+	parent = self.get_parent()
 	self.show_big_explosion()
 
 func update_shield():

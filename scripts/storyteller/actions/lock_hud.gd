@@ -13,6 +13,7 @@ func perform(action_details):
         unit = self.bag.positions.all_units[unit_position]
         unit.health_bar.hide()
         unit.icon_shield.hide()
+        print(unit_position, ' ', unit.type_name)
 
     self.bag.timers.set_timeout(0.55, self, "hide_bottom_elements")
 

@@ -7,6 +7,8 @@ var action_handlers = {
     'lock' : preload("res://scripts/storyteller/actions/lock_hud.gd").new(),
     'camera' : preload("res://scripts/storyteller/actions/camera.gd").new(),
     'sleep' : preload("res://scripts/storyteller/actions/sleep.gd").new(),
+    'move' : preload("res://scripts/storyteller/actions/move.gd").new(),
+    'die' : preload("res://scripts/storyteller/actions/die.gd").new(),
 }
 
 var current_story = []
@@ -54,6 +56,19 @@ func ugly_hardcoded_story():
     self.current_story = [
         {'action' : 'lock', 'details' : {}},
         {'action' : 'camera', 'details' : {'where' : Vector2(30, 19)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(28, 21), 'where' : Vector2(28, 20)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(30, 21), 'where' : Vector2(30, 20)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(28, 20), 'where' : Vector2(28, 19)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(30, 20), 'where' : Vector2(30, 19)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(28, 19), 'where' : Vector2(27, 19)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(30, 19), 'where' : Vector2(29, 19)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(27, 19), 'where' : Vector2(27, 18)}},
+        {'action' : 'move', 'details' : {'who' : Vector2(29, 19), 'where' : Vector2(29, 18)}},
+        {'action' : 'die', 'details' : {'who' : Vector2(27, 17)}},
+        {'action' : 'die', 'details' : {'who' : Vector2(28, 17)}},
+        {'action' : 'die', 'details' : {'who' : Vector2(26, 17)}},
+        {'action' : 'die', 'details' : {'who' : Vector2(30, 17)}},
+        {'action' : 'die', 'details' : {'who' : Vector2(29, 17)}},
         {'action' : 'sleep', 'details' : {'time' : 2}},
         {'action' : 'camera', 'details' : {'where' : Vector2(25, 19)}},
     ]
