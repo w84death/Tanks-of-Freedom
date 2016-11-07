@@ -48,6 +48,8 @@ var tileset_handler = preload('res://scripts/services/tileset_handler.gd').new()
 var script_player = preload('res://scripts/services/script_player.gd').new()
 var battle_stats = preload("res://scripts/battle_stats.gd").new()
 
+var storyteller = preload("res://scripts/storyteller/storyteller.gd").new()
+
 var saving = null
 var workshop = null
 
@@ -105,6 +107,8 @@ func init_root(root_node):
     self.online_multiplayer._init_bag(self)
     self.tileset_handler._init_bag(self)
     self.script_player._init_bag(self)
+
+    self.storyteller._init_bag(self)
 
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()
