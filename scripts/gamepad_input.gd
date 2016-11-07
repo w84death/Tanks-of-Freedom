@@ -44,7 +44,6 @@ func mark_gamepad(event):
     if self.is_ouya(pad_name):
         self.ouya_gamepad_detected = true
     self.gamepad_detected = true
-    self.show_gamepad_icons()
 
 func show_gamepad_icons():
     if not self.gamepad_detected:
