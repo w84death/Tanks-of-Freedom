@@ -139,6 +139,9 @@ func _input(event):
             self.bag.camera.move_to_map_center()
         if event.type == InputEvent.KEY && event.scancode == KEY_F && event.pressed:
             self.bag.fog_controller.toggle_fog()
+        if event.type == InputEvent.KEY && event.scancode == KEY_S && event.pressed:
+            self.bag.storyteller.tell_a_story()
+
 
         if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
             self.bag.camera.camera_zoom_in()

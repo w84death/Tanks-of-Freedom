@@ -162,7 +162,8 @@ func apply_saved_action_state():
     self.apply_battle_stats()
 
 func apply_battle_stats():
-    self.root_node.action_controller.battle_stats = self.bag.battle_stats.apply(self.loaded_data['battle_stats'])
+    self.bag.battle_stats.apply(self.loaded_data['battle_stats'])
+    #self.root_node.action_controller.battle_stats = self.bag.battle_stats.apply(self.loaded_data['battle_stats'])
 
 func get_active_player_id():
     return self.loaded_data['active_player']
