@@ -15,6 +15,7 @@
 - fixed a bug where user could not do anything when trying to upload a map with empty list
 - fixed game crash when pressing 'end turn' with analog stick off-centre
 - fixed gamepad controlls not working after entering workshop
+- fixed broken paging on remote maps list
 - disabled overscan for android
 - enabled screen rotation for android
 

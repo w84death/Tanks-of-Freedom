@@ -189,22 +189,24 @@ func adjust_page_buttons():
 
 func next_page():
     var pages = self.get_number_of_pages()
-    if self.current_page < pages:
-        if self.remote_mode_enabled:
+    if self.remote_mode_enabled:
+        if self.current_remote_page < pages:
             self.current_remote_page = self.current_remote_page + 1
-        else:
+    else:
+        if self.current_page < pages:
             self.current_page = self.current_page + 1
-        self.adjust_page_buttons()
-        self.fill_page()
+    self.adjust_page_buttons()
+    self.fill_page()
 
 func prev_page():
-    if self.current_page > 1:
-        if self.remote_mode_enabled:
+    if self.remote_mode_enabled:
+        if self.current_remote_page > 1:
             self.current_remote_page = self.current_remote_page - 1
-        else:
+    else:
+        if self.current_page > 1:
             self.current_page = self.current_page - 1
-        self.adjust_page_buttons()
-        self.fill_page()
+    self.adjust_page_buttons()
+    self.fill_page()
 
 func button_enable_switch(button, show):
     if show:
@@ -251,7 +253,11 @@ func refresh_labels():
     var maps_count = self.get_maps_amount()
     var max_pages = self.get_number_of_pages()
     self.count_label.set_text(str(maps_count))
-    self.page_label.set_text(str(self.current_page) + '/' + str(max_pages))
+
+    if self.remote_mode_enabled:
+        self.page_label.set_text(str(self.current_remote_page) + '/' + str(max_pages))
+    else:
+        self.page_label.set_text(str(self.current_page) + '/' + str(max_pages))
 
 func enable_delete_mode():
     self.delete_mode_enabled = true
