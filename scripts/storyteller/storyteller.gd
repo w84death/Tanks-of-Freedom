@@ -170,5 +170,82 @@ func ugly_hardcoded_story():
             {'action' : 'claim', 'details' : {'what' : Vector2(17, 14), 'side' : 0}},
             {'action' : 'claim', 'details' : {'what' : Vector2(19, 14), 'side' : 0}},
         ]
+    elif map == "MNTDPHFK":
+        self.current_story = [
+            {'action' : 'lock', 'details' : {}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(17, 19), 'zoom' : 2}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(25, 19)}, 'delay' : 2},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(27, 18), 'where' : Vector2(26, 18)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(28, 17), 'where' : Vector2(27, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(28, 19), 'where' : Vector2(27, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(26, 18), 'where' : Vector2(25, 18)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(27, 17), 'where' : Vector2(26, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(27, 19), 'where' : Vector2(26, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(25, 18), 'where' : Vector2(24, 18)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(26, 17), 'where' : Vector2(25, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(26, 19), 'where' : Vector2(25, 19)}, 'delay' : 2},
+
+            {'action' : 'camera', 'details' : {'where' : Vector2(17, 19), 'zoom' : 1}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(23, 20)}, 'delay' : 2},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(24, 18), 'where' : Vector2(23, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(25, 19), 'where' : Vector2(24, 20)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(24, 20), 'where' : Vector2(23, 20)}, 'delay' : 0.5},
+
+            {'action' : 'die', 'details' : {'who' : Vector2(22, 19)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(22, 20)}, 'delay' : 2},
+
+            {'action' : 'camera', 'details' : {'where' : Vector2(17, 19)}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(23, 17)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(30, 18), 'where' : Vector2(24, 16)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(30, 19), 'where' : Vector2(23, 14)}, 'delay' : 2},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 16), 'where' : Vector2(23, 16)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 17), 'where' : Vector2(23, 17)}},
+
+            {'action' : 'die', 'details' : {'who' : Vector2(24, 16)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(25, 17), 'where' : Vector2(24, 17)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(23, 17)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(23, 14), 'where' : Vector2(23, 15)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(23, 16)}, 'delay' : 2},
+
+
+            {'action' : 'camera', 'details' : {'where' : Vector2(20, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(23, 20), 'where' : Vector2(23, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(31, 18), 'where' : Vector2(22, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(31, 19), 'where' : Vector2(22, 19)}, 'delay' : 2},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 17), 'where' : Vector2(21, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 19), 'where' : Vector2(21, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(23, 17), 'where' : Vector2(22, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(23, 19), 'where' : Vector2(22, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(21, 17), 'where' : Vector2(20, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(21, 19), 'where' : Vector2(20, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 17), 'where' : Vector2(21, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 19), 'where' : Vector2(21, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(20, 17), 'where' : Vector2(19, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(20, 19), 'where' : Vector2(19, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(21, 17), 'where' : Vector2(20, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(21, 19), 'where' : Vector2(20, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(19, 17), 'where' : Vector2(18, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(19, 19), 'where' : Vector2(18, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(20, 17), 'where' : Vector2(19, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(20, 19), 'where' : Vector2(19, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(18, 17), 'where' : Vector2(17, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(18, 19), 'where' : Vector2(17, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(19, 17), 'where' : Vector2(18, 17)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(19, 19), 'where' : Vector2(18, 19)}},
+        ]
     else:
         self.current_story = []
