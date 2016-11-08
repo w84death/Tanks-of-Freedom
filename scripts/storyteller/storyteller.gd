@@ -57,11 +57,9 @@ func perform_next_action():
 
 
 func ugly_hardcoded_story():
-    if self.bag.root.workshop_file_name == false:
-        self.current_story = []
-        return
+    var map = str(self.bag.root.workshop_file_name)
 
-    if self.bag.root.workshop_file_name == "PDMPD4MX":
+    if map == "PDMPD4MX":
         self.current_story = [
             {'action' : 'lock', 'details' : {}, 'delay': 1},
             {'action' : 'camera', 'details' : {'where' : Vector2(30, 19), 'speed' : 1}},
@@ -80,6 +78,46 @@ func ugly_hardcoded_story():
             {'action' : 'die', 'details' : {'who' : Vector2(29, 17)}},
             {'action' : 'sleep', 'details' : {'time' : 2}},
             {'action' : 'camera', 'details' : {'where' : Vector2(25, 19)}},
+        ]
+    elif map == "N4TEMHKK":
+        self.current_story = [
+            {'action' : 'lock', 'details' : {}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(20, 25), 'zoom' : 3}, 'delay' : 2},
+            {'action' : 'camera', 'details' : {'where' : Vector2(19, 10), 'speed' : 0.1}, 'delay' : 2},
+            {'action' : 'move', 'details' : {'who' : Vector2(12, 10), 'where' : Vector2(13, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(24, 10), 'where' : Vector2(23, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(11, 10), 'where' : Vector2(12, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(25, 10), 'where' : Vector2(24, 10)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(13, 10), 'where' : Vector2(14, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(23, 10), 'where' : Vector2(22, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(12, 10), 'where' : Vector2(13, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(24, 10), 'where' : Vector2(23, 10)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 10), 'where' : Vector2(14, 11)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 10), 'where' : Vector2(22, 11)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(13, 10), 'where' : Vector2(14, 10)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(23, 10), 'where' : Vector2(22, 10)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 11), 'where' : Vector2(14, 12)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 11), 'where' : Vector2(22, 12)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 10), 'where' : Vector2(14, 11)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 10), 'where' : Vector2(22, 11)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 12), 'where' : Vector2(14, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 12), 'where' : Vector2(22, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 11), 'where' : Vector2(14, 12)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 11), 'where' : Vector2(22, 12)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 13), 'where' : Vector2(15, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 13), 'where' : Vector2(21, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 12), 'where' : Vector2(14, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 12), 'where' : Vector2(22, 13)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(15, 13), 'where' : Vector2(16, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(21, 13), 'where' : Vector2(20, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(14, 13), 'where' : Vector2(15, 13)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(22, 13), 'where' : Vector2(21, 13)}},
         ]
     else:
         self.current_story = []

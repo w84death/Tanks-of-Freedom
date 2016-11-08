@@ -65,16 +65,9 @@ func apply_default_camera():
     self.set_camera_zoom(self.camera_zoom_levels[self.camera_zoom_level_pos])
 
 func camera_zoom_do(direction):
-    var new_scale
     if ( direction < 0 && scale.x > self.camera_zoom_levels[0] ) or ( direction > 0 && scale.x < self.camera_zoom_levels[10] ):
         self.camera_zoom_level_pos = self.camera_zoom_level_pos + direction
-        new_scale = self.camera_zoom_levels[self.camera_zoom_level_pos]
-        self.scale = Vector2(new_scale, new_scale)
-        self.camera.set_zoom(self.scale)
-        self.root.bag.workshop.camera.set_zoom(self.scale)
-        self.root.game_scale = self.scale
-        self.root.settings['camera_zoom'] = self.camera_zoom_level_pos
-        self.root.write_settings_to_file()
+        self.set_zoom_value(self.camera_zoom_level_pos)
     self.bag.controllers.menu_controller.update_zoom_label()
     self.bag.controllers.menu_controller.update_background_scale()
 
@@ -83,6 +76,17 @@ func camera_zoom_in():
 
 func camera_zoom_out():
     camera_zoom_do(1)
+
+func set_zoom_value(value):
+    var new_scale
+    self.camera_zoom_level_pos = value
+    new_scale = self.camera_zoom_levels[self.camera_zoom_level_pos]
+    self.scale = Vector2(new_scale, new_scale)
+    self.camera.set_zoom(self.scale)
+    self.root.bag.workshop.camera.set_zoom(self.scale)
+    self.root.game_scale = self.scale
+    self.root.settings['camera_zoom'] = self.camera_zoom_level_pos
+    self.root.write_settings_to_file()
 
 func set_camera_zoom(zoom_value):
     self.camera.set_zoom(Vector2(zoom_value, zoom_value))
