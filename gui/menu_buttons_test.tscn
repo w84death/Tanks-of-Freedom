@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://gui/button_small.tres" type="Theme" id=1]
+[ext_resource path="res://gui/button_normal.tres" type="Theme" id=2]
+
+[node name="Button" type="Button"]
+
+rect/min_size = Vector2( 96, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 96.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "SMALL"
+flat = false
+
+[node name="Button" type="Button" parent="."]
+
+rect/min_size = Vector2( 144, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 103.0
+margin/top = 1.0
+margin/right = 247.0
+margin/bottom = 49.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "NORMAL"
+flat = false
+
+
