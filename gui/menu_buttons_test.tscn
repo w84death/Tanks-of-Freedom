@@ -10,10 +10,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 50.0
-margin/top = 50.0
-margin/right = 385.0
-margin/bottom = 118.0
+margin/left = 128.0
+margin/top = 64.0
+margin/right = 128.0
+margin/bottom = 64.0
 
 [node name="Panel" type="Panel" parent="."]
 
@@ -22,10 +22,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 273.0
-margin/bottom = 76.0
+margin/left = -10.0
+margin/top = -2.0
+margin/right = 470.0
+margin/bottom = 74.0
 
 [node name="GridContainer" type="GridContainer" parent="Panel"]
 
@@ -37,9 +37,9 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 12.0
 margin/top = 12.0
-margin/right = 12.0
-margin/bottom = 12.0
-columns = 2
+margin/right = 51.0
+margin/bottom = 16.0
+columns = 4
 
 [node name="Button" type="Button" parent="Panel/GridContainer"]
 
@@ -75,6 +75,122 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "SMALL"
+flat = false
+
+[node name="Button2" type="Button" parent="Panel/GridContainer"]
+
+rect/min_size = Vector2( 96, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 3 )
+margin/left = 248.0
+margin/top = 0.0
+margin/right = 344.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "SMALL"
+flat = false
+
+[node name="Button3" type="Button" parent="Panel/GridContainer"]
+
+rect/min_size = Vector2( 96, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 3 )
+margin/left = 348.0
+margin/top = 0.0
+margin/right = 444.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "SMALL"
+flat = false
+
+[node name="Panel1" type="Panel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = -10.0
+margin/top = 90.0
+margin/right = 159.0
+margin/bottom = 285.0
+
+[node name="GridContainer" type="GridContainer" parent="Panel1"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 12.0
+margin/top = 12.0
+margin/right = 12.0
+margin/bottom = -21.0
+columns = 1
+
+[node name="Button" type="Button" parent="Panel1/GridContainer"]
+
+rect/min_size = Vector2( 144, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 144.0
+margin/bottom = 48.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "NORMAL"
+flat = false
+
+[node name="Button1" type="Button" parent="Panel1/GridContainer"]
+
+rect/min_size = Vector2( 144, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 52.0
+margin/right = 144.0
+margin/bottom = 100.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "NORMAL"
+flat = false
+
+[node name="Button2" type="Button" parent="Panel1/GridContainer"]
+
+rect/min_size = Vector2( 144, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
+margin/left = 0.0
+margin/top = 104.0
+margin/right = 144.0
+margin/bottom = 152.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "NORMAL"
 flat = false
 
 
