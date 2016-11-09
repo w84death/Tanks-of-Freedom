@@ -119,7 +119,7 @@ func handle_action(position):
             if field.object.group == 'unit' && active_field.object.group == 'unit':
 
                 if active_field.is_adjacent(field) && field.object.player != self.current_player && self.has_ap():
-                    if (self.handle_battle(active_field, field) == BREAK_EVENT_LOOP):
+                    if (self.handle_battle(active_field, field) == self.BREAK_EVENT_LOOP):
                         return 0
                 else:
                     sound_controller.play('no_move')
@@ -127,7 +127,7 @@ func handle_action(position):
                     hud_controller.update_unit_card(active_field.object)
             if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != self.current_player:
                 if active_field.is_adjacent(field) && self.root_node.bag.movement_controller.can_move(active_field, field) && self.has_ap():
-                    if (self.capture_building(active_field, field) == BREAK_EVENT_LOOP):
+                    if (self.capture_building(active_field, field) == self.BREAK_EVENT_LOOP):
                         return 0
 
         if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == self.current_player:
@@ -156,9 +156,8 @@ func capture_building(active_field, field):
         self.despawn_unit(active_field)
     self.root_node.bag.fog_controller.clear_fog()
     self.activate_field(field)
-    if field.object.type == 0:
-        self.end_game(self.current_player)
-        return 1
+    #TODO - move it in handle
+    return self.root_node.bag.game_conditions.check_win_conditions(field)
 
 func activate_field(field):
     self.clear_active_field()
@@ -191,12 +190,8 @@ func add_movement_indicators(field):
     if player_ap[self.current_player] > 0 && field.object.ap > 0 && not self.is_cpu_player && player_ap[self.current_player] >= 1:
         # calculating range
         var tiles_range = min(field.object.ap, player_ap[self.current_player])
-        var first_action_range = max(0, ceil(field.object.ap - 1))
-
-        var unit_position = field.object.get_pos_map()
-
+        var first_action_range = max(0, field.object.ap - 1)
         self.actual_movement_tiles.clear()
-
         var tiles = self.root_node.bag.action_map.find_movement_tiles(field, tiles_range)
 
         for tile in tiles:
@@ -228,10 +223,11 @@ func add_interaction_indicators(field):
             indicator.set_pos(indicator_position + Vector2(1, 1))
             indicator.show()
             indicator.get_node('anim').play("attack")
-        if neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move(field, neighbour):
-            indicator.set_pos(indicator_position)
-            indicator.show()
-            indicator.get_node('anim').play("enter")
+        else:
+            if neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move(field, neighbour):
+                indicator.set_pos(indicator_position)
+                indicator.show()
+                indicator.get_node('anim').play("enter")
 
 func hide_interaction_indicators():
     for direction in self.interaction_indicators:
@@ -289,10 +285,9 @@ func end_turn():
 
 func local_end_turn():
     self.stats_set_time()
-    if self.root_node.settings['turns_cap'] > 0:
-        if self.turn >= self.root_node.settings['turns_cap']:
-            self.end_game(-1)
-            return
+    self.root_node.bag.game_conditions.check_turn_cap()
+    if self.game_ended:
+        return
 
     var save = true
     if self.root_node.bag.match_state.is_multiplayer:
@@ -461,7 +456,7 @@ func end_game(winning_player):
         self.root_node.bag.online_multiplayer.end_game()
     self.root_node.ai_timer.reset_state()
     self.clear_active_field()
-    game_ended = true
+    self.game_ended = true
     if root_node.hud.is_hidden():
         root_node.hud.show()
     hud_controller.show_win(winning_player, self.root_node.bag.battle_stats.get_stats(), turn)
@@ -469,7 +464,7 @@ func end_game(winning_player):
     if (root_node.is_demo):
         demo_timer.reset(demo_timer.STATS)
         demo_timer.start()
-    if (self.root_node.bag.match_state.is_campaign()) && winning_player > -1:
+    if self.root_node.bag.match_state.is_campaign() && winning_player > -1:
         if not self.root_node.settings['cpu_' + str(winning_player)]:
             var mission_num = self.root_node.bag.match_state.get_map_number()
             if mission_num > self.root_node.bag.campaign.get_campaign_progress():
