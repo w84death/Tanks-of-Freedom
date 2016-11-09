@@ -235,7 +235,7 @@ func get_current_state():
         'player_0_ap' : self.root_node.action_controller.player_ap[0],
         'player_1_ap' : self.root_node.action_controller.player_ap[1],
         'turn': self.root_node.action_controller.turn,
-        'battle_stats' : self.root_node.action_controller.battle_stats.get_stats(),
+        'battle_stats' : self.root_node.bag.battle_stats.get_stats(),
     }
 
     return current_data
