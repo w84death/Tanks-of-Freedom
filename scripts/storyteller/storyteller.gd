@@ -60,27 +60,7 @@ func perform_next_action():
 func ugly_hardcoded_story():
     var map = str(self.bag.root.workshop_file_name)
 
-    if map == "Y44TCE3K":
-        self.current_story = [
-            {'action' : 'lock', 'details' : {}, 'delay': 1},
-            {'action' : 'camera', 'details' : {'where' : Vector2(30, 30), 'zoom' : 2}},
-            {'action' : 'camera', 'details' : {'where' : Vector2(28, 17)}},
-
-            {'action' : 'move', 'details' : {'who' : Vector2(27, 20), 'where' : Vector2(27, 19)}},
-            {'action' : 'move', 'details' : {'who' : Vector2(29, 20), 'where' : Vector2(29, 19)}},
-
-            {'action' : 'move', 'details' : {'who' : Vector2(27, 19), 'where' : Vector2(27, 18)}},
-            {'action' : 'move', 'details' : {'who' : Vector2(29, 19), 'where' : Vector2(29, 18)}, 'delay' : 2},
-
-            {'action' : 'camera', 'details' : {'where' : Vector2(28, 17), 'zoom' : 1}, 'delay' : 2},
-
-            {'action' : 'die', 'details' : {'who' : Vector2(27, 17)}},
-            {'action' : 'die', 'details' : {'who' : Vector2(28, 17)}},
-            {'action' : 'die', 'details' : {'who' : Vector2(26, 17)}},
-            {'action' : 'die', 'details' : {'who' : Vector2(30, 17)}},
-            {'action' : 'die', 'details' : {'who' : Vector2(29, 17)}},
-        ]
-    elif map == "N4TEMHKK":
+    if map == "N4TEMHKK":
         self.current_story = [
             {'action' : 'lock', 'details' : {}},
             {'action' : 'camera', 'details' : {'where' : Vector2(20, 25), 'zoom' : 3}, 'delay' : 2},
@@ -169,6 +149,26 @@ func ugly_hardcoded_story():
             {'action' : 'claim', 'details' : {'what' : Vector2(15, 14), 'side' : 0}},
             {'action' : 'claim', 'details' : {'what' : Vector2(17, 14), 'side' : 0}},
             {'action' : 'claim', 'details' : {'what' : Vector2(19, 14), 'side' : 0}},
+        ]
+    elif map == "Y44TCE3K":
+        self.current_story = [
+            {'action' : 'lock', 'details' : {}, 'delay': 1},
+            {'action' : 'camera', 'details' : {'where' : Vector2(30, 30), 'zoom' : 2}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(28, 17)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(27, 20), 'where' : Vector2(27, 19)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(29, 20), 'where' : Vector2(29, 19)}},
+
+            {'action' : 'move', 'details' : {'who' : Vector2(27, 19), 'where' : Vector2(27, 18)}},
+            {'action' : 'move', 'details' : {'who' : Vector2(29, 19), 'where' : Vector2(29, 18)}, 'delay' : 2},
+
+            {'action' : 'camera', 'details' : {'where' : Vector2(28, 17), 'zoom' : 1}, 'delay' : 2},
+
+            {'action' : 'die', 'details' : {'who' : Vector2(27, 17)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(28, 17)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(26, 17)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(30, 17)}},
+            {'action' : 'die', 'details' : {'who' : Vector2(29, 17)}},
         ]
     elif map == "MNTDPHFK":
         self.current_story = [
