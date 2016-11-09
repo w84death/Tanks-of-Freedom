@@ -69,6 +69,7 @@ var workshop_file_name
 var is_remote = false
 var is_pandora = Globals.get("tof/pandora_input")
 var is_mobile = Globals.get("tof/mobile_prompt")
+var is_debug = Globals.get("tof/debug_mode")
 var click_fix_position = Globals.get("tof/selector_offset")
 var hud_layout = Globals.get("tof/hud_layout")
 
@@ -137,10 +138,11 @@ func _input(event):
             action_controller.switch_unit(self.bag.unit_switcher.BACK)
         if event.type == InputEvent.KEY && event.scancode == KEY_B && event.pressed:
             self.bag.camera.move_to_map_center()
-        if event.type == InputEvent.KEY && event.scancode == KEY_F && event.pressed:
-            self.bag.fog_controller.toggle_fog()
-        if event.type == InputEvent.KEY && event.scancode == KEY_S && event.pressed:
-            self.bag.storyteller.tell_a_story()
+        if self.is_debug:
+            if event.type == InputEvent.KEY && event.scancode == KEY_F && event.pressed:
+                self.bag.fog_controller.toggle_fog()
+            if event.type == InputEvent.KEY && event.scancode == KEY_S && event.pressed:
+                self.bag.storyteller.tell_a_story()
 
 
         if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
