@@ -82,7 +82,7 @@ func init_root(root, map, hud):
     pathfinding = preload('res://scripts/ai/pathfinding/a_star_pathfinding.gd').new()
     ai = preload("res://scripts/ai/ai.gd").new(self.positions, pathfinding, self.root_node.bag.abstract_map, self)
 
-    var interaction_template = preload('res://gui/movement.xscn')
+    var interaction_template = load('res://gui/movement.xscn')
     for direction in self.interaction_indicators:
         self.interaction_indicators[direction]['indicator'] = interaction_template.instance()
         ysort.add_child(self.interaction_indicators[direction]['indicator'])
@@ -109,9 +109,6 @@ func set_active_field(position):
 func handle_action(position):
     if game_ended:
         return 0
-
-    #if active_field == null:
-    #   return 1
 
     var field = self.root_node.bag.abstract_map.get_field(position)
     if field.object != null:
@@ -220,14 +217,14 @@ func add_interaction_indicators(field):
         indicator_position = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(neighbour.position))
 
         if neighbour.has_attackable_enemy(field.object):
-            indicator.set_pos(indicator_position + Vector2(1, 1))
-            indicator.show()
-            indicator.get_node('anim').play("attack")
-        else:
-            if neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move(field, neighbour):
-                indicator.set_pos(indicator_position)
-                indicator.show()
-                indicator.get_node('anim').play("enter")
+            self.__show_indicator(indicator, indicator_position + Vector2(1,1), "attack")
+        elif neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move(field, neighbour):
+            self.__show_indicator(indicator, indicator_position, "enter")
+
+func __show_indicator(indicator, position, type):
+    indicator.set_pos(position)
+    indicator.show()
+    indicator.get_node('anim').play(type)
 
 func hide_interaction_indicators():
     for direction in self.interaction_indicators:
@@ -366,10 +363,9 @@ func is_movement_possible(field, active_field):
     return false
 
 func deduct_ap(ap):
-    var units
     self.update_ap(player_ap[current_player] - ap)
     if self.player_ap[self.current_player] < 1:
-        units = self.positions.get_player_units(current_player)
+        var units = self.positions.get_player_units(current_player)
         for unit in units:
             units[unit].force_no_ap_idle()
 
@@ -461,7 +457,7 @@ func end_game(winning_player):
         root_node.hud.show()
     hud_controller.show_win(winning_player, self.root_node.bag.battle_stats.get_stats(), turn)
     selector.hide()
-    if (root_node.is_demo):
+    if root_node.is_demo:
         demo_timer.reset(demo_timer.STATS)
         demo_timer.start()
     if self.root_node.bag.match_state.is_campaign() && winning_player > -1:
@@ -477,7 +473,6 @@ func end_game(winning_player):
     if not self.root_node.is_demo_mode() and not self.root_node.bag.match_state.is_multiplayer:
         self.root_node.bag.saving.invalidate_save_file()
     self.root_node.bag.timers.set_timeout(0.1, hud_controller.hud_end_game_missions_button, "grab_focus")
-
 
 func play_destroy(field):
     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DIE)

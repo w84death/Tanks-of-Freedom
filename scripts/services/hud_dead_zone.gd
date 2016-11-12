@@ -8,7 +8,6 @@ var bottom_hud_size = Vector2(410, 83)
 var bottom_hud_overscan_offset = Vector2(0, 80)
 var selected_panel_size = Vector2(410, 83)
 
-
 var unit_panel_size = Vector2(10, 10)
 var building_build_panel_size = Vector2(380, 90)
 var building_build_panel_offset = -170
