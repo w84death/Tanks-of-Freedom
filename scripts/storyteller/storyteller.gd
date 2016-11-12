@@ -60,6 +60,8 @@ func perform_next_action():
 func ugly_hardcoded_story():
     var map = str(self.bag.root.workshop_file_name)
 
+    print('matching ' + map)
+
     if map == "N4TEMHKK":
         self.current_story = [
             {'action' : 'lock', 'details' : {}},
@@ -106,8 +108,8 @@ func ugly_hardcoded_story():
     elif map == "T9ET4W3M":
         self.current_story = [
             {'action' : 'lock', 'details' : {}},
-            {'action' : 'camera', 'details' : {'where' : Vector2(18, 30), 'zoom' : 2}, 'delay' : 2},
-            {'action' : 'camera', 'details' : {'where' : Vector2(17, 21)}, 'delay' : 2},
+            {'action' : 'camera', 'details' : {'where' : Vector2(18, 30), 'zoom' : 2, 'speed' : 0.5}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(17, 21), 'speed' : 0.5}, 'delay' : 14},
 
             {'action' : 'move', 'details' : {'who' : Vector2(17, 22), 'where' : Vector2(17, 21)}},
             {'action' : 'move', 'details' : {'who' : Vector2(16, 23), 'where' : Vector2(16, 22)}},
@@ -122,7 +124,7 @@ func ugly_hardcoded_story():
             {'action' : 'move', 'details' : {'who' : Vector2(19, 23), 'where' : Vector2(19, 22)}, 'delay' : 2},
 
             {'action' : 'camera', 'details' : {'where' : Vector2(18, 30), 'zoom' : 1}, 'delay' : 2},
-            {'action' : 'camera', 'details' : {'where' : Vector2(17, 19)}, 'delay' : 2},
+            {'action' : 'camera', 'details' : {'where' : Vector2(17, 19)}, 'delay' : 8},
 
             {'action' : 'move', 'details' : {'who' : Vector2(16, 21), 'where' : Vector2(16, 20)}},
             {'action' : 'move', 'details' : {'who' : Vector2(18, 21), 'where' : Vector2(18, 20)}},
@@ -154,7 +156,7 @@ func ugly_hardcoded_story():
         self.current_story = [
             {'action' : 'lock', 'details' : {}, 'delay': 1},
             {'action' : 'camera', 'details' : {'where' : Vector2(30, 30), 'zoom' : 2}},
-            {'action' : 'camera', 'details' : {'where' : Vector2(28, 17)}},
+            {'action' : 'camera', 'details' : {'where' : Vector2(28, 17)}, 'delay' : 8},
 
             {'action' : 'move', 'details' : {'who' : Vector2(27, 20), 'where' : Vector2(27, 19)}},
             {'action' : 'move', 'details' : {'who' : Vector2(29, 20), 'where' : Vector2(29, 19)}},
@@ -174,7 +176,7 @@ func ugly_hardcoded_story():
         self.current_story = [
             {'action' : 'lock', 'details' : {}},
             {'action' : 'camera', 'details' : {'where' : Vector2(17, 19), 'zoom' : 2}},
-            {'action' : 'camera', 'details' : {'where' : Vector2(25, 19)}, 'delay' : 2},
+            {'action' : 'camera', 'details' : {'where' : Vector2(25, 19)}, 'delay' : 6},
 
             {'action' : 'move', 'details' : {'who' : Vector2(27, 18), 'where' : Vector2(26, 18)}},
             {'action' : 'move', 'details' : {'who' : Vector2(28, 17), 'where' : Vector2(27, 17)}},
