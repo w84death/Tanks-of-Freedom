@@ -365,6 +365,7 @@ func write_settings_to_file():
     self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
+    OS.set_low_processor_usage_mode(true)
     self.bag = preload('res://scripts/services/dependency_container.gd').new()
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
     self.ai_timer = get_node("AITimer")
