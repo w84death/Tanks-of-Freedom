@@ -17,8 +17,6 @@ var terrain_obstacles = {}
 var units
 
 const lookout_range = 3
-
-# performance hack
 var precalculated_nearby_tiles = [[[null]]]
 var precalculated_nearby_tiles_ranges = [[[null]]]
 
@@ -27,7 +25,7 @@ const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
 const EXTREME_RANGE = 3 # will be not used in the future
-var tiles_lookup_ranges = [1,2,3,4,5,6,7,8] # todo - check this mechanism
+var tiles_lookup_ranges = [1,2,3,4,5,6,7,8]
 var tiles_building_lookup_ranges = [1,2]
 
 # not changable data
@@ -200,7 +198,7 @@ func prepare_nearby_tiles_ranges():
 
 #get all tiles
 func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
-    var tiles = []
+    var tiles = Vector2Array([])
 
     for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
         tiles.push_back(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
@@ -209,7 +207,7 @@ func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
 
 #only subset (ranges)
 func get_nearby_tiles_subset(position, lookup_range=CLOSE_RANGE):
-    var tiles = []
+    var tiles = Vector2Array([])
     if lookup_range == 0:
         return tiles
 

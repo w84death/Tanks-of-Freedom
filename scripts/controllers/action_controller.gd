@@ -108,35 +108,34 @@ func set_active_field(position):
 
 func handle_action(position):
     if game_ended:
-        return 0
+        return
 
     var field = self.root_node.bag.abstract_map.get_field(position)
-    if field.object != null:
-        if active_field != null:
-            if field.object.group == 'unit' && active_field.object.group == 'unit':
-
-                if active_field.is_adjacent(field) && field.object.player != self.current_player && self.has_ap():
-                    if (self.handle_battle(active_field, field) == self.BREAK_EVENT_LOOP):
-                        return 0
-                else:
-                    sound_controller.play('no_move')
-
-                    hud_controller.update_unit_card(active_field.object)
-            if active_field.object.group == 'unit' && active_field.object.type == 0 && field.object.group == 'building' && field.object.player != self.current_player:
-                if active_field.is_adjacent(field) && self.root_node.bag.movement_controller.can_move(active_field, field) && self.has_ap():
-                    if (self.capture_building(active_field, field) == self.BREAK_EVENT_LOOP):
-                        return 0
-
-        if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)) && field.object.player == self.current_player:
-            self.activate_field(field)
-    else:
-        if active_field != null && active_field.object != null && field != active_field && field.object == null:
+    if field.object == null:
+        if active_field != null && active_field.object != null && field != active_field:
             if active_field.object.group == 'unit'  && self.is_movement_possible(field, active_field) && field.terrain_type != -1 && self.has_ap():
                 self.move_unit(active_field, field)
             else:
                 self.clear_active_field()
+    else:
+        if field.object.player == self.current_player:
+            self.__activate_field(field)
+            return
+        else:
+            if active_field != null && active_field.object.group == 'unit':
+                self.__handle_unit_actions(active_field, field)
 
-    return 1
+func __activate_field(field):
+    if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)):
+        self.activate_field(field)
+
+func __handle_unit_actions(active_field, field):
+    if self.has_ap() && active_field.is_adjacent(field):
+        if field.object.group == 'unit':
+            return self.handle_battle(active_field, field)
+        elif active_field.object.type == 0 && field.object.group == 'building':
+            if self.root_node.bag.movement_controller.can_move(active_field, field):
+                return self.capture_building(active_field, field)
 
 func capture_building(active_field, field):
     self.use_ap(field)
@@ -279,7 +278,6 @@ func end_turn():
     else:
         self.local_end_turn()
 
-
 func local_end_turn():
     self.stats_set_time()
     self.root_node.bag.game_conditions.check_turn_cap()
@@ -366,8 +364,8 @@ func deduct_ap(ap):
     self.update_ap(player_ap[current_player] - ap)
     if self.player_ap[self.current_player] < 1:
         var units = self.positions.get_player_units(current_player)
-        for unit in units:
-            units[unit].force_no_ap_idle()
+        for unit in units.values():
+            unit.force_no_ap_idle()
 
 func update_ap(ap):
     player_ap[current_player] = ap
@@ -382,8 +380,9 @@ func refill_ap():
     var total_ap = player_ap[current_player]
     var buildings = self.positions.get_player_buildings(current_player)
     var bonus_ap = 0
-    for building in buildings:
-        bonus_ap = bonus_ap + buildings[building].bonus_ap
+    for building in buildings.values():
+        bonus_ap = bonus_ap + building.bonus_ap
+
     if self.apply_handicap():
         bonus_ap = floor(bonus_ap * self.AP_HANDICAP)
     self.update_ap(total_ap + bonus_ap)
@@ -401,7 +400,7 @@ func switch_to_player(player, save_game=true):
     self.is_cpu_player = root_node.settings['cpu_' + str(current_player)]
 
     self.reset_player_units(player)
-    selector.set_player(player);
+    selector.set_player(player)
     self.root_node.bag.abstract_map.map.current_player = player
     if root_node.settings['cpu_' + str(player)]:
         if not self.root_node.bag.match_state.is_multiplayer:
@@ -444,8 +443,8 @@ func reset_player_units(player):
     self.positions.refresh_units()
     var units = self.positions.get_player_units(player)
     var limit_ap = self.apply_handicap()
-    for unit_pos in units:
-        units[unit_pos].reset_ap(limit_ap)
+    for unit in units.values():
+        unit.reset_ap(limit_ap)
 
 func end_game(winning_player):
     if self.root_node.bag.match_state.is_multiplayer and not self.root_node.settings['cpu_' + str(winning_player)]:
@@ -550,14 +549,9 @@ func handle_battle(active_field, field):
 
 func collateral_damage(center):
     var damage_chance = 0.5
-    if randf() <= damage_chance:
-        self.damage_terrain(center + Vector2(0, 1))
-    if randf() <= damage_chance:
-        self.damage_terrain(center + Vector2(1, 0))
-    if randf() <= damage_chance:
-        self.damage_terrain(center - Vector2(0, 1))
-    if randf() <= damage_chance:
-        self.damage_terrain(center - Vector2(1, 0))
+    for mod in [Vector2(0, 1), Vector2(1, 0), Vector2(0, -1), Vector2(-1, 0)] :
+        if randf() <= damage_chance:
+            self.damage_terrain(center + mod)
 
     var field = self.root_node.bag.abstract_map.get_field(center)
     if field.damage == null:
