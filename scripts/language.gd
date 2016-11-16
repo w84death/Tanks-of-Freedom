@@ -1,4 +1,3 @@
-
 var bag
 
 var available_languages = []

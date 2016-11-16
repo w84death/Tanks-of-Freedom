@@ -37,9 +37,9 @@ func calculate_cost():
 	if action_controller.player_ap[action_controller.current_player] < 1:
 		return # no ap left
 
-	if active_field == null || active_field.object == null || active_field.object.group != 'unit':
+	if active_field == null || active_field.object == null || !active_field.has_unit():
 		return # empty active field
-	if marked_field == null || marked_field.terrain_type == -1:
+	if marked_field == null || marked_field.is_empty():
 		return # tile is not part of the map
 
 	var unit = active_field.object

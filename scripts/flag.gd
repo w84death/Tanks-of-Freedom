@@ -1,4 +1,3 @@
-
 extends Sprite
 
 var anim

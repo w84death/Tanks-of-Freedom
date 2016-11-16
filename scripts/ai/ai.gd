@@ -208,7 +208,7 @@ func __add_action(unit, destination):
         var next_tile = abstract_map.get_field(path[0])
 
         if (next_tile.object != null):
-            if (next_tile.object.group == 'building'):
+            if (next_tile.has_building()):
                 if unit.can_capture_building(next_tile.object):
                     action_type = self.action_builder.ACTION_CAPTURE
                 else:
@@ -232,7 +232,7 @@ func __add_action(unit, destination):
             unit_ap_cost = path_size - 1
             var last_tile = abstract_map.get_field(path[path_size - 1])
             if (last_tile.object != null):
-                if (last_tile.object.group == 'building'):
+                if (last_tile.has_building()):
                     if (unit.can_capture_building(last_tile.object)):
                         action_type = self.action_builder.ACTION_MOVE_TO_CAPTURE
 

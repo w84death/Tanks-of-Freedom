@@ -195,7 +195,7 @@ func collect_state_data():
                         'ground_damage' : ground_damage
                     }
             else:
-                if field.object.group == 'terrain' and field.object.unique_type_id != t.CITY_FENCE:
+                if field.has_terrain() and field.object.unique_type_id != t.CITY_FENCE:
                     self.data[pos]['meta'] = {
                         'is_terrain' : true,
                         'damage' : field.object.damage,
@@ -203,7 +203,7 @@ func collect_state_data():
                         'frame' : field.object.get_frame()
                     }
 
-                if field.object.group == 'unit' and ground_damage != null:
+                if field.has_unit() and ground_damage != null:
                     self.data[pos]['meta'] = {
                         'is_terrain' : false,
                         'ground_damage' : ground_damage

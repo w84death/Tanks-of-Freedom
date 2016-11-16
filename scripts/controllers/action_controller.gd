@@ -113,27 +113,30 @@ func handle_action(position):
     var field = self.root_node.bag.abstract_map.get_field(position)
     if field.object == null:
         if active_field != null && active_field.object != null && field != active_field:
-            if active_field.object.group == 'unit'  && self.is_movement_possible(field, active_field) && field.terrain_type != -1 && self.has_ap():
+            if active_field.has_unit()  && self.is_movement_possible(field, active_field) && !field.is_empty() && self.has_ap():
                 self.move_unit(active_field, field)
             else:
                 self.clear_active_field()
     else:
+        if field.has_terrain():
+            return
+
         if field.object.player == self.current_player:
             self.__activate_field(field)
             return
         else:
-            if active_field != null && active_field.object.group == 'unit':
+            if active_field != null && active_field.has_unit():
                 self.__handle_unit_actions(active_field, field)
 
 func __activate_field(field):
-    if (field.object.group == 'unit' || (field.object.group == 'building' && field.object.can_spawn)):
+    if (field.has_unit() || (field.has_building() && field.object.can_spawn)):
         self.activate_field(field)
 
 func __handle_unit_actions(active_field, field):
     if self.has_ap() && active_field.is_adjacent(field):
-        if field.object.group == 'unit':
+        if field.has_unit():
             return self.handle_battle(active_field, field)
-        elif active_field.object.type == 0 && field.object.group == 'building':
+        elif active_field.object.type == 0 && field.has_building():
             if self.root_node.bag.movement_controller.can_move(active_field, field):
                 return self.capture_building(active_field, field)
 
@@ -165,10 +168,10 @@ func activate_field(field):
     active_indicator.set_pos(position)
     sound_controller.play('select')
     if not self.is_cpu_player:
-        if field.object.group == 'unit':
+        if field.has_unit():
             self.hud_controller.show_unit_card(field.object, self.current_player)
             self.add_movement_indicators(field)
-        if field.object.group == 'building' && not self.is_cpu_player:
+        if field.has_building() && not self.is_cpu_player:
             field.object.spawn_field = self.root_node.bag.abstract_map.get_field(field.object.spawn_point)
             self.hud_controller.show_building_card(field.object, player_ap[self.current_player])
 
@@ -210,7 +213,7 @@ func add_interaction_indicators(field):
 
         neighbour = self.root_node.bag.abstract_map.get_field(Vector2(field.position) + self.interaction_indicators[direction]['offset'])
 
-        if neighbour.terrain_type == -1:
+        if neighbour.is_empty():
             continue
 
         indicator_position = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(neighbour.position))
