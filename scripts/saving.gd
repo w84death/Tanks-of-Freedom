@@ -1,10 +1,11 @@
+extends "res://scripts/bag_aware.gd"
+
 const FILE_PATH = 'user://__current.save'
 
 var root_node
 var root_tree
 var data = {}
 var t
-var bag
 var building_map
 var buildings
 var unit_map
@@ -13,10 +14,9 @@ var loaded_data
 var saved_settings = ['cpu_0', 'cpu_1', 'turns_cap', 'easy_mode']
 var destroyed_tile_template = preload("res://terrain/destroyed_tile.xscn")
 
-func _init_bag(bag):
-    self.root_node = bag.root
+func _initialize():
+    self.root_node = self.bag.root
     self.root_tree = root_node.get_tree()
-    self.bag = bag
     t = self.bag.map_tiles
 
     self.building_map = {

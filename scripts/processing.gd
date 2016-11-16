@@ -1,13 +1,12 @@
+extends "res://scripts/bag_aware.gd"
 
-var bag
 var wrapper_template = preload("res://scripts/processing_wrapper.gd")
 
 var ready = false
 
 var objects = {}
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.ready = true
 
 func register(object):

@@ -1,5 +1,4 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var popup_regular_template = preload("res://gui/popups/prompt.tscn")
 var popup_mobile_template = preload("res://gui/popups/prompt_mobile.tscn")
@@ -19,8 +18,7 @@ var bound_method
 
 var current_container
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.select_prompt_template()
     self.bind_hud()
     self.connect_buttons()

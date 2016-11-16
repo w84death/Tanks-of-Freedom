@@ -1,10 +1,8 @@
+extends "res://scripts/bag_aware.gd"
+
 var map
-var bag
 var action_layer
 var red_tiles = []
-
-func _init_bag(bag):
-    self.bag = bag
 
 func init_map(map_node):
     self.map = map_node

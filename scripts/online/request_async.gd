@@ -1,9 +1,6 @@
+extends "res://scripts/bag_aware.gd"
 
-var bag
 var thread = Thread.new()
-
-func _init_bag(bag):
-    self.bag = bag
 
 func get(api, resource, calling_object = null, callbacks = {}, expect_json = true):
     self._start_request_thread("GET", api, resource, "", calling_object,callbacks, expect_json)

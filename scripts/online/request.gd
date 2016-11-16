@@ -1,5 +1,4 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var http_client
 
@@ -8,8 +7,7 @@ var api_location = null
 var api_port = null
 var api_use_ssl = false
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.http_client = HTTPClient.new()
 
     self.enabled = Globals.get('tof/online')

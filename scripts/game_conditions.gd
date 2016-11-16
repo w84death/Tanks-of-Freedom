@@ -1,3 +1,5 @@
+extends "res://scripts/bag_aware.gd"
+
 # on capture base
 
 # on going smwhere
@@ -7,11 +9,9 @@
 
 # turn cap
 
-var bag
 var action_controller
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.action_controller = self.bag.controllers.action_controller
 
 func check_turn_cap():

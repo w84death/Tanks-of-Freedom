@@ -1,12 +1,10 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var popup = preload("res://gui/gamepad.tscn").instance()
 
 var close_button
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.bind()
 
 func bind():

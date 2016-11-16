@@ -1,8 +1,9 @@
+extends "res://scripts/bag_aware.gd"
+
 var root_node
 var bunkers
 var center
 var root_tree
-var bag
 
 # dictionaries with encoded positions
 var units_player_blue = {}
@@ -34,8 +35,7 @@ var terrains = []
 
 var pathfinding
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.root_node = bag.root
     self.root_tree = root_node.get_tree()
     bunkers = {0: null, 1: null}

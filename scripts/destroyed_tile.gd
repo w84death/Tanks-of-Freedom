@@ -1,4 +1,3 @@
-
 extends Sprite
 
 export var damaged = false

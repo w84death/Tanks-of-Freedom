@@ -1,4 +1,3 @@
-
 extends Sprite
 
 func _input(event):

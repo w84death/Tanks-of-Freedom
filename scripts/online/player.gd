@@ -1,14 +1,11 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var player_id = null
 var player_pin = null
 
 var REGISTER_URL = "/players"
 
-func _init_bag(bag):
-    self.bag = bag
-
+func _initialize():
     self.player_id = self.bag.root.settings['online_player_id']
     self.player_pin = self.bag.root.settings['online_player_pin']
 

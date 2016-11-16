@@ -1,5 +1,4 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var popup = preload("res://gui/popups/confirm.tscn").instance()
 
@@ -15,8 +14,7 @@ var bound_method
 
 var current_container
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.bind_hud()
     self.connect_buttons()
 

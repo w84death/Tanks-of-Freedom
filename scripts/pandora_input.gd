@@ -1,13 +1,9 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var accumulated_time = 0
 
 var painting = false
 var erasing = false
-
-func _init_bag(bag):
-    self.bag = bag
 
 func handle_input(event):
     self.handle_button(event)

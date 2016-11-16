@@ -1,8 +1,4 @@
-
-var bag
-
-func _init_bag(bag):
-    self.bag = bag
+extends "res://scripts/bag_aware.gd"
 
 func set_timeout(timeout, object, method, args=[]):
     var timer = Timer.new()

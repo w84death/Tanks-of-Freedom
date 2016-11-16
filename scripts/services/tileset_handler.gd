@@ -1,3 +1,5 @@
+extends "res://scripts/bag_aware.gd"
+
 var available_tilesets = {
     'summer' : preload("res://maps/tilesets/summer_tileset.xml"),
     'fall'   : preload("res://maps/tilesets/fall_tileset.xml"),
@@ -73,16 +75,11 @@ var available_city = {
     }
 }
 
-var bag
-
 var seasons = {
     'summer' : {'day' : 21, 'month': 4},
     'fall' : {'day' : 21, 'month': 9},
     'winter' : {'day' : 21, 'month': 12}
 }
-
-func _init_bag(bag):
-    self.bag = bag
 
 func get_current_tileset():
     for theme in self.seasons:

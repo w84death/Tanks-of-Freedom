@@ -13,6 +13,7 @@ func is_adjacent(field):
     return (diff_x + diff_y) == 1
 
 func add_damage(damage_layer):
+    self.damage = destroyed_tile_template.instance()
     var damage_frames = self.damage.get_vframes() * self.damage.get_hframes()
     var damage_frame = randi() % damage_frames
 

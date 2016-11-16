@@ -1,5 +1,4 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var file_handler = File.new()
 var maps = {}
@@ -59,9 +58,7 @@ var default_custom_maps = [
     },
 ]
 
-func _init_bag(bag):
-    self.bag = bag
-
+func _initialize():
     if file_handler.file_exists(self.local_list_file_path):
         self.load_local_list()
     else:

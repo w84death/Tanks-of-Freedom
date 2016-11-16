@@ -1,9 +1,4 @@
-
-var bag
-
-func _init_bag(bag):
-    self.bag = bag
-
+extends "res://scripts/bag_aware.gd"
 
 func perform(action_details):
     return

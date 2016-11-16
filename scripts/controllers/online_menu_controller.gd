@@ -1,5 +1,4 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var online_menu = preload("res://gui/online_menu.tscn").instance()
 var multiplayer = preload("res://scripts/controllers/multiplayer_menu_controller.gd").new()
@@ -16,9 +15,8 @@ var selected_map_name
 var registration_successfull = false
 var refreshed = false
 
-func _init_bag(bag):
-    self.bag = bag
-    self.multiplayer._init_bag(bag)
+func _initialize():
+    self.multiplayer._init_bag(self.bag)
     self.bind()
     self.attach_campaign_menu()
 

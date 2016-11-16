@@ -1,3 +1,4 @@
+extends "res://scripts/bag_aware.gd"
 
 const MATCHES_LIST_URL = "/matches/my"
 const MATCH_CREATE_URL = "/matches"
@@ -7,12 +8,6 @@ const MATCH_ABANDON_URL = "/match/abandon/"
 const MATCH_TURN_URL = "/match/turn/"
 
 const REPLAY_INTERVAL = 0.5
-
-var bag
-
-func _init_bag(bag):
-    self.bag = bag
-
 
 func get_matches_list(bound_object, bound_method):
     if not self.bag.online_request.enabled or self.bag.online_player.player_id == null:

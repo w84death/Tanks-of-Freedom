@@ -1,12 +1,11 @@
+extends "res://scripts/bag_aware.gd"
 
-var bag
 var current_version = 0
 var migrations
 var file_handler = File.new()
 var version_file_path = "user://version.tof"
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.migrations = [
         preload("res://scripts/migrations/version20150730.gd").new(self.bag),
         preload("res://scripts/migrations/version20160506.gd").new(self.bag),

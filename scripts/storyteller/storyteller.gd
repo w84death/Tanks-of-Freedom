@@ -1,5 +1,4 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 const STEP_INTERVAL = 0.2
 
@@ -16,14 +15,12 @@ var current_story = []
 var story_bookmark = 0
 var pause = false
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.init_handlers()
 
 func init_handlers():
     for handler_name in self.action_handlers:
         self.action_handlers[handler_name]._init_bag(self.bag)
-
 
 func load_story():
     self.story_bookmark = 0

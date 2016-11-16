@@ -1,6 +1,6 @@
+extends "res://scripts/bag_aware.gd"
 
 var root
-var bag
 
 const LOCKED_WIDTH = 1280
 const MINIMAL_HEIGHT = 720
@@ -15,9 +15,8 @@ const UNSET = 0
 const LOCKED = 1
 const UNLOCKED = 2
 
-func _init_bag(bag):
-    self.bag = bag
-    self.root = bag.root
+func _initialize():
+    self.root = self.bag.root
     self.native_resolution = OS.get_screen_size()
     self.override_resolution = Globals.get('tof/resolution_override')
 

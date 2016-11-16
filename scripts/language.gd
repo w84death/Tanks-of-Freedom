@@ -1,9 +1,8 @@
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var available_languages = []
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.available_languages = self.__get_available_languages()
 
 func switch_to_next_language():

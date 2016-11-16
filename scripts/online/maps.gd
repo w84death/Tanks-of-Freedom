@@ -1,14 +1,10 @@
-
-var bag
+extends "res://scripts/bag_aware.gd"
 
 var MAPS_URL = "/maps"
 
 var ONLINE_MAP_EXTENSION = ".remote"
 
 var last_upload_code
-
-func _init_bag(bag):
-    self.bag = bag
 
 func can_transfer():
     if not self.bag.online_request.enabled or self.bag.online_player.player_id == null:

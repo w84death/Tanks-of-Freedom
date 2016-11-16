@@ -1,5 +1,6 @@
+extends "res://scripts/bag_aware.gd"
+
 var root_node
-var bag
 var shown_units = []
 var unit_list = []
 var last_direction = null
@@ -8,9 +9,8 @@ var counter = 0
 const NEXT = 0;
 const BACK = 1;
 
-func _init_bag(bag):
-    self.root_node = bag.root
-    self.bag = bag
+func _initialize():
+    self.root_node = self.bag.root
 
 func switch_unit(player, active_field, direction=self.NEXT):
     self.bag.positions.refresh_units()

@@ -1,3 +1,4 @@
+extends "res://scripts/bag_aware.gd"
 
 var root
 var game_logic
@@ -5,7 +6,6 @@ var camera
 var camera_zoom_range = [0.5,2.5]
 var camera_zoom_levels = [0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5]
 var camera_zoom_level_pos = 2
-var bag
 
 var mouse_dragging = false
 
@@ -30,11 +30,8 @@ const PAN_THRESHOLD = 20
 
 var do_cinematic_pan = false
 
-func _init_bag(dependency_bag):
-    self.bag = dependency_bag
+func _initialize():
     self.root = self.bag.root
-
-
     self.camera = self.root.get_node("/root/game/viewport/camera")
     self.game_logic = self.root.get_node("/root/game")
     self.camera_zoom_level_pos = self.root.settings['camera_zoom']

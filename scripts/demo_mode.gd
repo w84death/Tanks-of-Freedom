@@ -1,10 +1,9 @@
+extends "res://scripts/bag_aware.gd"
 
 var root
-var bag
 var demo_timer
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.root = self.bag.root
     self.demo_timer = self.root.get_node('DemoTimer')
     self.demo_timer.inject_root(self.root)

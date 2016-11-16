@@ -1,12 +1,11 @@
+extends "res://scripts/bag_aware.gd"
+
 var fog_of_war
 var map_controller
 var terrain
 var root
 
-var bag
-
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.root = bag.root
 
 var fog_pattern = {}

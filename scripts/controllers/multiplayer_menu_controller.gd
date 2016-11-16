@@ -1,7 +1,6 @@
+extends "res://scripts/bag_aware.gd"
 
 const MATCH_LIMIT = 4
-
-var bag
 
 var online_menu_controller
 var middle_container
@@ -14,8 +13,7 @@ var help_button
 
 var match_boxes = {}
 
-func _init_bag(bag):
-    self.bag = bag
+func _initialize():
     self.online_menu_controller = self.bag.controllers.online_menu_controller
 
 func bind():
