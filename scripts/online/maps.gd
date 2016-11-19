@@ -38,7 +38,6 @@ func download_map(code):
     if not code:
         return false
 
-    var remote_file_name = self.get_remote_file_name(code)
     if self.bag.map_list.has_remote_map(code):
         return true
 
@@ -55,6 +54,38 @@ func download_map(code):
     self.save_map(result['data']['data'], code, metadata)
 
     return true
+
+
+func download_map_async_background(code):
+    if not code:
+        return
+
+    if self.bag.map_list.has_remote_map(code):
+        return
+
+    var callbacks = {
+        "handle_200" : "add_map_data_background",
+        "handle_error" : "download_failed"
+    }
+
+    self.bag.online_request_async.get(self.bag.online_request.api_location, self.MAPS_URL + "/" + code + ".json", self, callbacks)
+
+func add_map_data_background(response):
+    if response['status'] != 'ok':
+        return false
+
+    if not response.has('data') or not response['data'].has('data'):
+        return false
+
+    var metadata = {
+        'name' : response['data']['data']['name']
+    }
+    var code = response['data']['code']
+    self.save_map(response['data']['data'], code, metadata)
+    self.bag.controllers.online_menu_controller.multiplayer.download_stock_maps()
+
+func download_failed(response):
+    return #dummy
 
 func save_map(data, code, metadata = {}):
     var remote_file_name = self.get_remote_file_name(code)

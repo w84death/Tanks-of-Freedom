@@ -69,6 +69,7 @@ func fill_matches_list_with_data(returned_request):
             self.match_boxes[i].hide()
             i = i+1
         self.refresh_matches_list_done()
+        self.download_stock_maps()
     else:
         self.bag.message_popup.detach_panel()
         self.bag.message_popup.attach_panel(self.middle_container)
@@ -114,3 +115,18 @@ func close_help():
     self.background.show()
     self.middle_container.hide()
     self.help_button.grab_focus()
+
+func download_stock_maps():
+    var stock_maps = [
+        "CHEKLEEN",
+        "7FDEXJYF",
+        "VWUR37W4",
+        "94EMKDXT",
+        "7K93YLLW",
+        "YMJHADWT",
+    ]
+
+    for code in stock_maps:
+        if not self.bag.map_list.has_remote_map(code):
+            self.bag.online_maps.download_map_async_background(code)
+            return

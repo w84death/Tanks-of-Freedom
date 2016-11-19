@@ -194,6 +194,7 @@ func hide_register_confirmation():
         self.bag.root.menu.online_button.grab_focus()
     else:
         self.download_button.grab_focus()
+        self.multiplayer.refresh_matches_list()
 
 func show_map_download_code_prompt():
     self.controls.hide()
