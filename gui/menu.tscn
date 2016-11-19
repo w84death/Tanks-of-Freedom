@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=1]
 
-[ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/menu_controller.gd" type="Script" id=2]
 [ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=4]
@@ -1254,9 +1254,9 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
+textures/normal = ExtResource( 23 )
+textures/pressed = ExtResource( 24 )
+textures/hover = ExtResource( 25 )
 textures/disabled = ExtResource( 19 )
 textures/focused = ExtResource( 20 )
 params/scale = Vector2( 3, 3 )

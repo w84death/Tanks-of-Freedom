@@ -123,7 +123,7 @@ func reload_labels():
     workshop.building_blocks_panel.reload_blocks()
 
     self.reload_button(workshop.file_panel.toggle_button, 'LABEL_WORKSHOP_FILES_MANAGER')
-    self.reload_button(workshop.file_panel.play_button, 'LABEL_PLAY')
+    self.reload_button(workshop.file_panel.play_button, 'LABEL_PREVIEW')
     self.reload_button(workshop.file_panel.load_button, 'LABEL_WORKSHOP_LOAD')
     self.reload_button(workshop.file_panel.save_button, 'LABEL_WORKSHOP_SAVE')
     self.reload_button(workshop.file_panel.pick_button, 'LABEL_WORKSHOP_PICK_MAP')
