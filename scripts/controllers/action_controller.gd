@@ -115,6 +115,7 @@ func handle_action(position):
         if active_field != null && active_field.object != null && field != active_field:
             if active_field.has_unit()  && self.is_movement_possible(field, active_field) && !field.is_empty() && self.has_ap():
                 self.move_unit(active_field, field)
+                return 1
             else:
                 self.clear_active_field()
     else:
@@ -126,7 +127,8 @@ func handle_action(position):
             return
         else:
             if active_field != null && active_field.has_unit():
-                self.__handle_unit_actions(active_field, field)
+                return self.__handle_unit_actions(active_field, field)
+
 
 func __activate_field(field):
     if (field.has_unit() || (field.has_building() && field.object.can_spawn)):
