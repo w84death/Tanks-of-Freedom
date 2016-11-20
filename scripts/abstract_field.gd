@@ -27,17 +27,25 @@ func add_damage_frame(damage_layer, damage_frame):
     self.damage.set_pos(damage_position)
     self.damage.set_frame(damage_frame)
 
-
 func is_empty():
     return self.terrain_type < 0
 
 func has_unit():
+    if self.object == null:
+        return false
+
     return self.object.group == 'unit'
 
 func has_building():
+    if self.object == null:
+        return false
+
     return self.object.group == 'building'
 
 func has_terrain():
+    if self.object == null:
+        return false
+
     return self.object.group == 'terrain'
 
 func is_passable():
