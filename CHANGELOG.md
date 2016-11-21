@@ -3,6 +3,13 @@
 ## Changelog
 
 
+### 0.6.1-beta
+- game now download 6 stock maps in the background after player is registered
+- workshop 'Play' changed to 'Test'
+- currently picked block in workshop now has own panel to make it more readable
+- testing map from workshop now removes fog
+
+
 ### 0.6.0-beta
 - added online multiplayer
 - fixed crash when pressing 'buy' button on gamepad without active field

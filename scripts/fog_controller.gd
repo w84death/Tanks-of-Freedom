@@ -80,6 +80,12 @@ func toggle_fog():
     else:
         self.fog_of_war.show()
 
+func hide_fog():
+    self.fog_of_war.hide()
+
+func show_fog():
+    self.fog_of_war.show()
+
 func clear_fog():
     self.fill_fog()
     var current_player = 0
