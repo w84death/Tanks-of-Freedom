@@ -10,6 +10,7 @@
 - testing map from workshop now removes fog
 - updated Online menu Help
 - fixed building spawn detection to pick empty tile if default one is empty
+- updated translations docs
 
 
 ### 0.6.0-beta

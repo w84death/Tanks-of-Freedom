@@ -25,7 +25,15 @@ After successful run two files will be created (translations/translations.csv an
 ### Requirements for script
 Python 3.x
 
-## Creating translation process
+## Modifying existing translations
+- modify existing key values or add new keys to the already existing language file
+- use compact script to generate files ready for import as above:
+python bin/compact.py
+
+- run game in Godot Editor
+- make sure, that .xl files were automatically updated
+
+## Adding new language to translations
 - add translation file based on english version (copy current translation_en.csv and use language identifier)
 - make changes
 
@@ -38,7 +46,7 @@ python bin/compact.py
 - import
 - choose source file (campaigns/campaign.csv) and choose target path (translations/_imported/)
 - import
-- add translation identifier to translations/languages.gd file in in_develop array
+- add translation identifier to translations/languages.gd file
 
 Godot 2.1 note: it seems, that Editor rebuilds .xl files on it's own after .csv files are updated and compacted.
 
