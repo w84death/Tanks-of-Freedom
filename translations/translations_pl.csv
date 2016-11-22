@@ -271,7 +271,7 @@ LABEL_FORFEIT,PORZUĆ
 LABEL_CLEAR,WYCZYŚĆ
 LABEL_HELP,POMOC
 MSG_MULTIPLAYER_WELCOME,"Witamy w trybie wieloosobowym!"
-TIP_ONLINE_HELP_1,"Aby rozpocząć grę online, użyj przycisku Utwórz. Jeżeli przycisk jest niedostępny, oznacza to, że musisz najpierw pobrać jakąś mapę, lub wysłać własną. Możesz rozpocząc od pobrania mapy 'CHEKLEEN'! Kiedy utworzysz mecz, wyślij znajomemu kod, aby mógł dołączyć."
+TIP_ONLINE_HELP_1,"Aby rozpocząć grę, użyj przycisku Utwórz w wolnym slocie. Jeżeli przycisk jest niedostępny, oznacza to, że musisz najpierw pobrać jakąś mapę - odwiedź https://online.tof.p1x.in! Kiedy utworzysz mecz, wyślij znajomemu kod, aby mógł dołączyć."
 TIP_ONLINE_HELP_2,"W trakcie meczu nie ma żadnego limitu czasu na turę. Pamiętaj, że nie musisz bezczynnie czekać na ruch przeciwnika - możesz w tym czasie rozpocząć misję kampanii lub rozgrywać inne mecze online! Możesz także wyjść z gry, tylko czemu?"
 TIP_ONLINE_HELP_3,"Możesz na raz rozgrywać jedynie cztery mecze online. Pamiętaj o czyszczeniu slotów zakończonych meczy."
 MSG_SPAWN_BLOCKED,"WYJŚCIE ZABLOKOWANE"

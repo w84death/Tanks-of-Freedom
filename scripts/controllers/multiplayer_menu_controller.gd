@@ -98,7 +98,6 @@ func show_help():
     var messages = [
         tr('TIP_ONLINE_HELP_1'),
         tr('TIP_ONLINE_HELP_2'),
-        tr('TIP_ONLINE_HELP_3'),
     ]
     self.controls.hide()
     self.background.hide()
