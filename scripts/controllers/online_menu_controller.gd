@@ -46,7 +46,7 @@ func _download_button_pressed():
     self.show_map_download_code_prompt()
 func _upload_button_pressed():
     self.bag.root.sound_controller.play('menu')
-    self.show_maps_list_for_upload()
+    self.ask_start_map_upload()
 
 func attach_campaign_menu():
     self.bag.controllers.menu_controller.add_child(self.online_menu)
@@ -72,15 +72,32 @@ func hide():
     self.bag.controllers.menu_controller.show_control_nodes()
     self.bag.root.write_settings_to_file()
 
-func show_maps_list_for_upload():
+
+func ask_start_map_upload():
     self.middle_container.show()
+    self.controls.hide()
+    self.background.hide()
+    self.bag.confirm_popup.attach_panel(self.middle_container)
+    self.bag.confirm_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), tr('MSG_ASK_UPLOAD'), tr('LABEL_UPLOAD'), tr('LABEL_CANCEL'))
+    self.bag.confirm_popup.connect(self, "confirm_start_map_upload")
+    self.bag.confirm_popup.confirm_button.grab_focus()
+
+func confirm_start_map_upload(confirmation):
+    self.bag.confirm_popup.detach_panel()
+    if confirmation:
+        self.show_maps_list_for_upload()
+    else:
+        self.middle_container.hide()
+        self.controls.show()
+        self.background.show()
+        self.upload_button.grab_focus()
+
+func show_maps_list_for_upload():
     self.bag.map_picker.attach_panel(self.middle_container)
     self.bag.map_picker.connect(self, "upload_custom_map")
     self.bag.map_picker.lock_delete_mode_button()
     self.bag.map_picker.switch_to_local_list()
     self.bag.map_picker.disable_list_switch()
-    self.controls.hide()
-    self.background.hide()
     if self.bag.map_picker.blocks_cache.size() > 0:
         self.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
