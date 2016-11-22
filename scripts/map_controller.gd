@@ -396,25 +396,32 @@ func find_spawn_for_building(x, y, building):
         return
     if building.can_spawn == false:
         return
+
+    var acceptable_tiles = [
+        self.tileset.TERRAIN_PLAIN,
+        self.tileset.TERRAIN_DIRT,
+        self.tileset.TERRAIN_CONCRETE,
+        self.tileset.TERRAIN_ROAD,
+        self.tileset.TERRAIN_DIRT_ROAD,
+        self.tileset.TERRAIN_RIVER,
+        self.tileset.TERRAIN_BRIDGE,
+        self.tileset.TERRAIN_SPAWN,
+    ]
+
     self.look_for_spawn(x, y, 1, 0, building)
     self.look_for_spawn(x, y, 0, 1, building)
     self.look_for_spawn(x, y, -1, 0, building)
     self.look_for_spawn(x, y, 0, -1, building)
 
-    if terrain.get_cell(building.spawn_point.x, building.spawn_point.y) == -1:
-        var acceptable_tiles = [
-            self.tileset.TERRAIN_PLAIN,
-            self.tileset.TERRAIN_DIRT,
-            self.tileset.TERRAIN_CONCRETE,
-            self.tileset.TERRAIN_ROAD,
-            self.tileset.TERRAIN_DIRT_ROAD,
-            self.tileset.TERRAIN_RIVER,
-            self.tileset.TERRAIN_BRIDGE
-        ]
-        self.look_for_spawn(x, y, 1, 0, building, acceptable_tiles)
-        self.look_for_spawn(x, y, 0, 1, building, acceptable_tiles)
-        self.look_for_spawn(x, y, -1, 0, building, acceptable_tiles)
-        self.look_for_spawn(x, y, 0, -1, building, acceptable_tiles)
+    var current_spawn = terrain.get_cell(building.spawn_point.x, building.spawn_point.y)
+    for acceptable_tile in acceptable_tiles:
+        if current_spawn == acceptable_tile:
+            return
+
+    self.look_for_spawn(x, y, 1, 0, building, acceptable_tiles)
+    self.look_for_spawn(x, y, 0, 1, building, acceptable_tiles)
+    self.look_for_spawn(x, y, -1, 0, building, acceptable_tiles)
+    self.look_for_spawn(x, y, 0, -1, building, acceptable_tiles)
 
 
 func look_for_spawn(x, y, offset_x, offset_y, building, acceptable_tiles = null):

@@ -8,6 +8,8 @@
 - workshop 'Play' changed to 'Test'
 - currently picked block in workshop now has own panel to make it more readable
 - testing map from workshop now removes fog
+- updated Online menu Help
+- fixed building spawn detection to pick empty tile if default one is empty
 
 
 ### 0.6.0-beta
