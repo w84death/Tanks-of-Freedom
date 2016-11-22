@@ -401,11 +401,30 @@ func find_spawn_for_building(x, y, building):
     self.look_for_spawn(x, y, -1, 0, building)
     self.look_for_spawn(x, y, 0, -1, building)
 
-func look_for_spawn(x, y, offset_x, offset_y, building):
+    if terrain.get_cell(building.spawn_point.x, building.spawn_point.y) == -1:
+        var acceptable_tiles = [
+            self.tileset.TERRAIN_PLAIN,
+            self.tileset.TERRAIN_DIRT,
+            self.tileset.TERRAIN_CONCRETE,
+            self.tileset.TERRAIN_ROAD,
+            self.tileset.TERRAIN_DIRT_ROAD,
+            self.tileset.TERRAIN_RIVER,
+            self.tileset.TERRAIN_BRIDGE
+        ]
+        self.look_for_spawn(x, y, 1, 0, building, acceptable_tiles)
+        self.look_for_spawn(x, y, 0, 1, building, acceptable_tiles)
+        self.look_for_spawn(x, y, -1, 0, building, acceptable_tiles)
+        self.look_for_spawn(x, y, 0, -1, building, acceptable_tiles)
+
+
+func look_for_spawn(x, y, offset_x, offset_y, building, acceptable_tiles = null):
     var cell = terrain.get_cell(x + offset_x, y + offset_y)
-    if cell == self.tileset.TERRAIN_SPAWN:
-        building.spawn_point_position = Vector2(offset_x, offset_y)
-        building.spawn_point = Vector2(x + offset_x, y + offset_y)
+    if acceptable_tiles == null:
+        acceptable_tiles = [self.tileset.TERRAIN_SPAWN]
+    for acceptable_tile in acceptable_tiles:
+        if cell == acceptable_tile:
+            building.spawn_point_position = Vector2(offset_x, offset_y)
+            building.spawn_point = Vector2(x + offset_x, y + offset_y)
 
 func build_sprite_path(x, y, type):
     var neighbours
