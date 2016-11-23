@@ -22,7 +22,7 @@ func check_turn_cap():
 func check_win_conditions(field):
     if field.object.type == 0:
         self.action_controller.end_game(self.action_controller.current_player)
-        return 1
+    return 1
 
 
 
