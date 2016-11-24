@@ -11,6 +11,8 @@
 - updated Online menu Help
 - fixed building spawn detection to pick empty tile if default one is empty
 - updated translations docs
+- reduced FPS for Android to 30 for battery conservation
+- updated resources export settings to not pull not needed files
 
 
 ### 0.6.0-beta
