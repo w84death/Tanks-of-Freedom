@@ -100,6 +100,7 @@ For online funcionalities ToF server is required. Sources can be found in a sepa
    - Godot Engine https://godotengine.org/
 
 ### translations
+  - Japanese - [naofum](https://github.com/naofum)
   - French - [Poussinou](https://github.com/Poussinou)
   - German - [cyberbeat](https://github.com/cyberbeat)
   - English - P1X
