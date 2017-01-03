@@ -53,6 +53,9 @@ func is_multiplayer_game():
 func is_replay_available():
     return self.is_state_component_available('moves') and self.current_loaded_multiplayer_state['player_status'] == 0
 
+func is_end_replay_available():
+    return self.is_state_component_available('moves')
+
 func is_current_multiplayer_game_ended():
     if not self.current_loaded_multiplayer_state.has('match_status'):
         return false

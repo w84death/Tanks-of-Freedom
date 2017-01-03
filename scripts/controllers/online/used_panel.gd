@@ -81,7 +81,7 @@ func _clear_button_pressed():
 
 func _replay_button_pressed():
     self.bag.root.sound_controller.play('menu')
-    self.start_loading_last_replay()
+    self.start_loading_replay()
 
 func bind_match_data(data):
     self.match_join_code = data['join_code']
@@ -143,6 +143,9 @@ func switch_to_ended_layout():
     self.show_player_status()
     self.show_map_code()
     self.show_clear_button()
+
+    if self.player_status == MATCH_PLAYER_STATE_LOSS:
+        self.show_replay_button()
 
 func switch_to_forfeit_layout():
     self.show_side()
@@ -324,6 +327,7 @@ func confirm_load_replay_or_turn(confirmation):
         self.bag.online_multiplayer.load_game_from_state()
     self.bag.root.toggle_menu()
 
+
 func start_loading_replay():
     if self.is_already_loaded():
         self.bag.controllers.online_menu_controller.hide()
@@ -333,15 +337,9 @@ func start_loading_replay():
     self.prepare_match_data_and_perform_action("continue_loading_replay")
 
 func continue_loading_replay():
-    if self.bag.match_state.is_current_multiplayer_game_ended():
-        self.online_menu_controller.multiplayer.refresh_matches_list()
-        return
-
-    if self.bag.match_state.is_replay_available():
-        self.ask_load_replay_or_turn()
-    else:
+    if self.bag.match_state.is_end_replay_available():
         self.bag.controllers.online_menu_controller.hide()
-        self.bag.online_multiplayer.load_game_from_state()
+        self.bag.online_multiplayer.load_replay_from_state()
         self.bag.root.toggle_menu()
 
 
