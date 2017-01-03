@@ -8,6 +8,7 @@
 - added visual distincion on tile edges for large bridges
 - made map MayDay prettier
 - added replay for online games that has been lost
+- added link to online map browser in menu
 
 ### 0.6.1-beta
 - game now download 6 stock maps in the background after player is registered
