@@ -14,7 +14,7 @@ func reload_maps_definition():
             'player': 0,
             'file': preload("res://maps/campaign/maidan.gd").new(),
             'description': tr('MISSION_DESR_MAYDAY_SQUARE'),
-            'tileset' : 'fall'
+            'tileset' : 'summer'
         },
         {
             'label': tr('MISSION_TITLE_EASTERN_CITY'),
