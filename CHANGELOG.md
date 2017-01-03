@@ -2,6 +2,9 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.6.2-beta
+- fixed gamebreaking bug with theme timing
+- you can now move camera in online multiplayer while waiting for opponent
 
 ### 0.6.1-beta
 - game now download 6 stock maps in the background after player is registered

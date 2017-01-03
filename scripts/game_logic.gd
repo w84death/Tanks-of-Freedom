@@ -85,19 +85,12 @@ func _input(event):
         get_node("DemoTimer").stop()
 
     if is_map_loaded && is_paused == false:
-        if is_locked_for_cpu == false:
-            if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
-                self.bag.gamepad.handle_input(event)
-            if self.is_pandora and event.type == InputEvent.KEY:
-                self.bag.pandora.handle_input(event)
-
+        if is_locked_for_cpu == false or self.bag.match_state.is_multiplayer:
             game_scale = self.camera.get_scale()
             camera_pos = self.camera.get_pos()
-
             if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
                 self.is_camera_drag = event.pressed
                 self.bag.camera.mouse_dragging = event.pressed
-
             if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
                 var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
                 var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
@@ -106,12 +99,24 @@ func _input(event):
                 var position = current_map_terrain.map_to_world(selector_position)
                 position.y += 4
                 selector.set_pos(position)
-                if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
-                    self.registered_click = false
                 if self.is_camera_drag:
                     camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
                     camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
                     self.camera.set_pos(camera_pos)
+
+        if is_locked_for_cpu == false:
+            if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
+                self.bag.gamepad.handle_input(event)
+            if self.is_pandora and event.type == InputEvent.KEY:
+                self.bag.pandora.handle_input(event)
+
+
+            if (event.type == InputEvent.MOUSE_MOTION):
+                var position = current_map_terrain.map_to_world(selector_position)
+                position.y += 4
+                selector.set_pos(position)
+                if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
+                    self.registered_click = false
 
             # MOUSE SELECT
             if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
