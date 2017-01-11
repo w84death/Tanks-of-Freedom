@@ -48,12 +48,12 @@ Please note, that changing map name with gamepad is not possible at this time. K
 - Official game page: [tof.p1x.in](http://tof.p1x.in)
 - Official P1X page: [p1x.in](http://p1x.in)
 
-### Unofficial ports:
+### Unofficial ports/repos:
 - [F-Droid](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom) thanks to [est31](https://github.com/est31)!
 - [FreeBSD](http://www.freshports.org/games/tanks-of-freedom/) thanks to [AMDmi3](https://github.com/AMDmi3)
 - [Mageia](http://madb.mageia.org/package/show/application/0/name/tanks-of-freedom) thanks to [Akien](https://github.com/akien-mga)
+- [openSUSE](https://software.opensuse.org/package/Tanks-of-Freedom)
 - [Pandora](https://repo.openpandora.org/?page=detail&app=tanksoffreedom) thanks to Canseco
-
 
 ### Build from sources
 To get the latest version of the game you'll need to use the source code and Godot Engine
