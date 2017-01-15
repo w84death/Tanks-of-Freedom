@@ -11,6 +11,7 @@ var demo_mode = preload("res://scripts/demo_mode.gd").new()
 var camera = preload("res://scripts/camera.gd").new()
 var hud_dead_zone = preload("res://scripts/services/hud_dead_zone.gd").new()
 var workshop_dead_zone = preload("res://scripts/services/workshop_dead_zone.gd").new()
+var menu_back = preload("res://scripts/menu_back.gd").new()
 
 var action_map = preload('res://scripts/action_map.gd').new()
 var battle_controller = preload('res://scripts/battle_controller.gd').new()
@@ -72,7 +73,7 @@ func init_root(root_node):
     self.controllers.hud_panel_controller.init_root(root_node)
     self.controllers.online_menu_controller._init_bag(self)
 
-
+    self.menu_back._init_bag(self)
     self.hud_dead_zone.init_root(root_node)
     self.workshop_dead_zone.init_root(root_node)
 

@@ -222,7 +222,7 @@ func show_online_menu():
     self.root.bag.controllers.online_menu_controller.show()
     self.hide_control_nodes()
     if self.root.settings['online_player_id'] != null:
-        self.root.bag.controllers.online_menu_controller.download_button.grab_focus()
+        self.root.bag.controllers.online_menu_controller.multiplayer.refresh_button.grab_focus()
 
 func start_demo_mode():
     self.root.bag.demo_mode.start_demo_mode(false)
@@ -310,6 +310,7 @@ func toggle_settings():
     if self.get_settings_visibility():
         self.hide_settings()
         self.show_main_menu()
+        self.settings_button.grab_focus()
     else:
         if self.get_main_menu_visibility():
             self.hide_main_menu()

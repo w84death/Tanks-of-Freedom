@@ -230,6 +230,9 @@ func toggle_menu():
     if not self.is_working:
         return
 
+    if self.root.bag.menu_back.perform_back():
+        return
+
     if self.is_hidden():
         self.is_suspended = false
         root.menu.show_workshop()

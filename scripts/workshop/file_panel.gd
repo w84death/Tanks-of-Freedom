@@ -51,15 +51,16 @@ func bind_panel(file_panel_wrapper_node):
 func _toggle_button_pressed():
     self.root.sound_controller.play('menu')
     self.toggle_file_panel()
+    self.toggle_button.grab_focus()
 
 
 func toggle_file_panel():
-    if self.position.y == self.positions[0]:
-        self.position.y = self.positions[1]
-        self.file_panel_top_controls.show()
-    else:
+    if self.is_extended():
         self.position.y = self.positions[0]
         self.file_panel_top_controls.hide()
+    else:
+        self.position.y = self.positions[1]
+        self.file_panel_top_controls.show()
     self.file_panel.set_pos(self.position)
 
 func save_button_pressed():
@@ -93,9 +94,7 @@ func play_map_from_skirmish_setup_panel(map_name, is_remote = false):
 
 func pick_button_pressed():
     self.root.sound_controller.play('menu')
-    self.toggle_file_panel()
     self.toggle_map_picker()
-    self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func show_map_picker():
     self.central_container.show()
@@ -110,8 +109,11 @@ func hide_map_picker():
 func toggle_map_picker():
     if self.is_map_picker_visible():
         self.hide_map_picker()
+        self.toggle_button.grab_focus()
     else:
         self.show_map_picker()
+        self.toggle_file_panel()
+        self.root.bag.map_picker.blocks_cache[0].get_node("TextureButton").grab_focus()
 
 func load_map_from_picker(selected_map_name, is_remote):
     self.workshop.load_map(selected_map_name, false, false, is_remote)
@@ -124,3 +126,8 @@ func is_map_picker_visible():
 
 func is_game_setup_visible():
     return self.bag.skirmish_setup.is_attached_to(self.central_container)
+
+func is_extended():
+    if self.position.y == self.positions[0]:
+        return false
+    return true

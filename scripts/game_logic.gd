@@ -1,7 +1,7 @@
 extends Control
 
-var version_name = "Version 0.6.2-BETA"
-var version_short = "0.6.2"
+var version_name = "Version 0.6.3-BETA"
+var version_short = "0.6.3"
 
 var selector = preload('res://gui/selector.xscn').instance()
 var selector_position
@@ -156,7 +156,7 @@ func _input(event):
             self.bag.camera.camera_zoom_out()
 
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
-        self.toggle_menu()
+        self.toggle_menu('menu', false)
 
 func move_selector_to_map_position(pos):
     if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
@@ -245,7 +245,6 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.is_map_loaded = true
     if menu:
         menu.manage_close_button()
-    set_process_input(true)
 
     if settings[human_player]:
         self.lock_for_cpu()
@@ -280,7 +279,13 @@ func unload_map():
     self.menu.manage_close_button()
     self.sound_controller.play_soundtrack()
 
-func toggle_menu(target = 'menu'):
+func toggle_menu(target = 'menu', skip_back_check = true):
+    if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:
+        return
+
+    if not skip_back_check and self.bag.menu_back.perform_back():
+        return
+
     if is_map_loaded:
         if menu.is_hidden():
             is_paused = true
@@ -325,6 +330,7 @@ func load_menu():
     self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
+    set_process_input(true)
 
 func lock_for_cpu():
     self.is_locked_for_cpu = true
