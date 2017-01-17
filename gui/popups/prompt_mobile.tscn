@@ -39,6 +39,8 @@ margin/right = 272.0
 
 [node name="input" parent="."]
 
+focus_neighbour/top = NodePath("../cancel")
+focus_neighbour/bottom = NodePath("../confirm")
 margin/left = -110.0
 margin/top = 18.0
 margin/right = 120.0

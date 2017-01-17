@@ -2,6 +2,10 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.6.3-beta
+- added 'back' behaviour to most menus
+- fixed crash when pressing P in menus while game is paused
+
 ### 0.6.2-beta
 - fixed gamebreaking bug with theme timing
 - you can now move camera in online multiplayer while waiting for opponent

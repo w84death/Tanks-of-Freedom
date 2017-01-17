@@ -116,7 +116,7 @@ func _input(event):
             pos.y = pos.y + event.relative_y / scale.y
             self.set_map_pos_global(pos)
 
-    if not show_blueprint && event.type == InputEvent.KEY:
+    if not show_blueprint && event.type == InputEvent.KEY && not self.root.is_paused:
         if event.scancode == KEY_P:
             self.do_cinematic_pan = event.pressed
         if event.scancode == KEY_E && event.pressed:
