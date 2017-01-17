@@ -4,13 +4,6 @@
 
 [node name="GUI" instance=ExtResource( 1 )]
 
-[node name="center" parent="message_card"]
-
-margin/left = 400.0
-margin/top = 240.0
-margin/right = 400.0
-margin/bottom = 240.0
-
 [node name="top_left_panel" parent="."]
 
 margin/top = 64.0
@@ -24,10 +17,20 @@ margin/bottom = 22.0
 
 [node name="center" parent="top_center"]
 
-margin/left = 400.0
 margin/top = 0.0
-margin/right = 400.0
 margin/bottom = 0.0
+
+[node name="background1" parent="top_center/center/game_card/gamepad_buttons"]
+
+visibility/visible = false
+
+[node name="gamepad_button3" parent="top_center/center/game_card/gamepad_buttons"]
+
+visibility/visible = false
+
+[node name="Label1" parent="top_center/center/game_card/gamepad_buttons"]
+
+visibility/visible = false
 
 [node name="top_right_panel" parent="."]
 
@@ -46,11 +49,6 @@ margin/bottom = 0.0
 editor/display_folded = true
 margin/top = 40.0
 margin/bottom = 40.0
-
-[node name="center" parent="bottom_center"]
-
-margin/left = 400.0
-margin/right = 400.0
 
 [node name="bottom_right" parent="."]
 

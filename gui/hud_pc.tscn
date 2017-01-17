@@ -90,6 +90,7 @@ margin/bottom = 80.0
 
 [node name="top_center" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -228,6 +229,7 @@ margin/bottom = 40.0
 
 [node name="background1" type="Patch9Frame" parent="top_center/center/game_card/gamepad_buttons"]
 
+visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
@@ -298,6 +300,7 @@ max_lines_visible = -1
 
 [node name="gamepad_button3" type="Sprite" parent="top_center/center/game_card/gamepad_buttons"]
 
+visibility/visible = false
 transform/pos = Vector2( -342, 40 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 16 )
@@ -307,6 +310,7 @@ frame = 1
 
 [node name="Label1" type="Label" parent="top_center/center/game_card/gamepad_buttons"]
 
+visibility/visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2

@@ -8,7 +8,7 @@ const INPUT_DELAY = 0.2
 const AXIS_ANGLE_THRESHOLD = 0.2
 const AXIS_OVERALL_THRESHOLD = 0.5
 
-var gamepad_detected = false
+var gamepad_detected = true
 var ouya_gamepad_detected = false
 var painting = false
 var erasing = false
@@ -22,7 +22,8 @@ var gamepad_icons = [
     'message_card/center/message/button/Sprite',
     'top_center/center/game_card/gamepad_buttons/gamepad_button',
     'top_center/center/game_card/gamepad_buttons/gamepad_button2',
-    'top_center/center/game_card/gamepad_buttons/gamepad_button3',
+    #'top_center/center/game_card/gamepad_buttons/gamepad_button3',
+    'bottom_right/end_turn/end_turn_button/gamepad_indicator',
 ]
 
 
