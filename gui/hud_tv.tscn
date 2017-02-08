@@ -12,7 +12,6 @@ margin/right = 160.0
 
 [node name="top_center" parent="."]
 
-editor/display_folded = true
 margin/top = 60.0
 
 [node name="center" parent="top_center"]

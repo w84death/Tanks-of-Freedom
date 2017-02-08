@@ -1,25 +1,24 @@
-[gd_scene load_steps=19 format=1]
+[gd_scene load_steps=18 format=1]
 
-[ext_resource path="res://gui/hud_pc.tscn" type="PackedScene" id=1]
-[ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/message.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=15]
-[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=17]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=18]
+[ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gui/hud/cinematic_camera.xscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/message.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_6.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=16]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=17]
 
-[node name="GUI" instance=ExtResource( 1 )]
+[node name="GUI" type="Control"]
 
 anchor/right = 1
 anchor/bottom = 1
@@ -31,8 +30,9 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
+__meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
 
-[node name="vigette" parent="." instance=ExtResource( 2 )]
+[node name="vigette" parent="." instance=ExtResource( 1 )]
 
 visibility/visible = false
 margin/left = 0.0
@@ -40,7 +40,7 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 
-[node name="cinematic_camera" parent="." instance=ExtResource( 3 )]
+[node name="cinematic_camera" parent="." instance=ExtResource( 2 )]
 
 visibility/visible = false
 margin/left = 0.0
@@ -75,7 +75,7 @@ margin/top = 360.0
 margin/right = 640.0
 margin/bottom = 360.0
 
-[node name="message" parent="message_card/center" instance=ExtResource( 4 )]
+[node name="message" parent="message_card/center" instance=ExtResource( 3 )]
 
 [node name="top_left_panel" type="Control" parent="."]
 
@@ -84,9 +84,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 128.0
-margin/top = 64.0
+margin/top = 80.0
 margin/right = 128.0
-margin/bottom = 64.0
+margin/bottom = 80.0
 
 [node name="top_center" type="CenterContainer" parent="."]
 
@@ -97,9 +97,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 22.0
+margin/top = 0.0
 margin/right = 0.0
-margin/bottom = 22.0
+margin/bottom = 60.0
 use_top_left = false
 __meta__ = { "_edit_lock_":true }
 
@@ -110,9 +110,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 640.0
-margin/top = 0.0
+margin/top = 30.0
 margin/right = 640.0
-margin/bottom = 0.0
+margin/bottom = 30.0
 
 [node name="game_card" type="Control" parent="top_center/center"]
 
@@ -137,7 +137,7 @@ margin/left = -136.0
 margin/top = 8.0
 margin/right = -136.0
 margin/bottom = -72.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -159,11 +159,11 @@ margin/bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
-textures/hover = ExtResource( 8 )
-textures/disabled = ExtResource( 9 )
-textures/focused = ExtResource( 10 )
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+textures/disabled = ExtResource( 8 )
+textures/focused = ExtResource( 9 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="top_center/center/game_card/menu"]
@@ -198,18 +198,18 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
-textures/pressed = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 15 )
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 14 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Sprite" type="Sprite" parent="top_center/center/game_card/settings"]
 
 transform/pos = Vector2( 50, 23 )
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 vframes = 2
 hframes = 2
 frame = 1
@@ -240,7 +240,7 @@ margin/left = -352.0
 margin/top = 24.0
 margin/right = 184.0
 margin/bottom = -16.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin/left = 24
 patch_margin/top = 12
 patch_margin/right = 24
@@ -258,7 +258,7 @@ margin/left = 144.0
 margin/top = 24.0
 margin/right = -312.0
 margin/bottom = -16.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 patch_margin/left = 24
 patch_margin/top = 12
 patch_margin/right = 24
@@ -268,7 +268,7 @@ patch_margin/bottom = 12
 
 transform/pos = Vector2( -126, 66 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 vframes = 2
 hframes = 4
 frame = 3
@@ -277,7 +277,7 @@ frame = 3
 
 transform/pos = Vector2( 346, 40 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 vframes = 2
 hframes = 4
 frame = 2
@@ -303,7 +303,7 @@ max_lines_visible = -1
 visibility/visible = false
 transform/pos = Vector2( -342, 40 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 vframes = 2
 hframes = 4
 frame = 1
@@ -333,11 +333,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 128.0
-margin/top = 64.0
+margin/top = 80.0
 margin/right = 128.0
-margin/bottom = 64.0
+margin/bottom = 80.0
 
-[node name="end_game" parent="." instance=ExtResource( 18 )]
+[node name="end_game" parent="." instance=ExtResource( 17 )]
 
 visibility/visible = false
 
@@ -349,14 +349,13 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 88.0
-margin/top = 0.0
-margin/right = 88.0
-margin/bottom = 0.0
+margin/left = 128.0
+margin/top = 64.0
+margin/right = 128.0
+margin/bottom = 64.0
 
 [node name="bottom_center" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
@@ -365,9 +364,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 40.0
+margin/top = 64.0
 margin/right = 0.0
-margin/bottom = 40.0
+margin/bottom = 64.0
 use_top_left = false
 __meta__ = { "_edit_lock_":true }
 
@@ -393,9 +392,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 72.0
-margin/top = 1.0
-margin/right = 72.0
-margin/bottom = 1.0
+margin/left = 128.0
+margin/top = 64.0
+margin/right = 128.0
+margin/bottom = 64.0
 
 
