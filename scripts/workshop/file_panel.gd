@@ -30,10 +30,10 @@ func bind_panel(file_panel_wrapper_node):
     self.file_panel_wrapper = file_panel_wrapper_node
     self.file_panel = self.file_panel_wrapper.get_node("center/file_panel")
     self.position = self.file_panel.get_pos()
+    self.save_animation = self.file_panel.get_node("controls/progress_animation")
     self.file_panel_top_controls = self.file_panel.get_node('controls/top')
     self.file_name = self.file_panel_top_controls.get_node("file_name")
     self.save_button = self.file_panel_top_controls.get_node("save_button")
-    self.save_animation = self.file_panel_top_controls.get_node("progress_animation")
     self.pick_button = self.file_panel_top_controls.get_node("load_button_picker")
     self.load_button = self.file_panel_top_controls.get_node("load_button")
 
@@ -66,6 +66,7 @@ func toggle_file_panel():
 func save_button_pressed():
     self.root.sound_controller.play('menu')
     self.workshop.save_map(self.file_name, true)
+    self.save_animation.play('flash')
 
 func load_button_pressed():
     self.root.sound_controller.play('menu')
