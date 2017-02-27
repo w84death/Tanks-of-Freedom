@@ -4,21 +4,21 @@
 
 ## Indie Turn Based Strategy in Isometric Pixel Art
 
-Classic turn-based strategy game with two armies fighting against each other. Challenge yourself in campaign against AI or hot-seat battle with a friend. Using easy map editor you can create any imaginable scenario to play and share online for others to discover!
+A classic turn-based strategy game with two armies fighting against each other. Challenge yourself in campaign against AI or hot-seat battle with a friend. Using the easy map editor you can create any imaginable scenario to play and share online for others to discover!
 
 ![32 colour](https://i.imgur.com/Oe6y4SO.jpg)
 
-Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. Game is open-source and runs smoothly thanks to Godot Engine.
+Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. The game is open-source and runs smoothly thanks to the Godot Engine.
 
-## Gamepad Controlls
-Please note, that all controlls are described for XBox 360 controller. If you are using a different gamepad, please check for coresponding buttons.
+## Gamepad Controls
+Please note, that all controls listed are for the XBox 360 controller gamepad. If you are using a different gamepad, please check for the corresponding buttons.
 
 ### Menus
 - DPad to navigate menu buttons
 - A to press button
 - usual B to back does not work in menus
 
-### In game
+### In-game
 - left analog stick to move selector
 - A to select units/buildings, move, attack, claim buildings
 - B to toggle between game and Menu
@@ -34,7 +34,7 @@ Please note, that all controlls are described for XBox 360 controller. If you ar
 - X to place a tile under selector
 - Y to erase a tile under selector
 
-Please note, that changing map name with gamepad is not possible at this time. Keyboard is still required.
+Please note, that changing the map name with a gamepad is not possible at this time. A keyboard is still required.
 
 ## Download
 ### Official builds:
@@ -44,7 +44,7 @@ Please note, that changing map name with gamepad is not possible at this time. K
 - Android (works on Blackberry, OUYA support currently not working)
 
 ### Official pages:
-- Available at game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
+- Available at our game page: [w84death.itch.io/tanks-of-freedom](http://w84death.itch.io/tanks-of-freedom)
 - Official game page: [tof.p1x.in](http://tof.p1x.in)
 - Official P1X page: [p1x.in](http://p1x.in)
 
@@ -56,7 +56,7 @@ Please note, that changing map name with gamepad is not possible at this time. K
 - [Pandora](https://repo.openpandora.org/?page=detail&app=tanksoffreedom) thanks to Canseco
 
 ### Build from sources
-To get the latest version of the game you'll need to use the source code and Godot Engine
+To get the latest version of the game, you'll need to use the source code and Godot Engine.
 
 - download & install [Godot Engine](https://godotengine.org/download)
 - download our sources
@@ -69,7 +69,7 @@ Follow [this tutorial](http://docs.godotengine.org/en/latest/tutorials/asset_pip
 
 ## Server
 
-For online funcionalities ToF server is required. Sources can be found in a separate repository [https://github.com/P1X-in/Tanks-of-Freedom-Server](https://github.com/P1X-in/Tanks-of-Freedom-Server)
+For online funcionalities a ToF server is required. Sources can be found in a separate repository. [https://github.com/P1X-in/Tanks-of-Freedom-Server](https://github.com/P1X-in/Tanks-of-Freedom-Server)
 
 ## Media
 ![Imgur](http://tof.p1x.in/assets/screen1.jpg)
@@ -103,7 +103,7 @@ For online funcionalities ToF server is required. Sources can be found in a sepa
   - Japanese - [naofum](https://github.com/naofum)
   - French - [Poussinou](https://github.com/Poussinou)
   - German - [cyberbeat](https://github.com/cyberbeat)
-  - English - P1X
+  - English - P1X, [glenlife](https://github.com/glenlife)
   - Polish - P1X
 
 ## Public game catalogs
