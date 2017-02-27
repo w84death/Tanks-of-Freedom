@@ -5,6 +5,7 @@
 ### 0.6.3-beta
 - added 'back' behaviour to most menus
 - moved gamepad end-turn indicator, to end-turn button
+- integrated JA language thanks to naofum
 - fixed crash when pressing P in menus while game is paused
 - fixed bad background on skirmish setup 'back' button
 
