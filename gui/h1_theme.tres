@@ -1,15 +1,21 @@
-[gd_resource type="Theme" load_steps=4 format=1]
+[gd_resource type="Theme" load_steps=7 format=1]
 
-[ext_resource path="res://assets/fonts/ttf/NotoSansJP-Regular.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/fonts/ttf/Courier Prime Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/ttf/kana.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/ttf/hkana.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/ttf/generic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/ttf/numbers.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/ttf/Courier Prime Bold.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 22
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 2 )
+font/font = ExtResource( 5 )
 fallback/0 = ExtResource( 1 )
+fallback/1 = ExtResource( 2 )
+fallback/2 = ExtResource( 3 )
+fallback/3 = ExtResource( 4 )
 
 [resource]
 

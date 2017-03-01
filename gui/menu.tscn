@@ -14,17 +14,17 @@
 [ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=12]
 [ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=13]
 [ext_resource path="res://assets/fonts/courier_prime_32.fnt" type="BitmapFont" id=14]
-[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=15]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=17]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=18]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=19]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=20]
-[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="BitmapFont" id=21]
-[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=22]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=23]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=24]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=25]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=18]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=19]
+[ext_resource path="res://assets/fonts/courier_prime_13.fnt" type="BitmapFont" id=20]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=21]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=22]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=23]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=24]
+[ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=25]
 [ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=26]
 [ext_resource path="res://gui/stats.xscn" type="PackedScene" id=27]
 
@@ -314,7 +314,6 @@ patch_margin/bottom = 24
 
 [node name="sound_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -352,7 +351,6 @@ max_lines_visible = -1
 
 [node name="music_toggle" type="TextureButton" parent="middle/center/settings_panel"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -819,7 +817,6 @@ margin/left = 10.0
 margin/top = 16.0
 margin/right = 87.0
 margin/bottom = 34.0
-custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
@@ -924,11 +921,11 @@ margin/bottom = 184.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="middle/center/settings_panel/gamepad_info"]
@@ -941,7 +938,6 @@ margin/left = 10.0
 margin/top = 16.0
 margin/right = 128.0
 margin/bottom = 34.0
-custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "GAMPEAD INFO"
 align = 1
@@ -960,7 +956,7 @@ margin/left = -73.0
 margin/top = 340.0
 margin/right = 74.0
 margin/bottom = 352.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 20 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WINS: 4"
 align = 1
@@ -1042,7 +1038,7 @@ margin/left = -312.0
 margin/top = 72.0
 margin/right = 176.0
 margin/bottom = -96.0
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -1064,10 +1060,10 @@ margin/bottom = -88.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 23 )
-textures/pressed = ExtResource( 24 )
-textures/hover = ExtResource( 25 )
-textures/disabled = ExtResource( 19 )
+textures/normal = ExtResource( 22 )
+textures/pressed = ExtResource( 23 )
+textures/hover = ExtResource( 24 )
+textures/disabled = ExtResource( 18 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="top/center/resume/resume_button"]
@@ -1080,7 +1076,7 @@ margin/left = 5.0
 margin/top = 17.0
 margin/right = 139.0
 margin/bottom = 35.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 25 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "RESUME GAME"
 align = 1
@@ -1130,7 +1126,7 @@ margin/left = 160.0
 margin/top = -32.0
 margin/right = -280.0
 margin/bottom = 8.0
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -1146,7 +1142,7 @@ margin/left = -259.0
 margin/top = 18.0
 margin/right = -161.0
 margin/bottom = 69.0
-custom_fonts/font = ExtResource( 15 )
+custom_fonts/font = ExtResource( 25 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "INDIE GAME\nDESIGN & \nDEVELOP"
 percent_visible = 1.0
@@ -1174,11 +1170,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="top/center/settings"]
@@ -1215,11 +1211,11 @@ margin/bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="top/center/close"]
@@ -1254,11 +1250,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 23 )
-textures/pressed = ExtResource( 24 )
-textures/hover = ExtResource( 25 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 22 )
+textures/pressed = ExtResource( 23 )
+textures/hover = ExtResource( 24 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="top/center/quit"]
@@ -1293,11 +1289,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label1" type="Label" parent="top/center/demo"]
@@ -1389,11 +1385,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="bottom/center/play"]
@@ -1427,11 +1423,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="bottom/center/workshop"]
@@ -1465,11 +1461,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 16 )
-textures/pressed = ExtResource( 17 )
-textures/hover = ExtResource( 18 )
-textures/disabled = ExtResource( 19 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 15 )
+textures/pressed = ExtResource( 16 )
+textures/hover = ExtResource( 17 )
+textures/disabled = ExtResource( 18 )
+textures/focused = ExtResource( 19 )
 params/scale = Vector2( 3, 3 )
 
 [node name="Label" type="Label" parent="bottom/center/start_campaign"]

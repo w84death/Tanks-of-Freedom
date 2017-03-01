@@ -50,7 +50,6 @@ margin/bottom = 0.0
 
 [node name="message_card" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -90,7 +89,6 @@ margin/bottom = 80.0
 
 [node name="top_center" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -145,7 +143,6 @@ patch_margin/bottom = 24
 
 [node name="menu" type="TextureButton" parent="top_center/center/game_card"]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -186,7 +183,6 @@ max_lines_visible = -1
 
 [node name="settings" type="TextureButton" parent="top_center/center/game_card"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -216,7 +212,6 @@ frame = 1
 
 [node name="gamepad_buttons" type="Control" parent="top_center/center/game_card"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
