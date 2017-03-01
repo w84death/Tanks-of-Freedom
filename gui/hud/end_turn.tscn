@@ -138,6 +138,7 @@ params/scale = Vector2( 3, 3 )
 
 [node name="gamepad_indicator" type="Sprite" parent="end_turn_button"]
 
+visibility/visible = false
 transform/pos = Vector2( 12, 8 )
 transform/scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
