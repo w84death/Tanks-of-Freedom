@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=1]
+[gd_resource type="Theme" load_steps=4 format=1]
 
 [ext_resource path="res://assets/fonts/ttf/japan.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/ttf/courier.ttf" type="DynamicFontData" id=2]
@@ -15,7 +15,7 @@ fallback/0 = ExtResource( 1 )
 
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
-Label/constants/line_spacing = 3
+Label/constants/line_spacing = 0
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1

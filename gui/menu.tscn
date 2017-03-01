@@ -1,11 +1,11 @@
-[gd_scene load_steps=32 format=1]
+[gd_scene load_steps=33 format=1]
 
 [ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/menu_controller.gd" type="Script" id=2]
 [ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=4]
 [ext_resource path="res://gui/small_red_theme.tres" type="Theme" id=5]
-[ext_resource path="res://gui/small_gray_theme.tres" type="Theme" id=6]
+[ext_resource path="res://gui/small_theme.tres" type="Theme" id=6]
 [ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=8]
 [ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=9]
@@ -26,7 +26,8 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=24]
 [ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" id=25]
 [ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=26]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=27]
+[ext_resource path="res://gui/small_gray_theme.tres" type="Theme" id=27]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=28]
 
 [sub_resource type="Animation" id=1]
 
@@ -265,10 +266,11 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 6 )
-margin/left = -184.0
-margin/top = 87.0
-margin/right = 184.0
-margin/bottom = 101.0
+margin/left = -217.0
+margin/top = 84.0
+margin/right = 213.0
+margin/bottom = 96.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "* FREE AS FREEDOM, NOT FREE AS IN FREE BEER"
 align = 1
 percent_visible = 1.0
@@ -989,7 +991,6 @@ autoplay = ""
 
 [node name="top" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = false
@@ -1157,7 +1158,6 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="settings" type="TextureButton" parent="top/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1183,20 +1183,18 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 2.0
-margin/top = 16.0
+margin/top = 14.0
 margin/right = 142.0
-margin/bottom = 34.0
+margin/bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SETTINGS"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="close" type="TextureButton" parent="top/center"]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -1230,14 +1228,12 @@ margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_BACK_TO_GAME"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="quit" type="TextureButton" parent="top/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1269,14 +1265,12 @@ margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_QUIT_GAME"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="demo" type="TextureButton" parent="top/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1308,14 +1302,12 @@ margin/bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_RUN_DEMO"
 align = 1
-valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
 [node name="bottom" type="CenterContainer" parent="."]
 
-editor/display_folded = true
 anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
@@ -1372,7 +1364,6 @@ patch_margin/bottom = 24
 
 [node name="play" type="TextureButton" parent="bottom/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1410,7 +1401,6 @@ max_lines_visible = -1
 
 [node name="workshop" type="TextureButton" parent="bottom/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1448,7 +1438,6 @@ max_lines_visible = -1
 
 [node name="start_campaign" type="TextureButton" parent="bottom/center"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1490,11 +1479,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 27 )
 margin/left = -280.0
 margin/top = -28.0
-margin/right = -136.0
-margin/bottom = -16.0
+margin/right = -130.0
+margin/bottom = -12.0
 text = "COMPLETED: 2/12"
 align = 1
 percent_visible = 1.0
@@ -1507,11 +1496,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 27 )
 margin/left = 136.0
 margin/top = -29.0
-margin/right = 272.0
-margin/bottom = -16.0
+margin/right = 286.0
+margin/bottom = -13.0
 text = "MAPS CREATED: 3"
 align = 1
 percent_visible = 1.0
@@ -1555,7 +1544,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_game" parent="." instance=ExtResource( 27 )]
+[node name="end_game" parent="." instance=ExtResource( 28 )]
 
 visibility/visible = false
 
