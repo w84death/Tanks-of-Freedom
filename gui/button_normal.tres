@@ -1,12 +1,7 @@
 [gd_resource type="Theme" load_steps=14 format=1]
 
-[ext_resource path="res://assets/fonts/ttf/NotoSansJP-Regular.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/fonts/ttf/Courier Prime Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2b.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=7]
+[ext_resource path="res://gui/font_14.tres" type="DynamicFont" id=1]
+
 
 [sub_resource type="DynamicFont" id=1]
 

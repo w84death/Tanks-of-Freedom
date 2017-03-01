@@ -157,7 +157,6 @@ margin/bottom = 360.0
 
 [node name="game_panel" type="Control" parent="middle/center"]
 
-visibility/opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -169,16 +168,14 @@ margin/bottom = 40.0
 
 [node name="under_logo" type="Control" parent="middle/center/game_panel"]
 
-editor/display_folded = true
-visibility/opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = -60.0
+margin/top = 0.0
 margin/right = 40.0
-margin/bottom = -20.0
+margin/bottom = 40.0
 
 [node name="Sprite 7" type="Sprite" parent="middle/center/game_panel/under_logo"]
 
@@ -285,14 +282,16 @@ texture = ExtResource( 7 )
 
 [node name="settings_panel" type="Control" parent="middle/center"]
 
+editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = -48.0
+margin/top = -800.0
 margin/right = 40.0
-margin/bottom = -8.0
+margin/bottom = -760.0
 
 [node name="background" type="Patch9Frame" parent="middle/center/settings_panel"]
 
