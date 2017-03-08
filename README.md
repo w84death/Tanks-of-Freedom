@@ -88,6 +88,7 @@ For online funcionalities ToF server is required. Sources can be found in a sepa
 ### gfx
    - w84death http://krzysztofjankowski.com licensed under MIT
    - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/ licensed under OFL
+   - NotoSans fonr licensed under Apache License 2.0
 
 ### music
    - QmYaan (Grand Beats) http://www.grandbeats.com/ licensed under CC BY-SA 4.0
@@ -137,10 +138,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-## Free font Courier Prime
+## Fonts
 A Free font Courier Prime used in this project can be found here:
 http://www.quoteunquoteapps.com/courierprime/
 This font is licensed under OFL license.
+
+NotoSans font used in this project has been sourced from this repository:
+[https://github.com/nowri/sample-noto](https://github.com/nowri/sample-noto)
+It is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## Music & SFX License
 Original copyrights of all audio assets belong to QmYaan (Grand Beats) http://www.grandbeats.com/
