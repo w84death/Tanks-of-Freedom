@@ -8,6 +8,7 @@
 - integrated JA language thanks to naofum
 - fixed crash when pressing P in menus while game is paused
 - fixed bad background on skirmish setup 'back' button
+- fixed ui_accept button not working on android
 
 ### 0.6.2-beta
 - fixed gamebreaking bug with theme timing
