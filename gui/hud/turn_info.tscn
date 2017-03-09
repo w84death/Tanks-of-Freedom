@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=3]
-[ext_resource path="res://gui/very_big_theme.tres" type="Theme" id=4]
-[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=5]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
+[ext_resource path="res://gui/very_big_theme.tres" type="Theme" id=3]
+[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=4]
 
 [node name="turn_info" type="Control"]
 
@@ -12,7 +11,6 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 0.0
@@ -30,7 +28,7 @@ margin/left = -88.0
 margin/top = -117.0
 margin/right = -88.0
 margin/bottom = 93.0
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 patch_margin/left = 24
 patch_margin/top = 12
 patch_margin/right = 24
@@ -48,7 +46,7 @@ margin/left = -88.0
 margin/top = -92.0
 margin/right = -88.0
 margin/bottom = 1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -60,7 +58,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 3 )
 margin/left = -52.0
 margin/top = -69.0
 margin/right = 35.0
@@ -95,7 +93,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
+theme/theme = ExtResource( 4 )
 margin/left = -76.0
 margin/top = -23.0
 margin/right = 51.0
@@ -113,7 +111,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
+theme/theme = ExtResource( 4 )
 margin/left = 53.0
 margin/top = -23.0
 margin/right = 79.0
@@ -148,9 +146,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -87.0
-margin/top = -113.0
-margin/right = 83.0
-margin/bottom = -99.0
+margin/top = -112.0
+margin/right = 86.0
+margin/bottom = -98.0
 text = "LABEL_MAP_NAME"
 align = 1
 valign = 2
@@ -164,7 +162,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 3 )
 margin/left = 40.0
 margin/top = -69.0
 margin/right = 78.0
