@@ -56,6 +56,10 @@ var default_custom_maps = [
         'name' : 'territorial',
         'file' : preload('res://maps/custom/territorial.gd').new()
     },
+    {
+        'name' : 'gameplay_examples',
+        'file' : preload('res://maps/custom/gameplay_examples.gd').new()
+    },
 ]
 
 func _initialize():
