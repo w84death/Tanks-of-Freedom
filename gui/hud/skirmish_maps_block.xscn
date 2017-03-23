@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.stable.official">
-	<ext_resource path="res://assets/gui/buttons/lcd_70_1.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://gui/font_16.tres" type="Theme" index="3"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/lcd_70_2.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/lcd_70_1.png" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/lcd_70_0.png" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://gui/font_12.tres" type="Theme" index="3"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -70,10 +70,10 @@
 				<vector2> 3, 3 </vector2>
 				<int> 0 </int>
 				<resource  external="3">  </resource>
-				<real> 8 </real>
-				<real> 2 </real>
-				<real> 207 </real>
-				<real> 20 </real>
+				<real> 7 </real>
+				<real> 4 </real>
+				<real> 217 </real>
+				<real> 22 </real>
 				<color> 0.639216, 0.807843, 0.152941, 1 </color>
 				<string> "A VERY LONG FILENAME " </string>
 				<real> 1 </real>
