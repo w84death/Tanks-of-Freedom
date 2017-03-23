@@ -2,6 +2,8 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.7.0-beta
+
 ### 0.6.3-beta
 - added 'back' behaviour to most menus
 - moved gamepad end-turn indicator, to end-turn button
