@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.stable.custom_build">
-	<ext_resource path="res://assets/fonts/courier_prime_16.fnt" type="BitmapFont" index="3"></ext_resource>
+<resource_file type="PackedScene" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.stable.official">
 	<ext_resource path="res://assets/gui/buttons/lcd_70_1.png" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/lcd_70_2.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/lcd_70_0.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://gui/font_12.tres" type="Theme" index="3"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
@@ -14,7 +14,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="28">
+			<string_array  len="29">
 				<string> "block" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
@@ -36,9 +36,10 @@
 				<string> "textures/focused" </string>
 				<string> "params/scale" </string>
 				<string> "title" </string>
-				<string> "custom_fonts/font" </string>
+				<string> "theme/theme" </string>
 				<string> "custom_colors/font_color" </string>
 				<string> "text" </string>
+				<string> "valign" </string>
 				<string> "percent_visible" </string>
 				<string> "lines_skipped" </string>
 				<string> "max_lines_visible" </string>
@@ -50,9 +51,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="99"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 3, 8, 3, 9, 4, 0, 0, 0, 11, 11, -1, 16, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 5, 8, 6, 12, 0, 13, 2, 14, 7, 15, 8, 16, 9, 17, 10, 18, 10, 19, 11, 0, 1, 0, 27, 20, -1, 14, 1, 1, 2, 1, 3, 2, 4, 12, 5, 13, 6, 14, 7, 15, 8, 6, 21, 16, 22, 17, 23, 18, 24, 19, 25, 12, 26, 20, 0 </int_array>
+			<int_array  len="101"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 3, 8, 3, 9, 4, 0, 0, 0, 11, 11, -1, 16, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 5, 8, 6, 12, 0, 13, 2, 14, 7, 15, 8, 16, 9, 17, 10, 18, 10, 19, 11, 0, 1, 0, 28, 20, -1, 15, 1, 1, 2, 1, 3, 2, 4, 12, 21, 13, 5, 14, 6, 15, 7, 16, 8, 17, 22, 18, 23, 19, 24, 2, 25, 20, 26, 12, 27, 21, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="21" shared="false">
+			<array  len="22" shared="false">
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
@@ -68,10 +69,11 @@
 				<resource  external="2">  </resource>
 				<vector2> 3, 3 </vector2>
 				<int> 0 </int>
-				<real> 8 </real>
-				<real> 6 </real>
-				<real> 210 </real>
 				<resource  external="3">  </resource>
+				<real> 8 </real>
+				<real> 2 </real>
+				<real> 207 </real>
+				<real> 20 </real>
 				<color> 0.639216, 0.807843, 0.152941, 1 </color>
 				<string> "A VERY LONG FILENAME " </string>
 				<real> 1 </real>

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://assets/buildings/buildings_special.png" type="Texture" id=1]
 [ext_resource path="res://ngui/font_h1.tres" type="Theme" id=2]
-[ext_resource path="res://assets/fonts/courier_prime_24.fnt" type="BitmapFont" id=3]
-[ext_resource path="res://ngui/font_small.tres" type="Theme" id=4]
+[ext_resource path="res://ngui/font_small.tres" type="Theme" id=3]
 
 [node name="intro_container" type="Control"]
 
@@ -42,13 +41,14 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 0.0
+margin/top = 34.0
 margin/right = 1240.0
-margin/bottom = 192.0
+margin/bottom = 226.0
 use_top_left = false
 
 [node name="ReferenceFrame" type="ReferenceFrame" parent="VBoxContainer/CenterContainer"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -72,9 +72,9 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 2 )
 margin/left = 0.0
-margin/top = 216.0
+margin/top = 250.0
 margin/right = 1240.0
-margin/bottom = 283.0
+margin/bottom = 257.0
 text = "FREE* & OPEN-SOURCE\nTURN-BASED STRATEGY GAME"
 align = 1
 uppercase = true
@@ -89,10 +89,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 307.0
+margin/top = 281.0
 margin/right = 1240.0
-margin/bottom = 330.0
-custom_fonts/font = ExtResource( 3 )
+margin/bottom = 304.0
 text = "by P1X"
 align = 1
 uppercase = true
@@ -107,10 +106,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
-margin/top = 354.0
+margin/top = 328.0
 margin/right = 1240.0
-margin/bottom = 377.0
-custom_fonts/font = ExtResource( 3 )
+margin/bottom = 351.0
 custom_colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
 text = "Version 0.x.x-BETA"
 align = 1
@@ -125,11 +123,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 3 )
 margin/left = 0.0
-margin/top = 401.0
+margin/top = 375.0
 margin/right = 1240.0
-margin/bottom = 415.0
+margin/bottom = 377.0
 text = "* FREE AS FREEDOM, NOT FREE AS IN FREE BEER"
 align = 1
 uppercase = true

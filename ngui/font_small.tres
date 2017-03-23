@@ -5,6 +5,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 14
+font/use_mipmaps = false
+font/use_filter = false
 font/font = ExtResource( 1 )
 
 [resource]
