@@ -3,7 +3,7 @@ extends "behaviours.gd"
 func _init():
 	type = 2
 	type_name = 'heli'
-	type_name_label = 'LABEL_WORKSHOP_HELI,HELI'
+	type_name_label = 'LABEL_WORKSHOP_HELI'
 
 	life = 10
 	max_life = 10
