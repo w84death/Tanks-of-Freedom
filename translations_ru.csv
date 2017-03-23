@@ -1,0 +1,284 @@
+,ru
+TIP_HEADER,"Знаете ли вы..."
+TIP_1,"Любой тип войск атакует лишь раз за ход"
+TIP_2,"У каждого типа войск есть свои приемущества и недостатки - только пехота может занимать здания, но они слабы против танков, а танки не могут атаковать вертолеты"
+TIP_3,"Ты можешь делать пехоту в штаб-квартире, но они дешевле в казармах"
+TIP_4,"Пехота теряет все АР, занимая радиовышку"
+TIP_5,"Чтобы захватить любое активное здание, нужно пустить туда пехоту, после захвата он пропадает"
+TIP_6,"Штаб-квартира, аэропорт и радиовышка производят ресурс каждый ход"
+TIP_7,"Ресурс может быть потрачен на создание и передвиженте войск"
+TIP_8,"Расходуй ресурс мудро - большая армия будет медленней и малоэффективнее небольшого отряда"
+TIP_9,"Один в поле не воин - никогда не выпускай юнита на поле битвы одного"
+TIP_9,"Смешивание разных типов войск дает боевое приемущество"
+TIP_11,"Ты не можешь поставить юнита, если зоа вывода занята; пользуйся этим - блокируй вражеские фабрики"
+TIP_12,"Юнит может атаковать только прилежащие тайлы - если враг далеко, сначала нужно к нему подойти"
+TIP_13,"Штаб-квартира – самое главное, если ты захватишь вражескую ШК, ты победишь"
+LABEL_WORKSHOP,РЕДАКТОР
+LABEL_MAIN_MENU,ГЛАВНОЕ МЕНЮ
+LABEL_START_TURN,НАЧАТЬ ХОД
+LABEL_CAMPAIGN,КАМПАНИЯ
+LABEL_SKIRMISH,СОСТЯЗАНИЕ
+LABEL_CONFIRM,ПОДТВЕРДИТЬ
+LABEL_UNIT_ATTACK,атака
+LABEL_UNIT_HEALTH,здоровье
+LABEL_UNIT_RANGE,дальность хода
+LABEL_BUILDING_HQ,ШК
+LABEL_BUILDING_BARRACKS,КАЗАРМА
+LABEL_BUILDING_FACTORY,ЗАВОД
+LABEL_BUILDING_AIRPORT,АЭРОПОРТ
+LABEL_BUILDING_GSM_TOWER,РАДИОВЫШКА
+LABEL_REMOTE,ОТДАЛЕННЫЙ
+LABEL_LOCAL,ЛОКАЛЬНЫЙ
+LABEL_OFF,ВЫКЛ
+LABEL_ON,ВКЛ
+LABEL_GAME,ИГРА
+LABEL_RESUME,ПРОДОЛЖИТЬ
+LABEL_EASY,ЛЕГКО
+LABEL_NORMAL,СРЕДНЕ
+LABEL_MAPS_CREATED,СДЕЛАНО КАРТ
+LABEL_COMPLETED,ПРОЙДЕНО
+LABEL_NEXT,ДАЛЕЕ
+LABEL_DELETE_MODE,УДАЛИТЬ
+LABEL_TURNS_CAP:,МАКС КОЛ-ВО ХОДОВ:
+LABEL_BACK,> НАЗАД
+LABEL_SELECTED_MAP,КАРТА:
+LABEL_TURNS_CAP,МАКС КОЛ-ВО ХОДОВ:
+LABEL_PLAY,ИГРАТЬ
+LABEL_CPU,БОТ
+LABEL_HUMAN,ЧЕЛОВЕК
+LABEL_ATTACK,АТАКА
+LABEL_HEALTH_MAX,ЗДОРОВЬЯ / МАКСИМАЛЬНО
+LABEL_HEALTH,ЗДОРОВЬЯ
+LABEL_ACTION_SLOTS,ДОСТУПНЫХ СЛОТОВ
+LABEL_INFANTRY,ПЕХОТА
+LABEL_UNIT_HELI,ВЕРТОЛЕТ
+LABEL_RANGE,ДАЛЬНОСТЬ ХОДА
+LABEL_DEPLOY_PRICE,СТОИМОСТЬ
+LABEL_DEPLOY,ПОСТАВИТЬ
+LABEL_END,ЗАКОНЧИТЬ
+LABEL_TURN,ХОД
+LABEL_NEW_TURN,НОВЫЙ ХОД
+LABEL_ACTION_POINTS,ОЧКОВ ДЕЙСТВИЯ
+LABEL_UNIT,ЮНИТ
+LABEL_BUILDING,ЗДАНИЕ
+LABEL_NEXT_TURN_GAIN,ПРИБЫЛЬНА СЛЕДУЮЩИЙ ХОД
+LABEL_ACTION_POINTS,ОЧКОВ ДЕЙСТВИЯ
+LABEL_MAP_NAME,НАЗВАНИЕ КАРТЫ
+LABEL_SELECT_UNIT,ВЫБРАТЬ ЮНИТ
+LABEL_PLEASE_WAIT,ПОДОЖДИТЕ
+LABEL_SOUND_EFFECTS,ЗВУКИ
+LABEL_MUSIC,МУЗЫКА
+LABEL_CAMERA_SHAKE,ТРЯСКА КАМЕРЫ
+LABEL_AUTO_FOLLOW,АВТОНАВЕДЕНИЕ КАМЕРЫ
+LABEL_ZOOM_LEVEL,ПРИБЛИЖЕННОСТЬ
+LABEL_BIGGER,ДАЛЬШЕ
+LABEL_SMALLER,БЛИЖЕ
+LABEL_WINDOW,ОКНО
+LABEL_FULL_SCREEN,ПОЛЬНОЭКРАННЫЙ РЕЖИМ
+LABEL_DIFFICULTY,СЛОЖНОСТЬ
+LABEL_WINS,ПОБЕДИЛ
+LABEL_SETTINGS,НАСТРОЙКИ
+LABEL_BACK,НАЗАД
+LABEL_QUIT_GAME,ВЫЙТИ
+LABEL_RUN_DEMO,ДЕМО
+LABEL_SKIRMISH,СОСТЯЗАНИЕ
+LABEL_MAP EDITOR,РЕДАКТОР КАРТ
+LABEL_CAMPAIGN,КАМПАНИЯ
+LABEL_COMPLETED,ПРОЙДЕНО
+LABEL_MAPS_CREATED,СДЕЛАНО КАРТ
+LABEL_ONLINE,ОНЛАЙН
+LABEL_MISSION,МИССИЯ
+LABEL_BLUE_TEAM,СИНИЯ КОМАНДА
+LABEL_RED_TEAM,КРАСНАЯ КОМАНДА
+LABEL_START,СТАРТ
+LABEL_MISSION_COMPLETED,МИССИЯ ПРОЙДЕНА
+LABEL_PREVIOUS,ПРЕДЫДУЩАЯ
+LABEL_NEXT,СЛЕДУЮЩАЯ
+LABEL_NAME,ИМЯ
+LABEL_WORKSHOP_UNITS,ЮНИТЫ
+LABEL_WORKSHOP_BUILDINGS,ЗДАНИЯ
+LABEL_WORKSHOP_TERRAIN,ДЕКОР
+LABEL_WORKSHOP_FILES_MANAGER,ПРОВОДНИК
+LABEL_WORKSHOP_PICK_MAP,КАРТА:
+LABEL_WORKSHOP_FILE_SAVED,СОХРАНЕНО
+LABEL_WORKSHOP_TOOLBOX,ИНСТРУМЕНТЫ
+LABEL_WORKSHOP_UNDO_BUILD,ОТКАТ
+LABEL_WORKSHOP_MOVE_MAP,ДВИГАТЬ КАРТУ
+LABEL_WORKSHOP_BUILD_TERRAIN,ПОСТАВИТЬ
+LABEL_WORKSHOP_SELECTED_TOOL,ВЫБРАНО:
+LABEL_WORKSHOP_CREATE,СДЕЛАНО
+LABEL_WORKSHOP_SIZE,РАЗМЕР
+LABEL_WORKSHOP_CLEAR_LAYERS,СНЯТЬ СЛОИ
+LABEL_WORKSHOP_EREASE,СТЕРЕТЬ
+LABEL_WORKSHOP_PLAIN,ТРАВА
+LABEL_WORKSHOP_DIRT,ГРЯЗЬ
+LABEL_WORKSHOP_FOREST,ЛЕС
+LABEL_WORKSHOP_MOUNTAIN,ГОРЫ
+LABEL_WORKSHOP_RIVER,РЕКА
+LABEL_WORKSHOP_BRIDGE,МОСТ
+LABEL_WORKSHOP_CITY,ГОРОД
+LABEL_WORKSHOP_RUBBLE,СГОРЕВШЕЕ
+LABEL_WORKSHOP_STATUE,СТАТУЯ
+LABEL_WORKSHOP_FENCE,ЗАБОР
+LABEL_WORKSHOP_ROAD#1,ДОРОГА#1
+LABEL_WORKSHOP_ROAD#2,ДОРОГА#2
+LABEL_WORKSHOP_HQ,ШК
+LABEL_WORKSHOP_BARRACKS,КАЗАРМА
+LABEL_WORKSHOP_FACTORY,ЗАВОД
+LABEL_WORKSHOP_AIRPORT,АЭРОПОРТ
+LABEL_WORKSHOP_SPAWN,СПАУН
+LABEL_WORKSHOP_GSM_TOWER,РАДИОВЫШКА
+LABEL_WORKSHOP_TOWER,РАДИОВЫШКА
+LABEL_WORKSHOP_INFANTRY,ПЕХОТА
+LABEL_WORKSHOP_TANK,ТАНК
+LABEL_WORKSHOP_HELI,ВЕРТОЛЕТ
+LABEL_WORKSHOP_CIVILIAN,ГРАЖДАНСКИЕ
+LABEL_WORKSHOP_CONCRETE,БЕТОН
+MSG_NO_ENOUGH_AP,НЕДОСТАТОЧНО АР
+MSG_START_YOUR_TURN_NOW,Начинай!
+MSG_EMPTY_DISPLAY,&lt; NOTHING TO DISPLAY&#000a;&lt; ВЫБЕРИ ЮНИТ ИЛИ ЗДАНИЕ
+MSG_GAME_DESCRIPTION_1,СВОБОДНОГО* ДОСТУПА
+MSG_GAME_DESCRIPTION_2,ПОХОДОВАЯ СТРАТЕГИЯ
+MSG_FREE_AS_FREEDOM,"* СВОБОДНОГО ТО ЕСТЬ ДОСТУПНОГО, НЕ СВОБОДНАЯ КАК В ТРАКТИРЕ"
+MSG_INDIE_GAME,INDIE GAME&#000a;DESIGN &amp; &#000a;ВЕРСИЯ
+MSG_WORKSHOP_USE_UNIQUE_NAME,НАЗОВИ ОРИГИНАЛЬНО
+MSG_WORKSHOP_CREATE_NEW_ISLAND,НОВЫЙ ОСТРОВ
+MSG_WORKSHOP_LOSE_MAP_DATA,ТЫ ПОТЕРЯЕШЬ ПРОГРЕСС!
+LABEL_GAME_OVER,КОНЕЦ ПАРТИИ
+LABEL_DOMINATION,ДОМИНИРОВАНИЕ
+LABEL_MOVES,ХОДОВ
+LABEL_DEPLOYED,СДЕЛАНО
+LABEL_ELIMINATED,УБИТО
+LABEL_BLUE,СИНИЙ
+LABEL_RED,КРАСНЫЙ
+LABEL_TURN,ХОД
+LABEL_TIME,ВРЕМЯ
+LABEL_TOTAL_SCORE,ОБЩИЙ СЧЕТ
+LABEL_PLAYERS_TIME,ВРЕМЯ ИГРОКА
+LABEL_MENU,МЕНЮ
+LABEL_PLAY_AGAIN,СЫГРАТЬ СНОВА
+LABEL_REQUIES_RESTART,НУЖНА ПЕРЕЗАГРУЗКА КАРТЫ
+LABEL_LANGUAGE,ЯЗЫК
+LABEL_OVERSCAN,ОВЕРСКАН
+LABEL_GAME_TIME,ВРЕМЯ ИГРЫ
+LABEL_TURNS,ХОДОВ
+LABEL_BLUE_WINS,СИНИЕ ПОБЕДИЛИ
+LABEL_RED_WINS,КРАСНЫЕ ПОБЕДИЛИ
+LABEL_PLAYING_AS,ИГРА ЗА
+LABEL_MAPS,КАРТ
+LABEL_PAGE,ЛИСТ
+LABEL_WORKSHOP_SAVE,СОХРАНИТЬ
+LABEL_WORKSHOP_LOAD,ЗАГРУЗИТЬ
+LABEL_MAP_TO_UPLOAD,Карта для загрузки
+LABEL_PROCEED_QUESTION,"Продолжить?"
+LABEL_UPLOAD_MAP,Экспорт карты
+LABEL_UPLOAD,Экспорт
+LABEL_CANCEL,Назад
+TIP_COMPLETE_MAP_FIRST,"Надо закончить карту в режите состязания перед ее экспортом"
+LABEL_GOT_IT,"Понял!"
+LABEL_ONLINE_MENU,ОНЛАЙН КАРТЫ
+MSG_ONLINE_MENU_DESC,"ЗАГРУЖАЙ НОВЫЕ КАРТЫ ИЛИ ДЕЛИСЬ СВОИМИ СО ВСЕМ МИРОМ!"
+TIP_UPLOADING_WAIT,"Загрузка, подождите."
+TIP_UPLOADING_SUCCESS,"Готово! Вот код, чтобы поделиться с друзьями: "
+TIP_UPLOADING_FAIL,"Ошибка, попробуйте позже"
+LABEL_DONE,Готово
+TIP_WELCOME_ONLINE,"Добро пожаловать в ToF Online!"
+TIP_NEED_REGISTER,"Перед тем, чтобы использовать онлайн настройки, нужно зарегистрировать ваш гаджет в нашей системе"
+LABEL_REGISTER,Регистрация
+LABEL_LATER,"Может быть позже"
+LABEL_REGISTER_PLAYER,"Зарегистрировпть игрока"
+TIP_REQUESTING_PLAYER_ID,"Регистрация ID, подождите..."
+TIP_REQUESTING_PLAYER_FAIL,"Ошибка регистрации, попробуйте позже."
+TIP_REQUESTING_PLAYER_SUCCESS,"Регистрация завершена. Добро пожаловать в ToF Online!"
+LABEL_DOWNLOAD_MAP,Загрузить карту
+TIP_INPUT_CODE,"Введите код карты"
+LABEL_DOWNLOAD,Загрузить
+TIP_DOWNLOADING_WAIT,"Загрузка карты! Подождите..."
+TIP_MAP_DOWNLOAD_SUCCESS,"Карта загружена"
+TIP_MAP_DOWNLOAD_FAIL,"Невозможно загрузить карту. Проверьте код и попробуйте снова."
+LABEL_PLAY_AGAIN,ЗАНОВО
+LABEL_VERSION,Версия
+TITLE_GAMEPAD_CONFIG,КОНФИГУРАЦИЯ ГЕЙМПАДА
+LABEL_PREVIOUS_UNIT,ПРЕДЫДУЩИЙ ЮНИТ
+LABEL_NEXT_UNIT,СЛЕДУЮЩИЙ ЮНИТ
+LABEL_SELECTOR_MOVEMENT,ПЕРЕДВИНУТЬ ВЫБИРАТЕЛЬ КАРТ
+LABEL_GAME_MENU_MOVEMENT,НАЙТИ МЕНЮ
+LABEL_END_TURN,ЗАКОНЧИТЬ СВОЙ ХОД
+LABEL_BACK_TO_MENU,ОТКРЫТЬ ГЛАВНОЕ МЕНЮ
+LABEL_SELECT,ПРОАНАЛИЗИРОВАТЬ ДЕЙСТВИЕ
+LABEL_DEPLOY_UNIT,КУПИТЬ НОВЫЙ ЮНИТ
+LABEL_GAMEPAD_INFO,ИНФОРМАЦИЯ О КОНСОЛИ
+LABEL_WORKSHOP_THEME,ТЕМА КАРТЫ
+LABEL_SUMMER,ЛЕТО
+LABEL_FALL,ОСЕНЬ
+LABEL_WINTER,ЗИМА
+LABEL_WORKSHOP_FAILURE,ОШИБКА
+MSG_WORKSHOP_FILE_ERROR_NAME,"Имя карты поддерживает лишь английские буквы и простые символы."
+MSG_WORKSHOP_FILE_NOT_FOUND,"Такой карты не существует."
+MSG_WORKSHOP_CHECK_TYPOS,"Пожалуйста перепроверьте название"
+LABEL_OK,Хорошо
+LABEL_NEXT_TURN,ЗАКОНЧИТЬ ХОД
+LABEL_CPU_TURN,ХОД КОМПЬЮЬЕРА
+LABEL_REFRESHING_MATCHES,ОБНОВИТЬ МАТЧИ
+TIP_REFRESHING_WAIT,"ОБНОВЛЕНИЕ МАТЧЕЙ, ПОДОЖДИТЕ..."
+LABEL_CREATE_MATCH,СОЗДАТЬ МАТЧ
+MSG_CONFIRM_CREATE,ХОЧЕШЬ СОЗДАТЬ НОВЫЙ МАТЧ?
+LABEL_PROCEED,PROCEEDПРОДОЛЖИТЬ
+LABEL_PICK_SIDE,ВЫБРАТЬ СТОРОНУ
+MSG_PICK_SIDE,ВЫБЕРИ СТРОНУ ЗА КОТОРОУЮ ХОЧЕШЬ ИГРАТЬ
+MSG_SELECTED_MAP,"КАРТА: "
+MSG_SELECTED_SIDE,"СТОРОНА: "
+MSG_READY_TO_CREATE,"СОЗДАТЬ МАТЧ?"
+MSG_CREATING_MATCH_WAIT,"СОЗДАНИЕ МАТЧА, ПОДОЖДИТЕ..."
+LABEL_FAILURE,"ОШИБКА"
+MSG_OPERATION_FAILED,"ОШИБКА ПОДКЛЮЧЕНИЯ К ИНТЕРНЕТУ. ПОДКЛЮЧИТЕСЬ И ПОПРОБУЙТЕ СНОВА"
+LABEL_JOIN_MATCH,"ПРИСОЕДИНИТЬСЯ НА МАТЧ"
+MSG_INPUT_MATCH_CODE,"НАПИШИТЕ КОД МАТЧА"
+LABEL_JOIN,ВОЙТИ
+MSG_ALREADY_IN_MATCH,ВЫ УЖЕ ИГРАЕТЕ В ЭТОМ МАТЧЕ
+MSG_FETCHING_MATCH_DETAILS,"ЗАГРУЗКА ПАРАМЕТРОВ МАТЧА, ПОДОЖДИТЕ..."
+MAG_AVAILABLE_SIDE,"СВОБОДНАЯ СТОРОНА: "
+MAG_PROCEED_JOIN,"ПРТСОЕДИНИТЬСЯ?"
+MSG_JOINING_MATCH_WAIT,"ПРИСОЕДИНЕНИЕ, ПОДОЖДИТЕ..."
+LABEL_MATCH_CODE,"КОД МАТЧА: "
+LABEL_YOUR_TURN,"ТВОЙ ХОЛ"
+LABEL_ENEMY_TURN,"ХОД СОПЕРНИКА"
+LABEL_YOU_WIN,"ТЫ ПОБЕДИЛ"
+LABEL_YOU_LOSE,"ТЫ ПРОИГРАЛ"
+LABEL_NEW_MATCH,"НОВЫЙ МАТЧ"
+LABEL_MATCH_IN_PROGRESS,"В ПРОГРЕССЕ"
+LABEL_MATCH_ENDED,"МАТЧ ЗАКОНЧИЛСЯ"
+LABEL_MATCH_FORFEIT,"СОПЕРНИК УШЕЛ"
+LABEL_MAP_CODE,"КАРТА: "
+LABEL_INVALID_MATCH,"НЕСУЩЕСТВУЮЩИЙ МАТЧ"
+LABEL_ABANDON_MATCH,"НЕДОСТУПНЫЙ МАТЧ"
+MAG_ABANDON_MATCH,"УВЕРЕНЫ, ЧТО ХОТИТЕ ВЫЙТИ? ИГРА БУДЕТ УДАЛЕНА"
+LABEL_CLEAR_SLOT,"СТЕРЕТЬ СЛОТ"
+MSG_CLEARING_SLOT_WAIT,"СТИРАНЕ, ПОДОЖДИТЕ..."
+LABEL_SHOW_REPLAY,"ПОКАЗАТЬ ПОВТОР"
+MSG_SHOW_REPLAY,"ХОТИТЕ УВИДЕТЬ ПОВТОР ХОДА СОПЕРНИКА?"
+LABEL_REPLAY,"ПОВТОР"
+LABEL_SKIP,"ПPОПУСТИТЬ"
+LABEL_LOADING_MATCH,"ЗАГРУЗКА МАТЧА"
+MSG_LOADING_MATCH_WAIT,"ЗАГРУЗКА МАТЧА, ПОДОЖДИТЕ..."
+MSG_OPPONENT_WAIT,"ОЖИДАНИЕ СОПЕРНИКА..."
+MSG_CHECKING_STATE,"ПРОВЕРКА НОВЫХ ХОДОВ..."
+LABEL_REPLAYING_MOVES,"ЗАПИСАННЫЙ ХОД"
+LABEL_REFRESH,ОБНОВИТЬ
+LABEL_MULTIPLAYER,МУЛЬТИПЛЕЕР
+LABEL_CREATE,СОЗДАТЬ
+LABEL_FORFEIT,ШТРАФ
+LABEL_CLEAR,СТЕРЕТЬ
+LABEL_HELP,ПОМОЩЬ
+MSG_MULTIPLAYER_WELCOME,"ДОБРО ПОЖАЛОВАТЬ В ToF multiplayer!"
+TIP_ONLINE_HELP_1,"Чтобы создать матч, нажмите кнопку СОЗДАТЬ в свободном слоте. Если такой кнопки нет, значит нужно скачать онлайн карту. Посетите https://online.tof.p1x.in. ! Если ты уже создал такцю карту, можешь поделиться ею с друзьями через код"
+TIP_ONLINE_HELP_2,"Когда ты в матче, есть время подумать и тебе, и оппоненту.Запомни – ты не обязан ждать соперника. Всегда есть кампания, режим состязания и еще три слота для мультиплеера. Еще можно покинуть битву, но будешь ли ты это делать?"
+TIP_ONLINE_HELP_3,"Можно создать только 4 слота игры, так что можно удалять уже сыгранные матчи"
+MSG_SPAWN_BLOCKED,СПАВН ЗАБЛОКИРОВАН
+MSG_MULTIPLAYER_LOBBY_HEADLINE,ОНЛАЙН ЛОББИ
+MSG_MULTIPLAYER_LOBBY_SUB,"Ты можешь иметь до четырех матчей"
+LABEL_WORKSHOP_CLEAR_MAP,ОЧИСТИТЬ ВСЕ
+MSG_WORKSHOP_FILL_MAP,ЗАПОЛНИТЬ КАРТУ ТАЙАМИ ТРАВЫ
+LABEL_WORKSHOP_TILES,ТАЙЛЫ
+LABEL_PREVIEW,ПРЕДПРОСМОТР
+MSG_ASK_UPLOAD,"НАЧАТЬ ЭКСПОРТ КАРТЫ?"
