@@ -3,6 +3,7 @@
 ## Changelog
 
 ### 0.7.0-beta
+- integrated RU language
 
 ### 0.6.3-beta
 - added 'back' behaviour to most menus
