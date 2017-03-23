@@ -36,7 +36,7 @@ func hide():
     self.build_card.hide()
 
 func fill_card(unit, cost, player_ap, spawn_field):
-    self.set_unit_name(unit.type_name)
+    self.set_unit_name(unit.get_type_name())
     self.set_unit_sprite(unit.type, unit.player)
     self.set_unit_price(cost)
     self.set_unit_stats(unit.attack, unit.life, unit.max_ap)

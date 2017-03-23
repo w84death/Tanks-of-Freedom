@@ -3,6 +3,7 @@ extends "behaviours.gd"
 func _init():
 	type = 1
 	type_name = 'tank'
+	type_name_label = 'LABEL_WORKSHOP_TANK'
 
 	life = 15
 	max_life = 15

@@ -12,6 +12,8 @@ var icon_shield
 var anim
 var teleport_anim
 var type = 0
+var type_name = ''
+var type_name_label = ''
 var kills = 0
 
 var life
@@ -217,6 +219,9 @@ func take_all_ap():
 
 func fix_initial_pos():
 	self.set_pos(self.get_pos() + sprite_offset_for_64x64)
+
+func get_type_name():
+	return tr(self.type_name_label)
 
 func _ready():
 	self.add_to_group("units")

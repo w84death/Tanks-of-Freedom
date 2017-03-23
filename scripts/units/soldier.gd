@@ -3,6 +3,7 @@ extends "behaviours.gd"
 func _init():
 	type = 0
 	type_name = 'soldier'
+	type_name_label = 'LABEL_WORKSHOP_INFANTRY'
 
 	life = 10
 	max_life = 10

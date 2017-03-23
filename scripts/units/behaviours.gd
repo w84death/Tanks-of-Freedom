@@ -1,7 +1,5 @@
 extends "res://scripts/units/unit_control.gd"
 
-var type_name = ''
-
 const action_attack = 0
 const action_move   = 1
 const action_capture = 2
@@ -63,7 +61,7 @@ func estimate_action(action_type, path_size, ap_cost, hiccup):
 	var score = 50 * modifier + (modifier_sign * self._get_health_modifier())
 	if hiccup:
 		score = score - HICCUP_MODIFIER
-		
+
 	score = score * self.action_type_modifiers[action_type]
 	score = score - ap_cost_modifier * ap_cost
 	score = score - path_size_modifier * path_size
