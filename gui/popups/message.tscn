@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=7]
-[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=8]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=8]
 
 [node name="message" type="Control"]
 

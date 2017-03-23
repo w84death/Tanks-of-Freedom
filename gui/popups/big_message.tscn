@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=9]
 [ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=10]
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=11]
-[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=12]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=12]
 
 [node name="online" type="CenterContainer"]
 

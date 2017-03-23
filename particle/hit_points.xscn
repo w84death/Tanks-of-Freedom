@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.stable.official">
-	<ext_resource path="res://gui/h1_theme.tres" type="Theme" index="0"></ext_resource>
+	<ext_resource path="res://gui/font_22.tres" type="Theme" index="0"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/icons.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://particle/explosion.gd" type="Script" index="1"></ext_resource>
 	<resource type="Animation" path="local://1">

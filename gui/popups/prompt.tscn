@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=8]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=9]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_7.png" type="Texture" id=10]
-[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=11]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=11]
 
 [sub_resource type="Theme" id=1]
 

@@ -18,7 +18,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=16]
 [ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=17]
 [ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=18]
-[ext_resource path="res://gui/h1_theme.tres" type="Theme" id=19]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=19]
 [ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=20]
 
 [node name="online" type="CenterContainer"]

@@ -7,7 +7,7 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" index="16"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" index="17"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" index="18"></ext_resource>
-	<ext_resource path="res://gui/h1_theme.tres" type="Theme" index="12"></ext_resource>
+	<ext_resource path="res://gui/font_22.tres" type="Theme" index="12"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" index="7"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" index="11"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" index="13"></ext_resource>
