@@ -178,6 +178,10 @@ func close_message_card():
     action_controller.move_camera_to_active_bunker()
     action_controller.show_bonus_ap()
     hud_message_card_visible = false
+    self.root.bag.storyteller.register_story_event({
+        'type' : 'turn',
+        'details' : {'turn' : self.root.bag.controllers.action_controller.turn}
+    })
 
 func lock_hud():
     self.hud_locked = true

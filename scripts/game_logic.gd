@@ -146,8 +146,6 @@ func _input(event):
         if self.is_debug:
             if event.type == InputEvent.KEY && event.scancode == KEY_F && event.pressed:
                 self.bag.fog_controller.toggle_fog()
-            if event.type == InputEvent.KEY && event.scancode == KEY_S && event.pressed:
-                self.bag.storyteller.tell_a_story()
 
 
         if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
@@ -227,6 +225,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.bag.match_state.reset()
     if not workshop_file_name:
         self.bag.match_state.set_campaign_map(template_name)
+        self.bag.storyteller.load_map_story(self.bag.campaign.get_map_stories(template_name))
 
     if load_saved_state && self.bag.saving != null:
         self.bag.saving.apply_saved_buildings()
@@ -261,6 +260,7 @@ func unload_map():
         return
 
     is_map_loaded = false
+    self.bag.storyteller.clear_stories()
     current_map_terrain.remove_child(selector)
     scale_root.remove_child(current_map)
     current_map.queue_free()

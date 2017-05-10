@@ -147,3 +147,7 @@ func __do_panning(diff_x, diff_y):
         return false
 
     return true
+
+func stop():
+    self.set_pos(self.pos)
+    self.panning = false
