@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="6" version="2.1" version_name="Godot Engine v2.1.stable.official">
-	<ext_resource path="res://gui/font_22.tres" type="Theme" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="6" version="2.1" version_name="Godot Engine v2.1.3.stable.official">
 	<ext_resource path="res://assets/gui/extras/black-box.png" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://gui/font_22.tres" type="Theme" index="1"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/progress.png" type="Texture" index="2"></ext_resource>
 	<resource type="Animation" path="local://2">
 		<string name="resource/name"> "off" </string>
@@ -43,7 +43,7 @@
 			</array>
 		</dictionary>
 		<string name="tracks/2/type"> "value" </string>
-		<node_path name="tracks/2/path"> "bottom/bottom_block/wait:visibility/visible" </node_path>
+		<node_path name="tracks/2/path"> "bottom/progress/wait:visibility/visible" </node_path>
 		<int name="tracks/2/interp"> 1 </int>
 		<bool name="tracks/2/imported"> False </bool>
 		<dictionary name="tracks/2/keys" shared="false">
@@ -59,7 +59,7 @@
 			</array>
 		</dictionary>
 		<string name="tracks/3/type"> "value" </string>
-		<node_path name="tracks/3/path"> "bottom/bottom_block/progress:visibility/visible" </node_path>
+		<node_path name="tracks/3/path"> "bottom/progress/progress:visibility/visible" </node_path>
 		<int name="tracks/3/interp"> 1 </int>
 		<bool name="tracks/3/imported"> False </bool>
 		<dictionary name="tracks/3/keys" shared="false">
@@ -116,7 +116,7 @@
 			</array>
 		</dictionary>
 		<string name="tracks/2/type"> "value" </string>
-		<node_path name="tracks/2/path"> "bottom/bottom_block/wait:visibility/visible" </node_path>
+		<node_path name="tracks/2/path"> "bottom/progress/wait:visibility/visible" </node_path>
 		<int name="tracks/2/interp"> 1 </int>
 		<bool name="tracks/2/imported"> False </bool>
 		<dictionary name="tracks/2/keys" shared="false">
@@ -133,7 +133,7 @@
 			</array>
 		</dictionary>
 		<string name="tracks/3/type"> "value" </string>
-		<node_path name="tracks/3/path"> "bottom/bottom_block/progress:visibility/visible" </node_path>
+		<node_path name="tracks/3/path"> "bottom/progress/progress:visibility/visible" </node_path>
 		<int name="tracks/3/interp"> 1 </int>
 		<bool name="tracks/3/imported"> False </bool>
 		<dictionary name="tracks/3/keys" shared="false">
@@ -187,6 +187,7 @@
 				<string> "bottom" </string>
 				<string> "anchor/top" </string>
 				<string> "bottom_block" </string>
+				<string> "progress" </string>
 				<string> "wait" </string>
 				<string> "visibility/visible" </string>
 				<string> "theme/theme" </string>
@@ -196,7 +197,6 @@
 				<string> "lines_skipped" </string>
 				<string> "max_lines_visible" </string>
 				<string> "Label" </string>
-				<string> "progress" </string>
 				<string> "vframes" </string>
 				<string> "anim" </string>
 				<string> "playback/process_mode" </string>
@@ -211,12 +211,12 @@
 				<string> "AnimationPlayer" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 10 </int>
+			<int> 11 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="238"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 0, 0, 0, 15, 13, -1, 10, 1, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 14, 1, 0, 1, 0, 12, 16, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 6, 8, 4, 9, 6, 10, 4, 0, 2, 0, 21, 17, -1, 3, 18, 7, 19, 8, 20, 9, 0, 0, 0, 15, 22, -1, 12, 23, 0, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 14, 1, 0, 4, 0, 12, 24, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 6, 8, 4, 9, 6, 10, 4, 0, 5, 0, 21, 17, -1, 3, 18, 10, 19, 8, 20, 9, 0, 5, 0, 33, 25, -1, 15, 26, 1, 3, 2, 4, 2, 5, 3, 6, 11, 27, 12, 7, 13, 8, 14, 9, 6, 10, 15, 28, 16, 29, 0, 30, 17, 31, 11, 32, 18, 0, 5, 0, 21, 34, -1, 5, 26, 1, 18, 19, 19, 20, 20, 21, 35, 22, 0, 0, 0, 46, 36, -1, 9, 37, 0, 38, 4, 39, 23, 40, 24, 41, 25, 42, 2, 43, 17, 44, 26, 45, 27, 0 </int_array>
+			<int_array  len="261"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 0, 0, 0, 15, 13, -1, 10, 1, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 14, 1, 0, 1, 0, 12, 16, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 6, 8, 4, 9, 6, 10, 4, 0, 2, 0, 21, 17, -1, 3, 18, 7, 19, 8, 20, 9, 0, 0, 0, 15, 22, -1, 12, 23, 0, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 14, 1, 0, 4, 0, 12, 24, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 6, 8, 4, 9, 6, 10, 4, 0, 5, 0, 21, 17, -1, 3, 18, 10, 19, 8, 20, 9, 0, 4, 0, 12, 25, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 6, 8, 4, 9, 6, 10, 4, 0, 7, 0, 34, 26, -1, 15, 27, 1, 3, 2, 4, 2, 5, 3, 6, 11, 28, 12, 7, 13, 8, 14, 9, 6, 10, 15, 29, 16, 30, 0, 31, 17, 32, 11, 33, 18, 0, 7, 0, 21, 25, -1, 5, 27, 1, 18, 19, 19, 20, 20, 21, 35, 22, 0, 0, 0, 46, 36, -1, 9, 37, 0, 38, 4, 39, 23, 40, 24, 41, 25, 42, 2, 43, 17, 44, 26, 45, 27, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="28" shared="false">
 				<int> 1 </int>
