@@ -79,8 +79,7 @@ func init_root(root, map, hud):
     self.root_node.bag.abstract_map.create_tile_type_map()
     self.root_node.bag.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
 
-    pathfinding = preload('res://scripts/ai/pathfinding/a_star_pathfinding.gd').new()
-    ai = preload("res://scripts/ai/ai.gd").new(self.positions, pathfinding, self.root_node.bag.abstract_map, self)
+    ai = self.root_node.bag.ai
 
     var interaction_template = load('res://gui/movement.xscn')
     for direction in self.interaction_indicators:

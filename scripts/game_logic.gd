@@ -220,7 +220,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     action_controller = self.bag.controllers.action_controller
     action_controller.init_root(self, current_map, hud)
     hud_controller = action_controller.hud_controller
-    action_controller.ai.prepare_cost_grid()
+    self.bag.a_star.prepare_map_grid(self.bag.abstract_map)
     if load_saved_state && self.bag.saving != null:
         self.bag.saving.apply_saved_ground()
 
