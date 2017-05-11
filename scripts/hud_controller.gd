@@ -90,8 +90,8 @@ func init_root(root, action_controller_object, hud):
     #
     cinematic_camera = hud.get_node("cinematic_camera")
     cinematic_camera_anim = cinematic_camera.get_node("anim")
-    cinematic_progress = cinematic_camera.get_node("bottom/bottom_block/progress")
-    cinematic_label = cinematic_camera.get_node("bottom/bottom_block/wait")
+    cinematic_progress = cinematic_camera.get_node("bottom/progress/progress")
+    cinematic_label = cinematic_camera.get_node("bottom/progress/wait")
 
     self.menu_button = hud.get_node("top_center/center/game_card/menu")
     self.menu_button_label = self.menu_button.get_node('Label')
