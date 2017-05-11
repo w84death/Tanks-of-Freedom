@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=1]
+
+[node name="box1" type="Control"]
+
+rect/min_size = Vector2( 190, 80 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 180.0
+margin/bottom = 80.0
+
+[node name="title" type="Label" parent="."]
+
+anchor/right = 1
+rect/min_size = Vector2( 0, 32 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 32.0
+text = "SAMPLE TXT NAME"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="buttons" type="CenterContainer" parent="."]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 0, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 4.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Container" parent="buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 93.0
+margin/top = 24.0
+margin/right = 93.0
+margin/bottom = 24.0
+
+[node name="first" type="Button" parent="buttons/center"]
+
+rect/min_size = Vector2( 90, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = -45.0
+margin/top = -24.0
+margin/right = 45.0
+margin/bottom = 24.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
+
+
