@@ -21,6 +21,7 @@ var camera_speed = 1.5
 
 var temp_delta = 0
 var panning = false
+var forced_movement = false
 
 const CAMERA_ACCELERATION = 1.5
 const MAP_STEP = 0.01
@@ -90,8 +91,9 @@ func set_camera_zoom(zoom_value):
     self.scale = Vector2(zoom_value, zoom_value)
     self.bag.controllers.menu_controller.update_background_scale()
 
-func move_to_map(target):
-    if not root.settings['camera_follow']:
+func move_to_map(target, forced_movement = false):
+    self.forced_movement = forced_movement
+    if not root.settings['camera_follow'] and not self.forced_movement:
         if not root.is_demo_mode():
             return
 
@@ -133,6 +135,7 @@ func process(delta):
             temp_delta = 0
     else:
         panning = false
+        self.forced_movement = false
 
     if self.do_cinematic_pan:
         self.do_awesome_cinematic_pan()

@@ -7,4 +7,4 @@ func perform(action_details):
         self.bag.camera.camera_speed = self.bag.camera.CAMERA_ACCELERATION
     if action_details.has('zoom'):
         self.bag.camera.set_zoom_value(action_details['zoom'])
-    self.bag.camera.move_to_map(action_details['where'])
+    self.bag.camera.move_to_map(action_details['where'], true)
