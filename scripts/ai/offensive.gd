@@ -26,7 +26,7 @@ func push_front(unit, buildings, own_units):
     var unit_pos = unit.get_pos_map()
     for position in buildings:
         destination = buildings[position].spawn_point
-        distance = self.pathfinding.distance(unit_pos, destination)
+        distance = self.pathfinding.get_distance(unit_pos, destination)
         if distance >= self.MINIMAL_DISTANCE :
             if closest_destination == null || distance < closest_path_length:
                 closest_destination = destination
