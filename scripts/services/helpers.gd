@@ -21,3 +21,10 @@ func comp_dates(date1, date2, params=['year', 'month', 'day']):
 func comp(a, b):
     return clamp(a - b , -1, 1)
 
+
+func array_last_element(array):
+    var size = array.size()
+    if size == 0:
+        return null
+
+    return array[size - 1]

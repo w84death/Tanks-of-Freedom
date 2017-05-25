@@ -69,6 +69,7 @@ func create_field(position):
 func is_spawning_point(position):
 	return tilemap.get_cell(position.x, position.y) == 13
 
+#deprecated
 func create_tile_type_map():
 	var row
 	self.cost_map = []

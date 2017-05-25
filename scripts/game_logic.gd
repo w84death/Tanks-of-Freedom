@@ -165,11 +165,6 @@ func move_selector_to_map_position(pos):
     selector.set_pos(position)
     selector_position = pos
 
-func start_ai_timer():
-    ai_timer.reset_state()
-    ai_timer.inject_action_controller(action_controller, hud_controller)
-    ai_timer.start()
-
 func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false):
     var human_player = 'cpu_0'
     self.unload_map()
@@ -251,6 +246,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         self.unlock_for_player()
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
+    self.bag.new_ai.reset()
 
 func restart_map():
     self.load_map(current_map_name, workshop_file_name, false, self.is_remote)
@@ -271,8 +267,7 @@ func unload_map():
     self.remove_child(hud)
     hud.queue_free()
     hud = null
-    selector.reset()
-    ai_timer.reset_state()
+    selector.reset() 
     hud_controller = null
     action_controller = null
     self.menu.show_background_map()
@@ -378,7 +373,6 @@ func write_settings_to_file():
 func _ready():
     self.bag = preload('res://scripts/services/dependency_container.gd').new()
     self.scale_root = get_node("/root/game/viewport/pixel_scale")
-    self.ai_timer = get_node("AITimer")
     self.read_settings_from_file()
     TranslationServer.set_locale(self.settings['language'])
     if self.hud_layout == "overscan":

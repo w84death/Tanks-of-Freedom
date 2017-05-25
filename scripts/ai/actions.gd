@@ -1,10 +1,18 @@
 var actions = {}
+var action = preload('actions/action.gd')
+var estimate = preload('actions/estimate.gd').new()
 
-func append_action(action, score):
-    if self.actions.has(score):
-        score = score + floor(randf() * 20)
+func add_action(unit, destination):
+    var action = self.create_action(unit, destination)
+    action.score = self.estimate.run(action)
+    if self.actions.has(action.score):
+        action.score = action.score + floor(randf() * 20)
 
-    self.actions[score] = action
+    self.actions[action.score] = action
+
+func create_action(unit, destination):
+    #print('create action :', unit.position_on_map , ' where:' , destination.position_on_map)
+    return action.new(unit.position_on_map, destination, unit.get_instance_ID())
 
 func execute_best_action():
     var action = self.get_best_action()

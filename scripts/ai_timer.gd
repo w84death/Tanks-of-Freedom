@@ -49,7 +49,7 @@ func reset_state():
 	self.stop()
 	self.reset()
 	if action_controller != null:
-		action_controller.ai.reset_calculation_state()
+		root.bag.ai.reset_calculation_state()
 	action_controller = null
 	hud_controller = null
 
