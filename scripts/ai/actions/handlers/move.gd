@@ -23,7 +23,7 @@ func __on_success(action):
     if action.unit.ap == 0:
         action.score = 0
     if action.path.size() < 2:
-        self.bag.new_actions.remove(action)
+        self.bag.actions_handler.remove(action)
 
 
 func __on_fail(action):
@@ -32,7 +32,7 @@ func __on_fail(action):
     action.proceed = 0
     #action.path = Vector2Array([])
     if action.fails >= 3:
-        self.bag.new_actions.remove(action)
+        self.bag.actions_handler.remove(action)
         if self.get_actions_for_unit(action.unit).size() == 0:
             self.mark_unit_for_calculations(action.unit)
 

@@ -246,7 +246,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
         self.unlock_for_player()
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
-    self.bag.new_ai.reset()
+    self.bag.ai.reset()
 
 func restart_map():
     self.load_map(current_map_name, workshop_file_name, false, self.is_remote)

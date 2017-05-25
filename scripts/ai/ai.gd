@@ -28,11 +28,11 @@ func __do_ai(current_player, player_ap):
     self.__prepare_unit_actions()
     self.__prepare_building_actions()
 
-    var best_action = self.bag.new_actions.get_best_action(self.player)
+    var best_action = self.bag.actions_handler.get_best_action(self.player)
     if best_action == null:
         return false
     else:
-        var result = self.bag.new_actions.execute_best_action(best_action)
+        var result = self.bag.actions_handler.execute_best_action(best_action)
         return self.check_continue_turn(result)
 
 func check_continue_turn(res):
@@ -94,8 +94,8 @@ func __prepare_building_actions():
             self.__add_action(building, null)
 
 func __add_action(unit, destination):
-    self.bag.new_actions.add_action(unit, destination)
+    self.bag.actions_handler.add_action(unit, destination)
 
 func reset():
     self.processed_units_object_ids.clear()
-    self.bag.new_actions.reset()
+    self.bag.actions_handler.reset()
