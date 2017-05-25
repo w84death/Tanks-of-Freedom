@@ -17,7 +17,7 @@ func create_action(unit, destination):
 
 func execute_best_action(action):
     if action != null:
-        if self.bag.AI_DEBUG:
+        if self.bag.new_ai.AI_DEBUG:
             self.bag.logger.store('<execute>' + action.__to_string())
         return self.bag.action_handler.execute(action)
 
@@ -26,13 +26,13 @@ func execute_best_action(action):
 func get_best_action(player):
     if self.actions.empty():
         return null
-    if self.bag.AI_DEBUG:
+    if self.bag.new_ai.AI_DEBUG:
         self.bag.logger.store('get best action for player %d' % player)
     self.reestimate_user_actions(player)
     var best = null
     self.actions.sort_custom(self, "__best_first")
 
-    if self.bag.AI_DEBUG:
+    if self.bag.new_ai.AI_DEBUG:
         for action in self.actions:
             if action.unit.player == player:
                 self.bag.logger.store(action.__to_string())

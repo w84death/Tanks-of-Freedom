@@ -9,7 +9,6 @@ var active_indicator = preload('res://gui/selector.xscn').instance()
 var hud_controller = preload('res://scripts/hud_controller.gd').new()
 var status = load('res://scripts/controllers/action_status.gd').new()
 var sound_controller
-var ai
 var pathfinding
 var demo_timer
 var positions
@@ -21,6 +20,7 @@ var turn = 1
 var title
 var camera
 var is_cpu_player
+var start_ap_for_current_turn = 0
 
 var game_ended = false
 
@@ -41,7 +41,6 @@ func reset():
     self.selector = null
     self.active_field = null
     self.sound_controller = null
-    self.ai = null
     self.pathfinding = null
     self.demo_timer = null
     self.positions = null
@@ -79,9 +78,6 @@ func init_root(root, map, hud):
 
     self.root_node.bag.abstract_map.create_tile_type_map()
     self.root_node.bag.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
-
-    ai = self.root_node.bag.ai
-
     var interaction_template = load('res://gui/movement.xscn')
     for direction in self.interaction_indicators:
         self.interaction_indicators[direction]['indicator'] = interaction_template.instance()
@@ -425,7 +421,7 @@ func switch_to_player(player, save_game=true):
             self.refill_ap()
             self.root_node.bag.perform.start_ai_timer()
             self.show_bonus_ap()
-            self.root_node.bag.ai.set_ap_for_turn(self.player_ap[player])
+            self.start_ap_for_current_turn = self.player_ap[player]
             self.root_node.lock_for_cpu()
         self.move_camera_to_active_bunker()
     else:
@@ -443,11 +439,10 @@ func switch_to_player(player, save_game=true):
 func perform_ai_stuff():
     var success = false
     if self.is_cpu_player && player_ap[current_player] > 0:
-#        success = self.root_node.bag.ai.gather_available_actions(player_ap[current_player])
         #TODO
         success = self.root_node.bag.new_ai.start_do_ai(current_player, player_ap[current_player])
 
-    self.hud_controller.update_cpu_progress(player_ap[current_player], self.root_node.bag.ai.ap_for_turn)
+    self.hud_controller.update_cpu_progress(player_ap[current_player], self.start_ap_for_current_turn)
 
     return player_ap[current_player] > 0 && success
 
@@ -599,3 +594,4 @@ func switch_unit(direction):
         if self.active_field != null:
             self.root_node.move_selector_to_map_position(self.active_field.position)
             self.move_camera_to_point(self.active_field.position)
+

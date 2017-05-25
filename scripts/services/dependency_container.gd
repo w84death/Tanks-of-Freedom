@@ -50,7 +50,6 @@ var script_player = preload('res://scripts/services/script_player.gd').new()
 var battle_stats = preload("res://scripts/battle_stats.gd").new()
 var game_conditions = preload("res://scripts/game_conditions.gd").new()
 var a_star = preload("res://scripts/ai/pathfinding/a_star.gd").new()
-var ai = preload("res://scripts/ai/ai.gd").new()
 var new_ai = preload("res://scripts/ai/new_ai.gd").new()
 var new_actions = preload("res://scripts/ai/new_actions.gd").new()
 var estimate = preload("res://scripts/ai/actions/estimate.gd").new()
@@ -63,8 +62,6 @@ var storyteller = preload("res://scripts/storyteller/storyteller.gd").new()
 
 var saving = null
 var workshop = null
-
-const AI_DEBUG = false
 
 func init_root(root_node):
     self.root = root_node
@@ -122,7 +119,6 @@ func init_root(root_node):
     self.script_player._init_bag(self)
     self.game_conditions._init_bag(self)
     self.a_star._init_bag(self)
-    self.ai._init_bag(self)
     self.new_ai._init_bag(self)
     self.new_actions._init_bag(self)
     self.estimate._init_bag(self)

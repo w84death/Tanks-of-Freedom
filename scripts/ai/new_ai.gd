@@ -1,6 +1,5 @@
 extends "res://scripts/bag_aware.gd"
 
-var thread
 var processed_units_object_ids = []
 var player
 var player_ap
@@ -8,39 +7,19 @@ var own_units
 
 const MIN_DESTINATION_PER_UNIT = 1
 const SPAWN_LIMIT = 50
-const THREADED = false
+const AI_DEBUG = false
 
 func _initialize():
-    thread = Thread.new()
+    pass
 
 func start_do_ai(current_player, player_ap):
-    if self.THREADED:
-        if (thread.is_active()):
-            print("thread active")
-            return
-        print("start thread")
-        thread.start(self, "__do_ai_thread", {"player" : current_player, "ap" : player_ap})
-    else:
-        var res = self.__do_ai(current_player, player_ap)
-        if res == false and self.bag.AI_DEBUG:
-            self.bag.logger.store('----------------------------- NEW TURN player %d, ap %d -------------------------- ' % [current_player, player_ap])
-        return res
-
-func __do_ai_thread(params):
-    #do ai stuff
-    print("do ai thread")
-    var result = self.__do_ai(params["player"], params["ap"])
-    # Call __ai_done on main thread
-    call_deferred("__ai_done")
-    return result
-
-func __ai_done():
-    print("thread finish")
-    var result = thread.wait_to_finish()
-    return result
+     var res = self.__do_ai(current_player, player_ap)
+     if res == false and self.AI_DEBUG:
+        self.bag.logger.store('----------------------------- NEW TURN player %d, ap %d -------------------------- ' % [current_player, player_ap])
+     return res
 
 func __do_ai(current_player, player_ap):
-    if self.bag.AI_DEBUG:
+    if self.AI_DEBUG:
         self.bag.logger.store('--- do ai --- player %d, ap %d' % [current_player, player_ap])
 
     self.player = current_player
