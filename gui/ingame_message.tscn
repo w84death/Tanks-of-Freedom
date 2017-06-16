@@ -1,0 +1,169 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://gui/panel_gray.tres" type="Theme" id=1]
+[ext_resource path="res://assets/units/civilians_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=3]
+
+[node name="ingame_message" type="Control"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 0, 128 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 24.0
+margin/top = 152.0
+margin/right = 24.0
+margin/bottom = 24.0
+
+[node name="panels" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="Panel" type="Panel" parent="panels"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="messages" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+
+[node name="center" type="CenterContainer" parent="messages"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="conversation" type="Control" parent="messages/center"]
+
+rect/min_size = Vector2( 512, 96 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 1
+size_flags/vertical = 2
+margin/left = 360.0
+margin/top = 16.0
+margin/right = 872.0
+margin/bottom = 112.0
+
+[node name="message" type="Label" parent="messages/center/conversation"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="avatar" type="Control" parent="messages/center"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 616.0
+margin/top = 64.0
+margin/right = 616.0
+margin/bottom = 64.0
+
+[node name="left" type="Sprite" parent="messages/center/avatar"]
+
+transform/pos = Vector2( -320, -32 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+flip_h = true
+vframes = 4
+hframes = 6
+
+[node name="right" type="Sprite" parent="messages/center/avatar"]
+
+transform/pos = Vector2( 320, -32 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 6
+frame = 3
+
+[node name="controls" type="Control" parent="."]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 32.0
+margin/top = 32.0
+margin/right = 64.0
+margin/bottom = 64.0
+
+[node name="close" type="Button" parent="controls"]
+
+rect/min_size = Vector2( 90, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 3 )
+margin/left = -70.0
+margin/top = -28.0
+margin/right = 20.0
+margin/bottom = 20.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "CLOSE"
+flat = false
+
+
