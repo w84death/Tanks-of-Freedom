@@ -8,6 +8,7 @@ var building_block_panel_wrapper
 var terrain_button
 var buildings_button
 var units_button
+var close_button
 
 var blocks_area
 var block_template = preload("res://gui/workshop/block.xscn")
@@ -80,10 +81,12 @@ func bind_panel(building_block_panel_wrapper_node):
     self.buildings_button = self.building_block_panel.get_node("controls/buildings_button")
     self.units_button = self.building_block_panel.get_node("controls/units_button")
     self.blocks_area = self.building_block_panel.get_node("controls/blocks")
+    self.close_button = self.building_block_panel.get_node("controls/close_button")
 
     self.terrain_button.connect("pressed", self, "_category_button_pressed", [self.terrain_blocks])
     self.buildings_button.connect("pressed", self, "_category_button_pressed", [self.buildings_blocks])
     self.units_button.connect("pressed", self, "_category_button_pressed", [self.units_blocks])
+    self.close_button.connect("pressed", self, "hide")
 
     self.fill_blocks_panel(self.terrain_blocks)
 

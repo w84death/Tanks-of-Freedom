@@ -13,6 +13,7 @@ var fill_button
 var clear_terrain_button
 var clear_units_button
 var theme_button
+var close_button
 
 var theme_rotation = {
     'summer' : 'fall',
@@ -33,7 +34,7 @@ func init_root(root_node):
 func bind_panel(toolbox_panel_wrapper_node):
     self.toolbox_panel_wrapper = toolbox_panel_wrapper_node
     self.toolbox_panel = self.toolbox_panel_wrapper.get_node("center/toolbox")
-
+    self.close_button = self.toolbox_panel.get_node("front/close")
     self.fill_x_button = self.toolbox_panel.get_node("front/x")
     self.fill_x_button_label = self.fill_x_button.get_node("label")
     self.fill_y_button = self.toolbox_panel.get_node("front/y")
@@ -47,6 +48,8 @@ func bind_panel(toolbox_panel_wrapper_node):
     self.fill_y_button.connect("pressed", self, "fill_axis_button_pressed", [self.fill_y_button_label, 1])
     self.refresh_axis_button_label(self.fill_x_button_label, 0)
     self.refresh_axis_button_label(self.fill_y_button_label, 1)
+
+    self.close_button.connect("pressed", self, "hide")
 
     self.fill_button.connect("pressed", self, "fill_button_pressed")
     self.clear_terrain_button.connect("pressed", self ,"_clear_button_pressed", [0])
