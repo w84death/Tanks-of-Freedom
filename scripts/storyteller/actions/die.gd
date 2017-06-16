@@ -5,3 +5,5 @@ func perform(action_details):
     field.object.die_after_explosion(null)
     field.object = null
     self.bag.root.action_controller.collateral_damage(action_details['who'])
+
+    self.bag.positions.refresh_units()

@@ -39,7 +39,7 @@ func check_continue_turn(res):
     randomize()
     if self.player_ap == 0:
         return false
-    if self.player_ap < 10 and (randi() % self.player_ap) == 0:
+    if self.player_ap < 10 and (randi() % int(self.player_ap)) == 0:
         return false
 
     return true

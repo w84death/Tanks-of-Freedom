@@ -3,6 +3,7 @@
 ## Changelog
 
 ### 0.7.0-beta
+- scripted map events in campaign
 - integrated RU language
 
 ### 0.6.3-beta

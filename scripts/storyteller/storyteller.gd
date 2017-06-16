@@ -57,7 +57,7 @@ func perform_next_action():
     if self.story_bookmark == self.current_story.size():
         return
 
-    if self.pause or self.bag.camera.panning:
+    if self.pause or self.bag.camera.panning or self.bag.root.is_paused:
         self.bag.timers.set_timeout(self.STEP_INTERVAL, self, "perform_next_action")
         return
 
