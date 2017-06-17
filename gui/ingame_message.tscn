@@ -73,29 +73,30 @@ margin/right = 0.0
 margin/bottom = 0.0
 use_top_left = false
 
-[node name="conversation" type="Control" parent="messages/center"]
+[node name="left" type="Control" parent="messages/center"]
 
-rect/min_size = Vector2( 512, 96 )
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 1
+size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 360.0
-margin/top = 16.0
-margin/right = 872.0
-margin/bottom = 112.0
+margin/left = 616.0
+margin/top = 64.0
+margin/right = 616.0
+margin/bottom = 64.0
 
-[node name="message" type="Label" parent="messages/center/conversation"]
+[node name="message" type="Label" parent="messages/center/left"]
 
 anchor/right = 1
 anchor/bottom = 1
+rect/min_size = Vector2( 512, 96 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
+margin/left = -256.0
+margin/top = -48.0
+margin/right = -256.0
 margin/bottom = 0.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 autowrap = true
@@ -104,7 +105,43 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="avatar" type="Control" parent="messages/center"]
+[node name="avatar" type="Control" parent="messages/center/left"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -320.0
+margin/top = 0.0
+margin/right = -320.0
+margin/bottom = 0.0
+
+[node name="sprite" type="Sprite" parent="messages/center/left/avatar"]
+
+transform/pos = Vector2( 0, -32 )
+transform/scale = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+flip_h = true
+vframes = 4
+hframes = 6
+
+[node name="name" type="Label" parent="messages/center/left/avatar"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -64.0
+margin/top = 30.0
+margin/right = 64.0
+margin/bottom = 44.0
+text = "SAMPLE NAME"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="right" type="Control" parent="messages/center"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -115,23 +152,62 @@ margin/top = 64.0
 margin/right = 616.0
 margin/bottom = 64.0
 
-[node name="left" type="Sprite" parent="messages/center/avatar"]
+[node name="message" type="Label" parent="messages/center/right"]
 
-transform/pos = Vector2( -320, -32 )
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 512, 96 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -256.0
+margin/top = -48.0
+margin/right = -256.0
+margin/bottom = 0.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
+align = 2
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="avatar" type="Control" parent="messages/center/right"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 320.0
+margin/top = 0.0
+margin/right = 320.0
+margin/bottom = 0.0
+
+[node name="sprite" type="Sprite" parent="messages/center/right/avatar"]
+
+transform/pos = Vector2( 0, -32 )
 transform/scale = Vector2( 8, 8 )
 texture = ExtResource( 2 )
-flip_h = true
 vframes = 4
 hframes = 6
+frame = 8
 
-[node name="right" type="Sprite" parent="messages/center/avatar"]
+[node name="name" type="Label" parent="messages/center/right/avatar"]
 
-transform/pos = Vector2( 320, -32 )
-transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
-vframes = 4
-hframes = 6
-frame = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -64.0
+margin/top = 30.0
+margin/right = 64.0
+margin/bottom = 44.0
+text = "SAMPLE NAME"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="controls" type="Control" parent="."]
 
