@@ -4,7 +4,13 @@ var bag
 var score
 
 # TYPE_BUNKER / TYPE_BARRACKS / TYPE_FACTORY / TYPE_AIRPORT / TYPE_TOWER
-var waypoint_value = {0: 12, 1 : 6, 2: 7, 3: 3, 4: 8}
+var waypoint_value = {
+	0: 12,  # TYPE_BUNKER
+	1: 6, # TYPE_BARRACKS
+	2: 7, # TYPE_FACTORY
+	3: 3, # TYPE_AIRPORT
+	4: 9 # TYPE_TOWER
+	}
 
 func __ap_level(unit):
 	return 1.0 * unit.ap / unit.max_ap
