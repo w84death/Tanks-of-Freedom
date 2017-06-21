@@ -9,3 +9,4 @@ export.cfg
 *.tmp
 *.keystore
 *export_android.cfg
+logs/log.txt

@@ -2,6 +2,9 @@ const PATH = 'res://logs/log.txt'
 
 var file = File.new()
 
+func _init():
+    self.__create_file_if_no_exists()
+
 func store(data):
     file.open(self.PATH, File.READ_WRITE)
     file.seek_end(0)
@@ -10,13 +13,10 @@ func store(data):
     file.store_line(date_str + data)
     file.close()
 
-#func __create_file_if_no_exists(path):
-#    if !file.file_exists(path):
-#       self.write(path, {'is_ok' : 1})
-#
-#        return false
-#
-#    return true
-
 func file_exists(path):
     return self.file.file_exists(path)
+
+func __create_file_if_no_exists():
+    if !file.file_exists(self.PATH):
+        file.open(self.PATH, File.WRITE)
+        file.close()

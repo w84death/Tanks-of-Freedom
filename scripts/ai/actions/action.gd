@@ -35,5 +35,8 @@ func __info(string=''):
 
 func __to_string():
     var msg = "id: %5d t: %7s sc: %6.2f u: %5s d: %14s ap: %s p: %s proc: %s s: %s"
-      #" u: " + self.unit + " d:" + self.destination + " p: " + self.path +" proc: " +self.proceed +" score: " + self.score
-    return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), self.destination, self.unit.ap, self.path, self.proceed, self.unit.position_on_map]
+    var ap = 0;
+    if self.unit.group != 'building':
+        ap = self.unit.ap
+
+    return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), self.destination, ap, self.path, self.proceed, self.unit.position_on_map]

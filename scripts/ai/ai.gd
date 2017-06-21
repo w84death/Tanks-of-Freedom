@@ -4,22 +4,23 @@ var processed_units_object_ids = []
 var player
 var player_ap
 var own_units
+var ai_logger_enabled
 
 const MIN_DESTINATION_PER_UNIT = 1
 const SPAWN_LIMIT = 50
-const AI_DEBUG = false
 
 func _initialize():
+    self.ai_logger_enabled = Globals.get('tof/ai_logger')
     pass
 
 func start_do_ai(current_player, player_ap):
      var res = self.__do_ai(current_player, player_ap)
-     if res == false and self.AI_DEBUG:
+     if res == false and self.ai_logger_enabled:
         self.bag.logger.store('----------------------------- NEW TURN player %d, ap %d -------------------------- ' % [current_player, player_ap])
      return res
 
 func __do_ai(current_player, player_ap):
-    if self.AI_DEBUG:
+    if self.ai_logger_enabled:
         self.bag.logger.store('--- do ai --- player %d, ap %d' % [current_player, player_ap])
 
     self.player = current_player
