@@ -8,10 +8,11 @@ const CAPTURE_MOD = 300
 const ATTACK_MOD  = 200
 const MOVE_MOD    = 100
 
+# soldier / tank / heli
 var capture_modifiers = IntArray([5, 2, 2])
-var attack_modifiers = IntArray([4, 6, 8])
-var move_capture_modifiers = IntArray([5, 2, 3])
-var move_attack_modifiers = IntArray([2, 2, 5])
+var attack_modifiers = IntArray([4, 6, 7])
+var move_capture_modifiers = IntArray([5, 1, 3])
+var move_attack_modifiers = IntArray([2, 2, 3])
 
 func _init(bag):
     self.bag = bag

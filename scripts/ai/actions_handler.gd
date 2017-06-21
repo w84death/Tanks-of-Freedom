@@ -5,7 +5,6 @@ var action = preload('actions/action.gd')
 
 func add_action(unit, destination):
     if self.get_action(unit, destination):
-#        print("similar action exists - skipping!!!")
         return
 
     var action = self.create_action(unit, destination)
@@ -41,7 +40,6 @@ func get_best_action(player):
         if action.unit.player == player:
            best = action
            break
-#    best.__info()
     if best == null or best.score == 0:
         return null
 
@@ -73,7 +71,6 @@ func reset():
 
 func fix_path_if_faulty(action): #TODO - this pobably should be done in action handler?
     if action.path.size() and action.unit.position_on_map != action.path[0]:
-        #print("fix pathv - path bug")
         action.fix_path()
         return true
     return false
@@ -81,7 +78,6 @@ func fix_path_if_faulty(action): #TODO - this pobably should be done in action h
 func remove_if_faulty(action):
     if action.type != "spawn" and action.type != null and action.unit.life == 0: #WTF?
         self.actions.erase(action)
-        #print("removed faulty action - spawn bug")
         return true
     return false
 

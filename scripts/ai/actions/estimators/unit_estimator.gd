@@ -2,7 +2,9 @@ const WAYPOINT_WEIGHT = 50
 
 var bag
 var score
-var waypoint_value = {0: 12, 1 : 5, 2: 7, 3: 3, 4: 4}
+
+# TYPE_BUNKER / TYPE_BARRACKS / TYPE_FACTORY / TYPE_AIRPORT / TYPE_TOWER
+var waypoint_value = {0: 12, 1 : 6, 2: 7, 3: 3, 4: 8}
 
 func __ap_level(unit):
 	return 1.0 * unit.ap / unit.max_ap
