@@ -13,6 +13,19 @@ var hud_message_card_controller
 var hud_message_card_button
 var hud_message_card_visible = false
 
+var hud_story_message
+var hud_story_message_button
+var hud_story_message_left
+var hud_story_message_left_text
+var hud_story_message_left_avatar
+var hud_story_message_left_name
+var hud_story_message_right
+var hud_story_message_right_text
+var hud_story_message_right_avatar
+var hud_story_message_right_name
+var hud_story_message_bound_object
+var hud_story_message_bound_method
+
 var cinematic_camera
 var cinematic_camera_anim
 var cinematic_progress
@@ -84,6 +97,21 @@ func init_root(root, action_controller_object, hud):
     hud_message_card_controller = hud_message_card.get_node("center/message")
     hud_message_card_button = hud_message_card.get_node("center/message/button")
     hud_message_card_button.connect("pressed", self, "_hud_message_card_button_pressed")
+
+
+    self.hud_story_message = preload('res://gui/ingame_message.tscn').instance()
+    self.hud_story_message_button = self.hud_story_message.get_node('controls/close')
+    self.hud_story_message_button.connect('pressed', self, 'hide_story_message')
+
+    self.hud_story_message_left = self.hud_story_message.get_node('messages/center/left')
+    self.hud_story_message_left_text = self.hud_story_message_left.get_node('message')
+    self.hud_story_message_left_avatar = self.hud_story_message_left.get_node('avatar/sprite')
+    self.hud_story_message_left_name = self.hud_story_message_left.get_node('avatar/name')
+
+    self.hud_story_message_right = self.hud_story_message.get_node('messages/center/right')
+    self.hud_story_message_right_text = self.hud_story_message_right.get_node('message')
+    self.hud_story_message_right_avatar = self.hud_story_message_right.get_node('avatar/sprite')
+    self.hud_story_message_right_name = self.hud_story_message_right.get_node('avatar/name')
 
     #
     # CPU TURN
@@ -331,3 +359,28 @@ func __show_next_tip():
 
 func __show_general_header():
     return self.tips.header()
+
+
+func show_story_message(left, message, avatar_frame, avatar_name, callback_object, callback_method):
+    self.hud_story_message_bound_object = callback_object
+    self.hud_story_message_bound_method = callback_method
+
+    if left:
+        self.hud_story_message_left.show()
+        self.hud_story_message_right.hide()
+        self.hud_story_message_left_text.set_text(message)
+        self.hud_story_message_left_avatar.set_frame(avatar_frame)
+        self.hud_story_message_left_name.set_text(avatar_name)
+    else:
+        self.hud_story_message_left.hide()
+        self.hud_story_message_right.show()
+        self.hud_story_message_right_text.set_text(message)
+        self.hud_story_message_right_avatar.set_frame(avatar_frame)
+        self.hud_story_message_right_name.set_text(avatar_name)
+
+    self.root.hud.add_child(self.hud_story_message)
+    self.hud_story_message_button.grab_focus()
+
+func hide_story_message():
+    self.root.hud.remove_child(self.hud_story_message)
+    self.hud_story_message_bound_object.call(self.hud_story_message_bound_method)

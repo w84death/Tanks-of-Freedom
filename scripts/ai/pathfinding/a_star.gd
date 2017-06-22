@@ -18,6 +18,9 @@ func path_search(start, goal):
 
     return path
 
+func rebuild_current_grid():
+    self.prepare_map_grid(self.bag.abstract_map)
+
 func prepare_map_grid(abstract_map):
     var field = null
     var pos = null

@@ -13,6 +13,7 @@ var action_handlers = {
     'die' : preload("res://scripts/storyteller/actions/die.gd").new(),
     'claim' : preload("res://scripts/storyteller/actions/claim.gd").new(),
     'win' : preload("res://scripts/storyteller/actions/win.gd").new(),
+    'message' : preload("res://scripts/storyteller/actions/message.gd").new(),
 }
 
 var available_stories = {}
@@ -76,4 +77,3 @@ func perform_next_action():
 
 func register_story_event(story_event):
     self.action_triggers.feed_story_event(story_event)
-
