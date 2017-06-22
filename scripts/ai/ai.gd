@@ -6,7 +6,7 @@ var player_ap
 var own_units
 var ai_logger_enabled
 
-const MIN_DESTINATION_PER_UNIT = 1
+const MIN_DESTINATION_PER_UNIT = 3
 const SPAWN_LIMIT = 50
 
 func _initialize():
