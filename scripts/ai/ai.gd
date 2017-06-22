@@ -6,8 +6,8 @@ var player_ap
 var own_units
 var ai_logger_enabled
 
-const MIN_DESTINATION_PER_UNIT = 3
-const SPAWN_LIMIT = 50
+const MIN_DESTINATION_PER_UNIT = 4
+const SPAWN_LIMIT = 25
 
 func _initialize():
     self.ai_logger_enabled = Globals.get('tof/ai_logger')
@@ -45,7 +45,7 @@ func check_continue_turn(res):
 
     return true
 
-func __can_be_processed(unit):
+func __should_prepare_actions(unit):
     var unit_instance_id = unit.get_instance_ID()
     if self.processed_units_object_ids.has(unit_instance_id):
         return false
@@ -55,17 +55,37 @@ func __can_be_processed(unit):
 
 func __prepare_unit_actions():
     var destinations = null
-    for unit in self.bag.positions.get_player_units(self.player).values():
-        if self.__can_be_processed(unit) && unit.ap > 0 && unit.life > 0:
-            for destination in self.__gather_destinations(unit):
-                self.__add_action(unit, destination)
 
-func __gather_destinations(unit):
+    # initialize
     var own_buildings = self.bag.positions.get_player_buildings(self.player)
     var own_units     = self.bag.positions.get_player_units(self.player)
     var obstacle_positions = own_buildings.keys() + own_units.keys()
     self.bag.a_star.set_obstacles(obstacle_positions)
 
+    for unit in self.bag.positions.get_player_units(self.player).values():
+        if unit.ap > 0 && unit.life > 0:
+            if self.__should_prepare_actions(unit):
+                for destination in self.__gather_destinations(unit):
+                    self.__add_action(unit, destination)
+            else:
+                for destination in self.__gather_nearest_enemy(unit):
+                    self.__add_action(unit, destination)
+
+#TODO - wip
+func __gather_nearest_enemy(unit):
+    var destinations = Vector2Array()
+    var nearby_tiles
+    for lookup_range in self.bag.positions.tiles_lookup_ranges:
+        nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
+
+        destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
+
+        if destinations.size() >= 1:
+            return destinations
+
+    return destinations
+
+func __gather_destinations(unit):
     var destinations = Vector2Array()
     var nearby_tiles
     for lookup_range in self.bag.positions.tiles_lookup_ranges:

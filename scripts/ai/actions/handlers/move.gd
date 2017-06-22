@@ -30,7 +30,6 @@ func __on_fail(action):
     action.fails = action.fails + 1
     action.score = action.score - 20
     action.proceed = 0
-    #action.path = Vector2Array([])
     if action.fails >= 2:
         self.bag.actions_handler.remove(action)
         if self.get_actions_for_unit(action.unit).size() == 0:

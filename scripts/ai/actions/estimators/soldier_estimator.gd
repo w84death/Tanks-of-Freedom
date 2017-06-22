@@ -28,6 +28,9 @@ func __score_capture(action):
     if !self.target_can_be_captured(action):
         return 0
 
+    if.get_target_object(action).type == 0:
+        return 99999
+
     if self.get_target_object(action).type == 4 and self.enemies_in_sight(action).size() > 2:
         return 0
 
