@@ -20,6 +20,7 @@ var stories = {
 
         {'action' : 'camera', 'details' : {'where' : Vector2(8, 12), 'zoom' : 3}, 'delay' : 2},
         {'action' : 'unlock', 'details' : {}},
+        #{'action' : 'win', 'details' : {'player' : 0}}
 
     ]
 }

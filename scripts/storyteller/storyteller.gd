@@ -12,6 +12,7 @@ var action_handlers = {
     'move' : preload("res://scripts/storyteller/actions/move.gd").new(),
     'die' : preload("res://scripts/storyteller/actions/die.gd").new(),
     'claim' : preload("res://scripts/storyteller/actions/claim.gd").new(),
+    'win' : preload("res://scripts/storyteller/actions/win.gd").new(),
 }
 
 var available_stories = {}
