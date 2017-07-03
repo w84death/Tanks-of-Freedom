@@ -1,11 +1,11 @@
-extends "res://scripts/ai/actions/estimators/unit_estimator.gd"
+extends "res://scripts/ai/actions/estimators/unit/estimator.gd"
 
 const BASE_MOVE = 1
 const BASE_CAPTURE = 1
 const BASE_ATTACK = 1
 
-const CAPTURE_MOD = 300
-const ATTACK_MOD  = 200
+const CAPTURE_MOD = 400
+const ATTACK_MOD  = 300
 const MOVE_MOD    = 100
 
 # soldier / tank / heli
@@ -13,6 +13,7 @@ var capture_modifiers = IntArray([5, 2, 2])
 var attack_modifiers = IntArray([4, 6, 7])
 var move_capture_modifiers = IntArray([5, 1, 3])
 var move_attack_modifiers = IntArray([2, 2, 3])
+var danger_modifier = IntArray([1, 5, 2])
 
 func _init(bag):
     self.bag = bag

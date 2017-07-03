@@ -23,6 +23,12 @@ func proceed():
     self.unit.add_move(path[0])
     self.proceed = self.proceed + 1
 
+func is_unit_action():
+    return self.group == 'unit'
+
+func is_building_action():
+    return self.group != 'unit'
+
 func fix_path(): #TODO - do it better maybe in pathfinding
     var path = Vector2Array([self.unit.position_on_map])
     path.append_array(self.path)

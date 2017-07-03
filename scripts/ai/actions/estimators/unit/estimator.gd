@@ -6,7 +6,7 @@ var score
 # TYPE_BUNKER / TYPE_BARRACKS / TYPE_FACTORY / TYPE_AIRPORT / TYPE_TOWER
 var waypoint_value = {
 	0: 14,  # TYPE_BUNKER
-	1: 6, # TYPE_BARRACKS
+	1: 8, # TYPE_BARRACKS
 	2: 7, # TYPE_FACTORY
 	3: 3, # TYPE_AIRPORT
 	4: 9 # TYPE_TOWER
@@ -103,7 +103,7 @@ func __score_move(action):
     if action.proceed:
         score = score + 50 + (action.proceed * 10)
 
-    self.MOVE_MOD + score
+    score = self.MOVE_MOD + score - (self.__danger(action) * 10)
 
     if action.unit.check_hiccup(action.path[1]):
         score = score * 0.2
@@ -112,3 +112,11 @@ func __score_move(action):
 
 func __score_recalc_path_move(action):
     self.__score_move(action)
+
+
+func __danger(action):
+    var danger = 0
+    for unit in self.enemies_in_sight(action):
+        danger = danger + self.danger_modifier[unit.type]
+
+    return danger

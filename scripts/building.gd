@@ -26,7 +26,6 @@ var TYPE_AIRPORT = 3
 var TYPE_TOWER = 4
 
 const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3
-const IN_DANGER_MODIFIER  = 5
 
 func get_pos_map():
 	return position_on_map
@@ -105,34 +104,6 @@ func get_building_name():
 
 func get_cost():
 	return get_required_ap()
-
-func estimate_action(action_type, enemy_units_nearby, own_units, current_player_ap, SPAWN_LIMIT):
-	var score = 120
-	score = score + enemy_units_nearby.size() * IN_DANGER_MODIFIER
-	if (own_units.size() >= SPAWN_LIMIT):
-		score = score - 120
-	elif (own_units.size() > (SPAWN_LIMIT / 2)):
-		score = score - 60
-
-	var spawn_unit_type = self.get_spawn_type()
-	var same_units_count = 0
-	for unit in own_units.values():
-		if unit.type == spawn_unit_type:
-			same_units_count = same_units_count + 1
-
-	if (same_units_count == 0):
-		score = score + 80
-	else:
-		score = score - 10 * same_units_count
-
-	if current_player_ap > 200:
-		score = score + self.get_required_ap() * 4
-	elif current_player_ap > 100:
-		score = score + self.get_required_ap() * 2
-	elif current_player_ap > 50:
-		score = score + self.get_required_ap()
-
-	return score
 
 func show_floating_ap():
 	floating_ap = floating_ap_template.instance()
