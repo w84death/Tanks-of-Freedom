@@ -5,7 +5,7 @@ var score = 0
 func _init(bag):
     self.bag = bag
 
-func __score(action):
+func score(action):
     if self.bag.abstract_map.get_field(action.unit.spawn_point).object:
         return 0
 

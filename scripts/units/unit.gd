@@ -127,7 +127,6 @@ func set_pos_map(new_position):
 	self.teleport_anim.play('in')
 
 func check_hiccup(new_position):
-	var depth = MAX_HICCUP_DEPTH
 	var count = move_positions.size()
 	if count == 0:
 		return false
@@ -135,7 +134,7 @@ func check_hiccup(new_position):
 	if MAX_HICCUP_DEPTH > count:
 		depth = count
 
-	var start = count - depth - 1
+	var start = count - self.MAX_HICCUP_DEPTH - 1
 	if start < 0:
 		start = 0
 
@@ -226,6 +225,12 @@ func fix_initial_pos():
 
 func get_type_name():
 	return tr(self.type_name_label)
+
+func can_attack_unit_type(defender):
+	if type == 1 && defender.type == 2:
+		return false
+
+	return true
 
 func _ready():
 	self.add_to_group("units")

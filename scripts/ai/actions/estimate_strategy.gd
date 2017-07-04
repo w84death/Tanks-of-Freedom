@@ -19,20 +19,20 @@ func score(action):
     action.type = "null"
 
     if action.is_building_action():
-        action.score = self.building_estimator.__score(action)
+        action.score = self.building_estimator.score(action)
         action.type = "spawn"
     else:
         var next_tile = self.__get_next_tile_from_path(action.path)
         if next_tile != null:
             if (next_tile.object == null):
-                action.score = self.estimators[action.unit.type].__score_move(action)
+                action.score = self.estimators[action.unit.type].score_move(action)
                 action.type = "move"
             else:
                 if next_tile.has_capturable_building(action.unit):
-                    action.score = self.estimators[action.unit.type].__score_capture(action)
+                    action.score = self.estimators[action.unit.type].score_capture(action)
                     action.type = "capture"
                 elif next_tile.has_attackable_enemy(action.unit):
-                    action.score = self.estimators[action.unit.type].__score_attack(action)
+                    action.score = self.estimators[action.unit.type].score_attack(action)
                     action.type = "attack"
 
 

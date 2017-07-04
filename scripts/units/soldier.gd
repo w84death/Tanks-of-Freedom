@@ -1,4 +1,4 @@
-extends "behaviours.gd"
+extends "unit.gd"
 
 func _init():
 	type = 0
@@ -20,19 +20,5 @@ func can_capture_building(building):
 	if building.player == player:
 		return false
 
-	var type = building.get_building_name()
-	if type == "BUNKER":
-		return true
-	if type == "BARRACKS":
-		return true
-	if type == "FACTORY":
-		return true
-	if type == "AIRPORT":
-		return true
-	if type == "HQ":
-		return true
-	if type == "GSM TOWER":
-		return true
-
-	return false;
+	return true;
 

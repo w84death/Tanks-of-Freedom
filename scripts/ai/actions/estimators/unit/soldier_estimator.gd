@@ -18,7 +18,7 @@ var danger_modifier = IntArray([1, 5, 2])
 func _init(bag):
     self.bag = bag
 
-func __score_capture(action):
+func score_capture(action):
     if action.unit.life == 0 or !self.has_ap(action):
         return 0
 

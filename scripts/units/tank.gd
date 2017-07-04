@@ -1,4 +1,4 @@
-extends "behaviours.gd"
+extends "unit.gd"
 
 func _init():
 	type = 1

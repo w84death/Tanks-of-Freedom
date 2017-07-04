@@ -14,5 +14,5 @@ var danger_modifier = IntArray([1, 0, 2])
 func _init(bag):
     self.bag = bag
 
-func __score_capture(action):
+func score_capture(action):
     return 0

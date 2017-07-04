@@ -57,7 +57,7 @@ func target_can_be_captured(action):
 
     return true
 
-func __score_attack(action):
+func score_attack(action):
     if action.unit.life == 0:
         return 0
 
@@ -86,7 +86,7 @@ func __score_attack(action):
 
     return self.ATTACK_MOD + score
 
-func __score_move(action):
+func score_move(action):
     if !self.can_move(action) or !self.has_ap(action):
         return 0
 
@@ -110,8 +110,8 @@ func __score_move(action):
 
     return score
 
-func __score_recalc_path_move(action):
-    self.__score_move(action)
+func score_recalc_path_move(action):
+    self.score_move(action)
 
 
 func __danger(action):
