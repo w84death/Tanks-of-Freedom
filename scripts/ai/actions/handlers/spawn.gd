@@ -4,7 +4,7 @@ func _init(bag):
     self.bag = bag
 
 func execute(action):
-    var active_field = self.bag.controllers.action_controller.set_active_field(action.unit.position_on_map)
+    self.bag.controllers.action_controller.set_active_field(action.unit.position_on_map)
     if self.bag.controllers.action_controller.spawn_unit_from_active_building():
         self.__on_success(action)
         return true

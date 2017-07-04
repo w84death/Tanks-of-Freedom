@@ -141,8 +141,6 @@ func __handle_unit_actions(active_field, field):
     else:
         return self.status.list[self.status.CANNOT_DO]
 
-
-
 func capture_building(active_field, field):
     self.use_ap(field)
 
@@ -163,7 +161,6 @@ func capture_building(active_field, field):
         return self.status.list[self.status.CAPTURE_AND_WIN]
     else:
         return self.status.list[self.status.CAPTURE]
-
 
 func activate_field(field):
     self.clear_active_field()

@@ -1,14 +1,5 @@
 extends "res://scripts/bag_aware.gd"
 
-# on capture base
-
-# on going smwhere
-# on kill all units
-# on turn count (survive)
-#capture most/ all towers
-
-# turn cap
-
 var action_controller
 
 func _initialize():

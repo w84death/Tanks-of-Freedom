@@ -21,19 +21,16 @@ const lookout_range = 3
 var precalculated_nearby_tiles = [[[null]]]
 var precalculated_nearby_tiles_ranges = [[[null]]]
 
-const MAX_PRECALCULATED_TILES_RANGE = 20
+const MAX_PRECALCULATED_TILES_RANGE = 30
 const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
 const EXTREME_RANGE = 3 # will be not used in the future
-var tiles_lookup_ranges = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
-var tiles_building_lookup_ranges = [1,2]
+var TILES_LOOKUP_RANGES = IntArray(range(1, 31))
 
 # not changable data
 var buildings = []
 var terrains = []
-
-var pathfinding
 
 func _initialize():
     self.root_node = bag.root

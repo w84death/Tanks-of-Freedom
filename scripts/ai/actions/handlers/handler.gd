@@ -29,7 +29,6 @@ func remove_for_destination(processed_action):
     var destination = self.bag.helpers.array_last_element(processed_action.path)
     for action in self.bag.actions_handler.actions:
         if player == action.unit.player and self.bag.helpers.array_last_element(action.path) == destination:
-#            self.__info(action, '-d ')
             self.bag.actions_handler.remove(action)
 
 func remove_for_type(type):
@@ -44,7 +43,6 @@ func get_actions_for_unit(unit):
             unit_actions.append(action)
         
     return unit_actions
-
 
 # this will block action from run until conditions change
 func set_zero_score(action):

@@ -130,3 +130,5 @@ func init_root(root_node):
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()
         self.saving._init_bag(self)
+
+

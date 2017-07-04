@@ -75,7 +75,7 @@ func __prepare_unit_actions():
 func __gather_nearest_enemy(unit):
     var destinations = Vector2Array()
     var nearby_tiles
-    for lookup_range in self.bag.positions.tiles_lookup_ranges:
+    for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
         nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
 
         destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
@@ -88,7 +88,7 @@ func __gather_nearest_enemy(unit):
 func __gather_destinations(unit):
     var destinations = Vector2Array()
     var nearby_tiles
-    for lookup_range in self.bag.positions.tiles_lookup_ranges:
+    for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
         nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
 
         destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)

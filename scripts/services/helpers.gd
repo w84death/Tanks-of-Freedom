@@ -1,9 +1,7 @@
 func array_diff(array_one, array_two):
-    var values = []
-
-    for val in array_one:
-        if array_two.find(val) == -1:
-            values.append(val)
+    var values = Array(array_one)
+    for val in array_two:
+        values.erase(val)
 
     return values
 
@@ -20,7 +18,6 @@ func comp_dates(date1, date2, params=['year', 'month', 'day']):
 
 func comp(a, b):
     return clamp(a - b , -1, 1)
-
 
 func array_last_element(array):
     var size = array.size()
