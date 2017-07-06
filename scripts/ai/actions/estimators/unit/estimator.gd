@@ -21,6 +21,12 @@ func __health_level(unit):
 func get_target_object(action):
     return self.bag.abstract_map.get_field(action.path[1]).object
 
+func is_destination_building(action):
+    return action.destination.group == 'building'
+
+func is_destination_unit(action):
+    return action.destination.group == 'unit'
+
 func has_ap(action):
     return action.unit.ap > 0
 
@@ -41,6 +47,10 @@ func get_waypoint_value(action):
 func enemies_in_sight(action):
     var nearby_tiles = self.bag.positions.get_nearby_tiles(action.path[0], 4)
     return self.bag.positions.get_nearby_enemies(nearby_tiles, action.unit.player)
+
+func own_units_in_sight(action):
+    var nearby_tiles = self.bag.positions.get_nearby_tiles(action.path[0], 4)
+    return self.bag.positions.get_nearby_enemies(nearby_tiles, (action.unit.player + 1) % 2)
 
 func enemy_buildings_in_sight(action):
     var nearby_tiles = self.bag.positions.get_nearby_tiles(action.path[0], 6)
@@ -94,9 +104,14 @@ func score_move(action):
     if action.unit.ap == 1 and !action.unit.can_attack() and self.enemies_in_sight(action).size():
         return 0
 
-    var score = self.get_waypoint_value(action) * self.WAYPOINT_WEIGHT
+    var waypoint_value = self.get_waypoint_value(action)
+    var score = waypoint_value * self.WAYPOINT_WEIGHT
+
     # higher ap is better
-    score = score + self.__health_level(action.unit) * 20
+    if self.is_destination_building(action):
+        score = score + 20
+    else:
+        score = score + self.__health_level(action.unit) * 20
 
     score = score - (action.path.size() * 3)
 
@@ -105,8 +120,9 @@ func score_move(action):
 
     score = self.MOVE_MOD + score - (self.__danger(action) * 10)
 
-    if action.unit.check_hiccup(action.path[1]):
-        score = score * 0.2
+    # if destination is building
+    if self.is_destination_building(action) && action.unit.check_hiccup(action.path[1]):
+        score = score * 0.6
 
     return score
 
@@ -118,5 +134,7 @@ func __danger(action):
     var danger = 0
     for unit in self.enemies_in_sight(action):
         danger = danger + self.danger_modifier[unit.type]
+    for unit in self.own_units_in_sight(action):
+        danger = danger - self.danger_modifier[unit.type]
 
     return danger

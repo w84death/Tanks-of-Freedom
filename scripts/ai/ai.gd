@@ -69,13 +69,12 @@ func __prepare_unit_actions():
                     self.__add_action(unit, destination)
             else:
                 for destination in self.__gather_nearest_enemy(unit):
-                    self.__add_action(unit, destination)
+                    self.__add_flash_action(unit, destination)
 
-#TODO - wip
 func __gather_nearest_enemy(unit):
     var destinations = Vector2Array()
     var nearby_tiles
-    for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
+    for lookup_range in range(1, unit.ap):
         nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
 
         destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
@@ -116,6 +115,9 @@ func __prepare_building_actions():
 
 func __add_action(unit, destination):
     self.bag.actions_handler.add_action(unit, destination)
+
+func __add_flash_action(unit, destination):
+    self.bag.actions_handler.add_action(unit, destination, self.bag.actions_handler.action.FLASH_TTL)
 
 func reset():
     self.processed_units_object_ids.clear()

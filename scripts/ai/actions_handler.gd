@@ -3,15 +3,18 @@ extends "res://scripts/bag_aware.gd"
 var actions = []
 var action = preload('actions/action.gd')
 
-func add_action(unit, destination):
+const ACTION_OLD_THRESHOLD = 100
+const ACTION_UNUSED_OLD_THRESHOLD = 15
+const CACHED = true
+const ONE_TIME = false
+
+func add_action(unit, destination, ttl = self.action.DEFAULT_TTL):
     if self.get_action(unit, destination):
         return
 
-    var action = self.create_action(unit, destination)
-    #self.bag.estimate.run(action) #TODO this is not needed
-    self.actions.append(action)
+    self.actions.append(self.create_action(unit, destination, ttl))
 
-func create_action(unit, destination):
+func create_action(unit, destination, type):
     return action.new(unit.position_on_map, destination, unit, unit.group)
 
 func execute_best_action(action):
@@ -45,13 +48,17 @@ func get_best_action(player):
 
     return best
 
-func reestimate_user_actions(player):
+func reestimate_user_actions(player): # TODO - more generic name
     for action in self.actions:
         if self.remove_if_faulty(action):
             continue
+
         if action.unit.player == player:
-            self.fix_path_if_faulty(action)
-            self.bag.estimate.run(action)
+            if action.ttl <= 0 or action.unused_ttl <= 0:
+                self.actions.erase(action)
+            else:
+                self.fix_path_if_faulty(action)
+                self.bag.estimate.run(action)
 
 func __best_first(a, b):
     if b != null and a.score > b.score:

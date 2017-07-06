@@ -6,5 +6,7 @@ func run(action):
 
     action.score = 0
     self.bag.estimate_strategy.score(action)
+    action.add_age()
+
     return action.score
 

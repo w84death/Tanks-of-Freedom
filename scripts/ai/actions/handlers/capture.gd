@@ -22,4 +22,5 @@ func __on_success(action):
     if action.destination.type != 4: #if gsm tower
         self.remove_for_unit(action.unit)
         self.mark_unit_for_calculations(action.unit)
+        self.remove_for_position(action.unit.player, action.unit.position_on_map)
 
