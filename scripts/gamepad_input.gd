@@ -1,4 +1,3 @@
-
 var bag
 
 var accumulated_time = 0
@@ -25,7 +24,6 @@ var gamepad_icons = [
     #'top_center/center/game_card/gamepad_buttons/gamepad_button3',
     'bottom_right/end_turn/end_turn_button/gamepad_indicator',
 ]
-
 
 func _init_bag(bag):
     Input.add_joy_mapping("030000005e0400001907000000010000,X360 Wireless Controller,leftx:a0,lefty:a1,dpdown:h0.4,rightstick:b10,rightshoulder:b5,rightx:a3,start:b7,righty:a4,dpleft:h0.8,lefttrigger:a2,x:b2,dpup:h0.1,back:b6,leftstick:b9,leftshoulder:b4,y:b3,a:b0,dpright:h0.2,righttrigger:a5,b:b1,", true)

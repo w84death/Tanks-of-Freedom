@@ -492,7 +492,7 @@ func update_unit(field):
         self.add_movement_indicators(active_field)
 
 func move_unit(active_field, field):
-    var action_cost = self.root_node.bag.movement_controller.TERRAIN_COST
+    var action_cost = self.root_node.bag.movement_controller.DEFAULT_COST
     if !self.is_cpu_player && self.actual_movement_tiles.has(field.position):
         action_cost = self.actual_movement_tiles[field.position]
 

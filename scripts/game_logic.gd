@@ -28,8 +28,6 @@ var hud_controller
 var current_map
 var current_map_name
 var hud
-var ai_timer
-
 var bag
 
 var map_template = preload('res://maps/workshop.xscn')

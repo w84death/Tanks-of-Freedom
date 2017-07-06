@@ -9,9 +9,9 @@ var tile_types = StringArray([
     'river','river','river','river','river','river','river','river'
 ])
 
-const TERRAIN_COST = 1
+const DEFAULT_COST = 1
 
-func move_object(from, to, action_cost=TERRAIN_COST):
+func move_object(from, to, action_cost=DEFAULT_COST):
 
     if self.has_enough_ap(from, action_cost):
         from.object.update_ap(from.object.ap - action_cost)
@@ -19,10 +19,8 @@ func move_object(from, to, action_cost=TERRAIN_COST):
         to.object = from.object
         from.object = null
         to.object.set_pos_map(to.position)
-
         return true
     else:
-
         return false
 
 func has_enough_ap(from, cost):
@@ -32,10 +30,7 @@ func has_enough_ap(from, cost):
         return false
 
 func can_move(from, to):
-    if from.object.ap >= self.TERRAIN_COST:
+    if from.object.ap >= self.DEFAULT_COST:
         return true
     else:
         return false
-
-func get_terrain_cost():
-    return TERRAIN_COST

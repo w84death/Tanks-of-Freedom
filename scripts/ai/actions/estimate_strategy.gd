@@ -38,12 +38,10 @@ func score(action):
 
     self.__add_random(action)
 
-
 func __add_random(action):
     if action.score > 0:
         randomize()
         action.score = action.score + (action.score * self.RANDOM_VALUE * randf())
-
 
 func __get_next_tile_from_path(path): #TODO - move to helper
     if path.size() < 2:

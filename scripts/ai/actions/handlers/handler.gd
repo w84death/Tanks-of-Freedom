@@ -18,6 +18,7 @@ func remove_for_target(processed_action, exept = null):
     var pos = processed_action.path[1]
     for action in self.bag.actions_handler.actions:
         if action != exept:
+            #TODO use find here
             for i in range(action.path.size()):
                 if i >= 1 and pos == action.path[i] :
                     self.bag.actions_handler.remove(action)
