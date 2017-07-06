@@ -14,6 +14,8 @@ var action_handlers = {
     'claim' : preload("res://scripts/storyteller/actions/claim.gd").new(),
     'win' : preload("res://scripts/storyteller/actions/win.gd").new(),
     'message' : preload("res://scripts/storyteller/actions/message.gd").new(),
+    'terrain_add' : preload("res://scripts/storyteller/actions/terrain_add.gd").new(),
+    'terrain_remove' : preload("res://scripts/storyteller/actions/terrain_remove.gd").new(),
 }
 
 var available_stories = {}
@@ -57,6 +59,9 @@ func tell_a_story(story_name):
 
 func perform_next_action():
     if self.story_bookmark == self.current_story.size():
+        if self._has_map_modifications():
+            self.bag.a_star.rebuild_current_grid()
+            self.bag.root.current_map.connect_fences()
         return
 
     if self.pause or self.bag.camera.panning or self.bag.root.is_paused:
@@ -77,3 +82,10 @@ func perform_next_action():
 
 func register_story_event(story_event):
     self.action_triggers.feed_story_event(story_event)
+
+func _has_map_modifications():
+    for step in self.current_story:
+        if step['action'] == 'terrain_add' or step['action'] == 'terrain_remove':
+            return true
+
+    return false

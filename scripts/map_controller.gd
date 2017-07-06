@@ -323,9 +323,8 @@ func generate_map():
                 terrain_under_building = 10
 
             if temp:
-                temp.set_pos(terrain.map_to_world(Vector2(x,y)))
-                map_layer_front.add_child(temp)
-                self.find_spawn_for_building(x, y, temp)
+                self.attach_object(Vector2(x,y), temp)
+
                 if temp.group == 'building':
                     temp.claim(temp.player, 0)
                 temp = 1
@@ -358,12 +357,20 @@ func generate_map():
     for cell in cells_to_change:
         if(cell.type > -1):
             terrain.set_cell(cell.x,cell.y,cell.type)
-    for fence in get_tree().get_nodes_in_group("terrain_fence"):
-        fence.connect_with_neighbours()
+    self.connect_fences()
     units.hide()
 
     self.bag.fog_controller.clear_fog()
     return
+
+func attach_object(position, object):
+    object.set_pos(terrain.map_to_world(position))
+    map_layer_front.add_child(object)
+    self.find_spawn_for_building(position.x, position.y, object)
+
+func connect_fences():
+    for fence in get_tree().get_nodes_in_group("terrain_fence"):
+        fence.connect_with_neighbours()
 
 func count_neighbours(x, y, type):
     var counted = 0

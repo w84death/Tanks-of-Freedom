@@ -19,6 +19,19 @@ var stories = {
         {'action' : 'die', 'details' : {'who' : Vector2(9, 6)}, 'delay' : 2},
 
         {'action' : 'camera', 'details' : {'where' : Vector2(8, 12), 'zoom' : 3}, 'delay' : 2},
+
+
+        {'action' : 'camera', 'details' : {'where' : Vector2(7, 6), 'zoom' : 1}, 'delay' : 1},
+        {'action' : 'terrain_add', 'details' : {'where' : Vector2(7, 6), 'type' : 'city_small'}},
+        {'action' : 'terrain_add', 'details' : {'where' : Vector2(7, 7), 'type' : 'city_big'}},
+        {'action' : 'terrain_add', 'details' : {'where' : Vector2(7, 8), 'type' : 'forest'}},
+        {'action' : 'terrain_add', 'details' : {'where' : Vector2(6, 6), 'type' : 'mountain'}},
+        {'action' : 'terrain_add', 'details' : {'where' : Vector2(6, 7), 'type' : 'wall', 'frame' : 1}},
+
+        {'action' : 'terrain_remove', 'details' : {'where'  : Vector2(6, 7), 'explosion' : true}, 'delay' : 0.5},
+        {'action' : 'terrain_remove', 'details' : {'where'  : Vector2(6, 6), 'explosion' : false}},
+
+
         {'action' : 'unlock', 'details' : {}},
         #{'action' : 'win', 'details' : {'player' : 0}}
 
