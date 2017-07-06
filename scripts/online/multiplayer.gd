@@ -281,6 +281,9 @@ func finished_polling_state(response):
     var data = response['data']
     var match_code = data['join_code']
 
+    if not self.bag.match_state.is_multiplayer:
+        return
+
     if self.bag.match_state.current_loaded_multiplayer_state['join_code'] != match_code:
         return
 
