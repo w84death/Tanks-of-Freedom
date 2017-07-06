@@ -4,7 +4,7 @@ const INTERVAL = 0.15
 const SKIP_INTERVAL = 1
 
 func do_ai_stuff():
-    if self.bag.controllers.action_controller.game_ended self.bag.match_state.is_multiplayer:
+    if self.bag.controllers.action_controller.game_ended and self.bag.match_state.is_multiplayer:
         return
 
     if self.bag.root.is_paused || self.bag.camera.panning:
