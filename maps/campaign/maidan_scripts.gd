@@ -18,6 +18,8 @@ var stories = {
         {'action' : 'move', 'details' : {'who' : Vector2(8, 4), 'where' : Vector2(8, 5)}},
         {'action' : 'move', 'details' : {'who' : Vector2(9, 4), 'where' : Vector2(9, 5)}, 'delay' : 1},
 
+        {'action' : 'attack', 'details' : {'who' : Vector2(9, 5), 'whom' : Vector2(9, 6)}, 'delay' : 1},
+
         {'action' : 'die', 'details' : {'who' : Vector2(9, 6)}, 'delay' : 2},
 
         {'action' : 'camera', 'details' : {'where' : Vector2(8, 12), 'zoom' : 3}, 'delay' : 2},

@@ -17,6 +17,7 @@ var action_handlers = {
     'terrain_add' : preload("res://scripts/storyteller/actions/terrain_add.gd").new(),
     'terrain_remove' : preload("res://scripts/storyteller/actions/terrain_remove.gd").new(),
     'spawn' : preload("res://scripts/storyteller/actions/spawn.gd").new(),
+    'attack' : preload("res://scripts/storyteller/actions/attack.gd").new(),
 }
 
 var available_stories = {}
