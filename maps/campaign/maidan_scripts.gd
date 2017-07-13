@@ -11,6 +11,8 @@ var stories = {
         {'action' : 'camera', 'details' : {'where' : Vector2(9, 4), 'zoom' : 2}, 'delay' : 2},
         {'action' : 'message', 'details': {'text' : 'CAMPAIGN_MISSION_1_ENEMY_HQ', 'portrait' : 'soldier_blue', 'name' : 'NAME_FREEDOM_FIGHTER', 'side' : 'right'}},
 
+        {'action' : 'spawn', 'details' : {'where' : Vector2(8, 3), 'unit' : 'soldier', 'side' : 'red'}, 'delay' : 1},
+
         {'action' : 'move', 'details' : {'who' : Vector2(9, 7), 'where' : Vector2(9, 6)}, 'delay' : 1},
 
         {'action' : 'move', 'details' : {'who' : Vector2(8, 4), 'where' : Vector2(8, 5)}},

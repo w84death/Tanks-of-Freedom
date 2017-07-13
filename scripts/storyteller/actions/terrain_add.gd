@@ -22,6 +22,8 @@ func perform(action_details):
     elif type == 'wall':
         self.add_fence(position, frame)
 
+    self.bag.root.sound_controller.play('spawn')
+
 
 
 func add_forest(position, frame = null):

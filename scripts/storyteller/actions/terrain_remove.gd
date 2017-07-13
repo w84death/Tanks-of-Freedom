@@ -11,6 +11,7 @@ func perform(action_details):
     if object != null:
         if boom:
             object.show_explosion()
+            self.bag.root.sound_controller.play('explosion')
             self.bag.timers.set_timeout(0.5, self, 'remove_object', [object])
         else:
             self.remove_object([object])

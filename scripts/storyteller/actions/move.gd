@@ -6,3 +6,4 @@ func perform(action_details):
     source_field.object.set_pos_map(action_details['where'])
     destination_field.object = source_field.object
     source_field.object = null
+    self.bag.root.sound_controller.play_unit_sound(destination_field.object, 'move')

@@ -17,6 +17,7 @@ func perform(action_details):
     self.bag.storyteller.pause = true
 
     self.bag.root.hud_controller.show_story_message(left_side, message, avatar_frame, name, self, 'unpause')
+    self.bag.root.sound_controller.play('menu')
 
 
 func unpause():

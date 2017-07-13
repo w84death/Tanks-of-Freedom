@@ -384,3 +384,4 @@ func show_story_message(left, message, avatar_frame, avatar_name, callback_objec
 func hide_story_message():
     self.root.hud.remove_child(self.hud_story_message)
     self.hud_story_message_bound_object.call(self.hud_story_message_bound_method)
+    self.root.sound_controller.play('menu')
