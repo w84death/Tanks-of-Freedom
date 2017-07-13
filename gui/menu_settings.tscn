@@ -22,7 +22,9 @@ margin/left = 0.0
 margin/top = -48.0
 margin/right = 40.0
 margin/bottom = -8.0
-__meta__ = { "_edit_lock_":true }
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="background" type="Patch9Frame" parent="."]
 
@@ -61,7 +63,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="sound_toggle"]
 
@@ -99,7 +103,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="music_toggle"]
 
@@ -172,7 +178,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="shake_toggle"]
 
@@ -247,7 +255,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="camera_follow"]
 
@@ -322,7 +332,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="camera_zoom_in"]
 
@@ -360,7 +372,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="camera_zoom_out"]
 
@@ -398,7 +412,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="display_mode_toggle"]
 
@@ -471,7 +487,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="difficulty_mode_toggle"]
 
@@ -538,7 +556,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="overscan_group/overscan_button"]
 
@@ -594,7 +614,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="overscan_group/tooltips_button"]
 
@@ -678,7 +700,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="language_group/language_button"]
 
@@ -746,7 +770,9 @@ textures/pressed = ExtResource( 8 )
 textures/hover = ExtResource( 9 )
 textures/disabled = ExtResource( 10 )
 textures/focused = ExtResource( 11 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="gamepad_info/gamepad_info_button"]
 

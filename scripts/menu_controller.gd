@@ -13,6 +13,12 @@ var main_menu_animations
 var settings_animations
 var main_menu
 var settings
+
+var settings_new
+var settings_gfx
+var settings_sound
+var settings_game
+ 
 var menu_button
 var settings_button
 var campaign_button
@@ -43,6 +49,7 @@ var overscan_toggle_button
 var language_cycle_button
 var gamepad_info
 var gamepad_info_button
+var tooltips_button
 
 var sound_toggle_label
 var music_toggle_label
@@ -81,6 +88,11 @@ func _ready():
 
     main_menu = get_node("middle/center/game_panel")
     settings = get_node("middle/center/settings_panel")
+    settings_new = get_node("middle/center/settings_panel2")
+    settings_gfx = settings_new.get_node("body/tabs/game/")
+    settings_sound = settings_new.get_node("body/tabs/game/")
+    settings_game = settings_new.get_node("body/tabs/game/")
+
     main_menu_animations = get_node("middle/center/menu_anim")
     settings_animations = get_node("middle/center/settings_anim")
 
@@ -95,9 +107,12 @@ func _ready():
     camera_zoom_in_button = settings.get_node("camera_zoom_in")
     camera_zoom_out_button = settings.get_node("camera_zoom_out")
     resolution_button = settings.get_node("display_mode_toggle")
-    difficulty_button = settings.get_node("difficulty_mode_toggle")
+
+    self.difficulty_button = settings_game.get_node("difficulty/buttons/center/first")
+    self.tooltips_button = settings_game.get_node("tooltips/buttons/center/first")
+    self.language_cycle_button = settings_game.get_node('language/buttons/center/first')
+
     overscan_toggle_button = overscan_group.get_node('overscan_button')
-    language_cycle_button = language_group.get_node('language_button')
     self.gamepad_info = settings.get_node('gamepad_info')
     self.gamepad_info_button = gamepad_info.get_node('gamepad_info_button')
 
@@ -107,9 +122,9 @@ func _ready():
     camera_follow_label = camera_follow_button.get_node("Label")
     camera_zoom_label = settings.get_node("camera_zoom_level")
     resolution_label = resolution_button.get_node("Label")
-    difficulty_label = difficulty_button.get_node("Label")
+    difficulty_label = difficulty_button
     overscan_toggle_label = overscan_toggle_button.get_node('Label')
-    language_cycle_label = language_cycle_button.get_node('Label')
+    language_cycle_label = language_cycle_button
 
     campaign_button.connect("pressed", self, "_campaign_button_pressed")
     workshop_button.connect("pressed", self, "_workshop_button_pressed")
