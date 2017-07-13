@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://gui/panel_gray.tres" type="Theme" id=1]
-[ext_resource path="res://assets/units/civilians_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://gui/ingame_avatar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=3]
 
 [node name="ingame_message" type="Control"]
@@ -75,7 +75,6 @@ use_top_left = false
 
 [node name="left" type="Control" parent="messages/center"]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -105,44 +104,18 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="avatar" type="Control" parent="messages/center/left"]
+[node name="avatar" parent="messages/center/left" instance=ExtResource( 2 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -320.0
-margin/top = 0.0
-margin/right = -320.0
-margin/bottom = 0.0
+margin/left = -360.0
+margin/right = -360.0
 
-[node name="sprite" type="Sprite" parent="messages/center/left/avatar"]
+[node name="sprite" parent="messages/center/left/avatar"]
 
-transform/pos = Vector2( 0, -32 )
-transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
 flip_h = true
-vframes = 4
-hframes = 6
-
-[node name="name" type="Label" parent="messages/center/left/avatar"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -64.0
-margin/top = 30.0
-margin/right = 64.0
-margin/bottom = 44.0
-text = "SAMPLE NAME"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="right" type="Control" parent="messages/center"]
 
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -164,7 +137,7 @@ size_flags/vertical = 0
 margin/left = -256.0
 margin/top = -48.0
 margin/right = -256.0
-margin/bottom = 0.0
+margin/bottom = -48.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 align = 2
 autowrap = true
@@ -173,41 +146,10 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="avatar" type="Control" parent="messages/center/right"]
+[node name="avatar" parent="messages/center/right" instance=ExtResource( 2 )]
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 320.0
-margin/top = 0.0
-margin/right = 320.0
-margin/bottom = 0.0
-
-[node name="sprite" type="Sprite" parent="messages/center/right/avatar"]
-
-transform/pos = Vector2( 0, -32 )
-transform/scale = Vector2( 8, 8 )
-texture = ExtResource( 2 )
-vframes = 4
-hframes = 6
-frame = 8
-
-[node name="name" type="Label" parent="messages/center/right/avatar"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -64.0
-margin/top = 30.0
-margin/right = 64.0
-margin/bottom = 44.0
-text = "SAMPLE NAME"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+margin/left = 360.0
+margin/right = 360.0
 
 [node name="controls" type="Control" parent="."]
 
@@ -243,3 +185,4 @@ text = "CLOSE"
 flat = false
 
 
+[editable path="messages/center/left/avatar"]
