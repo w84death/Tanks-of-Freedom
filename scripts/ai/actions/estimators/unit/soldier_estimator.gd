@@ -4,7 +4,7 @@ const BASE_MOVE = 1
 const BASE_CAPTURE = 1
 const BASE_ATTACK = 1
 
-const CAPTURE_MOD = 400
+const CAPTURE_MOD = 600
 const ATTACK_MOD  = 300
 const MOVE_MOD    = 100
 
@@ -27,6 +27,7 @@ func score_capture(action):
         return 0
 
     if !self.target_can_be_captured(action):
+        print('building cannot be captured')
         return 0
 
     if.get_target_object(action).type == 0:

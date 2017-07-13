@@ -2,20 +2,32 @@ extends "res://scripts/bag_aware.gd"
 
 var actions = []
 var action = preload('actions/action.gd')
+var waypoint = preload('../waypoint.gd')
 
 const ACTION_OLD_THRESHOLD = 100
 const ACTION_UNUSED_OLD_THRESHOLD = 15
 const CACHED = true
 const ONE_TIME = false
 
+
+func add_waypoint_action(unit, destination, ttl = self.action.DEFAULT_TTL):
+    var waypoint_obj = null
+    var destination_field
+    for move_destination in self.bag.positions.get_nearby_tiles(destination.position_on_map, 1):
+        destination_field = self.bag.abstract_map.get_field(move_destination)
+        if destination_field.is_passable():
+            waypoint_obj = self.waypoint.new(move_destination)
+            if not self.get_action(unit, waypoint_obj):
+                self.actions.append(self.create_action(unit, waypoint_obj, destination, ttl))
+
 func add_action(unit, destination, ttl = self.action.DEFAULT_TTL):
     if self.get_action(unit, destination):
         return
 
-    self.actions.append(self.create_action(unit, destination, ttl))
+    self.actions.append(self.create_action(unit, destination, destination, ttl))
 
-func create_action(unit, destination, type):
-    return action.new(unit.position_on_map, destination, unit, unit.group)
+func create_action(unit, destination, type, point_of_interest):
+    return action.new(unit.position_on_map, destination, unit, unit.group, point_of_interest)
 
 func execute_best_action(action):
     if action != null:

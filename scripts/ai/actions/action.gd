@@ -10,12 +10,13 @@ var proceed     = 0
 var status      = 0
 var ttl         = null
 var unused_ttl  = null
+var point_of_interest = null
 
 const DEFAULT_TTL = 100
 const FLASH_TTL   = 1
 const DEFAULT_UNUSED_TTL = 15
 
-func _init(start, destination, unit, group, ttl = self.DEFAULT_TTL):
+func _init(start, destination, unit, group, point_of_interest, ttl = self.DEFAULT_TTL):
     self.group = group
     self.start = start
     self.destination = destination
@@ -23,6 +24,7 @@ func _init(start, destination, unit, group, ttl = self.DEFAULT_TTL):
     self.type = type
     self.ttl = ttl
     self.unused_ttl = self.DEFAULT_UNUSED_TTL
+    self.point_of_interest = point_of_interest
 
 func proceed():
     var path = Array(self.path)
@@ -57,9 +59,14 @@ func __info(string=''):
     print(string, self.__to_string())
 
 func __to_string():
-    var msg = "id: %5d t: %7s sc: %6.2f u: %5s d: %14s ap: %s p: %s proc: %s s: %s ttl: %s uttl: %s"
+    var msg = "id: %5d t: %7s sc: %6.2f u: %5s d: %8s ap: %s p: %s proc: %s s: %s ttl: %s uttl: %s"
     var ap = 0;
+    var dest = ''
     if self.unit.group != 'building':
         ap = self.unit.ap
 
-    return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), self.destination, ap, self.path, self.proceed, self.unit.position_on_map, self.ttl, self.unused_ttl]
+    if self.destination != null:
+        dest = self.destination.group
+
+
+    return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), dest, ap, self.path, self.proceed, self.unit.position_on_map, self.ttl, self.unused_ttl]

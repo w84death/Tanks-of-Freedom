@@ -11,6 +11,7 @@ const SPAWN_LIMIT = 25
 
 func _initialize():
     self.ai_logger_enabled = Globals.get('tof/ai_logger')
+    print('logger', self.ai_logger_enabled)
     pass
 
 func start_do_ai(current_player, player_ap):
@@ -57,10 +58,8 @@ func __prepare_unit_actions():
     var destinations = null
 
     # initialize
-    var own_buildings = self.bag.positions.get_player_buildings(self.player)
-    var own_units     = self.bag.positions.get_player_units(self.player)
-    var obstacle_positions = own_buildings.keys() + own_units.keys()
-    self.bag.a_star.set_obstacles(obstacle_positions)
+    var own_units = self.bag.positions.get_player_units(self.player)
+    self.bag.a_star.set_obstacles(own_units.keys())
 
     for unit in self.bag.positions.get_player_units(self.player).values():
         if unit.ap > 0 && unit.life > 0:
@@ -114,7 +113,10 @@ func __prepare_building_actions():
             self.__add_action(building, null)
 
 func __add_action(unit, destination):
-    self.bag.actions_handler.add_action(unit, destination)
+    if destination != null && destination.group == 'building':
+        self.bag.actions_handler.add_waypoint_action(unit, destination)
+    else:
+        self.bag.actions_handler.add_action(unit, destination)
 
 func __add_flash_action(unit, destination):
     self.bag.actions_handler.add_action(unit, destination, self.bag.actions_handler.action.FLASH_TTL)
