@@ -144,6 +144,8 @@ func _input(event):
         if self.is_debug:
             if event.type == InputEvent.KEY && event.scancode == KEY_F && event.pressed:
                 self.bag.fog_controller.toggle_fog()
+            if event.type == InputEvent.KEY && event.scancode == KEY_V && event.pressed:
+                print(current_map_terrain.world_to_map(current_map_terrain.map_to_world(selector_position)))
 
 
         if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:

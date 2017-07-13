@@ -13,7 +13,14 @@ const ONE_TIME = false
 func add_waypoint_action(unit, destination, ttl = self.action.DEFAULT_TTL):
     var waypoint_obj = null
     var destination_field
-    for move_destination in self.bag.positions.get_nearby_tiles(destination.position_on_map, 1):
+    var nearby_tiles = self.bag.positions.get_nearby_tiles(destination.position_on_map, 1)
+    for move_destination in nearby_tiles:
+        if unit.position_on_map == move_destination:
+            self.actions.append(self.create_action(unit, destination, destination, ttl))
+            return
+
+
+    for move_destination in nearby_tiles:
         destination_field = self.bag.abstract_map.get_field(move_destination)
         if destination_field.is_passable():
             waypoint_obj = self.waypoint.new(move_destination)

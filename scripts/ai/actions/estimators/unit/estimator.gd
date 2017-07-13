@@ -8,8 +8,8 @@ var waypoint_value = {
 	0: 14,  # TYPE_BUNKER
 	1: 7, # TYPE_BARRACKS
 	2: 7, # TYPE_FACTORY
-	3: 3, # TYPE_AIRPORT
-	4: 9 # TYPE_TOWER
+	3: 5, # TYPE_AIRPORT
+	4: 8 # TYPE_TOWER
 	}
 
 func __ap_level(unit):
@@ -113,7 +113,11 @@ func score_move(action):
     else:
         score = score + self.__health_level(action.unit) * 20
 
-    score = score - (action.path.size() * 3)
+    # TODO - parameters changing during game
+    if action.ttl > 80:
+        score = score - (action.path.size() * 25)
+    else:
+        score = score - (action.path.size() * 15)
 
     if action.proceed:
         score = score + 50 + (action.proceed * 10)
@@ -122,7 +126,7 @@ func score_move(action):
 
     # if destination is building
     if self.is_destination_building(action) && action.unit.check_hiccup(action.path[1]):
-        score = score * 0.6
+        score = score * 0.2
 
     return score
 

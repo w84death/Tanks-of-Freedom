@@ -5,10 +5,6 @@ func _init(bag):
 
 func execute(action):
     var field = self.__get_next_tile_from_path(action.path)
-    if action.destination.group == 'waypoint':
-        if action.path.size() == 2:
-            print(action.destination.group)
-
         
     if field  != null:
         var active_field = self.bag.controllers.action_controller.set_active_field(action.unit.position_on_map)
@@ -27,6 +23,7 @@ func __on_success(action):
     self.mark_unit_for_calculations(action.unit)
     if action.unit.ap == 0:
         action.score = 0
+
     if action.path.size() < 2:
         self.bag.actions_handler.remove(action)
 

@@ -9,17 +9,13 @@ const ATTACK_MOD  = 300
 const MOVE_MOD    = 150
 
 # soldier / tank / heli
-var capture_modifiers = IntArray([5, 2, 2])
-var attack_modifiers = IntArray([4, 6, 7])
-var move_capture_modifiers = IntArray([5, 1, 3])
-var move_attack_modifiers = IntArray([2, 2, 3])
-var danger_modifier = IntArray([1, 5, 2])
+var danger_modifier = IntArray([0, 5, 1])
 
 func _init(bag):
     self.bag = bag
 
 func score_capture(action):
-    return 90000
+
     if action.unit.life == 0 or !self.has_ap(action):
         return 0
 
@@ -40,6 +36,6 @@ func score_capture(action):
     # lower health is better
     score = score + (1 - self.__health_level(action.unit))
 
-    return self.CAPTURE_MOD + score
+    return self.CAPTURE_MOD + score - (action.path.size() * 10)
 
 
