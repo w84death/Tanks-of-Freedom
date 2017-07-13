@@ -35,7 +35,6 @@ func score(action):
                     action.score = self.estimators[action.unit.type].score_attack(action)
                     action.type = "attack"
 
-
     self.__add_random(action)
 
 func __add_random(action):

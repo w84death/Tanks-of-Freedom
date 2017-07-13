@@ -6,7 +6,7 @@ const BASE_ATTACK = 1
 
 const CAPTURE_MOD = 600
 const ATTACK_MOD  = 300
-const MOVE_MOD    = 100
+const MOVE_MOD    = 150
 
 # soldier / tank / heli
 var capture_modifiers = IntArray([5, 2, 2])
@@ -19,6 +19,7 @@ func _init(bag):
     self.bag = bag
 
 func score_capture(action):
+    return 90000
     if action.unit.life == 0 or !self.has_ap(action):
         return 0
 
@@ -27,7 +28,6 @@ func score_capture(action):
         return 0
 
     if !self.target_can_be_captured(action):
-        print('building cannot be captured')
         return 0
 
     if.get_target_object(action).type == 0:

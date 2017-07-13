@@ -26,8 +26,8 @@ func add_action(unit, destination, ttl = self.action.DEFAULT_TTL):
 
     self.actions.append(self.create_action(unit, destination, destination, ttl))
 
-func create_action(unit, destination, type, point_of_interest):
-    return action.new(unit.position_on_map, destination, unit, unit.group, point_of_interest)
+func create_action(unit, destination, point_of_interest, ttl):
+    return action.new(unit.position_on_map, destination, unit, unit.group, point_of_interest, ttl)
 
 func execute_best_action(action):
     if action != null:

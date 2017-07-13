@@ -38,7 +38,7 @@ func can_move(action):
     return true
 
 func get_waypoint_value(action):
-    var object = self.bag.abstract_map.get_field(action.destination.position_on_map).object
+    var object = self.bag.abstract_map.get_field(action.point_of_interest.position_on_map).object
     if object == null:
         return 0
     #TODO - stub for waypoint handling

@@ -56,7 +56,6 @@ func add_age():
 func __info(string=''):
     if self.unit.type != 1:
         return
-    print(string, self.__to_string())
 
 func __to_string():
     var msg = "id: %5d t: %7s sc: %6.2f u: %5s d: %8s ap: %s p: %s proc: %s s: %s ttl: %s uttl: %s"

@@ -5,6 +5,11 @@ func _init(bag):
 
 func execute(action):
     var field = self.__get_next_tile_from_path(action.path)
+    if action.destination.group == 'waypoint':
+        if action.path.size() == 2:
+            print(action.destination.group)
+
+        
     if field  != null:
         var active_field = self.bag.controllers.action_controller.set_active_field(action.unit.position_on_map)
         if active_field.object != null:
