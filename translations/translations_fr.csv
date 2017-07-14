@@ -1,16 +1,16 @@
 ,fr
 TIP_HEADER,"Saviez-vous que..."
 TIP_1,"Chaque unité ne peut attaquer qu'une seule fois par tour"
-TIP_2,"Chaque unité à ses forces et ses faiblesses - seul les fantassins peuvent capturer les bâtiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères"
+TIP_2,"Chaque unité a ses forces et ses faiblesses - seul les fantassins peuvent capturer les bâtiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères"
 TIP_3,"Vous pouvez déployer des soldats dans le QG mais il est moins cher de le faire dans les casernes"
 TIP_4,"Les unités qui capturent un bâtiment ne peuvent plus rien faire jusqu'au tour suivant"
 TIP_5,"Chaque bâtiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat"
 TIP_6,"Le QG et les tours ainsi que les aéroports capturés fournissent du cash à chaque tour"
-TIP_7,"Les points d'action peuvent être dépensé pour déployer des unités ou bien les faire bouger et attaquer"
+TIP_7,"Les points d'action peuvent être dépensés pour déployer des unités ou bien les faire bouger et attaquer"
 TIP_8,"Utilisez vos points d'action avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon"
 TIP_9,"Ce n'est jamais une bonne idée d'envoyer une unité seule sur le champ de bataille"
 TIP_10,"Mélanger différents types d'unités dans un bataillon vous donne un avantage stratégique"
-TIP_11,"Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats!"
+TIP_11,"Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats !"
 TIP_12,"Une unité ne peut attaquer que les cases adjacentes à sa position - vous devez d'abord déplacer votre unité si votre cible se trouve trop loin"
 TIP_13,"Le QG est le bâtiment le plus important du jeu. Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate...:"
 LABEL_WORKSHOP,WORKSHOP
@@ -19,13 +19,13 @@ LABEL_START_TURN,GO !
 LABEL_CAMPAIGN,CAMPAGNE
 LABEL_SKIRMISH,ESCARMOUCHE
 LABEL_CONFIRM,CONFIRMER
-LABEL_UNIT_ATTACK,ATTAQUER
+LABEL_UNIT_ATTACK,ATTAQUE
 LABEL_UNIT_HEALTH,VIE
 LABEL_UNIT_RANGE,RANG
 LABEL_BUILDING_HQ,QG
 LABEL_BUILDING_BARRACKS,CASERNE
-LABEL_BUILDING_FACTORY,USINES
-LABEL_BUILDING_AIRPORT,AÉROPORTS
+LABEL_BUILDING_FACTORY,USINE
+LABEL_BUILDING_AIRPORT,AÉROPORT
 LABEL_BUILDING_GSM_TOWER,RADAR
 LABEL_REMOTE,REMOTE
 LABEL_LOCAL,LOCAL
@@ -55,7 +55,7 @@ LABEL_UNIT_HELI,HÉLICO
 LABEL_RANGE,RANG
 LABEL_DEPLOY_PRICE,PRIX
 LABEL_DEPLOY,DÉPLOYER
-LABEL_END,END
+LABEL_END,FIN
 LABEL_TURN,TOURS
 LABEL_NEW_TURN,NOUV. TOUR
 LABEL_ACTION_POINTS,POINTS D'ACTION
@@ -92,7 +92,7 @@ LABEL_BLUE_TEAM,ÉQUIPE BLEUE
 LABEL_RED_TEAM,ÉQUIPE ROUGE
 LABEL_START,DÉMARRER
 LABEL_MISSION_COMPLETED,MISSION TERMINÉE
-LABEL_PREVIOUS,PRÉCÉDANT
+LABEL_PREVIOUS,PRÉCÉDENT
 LABEL_NEXT,SUIVANT
 LABEL_NAME,NOM
 LABEL_WORKSHOP_UNITS,UNITÉS
@@ -129,34 +129,34 @@ LABEL_WORKSHOP_AIRPORT,AÉROPORT
 LABEL_WORKSHOP_SPAWN,SPAWN
 LABEL_WORKSHOP_GSM_TOWER,RADAR
 LABEL_WORKSHOP_TOWER,RADAR
-LABEL_WORKSHOP_INFANTRY,INFANTRIE
+LABEL_WORKSHOP_INFANTRY,INFANTERIE
 LABEL_WORKSHOP_TANK,TANK
 LABEL_WORKSHOP_HELI,HÉLICO
 LABEL_WORKSHOP_CIVILIAN,CIVIL
-LABEL_WORKSHOP_CONCRETE,BETON
+LABEL_WORKSHOP_CONCRETE,BÉTON
 MSG_NO_ENOUGH_AP,AP INSUFFISANT
 MSG_START_YOUR_TURN_NOW,À votre tour maintenant !
 MSG_EMPTY_DISPLAY,&lt; RIEN À AFFICHER&#000a;&lt; SÉLECTIONNEZ UNE UNITÉ OU UN BÂTIMENT
 MSG_GAME_DESCRIPTION_1,JEU DE STRATÉGIE AU TOUR PAR TOUR
 MSG_GAME_DESCRIPTION_2,LIBRE ET OPEN SOURCE
-MSG_FREE_AS_FREEDOM,"* FREE AS FREEDOM, NOT FREE AS IN FREE BEER"
+MSG_FREE_AS_FREEDOM,""
 MSG_INDIE_GAME,INDIE GAME&#000a;DESIGN &amp; &#000a;DEVELOP
 MSG_WORKSHOP_USE_UNIQUE_NAME,UTILISEZ UN NOM UNIQUE
 MSG_WORKSHOP_CREATE_NEW_ISLAND,CRÉER UNE NOUVELLE ÎLE AU CENTRE
-MSG_WORKSHOP_LOSE_MAP_DATA,VOUS PERDREZ LA CARTE CRÉÉE!
-LABEL_GAME_OVER,DÉFAITE
+MSG_WORKSHOP_LOSE_MAP_DATA,VOUS PERDREZ LA CARTE CRÉÉE !
+LABEL_GAME_OVER,FIN DE PARTIE
 LABEL_DOMINATION,DOMINATION
-LABEL_MOVES,MOUVEMENTS
-LABEL_DEPLOYED,DEPLOYÉ
-LABEL_ELIMINATED,ÉLÉMINÉ
+LABEL_MOVES,COUPS
+LABEL_DEPLOYED,DÉPLOYÉ
+LABEL_ELIMINATED,ÉLIMINÉ
 LABEL_BLUE,BLEU
 LABEL_RED,ROUGE
 LABEL_TURN,TOUR
 LABEL_TIME,TEMPS
 LABEL_TOTAL_SCORE,SCORE TOTAL
-LABEL_PLAYERS_TIME,TEMPS JOUEUR
+LABEL_PLAYERS_TIME,TEMPS JOUEURS
 LABEL_MENU,MENU
-LABEL_PLAY_AGAIN,PLAY_AGAIN
+LABEL_PLAY_AGAIN,REJOUER
 LABEL_REQUIES_RESTART,REDÉMARRAGE REQUIS
 LABEL_LANGUAGE,LANGUE
 LABEL_OVERSCAN,OVERSCAN
@@ -170,36 +170,36 @@ LABEL_PAGE,PAGE
 LABEL_WORKSHOP_SAVE,SAUVEGARDER
 LABEL_WORKSHOP_LOAD,CHARGER
 LABEL_MAP_TO_UPLOAD,Carte à envoyer
-LABEL_PROCEED_QUESTION,"Continuer?"
+LABEL_PROCEED_QUESTION,"Continuer ?"
 LABEL_UPLOAD_MAP,Envoyer la carte
 LABEL_UPLOAD,Envoyer
 LABEL_CANCEL,Annuler
 TIP_COMPLETE_MAP_FIRST,"Vous devez d'abord remporter la victoire sur cette carte en mode escarmouche avant de pouvoir la partager en ligne."
-LABEL_GOT_IT,"Réussi!"
+LABEL_GOT_IT,"Réussi !"
 LABEL_ONLINE_MENU,CARTES EN LIGNE
-MSG_ONLINE_MENU_DESC,"TÉLÉCHARGEZ DE NOUVELLES CARTES OU PARTAGEZ VOS CRÉATIONS AVEC LE MONDE!"
-TIP_UPLOADING_WAIT,"Envoie en cours! Patientez."
-TIP_UPLOADING_SUCCESS,"Envoi réussi! Vous pouvez maintenant partager votre nouvelle carte avec vos amis : "
-TIP_UPLOADING_FAIL,"L'envoie a échoué. Réessayez plus tard."
+MSG_ONLINE_MENU_DESC,"TÉLÉCHARGEZ DE NOUVELLES CARTES OU PARTAGEZ VOS CRÉATIONS AVEC LE MONDE !"
+TIP_UPLOADING_WAIT,"Envoi en cours ! Patientez."
+TIP_UPLOADING_SUCCESS,"Envoi réussi ! Vous pouvez maintenant partager votre nouvelle carte avec vos amis : "
+TIP_UPLOADING_FAIL,"L'envoi a échoué. Réessayez plus tard."
 LABEL_DONE,Terminé
-TIP_WELCOME_ONLINE,"Bienvenue sur ToF Online!"
+TIP_WELCOME_ONLINE,"Bienvenue sur ToF Online !"
 TIP_NEED_REGISTER,"Avant que vous puissiez utiliser le jeu en ligne, nous devons enregistrer votre appareil grâce à notre système en ligne."
 LABEL_REGISTER,Enregistrer
 LABEL_LATER,"Plus tard..."
 LABEL_REGISTER_PLAYER,"Enregist. joueur"
-TIP_REQUESTING_PLAYER_ID,"Requète de l'ID du joueur! Patientez."
+TIP_REQUESTING_PLAYER_ID,"Requète de l'ID du joueur ! Patientez."
 TIP_REQUESTING_PLAYER_FAIL,"La requète de l'ID du joueur a échoué. Réessayez plus tard."
-TIP_REQUESTING_PLAYER_SUCCESS,"La requète de l'ID du joueur a abouti. Bienvenue sur ToF Online!"
+TIP_REQUESTING_PLAYER_SUCCESS,"La requète de l'ID du joueur a abouti. Bienvenue sur ToF Online !"
 LABEL_DOWNLOAD_MAP,Envoyer une carte
 TIP_INPUT_CODE,"Entrez le code de la carte"
 LABEL_DOWNLOAD,Télécharger
-TIP_DOWNLOADING_WAIT,"Téléchargement de la carte! Patientez."
+TIP_DOWNLOADING_WAIT,"Téléchargement de la carte ! Patientez."
 TIP_MAP_DOWNLOAD_SUCCESS,"La carte a été téléchargée."
 TIP_MAP_DOWNLOAD_FAIL,"Impossible de télécharger la carte. Vérifiez que le code est correct et réessayez."
 LABEL_PLAY_AGAIN,REJOUER
 LABEL_VERSION,Version
-TITLE_GAMEPAD_CONFIG,GAMEPAD CONFIGURATION
-LABEL_PREVIOUS_UNIT,UNITÉ PRÉCÉDANTE
+TITLE_GAMEPAD_CONFIG,CONFIGURATION MANETTE
+LABEL_PREVIOUS_UNIT,UNITÉ PRÉCÉDENTE
 LABEL_NEXT_UNIT,UNITÉ SUIVANTE
 LABEL_SELECTOR_MOVEMENT,MOVE FIELD SELECTOR
 LABEL_GAME_MENU_MOVEMENT,NAVIGATE MENU
@@ -207,13 +207,13 @@ LABEL_END_TURN,FIN DU TOUR
 LABEL_BACK_TO_MENU,MENU PRINCIPAL
 LABEL_SELECT,EFFECTUER
 LABEL_DEPLOY_UNIT,ACH. NOUV. UNITÉ
-LABEL_GAMEPAD_INFO,GAMEPAD INFO
+LABEL_GAMEPAD_INFO,INFO MANETTE
 LABEL_WORKSHOP_THEME,THÈME CARTE
 LABEL_SUMMER,ÉTÉ
 LABEL_FALL,AUTOMNE
 LABEL_WINTER,HIVER
 LABEL_WORKSHOP_FAILURE,ÉCHEC DE L'OPÉRATION
-MSG_WORKSHOP_FILE_ERROR_NAME,"Les noms de carte ne doivent contenir que des symboles alphanumériques et underscores."
+MSG_WORKSHOP_FILE_ERROR_NAME,"Les noms de carte ne doivent contenir que des symboles alphanumériques et des tirets bas."
 MSG_WORKSHOP_FILE_NOT_FOUND,"Ce nom ne correspond à aucune carte."
 MSG_WORKSHOP_CHECK_TYPOS,"Revérifiez le nom du fichier SVP"
 LABEL_OK,OK
@@ -222,23 +222,23 @@ LABEL_CPU_TURN,TOUR DU CPU
 LABEL_REFRESHING_MATCHES,RAFRAÎCHISSEMENT DES MATCHS
 TIP_REFRESHING_WAIT,"RAFRAÎCHISSEMENT DE LA LISTE DES MATCHS EN LIGNE, PATIENTEZ SVP..."
 LABEL_CREATE_MATCH,CRÉER UN MATCH
-MSG_CONFIRM_CREATE,VOULEZ-VOUS HÉBERGER UN NOUVEAU MATCH?
+MSG_CONFIRM_CREATE,VOULEZ-VOUS HÉBERGER UN NOUVEAU MATCH ?
 LABEL_PROCEED,CONTINUER
 LABEL_PICK_SIDE,CHOISIR UN CAMP
 MSG_PICK_SIDE,CHOISISSEZ LE CAMP POUR LEQUEL VOUS VOULEZ JOUER
 MSG_SELECTED_MAP,"CARTE CHOISIE : "
 MSG_SELECTED_SIDE,"CAMP CHOISI : "
-MSG_READY_TO_CREATE,"CRÉER LE MATCH?"
+MSG_READY_TO_CREATE,"CRÉER LE MATCH ?"
 MSG_CREATING_MATCH_WAIT,"CRÉATION D'UN NOUVEAU MATCH. PATIENTEZ SVP..."
 LABEL_FAILURE,"ÉCHEC DE L'OPÉRATION"
 MSG_OPERATION_FAILED,"LA CONNEXION A ÉCHOUÉ. VÉRIFEZ VOTRE CONNEXION INTERNET ET RÉESSAYEZ SVP."
 LABEL_JOIN_MATCH,"REJOINDRE UN MATCH"
 MSG_INPUT_MATCH_CODE,"ENTRER LE CODE D'ACCÈS AU MATCH"
-LABEL_JOIN,JOINDRE
+LABEL_JOIN,REJOINDRE
 MSG_ALREADY_IN_MATCH,VOUS ÊTES DÉJÀ DANS CE MATCH
 MSG_FETCHING_MATCH_DETAILS,"COLLECTE DES DÉTAILS DU MATCH, PATIENTEZ SVP..."
 MAG_AVAILABLE_SIDE,"CAMP REJOIGNABLE : "
-MAG_PROCEED_JOIN,"REJOINDRE CE MATCH?"
+MAG_PROCEED_JOIN,"REJOINDRE CE MATCH ?"
 MSG_JOINING_MATCH_WAIT,"VOUS REJOIGNEZ UN MATCH, PATIENTEZ SVP..."
 LABEL_MATCH_CODE,"CODE DU MATCH : "
 LABEL_YOUR_TURN,"VOTRE TOUR"
@@ -252,11 +252,11 @@ LABEL_MATCH_FORFEIT,"ADVERSAIRE GAUCHE"
 LABEL_MAP_CODE,"CARTE : "
 LABEL_INVALID_MATCH,"MATCH INVALIDE"
 LABEL_ABANDON_MATCH,"ABANDONNER LE MATCH"
-MAG_ABANDON_MATCH,"ÊTES-VOUS SÛR DE VOULOIR ABANDONNER LE MATCH? VOUS NE POURREZ PAS REPRENDRE LE MATCH."
+MAG_ABANDON_MATCH,"ÊTES-VOUS SÛR DE VOULOIR ABANDONNER LE MATCH ? VOUS NE POURREZ PAS REPRENDRE LE MATCH."
 LABEL_CLEAR_SLOT,"LIBÉRER LES EMPLACEMENTS DE JEU"
 MSG_CLEARING_SLOT_WAIT,"LIBÉRATION DES EMPLACEMENTS, PATIENTEZ SVP..."
 LABEL_SHOW_REPLAY,"MONTRER LE REPLAY"
-MSG_SHOW_REPLAY,"VOULEZ-VOUS VOIR LE REPLAY DES TOURS DE L'ADVERSAIRE?"
+MSG_SHOW_REPLAY,"VOULEZ-VOUS VOIR LE REPLAY DES TOURS DE L'ADVERSAIRE ?"
 LABEL_REPLAY,"REJOUER"
 LABEL_SKIP,"PASSER"
 LABEL_LOADING_MATCH,"CHARGEMENT DU MATCH"
@@ -270,15 +270,15 @@ LABEL_CREATE,CRÉER
 LABEL_FORFEIT,FORFAIT
 LABEL_CLEAR,NETTOYER
 LABEL_HELP,AIDE
-MSG_MULTIPLAYER_WELCOME,"Bienvenu sur ToF multijoueur!"
-TIP_ONLINE_HELP_1,"Pour débuter votre partie en ligne, cliquez sur le bouton CRÉER sur l'un des emplacements libres. Si le bouton est désactivé, cela signifie que vous devez d'abord télécharger une carte en ligne, ou envoyer la votre. Vous pourriez commencer par télécharger la carte 'CHEKLEEN'! Une fois que vous hébergez la partie, communiquez le code de votre match à votre partenaire de jeu pour qu'il puisse vous rejoindre."
-TIP_ONLINE_HELP_2,"Durant un match, vous et votre adversaire n'avez pas de limite de temps pour jouer votre tour. Souvenez vous que vous n'avez pas besoin d'attendre votre tour indéfiniment - vous pouvez entre temps jouer aux campagnes, faire une partie en escarmouche ou même jouer à une autre partie multijoueur! Quitter le jeu est aussi une option, mais voudrez vous vraiment le faire?"
+MSG_MULTIPLAYER_WELCOME,"Bienvenu sur ToF multijoueur !"
+TIP_ONLINE_HELP_1,"Pour débuter votre partie en ligne, cliquez sur le bouton CRÉER sur l'un des emplacements libres. Si le bouton est désactivé, cela signifie que vous devez d'abord télécharger une carte en ligne, ou envoyer la votre. Vous pourriez commencer par télécharger la carte 'CHEKLEEN' ! Une fois que vous hébergez la partie, communiquez le code de votre match à votre partenaire de jeu pour qu'il puisse vous rejoindre."
+TIP_ONLINE_HELP_2,"Durant un match, vous et votre adversaire n'avez pas de limite de temps pour jouer votre tour. Souvenez vous que vous n'avez pas besoin d'attendre votre tour indéfiniment - vous pouvez entre temps jouer aux campagnes, faire une partie en escarmouche ou même jouer à une autre partie multijoueur ! Quitter le jeu est aussi une option, mais voudrez vous vraiment le faire ?"
 TIP_ONLINE_HELP_3,"Vous êtes limités à quatre emplacements de jeux multijoueurs. Souvenez vous de supprimer ceux qui sont terminés et inactifs."
 MSG_SPAWN_BLOCKED,DÉPLOIEMENT BLOQUÉ
 MSG_MULTIPLAYER_LOBBY_HEADLINE,MODE MULTIJOUEUR
 MSG_MULTIPLAYER_LOBBY_SUB,"Vous pouvez avoir jusqu'à quatre jeux en cours simultanément"
 LABEL_WORKSHOP_CLEAR_MAP,CLEAR EVRYTHING IN MAP
 MSG_WORKSHOP_FILL_MAP,FILL MAP WITH GRASS TILES
-LABEL_WORKSHOP_TILES,TILES
-LABEL_PREVIEW,PREVIEW
+LABEL_WORKSHOP_TILES,TUILES
+LABEL_PREVIEW,APERÇU
 MSG_ASK_UPLOAD,"BEGIN MAP UPLOAD?"
