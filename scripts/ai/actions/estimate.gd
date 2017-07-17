@@ -8,10 +8,6 @@ func run(action):
         if action.path.size() == 0:
             action.path = self.bag.a_star.path_search(start, end)
 
-        #TODO this if is bad
-        if action.destination != action.point_of_interest:
-            action.path.append(action.point_of_interest.position_on_map)
-
     action.score = 0
     self.bag.estimate_strategy.score(action)
     action.add_age()
@@ -23,7 +19,6 @@ func get_simple_path(start, end):
         return [start, end]
 
     return []
-
 
 func is_adjacent(start, end):
     var diff_x = abs(start.x - end.x)

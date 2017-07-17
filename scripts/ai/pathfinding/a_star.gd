@@ -7,6 +7,7 @@ var astar = AStar.new()
 
 var obstacles = []
 var new_obstacles = []
+var passable_field_count = 0
 
 func _initialize():
     self.prepare_grid()
@@ -24,11 +25,15 @@ func rebuild_current_grid():
 func prepare_map_grid(abstract_map):
     var field = null
     var pos = null
+    var passable = false
     for id in self.grid:
         field = abstract_map.get_field(self.point_id_2_pos(id))
+        passable = !(field.has_terrain() or field.is_empty() or field.has_building())
         self.map_grid[id] = {
-            "passable"  : !(field.has_terrain() or field.is_empty() or field.has_building()),
+            "passable"  : passable,
         }
+        if passable:
+            self.passable_field_count = self.passable_field_count + 1
 
     self.__reset_grid()
     self.connect_passable_tiles()

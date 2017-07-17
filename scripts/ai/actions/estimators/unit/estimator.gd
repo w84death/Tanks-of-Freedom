@@ -9,7 +9,7 @@ var waypoint_value = {
 	1: 7, # TYPE_BARRACKS
 	2: 7, # TYPE_FACTORY
 	3: 5, # TYPE_AIRPORT
-	4: 8 # TYPE_TOWER
+	4: 9 # TYPE_TOWER
 	}
 
 func __ap_level(unit):
@@ -114,8 +114,8 @@ func score_move(action):
         score = score + self.__health_level(action.unit) * 20
 
     # TODO - parameters changing during game
-    if action.ttl > 80:
-        score = score - (action.path.size() * 25)
+    if self.bag.controllers.action_controller.turn < 4:
+        score = score - (action.path.size() * 30)
     else:
         score = score - (action.path.size() * 15)
 

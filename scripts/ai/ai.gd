@@ -6,7 +6,7 @@ var player_ap
 var own_units
 var ai_logger_enabled
 
-const MIN_DESTINATION_PER_UNIT = 4
+const MIN_DESTINATION_PER_UNIT = 5
 const SPAWN_LIMIT = 25
 
 func _initialize():
@@ -105,7 +105,7 @@ func __gather_destinations(unit):
     return destinations
 
 func __prepare_building_actions():
-    if self.bag.positions.get_player_units(self.player).size() >= SPAWN_LIMIT:
+    if self.bag.positions.get_player_units(self.player).size() >= self.get_spawn_limit():
         return
 
     for building in self.bag.positions.get_player_buildings(self.player).values():
@@ -124,3 +124,6 @@ func __add_flash_action(unit, destination):
 func reset():
     self.processed_units_object_ids.clear()
     self.bag.actions_handler.reset()
+
+func get_spawn_limit():
+    return min(self.bag.a_star.passable_field_count / 7, self.SPAWN_LIMIT)
