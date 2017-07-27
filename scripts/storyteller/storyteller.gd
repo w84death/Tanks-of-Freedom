@@ -16,8 +16,10 @@ var action_handlers = {
     'message' : preload("res://scripts/storyteller/actions/message.gd").new(),
     'terrain_add' : preload("res://scripts/storyteller/actions/terrain_add.gd").new(),
     'terrain_remove' : preload("res://scripts/storyteller/actions/terrain_remove.gd").new(),
+    'terrain_damage' : preload("res://scripts/storyteller/actions/terrain_damage.gd").new(),
     'spawn' : preload("res://scripts/storyteller/actions/spawn.gd").new(),
     'attack' : preload("res://scripts/storyteller/actions/attack.gd").new(),
+    'despawn' : preload("res://scripts/storyteller/actions/despawn.gd").new(),
 }
 
 var available_stories = {}

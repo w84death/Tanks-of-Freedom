@@ -35,6 +35,10 @@ var stories = {
         {'action' : 'terrain_remove', 'details' : {'where'  : Vector2(6, 7), 'explosion' : true}, 'delay' : 0.5},
         {'action' : 'terrain_remove', 'details' : {'where'  : Vector2(6, 6), 'explosion' : false}},
 
+        {'action' : 'terrain_damage', 'details' : {'where' : Vector2(8, 7)}, 'delay' : 1},
+
+        {'action' : 'camera', 'details' : {'where' : Vector2(9, 4), 'zoom' : 2}, 'delay' : 2},
+        {'action' : 'despawn', 'details' : {'who' : Vector2(8, 3)}, 'delay' : 1},
 
         {'action' : 'unlock', 'details' : {}},
         #{'action' : 'win', 'details' : {'player' : 0}}
