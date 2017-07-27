@@ -43,9 +43,23 @@ var stories = {
         {'action' : 'unlock', 'details' : {}},
         #{'action' : 'win', 'details' : {'player' : 0}}
 
+    ],
+
+    'turn_end' : [
+        {'action' : 'lock', 'details' : {}, 'delay' : 2},
+        {'action' : 'message', 'details': {'text' : 'CAMPAIGN_MISSION_1_ENEMY_HQ', 'portrait' : 'soldier_blue', 'name' : 'NAME_FREEDOM_FIGHTER', 'side' : 'right'}},
+        {'action' : 'unlock', 'details' : {}},
+    ],
+
+    'moved' : [
+        {'action' : 'lock', 'details' : {}, 'delay' : 2},
+        {'action' : 'message', 'details': {'text' : 'CAMPAIGN_MISSION_1_ENEMY_HQ', 'portrait' : 'soldier_blue', 'name' : 'NAME_FREEDOM_FIGHTER', 'side' : 'right'}},
+        {'action' : 'unlock', 'details' : {}},
     ]
 }
 
 var triggers = {
-    'first_turn' : {'type' : 'turn', 'story' : 'tower_tip', 'details' : { 'turn' : 1 }}
+    'first_turn' : {'type' : 'turn', 'story' : 'tower_tip', 'details' : { 'turn' : 1 }},
+    #'first_turn_end' : {'type' : 'turn_end', 'story' : 'turn_end', 'details' : { 'turn' : 1 }},
+    'moved' : {'type' : 'move', 'story' : 'moved', 'details' : { 'fields' : [Vector2(9, 6)] }, 'one_off' : true},
 }

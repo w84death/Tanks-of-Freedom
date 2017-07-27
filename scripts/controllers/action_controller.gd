@@ -304,6 +304,10 @@ func local_end_turn():
     else:
         self.turn += 1
         self.switch_to_player(0, save)
+        self.root_node.bag.storyteller.register_story_event({
+            'type' : 'turn_end',
+            'details' : {'turn' : self.turn - 1}
+        })
     hud_controller.set_turn(turn)
 
     #gather stats
@@ -506,6 +510,15 @@ func move_unit(active_field, field):
         #gather stats
         self.root_node.bag.battle_stats.add_moves(self.current_player)
         self.update_unit(self.active_field)
+
+        self.root_node.bag.storyteller.register_story_event({
+            'type' : 'move',
+            'details' : {
+                'who' : field.object,
+                'where' : field.position
+            }
+        })
+
         return self.status.list[self.status.MOVE_UNIT]
 
     else:
