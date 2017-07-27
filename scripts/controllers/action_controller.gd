@@ -440,7 +440,6 @@ func switch_to_player(player, save_game=true):
 func perform_ai_stuff():
     var success = false
     if self.is_cpu_player && player_ap[current_player] > 0:
-        #TODO
         success = self.root_node.bag.ai.start_do_ai(current_player, player_ap[current_player])
 
     self.hud_controller.update_cpu_progress(player_ap[current_player], self.start_ap_for_current_turn)
@@ -466,6 +465,7 @@ func end_game(winning_player):
         self.root_node.bag.online_multiplayer.end_game()
     self.clear_active_field()
     self.game_ended = true
+    self.root_node.bag.perform.stop_ai_timer()
     if root_node.hud.is_hidden():
         root_node.hud.show()
     hud_controller.show_win(winning_player, self.root_node.bag.battle_stats.get_stats(), turn)
