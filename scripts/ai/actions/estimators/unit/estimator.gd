@@ -39,10 +39,14 @@ func can_move(action):
 
 func get_waypoint_value(action):
     var object = self.bag.abstract_map.get_field(action.point_of_interest.position_on_map).object
+    var value = 0
     if object == null:
         return 0
+    value = self.waypoint_value[object.type]
     #TODO - stub for waypoint handling
-    return self.waypoint_value[object.type]
+    if action.destination.group == 'waypoint' and action.destination.subtype == action.destination.TYPE_SPAWN_POINT:
+        value = value + 1
+    return value
 
 func enemies_in_sight(action):
     var nearby_tiles = self.bag.positions.get_nearby_tiles(action.path[0], 4)

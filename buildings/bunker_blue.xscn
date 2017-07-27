@@ -2,7 +2,7 @@
 <resource_file type="PackedScene" subresource_count="4" version="2.1" version_name="Godot Engine v2.1.3.stable.official">
 	<ext_resource path="res://gui/flag.xscn" type="PackedScene" index="2"></ext_resource>
 	<ext_resource path="res://assets/buildings/military.png" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://scripts/building.gd" type="Script" index="1"></ext_resource>
+	<ext_resource path="res://scripts/objects/building.gd" type="Script" index="1"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>

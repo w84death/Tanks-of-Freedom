@@ -119,7 +119,7 @@
 							<int> 0 </int>
 							<string> "sources" </string>
 							<array  len="2" shared="false">
-								<string> "res://scripts/building.gd" </string>
+								<string> "res://scripts/objects/building.gd" </string>
 								<string> "res://scripts/terrain.gd" </string>
 							</array>
 						</dictionary>

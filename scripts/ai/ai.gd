@@ -95,9 +95,9 @@ func __gather_destinations(unit):
             destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player)
             destinations = destinations + self.bag.positions.get_nearby_empty_buldings(nearby_tiles)
         else:
-           for building in self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player):
-               #destinations.append(building.get_spawn_point_pos()) # TODO - create dummy obj for spawn
-               pass
+            for building in self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player):
+                destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player)
+                pass
 
         if destinations.size() > self.MIN_DESTINATION_PER_UNIT:
             return destinations

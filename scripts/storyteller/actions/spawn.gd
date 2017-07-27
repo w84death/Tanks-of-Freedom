@@ -1,6 +1,5 @@
 extends "res://scripts/storyteller/actions/abstract_action.gd"
 
-
 var object_factory = preload('res://scripts/object_factory.gd').new()
 
 func perform(action_details):

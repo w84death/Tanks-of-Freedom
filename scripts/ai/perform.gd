@@ -1,7 +1,7 @@
 extends "res://scripts/bag_aware.gd"
 
-const INTERVAL = 0.15
-const SKIP_INTERVAL = 1
+const INTERVAL = 0.015
+const SKIP_INTERVAL = 0.1
 var running = false
 
 func do_ai_stuff():
@@ -19,7 +19,6 @@ func do_ai_stuff():
     if self.bag.controllers.action_controller.perform_ai_stuff() != true:
         self.bag.controllers.action_controller.end_turn()
         return
-
 
     self.__execute_with_interval(self.INTERVAL)
 
