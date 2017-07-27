@@ -12,13 +12,19 @@ var online_button
 var main_menu_animations
 var settings_animations
 var main_menu
-var settings
 
-var settings_new
+var settings
+var settings_title
 var settings_gfx
 var settings_sound
 var settings_game
- 
+
+var settings_nav
+var settings_nav_gfx
+var settings_nav_sound
+var settings_nav_game
+var settings_nav_pad
+
 var menu_button
 var settings_button
 var campaign_button
@@ -35,7 +41,6 @@ var workshop_button
 var workshop
 
 var overscan_group
-var language_group
 
 var sound_toggle_button
 var music_toggle_button
@@ -87,45 +92,63 @@ func _ready():
     close_button_label = close_button.get_node('Label')
 
     main_menu = get_node("middle/center/game_panel")
-    settings = get_node("middle/center/settings_panel")
-    settings_new = get_node("middle/center/settings_panel2")
-    settings_gfx = settings_new.get_node("body/tabs/game/")
-    settings_sound = settings_new.get_node("body/tabs/game/")
-    settings_game = settings_new.get_node("body/tabs/game/")
+    self.settings_button = get_node("top/center/settings")
 
-    main_menu_animations = get_node("middle/center/menu_anim")
-    settings_animations = get_node("middle/center/settings_anim")
+    # S E T T I N G S
+    self.settings = get_node("middle/center/settings_panel")
+    self.settings_title = self.settings.get_node("header/title")
+    self.settings_gfx = self.settings.get_node("body/tabs/gfx/")
+    self.settings_sound = self.settings.get_node("body/tabs/sound/")
+    self.settings_game = self.settings.get_node("body/tabs/game/")
 
-    settings_button = get_node("top/center/settings")
-    overscan_group = settings.get_node("overscan_group")
-    language_group = settings.get_node("language_group")
+    self.set_settings_title(tr('LABEL_GAME'))
 
-    sound_toggle_button = settings.get_node("sound_toggle")
-    music_toggle_button = settings.get_node("music_toggle")
-    shake_toggle_button = settings.get_node("shake_toggle")
-    camera_follow_button = settings.get_node("camera_follow")
-    camera_zoom_in_button = settings.get_node("camera_zoom_in")
-    camera_zoom_out_button = settings.get_node("camera_zoom_out")
-    resolution_button = settings.get_node("display_mode_toggle")
+    # settings navigation
+    self.settings_nav = self.settings.get_node("nav/tabs")
+    self.settings_nav_gfx = self.settings_nav.get_node("gfx")
+    self.settings_nav_sound = self.settings_nav.get_node("sound")
+    self.settings_nav_game = self.settings_nav.get_node("game")
+    self.settings_nav_pad = self.settings_nav.get_node("pad")
 
-    self.difficulty_button = settings_game.get_node("difficulty/buttons/center/first")
-    self.tooltips_button = settings_game.get_node("tooltips/buttons/center/first")
-    self.language_cycle_button = settings_game.get_node('language/buttons/center/first')
+    self.settings_nav_gfx.connect("pressed", self, "_settings_nav_button_pressed", ['gfx'])
+    self.settings_nav_sound.connect("pressed", self, "_settings_nav_button_pressed", ['sound'])
+    self.settings_nav_game.connect("pressed", self, "_settings_nav_button_pressed", ['game'])
 
-    overscan_toggle_button = overscan_group.get_node('overscan_button')
-    self.gamepad_info = settings.get_node('gamepad_info')
-    self.gamepad_info_button = gamepad_info.get_node('gamepad_info_button')
+    # gfx
+    self.overscan_group = self.settings_gfx.get_node("overscan_button")
+    self.overscan_toggle_button = self.settings_gfx.get_node("overscan_button/buttons/center/first")
+    self.shake_toggle_button = self.settings_gfx.get_node("shake_toggle/buttons/center/first")
+    self.camera_follow_button = self.settings_gfx.get_node("camera_follow/buttons/center/first")
+    self.camera_zoom_in_button = self.settings_gfx.get_node("camera_zoom/buttons/center/first")
+    self.camera_zoom_out_button = self.settings_gfx.get_node("camera_zoom/buttons/center/second")
+    self.resolution_button = self.settings_gfx.get_node("display_mode_toggle/buttons/center/first")
 
-    sound_toggle_label = sound_toggle_button.get_node("Label")
-    music_toggle_label = music_toggle_button.get_node("Label")
-    shake_toggle_label = shake_toggle_button.get_node("Label")
-    camera_follow_label = camera_follow_button.get_node("Label")
-    camera_zoom_label = settings.get_node("camera_zoom_level")
-    resolution_label = resolution_button.get_node("Label")
-    difficulty_label = difficulty_button
-    overscan_toggle_label = overscan_toggle_button.get_node('Label')
-    language_cycle_label = language_cycle_button
+    self.shake_toggle_label = self.shake_toggle_button
+    self.camera_follow_label = self.camera_follow_button
+    self.resolution_label = self.resolution_button
+    self.overscan_toggle_label = self.overscan_toggle_button
 
+    self.shake_toggle_button.connect("pressed", self, "_toggle_shake_button_pressed")
+    self.camera_follow_button.connect("pressed", self, "_toggle_follow_button_pressed")
+    self.camera_zoom_in_button.connect("pressed", self, "_camera_zoom_in_button_pressed")
+    self.camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
+    self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
+
+    #sound
+    self.sound_toggle_button = self.settings_sound.get_node("sound_toggle/buttons/center/first")
+    self.music_toggle_button = self.settings_sound.get_node("music_toggle/buttons/center/first")
+    self.sound_toggle_label = self.sound_toggle_button
+    self.music_toggle_label = self.music_toggle_button
+
+    # game
+    self.difficulty_button = self.settings_game.get_node("difficulty/buttons/center/first")
+    self.tooltips_button = self.settings_game.get_node("tooltips/buttons/center/first")
+    self.language_cycle_button = self.settings_game.get_node('language/buttons/center/first')
+    self.difficulty_label = self.difficulty_button
+    self.language_cycle_label = self.language_cycle_button
+
+
+    # BUTTON BINDINGS
     campaign_button.connect("pressed", self, "_campaign_button_pressed")
     workshop_button.connect("pressed", self, "_workshop_button_pressed")
     play_button.connect("pressed", self, "_play_button_pressed")
@@ -133,19 +156,14 @@ func _ready():
 
     sound_toggle_button.connect("pressed", self, "_toggle_sound_button_pressed")
     music_toggle_button.connect("pressed", self, "_toggle_music_button_pressed")
-    shake_toggle_button.connect("pressed", self, "_toggle_shake_button_pressed")
-    camera_follow_button.connect("pressed", self, "_toggle_follow_button_pressed")
-    camera_zoom_in_button.connect("pressed", self, "_camera_zoom_in_button_pressed")
-    camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
-    resolution_button.connect("pressed", self, "_resolution_button_pressed")
+
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
     overscan_toggle_button.connect("pressed", self, "_overscan_toggle_button_pressed")
     language_cycle_button.connect("pressed", self, "_language_cycle_button_pressed")
-    self.gamepad_info_button.connect("pressed", self.root.bag.gamepad_popup, "show")
+    self.settings_nav_pad.connect("pressed", self.root.bag.gamepad_popup, "show")
     if self.root.is_pandora:
-        self.gamepad_info.hide()
-        self.gamepad_info_button.set_disabled(true)
-        self.gamepad_info_button.get_node('Label').hide()
+        self.settings_nav_pad.hide()
+        self.settings_nav_pad.set_disabled(true)
 
     close_button.connect("pressed", self, "_close_button_pressed")
     quit_button.connect("pressed", self, "_quit_button_pressed")
@@ -164,7 +182,6 @@ func _ready():
     self.update_version_label()
     self.update_zoom_label()
     self.load_background_map()
-    self.toggle_main_menu()
 
 func _campaign_button_pressed():
     self.root.sound_controller.play('menu')
@@ -211,7 +228,6 @@ func _quit_button_pressed():
     self.quit_game()
 func _menu_button_pressed():
     self.root.sound_controller.play('menu')
-    self.toggle_main_menu()
 func _settings_button_pressed():
     self.root.sound_controller.play('menu')
     self.toggle_settings()
@@ -235,6 +251,23 @@ func _online_button_pressed():
     self.root.sound_controller.play('menu')
     self.show_online_menu()
 
+func _settings_nav_button_pressed(target):
+    self.settings_game.hide()
+    self.settings_gfx.hide()
+    self.settings_sound.hide()
+
+    if target == 'game':
+        self.settings_game.show()
+        self.set_settings_title(tr('LABEL_GAME'))
+    elif target == 'gfx':
+        self.settings_gfx.show()
+        self.set_settings_title(tr('LABEL_GFX'))
+    elif target == 'sound':
+        self.settings_sound.show()
+        self.set_settings_title(tr('LABEL_SOUND'))
+
+func set_settings_title(title):
+    self.settings_title.set_text(title)
 
 func show_online_menu():
     self.root.bag.controllers.online_menu_controller.show()
@@ -300,49 +333,22 @@ func hide_maps_menu():
     self.root.bag.map_picker.detach_panel()
     self.root.bag.skirmish_setup.detach_panel()
 
-# MAIN MENU
-func get_main_menu_visibility():
-    return self.main_menu.get_opacity() == 1
-
-func toggle_main_menu():
-    if self.get_main_menu_visibility():
-        self.hide_main_menu()
-    else:
-        if self.get_settings_visibility():
-            self.hide_settings()
-        self.show_main_menu()
-
-func show_main_menu(force = false):
-    if force and self.get_settings_visibility():
-        self.hide_settings()
-    self.main_menu_animations.play('show_main_menu')
-
-func hide_main_menu():
-    self.main_menu_animations.play('hide_main_menu')
 
 # SETTINGS
 func get_settings_visibility():
-    return settings.is_visible()
+    return self.settings.is_visible()
 
 func toggle_settings():
     if self.get_settings_visibility():
         self.hide_settings()
-        self.show_main_menu()
-        self.settings_button.grab_focus()
     else:
-        if self.get_main_menu_visibility():
-            self.hide_main_menu()
         self.show_settings()
-        # here we coudl back to the game (if user clicked settings in game)
 
-func show_settings(force = false):
-    if force and self.get_main_menu_visibility():
-        self.hide_main_menu()
-    self.refresh_buttons_labels()
-    self.settings_animations.play('show_settings')
+func show_settings():
+     self.settings.show()
 
 func hide_settings():
-    self.settings_animations.play('hide_settings')
+     self.settings.hide()
 
 func manage_close_button():
     if not self.close_button:
@@ -489,7 +495,8 @@ func quit_game():
     OS.get_main_loop().quit()
 
 func update_zoom_label():
-    self.camera_zoom_label.set_text(str(self.root.camera.get_camera_zoom().x))
+    #self.camera_zoom_label.set_text(str(self.root.camera.get_camera_zoom().x))
+    return true
 
 func update_progress_labels():
     self.update_custom_maps_count_label()
@@ -545,4 +552,5 @@ func update_background_scale():
         self.background_map.scale = self.root.scale_root.get_scale()
         if not self.root.is_map_loaded:
             self.root.camera.set_pos(Vector2(-200, 500))
+
 

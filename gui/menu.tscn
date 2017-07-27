@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=1]
+[gd_scene load_steps=29 format=1]
 
 [ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/menu_controller.gd" type="Script" id=2]
@@ -7,26 +7,25 @@
 [ext_resource path="res://gui/small_red_theme.tres" type="Theme" id=5]
 [ext_resource path="res://gui/font_12.tres" type="Theme" id=6]
 [ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=7]
-[ext_resource path="res://gui/menu_settings.tscn" type="PackedScene" id=8]
-[ext_resource path="res://gui/settings/menu_settings.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=15]
-[ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=17]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=18]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=19]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=20]
-[ext_resource path="res://gui/small_gray_theme.tres" type="Theme" id=21]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=22]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=23]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=24]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=25]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=26]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=27]
+[ext_resource path="res://gui/settings/menu_settings.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=14]
+[ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=18]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=19]
+[ext_resource path="res://gui/small_gray_theme.tres" type="Theme" id=20]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=21]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=22]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=23]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=24]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=25]
+[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=26]
 
 [sub_resource type="Animation" id=1]
 
@@ -101,60 +100,6 @@ tracks/2/keys = {
 "values": [ 0.0, 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-
-resource/name = "hide_settings"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("settings_panel:rect/pos")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.3 ),
-"transitions": FloatArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -48 ), Vector2( 0, -800 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("settings_panel:visibility/visible")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0.3 ),
-"transitions": FloatArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=4]
-
-resource/name = "show_settings"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("settings_panel:rect/pos")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.3 ),
-"transitions": FloatArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -600 ), Vector2( 0, -48 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("settings_panel:visibility/visible")
-tracks/1/interp = 1
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0 ),
-"transitions": FloatArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
 [node name="menu" type="Control"]
 
 anchor/right = 1
@@ -213,7 +158,6 @@ margin/bottom = 360.0
 [node name="game_panel" type="Control" parent="middle/center"]
 
 editor/display_folded = true
-visibility/opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -225,15 +169,14 @@ margin/bottom = 40.0
 
 [node name="under_logo" type="Control" parent="middle/center/game_panel"]
 
-visibility/opacity = 0.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = -60.0
+margin/top = 0.0
 margin/right = 40.0
-margin/bottom = -20.0
+margin/bottom = 40.0
 
 [node name="Sprite 7" type="Sprite" parent="middle/center/game_panel/under_logo"]
 
@@ -342,24 +285,8 @@ texture = ExtResource( 7 )
 [node name="settings_panel" parent="middle/center" instance=ExtResource( 8 )]
 
 visibility/visible = false
-
-[node name="wins" type="Label" parent="middle/center"]
-
-visibility/visible = false
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -73.0
-margin/top = 340.0
-margin/right = 74.0
-margin/bottom = 352.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "WINS: 4"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+margin/top = -64.0
+margin/bottom = -24.0
 
 [node name="menu_anim" type="AnimationPlayer" parent="middle/center"]
 
@@ -372,22 +299,6 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
-
-[node name="settings_anim" type="AnimationPlayer" parent="middle/center"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/hide_settings = SubResource( 3 )
-anims/show_settings = SubResource( 4 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
-[node name="settings_panel2" parent="middle/center" instance=ExtResource( 9 )]
-
-visibility/visible = false
 
 [node name="top" type="CenterContainer" parent="."]
 
@@ -439,7 +350,7 @@ margin/left = -312.0
 margin/top = 72.0
 margin/right = 176.0
 margin/bottom = -96.0
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -460,10 +371,10 @@ margin/bottom = -88.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
-textures/pressed = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
-textures/disabled = ExtResource( 14 )
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
+textures/disabled = ExtResource( 13 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -509,7 +420,7 @@ margin/left = -312.0
 margin/top = -32.0
 margin/right = -112.0
 margin/bottom = 8.0
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -527,7 +438,7 @@ margin/left = 160.0
 margin/top = -32.0
 margin/right = -280.0
 margin/bottom = 8.0
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -555,7 +466,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -287, 38 )
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="settings" type="TextureButton" parent="top/center"]
@@ -571,11 +482,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 17 )
-textures/pressed = ExtResource( 18 )
-textures/hover = ExtResource( 19 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+textures/hover = ExtResource( 18 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -612,11 +523,11 @@ margin/bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 17 )
-textures/pressed = ExtResource( 18 )
-textures/hover = ExtResource( 19 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+textures/hover = ExtResource( 18 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -651,11 +562,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
-textures/pressed = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -690,11 +601,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 17 )
-textures/pressed = ExtResource( 18 )
-textures/hover = ExtResource( 19 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+textures/hover = ExtResource( 18 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -767,7 +678,7 @@ margin/left = -288.0
 margin/top = -72.0
 margin/right = -240.0
 margin/bottom = 32.0
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -786,11 +697,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 17 )
-textures/pressed = ExtResource( 18 )
-textures/hover = ExtResource( 19 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+textures/hover = ExtResource( 18 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -825,11 +736,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 17 )
-textures/pressed = ExtResource( 18 )
-textures/hover = ExtResource( 19 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+textures/hover = ExtResource( 18 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -864,11 +775,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 17 )
-textures/pressed = ExtResource( 18 )
-textures/hover = ExtResource( 19 )
-textures/disabled = ExtResource( 14 )
-textures/focused = ExtResource( 20 )
+textures/normal = ExtResource( 16 )
+textures/pressed = ExtResource( 17 )
+textures/hover = ExtResource( 18 )
+textures/disabled = ExtResource( 13 )
+textures/focused = ExtResource( 19 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -896,7 +807,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 21 )
+theme/theme = ExtResource( 20 )
 margin/left = -280.0
 margin/top = -28.0
 margin/right = -130.0
@@ -913,7 +824,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 21 )
+theme/theme = ExtResource( 20 )
 margin/left = 136.0
 margin/top = -29.0
 margin/right = 286.0
@@ -937,11 +848,11 @@ margin/bottom = -32.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 22 )
-textures/pressed = ExtResource( 23 )
-textures/hover = ExtResource( 24 )
-textures/disabled = ExtResource( 25 )
-textures/focused = ExtResource( 26 )
+textures/normal = ExtResource( 21 )
+textures/pressed = ExtResource( 22 )
+textures/hover = ExtResource( 23 )
+textures/disabled = ExtResource( 24 )
+textures/focused = ExtResource( 25 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -963,7 +874,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_game" parent="." instance=ExtResource( 27 )]
+[node name="end_game" parent="." instance=ExtResource( 26 )]
 
 visibility/visible = false
 

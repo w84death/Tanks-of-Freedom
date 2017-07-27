@@ -289,9 +289,9 @@ func toggle_menu(target = 'menu', skip_back_check = true):
             action_controller.stats_set_time()
             menu.show()
             if target == 'menu':
-                self.menu.show_main_menu(true)
+                self.menu.hide_settings()
             if target == 'settings':
-                self.menu.show_settings(true)
+                self.menu.show_settings()
             hud.hide()
             menu.close_button.grab_focus()
         else:

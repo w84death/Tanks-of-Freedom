@@ -1,20 +1,9 @@
-[gd_resource type="Theme" load_steps=14 format=1]
+[gd_resource type="Theme" load_steps=10 format=1]
 
-[ext_resource path="res://assets/fonts/ttf/japan.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/fonts/ttf/courier.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2b.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=7]
-
-[sub_resource type="DynamicFont" id=2]
-
-font/size = 18
-font/use_mipmaps = false
-font/use_filter = false
-font/font = ExtResource( 2 )
-fallback/0 = ExtResource( 1 )
+[ext_resource path="res://assets/gui/buttons/analog_size2_2b.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxTexture" id=3]
 
@@ -22,7 +11,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -39,7 +28,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -56,7 +45,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 5 )
+texture = ExtResource( 2 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -67,13 +56,13 @@ expand_margin/top = 0.0
 expand_margin/bottom = 0.0
 draw_center = true
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id=7]
 
 content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -90,7 +79,7 @@ content_margin/left = -1.0
 content_margin/right = -1.0
 content_margin/top = -1.0
 content_margin/bottom = -1.0
-texture = ExtResource( 7 )
+texture = ExtResource( 4 )
 margin/left = 0.0
 margin/right = 0.0
 margin/top = 0.0
@@ -108,10 +97,10 @@ Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
 Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
 Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
 Button/constants/hseparation = 2
-Button/fonts/font = SubResource( 2 )
+Button/fonts/font = null
 Button/styles/disabled = SubResource( 3 )
 Button/styles/focus = SubResource( 4 )
 Button/styles/hover = SubResource( 5 )
-Button/styles/normal = SubResource( 1 )
+Button/styles/normal = SubResource( 7 )
 Button/styles/pressed = SubResource( 6 )
 
