@@ -1,7 +1,7 @@
 extends "res://scripts/bag_aware.gd"
 
-const INTERVAL = 0.015
-const SKIP_INTERVAL = 0.1
+const INTERVAL = 0.15
+const SKIP_INTERVAL = 1
 var running = false
 
 func do_ai_stuff():
