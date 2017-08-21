@@ -6,6 +6,9 @@ func _initialize():
 func is_triggered(trigger_details, story_event):
     for field in trigger_details['details']['fields']:
         if field == story_event['details']['where']:
-            return true
+            if trigger_details['details'].has('player'):
+                if trigger_details['details']['player'] == story_event['details']['who'].player
+            else:
+                return true
 
     return false

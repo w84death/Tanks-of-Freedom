@@ -61,5 +61,5 @@ var stories = {
 var triggers = {
     'first_turn' : {'type' : 'turn', 'story' : 'tower_tip', 'details' : { 'turn' : 1 }},
     #'first_turn_end' : {'type' : 'turn_end', 'story' : 'turn_end', 'details' : { 'turn' : 1 }},
-    'moved' : {'type' : 'move', 'story' : 'moved', 'details' : { 'fields' : [Vector2(9, 6)] }, 'one_off' : true},
+    'moved' : {'type' : 'move', 'story' : 'moved', 'details' : { 'fields' : [Vector2(9, 6)], 'player' : 0 }, 'one_off' : true},
 }
