@@ -25,6 +25,7 @@ func do_ai_stuff():
 
 func start_ai_timer():
     self.running = true
+    self.pause = false
     self.__execute_with_interval(self.INTERVAL)
 
 func stop_ai_timer():
