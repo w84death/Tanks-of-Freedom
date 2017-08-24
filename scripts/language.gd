@@ -44,20 +44,25 @@ func reload_labels():
     #SETTINGS
     var settings = menu.settings
     if settings:
-        self.reload_label(settings.get_node('effects1'), 'LABEL_DIFFICULTY')
-        self.reload_label(settings.get_node('auto_follow_'), 'LABEL_AUTO_FOLLOW')
-        self.reload_label(settings.get_node('shake'), 'LABEL_CAMERA_SHAKE')
-        self.reload_label(settings.get_node('display_mode_'), 'LABEL_FULL_SCREEN')
-        self.reload_label(settings.get_node('language_group/language_label'), 'LABEL_LANGUAGE')
-        self.reload_label(settings.get_node('zoom_level_'), 'LABEL_ZOOM_LEVEL')
-        self.reload_button(menu.camera_zoom_in_button, 'LABEL_BIGGER')
-        self.reload_button(menu.camera_zoom_out_button, 'LABEL_SMALLER')
-        self.reload_label(settings.get_node('effects'), 'LABEL_SOUND_EFFECTS')
-        self.reload_label(settings.get_node('music'), 'LABEL_MUSIC')
-        self.reload_label(settings.get_node('overscan_group/overscan_label'), 'LABEL_OVERSCAN')
+        self.reload_label(settings.get_node('nav/tabs/gfx'), 'LABEL_GFX')
+        self.reload_label(settings.get_node('nav/tabs/sound'), 'LABEL_SOUND')
+        self.reload_label(settings.get_node('nav/tabs/game'), 'LABEL_GAME')
+        self.reload_label(settings.get_node('nav/tabs/pad'), 'LABEL_GAMEPAD_INFO')
+        self.reload_label(settings.get_node('body/tabs/gfx/overscan_button/title'), 'LABEL_OVERSCAN')
+        self.reload_label(settings.get_node('body/tabs/gfx/shake_toggle/title'), 'LABEL_CAMERA_SHAKE')
+        self.reload_label(settings.get_node('body/tabs/gfx/camera_follow/title'), 'LABEL_AUTO_FOLLOW')
+        self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/title'), 'LABEL_ZOOM_LEVEL')
+        self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/buttons/center/first'), 'LABEL_BIGGER')
+        self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/buttons/center/second'), 'LABEL_SMALLER')
+        self.reload_label(settings.get_node('body/tabs/gfx/display_mode_toggle/title'), 'LABEL_FULL_SCREEN')
+        self.reload_label(settings.get_node('body/tabs/sound/sound_toggle/title'), 'LABEL_SOUND_EFFECTS')
+        self.reload_label(settings.get_node('body/tabs/sound/music_toggle/title'), 'LABEL_MUSIC')
+        self.reload_label(settings.get_node('body/tabs/game/difficulty/title'), 'LABEL_DIFFICULTY')
+        self.reload_label(settings.get_node('body/tabs/game/tooltips/title'), 'LABEL_TOOLTIPS')
+        self.reload_label(settings.get_node('body/tabs/game/language/title'), 'LABEL_LANGUAGE')
+        
         self.reload_label(settings.get_node('overscan_group/overscan_notification'), 'LABEL_REQUIES_RESTART')
-        self.reload_button(menu.gamepad_info_button, 'LABEL_GAMEPAD_INFO')
-
+        
     #CAMPAIGN
     var campaign = self.bag.controllers.campaign_menu_controller
     if campaign:

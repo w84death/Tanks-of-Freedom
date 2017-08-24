@@ -94,7 +94,6 @@ margin/bottom = 8.0
 
 [node name="game" type="GridContainer" parent="body/tabs"]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -111,7 +110,6 @@ columns = 3
 
 [node name="difficulty" parent="body/tabs/game" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 margin/right = 190.0
 
 [node name="title" parent="body/tabs/game/difficulty"]
@@ -120,13 +118,16 @@ text = "DIFFICULTY"
 
 [node name="tooltips" parent="body/tabs/game" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 margin/left = 222.0
 margin/right = 412.0
 
 [node name="title" parent="body/tabs/game/tooltips"]
 
 text = "TOOLTIPS"
+
+[node name="first" parent="body/tabs/game/tooltips/buttons/center"]
+
+disabled = true
 
 [node name="language" parent="body/tabs/game" instance=ExtResource( 4 )]
 
@@ -239,7 +240,6 @@ margin/right = 412.0
 
 [node name="nav" type="Patch9Frame" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
