@@ -271,6 +271,13 @@ func spawn_unit_from_active_building():
         #gather stats
         self.root_node.bag.battle_stats.add_spawn(self.current_player)
         self.root_node.bag.fog_controller.clear_fog()
+        self.root_node.bag.storyteller.register_story_event({
+            'type' : 'deploy',
+            'details' : {
+                'building' : active_object,
+                'unit' : unit
+            }
+        })
         return true
 
 func import_objects():
@@ -547,6 +554,13 @@ func handle_battle(active_field, field):
             #gather stats
             self.root_node.bag.battle_stats.add_kills(current_player)
             self.collateral_damage(field.position)
+            self.root_node.bag.storyteller.register_story_event({
+                'type' : 'die',
+                'details' : {
+                    'killer' : active_field.object,
+                    'victim' : field.object
+                }
+            })
         else:
             sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
             field.object.show_explosion()
@@ -561,6 +575,13 @@ func handle_battle(active_field, field):
                     #gather stats
                     self.root_node.bag.battle_stats.add_kills(abs(current_player - 1))
                     self.collateral_damage(active_field.position)
+                    self.root_node.bag.storyteller.register_story_event({
+                        'type' : 'die',
+                        'details' : {
+                            'killer' : field.object,
+                            'victim' : active_field.object
+                        }
+                    })
                 else:
                     sound_controller.play_unit_sound(field.object, sound_controller.SOUND_DAMAGE)
                     self.update_unit(active_field)
