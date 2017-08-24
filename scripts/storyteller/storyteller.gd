@@ -51,6 +51,9 @@ func load_map_story(map_data):
     self.available_stories = map_data['stories']
     self.action_triggers.load_map_triggers(map_data)
 
+func mark_actors():
+    self.action_triggers.mark_actors()
+
 func load_story(story_name):
     self.reset()
     self.current_story = self.available_stories[story_name]

@@ -80,6 +80,8 @@ func apply_units_from_save():
             new_unit.set_ap(field['meta']['ap'])
             new_unit.set_hp(field['meta']['hp'])
             new_unit.kills = field['meta']['kills']
+            if field.has('story_markers'):
+                new_unit.story_markers = field['story_markers']
 
 func apply_saved_buildings():
     var abstract_field
@@ -295,6 +297,7 @@ func __fill_unit_data():
         unit = units[pos]
         self.data[pos]['unit'] = self.unit_map[unit.player][unit.type]
         self.data[pos]['meta'] = {'hp' : unit.life, 'ap' : unit.ap, 'kills' : unit.kills}
+        self.data[pos]['story_markers'] = unit.story_markers
 
 func __get_building_id(type, owner):
     return self.building_map[owner][type]

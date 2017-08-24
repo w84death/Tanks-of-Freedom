@@ -43,6 +43,8 @@ var parent
 
 var sprite_offset_for_64x64 = Vector2(0,8);
 
+var story_markers = {}
+
 func set_no_ap_idle():
     if ap == 0:
         self.anim.play('idle_no_ap')

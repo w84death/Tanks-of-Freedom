@@ -23,10 +23,11 @@ func reset():
 
 
 func load_map_triggers(map_data):
+    self.current_triggers = map_data['triggers']
+
+func mark_actors():
     var trigger
     var trigger_definition
-
-    self.current_triggers = map_data['triggers']
 
     for trigger_name in self.current_triggers:
         trigger_definition = self.current_triggers[trigger_name]

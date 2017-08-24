@@ -221,6 +221,8 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     if not workshop_file_name:
         self.bag.match_state.set_campaign_map(template_name)
         self.bag.storyteller.load_map_story(self.bag.campaign.get_map_stories(template_name))
+        if not load_saved_state:
+            self.bag.storyteller.mark_actors()
 
     if load_saved_state && self.bag.saving != null:
         self.bag.saving.apply_saved_buildings()
@@ -267,7 +269,7 @@ func unload_map():
     self.remove_child(hud)
     hud.queue_free()
     hud = null
-    selector.reset() 
+    selector.reset()
     hud_controller = null
     action_controller = null
     self.menu.show_background_map()
