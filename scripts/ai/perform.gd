@@ -3,6 +3,7 @@ extends "res://scripts/bag_aware.gd"
 const INTERVAL = 0.15
 const SKIP_INTERVAL = 1
 var running = false
+var pause = false
 
 func do_ai_stuff():
     if !self.running:
@@ -12,7 +13,7 @@ func do_ai_stuff():
         self.stop_ai_timer()
         return
 
-    if self.bag.root.is_paused || self.bag.camera.panning:
+    if self.bag.root.is_paused || self.bag.camera.panning || self.pause:
         self.__execute_with_interval(self.SKIP_INTERVAL)
         return
 
