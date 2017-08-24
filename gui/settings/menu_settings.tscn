@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=3]
 [ext_resource path="res://gui/settings/option_one_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/settings/option_two_buttons.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=6]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=6]
 
 [node name="settings_panel" type="Control"]
 
@@ -203,6 +203,7 @@ margin/bottom = 176.0
 
 [node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
+theme/theme = ExtResource( 6 )
 text = "+"
 
 [node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
@@ -326,7 +327,7 @@ flat = false
 
 [node name="pad" type="Button" parent="nav/tabs"]
 
-rect/min_size = Vector2( 90, 48 )
+rect/min_size = Vector2( 160, 48 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -334,7 +335,7 @@ size_flags/vertical = 2
 theme/theme = ExtResource( 6 )
 margin/left = 282.0
 margin/top = 0.0
-margin/right = 372.0
+margin/right = 442.0
 margin/bottom = 48.0
 toggle_mode = false
 enabled_focus_mode = 2
