@@ -156,6 +156,14 @@ func capture_building(active_field, field):
         self.despawn_unit(active_field)
     self.root_node.bag.fog_controller.clear_fog()
     self.activate_field(field)
+
+    self.root_node.bag.storyteller.register_story_event({
+        'type' : 'claim',
+        'details' : {
+            'building' : field.object,
+        }
+    })
+
     #TODO - move it in handle
     if self.root_node.bag.game_conditions.check_win_conditions(field):
         return self.status.list[self.status.CAPTURE_AND_WIN]

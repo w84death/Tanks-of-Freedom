@@ -5,6 +5,7 @@ var action_triggers = {
     'turn_end' : preload("res://scripts/storyteller/triggers/turn_end.gd").new(),
     'move' : preload("res://scripts/storyteller/triggers/move.gd").new(),
     'deploy' : preload("res://scripts/storyteller/triggers/deploy.gd").new(),
+    'domination' : preload("res://scripts/storyteller/triggers/domination.gd").new(),
 }
 
 
