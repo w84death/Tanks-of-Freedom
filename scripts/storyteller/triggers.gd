@@ -6,6 +6,7 @@ var action_triggers = {
     'move' : preload("res://scripts/storyteller/triggers/move.gd").new(),
     'deploy' : preload("res://scripts/storyteller/triggers/deploy.gd").new(),
     'domination' : preload("res://scripts/storyteller/triggers/domination.gd").new(),
+    'assasination' : preload("res://scripts/storyteller/triggers/assasination.gd").new(),
 }
 
 

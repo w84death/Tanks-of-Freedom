@@ -547,6 +547,7 @@ func stats_set_time():
     self.root_node.bag.battle_stats.set_counting_time(self.current_player)
 
 func handle_battle(active_field, field):
+    var markers
     if (self.root_node.bag.battle_controller.can_attack(active_field.object, field.object)):
         self.use_ap(field)
 
@@ -555,6 +556,7 @@ func handle_battle(active_field, field):
             self.root_node.bag.match_state.register_action_taken({'action': 'attack', 'who': [active_field.position.x, active_field.position.y], 'whom': [field.position.x, field.position.y]})
 
         if (self.root_node.bag.battle_controller.resolve_fight(active_field.object, field.object)):
+            markers = field.object.story_markers
             self.play_destroy(field)
             self.destroy_unit(field)
             self.update_unit(active_field)
@@ -566,7 +568,7 @@ func handle_battle(active_field, field):
                 'type' : 'die',
                 'details' : {
                     'killer' : active_field.object,
-                    'victim' : field.object
+                    'victim' : markers
                 }
             })
         else:
@@ -576,6 +578,7 @@ func handle_battle(active_field, field):
             # defender can deal damage
             if self.root_node.bag.battle_controller.can_defend(field.object, active_field.object):
                 if (self.root_node.bag.battle_controller.resolve_defend(active_field.object, field.object)):
+                    markers = active_field.object.story_markers
                     self.play_destroy(active_field)
                     self.destroy_unit(active_field)
                     self.clear_active_field()
@@ -587,7 +590,7 @@ func handle_battle(active_field, field):
                         'type' : 'die',
                         'details' : {
                             'killer' : field.object,
-                            'victim' : active_field.object
+                            'victim' : markers
                         }
                     })
                 else:

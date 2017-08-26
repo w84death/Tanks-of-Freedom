@@ -65,4 +65,5 @@ var triggers = {
     'moved_vip' : {'type' : 'move', 'story' : 'moved', 'details' : { 'fields' : [Vector2(9, 9)], 'vip' : Vector2(9, 8) }, 'one_off' : true},
     'reinforce' : {'type' : 'deploy', 'story' : 'moved', 'details' : { 'amount' : 2, 'player' : 0 }, 'one_off' : true},
     'claim' : {'type' : 'domination', 'story' : 'moved', 'details' : { 'amount' : 2, 'list' : [Vector2(6, 4), Vector2(6, 11)], 'player' : 0 }, 'one_off' : true},
+    'assasin' : {'type' : 'assasination', 'story' : 'moved', 'details' : { 'vip' : Vector2(9, 8) }, 'one_off' : true},
 }
