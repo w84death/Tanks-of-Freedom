@@ -26,8 +26,9 @@ func is_triggered(trigger_details, story_event):
 
     for field in trigger_details['details']['fields']:
         if field == story_event['details']['where']:
-            if has_vip and who.story_markers.has(mark):
-                return true
+            if has_vip:
+                if who.story_markers.has(mark):
+                    return true
             elif has_player:
                 if trigger_details['details']['player'] == who.player:
                     return true
