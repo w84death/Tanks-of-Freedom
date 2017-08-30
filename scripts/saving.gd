@@ -161,7 +161,10 @@ func apply_saved_action_state():
         self.root_node.action_controller.player_ap[1] = self.loaded_data['player_1_ap']
     if self.loaded_data.has('turn'):
         self.root_node.action_controller.turn         = self.loaded_data['turn']
+    if self.loaded_data.has('triggered_triggers'):
+        self.bag.storyteller.action_triggers.triggered_triggers = self.loaded_data['triggered_triggers']
     self.apply_battle_stats()
+
 
 func apply_battle_stats():
     self.bag.battle_stats.apply(self.loaded_data['battle_stats'])
@@ -318,7 +321,8 @@ func store_map_in_binary_file():
         'player_1_ap' : self.root_node.action_controller.player_ap[1],
         'turn': self.root_node.action_controller.turn,
         'battle_stats' : self.bag.battle_stats.get_stats(),
-        'is_remote' : self.root_node.is_remote
+        'is_remote' : self.root_node.is_remote,
+        'triggered_triggers' : self.bag.storyteller.action_triggers.triggered_triggers
     }
 
     for settings in self.saved_settings:

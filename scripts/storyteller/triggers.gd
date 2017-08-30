@@ -12,6 +12,7 @@ var action_triggers = {
 
 var current_triggers = {}
 
+var triggered_triggers = {}
 
 
 func _initialize():
@@ -23,9 +24,11 @@ func init_triggers():
 
 func reset():
     self.current_triggers = {}
+    self.triggered_triggers = {}
 
 
 func load_map_triggers(map_data):
+    self.reset()
     self.current_triggers = map_data['triggers']
 
 func mark_actors():
@@ -46,8 +49,8 @@ func feed_story_event(story_event):
         trigger_definition = self.current_triggers[trigger_name]
         trigger = self.action_triggers[trigger_definition['type']]
         if trigger.uses(story_event['type']) and trigger.is_triggered(trigger_definition, story_event):
-            if trigger_definition.has('one_off') and trigger_definition['one_off'] and trigger_definition.has('triggered'):
-                break
+            if trigger_definition.has('one_off') and trigger_definition['one_off'] and self.triggered_triggers.has(trigger_name):
+                continue
             self.bag.storyteller.tell_a_story(trigger_definition['story'])
-            self.current_triggers[trigger_name]['triggered'] = true
+            self.triggered_triggers[trigger_name] = trigger_name
             break
