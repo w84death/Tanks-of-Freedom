@@ -75,9 +75,6 @@ func init_root(root, map, hud):
     self.positions.bootstrap()
 
     sound_controller = root.sound_controller
-
-    self.root_node.bag.abstract_map.create_tile_type_map()
-    self.root_node.bag.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
     var interaction_template = load('res://gui/movement.xscn')
     for direction in self.interaction_indicators:
         self.interaction_indicators[direction]['indicator'] = interaction_template.instance()
@@ -90,16 +87,12 @@ func refresh_abstract_map():
     self.root_node.bag.abstract_map.reset()
     self.root_node.bag.abstract_map.init_map(self.root_node.current_map)
     self.import_objects()
-    self.root_node.bag.abstract_map.create_tile_type_map()
-    self.root_node.bag.abstract_map.update_terrain_tile_type_map(self.positions.get_terrain_obstacles())
 
 func set_active_field(position):
     var field = self.root_node.bag.abstract_map.get_field(position)
     self.clear_active_field()
     self.activate_field(field)
-
     self.move_camera_to_point(field.position)
-
     return field
 
 func handle_action(position):
