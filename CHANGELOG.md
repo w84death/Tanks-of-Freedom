@@ -5,6 +5,8 @@
 ### 0.7.0-beta
 - scripted map events in campaign
 - integrated RU language
+- updated AI for better performance
+- updated to Godot 2.1.4 (2.1.2 or newer required)
 
 ### 0.6.3-beta
 - added 'back' behaviour to most menus
