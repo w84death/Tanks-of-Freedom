@@ -4,7 +4,6 @@ var fields = [[null]]
 var map
 var tilemap
 var field_template = preload('abstract_field.gd')
-var cost_map = [[null]]
 
 var MAX_MAP_SIZE = 40
 const MAP_MAX_X = 40
@@ -13,7 +12,6 @@ const MAP_MAX_Y = 40
 func reset():
 	self.size = Vector2(0, 0)
 	self.fields = [[null]]
-	self.cost_map = [[null]]
 
 func init_map(map_node):
 	self.map = map_node
@@ -68,27 +66,6 @@ func create_field(position):
 
 func is_spawning_point(position):
 	return tilemap.get_cell(position.x, position.y) == 13
-
-#deprecated
-func create_tile_type_map():
-	var row
-	self.cost_map = []
-	for x in range(self.MAX_MAP_SIZE):
-		row = []
-		for y in range(self.MAX_MAP_SIZE):
-			var field_object = self.get_field(Vector2(x, y))
-			if field_object.is_empty():
-				row.insert(y, 999)
-			elif field_object.object != null && field_object.has_terrain():
-				row.insert(y, 999)
-			else:
-				row.insert(y, 1)
-		self.cost_map.insert(x, row)
-
-func update_terrain_tile_type_map(terrain):
-	for pos in terrain:
- 		var unit_pos = terrain[pos].get_pos_map()
- 		self.cost_map[unit_pos.x][unit_pos.y] = 999
 
 
 

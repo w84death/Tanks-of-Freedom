@@ -58,6 +58,7 @@ var perform = preload("res://scripts/ai/perform.gd").new()
 var action_handler = preload("res://scripts/ai/actions/action_handler.gd").new()
 var logger = preload('res://scripts/services/logger.gd').new()
 var storyteller = preload("res://scripts/storyteller/storyteller.gd").new()
+var waypoint_factory = preload("res://scripts/objects/waypoints/waypoint_factory.gd").new()
 
 var saving = null
 var workshop = null
@@ -124,6 +125,7 @@ func init_root(root_node):
     self.estimate_strategy._init_bag(self)
     self.perform._init_bag(self)
     self.action_handler._init_bag(self)
+    self.waypoint_factory._init_bag(self)
 
     self.storyteller._init_bag(self)
 

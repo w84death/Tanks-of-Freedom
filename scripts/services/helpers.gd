@@ -26,3 +26,9 @@ func array_last_element(array):
         return null
 
     return array[size - 1]
+
+func is_adjacent(start, end):
+    var diff_x = abs(start.x - end.x)
+    var diff_y = abs(start.y - end.y)
+
+    return (diff_x + diff_y) == 1

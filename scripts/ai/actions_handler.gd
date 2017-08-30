@@ -2,51 +2,32 @@ extends "res://scripts/bag_aware.gd"
 
 var actions = []
 var action = preload('actions/action.gd')
-var waypoint = preload('../objects/waypoint.gd')
 
 const ACTION_OLD_THRESHOLD = 100
 const ACTION_UNUSED_OLD_THRESHOLD = 15
 const CACHED = true
 const ONE_TIME = false
 
-
-func add_waypoint_action(unit, destination, ttl = self.action.DEFAULT_TTL):
-    var waypoint_obj = null
-    var destination_field
-    var nearby_tiles = self.bag.positions.get_nearby_tiles(destination.position_on_map, 1)
-    var subtype = null
-    var spawn_point = null
-    if destination.group == 'building':
-        spawn_point = destination.spawn_point
-
-    for move_destination in nearby_tiles:
-        if unit.position_on_map == move_destination:
-            self.actions.append(self.create_action(unit, destination, destination, ttl))
-            return
-
-    if unit.type == 0:
-        for move_destination in nearby_tiles:
-            destination_field = self.bag.abstract_map.get_field(move_destination)
-            if destination_field.is_passable():
-                waypoint_obj = self.waypoint.new(move_destination)
-                if move_destination == spawn_point:
-                    subtype = waypoint.TYPE_SPAWN_POINT
-                else:
-                    subtype = waypoint.TYPE_BULDING_AREA
-
-                waypoint_obj = self.waypoint.new(move_destination, subtype)
-                if not self.get_action(unit, waypoint_obj):
-                    self.actions.append(self.create_action(unit, waypoint_obj, destination, ttl))
-    else:
-        waypoint_obj = self.waypoint.new(destination.spawn_point, waypoint.TYPE_SPAWN_POINT)
-        if not self.get_action(unit, waypoint_obj):
-            self.actions.append(self.create_action(unit, waypoint_obj, destination, ttl))
+#func add_waypoint_action(unit, destination, ttl = self.action.DEFAULT_TTL):
+#    if unit.type == 0 and self.bag.helpers.is_adjacent(destination.position_on_map, unit.position_on_map):
+#        self.actions.append(self.create_action(unit, destination, destination, ttl))
+#        return
+#
+#    if unit.type != 0:
+#        return
+#    var waypoints = self.bag.waypoint_factory.create_for_building(destination, unit.type == 0)
+#    for waypoint in waypoints:
+#        if waypoint.is_active && not self.get_action(unit, waypoint):
+#            self.actions.append(self.create_action(unit, waypoint, destination, ttl))
 
 func add_action(unit, destination, ttl = self.action.DEFAULT_TTL):
     if self.get_action(unit, destination):
         return
 
-    self.actions.append(self.create_action(unit, destination, destination, ttl))
+    if destination and destination.group == 'waypoint' :
+        self.actions.append(self.create_action(unit, destination, destination.point_of_interest, ttl))
+    else:
+        self.actions.append(self.create_action(unit, destination, destination, ttl))
 
 func create_action(unit, destination, point_of_interest, ttl):
     return action.new(unit.position_on_map, destination, unit, unit.group, point_of_interest, ttl)
@@ -122,7 +103,7 @@ func remove_if_faulty(action):
         return true
     return false
 
-func get_action(unit, destination): #TODO a bit uneficcient way to check this - try to create separate class for holding calculation status and destiantions
+func get_action(unit, destination):
     for action in self.actions:
         if action.unit == unit && action.destination == destination:
             return true

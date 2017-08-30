@@ -3,6 +3,7 @@ var position
 var object = null
 var damage = null
 var abstract_map = null
+var waypoint = null
 
 var destroyed_tile_template = load("res://terrain/destroyed_tile.xscn")
 
@@ -47,6 +48,9 @@ func has_terrain():
         return false
 
     return self.object.group == 'terrain'
+
+func has_waypoint():
+    return self.waypoint != null
 
 func is_passable():
     if self.is_empty():

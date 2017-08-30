@@ -16,6 +16,7 @@ var buildings_player_red = {}
 var terrain_obstacles = {}
 
 var units
+var waypoints
 
 const lookout_range = 3
 var precalculated_nearby_tiles = [[[null]]]
@@ -64,7 +65,6 @@ func refresh():
     self.prepare_nearby_tiles()
     self.prepare_nearby_tiles_ranges()
 
-
 func refresh_units():
     units_player_blue.clear()
     units_player_red.clear()
@@ -80,6 +80,7 @@ func refresh_buildings():
     all_buildings.clear()
 
     get_buildings()
+    get_waypoints()
 
 func get_player_units(player):
     if player == 0:
@@ -114,7 +115,6 @@ func get_terrain():
 
 func get_units():
     units = self.root_tree.get_nodes_in_group("units")
-
     for unit in units:
         if unit.life > 0: # skip undead units (despawn bug)
             if unit.player == 1:
@@ -164,6 +164,16 @@ func get_nearby_enemy_buildings(nearby_tiles, current_player):
             buildings.append(enemy_buildings_collection[tile])
 
     return buildings
+
+func get_waypoints():
+    self.waypoints = self.root_tree.get_nodes_in_group("waypoint")
+
+func get_nearby_waypoints(nearby_tiles, current_player):
+    var waypoint_collection = []
+    for waypoint in self.waypoints:
+        if waypoint.is_active and waypoint.applicable_for_player(current_player):
+            waypoint_collection.append(waypoint)
+    return waypoint_collection
 
 func get_nearby_empty_buldings(nearby_tiles):
     var buildings = []

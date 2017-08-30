@@ -15,14 +15,8 @@ func run(action):
     return action.score
 
 func get_simple_path(start, end):
-    if self.bag.a_star.get_distance(start, end) == 1 && self.is_adjacent(start, end):
+    if self.bag.a_star.get_distance(start, end) == 1 && self.bag.helpers.is_adjacent(start, end):
         return [start, end]
 
     return []
-
-func is_adjacent(start, end):
-    var diff_x = abs(start.x - end.x)
-    var diff_y = abs(start.y - end.y)
-
-    return (diff_x + diff_y) == 1
 

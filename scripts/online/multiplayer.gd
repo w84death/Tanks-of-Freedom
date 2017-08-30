@@ -328,8 +328,6 @@ func update_turn_with_polled_data():
     self.bag.root.action_controller.positions.refresh()
     self.bag.root.action_controller.refresh_abstract_map()
 
-
-
 func start_reproducing_moves(match_code):
     self.bag.root.hud_controller.update_cinematic_label(tr('LABEL_REPLAYING_MOVES'))
     self.bag.timers.set_timeout(self.REPLAY_INTERVAL, self, 'replay_step', [0, match_code, false])

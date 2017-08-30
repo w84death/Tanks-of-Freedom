@@ -89,6 +89,8 @@ var map_civilians = [
     preload('res://units/civilians/refugee2.tscn')
 ]
 
+var waypoint = preload('res:///waypoint.tscn')
+
 var is_dead = false
 
 var should_do_awesome_explosions = false
@@ -678,6 +680,7 @@ func load_map(file_name, is_remote = false, switch_tileset=true):
             self.switch_to_tileset(self.map_file.get_theme())
         self.fill_map_from_data_array(self.map_file.get_tiles())
         self.theme = self.map_file.get_theme()
+        # TODO [waypoints] - add building waypoints
         return true
     return false
 

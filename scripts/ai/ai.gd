@@ -90,14 +90,7 @@ func __gather_destinations(unit):
         nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
 
         destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
-
-        if unit.type == 0:
-            destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player)
-            destinations = destinations + self.bag.positions.get_nearby_empty_buldings(nearby_tiles)
-        else:
-            for building in self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player):
-                destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player)
-                pass
+        destinations = destinations + self.bag.positions.get_nearby_waypoints(nearby_tiles, self.player)
 
         if destinations.size() > self.MIN_DESTINATION_PER_UNIT:
             return destinations
@@ -113,10 +106,7 @@ func __prepare_building_actions():
             self.__add_action(building, null)
 
 func __add_action(unit, destination):
-    if destination != null && destination.group == 'building':
-        self.bag.actions_handler.add_waypoint_action(unit, destination)
-    else:
-        self.bag.actions_handler.add_action(unit, destination)
+    self.bag.actions_handler.add_action(unit, destination)
 
 func __add_flash_action(unit, destination):
     self.bag.actions_handler.add_action(unit, destination, self.bag.actions_handler.action.FLASH_TTL)

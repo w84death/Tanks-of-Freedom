@@ -30,6 +30,14 @@ func remove_for_destination(processed_action):
     var destination = self.bag.helpers.array_last_element(processed_action.path)
     self.remove_for_position(player, destination)
 
+func remove_for_point_of_interest(processed_action):
+    var player = processed_action.unit.player
+    var point_of_interest = processed_action.point_of_interest
+
+    for action in self.bag.actions_handler.actions:
+        if player == action.unit.player and action.point_of_interest == point_of_interest:
+            self.bag.actions_handler.remove(action)
+
 func remove_for_position(player, position):
     for action in self.bag.actions_handler.actions:
         if player == action.unit.player and self.bag.helpers.array_last_element(action.path) == position:

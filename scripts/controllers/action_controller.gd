@@ -125,7 +125,6 @@ func handle_action(position):
 
     return self.status.list[self.status.UNEXPECTED]
 
-
 func __activate_field(field):
     if (field.has_unit() || (field.has_building() && field.object.can_spawn)):
         self.activate_field(field)

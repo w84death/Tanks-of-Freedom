@@ -249,6 +249,9 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
     self.bag.ai.reset()
+    # preparing map
+    self.bag.positions.refresh()
+    self.bag.waypoint_factory.prepare_for_map()
 
 func restart_map():
     self.load_map(current_map_name, workshop_file_name, false, self.is_remote)
