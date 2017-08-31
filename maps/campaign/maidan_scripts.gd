@@ -47,7 +47,7 @@ var stories = {
 
 var triggers = {
     'introduction' : {'type' : 'turn', 'story' : 'introduction', 'details' : { 'turn' : 1 }, 'one_off' : true},
-    'objective_nearby' : {'type' : 'move', 'story' : 'objective_nearby', 'details' : { 'fields' : [Vector2(7, 4), Vector2(8, 4), Vector2(10, 4), Vector2(7, 5), Vector2(8, 5), Vector2(9, 5), Vector2(10, 5), Vector2(7, 6), Vector2(8, 6), Vector2(9, 6), Vector2(10, 6)], 'player' : 0 }, 'one_off' : true},
+    'objective_nearby' : {'type' : 'move', 'story' : 'objective_nearby', 'details' : { 'fields' : [Vector2(7, 3), Vector2(8, 3), Vector2(10, 3), Vector2(7, 4), Vector2(8, 4), Vector2(9, 4), Vector2(10, 4), Vector2(7, 5), Vector2(8, 5), Vector2(9, 5), Vector2(10, 5)], 'player' : 0 }, 'one_off' : true},
     'hq_in_danger' : {'type' : 'move', 'story' : 'hq_in_danger', 'details' : { 'fields' : [Vector2(7, 9), Vector2(8, 9), Vector2(9, 9), Vector2(10, 9), Vector2(7, 10), Vector2(8, 10), Vector2(9, 10), Vector2(10, 10), Vector2(7, 11), Vector2(9, 11), Vector2(10, 11)], 'player' : 1 }, 'one_off' : true},
     'loosing_soldiers' : {'type' : 'deploy', 'story' : 'loosing_soldiers', 'details' : { 'amount' : 3, 'player' : 0, 'exact' : true }, 'one_off' : true},
 }
