@@ -98,7 +98,10 @@ func score_attack(action):
         score = score + 50
 
     if own_buildings_in_sight(action).size():
-        score = score + 150
+        score = score + 450
+
+    if self.bag.controllers.action_controller.turn > 8:
+        score = score * 1.2
 
     return self.ATTACK_MOD + score
 
@@ -120,7 +123,7 @@ func score_move(action):
         score = score + self.__health_level(action.unit) * 20
 
     # TODO - parameters changing during game
-    if self.bag.controllers.action_controller.turn < 4:
+    if self.bag.controllers.action_controller.turn < 6:
         score = score - (action.path.size() * 30)
     else:
         score = score - (action.path.size() * 15)

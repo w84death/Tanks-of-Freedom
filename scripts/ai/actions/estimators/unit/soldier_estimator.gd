@@ -5,7 +5,7 @@ const BASE_CAPTURE = 1
 const BASE_ATTACK = 1
 
 const CAPTURE_MOD = 600
-const ATTACK_MOD  = 300
+const ATTACK_MOD  = 450
 const MOVE_MOD    = 200
 
 # soldier / tank / heli
@@ -35,6 +35,8 @@ func score_capture(action):
     var score = self.get_building_value(action) * self.BUILDING_WEIGHT
     # lower health is better
     score = score + (1 - self.__health_level(action.unit))
+    if self.bag.controllers.action_controller.turn < 8:
+        score = score * 1.2
 
     return self.CAPTURE_MOD + score
 

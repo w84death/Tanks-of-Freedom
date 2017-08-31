@@ -5,7 +5,7 @@ const BASE_CAPTURE = 1
 const BASE_ATTACK = 1
 
 const CAPTURE_MOD =   0
-const ATTACK_MOD  = 400
+const ATTACK_MOD  = 500
 const MOVE_MOD    = 100
 
 # soldier / tank / heli
