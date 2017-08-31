@@ -32,10 +32,10 @@ func score_capture(action):
     if self.get_target_object(action).type == 4 and self.enemies_in_sight(action).size() > 2:
         return 0
 
-    var score = self.get_waypoint_value(action) * self.WAYPOINT_WEIGHT
+    var score = self.get_building_value(action) * self.BUILDING_WEIGHT
     # lower health is better
     score = score + (1 - self.__health_level(action.unit))
 
-    return self.CAPTURE_MOD + score - (action.path.size() * 10)
+    return self.CAPTURE_MOD + score
 
 

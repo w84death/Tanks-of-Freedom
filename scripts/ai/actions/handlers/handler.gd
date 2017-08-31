@@ -38,6 +38,14 @@ func remove_for_point_of_interest(processed_action):
         if player == action.unit.player and action.destination.point_of_interest == point_of_interest:
             self.bag.actions_handler.remove(action)
 
+func remove_for_waypointed_building(processed_action):
+    var player = processed_action.unit.player
+    var building = processed_action.destination
+
+    for action in self.bag.actions_handler.actions:
+        if player == action.unit.player and action.destination != null and  action.destination.group == 'waypoint' and action.destination.point_of_interest == building:
+            self.bag.actions_handler.remove(action)
+
 func remove_for_position(player, position):
     for action in self.bag.actions_handler.actions:
         if player == action.unit.player and self.bag.helpers.array_last_element(action.path) == position:

@@ -1,13 +1,13 @@
 const WAYPOINT_WEIGHT = 50
+const BUILDING_WEIGHT = 50
 
 var bag
 var score
 
-# TYPE_BUNKER / TYPE_BARRACKS / TYPE_FACTORY / TYPE_AIRPORT / TYPE_TOWER
 var waypoint_value = {
 	0: 14,  # TYPE_BUNKER
-	1: 7, # TYPE_BARRACKS
-	2: 7, # TYPE_FACTORY
+	1: 8, # TYPE_BARRACKS
+	2: 8, # TYPE_FACTORY
 	3: 5, # TYPE_AIRPORT
 	4: 9 # TYPE_TOWER
 	}
@@ -46,6 +46,9 @@ func get_waypoint_value(action):
         if action.destination.subtype == action.destination.TYPE_SPAWN_POINT:
             value = value + 1
     return value
+
+func get_building_value(action):
+     return self.waypoint_value[action.destination.type]
 
 func enemies_in_sight(action):
     var nearby_tiles = self.bag.positions.get_nearby_tiles(action.path[0], 4)

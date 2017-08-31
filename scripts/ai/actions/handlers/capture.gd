@@ -17,10 +17,12 @@ func execute(action):
 
 func __on_success(action):
     self.remove_for_destination(action)
-    #self.remove_for_point_of_interest(action)
+    self.remove_for_waypointed_building(action)
 
     self.bag.positions.refresh_units()
     self.bag.positions.refresh_buildings()
+    self.bag.waypoint_factory.update_waypoints() # TODO we can update only one waypoint here
+
     if action.destination.type != 4: #if gsm tower
         self.remove_for_unit(action.unit)
         self.mark_unit_for_calculations(action.unit)

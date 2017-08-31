@@ -16,7 +16,7 @@ var buildings_player_red = {}
 var terrain_obstacles = {}
 
 var units
-var waypoints
+var waypoints =[]
 
 const lookout_range = 3
 var precalculated_nearby_tiles = [[[null]]]
@@ -78,6 +78,7 @@ func refresh_buildings():
     buildings_player_blue.clear()
     buildings_player_red.clear()
     all_buildings.clear()
+    self.waypoints.clear()
 
     get_buildings()
     get_waypoints()
