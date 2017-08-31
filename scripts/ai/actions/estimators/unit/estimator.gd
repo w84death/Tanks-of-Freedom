@@ -38,14 +38,13 @@ func can_move(action):
     return true
 
 func get_waypoint_value(action):
-    var object = self.bag.abstract_map.get_field(action.point_of_interest.position_on_map).object
     var value = 0
-    if object == null:
-        return 0
-    value = self.waypoint_value[object.type]
-    #TODO - stub for waypoint handling
-    if action.destination.group == 'waypoint' and action.destination.subtype == action.destination.TYPE_SPAWN_POINT:
-        value = value + 1
+    if action.destination.group == 'waypoint':
+        if  action.destination.point_of_interest != null:
+            value = self.waypoint_value[action.destination.point_of_interest.type]
+
+        if action.destination.subtype == action.destination.TYPE_SPAWN_POINT:
+            value = value + 1
     return value
 
 func enemies_in_sight(action):

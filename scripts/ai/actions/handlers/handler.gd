@@ -32,10 +32,10 @@ func remove_for_destination(processed_action):
 
 func remove_for_point_of_interest(processed_action):
     var player = processed_action.unit.player
-    var point_of_interest = processed_action.point_of_interest
+    var point_of_interest = processed_action.destination.point_of_interest
 
     for action in self.bag.actions_handler.actions:
-        if player == action.unit.player and action.point_of_interest == point_of_interest:
+        if player == action.unit.player and action.destination.point_of_interest == point_of_interest:
             self.bag.actions_handler.remove(action)
 
 func remove_for_position(player, position):

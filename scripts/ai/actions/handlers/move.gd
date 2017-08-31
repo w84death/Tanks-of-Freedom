@@ -26,10 +26,10 @@ func __on_success(action):
 
     if action.path.size() < 2:
         if action.destination.group == 'waypoint':
-            if action.unit.type == 0 and self.bag.helpers.is_adjacent(action.point_of_interest.position_on_map, action.unit.position_on_map):
-                if action.point_of_interest.player != action.unit.player:
-                    self.bag.actions_handler.add_action(action.unit, action.point_of_interest)
-                    print("added capture action")
+#           if action.unit.type == 0 and self.bag.helpers.is_adjacent(action.point_of_interest.position_on_map, action.unit.position_on_map):
+            if action.destination.point_of_interest.player != action.unit.player:
+                self.bag.actions_handler.add_action(action.unit, action.destination.point_of_interest)
+                print("added capture action")
 
         self.bag.actions_handler.remove(action)
 

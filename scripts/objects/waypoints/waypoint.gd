@@ -43,5 +43,8 @@ func update_status(): #TODO needs better name
 
     self.for_unit_type = [0] # TODO - do it for other units type too
 
+func get_value():
+    return self.subtype # TODO needs refactor
+
 func _ready():
 	add_to_group("waypoint")

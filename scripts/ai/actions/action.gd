@@ -10,13 +10,12 @@ var proceed     = 0
 var status      = 0
 var ttl         = null
 var unused_ttl  = null
-var point_of_interest = null
 
 const DEFAULT_TTL = 100
 const FLASH_TTL   = 1
 const DEFAULT_UNUSED_TTL = 15
 
-func _init(start, destination, unit, group, point_of_interest, ttl = self.DEFAULT_TTL):
+func _init(start, destination, unit, group, ttl = self.DEFAULT_TTL):
     self.group = group
     self.start = start
     self.destination = destination
@@ -24,7 +23,6 @@ func _init(start, destination, unit, group, point_of_interest, ttl = self.DEFAUL
     self.type = type
     self.ttl = ttl
     self.unused_ttl = self.DEFAULT_UNUSED_TTL
-    self.point_of_interest = point_of_interest
 
 func proceed():
     var path = Array(self.path)

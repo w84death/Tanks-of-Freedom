@@ -8,29 +8,14 @@ const ACTION_UNUSED_OLD_THRESHOLD = 15
 const CACHED = true
 const ONE_TIME = false
 
-#func add_waypoint_action(unit, destination, ttl = self.action.DEFAULT_TTL):
-#    if unit.type == 0 and self.bag.helpers.is_adjacent(destination.position_on_map, unit.position_on_map):
-#        self.actions.append(self.create_action(unit, destination, destination, ttl))
-#        return
-#
-#    if unit.type != 0:
-#        return
-#    var waypoints = self.bag.waypoint_factory.create_for_building(destination, unit.type == 0)
-#    for waypoint in waypoints:
-#        if waypoint.is_active && not self.get_action(unit, waypoint):
-#            self.actions.append(self.create_action(unit, waypoint, destination, ttl))
-
 func add_action(unit, destination, ttl = self.action.DEFAULT_TTL):
     if self.get_action(unit, destination):
         return
 
-    if destination and destination.group == 'waypoint' :
-        self.actions.append(self.create_action(unit, destination, destination.point_of_interest, ttl))
-    else:
-        self.actions.append(self.create_action(unit, destination, destination, ttl))
+    self.actions.append(self.create_action(unit, destination, ttl))
 
-func create_action(unit, destination, point_of_interest, ttl):
-    return action.new(unit.position_on_map, destination, unit, unit.group, point_of_interest, ttl)
+func create_action(unit, destination, ttl):
+    return action.new(unit.position_on_map, destination, unit, unit.group, ttl)
 
 func execute_best_action(action):
     if action != null:

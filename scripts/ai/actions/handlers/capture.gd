@@ -17,7 +17,7 @@ func execute(action):
 
 func __on_success(action):
     self.remove_for_destination(action)
-    self.remove_for_point_of_interest(action)
+    #self.remove_for_point_of_interest(action)
 
     self.bag.positions.refresh_units()
     self.bag.positions.refresh_buildings()
