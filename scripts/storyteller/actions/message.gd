@@ -2,7 +2,15 @@ extends "res://scripts/storyteller/actions/abstract_action.gd"
 
 
 var avatar_portraits = {
-    'soldier_blue' : 1
+    'soldier_blue' : 1,
+    'soldier_red' : 2,
+    'officer_blue' : 3,
+    'officer_red' : 4,
+    'tank_blue' : 5,
+    'tank_red' : 6,
+    'heli_blue' : 7,
+    'heli_red' : 8,
+    'civilian' : 9
 }
 
 
