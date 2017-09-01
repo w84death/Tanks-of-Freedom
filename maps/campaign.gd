@@ -21,7 +21,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_EASTERN_CITY'),
             'player': 0,
             'file': preload("res://maps/campaign/eastern_city.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/eastern_city_scripts.gd").new(),
             'description': tr('MISSION_DESR_EASTERN_CITY'),
             'tileset' : 'fall'
         },
