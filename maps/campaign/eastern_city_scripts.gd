@@ -39,6 +39,7 @@ var stories = {
         {'action' : 'message', 'details': {'text' : 'MISSION_2_OFFICER_ALARM', 'portrait' : 'officer_red', 'name' : 'ACTOR_MILITIA_OFFICER', 'side' : 'right'}},
         {'action' : 'spawn', 'details' : {'where' : Vector2(7, 3), 'unit' : 'soldier', 'side' : 'red'}, 'delay' : 1},
         {'action' : 'spawn', 'details' : {'where' : Vector2(7, 4), 'unit' : 'soldier', 'side' : 'red'}, 'delay' : 1},
+        {'action' : 'trigger', 'details' : {'name' : 'tipoff', 'suspended' : true}},
         {'action' : 'unlock', 'details' : {}},
     ],
 }

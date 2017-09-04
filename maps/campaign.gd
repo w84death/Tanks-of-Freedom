@@ -29,7 +29,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_RIOTS'),
             'player': 1,
             'file': preload("res://maps/campaign/administration_riot.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/administration_riot_scripts.gd").new(),
             'description': tr('MISSION_DESR_RIOTS'),
             'tileset' : 'winter'
         },

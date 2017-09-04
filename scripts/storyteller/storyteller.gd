@@ -20,6 +20,7 @@ var action_handlers = {
     'spawn' : preload("res://scripts/storyteller/actions/spawn.gd").new(),
     'attack' : preload("res://scripts/storyteller/actions/attack.gd").new(),
     'despawn' : preload("res://scripts/storyteller/actions/despawn.gd").new(),
+    'trigger' : preload("res://scripts/storyteller/actions/trigger.gd").new(),
 }
 
 var available_stories = {}
