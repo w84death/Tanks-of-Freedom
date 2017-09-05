@@ -87,8 +87,6 @@ func score_attack(action):
     # highr health is better
     var score = self.__health_level(action.unit) * 20
 
-    # doest enemy will be killed
-
     if enemy.life < action.unit.attack:
         score = score + 200
     elif !enemy.can_defend():
@@ -130,6 +128,7 @@ func score_move(action):
 
     if action.proceed:
         score = score + 50 + (action.proceed * 10)
+               
 
     score = self.MOVE_MOD + score - (self.__danger(action) * 10)
 
