@@ -27,9 +27,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
+margin/left = 90.0
 margin/top = 0.0
-margin/right = 0.0
+margin/right = 90.0
 margin/bottom = 0.0
 
 [node name="Panel" type="Panel" parent="panels"]
@@ -96,7 +96,7 @@ size_flags/vertical = 0
 margin/left = -256.0
 margin/top = -48.0
 margin/right = -256.0
-margin/bottom = 0.0
+margin/bottom = -48.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 autowrap = true
 uppercase = true
@@ -106,8 +106,8 @@ max_lines_visible = -1
 
 [node name="avatar" parent="messages/center/left" instance=ExtResource( 2 )]
 
-margin/left = -360.0
-margin/right = -360.0
+margin/left = -390.0
+margin/right = -390.0
 
 [node name="sprite" parent="messages/center/left/avatar"]
 
@@ -115,7 +115,6 @@ flip_h = true
 
 [node name="right" type="Control" parent="messages/center"]
 
-visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -148,8 +147,8 @@ max_lines_visible = -1
 
 [node name="avatar" parent="messages/center/right" instance=ExtResource( 2 )]
 
-margin/left = 360.0
-margin/right = 360.0
+margin/left = 390.0
+margin/right = 390.0
 
 [node name="controls" type="Control" parent="."]
 
@@ -166,6 +165,20 @@ margin/top = 32.0
 margin/right = 64.0
 margin/bottom = 64.0
 
+[node name="Panel1" type="Panel" parent="controls"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = -56.0
+margin/top = -32.0
+margin/right = -48.0
+margin/bottom = -32.0
+
 [node name="close" type="Button" parent="controls"]
 
 rect/min_size = Vector2( 90, 48 )
@@ -174,10 +187,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 theme/theme = ExtResource( 3 )
-margin/left = -70.0
-margin/top = -28.0
-margin/right = 20.0
-margin/bottom = 20.0
+margin/left = -48.0
+margin/top = -24.0
+margin/right = 42.0
+margin/bottom = 24.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

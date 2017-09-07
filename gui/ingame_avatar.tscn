@@ -16,7 +16,7 @@ margin/bottom = 0.0
 
 [node name="sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, -22 )
+transform/pos = Vector2( 0, -12 )
 transform/scale = Vector2( 8, 8 )
 texture = ExtResource( 1 )
 vframes = 4
@@ -26,15 +26,15 @@ hframes = 6
 
 anchor/right = 1
 anchor/bottom = 1
-rect/min_size = Vector2( 200, 32 )
+rect/min_size = Vector2( 248, 32 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 theme/theme = ExtResource( 2 )
-margin/left = -100.0
+margin/left = -124.0
 margin/top = 20.0
-margin/right = -100.0
+margin/right = -124.0
 margin/bottom = -52.0
 
 [node name="name" type="Label" parent="."]
@@ -48,7 +48,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -100.0
 margin/top = 30.0
-margin/right = -87.0
+margin/right = -100.0
 margin/bottom = -44.0
 text = "SAMPLE NAME"
 align = 1
