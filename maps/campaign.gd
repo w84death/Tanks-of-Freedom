@@ -37,7 +37,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_BASE_ASSAULT'),
             'player': 1,
             'file': preload("res://maps/campaign/base_assault.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/base_assault_scripts.gd").new(),
             'description': tr('MISSION_DESR_BASE_ASSAULT'),
             'tileset' : 'winter'
         },
