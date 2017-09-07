@@ -6,7 +6,7 @@ const BASE_ATTACK = 1
 
 const CAPTURE_MOD =   0
 const ATTACK_MOD  = 500
-const MOVE_MOD    = 100
+const MOVE_MOD    = 150
 
 # soldier / tank / heli
 var danger_modifier = IntArray([1, 2, 5])

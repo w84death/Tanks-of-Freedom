@@ -6,7 +6,7 @@ const BASE_ATTACK = 1
 
 const CAPTURE_MOD = 600
 const ATTACK_MOD  = 450
-const MOVE_MOD    = 200
+const MOVE_MOD    = 180
 
 # soldier / tank / heli
 var danger_modifier = IntArray([0, 5, 1])
@@ -15,6 +15,8 @@ func _init(bag):
     self.bag = bag
 
 func score_capture(action):
+    #init
+    self.__prepare_info(action)
 
     if action.unit.life == 0 or !self.has_ap(action):
         return 0

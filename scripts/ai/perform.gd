@@ -1,7 +1,7 @@
 extends "res://scripts/bag_aware.gd"
 
-const INTERVAL = 0.15
-const SKIP_INTERVAL = 1
+const INTERVAL = 0.05
+const SKIP_INTERVAL = 0.01
 var running = false
 var pause = false
 

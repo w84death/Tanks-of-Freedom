@@ -41,7 +41,10 @@ func update_status(): #TODO needs better name
         else:
             self.for_player = [(self.point_of_interest.player +1 ) % 2]
 
-    self.for_unit_type = [0] # TODO - do it for other units type too
+    self.for_unit_type = [0, 1, 2]
+
+func mark_blocked():
+    self.for_unit_type = [0]
 
 func get_value():
     return self.subtype # TODO needs refactor

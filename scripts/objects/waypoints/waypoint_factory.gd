@@ -39,4 +39,11 @@ func update_waypoints():
     for waypoint in self.bag.positions.waypoints:
         waypoint.update_status()
 
+func mark_building_as_blocked(building):
+    var nearby_tiles = self.bag.positions.get_nearby_tiles(building.position_on_map, 1)
+    for tile in nearby_tiles:
+        var field = self.bag.abstract_map.get_field(tile)
+        if field.has_waypoint():
+            field.waypoint.mark_blocked()
+
 
