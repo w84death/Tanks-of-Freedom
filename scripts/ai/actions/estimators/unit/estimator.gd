@@ -166,13 +166,13 @@ func enemies_in_sight(action):
     return self.bag.positions.get_nearby_enemies(self.nearby_tiles, action.unit.player)
 
 func own_units_in_sight(action):
-    return self.bag.positions.get_nearby_enemies(self.nearby_tiles, (action.unit.player + 1) % 2)
+    return self.bag.positions.get_nearby_enemies(self.nearby_tiles, action.unit.player)
 
 func enemy_buildings_in_sight(action):
     return self.bag.positions.get_nearby_enemy_buildings(self.nearby_tiles, action.unit.player) + self.bag.positions.get_nearby_empty_buldings(self.nearby_tiles)
 
 func own_buildings_in_sight(action):
-    return self.bag.positions.get_nearby_enemy_buildings(self.nearby_tiles, (action.unit.player + 1) % 2 )
+    return self.bag.positions.get_nearby_enemy_buildings(self.nearby_tiles, action.unit.player )
 
 func target_can_be_captured(action):
     var tile = self.bag.abstract_map.get_field(action.path[1])
