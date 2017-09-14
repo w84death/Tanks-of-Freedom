@@ -26,6 +26,7 @@ func prepare_map_grid(abstract_map):
     var field = null
     var pos = null
     var passable = false
+    self.passable_field_count = 0
     for id in self.grid:
         field = abstract_map.get_field(self.point_id_2_pos(id))
         passable = !(field.has_terrain() or field.is_empty() or field.has_building())
