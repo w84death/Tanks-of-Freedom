@@ -22,7 +22,7 @@ const lookout_range = 3
 var precalculated_nearby_tiles = [[[null]]]
 var precalculated_nearby_tiles_ranges = [[[null]]]
 
-const MAX_PRECALCULATED_TILES_RANGE = 30
+const MAX_PRECALCULATED_TILES_RANGE = 31
 const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
@@ -191,14 +191,12 @@ func get_nearby_empty_buldings(nearby_tiles):
 
 func prepare_nearby_tiles():
     for distance in range(1, MAX_PRECALCULATED_TILES_RANGE):
-
-        var max_distance = distance *2 -1
         var tiles = []
 
         for x in range(-distance, distance + 1):
             for y in range(-distance, distance  + 1):
                 # we are skipping current tile
-                if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > max_distance)):
+                if (!(x == 0 && y == 0) && !(abs(x) + abs(y) > distance)):
                     tiles.push_back(Vector2(x, y))
         self.precalculated_nearby_tiles.insert(distance, tiles)
 

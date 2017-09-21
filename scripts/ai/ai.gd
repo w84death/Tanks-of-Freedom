@@ -6,8 +6,8 @@ var player_ap
 var own_units
 var ai_logger_enabled
 
-const MIN_DESTINATION_PER_UNIT = 5
-const SPAWN_LIMIT = 25
+const MIN_DESTINATION_PER_UNIT = 12
+const SPAWN_LIMIT = 35
 
 func _initialize():
     self.ai_logger_enabled = Globals.get('tof/ai_logger')
@@ -74,7 +74,7 @@ func __gather_nearest_enemy(unit):
     var destinations = Vector2Array()
     var nearby_tiles
     for lookup_range in range(1, unit.ap):
-        nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
+        nearby_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, lookup_range)
 
         destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
 
@@ -84,19 +84,18 @@ func __gather_nearest_enemy(unit):
     return destinations
 
 func __gather_destinations(unit):
-    var destinations = Vector2Array()
+    var destinations = []
     var nearby_tiles
     var adjacement_tiles
 
     for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
-        nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
-
-        destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
+        nearby_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, lookup_range)
+        destinations = destinations + self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
         destinations = destinations + self.bag.positions.get_nearby_waypoints(nearby_tiles, self.player)
 
         #adding capture
         if unit.type == 0:
-            adjacement_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, 1)
+            adjacement_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, 1)
             destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(adjacement_tiles, self.player)
             destinations = destinations + self.bag.positions.get_nearby_empty_buldings(adjacement_tiles)
 
