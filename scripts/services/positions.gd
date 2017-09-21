@@ -16,7 +16,7 @@ var buildings_player_red = {}
 var terrain_obstacles = {}
 
 var units
-var waypoints =[]
+var waypoints = {}
 
 const lookout_range = 3
 var precalculated_nearby_tiles = [[[null]]]
@@ -66,22 +66,22 @@ func refresh():
     self.prepare_nearby_tiles_ranges()
 
 func refresh_units():
-    units_player_blue.clear()
-    units_player_red.clear()
-    all_units.clear()
-    all_buildings.clear()
+    self.units_player_blue.clear()
+    self.units_player_red.clear()
+    self.all_units.clear()
+    self.all_buildings.clear()
 
-    get_units()
+    self.get_units()
 
 func refresh_buildings():
-    buildings_player_none.clear()
-    buildings_player_blue.clear()
-    buildings_player_red.clear()
-    all_buildings.clear()
+    self.buildings_player_none.clear()
+    self.buildings_player_blue.clear()
+    self.buildings_player_red.clear()
+    self.all_buildings.clear()
     self.waypoints.clear()
 
-    get_buildings()
-    get_waypoints()
+    self.get_buildings()
+    self.get_waypoints()
 
 func get_player_units(player):
     if player == 0:
@@ -167,13 +167,18 @@ func get_nearby_enemy_buildings(nearby_tiles, current_player):
     return buildings
 
 func get_waypoints():
-    self.waypoints = self.root_tree.get_nodes_in_group("waypoint")
+    for waypoint in self.root_tree.get_nodes_in_group("waypoint"):
+        self.waypoints[waypoint.position_on_map] = waypoint
 
 func get_nearby_waypoints(nearby_tiles, current_player):
     var waypoint_collection = []
-    for waypoint in self.waypoints:
-        if waypoint.is_active and waypoint.applicable_for_player(current_player):
-            waypoint_collection.append(waypoint)
+    var waypoint = null
+    for tile in nearby_tiles:
+        if self.waypoints.has(tile):
+            waypoint = self.waypoints[tile]
+            if waypoint.is_active and waypoint.applicable_for_player(current_player):
+                waypoint_collection.append(waypoint)
+
     return waypoint_collection
 
 func get_nearby_empty_buldings(nearby_tiles):

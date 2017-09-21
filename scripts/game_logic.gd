@@ -252,6 +252,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     # preparing map
     self.bag.positions.refresh()
     self.bag.waypoint_factory.prepare_for_map()
+    self.bag.positions.get_waypoints()
 
 func restart_map():
     self.load_map(current_map_name, workshop_file_name, false, self.is_remote)

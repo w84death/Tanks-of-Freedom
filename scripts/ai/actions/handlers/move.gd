@@ -27,7 +27,6 @@ func __on_success(action):
     if action.path.size() < 2:
         if action.unit.type != 0 and action.destination.group == 'waypoint':
             self.bag.waypoint_factory.mark_building_as_blocked(action.destination.point_of_interest)
-            print("mark as blocked")
 
         self.bag.actions_handler.remove(action)
 

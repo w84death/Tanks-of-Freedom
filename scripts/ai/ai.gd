@@ -61,7 +61,7 @@ func __prepare_unit_actions():
     var own_units = self.bag.positions.get_player_units(self.player)
     self.bag.a_star.set_obstacles(own_units.keys())
 
-    for unit in self.bag.positions.get_player_units(self.player).values():
+    for unit in own_units.values():
         if unit.ap > 0 && unit.life > 0:
             if self.__should_prepare_actions(unit):
                 for destination in self.__gather_destinations(unit):
@@ -87,6 +87,7 @@ func __gather_destinations(unit):
     var destinations = Vector2Array()
     var nearby_tiles
     var adjacement_tiles
+
     for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
         nearby_tiles = self.bag.positions.get_nearby_tiles(unit.position_on_map, lookup_range)
 

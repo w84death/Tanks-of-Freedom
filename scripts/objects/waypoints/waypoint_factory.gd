@@ -36,7 +36,7 @@ func prepare_for_map():
         self.create_for_building(building)
 
 func update_waypoints():
-    for waypoint in self.bag.positions.waypoints:
+    for waypoint in self.bag.positions.waypoints.values():
         waypoint.update_status()
 
 func mark_building_as_blocked(building):
