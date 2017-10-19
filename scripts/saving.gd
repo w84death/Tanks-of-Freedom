@@ -227,9 +227,7 @@ func get_current_state():
 
     var current_data
     var map_array = []
-    var element
-    for pos in self.data:
-        element = self.data[pos]
+    for element in self.data.values():
         if self._is_empty(element):
             continue
         map_array.append(element)
@@ -308,8 +306,8 @@ func __get_building_id(type, owner):
 func store_map_in_binary_file():
     var save_data
     var map_array = []
-    for pos in self.data:
-        map_array.append(self.data[pos])
+    for map_item in self.data.values():
+        map_array.append(map_item)
 
     save_data = {
         'map' : map_array,

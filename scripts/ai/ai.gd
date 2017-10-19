@@ -90,14 +90,14 @@ func __gather_destinations(unit):
 
     for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
         nearby_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, lookup_range)
-        destinations = destinations + self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
-        destinations = destinations + self.bag.positions.get_nearby_waypoints(nearby_tiles, self.player)
 
         #adding capture
-        if unit.type == 0:
-            adjacement_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, 1)
-            destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(adjacement_tiles, self.player)
-            destinations = destinations + self.bag.positions.get_nearby_empty_buldings(adjacement_tiles)
+        if unit.type == 0 and lookup_range == 1:
+            destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player)
+            destinations = destinations + self.bag.positions.get_nearby_empty_buldings(nearby_tiles)
+
+        destinations = destinations + self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
+        destinations = destinations + self.bag.positions.get_nearby_waypoints(nearby_tiles, self.player)
 
         if destinations.size() > self.MIN_DESTINATION_PER_UNIT:
             return destinations

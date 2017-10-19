@@ -44,5 +44,5 @@ func __get_unit_position(direction):
 
 func __create_unit_list(units):
     self.unit_list.clear()
-    for pos in units:
-        self.unit_list.append(units[pos].get_pos_map())
+    for unit_pos in units.keys():
+        self.unit_list.append(unit_pos)

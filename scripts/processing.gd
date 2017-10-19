@@ -21,5 +21,5 @@ func remove(object):
     self.objects.erase(wrapper)
 
 func reset():
-    for id in self.objects:
-        self.remove(self.objects[id])
+    for object in self.objects.values():
+        self.remove(object)

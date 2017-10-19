@@ -54,7 +54,6 @@ func score_move(action):
     if !self.can_move(action) or !self.has_ap(action):
         return 0
 
-    # if enemies nearby dont use last ap (defend)
     if self.__should_use_last_ap(action):
         return 0
 
@@ -68,7 +67,7 @@ func score_move(action):
         score = score + self.__health_level(action.unit) * 20
 
     # TODO - parameters changing during game
-    if self.bag.controllers.action_controller.turn < 6:
+    if self.bag.controllers.action_controller.turn < 4:
         if action.destination.group == 'waypoint' and action.unit.type != 0:
             score = score * 0.3
         score = score - (action.path.size() * 40)
@@ -79,9 +78,8 @@ func score_move(action):
         score = score + 50 + (action.proceed * 10)
                
 
-    score = self.MOVE_MOD + score - (self.__danger(action) * 10)
+    score = self.MOVE_MOD + score - (self.__danger(action) * 9)
 
-    # if destination is building
     if waypoint_value > 0 && action.unit.check_hiccup(action.path[1]):
         score = score * 0.5
 
@@ -110,11 +108,13 @@ func __should_use_last_ap(action):
     return false
 
 func __danger(action):
+    randomize()
     var danger = 0
-    for unit in self.enemies_in_sight(action):
-        danger = danger + self.danger_modifier[unit.type]
-    for unit in self.own_units_in_sight(action):
-        danger = danger - self.danger_modifier[unit.type]
+    if randf() < 0.9:
+        for unit in self.enemies_in_sight(action):
+            danger = danger + self.danger_modifier[unit.type]
+        for unit in self.own_units_in_sight(action):
+            danger = danger - self.danger_modifier[unit.type]
 
     return danger
 

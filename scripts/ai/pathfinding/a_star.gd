@@ -9,6 +9,9 @@ var obstacles = []
 var new_obstacles = []
 var passable_field_count = 0
 
+const NEIGHBORS_KEY = 0
+const POSITION_KEY = 1
+
 func _initialize():
     self.prepare_grid()
 
@@ -45,8 +48,8 @@ func prepare_grid():
         for y in range(self.bag.abstract_map.MAX_MAP_SIZE):
             id = self.get_point_id(x, y)
             self.grid[id] = {
-                "neighbors": self.__prepare_neighbors(x, y),
-                "pos" : Vector2(x, y),
+                self.NEIGHBORS_KEY : self.__prepare_neighbors(x, y),
+                self.POSITION_KEY  : Vector2(x, y),
             }
             self.astar.add_point(id, Vector3(x, y, 0))
 
@@ -96,13 +99,13 @@ func pos_2_point_id(pos):
     return get_point_id(pos.x, pos.y)
 
 func point_id_2_pos(id):
-    return self.grid[id].pos
+    return self.grid[id][POSITION_KEY]
 
 func get_adjacement_tile_ids(tile_id):
     var ids = IntArray([])
     var field
     if self.grid.has(tile_id):
-        var neighbors = self.grid[tile_id]["neighbors"]
+        var neighbors = self.grid[tile_id][self.NEIGHBORS_KEY]
         for neighbor in neighbors.values():
             field = self.bag.abstract_map.get_field(neighbor)
             if field != null and !field.is_empty():
