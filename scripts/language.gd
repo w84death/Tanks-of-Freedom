@@ -51,6 +51,7 @@ func reload_labels():
         self.reload_label(settings.get_node('body/tabs/gfx/overscan_button/title'), 'LABEL_OVERSCAN')
         self.reload_label(settings.get_node('body/tabs/gfx/shake_toggle/title'), 'LABEL_CAMERA_SHAKE')
         self.reload_label(settings.get_node('body/tabs/gfx/camera_follow/title'), 'LABEL_AUTO_FOLLOW')
+        self.reload_label(settings.get_node('body/tabs/gfx/camera_move_to_bunker/title'), 'LABEL_CAMERA_MOVE_TO_BUNKER')
         self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/title'), 'LABEL_ZOOM_LEVEL')
         self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/buttons/center/first'), 'LABEL_BIGGER')
         self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/buttons/center/second'), 'LABEL_SMALLER')

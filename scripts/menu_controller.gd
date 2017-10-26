@@ -46,6 +46,7 @@ var sound_toggle_button
 var music_toggle_button
 var shake_toggle_button
 var camera_follow_button
+var camera_move_to_bunker_button
 var camera_zoom_in_button
 var camera_zoom_out_button
 var resolution_button
@@ -60,6 +61,7 @@ var sound_toggle_label
 var music_toggle_label
 var shake_toggle_label
 var camera_follow_label
+var camera_move_to_bunker_label
 var camera_zoom_label
 var resolution_label
 var difficulty_label
@@ -119,17 +121,20 @@ func _ready():
     self.overscan_toggle_button = self.settings_gfx.get_node("overscan_button/buttons/center/first")
     self.shake_toggle_button = self.settings_gfx.get_node("shake_toggle/buttons/center/first")
     self.camera_follow_button = self.settings_gfx.get_node("camera_follow/buttons/center/first")
+    self.camera_move_to_bunker_button = self.settings_gfx.get_node("camera_move_to_bunker/buttons/center/first")
     self.camera_zoom_in_button = self.settings_gfx.get_node("camera_zoom/buttons/center/first")
     self.camera_zoom_out_button = self.settings_gfx.get_node("camera_zoom/buttons/center/second")
     self.resolution_button = self.settings_gfx.get_node("display_mode_toggle/buttons/center/first")
 
     self.shake_toggle_label = self.shake_toggle_button
     self.camera_follow_label = self.camera_follow_button
+    self.camera_move_to_bunker_label = self.camera_move_to_bunker_button
     self.resolution_label = self.resolution_button
     self.overscan_toggle_label = self.overscan_toggle_button
 
     self.shake_toggle_button.connect("pressed", self, "_toggle_shake_button_pressed")
     self.camera_follow_button.connect("pressed", self, "_toggle_follow_button_pressed")
+    self.camera_move_to_bunker_button.connect("pressed", self, "_toggle_camera_move_to_bunker_button_pressed")
     self.camera_zoom_in_button.connect("pressed", self, "_camera_zoom_in_button_pressed")
     self.camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
     self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
@@ -204,6 +209,9 @@ func _toggle_shake_button_pressed():
 func _toggle_follow_button_pressed():
     self.root.sound_controller.play('menu')
     self.toggle_follow()
+func _toggle_camera_move_to_bunker_button_pressed():
+    self.root.sound_controller.play('menu')
+    self.toggle_camera_move_to_bunker()
 func _camera_zoom_in_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.bag.camera.camera_zoom_in()
@@ -447,6 +455,15 @@ func toggle_follow():
         camera_follow_label.set_text(tr('LABEL_OFF'))
     root.write_settings_to_file()
 
+func toggle_camera_move_to_bunker():
+    root.settings['camera_move_to_bunker'] = not root.settings['camera_move_to_bunker']
+    if root.settings['camera_move_to_bunker']:
+        camera_move_to_bunker_label.set_text(tr('LABEL_ON'))
+    else:
+        camera_move_to_bunker_label.set_text(tr('LABEL_OFF'))
+    root.write_settings_to_file()
+
+
 func refresh_buttons_labels():
     if root.settings['sound_enabled']:
         sound_toggle_label.set_text(tr('LABEL_ON'))
@@ -464,6 +481,10 @@ func refresh_buttons_labels():
         camera_follow_label.set_text(tr('LABEL_ON'))
     else:
         camera_follow_label.set_text(tr('LABEL_OFF'))
+    if root.settings['camera_move_to_bunker']:
+        camera_move_to_bunker_label.set_text(tr('LABEL_ON'))
+    else:
+        camera_move_to_bunker_label.set_text(tr('LABEL_OFF'))
     if root.settings['easy_mode']:
         difficulty_label.set_text(tr('LABEL_EASY'))
     else:

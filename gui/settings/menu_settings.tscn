@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=2]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=3]
 [ext_resource path="res://gui/settings/option_one_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/settings/option_two_buttons.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=6]
+[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=6]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=7]
 
 [node name="settings_panel" type="Control"]
 
@@ -17,9 +18,7 @@ margin/left = 0.0
 margin/top = -48.0
 margin/right = 40.0
 margin/bottom = -8.0
-__meta__ = {
-"_edit_lock_": true
-}
+__meta__ = { "_edit_lock_":true }
 
 [node name="header" type="Patch9Frame" parent="."]
 
@@ -94,6 +93,7 @@ margin/bottom = 8.0
 
 [node name="game" type="GridContainer" parent="body/tabs"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -145,7 +145,6 @@ text = "EN"
 
 [node name="gfx" type="GridContainer" parent="body/tabs"]
 
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -164,6 +163,7 @@ columns = 3
 [node name="shake_toggle" parent="body/tabs/gfx" instance=ExtResource( 4 )]
 
 editor/display_folded = true
+visibility/visible = false
 margin/right = 190.0
 
 [node name="camera_follow" parent="body/tabs/gfx" instance=ExtResource( 4 )]
@@ -201,14 +201,71 @@ margin/top = 96.0
 margin/right = 412.0
 margin/bottom = 176.0
 
+[node name="title" type="Label" parent="body/tabs/gfx/camera_zoom"]
+
+anchor/right = 1
+rect/min_size = Vector2( 0, 32 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 32.0
+text = "SAMPLE TXT NAME"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="buttons" type="CenterContainer" parent="body/tabs/gfx/camera_zoom"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 0, 32 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 48.0
+margin/right = 4.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Container" parent="body/tabs/gfx/camera_zoom/buttons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 93.0
+margin/top = 24.0
+margin/right = 93.0
+margin/bottom = 24.0
+
 [node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
+rect/min_size = Vector2( 90, 48 )
 theme/theme = ExtResource( 6 )
-text = "+"
+margin/top = -24.0
+margin/bottom = 24.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "ON"
+flat = false
 
-[node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
+[node name="camera_move_to_bunker" parent="body/tabs/gfx" instance=ExtResource( 4 )]
 
-text = "-"
+editor/display_folded = true
+margin/left = 666.0
+margin/right = 856.0
 
 [node name="sound" type="GridContainer" parent="body/tabs"]
 
@@ -241,6 +298,7 @@ margin/right = 412.0
 
 [node name="nav" type="Patch9Frame" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
@@ -278,7 +336,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 7 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 90.0
@@ -296,7 +354,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 7 )
 margin/left = 94.0
 margin/top = 0.0
 margin/right = 184.0
@@ -314,7 +372,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 7 )
 margin/left = 188.0
 margin/top = 0.0
 margin/right = 278.0
@@ -332,7 +390,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 7 )
 margin/left = 282.0
 margin/top = 0.0
 margin/right = 442.0

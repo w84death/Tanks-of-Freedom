@@ -42,6 +42,7 @@ var settings = {
     'cpu_1' : true,
     'turns_cap': 0,
     'camera_follow': true,
+    'camera_move_to_bunker': true,
     'music_volume': 0.5,
     'sound_volume': 0.2,
     'camera_zoom': 2,

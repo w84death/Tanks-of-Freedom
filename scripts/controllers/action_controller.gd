@@ -339,10 +339,11 @@ func go_into_multiplayer_wait_mode():
     return
 
 func move_camera_to_active_bunker():
-    var bunker_position = self.positions.get_player_bunker_position(current_player)
-    if bunker_position != null:
-        self.move_camera_to_point(bunker_position)
-        self.root_node.move_selector_to_map_position(bunker_position)
+    if self.root_node.bag.root.settings['camera_move_to_bunker']:
+        var bunker_position = self.positions.get_player_bunker_position(current_player)
+        if bunker_position != null:
+            self.move_camera_to_point(bunker_position)
+            self.root_node.move_selector_to_map_position(bunker_position)
 
 func move_camera_to_point(position):
     self.root_node.bag.abstract_map.map.move_to_map(position)
