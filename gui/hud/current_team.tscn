@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://assets/gui/dialogs/menu9_red@2x.png" type="Texture" id=1]
+[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=2]
+
+[node name="current_team" type="Patch9Frame"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -88.0
+margin/top = -180.0
+margin/right = 1192.0
+margin/bottom = 860.0
+texture = ExtResource( 1 )
+patch_margin/left = 24
+patch_margin/top = 12
+patch_margin/right = 24
+patch_margin/bottom = 12
+
+[node name="team_turn" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 9.0
+margin/top = 11.0
+margin/right = 140.0
+margin/bottom = 25.0
+text = "CURRENT TEAM"
+align = 2
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="flag" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 152, 9 )
+transform/scale = Vector2( 2, 2 )
+color = 0
+
+
