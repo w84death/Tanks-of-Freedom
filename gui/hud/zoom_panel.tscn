@@ -56,7 +56,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Sprite" type="Sprite" parent="zoom_in"]
 
@@ -86,7 +88,9 @@ textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/disabled = ExtResource( 5 )
 textures/focused = ExtResource( 6 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Sprite" type="Sprite" parent="zoom_out"]
 

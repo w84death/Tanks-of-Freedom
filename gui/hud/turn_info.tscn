@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
 [ext_resource path="res://gui/font_32.tres" type="Theme" id=3]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=4]
+[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=5]
 
 [node name="turn_info" type="Control"]
 
@@ -25,7 +26,7 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = -88.0
-margin/top = -117.0
+margin/top = -152.0
 margin/right = -88.0
 margin/bottom = 93.0
 texture = ExtResource( 1 )
@@ -60,7 +61,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 3 )
 margin/left = -52.0
-margin/top = -69.0
+margin/top = -71.0
 margin/right = 35.0
 margin/bottom = -37.0
 text = "999"
@@ -77,9 +78,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -80.0
-margin/top = -87.0
+margin/top = -84.0
 margin/right = 80.0
-margin/bottom = -71.0
+margin/bottom = -68.0
 text = "LABEL_ACTION_POINTS"
 align = 2
 valign = 2
@@ -95,9 +96,9 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 4 )
 margin/left = -76.0
-margin/top = -23.0
+margin/top = -31.0
 margin/right = 51.0
-margin/bottom = -1.0
+margin/bottom = -8.0
 text = "120"
 align = 2
 valign = 2
@@ -113,9 +114,9 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 4 )
 margin/left = 53.0
-margin/top = -23.0
+margin/top = -31.0
 margin/right = 79.0
-margin/bottom = -1.0
+margin/bottom = -8.0
 text = "AP"
 valign = 2
 percent_visible = 1.0
@@ -129,9 +130,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = -81.0
-margin/top = -39.0
+margin/top = -43.0
 margin/right = 79.0
-margin/bottom = -25.0
+margin/bottom = -29.0
 text = "LABEL_NEXT_TURN_GAIN"
 align = 2
 valign = 2
@@ -145,12 +146,29 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -87.0
-margin/top = -112.0
-margin/right = 86.0
-margin/bottom = -98.0
+margin/left = -86.0
+margin/top = -121.0
+margin/right = 87.0
+margin/bottom = -107.0
 text = "LABEL_MAP_NAME"
 align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="team_turn" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -79.0
+margin/top = -141.0
+margin/right = 52.0
+margin/bottom = -127.0
+text = "CURRENT TEAM:"
+align = 2
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
@@ -164,7 +182,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 theme/theme = ExtResource( 3 )
 margin/left = 40.0
-margin/top = -69.0
+margin/top = -71.0
 margin/right = 78.0
 margin/bottom = -37.0
 text = "AP"
@@ -173,5 +191,10 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="flag" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 64, -143 )
+transform/scale = Vector2( 2, 2 )
 
 

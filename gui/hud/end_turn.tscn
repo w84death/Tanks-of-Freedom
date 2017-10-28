@@ -17,12 +17,22 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 0
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.25, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 2, 3, 3 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 3 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("../end_turn_text:custom_colors/font_color")
 tracks/1/interp = 0
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.25, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.25, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 
@@ -33,12 +43,22 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 0
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.25, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 4, 5, 5 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 5 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("../end_turn_text:custom_colors/font_color")
 tracks/1/interp = 0
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.25, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.25, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -49,12 +69,22 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 0
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.25, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 0, 1, 1 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 1 ]
+}
 tracks/1/type = "value"
 tracks/1/path = NodePath("../end_turn_text:custom_colors/font_color")
 tracks/1/interp = 0
 tracks/1/imported = false
-tracks/1/keys = { "times":FloatArray( 0, 0.25, 0.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ] }
+tracks/1/keys = {
+"times": FloatArray( 0, 0.25, 0.5 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="end_turn" type="Control"]
 
@@ -134,7 +164,9 @@ textures/normal = ExtResource( 2 )
 textures/pressed = ExtResource( 3 )
 textures/hover = ExtResource( 4 )
 textures/focused = ExtResource( 4 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="gamepad_indicator" type="Sprite" parent="end_turn_button"]
 
