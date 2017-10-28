@@ -1,20 +1,22 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_red@2x.png" type="Texture" id=1]
-[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=2]
+[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=3]
 
 [node name="current_team" type="Patch9Frame"]
 
 anchor/right = 1
 anchor/bottom = 1
+rect/min_size = Vector2( 176, 40 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -88.0
-margin/top = -180.0
-margin/right = 1192.0
-margin/bottom = 860.0
+margin/left = -92.0
+margin/top = -20.0
+margin/right = 1196.0
+margin/bottom = 700.0
 texture = ExtResource( 1 )
 patch_margin/left = 24
 patch_margin/top = 12
@@ -37,8 +39,10 @@ valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+script/script = ExtResource( 2 )
+trans_key = "LABEL_CURRENT_TEAM"
 
-[node name="flag" parent="." instance=ExtResource( 2 )]
+[node name="flag" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 152, 9 )
 transform/scale = Vector2( 2, 2 )

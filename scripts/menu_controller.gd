@@ -465,6 +465,8 @@ func toggle_camera_move_to_bunker():
 
 
 func refresh_buttons_labels():
+    get_tree().call_group(0, "translate_me", "refresh_label")
+
     if root.settings['sound_enabled']:
         sound_toggle_label.set_text(tr('LABEL_ON'))
     else:
