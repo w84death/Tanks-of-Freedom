@@ -1,4 +1,3 @@
-
 var root
 var control_nodes
 
@@ -132,13 +131,6 @@ func _ready():
     self.resolution_label = self.resolution_button
     self.overscan_toggle_label = self.overscan_toggle_button
 
-    self.shake_toggle_button.connect("pressed", self, "_toggle_shake_button_pressed")
-    self.camera_follow_button.connect("pressed", self, "_toggle_follow_button_pressed")
-    self.camera_move_to_bunker_button.connect("pressed", self, "_toggle_camera_move_to_bunker_button_pressed")
-    self.camera_zoom_in_button.connect("pressed", self, "_camera_zoom_in_button_pressed")
-    self.camera_zoom_out_button.connect("pressed", self, "_camera_zoom_out_button_pressed")
-    self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
-
     #sound
     self.sound_toggle_button = self.settings_sound.get_node("sound_toggle/buttons/center/first")
     self.music_toggle_button = self.settings_sound.get_node("music_toggle/buttons/center/first")
@@ -152,16 +144,23 @@ func _ready():
     self.difficulty_label = self.difficulty_button
     self.language_cycle_label = self.language_cycle_button
 
-
     # BUTTON BINDINGS
-    campaign_button.connect("pressed", self, "_campaign_button_pressed")
-    workshop_button.connect("pressed", self, "_workshop_button_pressed")
-    play_button.connect("pressed", self, "_play_button_pressed")
-    online_button.connect("pressed", self, "_online_button_pressed")
+    __bind_pressed(campaign_button, ["play_menu_sound", "show_campaign_menu"])
+    __bind_pressed(workshop_button, ["play_menu_sound", "enter_workshop"])
+    __bind_pressed(play_button, ["play_menu_sound", "show_maps_menu"])
+    __bind_pressed(online_button, ["play_menu_sound", "show_online_menu"])
+    __bind_pressed(sound_toggle_button, ["play_menu_sound", "toggle_sound"])
+    __bind_pressed(music_toggle_button, ["play_menu_sound", "toggle_music"])
+    __bind_pressed(shake_toggle_button, ["play_menu_sound", "toggle_shake"])
+    __bind_pressed(camera_follow_button, ["play_menu_sound", "toggle_follow"])
+    __bind_pressed(camera_move_to_bunker_button, ["play_menu_sound", "toggle_camera_move_to_bunker"])
+    __bind_pressed(camera_zoom_in_button, ["play_menu_sound", "camera_zoom_in"])
+    __bind_pressed(camera_zoom_out_button, ["play_menu_sound", "camera_zoom_out"])
+    __bind_pressed(quit_button, ["play_menu_sound", "quit_game"])
+    __bind_pressed(demo_button, ["play_menu_sound", "start_demo_mode"])
+    __bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
 
-    sound_toggle_button.connect("pressed", self, "_toggle_sound_button_pressed")
-    music_toggle_button.connect("pressed", self, "_toggle_music_button_pressed")
-
+    self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
     overscan_toggle_button.connect("pressed", self, "_overscan_toggle_button_pressed")
     language_cycle_button.connect("pressed", self, "_language_cycle_button_pressed")
@@ -171,9 +170,6 @@ func _ready():
         self.settings_nav_pad.set_disabled(true)
 
     close_button.connect("pressed", self, "_close_button_pressed")
-    quit_button.connect("pressed", self, "_quit_button_pressed")
-    settings_button.connect("pressed", self, "_settings_button_pressed")
-    demo_button.connect("pressed", self, "_demo_button_pressed")
 
     self.label_completed = self.get_node("bottom/center/completed")
     self.label_maps_created = self.get_node("bottom/center/maps_created")
@@ -188,36 +184,16 @@ func _ready():
     self.update_zoom_label()
     self.load_background_map()
 
-func _campaign_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.show_campaign_menu()
-func _workshop_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.enter_workshop()
-func _play_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.show_maps_menu()
-func _toggle_sound_button_pressed():
-    self.toggle_sound()
-    self.root.sound_controller.play('menu')
-func _toggle_music_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.toggle_music()
-func _toggle_shake_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.toggle_shake()
-func _toggle_follow_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.toggle_follow()
-func _toggle_camera_move_to_bunker_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.toggle_camera_move_to_bunker()
-func _camera_zoom_in_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.root.bag.camera.camera_zoom_in()
-func _camera_zoom_out_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.root.bag.camera.camera_zoom_out()
+func __bind_pressed(button, methods=[]):
+     button.connect("pressed", self, "_call_methods", [methods])
+
+func play_menu_sound():
+     self.root.sound_controller.play('menu')
+
+func _call_methods(method_names=[]):
+    for method in method_names:
+        call(method)
+
 func _overscan_toggle_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.settings['is_overscan'] = not self.root.settings['is_overscan']
@@ -231,17 +207,6 @@ func _close_button_pressed():
     if not self.root.is_map_loaded && self.root.bag.saving != null:
         self.root.bag.saving.load_state()
     self.root.toggle_menu()
-func _quit_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.quit_game()
-func _menu_button_pressed():
-    self.root.sound_controller.play('menu')
-func _settings_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.toggle_settings()
-func _demo_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.start_demo_mode()
 func _maps_close_button_pressed():
     self.root.sound_controller.play('menu')
     self.hide_maps_menu()
@@ -255,9 +220,6 @@ func _difficulty_button_pressed():
     self.root.settings['easy_mode'] = not self.root.settings['easy_mode']
     self.refresh_buttons_labels()
     self.root.write_settings_to_file()
-func _online_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.show_online_menu()
 
 func _settings_nav_button_pressed(target):
     self.settings_game.hide()
@@ -449,52 +411,38 @@ func toggle_shake():
 
 func toggle_follow():
     root.settings['camera_follow'] = not root.settings['camera_follow']
-    if root.settings['camera_follow']:
-        camera_follow_label.set_text(tr('LABEL_ON'))
-    else:
-        camera_follow_label.set_text(tr('LABEL_OFF'))
+    __set_togglable_button(['camera_follow', 'camera_follow_label'])
     root.write_settings_to_file()
 
 func toggle_camera_move_to_bunker():
     root.settings['camera_move_to_bunker'] = not root.settings['camera_move_to_bunker']
-    if root.settings['camera_move_to_bunker']:
-        camera_move_to_bunker_label.set_text(tr('LABEL_ON'))
-    else:
-        camera_move_to_bunker_label.set_text(tr('LABEL_OFF'))
+    __set_togglable_button(['camera_move_to_bunker', 'camera_move_to_bunker_label'])
     root.write_settings_to_file()
 
+func __set_togglable_button(item):
+    var setting_name = item[0]
+    var label_name = item[1]
+    if root.settings[setting_name]:
+        self.get(label_name).set_text(tr('LABEL_ON'))
+    else:
+        self.get(label_name).set_text(tr('LABEL_OFF'))
 
 func refresh_buttons_labels():
-    get_tree().call_group(0, "translate_me", "refresh_label")
+    var items_for_refresh = [
+        ['sound_enabled', 'sound_toggle_label'],
+        ['music_enabled', 'music_toggle_label'],
+        ['shake_enabled', 'shake_toggle_label'],
+        ['camera_follow', 'camera_follow_label'],
+        ['camera_move_to_bunker', 'camera_move_to_bunker_label'],
+        ['is_overscan', 'overscan_toggle_label']
+    ]
+    for item in items_for_refresh:
+        __set_togglable_button(item)
 
-    if root.settings['sound_enabled']:
-        sound_toggle_label.set_text(tr('LABEL_ON'))
-    else:
-        sound_toggle_label.set_text(tr('LABEL_OFF'))
-    if root.settings['music_enabled']:
-        music_toggle_label.set_text(tr('LABEL_ON'))
-    else:
-        music_toggle_label.set_text(tr('LABEL_OFF'))
-    if root.settings['shake_enabled']:
-        shake_toggle_label.set_text(tr('LABEL_ON'))
-    else:
-        shake_toggle_label.set_text(tr('LABEL_OFF'))
-    if root.settings['camera_follow']:
-        camera_follow_label.set_text(tr('LABEL_ON'))
-    else:
-        camera_follow_label.set_text(tr('LABEL_OFF'))
-    if root.settings['camera_move_to_bunker']:
-        camera_move_to_bunker_label.set_text(tr('LABEL_ON'))
-    else:
-        camera_move_to_bunker_label.set_text(tr('LABEL_OFF'))
     if root.settings['easy_mode']:
         difficulty_label.set_text(tr('LABEL_EASY'))
     else:
         difficulty_label.set_text(tr('LABEL_NORMAL'))
-    if root.settings['is_overscan']:
-        overscan_toggle_label.set_text(tr('LABEL_ON'))
-    else:
-        overscan_toggle_label.set_text(tr('LABEL_OFF'))
 
     language_cycle_label.set_text(self.root.settings['language'])
 
@@ -575,5 +523,3 @@ func update_background_scale():
         self.background_map.scale = self.root.scale_root.get_scale()
         if not self.root.is_map_loaded:
             self.root.camera.set_pos(Vector2(-200, 500))
-
-
