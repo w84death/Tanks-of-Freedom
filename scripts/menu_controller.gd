@@ -159,10 +159,10 @@ func _ready():
     __bind_pressed(quit_button, ["play_menu_sound", "quit_game"])
     __bind_pressed(demo_button, ["play_menu_sound", "start_demo_mode"])
     __bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
+    __bind_pressed(overscan_toggle_button, ["play_menu_sound", "toggle_overscan"])
 
     self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
-    overscan_toggle_button.connect("pressed", self, "_overscan_toggle_button_pressed")
     language_cycle_button.connect("pressed", self, "_language_cycle_button_pressed")
     self.settings_nav_pad.connect("pressed", self.root.bag.gamepad_popup, "show")
     if self.root.is_pandora:
@@ -184,6 +184,12 @@ func _ready():
     self.update_zoom_label()
     self.load_background_map()
 
+func camera_zoom_in():
+    self.root.bag.camera.camera_zoom_in()
+
+func camera_zoom_out():
+    self.root.bag.camera.camera_zoom_out()
+
 func __bind_pressed(button, methods=[]):
      button.connect("pressed", self, "_call_methods", [methods])
 
@@ -193,28 +199,27 @@ func play_menu_sound():
 func _call_methods(method_names=[]):
     for method in method_names:
         call(method)
-
-func _overscan_toggle_button_pressed():
-    self.root.sound_controller.play('menu')
-    self.root.settings['is_overscan'] = not self.root.settings['is_overscan']
-    self.refresh_buttons_labels()
 func _language_cycle_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.bag.language.switch_to_next_language()
     self.refresh_buttons_labels()
+
 func _close_button_pressed():
     self.root.sound_controller.play('menu')
     if not self.root.is_map_loaded && self.root.bag.saving != null:
         self.root.bag.saving.load_state()
     self.root.toggle_menu()
+
 func _maps_close_button_pressed():
     self.root.sound_controller.play('menu')
     self.hide_maps_menu()
     self.play_button.grab_focus()
+
 func _resolution_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.bag.resolution.toggle_resolution()
     self.refresh_buttons_labels()
+
 func _difficulty_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.settings['easy_mode'] = not self.root.settings['easy_mode']
@@ -303,7 +308,6 @@ func hide_maps_menu():
     self.root.bag.map_picker.detach_panel()
     self.root.bag.skirmish_setup.detach_panel()
 
-
 # SETTINGS
 func get_settings_visibility():
     return self.settings.is_visible()
@@ -371,10 +375,7 @@ func load_map(name, from_workshop, is_remote = false):
         root.load_map(name, false)
     root.toggle_menu()
     self.hide_maps_menu()
-    if Globals.get('tof/enable_workshop'):
-        workshop.hide()
-        workshop.is_working = false
-        workshop.is_suspended = true
+    __show_workshop()
 
 func resume_map():
     if self.root.bag.saving == null:
@@ -382,44 +383,42 @@ func resume_map():
     self.root.bag.saving.load_state()
     root.toggle_menu()
     self.hide_maps_menu()
+    __show_workshop()
+
+func __show_workshop():
     if Globals.get('tof/enable_workshop'):
         workshop.hide()
         workshop.is_working = false
         workshop.is_suspended = true
 
-func toggle_sound():
-    root.settings['sound_enabled'] = not root.settings['sound_enabled']
-    self.refresh_buttons_labels()
-    root.write_settings_to_file()
-
 func toggle_music():
-    root.settings['music_enabled'] = not root.settings['music_enabled']
+    __toggle_button('music_enabled', 'music_toggle_label')
     if root.settings['music_enabled']:
         root.sound_controller.play_soundtrack()
     else:
         root.sound_controller.stop_soundtrack()
-    self.refresh_buttons_labels()
-    root.write_settings_to_file()
+
+func toggle_sound():
+    __toggle_button('sound_enabled', 'sound_toggle_label')
 
 func toggle_shake():
-    root.settings['shake_enabled'] = not root.settings['shake_enabled']
-    if root.settings['shake_enabled']:
-        shake_toggle_label.set_text(tr('LABEL_ON'))
-    else:
-        shake_toggle_label.set_text(tr('LABEL_OFF'))
-    root.write_settings_to_file()
+    __toggle_button('shake_enabled', 'shake_toggle_label')
 
 func toggle_follow():
-    root.settings['camera_follow'] = not root.settings['camera_follow']
-    __set_togglable_button(['camera_follow', 'camera_follow_label'])
-    root.write_settings_to_file()
+    __toggle_button('camera_follow', 'camera_follow_label')
+
+func toggle_overscan():
+    __toggle_button('is_overscan', 'overscan_toggle_label')
 
 func toggle_camera_move_to_bunker():
-    root.settings['camera_move_to_bunker'] = not root.settings['camera_move_to_bunker']
-    __set_togglable_button(['camera_move_to_bunker', 'camera_move_to_bunker_label'])
+    __toggle_button('camera_move_to_bunker', 'camera_move_to_bunker_label')
+
+func __toggle_button(setting_name, setting_label):
+    root.settings[setting_name] = not root.settings[setting_name]
+    __set_togglable_label([setting_name, setting_label])
     root.write_settings_to_file()
 
-func __set_togglable_button(item):
+func __set_togglable_label(item):
     var setting_name = item[0]
     var label_name = item[1]
     if root.settings[setting_name]:
@@ -437,7 +436,7 @@ func refresh_buttons_labels():
         ['is_overscan', 'overscan_toggle_label']
     ]
     for item in items_for_refresh:
-        __set_togglable_button(item)
+        __set_togglable_label(item)
 
     if root.settings['easy_mode']:
         difficulty_label.set_text(tr('LABEL_EASY'))
