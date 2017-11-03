@@ -146,20 +146,20 @@ func _ready():
 
     # BUTTON BINDINGS
     __bind_pressed(campaign_button, ["play_menu_sound", "show_campaign_menu"])
-    __bind_pressed(workshop_button, ["play_menu_sound", "enter_workshop"])
+    __bind_pressed(workshop_button, ["play_menu_sound", "__enter_workshop"])
     __bind_pressed(play_button, ["play_menu_sound", "show_maps_menu"])
     __bind_pressed(online_button, ["play_menu_sound", "show_online_menu"])
-    __bind_pressed(sound_toggle_button, ["play_menu_sound", "toggle_sound"])
-    __bind_pressed(music_toggle_button, ["play_menu_sound", "toggle_music"])
-    __bind_pressed(shake_toggle_button, ["play_menu_sound", "toggle_shake"])
-    __bind_pressed(camera_follow_button, ["play_menu_sound", "toggle_follow"])
-    __bind_pressed(camera_move_to_bunker_button, ["play_menu_sound", "toggle_camera_move_to_bunker"])
+    __bind_pressed(sound_toggle_button, ["play_menu_sound", "__toggle_sound"])
+    __bind_pressed(music_toggle_button, ["play_menu_sound", "__toggle_music"])
+    __bind_pressed(shake_toggle_button, ["play_menu_sound", "__toggle_shake"])
+    __bind_pressed(camera_follow_button, ["play_menu_sound", "__toggle_follow"])
+    __bind_pressed(camera_move_to_bunker_button, ["play_menu_sound", "__toggle_camera_move_to_bunker"])
     __bind_pressed(camera_zoom_in_button, ["play_menu_sound", "camera_zoom_in"])
     __bind_pressed(camera_zoom_out_button, ["play_menu_sound", "camera_zoom_out"])
     __bind_pressed(quit_button, ["play_menu_sound", "quit_game"])
     __bind_pressed(demo_button, ["play_menu_sound", "start_demo_mode"])
     __bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
-    __bind_pressed(overscan_toggle_button, ["play_menu_sound", "toggle_overscan"])
+    __bind_pressed(overscan_toggle_button, ["play_menu_sound", "__toggle_overscan"])
 
     self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
@@ -177,7 +177,6 @@ func _ready():
 
     self.refresh_buttons_labels()
     self.load_maps_menu()
-    self.load_workshop()
 
     self.update_progress_labels()
     self.update_version_label()
@@ -190,15 +189,9 @@ func camera_zoom_in():
 func camera_zoom_out():
     self.root.bag.camera.camera_zoom_out()
 
-func __bind_pressed(button, methods=[]):
-     button.connect("pressed", self, "_call_methods", [methods])
-
 func play_menu_sound():
      self.root.sound_controller.play('menu')
 
-func _call_methods(method_names=[]):
-    for method in method_names:
-        call(method)
 func _language_cycle_button_pressed():
     self.root.sound_controller.play('menu')
     self.root.bag.language.switch_to_next_language()
@@ -336,96 +329,6 @@ func manage_close_button():
     else:
         self.close_button.hide()
 
-# WORKSHOP TODO - create separate class for this
-func load_workshop():
-    self.workshop = self.root.bag.workshop
-
-func enter_workshop():
-    if Globals.get('tof/enable_workshop'):
-        self.root.unload_map()
-        self.root.bag.match_state.reset()
-        self.workshop.is_working = true
-        self.workshop.is_suspended = false
-        self.show_workshop()
-
-func show_workshop():
-    if Globals.get('tof/enable_workshop'):
-        self.hide()
-        self.root.toggle_menu()
-        self.workshop.show()
-        self.workshop.units.raise()
-        self.hide_background_map()
-        self.workshop.camera.make_current()
-        self.root.bag.controllers.workshop_gui_controller.navigation_panel.block_button.grab_focus()
-
-func hide_workshop():
-    if Globals.get('tof/enable_workshop'):
-        self.workshop.hide()
-        self.workshop.camera.clear_current()
-        self.root.bag.camera.camera.make_current()
-        self.show()
-        if not self.root.is_map_loaded:
-            self.show_background_map()
-        self.workshop_button.grab_focus()
-
-func load_map(name, from_workshop, is_remote = false):
-    if from_workshop:
-        root.load_map('workshop', name, false, is_remote)
-    else:
-        root.load_map(name, false)
-    root.toggle_menu()
-    self.hide_maps_menu()
-    __show_workshop()
-
-func resume_map():
-    if self.root.bag.saving == null:
-        return
-    self.root.bag.saving.load_state()
-    root.toggle_menu()
-    self.hide_maps_menu()
-    __show_workshop()
-
-func __show_workshop():
-    if Globals.get('tof/enable_workshop'):
-        workshop.hide()
-        workshop.is_working = false
-        workshop.is_suspended = true
-
-func toggle_music():
-    __toggle_button('music_enabled', 'music_toggle_label')
-    if root.settings['music_enabled']:
-        root.sound_controller.play_soundtrack()
-    else:
-        root.sound_controller.stop_soundtrack()
-
-func toggle_sound():
-    __toggle_button('sound_enabled', 'sound_toggle_label')
-
-func toggle_shake():
-    __toggle_button('shake_enabled', 'shake_toggle_label')
-
-func toggle_follow():
-    __toggle_button('camera_follow', 'camera_follow_label')
-
-func toggle_overscan():
-    __toggle_button('is_overscan', 'overscan_toggle_label')
-
-func toggle_camera_move_to_bunker():
-    __toggle_button('camera_move_to_bunker', 'camera_move_to_bunker_label')
-
-func __toggle_button(setting_name, setting_label):
-    root.settings[setting_name] = not root.settings[setting_name]
-    __set_togglable_label([setting_name, setting_label])
-    root.write_settings_to_file()
-
-func __set_togglable_label(item):
-    var setting_name = item[0]
-    var label_name = item[1]
-    if root.settings[setting_name]:
-        self.get(label_name).set_text(tr('LABEL_ON'))
-    else:
-        self.get(label_name).set_text(tr('LABEL_OFF'))
-
 func refresh_buttons_labels():
     var items_for_refresh = [
         ['sound_enabled', 'sound_toggle_label'],
@@ -499,15 +402,10 @@ func load_background_map():
     self.background_map.show_blueprint = false
     self.background_map.get_node('fog_of_war').hide()
     self.root.scale_root.add_child(self.background_map)
-    self.flush_group("units")
-    self.flush_group("buildings")
-    self.flush_group("terrain")
+    self.__flush_group("units")
+    self.__flush_group("buildings")
+    self.__flush_group("terrain")
     self.update_background_scale()
-
-func flush_group(name):
-    var collection = self.root_tree.get_nodes_in_group(name)
-    for entity in collection:
-        entity.remove_from_group(name)
 
 func show_background_map():
     if self.background_map != null:
@@ -522,3 +420,53 @@ func update_background_scale():
         self.background_map.scale = self.root.scale_root.get_scale()
         if not self.root.is_map_loaded:
             self.root.camera.set_pos(Vector2(-200, 500))
+
+func __call_methods(method_names=[]):
+    for method in method_names:
+        call(method)
+
+func __bind_pressed(button, methods=[]):
+     button.connect("pressed", self, "__call_methods", [methods])
+
+func __flush_group(name):
+    var collection = self.root_tree.get_nodes_in_group(name)
+    for entity in collection:
+        entity.remove_from_group(name)  
+        
+func __toggle_music():
+    __toggle_button('music_enabled', 'music_toggle_label')
+    if root.settings['music_enabled']:
+        root.sound_controller.play_soundtrack()
+    else:
+        root.sound_controller.stop_soundtrack()
+
+func __enter_workshop():
+    self.root.bag.controllers.workshop_menu_controller.enter_workshop()
+
+func __toggle_sound():
+    __toggle_button('sound_enabled', 'sound_toggle_label')
+
+func __toggle_shake():
+    __toggle_button('shake_enabled', 'shake_toggle_label')
+
+func __toggle_follow():
+    __toggle_button('camera_follow', 'camera_follow_label')
+
+func __toggle_overscan():
+    __toggle_button('is_overscan', 'overscan_toggle_label')
+
+func __toggle_camera_move_to_bunker():
+    __toggle_button('camera_move_to_bunker', 'camera_move_to_bunker_label')
+
+func __toggle_button(setting_name, setting_label):
+    root.settings[setting_name] = not root.settings[setting_name]
+    __set_togglable_label([setting_name, setting_label])
+    root.write_settings_to_file()
+
+func __set_togglable_label(item):
+    var setting_name = item[0]
+    var label_name = item[1]
+    if root.settings[setting_name]:
+        self.get(label_name).set_text(tr('LABEL_ON'))
+    else:
+        self.get(label_name).set_text(tr('LABEL_OFF'))          

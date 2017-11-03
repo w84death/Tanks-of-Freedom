@@ -45,7 +45,7 @@ var selected_tileset = 'summer'
 func init(root):
     self.root = root
     self.bag = root.bag
-    self.tileset = self.root.bag.map_tiles
+    self.tileset = self.bag.map_tiles
     terrain.add_child(selector)
     map.set_default_zoom()
     set_process_input(true)
@@ -112,9 +112,9 @@ func play_map():
     self.is_working = false
     self.is_suspended = true
     self.root.load_map("workshop", self.restore_file_name)
-    self.root.menu.hide_workshop()
+    self.bag.controllers.workshop_menu_controller.hide_workshop()
     self.root.toggle_menu()
-    self.root.bag.match_state.set_workshop_map()
+    self.bag.match_state.set_workshop_map()
     self.root.hud_controller.enable_back_to_workshop()
     self.bag.controllers.hud_panel_controller.info_panel.set_map_name("workshop temporary map")
     self.bag.fog_controller.hide_fog()
@@ -177,9 +177,9 @@ func _input(event):
         var game_scale = self.camera.get_zoom()
 
         if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
-            self.root.bag.gamepad.handle_input(event)
+            self.bag.gamepad.handle_input(event)
         if self.root.is_pandora and event.type == InputEvent.KEY:
-            self.root.bag.pandora.handle_input(event)
+            self.bag.pandora.handle_input(event)
 
         if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT:
             if not self.movement_mode:
@@ -206,12 +206,12 @@ func _input(event):
                 camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
                 self.camera.set_offset(camera_pos)
 
-        if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.root.bag.workshop_dead_zone.is_dead_zone(event.x, event.y):
+        if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.bag.workshop_dead_zone.is_dead_zone(event.x, event.y):
             #map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
             #var position = terrain.map_to_world(selector_position)
             #position.x = (position.x + map_pos.x) * map.scale.x
             #position.y = (position.y + map_pos.y) * map.scale.y
-            #if not self.root.bag.workshop_dead_zone.is_dead_zone(position.x, position.y):
+            #if not self.bag.workshop_dead_zone.is_dead_zone(position.x, position.y):
             self.paint(selector_position)
 
         if event.type == InputEvent.KEY:
@@ -230,15 +230,15 @@ func toggle_menu():
     if not self.is_working:
         return
 
-    if self.root.bag.menu_back.perform_back():
+    if self.bag.menu_back.perform_back():
         return
 
     if self.is_hidden():
         self.is_suspended = false
-        root.menu.show_workshop()
+        self.bag.controllers.workshop_menu_controller.show_workshop()
     else:
         self.is_suspended = true
-        root.menu.hide_workshop()
+        self.bag.controllers.workshop_menu_controller.hide_workshop()
 
 func show_message(title, msg, footer, button):
     self.hud_message_box.show_message(title, msg, footer, button)
@@ -268,7 +268,7 @@ func set_selector_map_pos(pos):
     self.selector_position = pos
 
 func show():
-    if not self.root.bag.gamepad.gamepad_detected:
+    if not self.bag.gamepad.gamepad_detected:
         self.center_camera()
-    camera.set_zoom(self.root.bag.camera.camera.get_zoom())
+    camera.set_zoom(self.bag.camera.camera.get_zoom())
     .show()
