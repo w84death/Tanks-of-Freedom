@@ -42,6 +42,7 @@ func build_fog_pattern():
                     else:
                         sprite = 3
 
+
             self.fog_pattern[Vector2(x, y)] = sprite
             self.current_fog_state[Vector2(x, y)] = sprite
 

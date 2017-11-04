@@ -80,6 +80,7 @@ func init_root(root_node):
     self.controllers.campaign_menu_controller.init_root(root_node)
     self.controllers.hud_panel_controller.init_root(root_node)
     self.controllers.workshop_menu_controller.init_root(root_node)
+    self.controllers.background_map_controller.init_root(root_node)
     self.controllers.online_menu_controller._init_bag(self)
 
     self.menu_back._init_bag(self)

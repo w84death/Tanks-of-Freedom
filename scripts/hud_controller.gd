@@ -143,7 +143,7 @@ func _menu_button_pressed(tab):
     self.root.sound_controller.play('menu')
     self.root.toggle_menu(tab)
     if self.back_to_workshop and tab != "settings":
-        self.root.bag.controllers.menu_controller.enter_workshop()
+        self.root.bag.controllers.workshop_menu_controller.enter_workshop()
 func _end_turn_button_pressed():
     self.root.sound_controller.play('menu')
     self.action_controller.end_turn()

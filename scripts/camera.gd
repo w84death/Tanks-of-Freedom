@@ -67,7 +67,7 @@ func camera_zoom_do(direction):
         self.camera_zoom_level_pos = self.camera_zoom_level_pos + direction
         self.set_zoom_value(self.camera_zoom_level_pos)
     self.bag.controllers.menu_controller.update_zoom_label()
-    self.bag.controllers.menu_controller.update_background_scale()
+    self.bag.controllers.background_map_controller.update_background_scale()
 
 func camera_zoom_in():
     camera_zoom_do(-1)
@@ -89,7 +89,7 @@ func set_zoom_value(value):
 func set_camera_zoom(zoom_value):
     self.camera.set_zoom(Vector2(zoom_value, zoom_value))
     self.scale = Vector2(zoom_value, zoom_value)
-    self.bag.controllers.menu_controller.update_background_scale()
+    self.bag.controllers.background_map_controller.update_background_scale()
 
 func move_to_map(target, forced_movement = false):
     self.forced_movement = forced_movement

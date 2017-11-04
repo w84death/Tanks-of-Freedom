@@ -66,13 +66,11 @@ var resolution_label
 var difficulty_label
 var overscan_toggle_label
 var language_cycle_label
-
-var background_map
 var root_tree
 var background_gradient
 
 func _ready():
-    self.control_nodes = [self.get_node("top"),self.get_node("middle"),self.get_node("bottom")]
+    self.control_nodes = [self.get_node("top"), self.get_node("middle"), self.get_node("bottom")]
 
     workshop_button = get_node("bottom/center/workshop")
     if !Globals.get('tof/enable_workshop'):
@@ -154,8 +152,8 @@ func _ready():
     __bind_pressed(shake_toggle_button, ["play_menu_sound", "__toggle_shake"])
     __bind_pressed(camera_follow_button, ["play_menu_sound", "__toggle_follow"])
     __bind_pressed(camera_move_to_bunker_button, ["play_menu_sound", "__toggle_camera_move_to_bunker"])
-    __bind_pressed(camera_zoom_in_button, ["play_menu_sound", "camera_zoom_in"])
-    __bind_pressed(camera_zoom_out_button, ["play_menu_sound", "camera_zoom_out"])
+    __bind_pressed(camera_zoom_in_button, ["play_menu_sound", "__camera_zoom_in"])
+    __bind_pressed(camera_zoom_out_button, ["play_menu_sound", "__camera_zoom_out"])
     __bind_pressed(quit_button, ["play_menu_sound", "quit_game"])
     __bind_pressed(demo_button, ["play_menu_sound", "start_demo_mode"])
     __bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
@@ -181,13 +179,7 @@ func _ready():
     self.update_progress_labels()
     self.update_version_label()
     self.update_zoom_label()
-    self.load_background_map()
-
-func camera_zoom_in():
-    self.root.bag.camera.camera_zoom_in()
-
-func camera_zoom_out():
-    self.root.bag.camera.camera_zoom_out()
+    self.root.bag.controllers.background_map_controller.load_background_map()
 
 func play_menu_sound():
      self.root.sound_controller.play('menu')
@@ -389,37 +381,21 @@ func update_campaign_progress_label():
 func update_version_label():
     self.label_version.set_text(self.root.version_name)
 
+
+func load_map(name, from_workshop, is_remote = false):
+    print('from work', from_workshop
+    )
+    if from_workshop:
+        root.load_map('workshop', name, false, is_remote)
+    else:
+        root.load_map(name, false)
+    root.toggle_menu()
+    self.hide_maps_menu()
+    self.root.bag.controllers.workshop_menu_controller.suspend_workshop()
+
 func init_root(root_node):
     root = root_node
     self.root_tree = self.root.get_tree()
-
-func load_background_map():
-    self.background_map = self.root.map_template.instance()
-    self.background_map._init_bag(self.root.bag)
-    self.background_map.is_dead = true
-    self.background_map.switch_to_tileset(self.root.main_tileset)
-    self.background_map.fill_map_from_data_array(self.root.bag.menu_background_map.map_data)
-    self.background_map.show_blueprint = false
-    self.background_map.get_node('fog_of_war').hide()
-    self.root.scale_root.add_child(self.background_map)
-    self.__flush_group("units")
-    self.__flush_group("buildings")
-    self.__flush_group("terrain")
-    self.update_background_scale()
-
-func show_background_map():
-    if self.background_map != null:
-        self.background_map.show()
-
-func hide_background_map():
-    if self.background_map != null:
-        self.background_map.hide()
-
-func update_background_scale():
-    if self.background_map != null:
-        self.background_map.scale = self.root.scale_root.get_scale()
-        if not self.root.is_map_loaded:
-            self.root.camera.set_pos(Vector2(-200, 500))
 
 func __call_methods(method_names=[]):
     for method in method_names:
@@ -427,11 +403,6 @@ func __call_methods(method_names=[]):
 
 func __bind_pressed(button, methods=[]):
      button.connect("pressed", self, "__call_methods", [methods])
-
-func __flush_group(name):
-    var collection = self.root_tree.get_nodes_in_group(name)
-    for entity in collection:
-        entity.remove_from_group(name)  
         
 func __toggle_music():
     __toggle_button('music_enabled', 'music_toggle_label')
@@ -439,6 +410,12 @@ func __toggle_music():
         root.sound_controller.play_soundtrack()
     else:
         root.sound_controller.stop_soundtrack()
+
+func __camera_zoom_in():
+    self.root.bag.camera.camera_zoom_in()
+
+func __camera_zoom_out():
+    self.root.bag.camera.camera_zoom_out()
 
 func __enter_workshop():
     self.root.bag.controllers.workshop_menu_controller.enter_workshop()

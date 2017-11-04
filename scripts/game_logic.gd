@@ -169,7 +169,7 @@ func move_selector_to_map_position(pos):
 func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false):
     var human_player = 'cpu_0'
     self.unload_map()
-    self.menu.hide_background_map()
+    self.bag.controllers.background_map_controller.hide_background_map()
     current_map_name = template_name
     current_map = map_template.instance()
     current_map._init_bag(self.bag)
@@ -277,7 +277,7 @@ func unload_map():
     selector.reset()
     hud_controller = null
     action_controller = null
-    self.menu.show_background_map()
+    self.bag.controllers.background_map_controller.show_background_map()
     self.menu.manage_close_button()
     self.sound_controller.play_soundtrack()
 
