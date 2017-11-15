@@ -64,7 +64,8 @@ func score_move(action):
     var score = waypoint_value * self.WAYPOINT_WEIGHT
 
     if waypoint_value == 0:
-        score = score + self.__health_level(action.unit) * 20
+        score = score + 180
+        score = score + self.__health_level(action.unit) * 10
 
     # TODO - parameters changing during game
     if self.bag.controllers.action_controller.turn < 4:
@@ -76,9 +77,8 @@ func score_move(action):
 
     if action.proceed:
         score = score + 50 + (action.proceed * 10)
-               
 
-    score = self.MOVE_MOD + score - (self.__danger(action) * 9)
+    score = self.MOVE_MOD + score - (self.__danger(action) * 8)
 
     if waypoint_value > 0 && action.unit.check_hiccup(action.path[1]):
         score = score * 0.5
@@ -110,7 +110,7 @@ func __should_use_last_ap(action):
 func __danger(action):
     randomize()
     var danger = 0
-    if randf() < 0.9:
+    if randf() < 0.8:
         for unit in self.enemies_in_sight(action):
             danger = danger + self.danger_modifier[unit.type]
         for unit in self.own_units_in_sight(action):

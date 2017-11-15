@@ -68,6 +68,7 @@ var overscan_toggle_label
 var language_cycle_label
 var root_tree
 var background_gradient
+var button_states = {true : tr('LABEL_ON'), false : tr('LABEL_OFF')}
 
 func _ready():
     self.control_nodes = [self.get_node("top"), self.get_node("middle"), self.get_node("bottom")]
@@ -331,12 +332,9 @@ func refresh_buttons_labels():
         ['is_overscan', 'overscan_toggle_label']
     ]
     for item in items_for_refresh:
-        __set_togglable_label(item)
+        __set_togglable_label(item[0], item[1])
 
-    if root.settings['easy_mode']:
-        difficulty_label.set_text(tr('LABEL_EASY'))
-    else:
-        difficulty_label.set_text(tr('LABEL_NORMAL'))
+    __set_togglable_label('easy_mode', 'difficulty_label', {false: tr('LABEL_NORMAL'), true : tr('LABEL_EASY')})
 
     language_cycle_label.set_text(self.root.settings['language'])
 
@@ -380,7 +378,6 @@ func update_campaign_progress_label():
 
 func update_version_label():
     self.label_version.set_text(self.root.version_name)
-
 
 func load_map(name, from_workshop, is_remote = false):
     print('from work', from_workshop
@@ -437,13 +434,8 @@ func __toggle_camera_move_to_bunker():
 
 func __toggle_button(setting_name, setting_label):
     root.settings[setting_name] = not root.settings[setting_name]
-    __set_togglable_label([setting_name, setting_label])
+    __set_togglable_label(setting_name, setting_label)
     root.write_settings_to_file()
 
-func __set_togglable_label(item):
-    var setting_name = item[0]
-    var label_name = item[1]
-    if root.settings[setting_name]:
-        self.get(label_name).set_text(tr('LABEL_ON'))
-    else:
-        self.get(label_name).set_text(tr('LABEL_OFF'))          
+func __set_togglable_label(setting_name, label_name, button_states = self.button_states):
+    self.get(label_name).set_text(button_states[root.settings[setting_name]])
