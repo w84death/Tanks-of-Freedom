@@ -323,6 +323,7 @@ func manage_close_button():
         self.close_button.hide()
 
 func refresh_buttons_labels():
+    get_tree().call_group(0, "translate_me", "refresh_label")
     var items_for_refresh = [
         ['sound_enabled', 'sound_toggle_label'],
         ['music_enabled', 'music_toggle_label'],
@@ -400,7 +401,7 @@ func __call_methods(method_names=[]):
 
 func __bind_pressed(button, methods=[]):
      button.connect("pressed", self, "__call_methods", [methods])
-        
+
 func __toggle_music():
     __toggle_button('music_enabled', 'music_toggle_label')
     if root.settings['music_enabled']:
