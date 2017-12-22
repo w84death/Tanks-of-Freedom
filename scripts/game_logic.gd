@@ -53,7 +53,8 @@ var settings = {
     'is_overscan' : false,
     'language' : 'en',
     'ENV' : 'dev',
-    'seen_gamepad' : false
+    'seen_gamepad' : false,
+    'ai_speed': 1
 }
 
 var is_map_loaded = false

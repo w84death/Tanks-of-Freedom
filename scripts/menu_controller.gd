@@ -433,9 +433,9 @@ func __toggle_overscan():
 func __toggle_camera_move_to_bunker():
     __toggle_button('camera_move_to_bunker', 'camera_move_to_bunker_label')
 
-func __toggle_button(setting_name, setting_label):
+func __toggle_button(setting_name, setting_label, button_states = self.button_states):
     root.settings[setting_name] = not root.settings[setting_name]
-    __set_togglable_label(setting_name, setting_label)
+    __set_togglable_label(setting_name, setting_label, button_states)
     root.write_settings_to_file()
 
 func __set_togglable_label(setting_name, label_name, button_states = self.button_states):
