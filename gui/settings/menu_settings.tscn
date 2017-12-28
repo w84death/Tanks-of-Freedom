@@ -198,6 +198,7 @@ editor/display_folded = true
 
 [node name="camera_zoom" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 margin/top = 96.0
 margin/right = 190.0
 margin/bottom = 176.0
@@ -208,6 +209,13 @@ editor/display_folded = true
 margin/left = 222.0
 margin/top = 96.0
 margin/right = 412.0
+margin/bottom = 176.0
+
+[node name="pieczarki_na_wage" parent="body/tabs/gfx" instance=ExtResource( 4 )]
+
+margin/left = 444.0
+margin/top = 96.0
+margin/right = 634.0
 margin/bottom = 176.0
 
 [node name="sound" type="GridContainer" parent="body/tabs"]
@@ -350,3 +358,4 @@ flat = false
 [editable path="body/tabs/gfx/shake_toggle"]
 [editable path="body/tabs/gfx/overscan_button"]
 [editable path="body/tabs/gfx/camera_zoom"]
+[editable path="body/tabs/gfx/pieczarki_na_wage"]
