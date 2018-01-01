@@ -61,7 +61,8 @@ func reload_labels():
         self.reload_label(settings.get_node('body/tabs/game/difficulty/title'), 'LABEL_DIFFICULTY')
         self.reload_label(settings.get_node('body/tabs/game/tooltips/title'), 'LABEL_TOOLTIPS')
         self.reload_label(settings.get_node('body/tabs/game/language/title'), 'LABEL_LANGUAGE')
-        
+        self.reload_label(settings.get_node('body/tabs/game/ai_speed/title'), 'LABEL_AI_SPEED')
+
         self.reload_label(settings.get_node('overscan_group/overscan_notification'), 'LABEL_REQUIES_RESTART')
         
     #CAMPAIGN

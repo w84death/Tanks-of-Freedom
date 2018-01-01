@@ -367,8 +367,7 @@ func is_demo_mode():
     return self.is_demo or (self.settings['cpu_0'] and self.settings['cpu_1'])
 
 func read_settings_from_file():
-    var data
-    data = self.bag.file_handler.read(self.SETTINGS_PATH)
+    var data = self.bag.file_handler.read(self.SETTINGS_PATH)
     if data.empty():
         self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
     else:

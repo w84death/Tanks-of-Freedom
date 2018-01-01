@@ -69,6 +69,9 @@ var language_cycle_label
 var root_tree
 var background_gradient
 var button_states = {true : tr('LABEL_ON'), false : tr('LABEL_OFF')}
+var speed_states = ['>', '>>', '>>>', '>>>>', '>>>>>']
+var ai_speed_button
+var ai_speed_label
 
 func _ready():
     self.control_nodes = [self.get_node("top"), self.get_node("middle"), self.get_node("bottom")]
@@ -138,6 +141,8 @@ func _ready():
 
     # game
     self.difficulty_button = self.settings_game.get_node("difficulty/buttons/center/first")
+    self.ai_speed_button = self.settings_game.get_node("ai_speed/buttons/center/first")
+    self.ai_speed_label = self.ai_speed_button
     self.tooltips_button = self.settings_game.get_node("tooltips/buttons/center/first")
     self.language_cycle_button = self.settings_game.get_node('language/buttons/center/first')
     self.difficulty_label = self.difficulty_button
@@ -159,6 +164,7 @@ func _ready():
     __bind_pressed(demo_button, ["play_menu_sound", "start_demo_mode"])
     __bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
     __bind_pressed(overscan_toggle_button, ["play_menu_sound", "__toggle_overscan"])
+    __bind_pressed(ai_speed_button, ["play_menu_sound", "__toggle_ai_speed"])
 
     self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
@@ -336,6 +342,7 @@ func refresh_buttons_labels():
         __set_togglable_label(item[0], item[1])
 
     __set_togglable_label('easy_mode', 'difficulty_label', {false: tr('LABEL_NORMAL'), true : tr('LABEL_EASY')})
+    __set_togglable_label('ai_speed', 'ai_speed_label', self.speed_states)
 
     language_cycle_label.set_text(self.root.settings['language'])
 
@@ -432,6 +439,15 @@ func __toggle_overscan():
 
 func __toggle_camera_move_to_bunker():
     __toggle_button('camera_move_to_bunker', 'camera_move_to_bunker_label')
+
+func __toggle_ai_speed():
+    __toggle_multioption_button('ai_speed', 'ai_speed_label', self.speed_states)
+
+func __toggle_multioption_button(setting_name, setting_label, button_states = self.button_states):
+    var count = button_states.size()
+    root.settings[setting_name] = (root.settings[setting_name] + 1) % count
+    __set_togglable_label(setting_name, setting_label, button_states)
+    root.write_settings_to_file()
 
 func __toggle_button(setting_name, setting_label, button_states = self.button_states):
     root.settings[setting_name] = not root.settings[setting_name]
