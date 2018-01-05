@@ -45,7 +45,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_PENINSULA'),
             'player': 1,
             'file': preload("res://maps/campaign/peninsula.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/peninsula_scripts.gd").new(),
             'description': tr('MISSION_DESR_PENINSULA'),
             'tileset' : 'winter'
         },
