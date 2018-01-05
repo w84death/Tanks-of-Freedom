@@ -23,7 +23,7 @@ func get_fields():
 # TODO extending should be done in diferent wa
 func get_field(position):
 	if position.x < 0 || position.y < 0:
-		return self.create_field(Vector2(-1, -1))
+		return self.create_out_of_bounds_field()
 
 	if fields[0][0] == null:
 		fields[0][0] = self.create_field(Vector2(0, 0))
@@ -68,4 +68,8 @@ func is_spawning_point(position):
 	return tilemap.get_cell(position.x, position.y) == 13
 
 
+func create_out_of_bounds_field():
+	var field = self.create_field(Vector2(-1, -1))
+
+	return field
 

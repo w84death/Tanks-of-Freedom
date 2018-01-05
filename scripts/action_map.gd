@@ -60,6 +60,9 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
         tile_type = 1
 
         for neighbour in field.get_neighbours():
+            if neighbour.is_empty():
+                continue
+
             if self.bag.fog_controller.is_fogged(neighbour.position):
                 continue
 
