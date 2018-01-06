@@ -53,7 +53,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_RECAPTURE'),
             'player': 0,
             'file': preload("res://maps/campaign/administration_recapture.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/administration_recapture_scripts.gd").new(),
             'description': tr('MISSION_DESR_RECAPTURE'),
             'tileset' : 'winter'
         },
