@@ -61,7 +61,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_BASE_DEFENCE'),
             'player': 0,
             'file': preload("res://maps/campaign/base_defence.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/base_defence_scripts.gd").new(),
             'description': tr('MISSION_DESR_BASE_DEFENCE'),
             'tileset' : 'summer'
         },

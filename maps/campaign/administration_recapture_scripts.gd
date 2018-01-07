@@ -51,11 +51,11 @@ var stories = {
 
     'app_red_hq' : [
         {'action' : 'lock', 'details' : {}, 'delay' : 1},
+        {'action' : 'despawn', 'details' : {'who' : Vector2(7, 7)}},
+        {'action' : 'despawn', 'details' : {'who' : Vector2(6, 7)}},
+        {'action' : 'despawn', 'details' : {'who' : Vector2(6, 8)}},
+        {'action' : 'despawn', 'details' : {'who' : Vector2(6, 9)}},
         {'action' : 'camera', 'details' : {'where' : Vector2(8, 6), 'zoom' : 2}, 'delay' : 0.5},
-        {'action' : 'die', 'details' : {'who' : Vector2(7, 7)}},
-        {'action' : 'die', 'details' : {'who' : Vector2(6, 7)}},
-        {'action' : 'die', 'details' : {'who' : Vector2(6, 8)}},
-        {'action' : 'die', 'details' : {'who' : Vector2(6, 9)}},
         {'action' : 'spawn', 'details' : {'where' : Vector2(7, 7), 'unit' : 'soldier', 'side' : 'red'}, "delay" : 1},
         {'action' : 'message', 'details': {'text' : 'MISSION_6_RED_HQ_1', 'portrait' : 'officer_red', 'name' : 'ACTOR_OFFICER', 'side' : 'right'}},
         {'action' : 'message', 'details': {'text' : 'MISSION_6_RED_HQ_2', 'portrait' : 'soldier_red', 'name' : 'ACTOR_SOLDIER', 'side' : 'right'}},
