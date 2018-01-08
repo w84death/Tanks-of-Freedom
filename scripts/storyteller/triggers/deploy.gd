@@ -17,12 +17,16 @@ func is_triggered(trigger_details, story_event):
         exact = trigger_details['details']['exact']
 
     var units = self.bag.positions.get_player_units(player)
+    var field
 
-    for unit in units:
+    for unit_position in units:
         if unit_type == null:
             count = count + 1
         else:
-            if unit.type_name == unit_type:
+            field = self.bag.abstract_map.get_field(unit_position)
+            if field.object == null:
+                continue
+            if field.object.type_name == unit_type:
                 count = count + 1
 
     if exact:
