@@ -69,7 +69,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_AIRPORT_PT_1'),
             'player': 1,
             'file': preload("res://maps/campaign/airport_part_1.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/airport_part_1_scripts.gd").new(),
             'description': tr('MISSION_DESR_AIRPORT_PT_1'),
             'tileset' : 'summer'
         },
