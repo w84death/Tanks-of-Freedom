@@ -344,7 +344,7 @@ func refresh_buttons_labels():
     __set_togglable_label('easy_mode', 'difficulty_label', {false: tr('LABEL_NORMAL'), true : tr('LABEL_EASY')})
     __set_togglable_label('ai_speed', 'ai_speed_label', self.speed_states)
 
-    language_cycle_label.set_trans_key('LABEL_' + self.root.settings['language'].to_upper())
+    language_cycle_label.set_trans_key(self.root.settings['language'].to_upper())
 
     if Globals.get('tof/hud_allow_overscan'):
         self.overscan_group.show()
