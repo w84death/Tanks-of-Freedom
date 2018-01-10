@@ -225,16 +225,16 @@ func _settings_nav_button_pressed(target):
 
     if target == 'game':
         self.settings_game.show()
-        self.set_settings_title(tr('LABEL_GAME'))
+        self.set_settings_title('LABEL_GAME')
     elif target == 'gfx':
         self.settings_gfx.show()
-        self.set_settings_title(tr('LABEL_GFX'))
+        self.set_settings_title('LABEL_GFX')
     elif target == 'sound':
         self.settings_sound.show()
-        self.set_settings_title(tr('LABEL_SOUND'))
+        self.set_settings_title('LABEL_SOUND')
 
-func set_settings_title(title):
-    self.settings_title.set_text(title)
+func set_settings_title(trans_key):
+    self.settings_title.set_trans_key(trans_key)
 
 func show_online_menu():
     self.root.bag.controllers.online_menu_controller.show()
