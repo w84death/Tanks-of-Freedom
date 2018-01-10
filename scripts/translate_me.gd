@@ -1,5 +1,3 @@
-extends Label
-
 export var trans_key = 'LABEL_DEFAULT'
 
 func _ready():

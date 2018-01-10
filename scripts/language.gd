@@ -41,30 +41,6 @@ func reload_labels():
     self.reload_label(title_screen.get_node('title5'), 'MSG_GAME_DESCRIPTION_2')
     self.reload_label(title_screen.get_node('title4'), 'MSG_FREE_AS_FREEDOM')
 
-    #SETTINGS
-    var settings = menu.settings
-    if settings:
-        self.reload_label(settings.get_node('nav/tabs/gfx'), 'LABEL_GFX')
-        self.reload_label(settings.get_node('nav/tabs/sound'), 'LABEL_SOUND')
-        self.reload_label(settings.get_node('nav/tabs/game'), 'LABEL_GAME')
-        self.reload_label(settings.get_node('nav/tabs/pad'), 'LABEL_GAMEPAD_INFO')
-        self.reload_label(settings.get_node('body/tabs/gfx/overscan_button/title'), 'LABEL_OVERSCAN')
-        self.reload_label(settings.get_node('body/tabs/gfx/shake_toggle/title'), 'LABEL_CAMERA_SHAKE')
-        self.reload_label(settings.get_node('body/tabs/gfx/camera_follow/title'), 'LABEL_AUTO_FOLLOW')
-        self.reload_label(settings.get_node('body/tabs/gfx/camera_move_to_bunker/title'), 'LABEL_CAMERA_MOVE_TO_BUNKER')
-        self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/title'), 'LABEL_ZOOM_LEVEL')
-        self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/buttons/center/first'), 'LABEL_BIGGER')
-        self.reload_label(settings.get_node('body/tabs/gfx/camera_zoom/buttons/center/second'), 'LABEL_SMALLER')
-        self.reload_label(settings.get_node('body/tabs/gfx/display_mode_toggle/title'), 'LABEL_FULL_SCREEN')
-        self.reload_label(settings.get_node('body/tabs/sound/sound_toggle/title'), 'LABEL_SOUND_EFFECTS')
-        self.reload_label(settings.get_node('body/tabs/sound/music_toggle/title'), 'LABEL_MUSIC')
-        self.reload_label(settings.get_node('body/tabs/game/difficulty/title'), 'LABEL_DIFFICULTY')
-        self.reload_label(settings.get_node('body/tabs/game/tooltips/title'), 'LABEL_TOOLTIPS')
-        self.reload_label(settings.get_node('body/tabs/game/language/title'), 'LABEL_LANGUAGE')
-        self.reload_label(settings.get_node('body/tabs/game/ai_speed/title'), 'LABEL_AI_SPEED')
-
-        self.reload_label(settings.get_node('overscan_group/overscan_notification'), 'LABEL_REQUIES_RESTART')
-        
     #CAMPAIGN
     var campaign = self.bag.controllers.campaign_menu_controller
     if campaign:

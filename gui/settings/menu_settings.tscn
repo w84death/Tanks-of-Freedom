@@ -118,20 +118,24 @@ __meta__ = {
 
 [node name="difficulty" parent="body/tabs/game" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 margin/right = 190.0
 
 [node name="title" parent="body/tabs/game/difficulty"]
 
 text = "DIFFICULTY"
+trans_key = "LABEL_DIFFICULTY"
 
 [node name="tooltips" parent="body/tabs/game" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 margin/left = 222.0
 margin/right = 412.0
 
 [node name="title" parent="body/tabs/game/tooltips"]
 
 text = "TOOLTIPS"
+trans_key = "LABEL_TOOLTIPS"
 
 [node name="first" parent="body/tabs/game/tooltips/buttons/center"]
 
@@ -146,6 +150,7 @@ margin/right = 634.0
 [node name="title" parent="body/tabs/game/language"]
 
 text = "GAME LANGUAGE"
+trans_key = "LABEL_LANGUAGE"
 
 [node name="first" parent="body/tabs/game/language/buttons/center"]
 
@@ -153,13 +158,19 @@ text = "EN"
 
 [node name="ai_speed" parent="body/tabs/game" instance=ExtResource( 5 )]
 
-margin/left = 444.0
+editor/display_folded = true
 margin/top = 96.0
-margin/right = 634.0
+margin/right = 190.0
 margin/bottom = 176.0
+
+[node name="title" parent="body/tabs/game/ai_speed"]
+
+text = "AI SPEED"
+trans_key = "LABEL_AI_SPEED"
 
 [node name="gfx" type="GridContainer" parent="body/tabs"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -177,29 +188,50 @@ columns = 3
 [node name="shake_toggle" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
 editor/display_folded = true
-visibility/visible = false
 margin/right = 190.0
+
+[node name="title" parent="body/tabs/gfx/shake_toggle"]
+
+text = "CAMERA SHAKE"
+trans_key = "LABEL_CAMERA_SHAKE"
 
 [node name="camera_follow" parent="body/tabs/gfx" instance=ExtResource( 5 )]
-
-editor/display_folded = true
-margin/right = 190.0
-
-[node name="display_mode_toggle" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 margin/left = 222.0
 margin/right = 412.0
 
-[node name="overscan_button" parent="body/tabs/gfx" instance=ExtResource( 5 )]
+[node name="title" parent="body/tabs/gfx/camera_follow"]
+
+text = "AUTO FOLLOW"
+trans_key = "LABEL_AUTO_FOLLOW"
+
+[node name="display_mode_toggle" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 margin/left = 444.0
 margin/right = 634.0
 
+[node name="title" parent="body/tabs/gfx/display_mode_toggle"]
+
+text = "FULL SCREEN"
+trans_key = "LABEL_FULL_SCREEN"
+
+[node name="buttons" parent="body/tabs/gfx/display_mode_toggle"]
+
+editor/display_folded = true
+
+[node name="overscan_button" parent="body/tabs/gfx" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+margin/top = 96.0
+margin/right = 190.0
+margin/bottom = 176.0
+
 [node name="title" parent="body/tabs/gfx/overscan_button"]
 
 text = "OVERSCAN"
+trans_key = "LABEL_OVERSCAN"
 
 [node name="buttons" parent="body/tabs/gfx/overscan_button"]
 
@@ -208,17 +240,40 @@ editor/display_folded = true
 [node name="camera_zoom" parent="body/tabs/gfx" instance=ExtResource( 6 )]
 
 editor/display_folded = true
-margin/top = 96.0
-margin/right = 190.0
-margin/bottom = 176.0
-
-[node name="camera_move_to_bunker" parent="body/tabs/gfx" instance=ExtResource( 5 )]
-
-editor/display_folded = true
 margin/left = 222.0
 margin/top = 96.0
 margin/right = 412.0
 margin/bottom = 176.0
+
+[node name="title" parent="body/tabs/gfx/camera_zoom"]
+
+text = "ZOOM LEVEL"
+trans_key = "LABEL_ZOOM_LEVEL"
+
+[node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
+
+text = "SMALLER"
+script/script = ExtResource( 3 )
+trans_key = "LABEL_SMALLER"
+
+[node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
+
+text = "BIGGER"
+script/script = ExtResource( 3 )
+trans_key = "LABEL_BIGGER"
+
+[node name="camera_move_to_bunker" parent="body/tabs/gfx" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+margin/left = 444.0
+margin/top = 96.0
+margin/right = 634.0
+margin/bottom = 176.0
+
+[node name="title" parent="body/tabs/gfx/camera_move_to_bunker"]
+
+text = "MOVE TO BUNKER"
+trans_key = "LABEL_CAMERA_MOVE_TO_BUNKER"
 
 [node name="sound" type="GridContainer" parent="body/tabs"]
 
@@ -243,11 +298,21 @@ columns = 3
 editor/display_folded = true
 margin/right = 190.0
 
+[node name="title" parent="body/tabs/sound/sound_toggle"]
+
+text = "SOUND EFFECTS"
+trans_key = "LABEL_SOUND_EFFECTS"
+
 [node name="music_toggle" parent="body/tabs/sound" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 margin/left = 222.0
 margin/right = 412.0
+
+[node name="title" parent="body/tabs/sound/music_toggle"]
+
+text = "MUSIC"
+trans_key = "LABEL_MUSIC"
 
 [node name="nav" type="Patch9Frame" parent="."]
 
@@ -298,6 +363,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GAME"
 flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_GAME"
 
 [node name="gfx" type="Button" parent="nav/tabs"]
 
@@ -316,6 +383,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GFX"
 flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_GFX"
 
 [node name="sound" type="Button" parent="nav/tabs"]
 
@@ -334,6 +403,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "SOUND"
 flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_SOUND"
 
 [node name="pad" type="Button" parent="nav/tabs"]
 
@@ -350,8 +421,10 @@ margin/bottom = 48.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "PAD"
+text = "GAMEPAD INFO"
 flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_GAMEPAD_INFO"
 
 
 [editable path="body/tabs/game/difficulty"]
@@ -359,5 +432,10 @@ flat = false
 [editable path="body/tabs/game/language"]
 [editable path="body/tabs/game/ai_speed"]
 [editable path="body/tabs/gfx/shake_toggle"]
+[editable path="body/tabs/gfx/camera_follow"]
+[editable path="body/tabs/gfx/display_mode_toggle"]
 [editable path="body/tabs/gfx/overscan_button"]
 [editable path="body/tabs/gfx/camera_zoom"]
+[editable path="body/tabs/gfx/camera_move_to_bunker"]
+[editable path="body/tabs/sound/sound_toggle"]
+[editable path="body/tabs/sound/music_toggle"]

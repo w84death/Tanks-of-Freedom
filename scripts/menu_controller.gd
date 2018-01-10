@@ -104,7 +104,7 @@ func _ready():
     self.settings_sound = self.settings.get_node("body/tabs/sound/")
     self.settings_game = self.settings.get_node("body/tabs/game/")
 
-    self.set_settings_title(tr('LABEL_GAME'))
+    self._settings_nav_button_pressed('game')
 
     # settings navigation
     self.settings_nav = self.settings.get_node("nav/tabs")
