@@ -71,6 +71,11 @@ func perform_next_action():
             self.bag.a_star.rebuild_current_grid()
             self.bag.ai.reset()
             self.bag.root.current_map.connect_fences()
+
+        if self._has_unit_modifications():
+            self.bag.ai.reset()
+            self.bag.fog_controller.clear_fog()
+
         return
 
     if self.pause or self.bag.camera.panning or self.bag.root.is_paused:
@@ -87,9 +92,6 @@ func perform_next_action():
         self.bag.timers.set_timeout(story_step['delay'], self, "perform_next_action")
     else:
         self.bag.timers.set_timeout(self.STEP_INTERVAL, self, "perform_next_action")
-
-    if self._has_unit_modifications():
-        self.bag.ai.reset()
 
 func register_story_event(story_event):
     self.action_triggers.feed_story_event(story_event)
