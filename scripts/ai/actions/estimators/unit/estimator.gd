@@ -28,8 +28,8 @@ func score_attack(action):
     if enemy.group != 'unit' or action.unit.player == enemy.player:
         return 0
 
-    # highr health is better
-    var score = self.__health_level(action.unit) * 20
+    var score = 20
+    score = self.__health_level(action.unit) * 20
 
     if enemy.life < action.unit.attack:
         score = score + 200
@@ -173,6 +173,10 @@ func enemy_buildings_in_sight(action):
 
 func own_buildings_in_sight(action):
     return self.bag.positions.get_nearby_enemy_buildings(self.nearby_tiles, action.unit.player )
+
+
+func buildings_in_sight(action):
+    return self.bag.positions.get_nearby_buildings(self.nearby_tiles)
 
 func target_can_be_captured(action):
     var tile = self.bag.abstract_map.get_field(action.path[1])

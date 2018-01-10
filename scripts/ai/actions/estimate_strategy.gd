@@ -1,6 +1,6 @@
 extends "res://scripts/bag_aware.gd"
 
-const RANDOM_VALUE = 0.02
+const RANDOM_VALUE = 0.005
 
 var estimators = []
 var building_estimator

@@ -152,6 +152,29 @@ func get_buildings():
         else:
             buildings_player_none[pos] = building
 
+func get_nearby_buildings(nearby_tiles):
+    var buildings = []
+    for tile in nearby_tiles:
+        if self.all_buildings.has(tile):
+            buildings.append(all_buildings[tile])
+
+    return buildings
+
+
+func get_nearby_own_buildings(nearby_tiles, current_player):
+    var buildings_collection
+    if current_player == 1:
+        buildings_collection = buildings_player_red
+    else:
+        buildings_collection = buildings_player_blue
+
+    var buildings = []
+    for tile in nearby_tiles:
+        if buildings_collection.has(tile):
+            buildings.append(buildings_collection[tile])
+
+    return buildings
+
 func get_nearby_enemy_buildings(nearby_tiles, current_player):
     var enemy_buildings_collection
     if current_player == 0:
@@ -165,6 +188,9 @@ func get_nearby_enemy_buildings(nearby_tiles, current_player):
             buildings.append(enemy_buildings_collection[tile])
 
     return buildings
+
+
+
 
 func get_waypoints():
     for waypoint in self.root_tree.get_nodes_in_group("waypoint"):

@@ -19,9 +19,16 @@ func score(action):
     var nearby_tiles
     var nearby_enemies
     var troops_nearby = false
+    var own_barracs_nearby  = false
+
     for lookup_range in [1,2,3,4,5,6]:
         nearby_tiles = self.bag.positions.get_nearby_tiles(action.start, lookup_range)
         nearby_enemies = self.bag.positions.get_nearby_enemies(nearby_tiles, action.unit.player)
+        if own_barracs_nearby == false:
+            for building in self.bag.positions.get_nearby_own_buildings(nearby_tiles, action.unit.player):
+                if building.type == 1:
+                    own_barracs_nearby = true
+
         for enemy in nearby_enemies:
             if enemy.type == 0: # soldier
                 if action.unit.type == 0:
@@ -37,8 +44,11 @@ func score(action):
 
     # distance modifier (further from base TODO - closer to enemy?)
     var distance_from_hq = self.bag.a_star.get_distance(action.start, self.bag.positions.get_player_bunker_position(action.unit.player))
-    score = score + distance_from_hq + 10
+    if distance_from_hq == 0 and own_barracs_nearby:
+        return 0
 
+    if distance_from_hq > 10 :
+        score = score + distance_from_hq + 10
     score = score + 80 * self.__unit_limit_mod(action.unit.player)
 
     return self.SPAWN_MOD + score
