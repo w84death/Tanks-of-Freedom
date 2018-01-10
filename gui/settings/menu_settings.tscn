@@ -97,8 +97,6 @@ margin/bottom = 8.0
 
 [node name="game" type="GridContainer" parent="body/tabs"]
 
-editor/display_folded = true
-visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -154,7 +152,8 @@ trans_key = "LABEL_LANGUAGE"
 
 [node name="first" parent="body/tabs/game/language/buttons/center"]
 
-text = "EN"
+text = "EN/PL"
+trans_key = "LABEL_EN"
 
 [node name="ai_speed" parent="body/tabs/game" instance=ExtResource( 5 )]
 
@@ -171,6 +170,7 @@ trans_key = "LABEL_AI_SPEED"
 [node name="gfx" type="GridContainer" parent="body/tabs"]
 
 editor/display_folded = true
+visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -195,6 +195,11 @@ margin/right = 190.0
 text = "CAMERA SHAKE"
 trans_key = "LABEL_CAMERA_SHAKE"
 
+[node name="first" parent="body/tabs/gfx/shake_toggle/buttons/center"]
+
+text = "ON/OFF"
+trans_key = "LABEL_ON"
+
 [node name="camera_follow" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
 editor/display_folded = true
@@ -205,6 +210,11 @@ margin/right = 412.0
 
 text = "AUTO FOLLOW"
 trans_key = "LABEL_AUTO_FOLLOW"
+
+[node name="first" parent="body/tabs/gfx/camera_follow/buttons/center"]
+
+text = "ON/OFF"
+trans_key = "LABEL_ON"
 
 [node name="display_mode_toggle" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
@@ -217,9 +227,10 @@ margin/right = 634.0
 text = "FULL SCREEN"
 trans_key = "LABEL_FULL_SCREEN"
 
-[node name="buttons" parent="body/tabs/gfx/display_mode_toggle"]
+[node name="first" parent="body/tabs/gfx/display_mode_toggle/buttons/center"]
 
-editor/display_folded = true
+text = "ON/OFF"
+trans_key = "LABEL_ON"
 
 [node name="overscan_button" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
@@ -233,9 +244,10 @@ margin/bottom = 176.0
 text = "OVERSCAN"
 trans_key = "LABEL_OVERSCAN"
 
-[node name="buttons" parent="body/tabs/gfx/overscan_button"]
+[node name="first" parent="body/tabs/gfx/overscan_button/buttons/center"]
 
-editor/display_folded = true
+text = "ON/OFF"
+trans_key = "LABEL_ON"
 
 [node name="camera_zoom" parent="body/tabs/gfx" instance=ExtResource( 6 )]
 
@@ -253,13 +265,11 @@ trans_key = "LABEL_ZOOM_LEVEL"
 [node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
 text = "SMALLER"
-script/script = ExtResource( 3 )
 trans_key = "LABEL_SMALLER"
 
 [node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
 text = "BIGGER"
-script/script = ExtResource( 3 )
 trans_key = "LABEL_BIGGER"
 
 [node name="camera_move_to_bunker" parent="body/tabs/gfx" instance=ExtResource( 5 )]
@@ -274,6 +284,11 @@ margin/bottom = 176.0
 
 text = "MOVE TO BUNKER"
 trans_key = "LABEL_CAMERA_MOVE_TO_BUNKER"
+
+[node name="first" parent="body/tabs/gfx/camera_move_to_bunker/buttons/center"]
+
+text = "ON/OFF"
+trans_key = "LABEL_ON"
 
 [node name="sound" type="GridContainer" parent="body/tabs"]
 

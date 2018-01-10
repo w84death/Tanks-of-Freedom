@@ -80,7 +80,9 @@ margin/bottom = 24.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-text = "ON"
+text = "SET KEY"
 flat = false
+script/script = ExtResource( 1 )
+trans_key = "LABEL_DEFAULT"
 
 

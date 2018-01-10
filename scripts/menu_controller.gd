@@ -68,7 +68,7 @@ var overscan_toggle_label
 var language_cycle_label
 var root_tree
 var background_gradient
-var button_states = {true : tr('LABEL_ON'), false : tr('LABEL_OFF')}
+var button_states = {true : 'LABEL_ON', false : 'LABEL_OFF'}
 var speed_states = ['>', '>>', '>>>', '>>>>', '>>>>>']
 var ai_speed_button
 var ai_speed_label
@@ -344,7 +344,7 @@ func refresh_buttons_labels():
     __set_togglable_label('easy_mode', 'difficulty_label', {false: tr('LABEL_NORMAL'), true : tr('LABEL_EASY')})
     __set_togglable_label('ai_speed', 'ai_speed_label', self.speed_states)
 
-    language_cycle_label.set_text(self.root.settings['language'])
+    language_cycle_label.set_trans_key('LABEL_' + self.root.settings['language'].to_upper())
 
     if Globals.get('tof/hud_allow_overscan'):
         self.overscan_group.show()
@@ -455,4 +455,4 @@ func __toggle_button(setting_name, setting_label, button_states = self.button_st
     root.write_settings_to_file()
 
 func __set_togglable_label(setting_name, label_name, button_states = self.button_states):
-    self.get(label_name).set_text(button_states[root.settings[setting_name]])
+    self.get(label_name).set_trans_key(button_states[root.settings[setting_name]])
