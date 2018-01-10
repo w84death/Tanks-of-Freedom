@@ -9,6 +9,7 @@
 - updated Settings UI and UI graphics
 - updated to Godot 2.1.4 (2.1.2 or newer required)
 - fixed a crash when unit had map boundary in movement range
+- fixed accidental menu clicks when skipping intro
 
 ### 0.6.3-beta
 - added 'back' behaviour to most menus
