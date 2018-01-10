@@ -13,6 +13,8 @@ var info_panel_turn
 var info_panel_ap
 var info_panel_pap
 var info_panel_map_name
+var info_panel_team_blue
+var info_panel_team_red
 
 var zoom_panel_zoom_in
 var zoom_panel_zoom_out
@@ -34,6 +36,8 @@ func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
     self.info_panel_ap = self.turn_info.get_node('ap')
     self.info_panel_pap = self.turn_info.get_node('pap')
     self.info_panel_map_name = self.turn_info.get_node('map_name')
+    self.info_panel_team_blue = self.turn_info.get_node('current_blue')
+    self.info_panel_team_red = self.turn_info.get_node('current_red')
 
     self.zoom_panel_zoom_in = self.zoom_panel.get_node('zoom_in')
     self.zoom_panel_zoom_in.connect('pressed', self.bag.camera, 'camera_zoom_in')
@@ -122,3 +126,11 @@ func end_button_blink_animation(run, colour=false):
     else:
         self.info_panel_blink_led_anim.stop()
         self.info_panel_blink_led.set_frame(0)
+
+func info_panel_set_current_team(team):
+    if team == 0:
+        self.info_panel_team_blue.show()
+        self.info_panel_team_red.hide()
+    if team == 1:
+        self.info_panel_team_blue.hide()
+        self.info_panel_team_red.show()

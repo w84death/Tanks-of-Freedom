@@ -55,10 +55,6 @@ margin/right = -90.0
 margin/bottom = 140.0
 texture = ExtResource( 3 )
 
-[node name="team_turn" parent="current_red"]
-
-trans_key = "LABEL_DEFAULT"
-
 [node name="flag" parent="current_red"]
 
 color = 1

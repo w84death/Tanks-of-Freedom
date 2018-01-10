@@ -444,6 +444,8 @@ func switch_to_player(player, save_game=true):
             self.root_node.bag.match_state.reset_actions_taken()
     self.root_node.bag.fog_controller.clear_fog()
     self.root_node.bag.ap_gain.update()
+    self.root_node.bag.controllers.hud_panel_controller.info_panel.info_panel_set_current_team(player)
+
 
 func perform_ai_stuff():
     var success = false
