@@ -353,11 +353,10 @@ func refresh_buttons_labels():
 
     if root.bag.resolution.override_resolution:
         self.resolution_button.set_disabled(false)
-        self.resolution_label.show()
         if root.settings['resolution'] == root.bag.resolution.UNLOCKED:
-            resolution_label.set_text(tr('LABEL_ON'))
+            resolution_label.set_trans_key('LABEL_ON')
         else:
-            resolution_label.set_text(tr('LABEL_OFF'))
+            resolution_label.set_trans_key('LABEL_OFF')
     else:
         self.resolution_button.set_disabled(true)
         self.resolution_label.hide()

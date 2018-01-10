@@ -169,7 +169,6 @@ trans_key = "LABEL_AI_SPEED"
 
 [node name="gfx" type="GridContainer" parent="body/tabs"]
 
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -292,7 +291,6 @@ trans_key = "LABEL_ON"
 
 [node name="sound" type="GridContainer" parent="body/tabs"]
 
-editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -331,6 +329,7 @@ trans_key = "LABEL_MUSIC"
 
 [node name="nav" type="Patch9Frame" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
