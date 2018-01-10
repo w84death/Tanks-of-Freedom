@@ -54,7 +54,8 @@ var settings = {
     'language' : 'en',
     'ENV' : 'dev',
     'seen_gamepad' : false,
-    'ai_speed': 1
+    'ai_speed': 1,
+    "camera_move_to_bunker": true
 }
 
 var is_map_loaded = false
@@ -281,6 +282,7 @@ func unload_map():
     self.bag.controllers.background_map_controller.show_background_map()
     self.menu.manage_close_button()
     self.sound_controller.play_soundtrack()
+    self.bag.camera.reset_player_cameras()
 
 func toggle_menu(target = 'menu', skip_back_check = true):
     if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:

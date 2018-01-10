@@ -31,6 +31,11 @@ const PAN_THRESHOLD = 20
 
 var do_cinematic_pan = false
 
+var position_for_player = {
+    "player_0" : Vector2(0, 0),
+    "player_1" : Vector2(0, 0),
+}
+
 func _initialize():
     self.root = self.bag.root
     self.camera = self.root.get_node("/root/game/viewport/camera")
@@ -154,3 +159,18 @@ func __do_panning(diff_x, diff_y):
 func stop():
     self.set_pos(self.pos)
     self.panning = false
+
+func reset_player_cameras():
+    self.position_for_player = {
+        "player_0" : Vector2(0, 0),
+        "player_1" : Vector2(0, 0),
+    }
+
+func store_position_for_player(player):
+    self.position_for_player["player_" + str(player)] = self.get_pos()
+
+func restore_position_for_player(player):
+    var position = self.position_for_player["player_" + str(player)]
+
+    if position.x != 0 and position.y != 0:
+        self.set_pos(position)

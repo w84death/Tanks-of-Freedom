@@ -306,6 +306,11 @@ func local_end_turn():
     if self.root_node.bag.match_state.is_multiplayer:
         save = false
 
+    var is_current_cpu_player = root_node.settings['cpu_' + str(current_player)]
+
+    if not is_current_cpu_player:
+        self.root_node.bag.camera.store_position_for_player(current_player)
+
     if self.current_player == 0:
         self.switch_to_player(1, save)
     else:
@@ -322,6 +327,12 @@ func local_end_turn():
 
 func multiplayer_end_turn():
     self.stats_set_time()
+
+    var is_current_cpu_player = root_node.settings['cpu_' + str(current_player)]
+
+    if not is_current_cpu_player:
+        self.root_node.bag.camera.store_position_for_player(current_player)
+
     if self.current_player == 0:
         self.switch_to_player(1, false)
     else:
@@ -344,6 +355,8 @@ func move_camera_to_active_bunker():
         if bunker_position != null:
             self.move_camera_to_point(bunker_position)
             self.root_node.move_selector_to_map_position(bunker_position)
+    else:
+        self.root_node.bag.camera.restore_position_for_player(current_player)
 
 func move_camera_to_point(position):
     self.root_node.bag.abstract_map.map.move_to_map(position)
