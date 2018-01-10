@@ -26,7 +26,7 @@ var forced_movement = false
 const CAMERA_ACCELERATION = 1.5
 const MAP_STEP = 0.01
 const NEAR_THRESHOLD = 20
-const NEAR_SCREEN_THRESHOLD = 0.2
+const NEAR_SCREEN_THRESHOLD = 0.3
 const PAN_THRESHOLD = 20
 
 var do_cinematic_pan = false
@@ -110,8 +110,8 @@ func move_to_map(target, forced_movement = false):
         var target_position = self.bag.abstract_map.tilemap.map_to_world(target)
         var diff_x = target_position.x - self.sX
         var diff_y = target_position.y - self.sY
-        var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * scale.x)
-        var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD * scale.y)
+        var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * self.scale.x)
+        var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD * self.scale.y)
 
         if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
             return
@@ -151,7 +151,9 @@ func process(delta):
             self.awesome_explosions_interval_counter += 1
 
 func __do_panning(diff_x, diff_y):
-    if diff_x > -PAN_THRESHOLD && diff_x < PAN_THRESHOLD && diff_y > -PAN_THRESHOLD && diff_y < PAN_THRESHOLD:
+    var threshold_x = PAN_THRESHOLD * self.scale.x
+    var threshold_y = PAN_THRESHOLD * self.scale.y
+    if diff_x > -threshold_x && diff_x < threshold_x && diff_y > -threshold_y && diff_y < threshold_y:
         return false
 
     return true
