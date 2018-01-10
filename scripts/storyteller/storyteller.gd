@@ -69,6 +69,7 @@ func perform_next_action():
     if self.story_bookmark == self.current_story.size():
         if self._has_map_modifications():
             self.bag.a_star.rebuild_current_grid()
+            self.bag.ai.reset()
             self.bag.root.current_map.connect_fences()
         return
 
@@ -87,6 +88,8 @@ func perform_next_action():
     else:
         self.bag.timers.set_timeout(self.STEP_INTERVAL, self, "perform_next_action")
 
+    if self._has_unit_modifications():
+        self.bag.ai.reset()
 
 func register_story_event(story_event):
     self.action_triggers.feed_story_event(story_event)
@@ -94,6 +97,13 @@ func register_story_event(story_event):
 func _has_map_modifications():
     for step in self.current_story:
         if step['action'] == 'terrain_add' or step['action'] == 'terrain_remove':
+            return true
+
+    return false
+
+func _has_unit_modifications():
+    for step in self.current_story:
+        if step['action'] == 'die' or step['action'] == 'despawn' or step['action'] == 'spawn':
             return true
 
     return false

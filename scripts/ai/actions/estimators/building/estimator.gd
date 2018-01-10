@@ -37,8 +37,7 @@ func score(action):
 
     # distance modifier (further from base TODO - closer to enemy?)
     var distance_from_hq = self.bag.a_star.get_distance(action.start, self.bag.positions.get_player_bunker_position(action.unit.player))
-    if distance_from_hq > 10:
-        score = score + distance_from_hq + 10
+    score = score + distance_from_hq + 10
 
     score = score + 80 * self.__unit_limit_mod(action.unit.player)
 

@@ -103,14 +103,14 @@ func __should_hold_waypoint(action):
     return true
 
 func __should_use_last_ap(action):
-    if action.unit.ap == 1 and !action.unit.can_attack() and self.enemies_in_sight(action).size():
+    if action.unit.ap == 1 and !action.unit.can_attack() and !self.enemies_in_sight(action).size():
         return true
     return false
 
 func __danger(action):
     randomize()
     var danger = 0
-    if randf() < 0.8:
+    if randf() < 0.2:
         for unit in self.enemies_in_sight(action):
             danger = danger + self.danger_modifier[unit.type]
         for unit in self.own_units_in_sight(action):
