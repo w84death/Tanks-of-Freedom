@@ -77,7 +77,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_AIRPLANE'),
             'player': 1,
             'file': preload("res://maps/campaign/airplane.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/airplane_scripts.gd").new(),
             'description': tr('MISSION_DESR_AIRPLANE'),
             'tileset' : 'summer'
         },
