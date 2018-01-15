@@ -85,7 +85,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_FIELD_COMMAND'),
             'player': 0,
             'file': preload("res://maps/campaign/field_command.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/field_command_scripts.gd").new(),
             'description': tr('MISSION_DESR_FIELD_COMMAND'),
             'tileset' : 'summer'
         },
