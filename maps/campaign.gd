@@ -101,7 +101,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_CONVOY'),
             'player': 1,
             'file': preload("res://maps/campaign/convoy.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/convoy_scripts.gd").new(),
             'description': tr('MISSION_DESR_CONVOY'),
             'tileset' : 'fall'
         },
