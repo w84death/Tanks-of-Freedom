@@ -109,7 +109,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_CRASH_SITE'),
             'player': 1,
             'file': preload("res://maps/campaign/crash_site.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/crash_site_scripts.gd").new(),
             'description': tr('MISSION_DESR_CRASH_SITE'),
             'tileset' : 'fall'
         },
