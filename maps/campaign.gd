@@ -117,7 +117,7 @@ func reload_maps_definition():
             'label': tr('MISSION_TITLE_AIRPORT_PT_3'),
             'player': 1,
             'file': preload("res://maps/campaign/airport_part_3.gd").new(),
-            'stories' : null,
+            'stories' : preload("res://maps/campaign/airport_part_3_scripts.gd").new(),
             'description': tr('MISSION_DESR_AIRPORT_PT_3'),
             'tileset' : 'winter'
         },
