@@ -15,7 +15,6 @@ func show_message(title, message, footer, button, flag = 2):
 	self.hud_title.set_text(title)
 	self.hud_message.set_text(message)
 	self.hud_button_text.set_text(button)
-	self.hud_footer.set_text(footer)
 	self.set_flag(flag)
 	self.raise()
 	return

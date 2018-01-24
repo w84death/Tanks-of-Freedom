@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/message.gd" type="Script" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=8]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=9]
 [ext_resource path="res://gui/flag.xscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/gui/cloud_spritesheet.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=1]
 
@@ -18,16 +17,6 @@ resource/name = "jump"
 length = 0.8
 loop = true
 step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("info:frame")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": FloatArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 3, 4, 5, 4, 3 ]
-}
 
 [node name="message" type="Control"]
 
@@ -148,18 +137,9 @@ max_lines_visible = -1
 
 [node name="flag" parent="." instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 224, -66 )
+transform/pos = Vector2( 226, 79 )
 transform/scale = Vector2( 3, 3 )
 frame = 7
-
-[node name="info" type="Sprite" parent="."]
-
-transform/pos = Vector2( -229, 93 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 11 )
-vframes = 2
-hframes = 3
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -171,23 +151,5 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "jump"
-
-[node name="footer" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -208.0
-margin/top = 80.0
-margin/right = 85.0
-margin/bottom = 113.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Start your turn now!"
-valign = 1
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/hud/current_team.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/gui/dialogs/menu9_blue@2x.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=4]
-[ext_resource path="res://gui/font_32.tres" type="Theme" id=5]
-[ext_resource path="res://gui/font_22.tres" type="Theme" id=6]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=7]
+[ext_resource path="res://gui/font_32.tres" type="Theme" id=4]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=5]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=6]
 
 [node name="turn_info" type="Control"]
 
@@ -71,7 +70,7 @@ margin/left = -88.0
 margin/top = -92.0
 margin/right = -88.0
 margin/bottom = 1.0
-texture = ExtResource( 4 )
+texture = ExtResource( 1 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -83,7 +82,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
+theme/theme = ExtResource( 4 )
 margin/left = -52.0
 margin/top = -71.0
 margin/right = 35.0
@@ -118,7 +117,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 5 )
 margin/left = -76.0
 margin/top = -31.0
 margin/right = 51.0
@@ -136,7 +135,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 5 )
 margin/left = 53.0
 margin/top = -31.0
 margin/right = 79.0
@@ -197,7 +196,7 @@ valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = ExtResource( 7 )
+script/script = ExtResource( 6 )
 trans_key = "LABEL_CURRENT_MAP"
 
 [node name="ap1" type="Label" parent="."]
@@ -206,7 +205,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
+theme/theme = ExtResource( 4 )
 margin/left = 40.0
 margin/top = -71.0
 margin/right = 78.0
