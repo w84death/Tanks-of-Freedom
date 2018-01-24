@@ -1,15 +1,14 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/font_12.tres" type="Theme" id=2]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=3]
-[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=4]
-[ext_resource path="res://gui/font_32.tres" type="Theme" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size2_special_0.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=10]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://gui/font_32.tres" type="Theme" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size2_special_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=9]
 
 [node name="building_panel" type="Control"]
 
@@ -92,7 +91,7 @@ margin/left = -72.0
 margin/top = -64.0
 margin/right = 216.0
 margin/bottom = 0.0
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -135,7 +134,7 @@ max_lines_visible = -1
 
 transform/pos = Vector2( -40, -35 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 flip_h = true
 vframes = 4
 hframes = 6
@@ -198,11 +197,11 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
+theme/theme = ExtResource( 4 )
 margin/left = 8.0
 margin/top = -38.0
 margin/right = 109.0
-margin/bottom = -6.0
+margin/bottom = -4.0
 text = "99AP"
 align = 2
 uppercase = true
@@ -240,11 +239,13 @@ margin/bottom = -8.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
-textures/hover = ExtResource( 8 )
-textures/disabled = ExtResource( 9 )
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+textures/disabled = ExtResource( 8 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="deploy_button"]
 
@@ -268,7 +269,7 @@ max_lines_visible = -1
 visibility/visible = false
 transform/pos = Vector2( 84.4429, 36.7297 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 vframes = 2
 hframes = 4
 

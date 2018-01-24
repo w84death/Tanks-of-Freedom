@@ -1,25 +1,24 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=20 format=1]
 
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
-[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=15]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=17]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=18]
-[ext_resource path="res://gui/font_22.tres" type="Theme" id=19]
-[ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_3.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_4.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_5.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=17]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=18]
+[ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=19]
 
 [node name="online" type="CenterContainer"]
 
@@ -34,7 +33,10 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 use_top_left = false
-__meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
 
 [node name="controls" type="Control" parent="."]
 
@@ -82,7 +84,7 @@ margin/left = 321.0
 margin/top = -152.0
 margin/right = 161.0
 margin/bottom = -216.0
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -102,7 +104,7 @@ margin/left = 162.0
 margin/top = -152.0
 margin/right = -318.0
 margin/bottom = -216.0
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -132,12 +134,14 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 5 )
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 4 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/back"]
 
@@ -169,12 +173,14 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 7 )
-textures/pressed = ExtResource( 8 )
-textures/hover = ExtResource( 9 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 10 )
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 9 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/download"]
 
@@ -207,12 +213,14 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 7 )
-textures/pressed = ExtResource( 8 )
-textures/hover = ExtResource( 9 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 10 )
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 9 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/upload"]
 
@@ -245,12 +253,14 @@ margin/bottom = -112.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 11 )
-textures/pressed = ExtResource( 12 )
-textures/hover = ExtResource( 13 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 10 )
+textures/normal = ExtResource( 10 )
+textures/pressed = ExtResource( 11 )
+textures/hover = ExtResource( 12 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 9 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/refresh"]
 
@@ -285,12 +295,14 @@ margin/bottom = -112.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 14 )
-textures/pressed = ExtResource( 15 )
-textures/hover = ExtResource( 16 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 18 )
+textures/normal = ExtResource( 13 )
+textures/pressed = ExtResource( 14 )
+textures/hover = ExtResource( 15 )
+textures/disabled = ExtResource( 16 )
+textures/focused = ExtResource( 17 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/help"]
 
@@ -317,7 +329,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 19 )
+theme/theme = ExtResource( 18 )
 margin/left = -304.0
 margin/top = -192.0
 margin/right = 48.0
@@ -391,24 +403,24 @@ custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 2
 
-[node name="match1" parent="controls/matches" instance=ExtResource( 20 )]
+[node name="match1" parent="controls/matches" instance=ExtResource( 19 )]
 
 margin/top = 0.0
 margin/bottom = 120.0
 
-[node name="match2" parent="controls/matches" instance=ExtResource( 20 )]
+[node name="match2" parent="controls/matches" instance=ExtResource( 19 )]
 
 margin/left = 308.0
 margin/top = 0.0
 margin/right = 608.0
 margin/bottom = 120.0
 
-[node name="match3" parent="controls/matches" instance=ExtResource( 20 )]
+[node name="match3" parent="controls/matches" instance=ExtResource( 19 )]
 
 margin/top = 128.0
 margin/bottom = 248.0
 
-[node name="match4" parent="controls/matches" instance=ExtResource( 20 )]
+[node name="match4" parent="controls/matches" instance=ExtResource( 19 )]
 
 margin/left = 308.0
 margin/top = 128.0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://scripts/message.gd" type="Script" id=1]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_0.png" type="Texture" id=3]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_1.png" type="Texture" id=4]
 [ext_resource path="res://assets/gui/buttons/analog_size3_special_2.png" type="Texture" id=5]
@@ -22,7 +22,12 @@ tracks/0/type = "value"
 tracks/0/path = NodePath("info:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":1, "values":[ 3, 4, 5, 4, 3 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 4, 3 ]
+}
 
 [node name="message" type="Control"]
 
@@ -35,7 +40,9 @@ margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
 script/script = ExtResource( 1 )
-__meta__ = { "__editor_plugin_screen__":"2D" }
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
 
 [node name="background" type="Patch9Frame" parent="."]
 
@@ -74,7 +81,9 @@ textures/pressed = ExtResource( 4 )
 textures/hover = ExtResource( 5 )
 textures/disabled = ExtResource( 6 )
 textures/focused = ExtResource( 7 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="button"]
 
@@ -129,7 +138,9 @@ margin/left = -240.0
 margin/top = -48.0
 margin/right = 240.0
 margin/bottom = 52.0
-text = "Did you know\?\n\nLittle shield icon next to the unit shows that this unit can defend itself if attacked."
+text = "Did you know?
+
+Little shield icon next to the unit shows that this unit can defend itself if attacked."
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0

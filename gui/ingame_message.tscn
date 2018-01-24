@@ -88,14 +88,14 @@ margin/bottom = 64.0
 
 anchor/right = 1
 anchor/bottom = 1
-rect/min_size = Vector2( 512, 96 )
+rect/min_size = Vector2( 700, 96 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -256.0
+margin/left = -350.0
 margin/top = -48.0
-margin/right = -256.0
+margin/right = -290.0
 margin/bottom = -48.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 autowrap = true
@@ -106,8 +106,11 @@ max_lines_visible = -1
 
 [node name="avatar" parent="messages/center/left" instance=ExtResource( 2 )]
 
-margin/left = -390.0
-margin/right = -390.0
+editor/display_folded = true
+margin/left = -273.0
+margin/top = -120.0
+margin/right = -273.0
+margin/bottom = -120.0
 
 [node name="sprite" parent="messages/center/left/avatar"]
 
@@ -128,14 +131,14 @@ margin/bottom = 64.0
 
 anchor/right = 1
 anchor/bottom = 1
-rect/min_size = Vector2( 512, 96 )
+rect/min_size = Vector2( 700, 96 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -256.0
+margin/left = -350.0
 margin/top = -48.0
-margin/right = -256.0
+margin/right = -350.0
 margin/bottom = -48.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 align = 2
@@ -147,8 +150,10 @@ max_lines_visible = -1
 
 [node name="avatar" parent="messages/center/right" instance=ExtResource( 2 )]
 
-margin/left = 390.0
-margin/right = 390.0
+margin/left = 273.0
+margin/top = -120.0
+margin/right = 273.0
+margin/bottom = -120.0
 
 [node name="controls" type="Control" parent="."]
 

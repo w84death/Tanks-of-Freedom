@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
-[ext_resource path="res://assets/gamepad.png" type="Texture" id=2]
-[ext_resource path="res://gui/font_22.tres" type="Theme" id=3]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
+[ext_resource path="res://assets/gamepad.png" type="Texture" id=3]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=9]
 
 [node name="gamepad" type="CenterContainer"]
 
@@ -64,7 +65,7 @@ margin/left = -364.0
 margin/top = -206.0
 margin/right = -380.0
 margin/bottom = -210.0
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -73,7 +74,7 @@ patch_margin/bottom = 24
 [node name="gamepad" type="Sprite" parent="center"]
 
 transform/pos = Vector2( 7, 63 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="center"]
 
@@ -81,7 +82,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 3 )
+theme/theme = ExtResource( 4 )
 margin/left = -152.0
 margin/top = -176.0
 margin/right = 148.0
@@ -231,12 +232,14 @@ margin/bottom = 270.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 4 )
-textures/pressed = ExtResource( 5 )
-textures/hover = ExtResource( 6 )
-textures/disabled = ExtResource( 7 )
-textures/focused = ExtResource( 8 )
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+textures/hover = ExtResource( 7 )
+textures/disabled = ExtResource( 8 )
+textures/focused = ExtResource( 9 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="center/close"]
 
