@@ -58,7 +58,7 @@ Please note, that changing the map name with a gamepad is not possible at this t
 ### Build from sources
 To get the latest version of the game, you'll need to use the source code and Godot Engine.
 
-- download & install [Godot Engine](https://godotengine.org/download)
+- download & install [Godot Engine](https://godotengine.org/download) version [2.1.4](https://downloads.tuxfamily.org/godotengine/) (3.0+ not supported)
 - download our sources
   - download [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip) and unzip
   - or clone the repository using git
