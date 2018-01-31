@@ -89,7 +89,7 @@ func _input(event):
         if is_locked_for_cpu == false or self.bag.match_state.is_multiplayer:
             game_scale = self.camera.get_scale()
             camera_pos = self.camera.get_pos()
-            if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT && self.is_map_loaded:
+            if event.type == InputEvent.MOUSE_BUTTON && (event.button_index == BUTTON_LEFT or event.button_index == BUTTON_RIGHT) && self.is_map_loaded:
                 self.is_camera_drag = event.pressed
                 self.bag.camera.mouse_dragging = event.pressed
             if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):

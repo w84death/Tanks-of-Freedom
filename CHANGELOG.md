@@ -8,6 +8,7 @@
 - updated AI for better performance
 - updated Settings UI and UI graphics
 - updated to Godot 2.1.4 (2.1.2 or newer required)
+- added camera dragging with right mouse button
 - fixed a crash when unit had map boundary in movement range
 - fixed accidental menu clicks when skipping intro
 

@@ -191,6 +191,9 @@ func _input(event):
             else:
                 self.is_camera_drag = event.pressed
 
+        if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_RIGHT:
+            self.is_camera_drag = event.pressed
+
         if event.type == InputEvent.MOUSE_MOTION || event.type == InputEvent.MOUSE_BUTTON:
             var new_selector_x = (event.x - self.root.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
             var new_selector_y = (event.y - self.root.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
