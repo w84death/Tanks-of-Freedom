@@ -1,7 +1,7 @@
 extends Sprite
 
 var anim
-var RANDOM_MAX
+var animation_total_duration
 export var color = 2
 
 func change_flag(color_code):
@@ -11,11 +11,11 @@ func change_flag(color_code):
 		anim.play("red")
 	else:
 		anim.play("white")
-	anim.seek(randi(),true)
+	anim.seek(randf() * animation_total_duration,true)
 
 func _ready():
 	anim = self.get_node("anim")
-	RANDOM_MAX = anim.get_current_animation_length()
+	animation_total_duration = anim.get_current_animation_length()
 	change_flag(color)
 	pass
 	
