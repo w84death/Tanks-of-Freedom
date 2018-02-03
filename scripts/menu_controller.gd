@@ -448,6 +448,7 @@ func __toggle_multioption_button(setting_name, setting_label, button_states = se
     root.settings[setting_name] = (root.settings[setting_name] + 1) % count
     __set_togglable_label(setting_name, setting_label, button_states)
     root.write_settings_to_file()
+    self.root.bag.perform.update_ai_speed()
 
 func __toggle_button(setting_name, setting_label, button_states = self.button_states):
     root.settings[setting_name] = not root.settings[setting_name]
