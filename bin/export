@@ -111,7 +111,7 @@ function run_target {
 
     echo "Running export. Logging into $2/$target_subdir/build.log"
     echo "$godot_command -export '$godot_target' $2/$target_subdir/$3_$file_extension"
-    $godot_command -export "$godot_target" "$2/$target_subdir/$3_$file_extension" > $2/$target_subdir/build.log 2>&1
+    $godot_command -d -export "$godot_target" "$2/$target_subdir/$3_$file_extension" > $2/$target_subdir/build.log 2>&1
 
     if [ ! -e "$2/$target_subdir/$3_$file_extension" ]
         then
