@@ -111,7 +111,7 @@ func hide():
 func clear_blocks_panel():
     for block in self.current_blocks:
         self.blocks_area.remove_child(block)
-        block.queue_free()
+        block.call_deferred("free")
     self.current_blocks = []
 
 func fill_blocks_panel(blocks):

@@ -58,6 +58,8 @@ func refresh():
     self.buildings_player_blue = {}
     self.buildings_player_red = {}
     self.terrain_obstacles = {}
+    buildings = self.root_tree.get_nodes_in_group("buildings")
+    terrains = self.root_tree.get_nodes_in_group("terrain")
     self.get_bunkers()
     self.get_terrain()
     self.refresh_units()
@@ -139,7 +141,15 @@ func get_nearby_enemies(nearby_tiles, current_player):
     return enemies
 
 func get_buildings():
+    buildings = self.root_tree.get_nodes_in_group("buildings")
     for building in buildings:
+        var wr = weakref(building)
+
+        if !wr.get_ref():
+            continue
+        else:
+            building = wr.get_ref()
+
         var pos = building.position_on_map
         var owner = building.player
 

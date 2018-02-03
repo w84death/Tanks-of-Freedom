@@ -36,6 +36,8 @@ func get_best_action(player):
 
     if self.bag.ai.ai_logger_enabled:
         for action in self.actions:
+            if action.invalid:
+                continue
             if action.unit.player == player:
                 self.bag.logger.store(action.__to_string())
 
@@ -83,10 +85,21 @@ func fix_path_if_faulty(action): #TODO - this pobably should be done in action h
     return false
 
 func remove_if_faulty(action):
-    if action.type != "spawn" and action.type != null and action.unit.life == 0: #WTF?
+    var wr = weakref(action.unit)
+    if !wr.get_ref() or (action.type != "spawn" and action.type != null and action.unit.life == 0): #WTF?
         self.actions.erase(action)
         return true
     return false
+
+func remove_actions_for_unit(unit):
+    var actions_to_erase = []
+    for action in self.actions:
+        if action.unit == unit or action.destination == unit:
+            action.invalid = true
+            actions_to_erase.append(action)
+
+    for action in actions_to_erase:
+        self.actions.erase(action)
 
 func get_action(unit, destination):
     for action in self.actions:

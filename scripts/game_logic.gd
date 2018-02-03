@@ -281,13 +281,13 @@ func unload_map():
     self.bag.storyteller.clear_stories()
     current_map_terrain.remove_child(selector)
     scale_root.remove_child(current_map)
-    current_map.queue_free()
+    current_map.call_deferred("free")
     current_map = null
     current_map_terrain = null
     self.hud_controller.disable_back_to_workshop()
     self.hud_controller.detach_hud_panel()
     self.remove_child(hud)
-    hud.queue_free()
+    hud.call_deferred("free")
     hud = null
     selector.reset()
     hud_controller = null
@@ -345,7 +345,7 @@ func load_menu():
     menu.show()
     is_intro = false
     self.remove_child(intro)
-    intro.queue_free()
+    intro.call_deferred("free")
     self.add_child(menu)
     menu.manage_close_button()
     self.bag.resolution.refresh_menu_background()

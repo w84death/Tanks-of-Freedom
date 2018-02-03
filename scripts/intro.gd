@@ -8,7 +8,7 @@ var demo_timer
 var audio
 
 func _input(event):
-    if ( event.type == InputEvent.KEY and event.pressed ) or (event.type == InputEvent.MOUSE_BUTTON) or (event.type == InputEvent.JOYSTICK_BUTTON):
+    if ( event.type == InputEvent.KEY and event.pressed ) or (event.type == InputEvent.MOUSE_BUTTON and event.pressed) or (event.type == InputEvent.JOYSTICK_BUTTON and event.pressed):
         self.root.bag.demo_mode.demo_timer.stop()
         self.root.unlock_for_demo()
         self.root.bag.timers.set_timeout(0.1, self.root, "load_menu")

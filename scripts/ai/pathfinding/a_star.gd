@@ -143,11 +143,10 @@ func __prepare_neighbors(x, y):
         "d" : Vector2(x  ,y+1),
         "l" : Vector2(x-1,y  ),
     }
+    var output = {}
 
     for direction in neighbors:
-        if !self.__validate_tile(neighbors[direction]):
-            neighbors.erase(direction)
+        if self.__validate_tile(neighbors[direction]):
+            output[direction] = neighbors[direction]
 
-    return neighbors
-
-
+    return output

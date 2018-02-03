@@ -124,7 +124,7 @@ func fill_page():
 func clear_page():
     for block in self.blocks_cache:
         self.blocks_container.remove_child(block)
-        block.queue_free()
+        block.call_deferred("free")
     self.blocks_cache = []
 
 func get_number_of_pages():

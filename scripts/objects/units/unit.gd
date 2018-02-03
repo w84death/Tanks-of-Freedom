@@ -163,7 +163,10 @@ func can_capture_buildings():
     return false
 
 func die():
-    self.queue_free()
+    if self.is_inside_tree():
+        self.queue_free()
+    else:
+        self.call_deferred("free")
 
 func set_damaged():
     return
@@ -174,6 +177,8 @@ func get_life_status():
 func update_healthbar():
     var life_status = self.get_life_status()
     var new_frame = floor((1.0 - life_status)*10)
+    if new_frame > 9:
+        new_frame = 9
     self.health_bar.set_frame(new_frame)
 
 func show_explosion():
@@ -189,7 +194,7 @@ func show_big_explosion():
 
 func clear_explosion():
     self.remove_child(explosion)
-    explosion.queue_free()
+    explosion.call_deferred("free")
     if die:
         parent.remove_child(self)
         self.die()
@@ -202,7 +207,7 @@ func show_floating_damage(amount):
 
 func clear_floating_damage():
     self.remove_child(floating_damage)
-    floating_damage.queue_free()
+    floating_damage.call_deferred("free")
 
 func die_after_explosion(ysort):
     die = true

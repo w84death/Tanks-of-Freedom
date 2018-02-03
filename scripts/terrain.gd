@@ -47,7 +47,7 @@ func show_explosion():
 
 func clear_explosion():
 	self.remove_child(explosion)
-	explosion.queue_free()
+	explosion.call_deferred("free")
 
 func connect_with_neighbours():
 	var neighbours = 0 # neibours in binary

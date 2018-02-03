@@ -109,9 +109,16 @@ function run_target {
 
     prepare_build_config $engine_file $export_file $2 $target_subdir
 
-    echo "Running export. Logging into $2/$target_subdir/build.log"
-    echo "$godot_command -export '$godot_target' $2/$target_subdir/$3_$file_extension"
-    $godot_command -d -export "$godot_target" "$2/$target_subdir/$3_$file_extension" > $2/$target_subdir/build.log 2>&1
+    if [ "$4" == "debug" ]
+        then
+        echo "Running debug export. Logging into $2/$target_subdir/build.log"
+        echo "$godot_command -export_debug '$godot_target' $2/$target_subdir/$3_debug_$file_extension"
+        $godot_command -export_debug "$godot_target" "$2/$target_subdir/$3_debug_$file_extension" > $2/$target_subdir/build.log 2>&1
+    else
+        echo "Running export. Logging into $2/$target_subdir/build.log"
+        echo "$godot_command -export '$godot_target' $2/$target_subdir/$3_$file_extension"
+        $godot_command -export "$godot_target" "$2/$target_subdir/$3_$file_extension" > $2/$target_subdir/build.log 2>&1
+    fi
 
     if [ ! -e "$2/$target_subdir/$3_$file_extension" ]
         then
@@ -151,7 +158,7 @@ fi
 
 if [ "$1" == "build" ]
 then
-    run_target $2 $3 $4
+    run_target $2 $3 $4 $5
     exit
 fi
 
@@ -171,7 +178,7 @@ fi
 echo "Valid commands:"
 echo "$1 list"
 echo "$1 bootstrap (target name)"
-echo "$1 build (target_name) (destination dir) (base file name)"
+echo "$1 build (target_name) (destination dir) (base file name) [debug]"
 echo "$1 cleanup"
 echo "$1 all (destination dir) (base file name)"
 exit 1

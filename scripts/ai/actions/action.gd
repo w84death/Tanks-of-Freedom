@@ -10,6 +10,7 @@ var proceed     = 0
 var status      = 0
 var ttl         = null
 var unused_ttl  = null
+var invalid     = false
 
 const DEFAULT_TTL = 100
 const FLASH_TTL   = 1

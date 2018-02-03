@@ -45,7 +45,8 @@ func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
     self.zoom_panel_zoom_out.connect('pressed', self.bag.camera, 'camera_zoom_out')
 
 func bind_end_turn(controller, method_name):
-    self.info_panel_end_button.connect('pressed', controller, method_name)
+    if !self.info_panel_end_button.is_connected('pressed', controller, method_name):
+        self.info_panel_end_button.connect('pressed', controller, method_name)
 
 func show():
     self.turn_info.show()

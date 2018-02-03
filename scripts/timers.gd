@@ -10,7 +10,7 @@ func set_timeout(timeout, object, method, args=[]):
 
 func execute_timeout(object, method, args, timer):
     self.bag.root.remove_child(timer)
-    timer.queue_free()
+    timer.call_deferred("free")
     if args.size() > 0:
         object.call(method, args)
     else:

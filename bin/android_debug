@@ -1,8 +1,8 @@
 #!/bin/bash
 
-bin/export build android /tmp ToF_debug_build
+bin/export build android /tmp ToF debug
 
-adb install -r /tmp/tof-build/ToF_debug_build_android64.apk
+adb install -r /tmp/tof-build/ToF_debug_android64.apk
 
 if [ "$1" == "logcat" ]
 then

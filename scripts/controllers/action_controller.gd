@@ -71,8 +71,8 @@ func init_root(root, map, hud):
     hud_controller.set_turn(turn)
 
     self.positions = self.root_node.bag.positions
-    self.positions.get_player_bunker_position(self.current_player)
     self.positions.bootstrap()
+    self.positions.get_player_bunker_position(self.current_player)
 
     sound_controller = root.sound_controller
     var interaction_template = load('res://gui/movement.xscn')
@@ -165,6 +165,8 @@ func capture_building(active_field, field):
 func activate_field(field):
     self.clear_active_field()
     self.active_field = field
+    if active_indicator != null and active_indicator.is_inside_tree():
+        active_indicator.get_parent().remove_child(active_indicator)
     self.root_node.bag.abstract_map.tilemap.add_child(active_indicator)
     self.root_node.bag.abstract_map.tilemap.move_child(active_indicator, 0)
     var position = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(field.position))
@@ -181,7 +183,8 @@ func activate_field(field):
 
 func clear_active_field():
     self.active_field = null
-    self.root_node.bag.abstract_map.tilemap.remove_child(active_indicator)
+    if self.root_node.bag.abstract_map.tilemap.is_a_parent_of(active_indicator):
+        self.root_node.bag.abstract_map.tilemap.remove_child(active_indicator)
     if not self.is_cpu_player:
         self.hud_controller.clear_unit_card()
         self.hud_controller.clear_building_card()
@@ -239,12 +242,14 @@ func hide_interaction_indicators():
         self.interaction_indicators[direction]['indicator'].hide()
 
 func despawn_unit(field):
+    self.root_node.bag.actions_handler.remove_actions_for_unit(field.object)
     ysort.remove_child(field.object)
-    field.object.queue_free()
+    field.object.call_deferred("free")
     field.object.life = 0 #despawn bug
     field.object = null
 
 func destroy_unit(field):
+    self.root_node.bag.actions_handler.remove_actions_for_unit(field.object)
     field.object.die_after_explosion(ysort)
     field.object = null
 

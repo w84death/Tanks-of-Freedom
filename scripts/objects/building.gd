@@ -114,8 +114,7 @@ func show_floating_ap():
 
 func clear_floating_damage():
 	self.remove_child(floating_ap)
-	floating_ap.queue_free()
-
+	floating_ap.call_deferred("free")
 func can_spawn_units():
     if self.type == 4:
         return false

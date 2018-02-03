@@ -18,7 +18,7 @@ var background_extra_unit
 func bind(hud_panel):
     self.unit_panel = hud_panel.get_node('unit_panel')
 
-    self.unit_panel_extras = self.unit_panel.get_node('extras')
+    #self.unit_panel_extras = self.unit_panel.get_node('extras')
     #self.unit_panel_extras_button = self.unit_panel.get_node('extras_button')
     #self.unit_panel_name = self.unit_panel.get_node('name')
     self.unit_panel_attack = self.unit_panel.get_node('attack')
@@ -66,14 +66,16 @@ func set_ap(value, max_value):
 	self.unit_panel_ap.set_text(str(value) + '/' + str(max_value))
 
 func toggle_skills():
-    if self.unit_panel_extras.is_hidden():
-        self.show_skills()
-    else:
-        self.hide_skills()
+    #if self.unit_panel_extras.is_hidden():
+    #    self.show_skills()
+    #else:
+    #    self.hide_skills()
+    return
 
 func show_skills():
-    self.unit_panel_extras.show()
-    self.background_extra_unit.show()
+    #self.unit_panel_extras.show()
+    #self.background_extra_unit.show()
+    return
 
 func hide_skills():
     #self.unit_panel_extras.hide()

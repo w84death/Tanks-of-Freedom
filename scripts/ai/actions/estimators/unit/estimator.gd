@@ -151,6 +151,10 @@ func can_move(action):
 
 func get_waypoint_value(action):
     var value = 0
+
+    if action.invalid:
+        return 0
+
     if action.destination.group == 'waypoint':
         if  action.destination.point_of_interest != null:
             value = self.waypoint_value[action.destination.point_of_interest.type]
