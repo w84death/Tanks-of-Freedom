@@ -111,9 +111,11 @@ func play_map():
     self.save_map(self.restore_file_name)
     self.is_working = false
     self.is_suspended = true
-    self.root.load_map("workshop", self.restore_file_name)
     self.bag.controllers.workshop_menu_controller.hide_workshop()
-    self.root.toggle_menu()
+    self.root.load_map("workshop", self.restore_file_name, false, false, self, "post_play_map")
+
+func post_play_map():
+    self.root.hide_menu()
     self.bag.match_state.set_workshop_map()
     self.root.hud_controller.enable_back_to_workshop()
     self.bag.controllers.hud_panel_controller.info_panel.set_map_name("workshop temporary map")

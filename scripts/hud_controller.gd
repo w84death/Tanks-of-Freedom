@@ -133,7 +133,7 @@ func _hud_end_game_restart_button_pressed():
     self.root.restart_map()
 func _hud_end_game_menu_button_pressed():
     self.root.sound_controller.play('menu')
-    self.root.toggle_menu()
+    self.root.show_menu()
     self.root.unload_map()
     self.root.bag.timers.set_timeout(0.1, self.root.menu.campaign_button, "grab_focus")
 func _hud_message_card_button_pressed():

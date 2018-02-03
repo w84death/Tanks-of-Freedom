@@ -387,12 +387,12 @@ func update_version_label():
     self.label_version.set_text(self.root.version_name)
 
 func load_map(name, from_workshop, is_remote = false):
-    print('from work', from_workshop
-    )
     if from_workshop:
-        root.load_map('workshop', name, false, is_remote)
+        root.load_map('workshop', name, false, is_remote, self, "post_load_map")
     else:
-        root.load_map(name, false)
+        root.load_map(name, false, false, false, self, "post_load_map")
+
+func post_load_map():
     root.toggle_menu()
     self.hide_maps_menu()
     self.root.bag.controllers.workshop_menu_controller.suspend_workshop()

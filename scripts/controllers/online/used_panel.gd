@@ -287,7 +287,7 @@ func is_already_loaded():
 func start_loading_match():
     if self.is_already_loaded():
         self.bag.controllers.online_menu_controller.hide()
-        self.bag.root.toggle_menu()
+        self.bag.root.hide_menu()
         return
 
     self.prepare_match_data_and_perform_action("continue_loading_match")
@@ -302,7 +302,7 @@ func continue_loading_match():
     else:
         self.bag.controllers.online_menu_controller.hide()
         self.bag.online_multiplayer.load_game_from_state()
-        self.bag.root.toggle_menu()
+        self.bag.root.hide_menu()
 
 func ask_load_replay_or_turn():
     self.middle_container.show()
@@ -325,13 +325,13 @@ func confirm_load_replay_or_turn(confirmation):
         self.bag.online_multiplayer.load_replay_from_state()
     else:
         self.bag.online_multiplayer.load_game_from_state()
-    self.bag.root.toggle_menu()
+    self.bag.root.hide_menu()
 
 
 func start_loading_replay():
     if self.is_already_loaded():
         self.bag.controllers.online_menu_controller.hide()
-        self.bag.root.toggle_menu()
+        self.bag.root.hide_menu()
         return
 
     self.prepare_match_data_and_perform_action("continue_loading_replay")
@@ -340,7 +340,7 @@ func continue_loading_replay():
     if self.bag.match_state.is_end_replay_available():
         self.bag.controllers.online_menu_controller.hide()
         self.bag.online_multiplayer.load_replay_from_state()
-        self.bag.root.toggle_menu()
+        self.bag.root.hide_menu()
 
 
 

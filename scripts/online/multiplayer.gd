@@ -149,15 +149,16 @@ func load_game_from_state():
 
     if final_state.size() > 0:
         self.bag.saving.apply_multiplayer_state(final_state, active_player)
-        self.bag.root.load_map('workshop', map_code, true, true)
+        self.bag.root.load_map('workshop', map_code, true, true, self, "post_load_game_from_state")
     else:
-        self.bag.root.load_map('workshop', map_code, false, true)
+        self.bag.root.load_map('workshop', map_code, false, true, self, "post_load_game_from_state")
 
     self.bag.match_state.current_loaded_multiplayer_state = state_copy
     self.bag.match_state.is_multiplayer = true
     self.bag.match_state.reset_actions_taken()
 
-    if state_copy['player_status'] == 1:
+func post_load_game_from_state():
+    if self.bag.match_state.current_loaded_multiplayer_state['player_status'] == 1:
         self.start_polling_state(self.bag.match_state.current_loaded_multiplayer_state['join_code'])
 
 func load_replay_from_state():
@@ -172,15 +173,16 @@ func load_replay_from_state():
 
     if initial_state.size() > 0:
         self.bag.saving.apply_multiplayer_state(initial_state, active_player)
-        self.bag.root.load_map('workshop', map_code, true, true)
+        self.bag.root.load_map('workshop', map_code, true, true, self, "post_load_replay_from_state")
     else:
-        self.bag.root.load_map('workshop', map_code, false, true)
-
-    self.bag.root.lock_for_cpu()
+        self.bag.root.load_map('workshop', map_code, false, true, self, "post_load_replay_from_state")
 
     self.bag.match_state.current_loaded_multiplayer_state = state_copy
     self.bag.match_state.is_multiplayer = true
     self.bag.match_state.reset_actions_taken()
+
+func post_load_replay_from_state():
+    self.bag.root.lock_for_cpu()
 
     self.bag.root.action_controller.refill_ap()
     self.bag.root.action_controller.show_bonus_ap()

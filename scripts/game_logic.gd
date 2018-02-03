@@ -168,10 +168,20 @@ func move_selector_to_map_position(pos):
     selector.set_pos(position)
     selector_position = pos
 
-func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false):
-    var human_player = 'cpu_0'
+func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false, post_load_object = null, post_load_method = null):
     self.unload_map()
     self.bag.controllers.background_map_controller.hide_background_map()
+    self.menu.hide()
+    self.add_child(self.loading_screen)
+    self.bag.timers.set_timeout(0.1, self, "load_map_deferred", [template_name, workshop_file_name, load_saved_state, is_remote, post_load_object, post_load_method])
+
+func load_map_deferred(args):
+    self.menu.show()
+    self.remove_child(self.loading_screen)
+    self.load_map_for_real(args[0], args[1], args[2], args[3], args[4], args[5])
+
+func load_map_for_real(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false, post_load_object = null, post_load_method = null):
+    var human_player = 'cpu_0'
     current_map_name = template_name
     current_map = map_template.instance()
     current_map._init_bag(self.bag)
@@ -257,6 +267,9 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.bag.waypoint_factory.prepare_for_map()
     self.bag.positions.get_waypoints()
 
+    if post_load_object != null:
+        self.bag.timers.set_timeout(0.1, post_load_object, post_load_method)
+
 func restart_map():
     self.load_map(current_map_name, workshop_file_name, false, self.is_remote)
 
@@ -313,7 +326,11 @@ func toggle_menu(target = 'menu', skip_back_check = true):
                 hud_controller.hud_end_game_missions_button.grab_focus()
 
 func show_menu():
-    if is_map_loaded and menu.is_hidden():
+    if self.is_map_loaded and self.menu.is_hidden():
+        self.toggle_menu()
+
+func hide_menu():
+    if self.menu.is_visible():
         self.toggle_menu()
 
 func show_missions():

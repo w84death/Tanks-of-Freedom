@@ -6,7 +6,7 @@ var background_map_controller
 var workshop_enabled = false
 
 func init_root(root_node):
-    self.root = root_node  
+    self.root = root_node
     self.bag = self.root.bag
     self.workshop = self.bag.workshop
     self.menu_controller = self.bag.controllers.menu_controller
@@ -24,7 +24,7 @@ func enter_workshop():
 func show_workshop():
     if self.workshop_enabled:
         self.menu_controller.hide()
-        self.root.toggle_menu()
+        self.root.hide_menu()
         self.workshop.show()
         self.workshop.units.raise()
         self.background_map_controller.hide_background_map()

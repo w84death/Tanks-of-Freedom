@@ -110,9 +110,11 @@ func set_team(team):
        self.team_blue.hide()
 
 func start_mission():
-    self.root.load_map(self.current_campaign_map, false)
+    self.root.load_map(self.current_campaign_map, false, false, false, self, "post_start_mission")
+
+func post_start_mission():
     self.hide_campaign_menu()
-    self.root.toggle_menu()
+    self.root.hide_menu()
 
 func switch_to_prev():
     if self.current_campaign_map > 0:
