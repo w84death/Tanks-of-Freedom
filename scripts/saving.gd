@@ -48,7 +48,10 @@ func load_state():
     else:
         is_remote = false
 
-    self.bag.root.load_map(self.loaded_data['template_name'], self.loaded_data['from_workshop'], true, is_remote)
+    self.bag.root.load_map(self.loaded_data['template_name'], self.loaded_data['from_workshop'], true, is_remote, self, "post_load_state")
+
+func post_load_state():
+    self.bag.root.hide_menu()
 
 func load_map_state():
     self.remove_units_from_map()

@@ -200,7 +200,8 @@ func _close_button_pressed():
     self.root.sound_controller.play('menu')
     if not self.root.is_map_loaded && self.root.bag.saving != null:
         self.root.bag.saving.load_state()
-    self.root.toggle_menu()
+    else:
+        self.root.toggle_menu()
 
 func _maps_close_button_pressed():
     self.root.sound_controller.play('menu')
