@@ -173,7 +173,7 @@ func load_map(template_name, workshop_file_name = false, load_saved_state = fals
     self.bag.controllers.background_map_controller.hide_background_map()
     self.menu.hide()
     self.add_child(self.loading_screen)
-    self.bag.timers.set_timeout(0.1, self, "load_map_deferred", [template_name, workshop_file_name, load_saved_state, is_remote, post_load_object, post_load_method])
+    self.bag.timers.set_timeout(0.5, self, "load_map_deferred", [template_name, workshop_file_name, load_saved_state, is_remote, post_load_object, post_load_method])
 
 func load_map_deferred(args):
     self.menu.show()
