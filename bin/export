@@ -114,16 +114,22 @@ function run_target {
         echo "Running debug export. Logging into $2/$target_subdir/build.log"
         echo "$godot_command -export_debug '$godot_target' $2/$target_subdir/$3_debug_$file_extension"
         $godot_command -export_debug "$godot_target" "$2/$target_subdir/$3_debug_$file_extension" > $2/$target_subdir/build.log 2>&1
+
+        if [ ! -e "$2/$target_subdir/$3_$file_extension" ]
+            then
+            echo "Build probably failed! Check the log!"
+        fi
     else
         echo "Running export. Logging into $2/$target_subdir/build.log"
         echo "$godot_command -export '$godot_target' $2/$target_subdir/$3_$file_extension"
         $godot_command -export "$godot_target" "$2/$target_subdir/$3_$file_extension" > $2/$target_subdir/build.log 2>&1
+
+        if [ ! -e "$2/$target_subdir/$3_debug_$file_extension" ]
+            then
+            echo "Build probably failed! Check the log!"
+        fi
     fi
 
-    if [ ! -e "$2/$target_subdir/$3_$file_extension" ]
-        then
-        echo "Build probably failed! Check the log!"
-    fi
 
     cleanup_after_build
 }
