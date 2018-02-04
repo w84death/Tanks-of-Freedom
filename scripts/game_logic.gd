@@ -271,7 +271,10 @@ func load_map_for_real(template_name, workshop_file_name = false, load_saved_sta
         self.bag.timers.set_timeout(0.1, post_load_object, post_load_method)
 
 func restart_map():
-    self.load_map(current_map_name, workshop_file_name, false, self.is_remote)
+    self.load_map(current_map_name, workshop_file_name, false, self.is_remote, self, "post_restart_map")
+
+func post_restart_map():
+    self.menu.hide()
 
 func unload_map():
     if is_map_loaded == false:
