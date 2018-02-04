@@ -279,6 +279,8 @@ func unload_map():
 
     is_map_loaded = false
     self.bag.storyteller.clear_stories()
+    if action_controller.active_indicator.is_inside_tree():
+        action_controller.active_indicator.get_parent().remove_child(action_controller.active_indicator)
     current_map_terrain.remove_child(selector)
     scale_root.remove_child(current_map)
     current_map.call_deferred("free")
