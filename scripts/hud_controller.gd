@@ -383,8 +383,18 @@ func show_story_message(left, message, avatar_frame, avatar_name, callback_objec
 
     self.root.hud.add_child(self.hud_story_message)
     self.hud_story_message_button.grab_focus()
+    self.fix_story_message_size()
 
 func hide_story_message():
     self.root.hud.remove_child(self.hud_story_message)
     self.hud_story_message_bound_object.call(self.hud_story_message_bound_method)
     self.root.sound_controller.play('menu')
+
+func fix_story_message_size(newsize=null):
+    var margin
+    if newsize == null:
+        margin = max((self.root.bag.camera.game_logic.get_size().x - 976) / 2, 24)
+    else:
+        margin = max((newsize.x - 976) / 2, 24)
+    self.hud_story_message.set_margin(MARGIN_LEFT, margin)
+    self.hud_story_message.set_margin(MARGIN_RIGHT, margin)

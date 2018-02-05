@@ -39,6 +39,9 @@ func update_window_size():
     self.root.screen_size = resolution
     self.root.half_screen_size = resolution / 2
 
+    if self.root.hud_controller != null:
+        self.root.hud_controller.fix_story_message_size(resolution)
+
 func check_initial_resolution():
     if self.root.settings['resolution'] != self.UNSET:
         return
@@ -81,6 +84,8 @@ func apply_resolution():
     self.bag.workshop_dead_zone.screen_size = newsize
     self.root.screen_size = newsize
     self.root.half_screen_size = newsize / 2
+    if self.root.hud_controller != null:
+        self.root.hud_controller.fix_story_message_size(newsize)
 
 func toggle_resolution():
     if not self.override_resolution:
