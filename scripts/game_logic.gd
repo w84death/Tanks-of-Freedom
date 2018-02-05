@@ -162,7 +162,10 @@ func _input(event):
             self.bag.camera.camera_zoom_out()
 
     if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
-        self.toggle_menu('menu', false)
+        if is_map_loaded and action_controller.active_field != null:
+            action_controller.clear_active_field()
+        else:
+            self.toggle_menu('menu', false)
 
 func move_selector_to_map_position(pos):
     if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
@@ -264,6 +267,7 @@ func load_map_for_real(template_name, workshop_file_name = false, load_saved_sta
         self.lock_for_cpu()
     else:
         self.unlock_for_player()
+        self.move_selector_to_map_position(self.bag.positions.get_player_bunker_position(self.action_controller.current_player))
     self.sound_controller.play_soundtrack()
     self.bag.language.reload_labels()
     self.bag.ai.reset()
