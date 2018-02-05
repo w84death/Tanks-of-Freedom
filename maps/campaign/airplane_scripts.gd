@@ -65,11 +65,11 @@ var triggers = {
 
     'turn10' : {'type' : 'turn', 'story' : 'turn10', 'details' : { 'turn' : 10 }, 'one_off' : true},
 
-    'turn18' : {'type' : 'turn', 'story' : 'turn18', 'details' : { 'turn' : 18 }, 'one_off' : true},
+    'turn18' : {'type' : 'turn', 'story' : 'turn18', 'details' : { 'turn' : 20 }, 'one_off' : true},
 
-    'turn22' : {'type' : 'turn', 'story' : 'turn22', 'details' : { 'turn' : 22 }, 'one_off' : true},
+    'turn22' : {'type' : 'turn', 'story' : 'turn22', 'details' : { 'turn' : 25 }, 'one_off' : true},
 
-    'turn26' : {'type' : 'turn', 'story' : 'turn26', 'details' : { 'turn' : 26 }, 'one_off' : true},
+    'turn26' : {'type' : 'turn', 'story' : 'turn26', 'details' : { 'turn' : 30 }, 'one_off' : true},
 
     'app_blue_hq' : {'type' : 'move', 'story' : 'app_blue_hq', 'details' : { 'fields' : [Vector2(20, 22), Vector2(21, 22), Vector2(22, 22), Vector2(23, 22), Vector2(24, 22), Vector2(22, 23), Vector2(23, 23), Vector2(24, 23), Vector2(23, 24), Vector2(24, 24), Vector2(23, 25), Vector2(24, 25)], 'player' : 1 }, 'one_off' : true},
 }
