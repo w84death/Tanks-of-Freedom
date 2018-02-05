@@ -23,7 +23,6 @@ var temp_delta = 0
 var panning = false
 var forced_movement = false
 
-const CAMERA_ACCELERATION = 1.5
 const MAP_STEP = 0.01
 const NEAR_THRESHOLD = 20
 const NEAR_SCREEN_THRESHOLD = 0.3
@@ -36,6 +35,14 @@ var position_for_player = {
     "player_1" : Vector2(0, 0),
 }
 
+var camera_speeds = [
+    1.0,
+    1.5,
+    2.5,
+    5.0,
+    10.0,
+]
+
 func _initialize():
     self.root = self.bag.root
     self.camera = self.root.get_node("/root/game/viewport/camera")
@@ -44,6 +51,7 @@ func _initialize():
     self.update_zoom()
 
     self.apply_default_camera()
+    self.update_camera_speed()
 
 func update_zoom():
     self.scale = self.camera.get_zoom()
@@ -176,3 +184,6 @@ func restore_position_for_player(player):
 
     if position.x != 0 and position.y != 0:
         self.set_pos(position)
+
+func update_camera_speed():
+    self.camera_speed = self.camera_speeds[self.bag.root.settings['camera_speed']]

@@ -157,7 +157,6 @@ trans_key = "LABEL_EN"
 
 [node name="ai_speed" parent="body/tabs/game" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 margin/top = 96.0
 margin/right = 190.0
 margin/bottom = 176.0
@@ -166,6 +165,18 @@ margin/bottom = 176.0
 
 text = "AI SPEED"
 trans_key = "LABEL_AI_SPEED"
+
+[node name="camera_speed" parent="body/tabs/game" instance=ExtResource( 4 )]
+
+margin/left = 222.0
+margin/top = 96.0
+margin/right = 412.0
+margin/bottom = 176.0
+
+[node name="title" parent="body/tabs/game/camera_speed"]
+
+text = "CAMERA SPEED"
+trans_key = "LABEL_CAMERA_SPEED"
 
 [node name="gfx" type="GridContainer" parent="body/tabs"]
 
@@ -445,6 +456,7 @@ trans_key = "LABEL_GAMEPAD_INFO"
 [editable path="body/tabs/game/tooltips"]
 [editable path="body/tabs/game/language"]
 [editable path="body/tabs/game/ai_speed"]
+[editable path="body/tabs/game/camera_speed"]
 [editable path="body/tabs/gfx/shake_toggle"]
 [editable path="body/tabs/gfx/camera_follow"]
 [editable path="body/tabs/gfx/display_mode_toggle"]

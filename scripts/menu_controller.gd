@@ -72,6 +72,8 @@ var button_states = {true : 'LABEL_ON', false : 'LABEL_OFF'}
 var speed_states = ['>', '>>', '>>>', '>>>>', '>>>>>']
 var ai_speed_button
 var ai_speed_label
+var camera_speed_button
+var camera_speed_label
 
 func _ready():
     self.control_nodes = [self.get_node("top"), self.get_node("middle"), self.get_node("bottom")]
@@ -143,6 +145,8 @@ func _ready():
     self.difficulty_button = self.settings_game.get_node("difficulty/buttons/center/first")
     self.ai_speed_button = self.settings_game.get_node("ai_speed/buttons/center/first")
     self.ai_speed_label = self.ai_speed_button
+    self.camera_speed_button = self.settings_game.get_node("camera_speed/buttons/center/first")
+    self.camera_speed_label = self.camera_speed_button
     self.tooltips_button = self.settings_game.get_node("tooltips/buttons/center/first")
     self.language_cycle_button = self.settings_game.get_node('language/buttons/center/first')
     self.difficulty_label = self.difficulty_button
@@ -165,6 +169,7 @@ func _ready():
     __bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
     __bind_pressed(overscan_toggle_button, ["play_menu_sound", "__toggle_overscan"])
     __bind_pressed(ai_speed_button, ["play_menu_sound", "__toggle_ai_speed"])
+    __bind_pressed(camera_speed_button, ["play_menu_sound", "__toggle_camera_speed"])
 
     self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
@@ -344,6 +349,8 @@ func refresh_buttons_labels():
 
     __set_togglable_label('easy_mode', 'difficulty_label', {false: tr('LABEL_NORMAL'), true : tr('LABEL_EASY')})
     __set_togglable_label('ai_speed', 'ai_speed_label', self.speed_states)
+    __set_togglable_label('camera_speed', 'camera_speed_label', self.speed_states)
+
 
     language_cycle_label.set_trans_key(self.root.settings['language'].to_upper())
 
@@ -442,13 +449,17 @@ func __toggle_camera_move_to_bunker():
 
 func __toggle_ai_speed():
     __toggle_multioption_button('ai_speed', 'ai_speed_label', self.speed_states)
+    self.root.bag.perform.update_ai_speed()
+
+func __toggle_camera_speed():
+    __toggle_multioption_button('camera_speed', 'camera_speed_label', self.speed_states)
+    self.root.bag.camera.update_camera_speed()
 
 func __toggle_multioption_button(setting_name, setting_label, button_states = self.button_states):
     var count = button_states.size()
     root.settings[setting_name] = (root.settings[setting_name] + 1) % count
     __set_togglable_label(setting_name, setting_label, button_states)
     root.write_settings_to_file()
-    self.root.bag.perform.update_ai_speed()
 
 func __toggle_button(setting_name, setting_label, button_states = self.button_states):
     root.settings[setting_name] = not root.settings[setting_name]
