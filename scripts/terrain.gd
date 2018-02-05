@@ -29,8 +29,8 @@ func set_pos_map(new_position):
 func set_damage():
 	if destructable and damage < 2:
 		damage += 1
-		var smoke = self.get_node("smoke")
-		if smoke:
+		if self.has_node("smoke"):
+			var smoke = self.get_node("smoke")
 			smoke.show()
 			smoke.set_lifetime(smoke_lifetime)
 			smoke.set_amount(smoke_particles * damage)

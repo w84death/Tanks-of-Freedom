@@ -56,7 +56,8 @@ func check_block_conditions(cost, player_ap, spawn_field):
         self.no_enough_ap_label.set_text(tr('MSG_SPAWN_BLOCKED'))
 
 func bind_spawn_unit(controller, method_name):
-    self.deploy_button.connect("pressed", controller, method_name)
+    if not self.deploy_button.is_connected("pressed", controller, method_name):
+        self.deploy_button.connect("pressed", controller, method_name)
 
 func set_unit_name(name):
     self.name.set_text(name)
