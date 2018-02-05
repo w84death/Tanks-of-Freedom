@@ -72,7 +72,7 @@ func remove_objects_group_from_map(group_tag):
             continue
         object.get_parent().remove_child(object)
         object.remove_from_group(group_tag)
-        object.queue_free()
+        object.call_deferred("free")
 
 func apply_units_from_save():
     var new_unit
