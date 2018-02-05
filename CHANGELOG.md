@@ -10,8 +10,14 @@
 - updated to Godot 2.1.4 (2.1.2 or newer required)
 - added camera dragging with right mouse button
 - added loading screen when map is being built
+- added AI speed settings
+- added camera speed settings
+- camera going to HQ at the start of each turn now can be disabled
+- tooltips at the start of each turn now can be disabled
 - fixed a crash when unit had map boundary in movement range
 - fixed accidental menu clicks when skipping intro
+- fixed a bug where touching edge of screen would send the camera far away
+- fixed huge amount of errors being printed into the console
 
 ### 0.6.3-beta
 - added 'back' behaviour to most menus

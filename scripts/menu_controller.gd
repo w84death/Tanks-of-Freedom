@@ -170,6 +170,7 @@ func _ready():
     __bind_pressed(overscan_toggle_button, ["play_menu_sound", "__toggle_overscan"])
     __bind_pressed(ai_speed_button, ["play_menu_sound", "__toggle_ai_speed"])
     __bind_pressed(camera_speed_button, ["play_menu_sound", "__toggle_camera_speed"])
+    __bind_pressed(tooltips_button, ["play_menu_sound", "__toggle_tooltips"])
 
     self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
     difficulty_button.connect("pressed", self, "_difficulty_button_pressed")
@@ -342,7 +343,8 @@ func refresh_buttons_labels():
         ['shake_enabled', 'shake_toggle_label'],
         ['camera_follow', 'camera_follow_label'],
         ['camera_move_to_bunker', 'camera_move_to_bunker_label'],
-        ['is_overscan', 'overscan_toggle_label']
+        ['is_overscan', 'overscan_toggle_label'],
+        ['tooltips_enabled', 'tooltips_button']
     ]
     for item in items_for_refresh:
         __set_togglable_label(item[0], item[1])
@@ -454,6 +456,10 @@ func __toggle_ai_speed():
 func __toggle_camera_speed():
     __toggle_multioption_button('camera_speed', 'camera_speed_label', self.speed_states)
     self.root.bag.camera.update_camera_speed()
+
+func __toggle_tooltips():
+    __toggle_button('tooltips_enabled', 'tooltips_button')
+
 
 func __toggle_multioption_button(setting_name, setting_label, button_states = self.button_states):
     var count = button_states.size()

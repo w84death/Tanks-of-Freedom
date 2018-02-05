@@ -203,9 +203,12 @@ func close_message_card():
     hud_message_card.hide()
     self.unlock_hud()
     self.show_map()
+    hud_message_card_visible = false
+    self.begin_player_turn()
+
+func begin_player_turn():
     action_controller.move_camera_to_active_bunker()
     action_controller.show_bonus_ap()
-    hud_message_card_visible = false
     self.root.bag.storyteller.register_story_event({
         'type' : 'turn',
         'details' : {'turn' : self.root.bag.controllers.action_controller.turn}

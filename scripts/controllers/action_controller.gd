@@ -453,13 +453,16 @@ func switch_to_player(player, save_game=true):
         self.move_camera_to_active_bunker()
     else:
         root_node.unlock_for_player()
-        hud_controller.show_in_game_card([], current_player)
         self.root_node.bag.controllers.hud_panel_controller.info_panel.end_button_enable()
         if save_game && self.root_node.bag.saving != null and not self.root_node.bag.match_state.is_multiplayer:
             self.root_node.bag.saving.save_state()
         self.refill_ap()
         if self.root_node.bag.match_state.is_multiplayer:
             self.root_node.bag.match_state.reset_actions_taken()
+        if self.root_node.settings['tooltips_enabled']:
+            hud_controller.show_in_game_card([], current_player)
+        else:
+            hud_controller.begin_player_turn()
     self.root_node.bag.fog_controller.clear_fog()
     self.root_node.bag.ap_gain.update()
     self.root_node.bag.controllers.hud_panel_controller.info_panel.info_panel_set_current_team(player)
