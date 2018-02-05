@@ -443,6 +443,9 @@ func switch_to_player(player, save_game=true):
     self.reset_player_units(player)
     selector.set_player(player)
     self.root_node.bag.abstract_map.map.current_player = player
+    self.root_node.bag.fog_controller.clear_fog()
+    self.root_node.bag.ap_gain.update()
+    self.root_node.bag.controllers.hud_panel_controller.info_panel.info_panel_set_current_team(player)
     if root_node.settings['cpu_' + str(player)]:
         if not self.root_node.bag.match_state.is_multiplayer:
             self.refill_ap()
@@ -462,10 +465,7 @@ func switch_to_player(player, save_game=true):
         if self.root_node.settings['tooltips_enabled']:
             hud_controller.show_in_game_card([], current_player)
         else:
-            hud_controller.begin_player_turn()
-    self.root_node.bag.fog_controller.clear_fog()
-    self.root_node.bag.ap_gain.update()
-    self.root_node.bag.controllers.hud_panel_controller.info_panel.info_panel_set_current_team(player)
+            hud_controller.call_deferred("begin_player_turn")
 
 
 func perform_ai_stuff():
