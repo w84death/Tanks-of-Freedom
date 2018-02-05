@@ -97,32 +97,6 @@ var should_do_awesome_explosions = false
 var awesome_explosions_interval = 10
 var awesome_explosions_interval_counter = 0
 
-func _input(event):
-    if self.is_dead:
-        return
-
-    pos = terrain.get_pos()
-    if event.type == InputEvent.MOUSE_BUTTON:
-        if event.button_index == BUTTON_LEFT:
-            if not show_blueprint || (self.root.bag.workshop.movement_mode && self.root.bag.workshop.is_working && not self.root.bag.workshop.is_suspended):
-                mouse_dragging = event.pressed
-        if event.button_index == BUTTON_RIGHT && show_blueprint && self.root.bag.workshop.is_working && not self.root.bag.workshop.is_suspended:
-            mouse_dragging = event.pressed
-
-    if (event.type == InputEvent.MOUSE_MOTION):
-        if (mouse_dragging):
-            if not show_blueprint and self.root.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
-                return
-
-            pos.x = pos.x + event.relative_x / scale.x
-            pos.y = pos.y + event.relative_y / scale.y
-            self.set_map_pos_global(pos)
-
-    if not show_blueprint && event.type == InputEvent.KEY && not self.root.is_paused:
-        if event.scancode == KEY_P:
-            self.do_cinematic_pan = event.pressed
-        if event.scancode == KEY_E && event.pressed:
-            self.should_do_awesome_explosions = not self.should_do_awesome_explosions
 
 func do_awesome_cinematic_pan():
     self.set_map_pos_global(Vector2(self.sX - 1, self.sY))

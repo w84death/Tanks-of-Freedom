@@ -82,6 +82,9 @@ var registered_click_threshold = 10
 const SETTINGS_PATH = "user://settings.tof"
 
 func _input(event):
+    if self.is_debug and self.is_mobile:
+        print("ToF.DEBUG: ", event)
+
     if is_demo == true:
         is_demo = false
         get_node("DemoTimer").stop()
