@@ -103,7 +103,7 @@ func __should_hold_waypoint(action):
     return true
 
 func __should_use_last_ap(action):
-    if action.unit.ap == 1 and !action.unit.can_attack() and !self.enemies_in_sight(action).size():
+    if action.unit.ap == 1 and !self.enemies_in_sight(action).size():
         return true
     return false
 
