@@ -5,6 +5,7 @@ var player
 var player_ap
 var own_units
 var ai_logger_enabled
+var current_action = null
 
 const MIN_DESTINATION_PER_UNIT = 12
 const SPAWN_LIMIT = 35
@@ -27,15 +28,25 @@ func __do_ai(current_player, player_ap):
     self.player = current_player
     self.player_ap = player_ap
 
+    if self.current_action == null:
+        self.__prepare_current_action()
+
+    if self.current_action == null:
+        return false
+
+    var result = self.bag.actions_handler.execute_best_action(self.current_action)
+    if self.check_continue_turn(result):
+        return true
+    else:
+        self.current_action = null
+        return false
+
+func __prepare_current_action():
     self.__prepare_unit_actions()
     self.__prepare_building_actions()
 
-    var best_action = self.bag.actions_handler.get_best_action(self.player)
-    if best_action == null:
-        return false
-    else:
-        var result = self.bag.actions_handler.execute_best_action(best_action)
-        return self.check_continue_turn(result)
+    self.current_action = self.bag.actions_handler.get_best_action(self.player)
+
 
 func check_continue_turn(res):
     randomize()

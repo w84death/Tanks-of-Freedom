@@ -29,15 +29,16 @@ func __on_success(action):
             self.bag.waypoint_factory.mark_building_as_blocked(action.destination.point_of_interest)
 
         self.bag.actions_handler.remove(action)
+        self.reset_current_action()
 
 func __on_fail(action):
     action.fails = action.fails + 1
     action.score = action.score - 20
-    action.proceed = 0
     if action.fails >= 2:
         self.bag.actions_handler.remove(action)
         if self.get_actions_for_unit(action.unit).size() == 0:
             self.mark_unit_for_calculations(action.unit)
+    self.reset_current_action()
 
 
 

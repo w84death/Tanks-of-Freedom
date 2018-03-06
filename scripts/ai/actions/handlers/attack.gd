@@ -26,3 +26,5 @@ func __on_success(action):
 
     if action.unit.life > 0 && self.get_actions_for_unit(action.unit).size() == 0:
         self.mark_unit_for_calculations(action.unit)
+
+    self.reset_current_action()

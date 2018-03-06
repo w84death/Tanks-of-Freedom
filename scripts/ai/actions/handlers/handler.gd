@@ -9,6 +9,9 @@ func __get_next_tile_from_path(path):
 func mark_unit_for_calculations(unit):
     self.bag.ai.processed_units_object_ids.erase(unit.get_instance_ID())
 
+func reset_current_action():
+    self.bag.ai.current_action = null
+
 func remove_for_unit(unit, exept = null):
     for action in self.bag.actions_handler.actions:
         if action.unit == unit and action != exept:
@@ -75,6 +78,7 @@ func __on_fail(action):
         self.bag.actions_handler.remove(action)
         if self.get_actions_for_unit(action.unit).size() == 0:
             self.mark_unit_for_calculations(action.unit)
+    self.reset_current_action()
 
 
 

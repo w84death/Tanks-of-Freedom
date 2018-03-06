@@ -75,9 +75,6 @@ func score_move(action):
     else:
         score = score - (action.path.size() * 15)
 
-    if action.proceed:
-        score = score + 50 + (action.proceed * 10)
-
     score = self.MOVE_MOD + score - (self.__danger(action) * 8)
 
     if waypoint_value > 0 && action.unit.check_hiccup(action.path[1]):

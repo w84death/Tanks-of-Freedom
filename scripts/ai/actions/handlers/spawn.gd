@@ -16,3 +16,4 @@ func execute(action):
 func __on_success(action):
     #removing all spawn actions
     self.remove_for_type(action.type)
+    self.reset_current_action()

@@ -28,3 +28,5 @@ func __on_success(action):
         self.mark_unit_for_calculations(action.unit)
         self.remove_for_position(action.unit.player, action.unit.position_on_map)
 
+    self.reset_current_action()
+

@@ -6,7 +6,6 @@ var unit        = null
 var group       = null
 var type        = null
 var fails       = 0
-var proceed     = 0
 var status      = 0
 var ttl         = null
 var unused_ttl  = null
@@ -31,7 +30,6 @@ func proceed():
     self.path = Vector2Array(path)
     self.start = path[0]
     self.unit.add_move(path[0])
-    self.proceed = self.proceed + 1
 
 func is_unit_action():
     return self.group == 'unit'
@@ -57,7 +55,7 @@ func __info(string=''):
         return
 
 func __to_string():
-    var msg = "id: %5d t: %7s sc: %6.2f u: %5s d: %8s ap: %s p: %s proc: %s s: %s ttl: %s uttl: %s"
+    var msg = "id: %5d t: %7s sc: %6.2f u: %5s d: %8s ap: %s p: %s s: %s ttl: %s uttl: %s"
     var ap = 0;
     var dest = ''
     if self.unit.group != 'building':
@@ -66,5 +64,5 @@ func __to_string():
     if self.destination != null:
         dest = self.destination.group
 
-
-    return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), dest, ap, self.path, self.proceed, self.unit.position_on_map, self.ttl, self.unused_ttl]
+    return '-'
+    #return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), dest, ap, self.path,  self.unit.position_on_map, self.ttl, self.unused_ttl]
