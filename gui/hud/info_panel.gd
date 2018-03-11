@@ -31,8 +31,6 @@ func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
     self.info_panel_turn = self.end_turn.get_node('turn')
     self.info_panel_end_button = self.end_turn.get_node('end_turn_button')
     self.info_panel_blink_label = self.end_turn.get_node('end_turn_text')
-    self.info_panel_blink_led = self.end_turn.get_node('end_turn_led')
-    self.info_panel_blink_led_anim = self.info_panel_blink_led.get_node('anim')
     self.info_panel_ap = self.turn_info.get_node('ap')
     self.info_panel_pap = self.turn_info.get_node('pap')
     self.info_panel_map_name = self.turn_info.get_node('map_name')
@@ -93,40 +91,21 @@ func end_button_toggle():
 
 func end_button_enable():
     info_panel_end_button.set_disabled(false)
-    self.info_panel_blink_message(false, tr('LABEL_PLAY'))
+    self.info_panel_blink_message(tr('LABEL_END_TURN'))
 
 func end_button_disable():
     self.info_panel_end_button.set_disabled(true)
-    self.info_panel_blink_message(true, tr('LABEL_WAIT'), 'blue')
+    self.info_panel_blink_message(tr('LABEL_WAIT'))
 
 func end_button_flash():
     info_panel_end_button.set_disabled(false)
-    self.info_panel_blink_message(true, tr('LABEL_END'), 'red')
+    self.info_panel_blink_message(tr('LABEL_NO_MORE_MOVES'))
 
-func info_panel_blink_message(blink, msg=false, colour=false):
-    if blink:
-        self.end_button_blink_animation(true, colour)
-    else:
-        self.end_button_blink_animation(false)
-
+func info_panel_blink_message(msg=false):
     if msg:
         self.info_panel_blink_label.set_text(msg)
     else:
         self.info_panel_blink_label.set_text('')
-
-func end_button_blink_animation(run, colour=false):
-    if run:
-        if colour == 'red':
-            self.info_panel_blink_led_anim.play('blink_red')
-        elif colour == 'blue':
-            self.info_panel_blink_led_anim.play('blink_blue')
-        elif colour == 'green':
-            self.info_panel_blink_led_anim.play('blink_green')
-        else:
-            self.info_panel_blink_led_anim.play('blink_red')
-    else:
-        self.info_panel_blink_led_anim.stop()
-        self.info_panel_blink_led.set_frame(0)
 
 func info_panel_set_current_team(team):
     if team == 0:

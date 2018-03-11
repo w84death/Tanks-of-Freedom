@@ -1,90 +1,9 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
-[ext_resource path="res://assets/gui/buttons/button_end_0.png" type="Texture" id=2]
-[ext_resource path="res://assets/gui/buttons/button_end_1.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/buttons/button_end_2.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=5]
-[ext_resource path="res://gui/font_22.tres" type="Theme" id=6]
-[ext_resource path="res://assets/gui/dialogs/mini_led_icons.png" type="Texture" id=7]
-
-[sub_resource type="Animation" id=1]
-
-length = 1.0
-loop = true
-step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 0
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 2, 3, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../end_turn_text:custom_colors/font_color")
-tracks/1/interp = 0
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0, 0.25, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-
-length = 1.0
-loop = true
-step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 0
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 5, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../end_turn_text:custom_colors/font_color")
-tracks/1/interp = 0
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0, 0.25, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-
-length = 1.0
-loop = true
-step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 0
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../end_turn_text:custom_colors/font_color")
-tracks/1/interp = 0
-tracks/1/imported = false
-tracks/1/keys = {
-"times": FloatArray( 0, 0.25, 0.5 ),
-"transitions": FloatArray( 1, 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
-}
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=2]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=4]
 
 [node name="end_turn" type="Control"]
 
@@ -105,9 +24,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -65.0
+margin/left = -78.0
 margin/top = -113.0
-margin/right = -71.0
+margin/right = -78.0
 margin/bottom = 1.0
 texture = ExtResource( 1 )
 patch_margin/left = 24
@@ -121,12 +40,13 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = -56.0
-margin/top = -46.0
-margin/right = 57.0
-margin/bottom = -32.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+margin/left = -61.0
+margin/top = -28.0
+margin/right = 66.0
+margin/bottom = -14.0
 text = "LABEL_END_TURN"
+align = 1
+valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -146,74 +66,47 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_turn_button" type="TextureButton" parent="."]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -16.0
-margin/top = -72.0
-margin/right = 62.0
-margin/bottom = -12.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/focused = ExtResource( 4 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
-
-[node name="gamepad_indicator" type="Sprite" parent="end_turn_button"]
-
-visibility/visible = false
-transform/pos = Vector2( 12, 8 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 5 )
-vframes = 2
-hframes = 4
-frame = 1
-
 [node name="turn" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 6 )
+theme/theme = ExtResource( 2 )
 margin/left = -32.0
 margin/top = -104.0
 margin/right = 64.0
-margin/bottom = -82.0
+margin/bottom = -81.0
 text = "99/120"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="end_turn_led" type="Sprite" parent="."]
+[node name="end_turn_button" type="Button" parent="."]
 
-transform/pos = Vector2( -38.786, -58 )
-transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 7 )
-vframes = 3
+editor/display_folded = true
+rect/min_size = Vector2( 96, 48 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 3 )
+margin/left = -46.0
+margin/top = -79.0
+margin/right = 50.0
+margin/bottom = -31.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Sprite" type="Sprite" parent="end_turn_button"]
+
+transform/pos = Vector2( 46, 23 )
+transform/scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+vframes = 2
 hframes = 2
-
-[node name="anim" type="AnimationPlayer" parent="end_turn_led"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/blink_blue = SubResource( 1 )
-anims/blink_green = SubResource( 2 )
-anims/blink_red = SubResource( 3 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
 
 
