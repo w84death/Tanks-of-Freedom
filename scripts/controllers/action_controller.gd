@@ -446,6 +446,7 @@ func switch_to_player(player, save_game=true):
     self.root_node.bag.fog_controller.clear_fog()
     self.root_node.bag.ap_gain.update()
     self.root_node.bag.controllers.hud_panel_controller.info_panel.info_panel_set_current_team(player)
+    self.hud_controller.set_current_team_label(player)
     if root_node.settings['cpu_' + str(player)]:
         if not self.root_node.bag.match_state.is_multiplayer:
             self.refill_ap()

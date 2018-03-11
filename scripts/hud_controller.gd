@@ -33,6 +33,8 @@ var cinematic_label
 var menu_button
 var menu_button_label
 var settings_button
+var current_team_blue
+var current_team_red
 
 var game_card
 var hud_vigette
@@ -127,6 +129,9 @@ func init_root(root, action_controller_object, hud):
     self.menu_button.connect("pressed", self, "_menu_button_pressed", ['menu'])
     self.settings_button.connect("pressed", self, "_menu_button_pressed", ['settings'])
     self.root.bag.controllers.hud_panel_controller.reset()
+
+    self.current_team_red = hud.get_node("top_center/center/game_card/current_team/red")
+    self.current_team_blue = hud.get_node("top_center/center/game_card/current_team/blue")
 
 func _hud_end_game_restart_button_pressed():
     self.root.sound_controller.play('menu')
@@ -398,3 +403,11 @@ func fix_story_message_size(newsize=null):
         margin = max((newsize.x - 976) / 2, 24)
     self.hud_story_message.set_margin(MARGIN_LEFT, margin)
     self.hud_story_message.set_margin(MARGIN_RIGHT, margin)
+
+func set_current_team_label(team):
+    if team == 0:
+        self.current_team_blue.show()
+        self.current_team_red.hide()
+    if team == 1:
+        self.current_team_blue.hide()
+        self.current_team_red.show()
