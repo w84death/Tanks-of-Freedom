@@ -126,7 +126,6 @@ trans_key = "LABEL_DIFFICULTY"
 
 [node name="tooltips" parent="body/tabs/game" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 margin/left = 222.0
 margin/right = 412.0
 

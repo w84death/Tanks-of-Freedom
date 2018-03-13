@@ -140,7 +140,6 @@ margin/bottom = 40.0
 
 [node name="blue" type="Control" parent="top_center/center/game_card/current_team"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
