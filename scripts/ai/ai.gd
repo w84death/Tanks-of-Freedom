@@ -77,9 +77,6 @@ func __prepare_unit_actions():
             if self.__should_prepare_actions(unit):
                 for destination in self.__gather_destinations(unit):
                     self.__add_action(unit, destination)
-            else:
-                for destination in self.__gather_nearest_enemy(unit):
-                    self.__add_flash_action(unit, destination)
 
 func __gather_nearest_enemy(unit):
     var destinations = Vector2Array()
@@ -125,9 +122,6 @@ func __prepare_building_actions():
 
 func __add_action(unit, destination):
     self.bag.actions_handler.add_action(unit, destination)
-
-func __add_flash_action(unit, destination):
-    self.bag.actions_handler.add_action(unit, destination, self.bag.actions_handler.action.FLASH_TTL)
 
 func reset():
     self.processed_units_object_ids.clear()

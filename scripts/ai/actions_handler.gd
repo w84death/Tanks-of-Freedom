@@ -3,11 +3,6 @@ extends "res://scripts/bag_aware.gd"
 var actions = []
 var action = preload('actions/action.gd')
 
-const ACTION_OLD_THRESHOLD = 100
-const ACTION_UNUSED_OLD_THRESHOLD = 15
-const CACHED = true
-const ONE_TIME = false
-
 func add_action(unit, destination, ttl = self.action.DEFAULT_TTL):
     if self.get_action(unit, destination):
         return
@@ -50,13 +45,13 @@ func get_best_action(player):
 
     return best
 
-func reestimate_user_actions(player): # TODO - more generic name
+func reestimate_user_actions(player):
     for action in self.actions:
         if self.remove_if_faulty(action):
             continue
 
         if action.unit.player == player:
-            if action.ttl <= 0 or action.unused_ttl <= 0:
+            if action.ttl <= 0:
                 self.actions.erase(action)
             else:
                 self.fix_path_if_faulty(action)

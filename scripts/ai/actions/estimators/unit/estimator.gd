@@ -53,10 +53,7 @@ func score_capture(action):
     if action.unit.life == 0 or !self.has_ap(action):
         return 0
 
-#    var enemy = self.get_target_object(action)
-#    if action.unit.player == enemy.player:
-#        return 0
-#
+    
 #    if !self.target_can_be_captured(action):
 #        return 0
 #
@@ -113,6 +110,9 @@ func __health_level(unit):
 func get_target_object(action):
     return self.bag.abstract_map.get_field(action.path[action.path.size() - 1]).object
 
+func get_next_object(action):
+    return self.bag.abstract_map.get_field(action.path[1]).object
+
 func is_destination_building(action):
     return action.destination.group == 'building'
 
@@ -126,11 +126,25 @@ func has_ap(action):
     return action.unit.ap > 0
 
 func can_move(action):
-    var field = self.bag.abstract_map.get_field(action.path[action.path.size() - 1])
+    var field = self.bag.abstract_map.get_field(action.path[1])
     if field.has_building() or field.has_unit():
         return false
 
     return true
+
+func can_capture_next_tile(action):
+    var field = self.bag.abstract_map.get_field(action.path[1])
+    if field.has_building():
+        return field.object.player != action.unit.player
+
+    return false
+
+func can_attack_next_tile(action):
+    var field = self.bag.abstract_map.get_field(action.path[1])
+    if field.has_unit():
+        return field.object.player != action.unit.player
+
+    return false
 
 func get_waypoint_value(action):
     var value = 0

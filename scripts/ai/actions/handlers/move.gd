@@ -1,21 +1,12 @@
-extends "res://scripts/ai/actions/handlers/handler.gd"
+extends "res://scripts/ai/actions/handlers/unit_handler.gd"
 
 func _init(bag):
     self.bag = bag
 
 func execute(action):
-    var field = self.__get_next_tile_from_path(action.path)
-        
-    if field  != null:
-        var active_field = self.bag.controllers.action_controller.set_active_field(action.unit.position_on_map)
-        if active_field.object != null:
-            var res = self.bag.controllers.action_controller.handle_action(field.position)
-            if res["status"] == 1:
-                self.__on_success(action)
-                return true
+    print("move")
+    .execute(action)
 
-    self.__on_fail(action)
-    return false
 
 func __on_success(action):
     action.proceed()
@@ -29,15 +20,11 @@ func __on_success(action):
             self.bag.waypoint_factory.mark_building_as_blocked(action.destination.point_of_interest)
 
         self.bag.actions_handler.remove(action)
-        self.reset_current_action()
 
 func __on_fail(action):
-    action.fails = action.fails + 1
-    action.score = action.score - 20
-    if action.fails >= 2:
-        self.bag.actions_handler.remove(action)
-        if self.get_actions_for_unit(action.unit).size() == 0:
-            self.mark_unit_for_calculations(action.unit)
+    self.bag.actions_handler.remove(action)
+    if self.get_actions_for_unit(action.unit).size() == 0:
+        self.mark_unit_for_calculations(action.unit)
     self.reset_current_action()
 
 

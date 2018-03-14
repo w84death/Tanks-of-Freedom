@@ -12,7 +12,8 @@ func _initialize():
     }
 
 func execute(action):
-    return self.handlers[action.type].execute(action)
+    var handler = __choose_handler(action)
+    return self.handlers[handler].execute(action)
 
 func __choose_handler(action): # TODO - refactor this
     if action.type == "spawn":
