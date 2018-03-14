@@ -10,3 +10,4 @@ export.cfg
 *.keystore
 *export_android.cfg
 logs/log.txt
+animation_frames.xml
