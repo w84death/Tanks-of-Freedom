@@ -9,7 +9,9 @@ var waypoint_value = {
 	1: 8, # TYPE_BARRACKS
 	2: 8, # TYPE_FACTORY
 	3: 5, # TYPE_AIRPORT
-	4: 10 # TYPE_TOWER
+	4: 10, # TYPE_TOWER
+	10: 5, # WAYPOINT TODO - check
+	11: 7, # WAYPOINT
 	}
 
 var nearby_tiles = []
@@ -42,45 +44,29 @@ func score_attack(action):
     if own_buildings_in_sight(action).size():
         score = score + 450
 
-    if self.bag.controllers.action_controller.turn > 8:
-        score = score * 1.2
-
     return self.ATTACK_MOD + score
 
-func score_move(action):
+func score_capture(action):
     #init
     self.__prepare_info(action)
 
-    if !self.can_move(action) or !self.has_ap(action):
+    if action.unit.life == 0 or !self.has_ap(action):
         return 0
 
-    if self.__should_use_last_ap(action):
-        return 0
+#    var enemy = self.get_target_object(action)
+#    if action.unit.player == enemy.player:
+#        return 0
+#
+#    if !self.target_can_be_captured(action):
+#        return 0
+#
+    var score = self.get_building_value(action) * self.BUILDING_WEIGHT
+#    # lower health is better
+#    score = score + (1 - self.__health_level(action.unit))
+#    if self.bag.controllers.action_controller.turn < 8:
+#        score = score * 1.2
 
-    if self.__should_hold_waypoint(action):
-        return 0
-
-    var waypoint_value = self.get_waypoint_value(action)
-    var score = waypoint_value * self.WAYPOINT_WEIGHT
-
-    if waypoint_value == 0:
-        score = score + 180
-        score = score + self.__health_level(action.unit) * 10
-
-    # TODO - parameters changing during game
-    if self.bag.controllers.action_controller.turn < 4:
-        if action.destination.group == 'waypoint' and action.unit.type != 0:
-            score = score * 0.3
-        score = score - (action.path.size() * 40)
-    else:
-        score = score - (action.path.size() * 15)
-
-    score = self.MOVE_MOD + score - (self.__danger(action) * 8)
-
-    if waypoint_value > 0 && action.unit.check_hiccup(action.path[1]):
-        score = score * 0.5
-
-    return score
+    return self.CAPTURE_MOD + score
 
 func score_recalc_path_move(action):
     self.score_move(action)
@@ -125,7 +111,7 @@ func __health_level(unit):
 	return 1.0 * unit.life / unit.max_life
 
 func get_target_object(action):
-    return self.bag.abstract_map.get_field(action.path[1]).object
+    return self.bag.abstract_map.get_field(action.path[action.path.size() - 1]).object
 
 func is_destination_building(action):
     return action.destination.group == 'building'
@@ -140,7 +126,7 @@ func has_ap(action):
     return action.unit.ap > 0
 
 func can_move(action):
-    var field = self.bag.abstract_map.get_field(action.path[1])
+    var field = self.bag.abstract_map.get_field(action.path[action.path.size() - 1])
     if field.has_building() or field.has_unit():
         return false
 
@@ -161,7 +147,7 @@ func get_waypoint_value(action):
     return value
 
 func get_building_value(action):
-     return self.waypoint_value[action.destination.type]
+    return self.waypoint_value[action.destination.type]
 
 func enemies_in_sight(action):
     return self.bag.positions.get_nearby_enemies(self.nearby_tiles, action.unit.player)
@@ -180,8 +166,10 @@ func buildings_in_sight(action):
     return self.bag.positions.get_nearby_buildings(self.nearby_tiles)
 
 func target_can_be_captured(action):
-    var tile = self.bag.abstract_map.get_field(action.path[1])
+    var tile = self.bag.abstract_map.get_field(action.path[action.path.size() - 1])
     if !action.unit.can_capture_building(tile.object):
         return false
 
     return true
+    
+    

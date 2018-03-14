@@ -15,23 +15,23 @@ func _initialize():
     self.building_estimator = load('res://scripts/ai/actions/estimators/building/estimator.gd').new(self.bag)
 
 func score(action):
+    var t = [1,2,3]
     action.score = 0
-    action.type = "null"
+    action.type = "void"
 
     if action.is_building_action():
         action.score = self.building_estimator.score(action)
         action.type = "spawn"
     else:
-        var next_tile = self.__get_next_tile_from_path(action.path)
-        if next_tile != null:
-            if (next_tile.object == null):
-                action.score = self.estimators[action.unit.type].score_move(action)
-                action.type = "move"
+        var destination = action.destination
+        if destination != null:
+            if destination.group == 'waypoint' or destination.group == 'building':
+                action.score = self.estimators[action.unit.type].score_capture(action)
+                action.type = "capture"
+
             else:
-                if next_tile.has_capturable_building(action.unit):
-                    action.score = self.estimators[action.unit.type].score_capture(action)
-                    action.type = "capture"
-                elif next_tile.has_attackable_enemy(action.unit):
+                var last_tile = self.__get_last_tile_from_path(action.path)
+                if last_tile.has_attackable_enemy(action.unit):
                     action.score = self.estimators[action.unit.type].score_attack(action)
                     action.type = "attack"
 
@@ -42,8 +42,8 @@ func __add_random(action):
         randomize()
         action.score = action.score + (action.score * self.RANDOM_VALUE * randf())
 
-func __get_next_tile_from_path(path): #TODO - move to helper
+func __get_last_tile_from_path(path): #TODO - move to helper (check if size is faster than duplicate / pop)
     if path.size() < 2:
         return null
 
-    return self.bag.abstract_map.get_field(path[1])
+    return self.bag.abstract_map.get_field(path[path.size() - 1])

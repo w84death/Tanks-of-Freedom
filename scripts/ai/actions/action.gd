@@ -64,5 +64,4 @@ func __to_string():
     if self.destination != null:
         dest = self.destination.group
 
-    return '-'
-    #return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), dest, ap, self.path,  self.unit.position_on_map, self.ttl, self.unused_ttl]
+    return msg % [self.get_instance_ID(), self.type, self.score, self.unit.get_instance_ID(), dest, ap, self.path,  self.unit.position_on_map, self.ttl, self.unused_ttl]
