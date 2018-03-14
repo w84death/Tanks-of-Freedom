@@ -89,7 +89,7 @@ var map_civilians = [
     preload('res://units/civilians/refugee2.tscn')
 ]
 
-var waypoint = preload('res:///waypoint.tscn')
+var waypoint = preload('res://maps/waypoint.tscn')
 
 var is_dead = false
 
