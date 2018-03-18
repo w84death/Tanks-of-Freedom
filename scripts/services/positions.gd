@@ -90,13 +90,31 @@ func get_player_units(player):
         return units_player_blue
     return units_player_red
 
+func get_enemy_units(player):
+    return self.get_player_units(1 - player)
+
 func get_player_buildings(player):
     if player == 0:
         return buildings_player_blue
     return buildings_player_red
 
+func get_enemy_buildings(player):
+    return self.get_player_buildings(1 - player)
+
 func get_unclaimed_buildings():
     return self.buildings_player_none
+
+func get_not_owned_buildings(player):
+    var enemy_buildings = self.get_enemy_buildings(player)
+    var combined_buildings = {}
+
+    for key in enemy_buildings:
+        combined_buildings[key] = enemy_buildings[key]
+
+    for key in self.buildings_player_none:
+        combined_buildings[key] = self.buildings_player_none[key]
+
+    return combined_buildings
 
 func get_player_bunker_position(player):
     var bunker = bunkers[player]

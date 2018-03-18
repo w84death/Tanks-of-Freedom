@@ -60,6 +60,8 @@ var logger = preload('res://scripts/services/logger.gd').new()
 var storyteller = preload("res://scripts/storyteller/storyteller.gd").new()
 var waypoint_factory = preload("res://scripts/objects/waypoints/waypoint_factory.gd").new()
 
+var yuri_ai = preload("res://scripts/yuri/yuri.gd").new()
+
 var saving = null
 var workshop = null
 
@@ -130,6 +132,8 @@ func init_root(root_node):
     self.waypoint_factory._init_bag(self)
 
     self.storyteller._init_bag(self)
+
+    self.yuri_ai._init_bag(self)
 
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()
