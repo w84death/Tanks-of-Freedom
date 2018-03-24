@@ -12,4 +12,5 @@ func set_score(score):
     if self.score_cap > 0 and self.score_cap < score:
         self.score = self.score_cap
     else:
-        self.score = score
+        if score > 0:
+            self.score = score
