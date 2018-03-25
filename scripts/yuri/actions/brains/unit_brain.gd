@@ -69,7 +69,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
         base_obstacles[building_position] = building_position
     for building_position in own_buildings:
         base_obstacles[building_position] = building_position
-        distance = self.bag.yuri_ai.pathfinding.get_distance(entity.position_on_map, building_position)
+        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, building_position)
         if distance <= 4:
             protects_building = true
             if own_buildings[building_position].get_building_name() == "HQ":
@@ -77,7 +77,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
     for ally_position in allies:
         if ally_position != entity.position_on_map:
             base_obstacles[ally_position] = ally_position
-        distance = self.bag.yuri_ai.pathfinding.get_distance(entity.position_on_map, ally_position)
+        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, ally_position)
         if distance <= 2:
             has_backup += 1
     for enemy_position in enemies:
@@ -89,7 +89,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
         if not entity.can_attack_unit_type(enemy):
             continue
 
-        distance = self.bag.yuri_ai.pathfinding.get_distance(entity.position_on_map, enemy.position_on_map)
+        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, enemy.position_on_map)
 
         if distance > entity.max_ap + 4:
             continue
@@ -97,11 +97,11 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
         if entity.ap == 1 and distance > 1:
             continue
 
-        obstacles = base_obstacles.duplicate()
+        obstacles = base_obstacles.keys()
         obstacles.erase(enemy.position_on_map)
-        self.bag.yuri_ai.pathfinding.set_obstacles(obstacles.keys())
+        self.bag.yuri_ai.pathfinder.set_obstacles(obstacles)
 
-        path = self.bag.yuri_ai.pathfinding.path_search(entity.position_on_map, enemy.position_on_map)
+        path = self.bag.yuri_ai.pathfinder.path_search(entity.position_on_map, enemy.position_on_map)
 
         if path.value > entity.max_ap + 4:
             continue
@@ -159,11 +159,11 @@ func _get_capture_actions(entity, enemies, buildings, allies, own_buildings):
     for building_position in buildings:
         target = buildings[building_position]
 
-        obstacles = base_obstacles.duplicate()
+        obstacles = base_obstacles.keys()
         obstacles.erase(target.position_on_map)
-        self.bag.yuri_ai.pathfinding.set_obstacles(obstacles.keys())
+        self.bag.yuri_ai.pathfinder.set_obstacles(obstacles)
 
-        path = self.bag.yuri_ai.pathfinding.path_search(entity.position_on_map, target.position_on_map)
+        path = self.bag.yuri_ai.pathfinder.path_search(entity.position_on_map, target.position_on_map)
 
         score = self.base_capture_value
 

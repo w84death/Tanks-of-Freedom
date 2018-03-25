@@ -16,7 +16,7 @@ func _initialize():
 
 
 func get_actions(entity, enemies = {}, units = {}):
-    if entity.spawn_field.object != null:
+    if entity.spawn_field == null or entity.spawn_field.object != null:
         return []
 
     var available_action_points = self.bag.controllers.action_controller[entity.player]

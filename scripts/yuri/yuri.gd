@@ -21,7 +21,11 @@ func _initialize():
 #
 # @return bool - returns whether AI was able to perform an action
 func start_do_ai(current_player, player_ap):
-    return self._perform_ai_tick(current_player, player_ap)
+    return self._perform_ai_tick(current_player)
+
+# stub method for compatibility
+func reset():
+    return
 
 
 # method for performin a single tick of AI
@@ -42,7 +46,7 @@ func _prepare_current_action(current_player):
 
 # method for selecting best action from a collection
 func _get_best_action(available_actions):
-    self.available_actions.sort_custom(self, "__best_first")
+    available_actions.sort_custom(self, "_value_first_sort_comparator")
 
     return available_actions[0]
 

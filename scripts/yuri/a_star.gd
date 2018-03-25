@@ -53,6 +53,9 @@ func prepare_map_grid(abstract_map):
     self._connect_passable_tiles()
 
 func set_obstacles(obstacle_positions):
+    self.set_obstacles_old(obstacle_positions)
+    return
+
     for position in obstacle_positions:
         self.new_obstacles.push_back(self._get_point_id(position.x, position.y))
 
@@ -60,6 +63,18 @@ func set_obstacles(obstacle_positions):
         self._remove_obstacle(id)
     for id in self.bag.helpers.array_diff(self.new_obstacles, self.obstacles):
         self._add_obstacle(id)
+
+    self.obstacles = Array(self.new_obstacles)
+    self.new_obstacles = []
+
+func set_obstacles_old(obstacle_positions):
+    for position in obstacle_positions:
+        self.new_obstacles.push_back(self._get_point_id(position.x, position.y))
+
+    for id in self.bag.helpers.array_diff(self.obstacles, self.new_obstacles):
+        self._connect_point(id)
+    for id in self.bag.helpers.array_diff(self.new_obstacles, self.obstacles):
+        self._disconnect_point(id)
 
     self.obstacles = Array(self.new_obstacles)
     self.new_obstacles = []
