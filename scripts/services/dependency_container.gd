@@ -135,6 +135,7 @@ func init_root(root_node):
 
     self.yuri_ai._init_bag(self)
     #self.ai = self.yuri_ai
+    #self.a_star = self.yuri_ai.pathfinder
 
     if Globals.get('tof/enable_save_load'):
         self.saving = load('res://scripts/saving.gd').new()

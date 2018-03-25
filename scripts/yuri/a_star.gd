@@ -41,7 +41,7 @@ func prepare_map_grid(abstract_map):
     var passable = false
     self.passable_field_count = 0
     for id in self.grid:
-        field = abstract_map.get_field(self.point_id_2_pos(id))
+        field = abstract_map.get_field(self._point_id_2_pos(id))
         passable = !(field.has_terrain() or field.is_empty())
         self.map_grid[id] = {
             "passable"  : passable,
@@ -73,7 +73,7 @@ func set_obstacles_old(obstacle_positions):
 
     for id in self.bag.helpers.array_diff(self.obstacles, self.new_obstacles):
         self._connect_point(id)
-    for id in self.bag.helpers.array_diff(self.new_obstacles, self.obstacles):
+    for id in self.new_obstacles:
         self._disconnect_point(id)
 
     self.obstacles = Array(self.new_obstacles)
@@ -98,7 +98,7 @@ func _remove_obstacle(tile_id):
     self.astar.set_point_weight_scale(tile_id, self.DEFAULT_WEIGHT)
 
 func _connect_passable_tiles():
-    for tile_id in map_grid:
+    for tile_id in self.map_grid:
         if self.map_grid[tile_id].passable:
             self._connect_point(tile_id)
 
@@ -121,7 +121,7 @@ func _connect_point(tile_id):
                 astar.connect_points(tile_id, id)
 
 func _disconnect_all():
-    for tile_id in map_grid:
+    for tile_id in self.grid:
         self._disconnect_point(tile_id)
 
 func _disconnect_point(tile_id):
@@ -130,13 +130,13 @@ func _disconnect_point(tile_id):
             astar.disconnect_points(tile_id, id)
 
 func _get_point_id(x, y):
-    return x * 1000 + y
+    return int(x * 1000 + y)
 
 func _pos_2_point_id(pos):
     return self._get_point_id(pos.x, pos.y)
 
 func _point_id_2_pos(id):
-    return self.grid[id][POSITION_KEY]
+    return self.grid[id][self.POSITION_KEY]
 
 func _get_adjacent_tile_ids(tile_id):
     var ids = IntArray([])
@@ -146,7 +146,7 @@ func _get_adjacent_tile_ids(tile_id):
         for neighbour in neighbours.values():
             field = self.bag.abstract_map.get_field(neighbour)
             if field != null and !field.is_empty():
-                ids.push_back(self.get_point_id(neighbour.x, neighbour.y))
+                ids.push_back(self._get_point_id(neighbour.x, neighbour.y))
 
     return ids
 

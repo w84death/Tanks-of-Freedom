@@ -6,6 +6,9 @@ var pathfinder = preload("res://scripts/yuri/a_star.gd").new()
 # actions collector for AI
 var collector = preload("res://scripts/yuri/actions/collector.gd").new()
 
+# executor for current action
+var executor = preload("res://scripts/yuri/actions/egzekutor.gd").new()
+
 
 # stored action with multiple steps to be executed
 var current_action = null
@@ -15,6 +18,7 @@ var current_action = null
 func _initialize():
     self.pathfinder._init_bag(self.bag)
     self.collector._init_bag(self.bag)
+    self.executor._init_bag(self.bag)
 
 
 # wrapper method to be compatible with previous AI
@@ -23,9 +27,9 @@ func _initialize():
 func start_do_ai(current_player, player_ap):
     return self._perform_ai_tick(current_player)
 
-# stub method for compatibility
+# reset AI to initial state
 func reset():
-    return
+    self.current_action = null
 
 
 # method for performin a single tick of AI
@@ -64,4 +68,9 @@ func _execute_best_action():
     if self.current_action == null:
         return false
 
-    return false
+    self.executor.execute(self.current_action)
+
+    if not self.current_action.can_continue():
+        self.current_action = null
+
+    return true

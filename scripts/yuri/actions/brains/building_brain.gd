@@ -16,16 +16,16 @@ func _initialize():
 
 
 func get_actions(entity, enemies = {}, units = {}):
-    if entity.spawn_field == null or entity.spawn_field.object != null:
+    var spawn_field = self.bag.abstract_map.get_field(entity.spawn_point)
+    if spawn_field.object != null:
         return []
 
-    var available_action_points = self.bag.controllers.action_controller[entity.player]
-
+    var available_action_points = self.bag.controllers.action_controller.player_ap[entity.player]
     if entity.get_required_ap() > available_action_points:
         return []
 
     var spawn_limit = min(self.bag.yuri_ai.pathfinder.passable_field_count / 7, self.global_spawn_limit)
-    if units.size() <= spawn_limit:
+    if units.size() >= spawn_limit:
         return []
 
 
@@ -43,7 +43,7 @@ func get_actions(entity, enemies = {}, units = {}):
             break
 
     if self._apply_amount_penalty(units):
-        self.score = score - self.unit_amount_penalty
+        score = score - self.unit_amount_penalty
 
     spawn_action.set_score(score)
 
@@ -54,11 +54,13 @@ func _apply_amount_penalty(units):
     return false
 
 func _count_units(units):
-    var counts = {}
+    var counts = {
+        "soldier" : 0,
+        "tank" : 0,
+        "heli" : 0
+    }
 
     for key in units:
-        if not counts.has(units[key].type_name):
-            counts[units[key].type_name] = 0
         counts[units[key].type_name] += 1
 
     return counts

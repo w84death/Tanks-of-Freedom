@@ -9,6 +9,7 @@ var kill_bonus = 40
 var teamwork_bonus = 20
 var building_protection_bonus = 50
 var hq_protection_bonus = 50
+var aggression_range = 4
 
 var base_capture_value = 100
 var immediate_capture_bonus = 50
@@ -91,7 +92,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
 
         distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, enemy.position_on_map)
 
-        if distance > entity.max_ap + 4:
+        if distance > entity.max_ap + self.aggression_range:
             continue
 
         if entity.ap == 1 and distance > 1:
@@ -103,7 +104,10 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
 
         path = self.bag.yuri_ai.pathfinder.path_search(entity.position_on_map, enemy.position_on_map)
 
-        if path.value > entity.max_ap + 4:
+        if path.value == 0:
+            continue
+
+        if path.value > entity.max_ap + self.aggression_range:
             continue
 
         if entity.ap == 1 and path.value > 2:
@@ -126,7 +130,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
         if path.value > 2:
             score -= path.value * self.distance_penalty
 
-        action = self.actions_templates["attack"].new(entity, path, enemy)
+        action = self.actions_templates["attack"].new(entity, path.path, enemy)
         action.set_score(score)
 
         attack_actions.append(action)
@@ -165,6 +169,12 @@ func _get_capture_actions(entity, enemies, buildings, allies, own_buildings):
 
         path = self.bag.yuri_ai.pathfinder.path_search(entity.position_on_map, target.position_on_map)
 
+        if path.value == 0:
+            continue
+
+        if entity.ap == 1 and path.value > 2:
+            continue
+
         score = self.base_capture_value
 
         if entity.ap >= path.value - 1:
@@ -175,7 +185,7 @@ func _get_capture_actions(entity, enemies, buildings, allies, own_buildings):
         if path.value > 2:
             score -= path.value * self.distance_penalty
 
-        action = self.actions_templates["capture"].new(entity, path, target)
+        action = self.actions_templates["capture"].new(entity, path.path, target)
         action.set_score(score)
 
         capture_actions.append(action)
