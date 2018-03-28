@@ -182,11 +182,13 @@ func update_healthbar():
     self.health_bar.set_frame(new_frame)
 
 func show_explosion():
+    self.get_node("/root/game").action_controller.exploding = true
     explosion = explosion_template.instance()
     explosion.unit = self
     self.add_child(explosion)
 
 func show_big_explosion():
+    self.get_node("/root/game").action_controller.exploding = true
     explosion = explosion_big_template.instance()
     explosion.unit = self
     self.add_child(explosion)
@@ -195,6 +197,7 @@ func show_big_explosion():
 func clear_explosion():
     self.remove_child(explosion)
     explosion.call_deferred("free")
+    self.get_node("/root/game").action_controller.exploding = false
     if die:
         parent.remove_child(self)
         self.die()

@@ -23,6 +23,7 @@ var is_cpu_player
 var start_ap_for_current_turn = 0
 
 var game_ended = false
+var exploding = false
 
 var interaction_indicators = {
     'bl' : { 'offset' : Vector2(0, 1), 'indicator' : null },
@@ -51,6 +52,7 @@ func reset():
     self.title = null
     self.camera = null
     self.game_ended = false
+    self.exploding = false
 
 func init_root(root, map, hud):
     self.reset()

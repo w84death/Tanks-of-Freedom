@@ -25,7 +25,7 @@ func do_ai_stuff():
         self.stop_ai_timer()
         return
 
-    if self.bag.root.is_paused || self.bag.camera.panning || self.pause:
+    if self.bag.root.is_paused || self.bag.camera.panning || self.pause || self.bag.controllers.action_controller.exploding:
         self.__execute_with_interval(self.skip_interval)
         return
 
