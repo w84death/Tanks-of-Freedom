@@ -6,12 +6,12 @@
 	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="5"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" index="6"></ext_resource>
 	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="7"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" index="10"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" index="10"></ext_resource>
 	<ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_0.png" type="Texture" index="8"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" index="9"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" index="8"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" index="9"></ext_resource>
 	<ext_resource path="res://gui/hud/skirmish_maps_block.xscn" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://assets/gui/buttons/analog_size2_special_4.png" type="Texture" index="11"></ext_resource>
+	<ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" index="11"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>

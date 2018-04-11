@@ -4,9 +4,9 @@
 [ext_resource path="res://gui/font_12.tres" type="Theme" id=2]
 [ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=3]
 [ext_resource path="res://gui/font_32.tres" type="Theme" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size2_special_0.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size2_special_1.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size2_special_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=8]
 [ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=9]
 
