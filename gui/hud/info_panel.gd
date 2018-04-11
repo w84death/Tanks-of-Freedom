@@ -6,7 +6,7 @@ var end_turn
 var zoom_panel
 
 var info_panel_end_button
-var info_panel_blink_label
+var info_panel_end_turn_label
 var info_panel_blink_led
 var info_panel_blink_led_anim
 var info_panel_turn
@@ -30,7 +30,7 @@ func bind(end_turn_panel_scene, info_panel_scene, zoom_panel_scene):
     self.zoom_panel = zoom_panel_scene
     self.info_panel_turn = self.end_turn.get_node('turn')
     self.info_panel_end_button = self.end_turn.get_node('end_turn_button')
-    self.info_panel_blink_label = self.end_turn.get_node('end_turn_text')
+    self.info_panel_end_turn_label = self.end_turn.get_node('end_turn_text')
     self.info_panel_ap = self.turn_info.get_node('ap')
     self.info_panel_pap = self.turn_info.get_node('pap')
     self.info_panel_map_name = self.turn_info.get_node('map_name')
@@ -91,21 +91,15 @@ func end_button_toggle():
 
 func end_button_enable():
     info_panel_end_button.set_disabled(false)
-    self.info_panel_blink_message(tr('LABEL_END_TURN'))
+    self.info_panel_end_turn_label.set_trans_key('LABEL_END_TURN')
 
 func end_button_disable():
     self.info_panel_end_button.set_disabled(true)
-    self.info_panel_blink_message(tr('LABEL_WAIT'))
+    self.info_panel_end_turn_label.set_trans_key('LABEL_WAIT')
 
 func end_button_flash():
     info_panel_end_button.set_disabled(false)
-    self.info_panel_blink_message(tr('LABEL_NO_MORE_MOVES'))
-
-func info_panel_blink_message(msg=false):
-    if msg:
-        self.info_panel_blink_label.set_text(msg)
-    else:
-        self.info_panel_blink_label.set_text('')
+    self.info_panel_end_turn_label.set_trans_key('LABEL_NO_MORE_MOVES')
 
 func info_panel_set_current_team(team):
     if team == 0:
