@@ -1,13 +1,13 @@
 var stories = {
     'introduction' : [
         {'action' : 'lock', 'details' : {}, 'delay' : 0.5},
-        {'action' : 'camera', 'details' : {'where' : Vector2(8, 11), 'zoom' : 1}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(8, 11), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_OFFICER_INTRO', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'camera', 'details' : {'where' : Vector2(9, 4), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_OFFICER_OBJECTIVE', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
-        {'action' : 'camera', 'details' : {'where' : Vector2(6, 11), 'zoom' : 1}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(6, 11), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_OFFICER_TOWER_1', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
-        {'action' : 'camera', 'details' : {'where' : Vector2(6, 4), 'zoom' : 1}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(6, 4), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'claim', 'details' : {'what' : Vector2(6, 4), 'side' : 1}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_OFFICER_TOWER_2', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'camera', 'details' : {'where' : Vector2(9, 6), 'zoom' : 2}, 'delay' : 0.5},

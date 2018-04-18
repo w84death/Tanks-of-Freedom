@@ -1,14 +1,14 @@
 var stories = {
     'introduction' : [
         {'action' : 'lock', 'details' : {}, 'delay' : 0.5},
-        {'action' : 'camera', 'details' : {'where' : Vector2(4, 12), 'zoom' : 1}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(4, 12), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_2_OFFICER_INTRO', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'camera', 'details' : {'where' : Vector2(4, 12), 'zoom' : 2}},
         {'action' : 'unlock', 'details' : {}},
     ],
     'barracks' : [
         {'action' : 'lock', 'details' : {}, 'delay' : 0.5},
-        {'action' : 'camera', 'details' : {'where' : Vector2(7, 13), 'zoom' : 1}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(7, 13), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_2_OFFICER_BARRACKS', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'camera', 'details' : {'where' : Vector2(7, 13), 'zoom' : 2}},
         {'action' : 'unlock', 'details' : {}},
@@ -21,7 +21,7 @@ var stories = {
     ],
     'barracks_claimed' : [
         {'action' : 'lock', 'details' : {}, 'delay' : 0.5},
-        {'action' : 'camera', 'details' : {'where' : Vector2(7, 13), 'zoom' : 1}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(7, 13), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_2_OFFICER_BARRACKS_CAPTURED_1', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'message', 'details': {'text' : 'MISSION_2_OFFICER_BARRACKS_CAPTURED_2', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'spawn', 'details' : {'where' : Vector2(7, 12), 'unit' : 'soldier', 'side' : 'blue'}, 'delay' : 1},
