@@ -83,7 +83,7 @@ func init_root(root, action_controller_object, hud):
     hud_end_game_stats_blue = hud_end_game_controls.get_node("blue")
     hud_end_game_stats_red = hud_end_game_controls.get_node("red")
     hud_end_game_missions_button = hud_end_game_controls.get_node("campaign")
-    hud_end_game_missions_button_label = hud_end_game_missions_button.get_node("Label")
+
     hud_end_game_restart_button = hud_end_game_controls.get_node("restart")
     hud_end_game_menu_button = hud_end_game_controls.get_node("menu")
 
@@ -258,15 +258,15 @@ func show_win(player, stats, turns):
 
 func adjust_missions_button():
     if self.root.bag.match_state.is_campaign():
-        self.hud_end_game_missions_button_label.set_text(tr('LABEL_CAMPAIGN'))
+        self.hud_end_game_missions_button.set_trans_key('LABEL_CAMPAIGN')
         self.hud_end_game_missions_button_action = "show_campaign"
     elif self.root.bag.match_state.is_multiplayer:
         self.hud_end_game_missions_button_action = "show_multiplayer"
     elif self.root.bag.match_state.is_workshop():
-        self.hud_end_game_missions_button_label.set_text(tr('LABEL_WORKSHOP'))
+        self.hud_end_game_missions_button.set_trans_key('LABEL_WORKSHOP')
         self.hud_end_game_missions_button_action = "show_workshop"
     else:
-        self.hud_end_game_missions_button_label.set_text(tr('LABEL_SKIRMISH'))
+        self.hud_end_game_missions_button.set_trans_key('LABEL_SKIRMISH')
         self.hud_end_game_missions_button_action = "show_missions"
 
     if self.root.bag.match_state.is_multiplayer:
