@@ -1,4 +1,4 @@
-extends "res://scripts/yuri/actions/brains/base_brain.gd"
+extends "res://scripts/ai/actions/brains/base_brain.gd"
 
 
 var close_threshold = 4
@@ -12,7 +12,7 @@ var global_spawn_limit = 20
 
 
 func _initialize():
-    self.actions_templates['spawn'] = preload("res://scripts/yuri/actions/types/spawn_unit_action.gd")
+    self.actions_templates['spawn'] = preload("res://scripts/ai/actions/types/spawn_unit_action.gd")
 
 
 func get_actions(entity, enemies = {}, units = {}):
@@ -24,7 +24,7 @@ func get_actions(entity, enemies = {}, units = {}):
     if entity.get_required_ap() > available_action_points:
         return []
 
-    var spawn_limit = min(self.bag.yuri_ai.pathfinder.passable_field_count / 7, self.global_spawn_limit)
+    var spawn_limit = min(self.bag.ai.pathfinder.passable_field_count / 7, self.global_spawn_limit)
     if units.size() >= spawn_limit:
         return []
 
@@ -37,7 +37,7 @@ func get_actions(entity, enemies = {}, units = {}):
         if enemies[position].type_name != "soldier":
             continue
 
-        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, position)
+        distance = self.bag.ai.pathfinder.get_distance(entity.position_on_map, position)
         if distance <= self.close_threshold:
             score = score + self.in_danger_score
             break

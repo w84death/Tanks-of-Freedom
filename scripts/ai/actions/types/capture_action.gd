@@ -1,4 +1,4 @@
-extends "res://scripts/yuri/actions/types/move_action.gd"
+extends "res://scripts/ai/actions/types/move_action.gd"
 
 var target
 

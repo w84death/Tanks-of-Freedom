@@ -1,131 +1,76 @@
 extends "res://scripts/bag_aware.gd"
 
-var processed_units_object_ids = []
-var player
-var player_ap
-var own_units
-var ai_logger_enabled
+# copied a_star implementation to fix some issues
+var pathfinder = preload("res://scripts/ai/a_star.gd").new()
+
+# actions collector for AI
+var collector = preload("res://scripts/ai/actions/collector.gd").new()
+
+# executor for current action
+var executor = preload("res://scripts/ai/actions/egzekutor.gd").new()
+
+
+# stored action with multiple steps to be executed
 var current_action = null
 
-const MIN_DESTINATION_PER_UNIT = 12
-const SPAWN_LIMIT = 35
 
+# initialize stuf as needed
 func _initialize():
-    self.ai_logger_enabled = Globals.get('tof/ai_logger')
-    print('logger', self.ai_logger_enabled)
-    pass
+    self.pathfinder._init_bag(self.bag)
+    self.collector._init_bag(self.bag)
+    self.executor._init_bag(self.bag)
 
+
+# wrapper method to be compatible with previous AI
+#
+# @return bool - returns whether AI was able to perform an action
 func start_do_ai(current_player, player_ap):
-     var res = self.__do_ai(current_player, player_ap)
-     if res == false and self.ai_logger_enabled:
-        self.bag.logger.store('----------------------------- NEW TURN player %d, ap %d -------------------------- ' % [current_player, player_ap])
-     return res
+    return self._perform_ai_tick(current_player)
 
-func __do_ai(current_player, player_ap):
-    if self.ai_logger_enabled:
-        self.bag.logger.store('--- do ai --- player %d, ap %d' % [current_player, player_ap])
-
-    self.player = current_player
-    self.player_ap = player_ap
-
-    if self.current_action == null:
-        self.__prepare_current_action()
-
-    if self.current_action == null:
-        return false
-
-    var result = self.bag.actions_handler.execute_best_action(self.current_action)
-    if self.check_continue_turn(result):
-        return true
-    else:
-        self.current_action = null
-        return false
-
-func __prepare_current_action():
-    self.__prepare_unit_actions()
-    self.__prepare_building_actions()
-
-    self.current_action = self.bag.actions_handler.get_best_action(self.player)
-
-
-func check_continue_turn(res):
-    randomize()
-    if self.player_ap == 0:
-        return false
-    if self.player_ap < 10 and (randi() % int(self.player_ap)) == 0:
-        return false
-
-    return true
-
-func __should_prepare_actions(unit):
-    var unit_instance_id = unit.get_instance_ID()
-    if self.processed_units_object_ids.has(unit_instance_id):
-        return false
-
-    self.processed_units_object_ids.append(unit_instance_id)
-    return true
-
-func __prepare_unit_actions():
-    var destinations = null
-
-    # initialize
-    var own_units = self.bag.positions.get_player_units(self.player)
-    self.bag.a_star.set_obstacles(own_units.keys())
-
-    for unit in own_units.values():
-        if unit.ap > 0 && unit.life > 0:
-            if self.__should_prepare_actions(unit):
-                for destination in self.__gather_destinations(unit):
-                    self.__add_action(unit, destination)
-
-func __gather_nearest_enemy(unit):
-    var destinations = Vector2Array()
-    var nearby_tiles
-    for lookup_range in range(1, unit.ap):
-        nearby_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, lookup_range)
-
-        destinations = self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
-
-        if destinations.size() >= 1:
-            return destinations
-
-    return destinations
-
-func __gather_destinations(unit):
-    var destinations = []
-    var nearby_tiles
-    var adjacement_tiles
-
-    for lookup_range in self.bag.positions.TILES_LOOKUP_RANGES:
-        nearby_tiles = self.bag.positions.get_nearby_tiles_subset(unit.position_on_map, lookup_range)
-
-        #adding capture
-        if unit.type == 0 and lookup_range == 1:
-            destinations = destinations + self.bag.positions.get_nearby_enemy_buildings(nearby_tiles, self.player)
-            destinations = destinations + self.bag.positions.get_nearby_empty_buldings(nearby_tiles)
-
-        destinations = destinations + self.bag.positions.get_nearby_enemies(nearby_tiles, self.player)
-        destinations = destinations + self.bag.positions.get_nearby_waypoints(nearby_tiles, self.player)
-
-        if destinations.size() > self.MIN_DESTINATION_PER_UNIT:
-            return destinations
-
-    return destinations
-
-func __prepare_building_actions():
-    if self.bag.positions.get_player_units(self.player).size() >= self.get_spawn_limit():
-        return
-
-    for building in self.bag.positions.get_player_buildings(self.player).values():
-        if (building.can_spawn_units()):
-            self.__add_action(building, null)
-
-func __add_action(unit, destination):
-    self.bag.actions_handler.add_action(unit, destination)
-
+# reset AI to initial state
 func reset():
-    self.processed_units_object_ids.clear()
-    self.bag.actions_handler.reset()
+    self.current_action = null
 
-func get_spawn_limit():
-    return min(self.bag.a_star.passable_field_count / 7, self.SPAWN_LIMIT)
+
+# method for performin a single tick of AI
+# tick consists of optional action gathering and action execution
+func _perform_ai_tick(current_player):
+    if self.current_action == null:
+        self._prepare_current_action(current_player)
+
+    return self._execute_best_action()
+
+
+# gathers available actions and picks the best one to become current action
+func _prepare_current_action(current_player):
+    var available_actions = self.collector.get_available_actions(current_player)
+
+    if available_actions.size() > 0:
+        self.current_action = self._get_best_action(available_actions)
+
+# method for selecting best action from a collection
+func _get_best_action(available_actions):
+    available_actions.sort_custom(self, "_value_first_sort_comparator")
+
+    return available_actions[0]
+
+# action value comparator for sort
+func _value_first_sort_comparator(a, b):
+    if b != null and a.score > b.score:
+        return true
+    return false
+
+
+# executes currently selected action
+#
+# @return bool - returns whether AI was able to perform an action
+func _execute_best_action():
+    if self.current_action == null:
+        return false
+
+    self.executor.execute(self.current_action)
+
+    if not self.current_action.can_continue():
+        self.current_action = null
+
+    return true

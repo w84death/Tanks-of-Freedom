@@ -1,17 +1,17 @@
 extends "res://scripts/bag_aware.gd"
 
 var unit_brains = {
-    "soldier" : preload("res://scripts/yuri/actions/brains/soldier_brain.gd").new(),
-    "tank" : preload("res://scripts/yuri/actions/brains/tank_brain.gd").new(),
-    "heli" : preload("res://scripts/yuri/actions/brains/heli_brain.gd").new(),
+    "soldier" : preload("res://scripts/ai/actions/brains/soldier_brain.gd").new(),
+    "tank" : preload("res://scripts/ai/actions/brains/tank_brain.gd").new(),
+    "heli" : preload("res://scripts/ai/actions/brains/heli_brain.gd").new(),
 }
 
 var building_brains = {
-    "hq" : preload("res://scripts/yuri/actions/brains/hq_brain.gd").new(),
-    "barracks" : preload("res://scripts/yuri/actions/brains/barracks_brain.gd").new(),
-    "factory" : preload("res://scripts/yuri/actions/brains/factory_brain.gd").new(),
-    "airport" : preload("res://scripts/yuri/actions/brains/airport_brain.gd").new(),
-    "gsm tower" : preload("res://scripts/yuri/actions/brains/tower_brain.gd").new(),
+    "hq" : preload("res://scripts/ai/actions/brains/hq_brain.gd").new(),
+    "barracks" : preload("res://scripts/ai/actions/brains/barracks_brain.gd").new(),
+    "factory" : preload("res://scripts/ai/actions/brains/factory_brain.gd").new(),
+    "airport" : preload("res://scripts/ai/actions/brains/airport_brain.gd").new(),
+    "gsm tower" : preload("res://scripts/ai/actions/brains/tower_brain.gd").new(),
 }
 
 

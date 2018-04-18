@@ -244,14 +244,12 @@ func hide_interaction_indicators():
         self.interaction_indicators[direction]['indicator'].hide()
 
 func despawn_unit(field):
-    self.root_node.bag.actions_handler.remove_actions_for_unit(field.object)
     ysort.remove_child(field.object)
     field.object.call_deferred("free")
     field.object.life = 0 #despawn bug
     field.object = null
 
 func destroy_unit(field):
-    self.root_node.bag.actions_handler.remove_actions_for_unit(field.object)
     field.object.die_after_explosion(ysort)
     field.object = null
 

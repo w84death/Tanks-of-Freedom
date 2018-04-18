@@ -1,4 +1,4 @@
-extends "res://scripts/yuri/actions/brains/building_brain.gd"
+extends "res://scripts/ai/actions/brains/building_brain.gd"
 
 func _initialize():
     ._initialize()

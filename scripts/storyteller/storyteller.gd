@@ -68,7 +68,7 @@ func tell_a_story(story_name):
 func perform_next_action():
     if self.story_bookmark == self.current_story.size():
         if self._has_map_modifications():
-            self.bag.a_star.rebuild_current_grid()
+            self.bag.ai.pathfinder.rebuild_current_grid()
             self.bag.ai.reset()
             self.bag.root.current_map.connect_fences()
 

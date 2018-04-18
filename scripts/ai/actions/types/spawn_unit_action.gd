@@ -1,4 +1,4 @@
-extends "res://scripts/yuri/actions/types/base_action.gd"
+extends "res://scripts/ai/actions/types/base_action.gd"
 
 
 func _init(building).(building):

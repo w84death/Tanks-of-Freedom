@@ -1,4 +1,4 @@
-extends "res://scripts/yuri/actions/brains/base_brain.gd"
+extends "res://scripts/ai/actions/brains/base_brain.gd"
 
 var preserve_ap = 1
 var distance_penalty = 5
@@ -18,8 +18,8 @@ var hq_capture_bonus = 500
 
 
 func _initialize():
-    self.actions_templates['attack'] = preload("res://scripts/yuri/actions/types/attack_action.gd")
-    self.actions_templates['capture'] = preload("res://scripts/yuri/actions/types/capture_action.gd")
+    self.actions_templates['attack'] = preload("res://scripts/ai/actions/types/attack_action.gd")
+    self.actions_templates['capture'] = preload("res://scripts/ai/actions/types/capture_action.gd")
 
 func get_actions(entity, enemies = {}, buildings = {}, allies = {}, own_buildings = {}):
     var attack_actions = []
@@ -70,7 +70,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
         base_obstacles[building_position] = building_position
     for building_position in own_buildings:
         base_obstacles[building_position] = building_position
-        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, building_position)
+        distance = self.bag.ai.pathfinder.get_distance(entity.position_on_map, building_position)
         if distance <= 4:
             protects_building = true
             if own_buildings[building_position].get_building_name() == "HQ":
@@ -78,7 +78,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
     for ally_position in allies:
         if ally_position != entity.position_on_map:
             base_obstacles[ally_position] = ally_position
-        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, ally_position)
+        distance = self.bag.ai.pathfinder.get_distance(entity.position_on_map, ally_position)
         if distance <= 2:
             has_backup += 1
     for enemy_position in enemies:
@@ -90,7 +90,7 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
         if not entity.can_attack_unit_type(enemy):
             continue
 
-        distance = self.bag.yuri_ai.pathfinder.get_distance(entity.position_on_map, enemy.position_on_map)
+        distance = self.bag.ai.pathfinder.get_distance(entity.position_on_map, enemy.position_on_map)
 
         if distance > entity.max_ap + self.aggression_range:
             continue
@@ -100,9 +100,9 @@ func _get_attack_actions(entity, enemies, buildings, allies, own_buildings):
 
         obstacles = base_obstacles.keys()
         obstacles.erase(enemy.position_on_map)
-        self.bag.yuri_ai.pathfinder.set_obstacles(obstacles)
+        self.bag.ai.pathfinder.set_obstacles(obstacles)
 
-        path = self.bag.yuri_ai.pathfinder.path_search(entity.position_on_map, enemy.position_on_map)
+        path = self.bag.ai.pathfinder.path_search(entity.position_on_map, enemy.position_on_map)
 
         if path.value == 0:
             continue
@@ -165,9 +165,9 @@ func _get_capture_actions(entity, enemies, buildings, allies, own_buildings):
 
         obstacles = base_obstacles.keys()
         obstacles.erase(target.position_on_map)
-        self.bag.yuri_ai.pathfinder.set_obstacles(obstacles)
+        self.bag.ai.pathfinder.set_obstacles(obstacles)
 
-        path = self.bag.yuri_ai.pathfinder.path_search(entity.position_on_map, target.position_on_map)
+        path = self.bag.ai.pathfinder.path_search(entity.position_on_map, target.position_on_map)
 
         if path.value == 0:
             continue
