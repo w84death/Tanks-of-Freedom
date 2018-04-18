@@ -137,12 +137,15 @@ func get_terrain():
 func get_units():
     units = self.root_tree.get_nodes_in_group("units")
     for unit in units:
-        if unit.life > 0: # skip undead units (despawn bug)
-            if unit.player == 1:
-                units_player_red[unit.position_on_map] = unit
-            else:
-                units_player_blue[unit.position_on_map] = unit
-            all_units[unit.position_on_map] = unit
+        if unit.is_queued_for_deletion():
+             print('unit queued for deletion')
+        else:
+            if unit.life > 0 : # skip undead units (despawn bug)
+                if unit.player == 1:
+                    units_player_red[unit.position_on_map] = unit
+                else:
+                    units_player_blue[unit.position_on_map] = unit
+                all_units[unit.position_on_map] = unit
 
 func get_nearby_enemies(nearby_tiles, current_player):
     var enemy_units_collection
