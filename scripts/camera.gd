@@ -119,7 +119,7 @@ func move_to_map(target, forced_movement = false):
         var diff_x = target_position.x - self.sX
         var diff_y = target_position.y - self.sY
         var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * self.scale.x)
-        var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD * self.scale.y)
+        var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD / 2 * self.scale.y)
 
         if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
             return

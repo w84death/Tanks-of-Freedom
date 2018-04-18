@@ -10,7 +10,7 @@ var stories = {
         {'action' : 'camera', 'details' : {'where' : Vector2(6, 4), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'claim', 'details' : {'what' : Vector2(6, 4), 'side' : 1}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_OFFICER_TOWER_2', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
-        {'action' : 'camera', 'details' : {'where' : Vector2(9, 6), 'zoom' : 2}, 'delay' : 0.5},
+        {'action' : 'camera', 'details' : {'where' : Vector2(10, 7), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'move', 'details' : {'who' : Vector2(9, 7), 'where' : Vector2(9, 6)}, 'delay' : 1},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_SOLDIER_SHOUT', 'portrait' : 'soldier_blue', 'name' : 'ACTOR_FREEDOM_FIGHTER', 'side' : 'left'}},
         {'action' : 'message', 'details': {'text' : 'MISSION_1_OFFICER_ORDER', 'portrait' : 'officer_blue', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
