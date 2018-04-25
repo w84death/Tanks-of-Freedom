@@ -28,10 +28,12 @@ var available_stories = {}
 var current_story = []
 var story_bookmark = 0
 var pause = false
+var camera_zoom_level = null
 
 func _initialize():
     self.action_triggers._init_bag(self.bag)
     self.init_handlers()
+    self.camera_zoom_level = self.bag.root.settings['camera_zoom']
 
 func reset():
     self.story_bookmark = 0
