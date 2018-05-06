@@ -24,6 +24,7 @@ var stories = {
         {'action' : 'lock', 'details' : {}, 'delay' : 0.5},
         {'action' : 'camera', 'details' : {'where' : Vector2(28, 3), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_10_TOWER_1', 'portrait' : 'soldier_blue', 'name' : 'ACTOR_SCOUT', 'side' : 'left'}},
+        {'action' : 'camera', 'details' : {'where' : Vector2(30, 6), 'zoom' : 2}, 'delay' : 0.5},
         {'action' : 'spawn', 'details' : {'where' : Vector2(30, 5), 'unit' : 'heli', 'side' : 'blue'}},
         {'action' : 'spawn', 'details' : {'where' : Vector2(30, 6), 'unit' : 'heli', 'side' : 'blue'}, 'delay': 0.5},
         {'action' : 'message', 'details': {'text' : 'MISSION_10_TOWER_2', 'portrait' : 'heli_blue', 'name' : 'ACTOR_PILOT', 'side' : 'left'}},

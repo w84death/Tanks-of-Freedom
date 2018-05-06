@@ -119,10 +119,11 @@ func move_to_map(target, forced_movement = false):
         var diff_x = target_position.x - self.sX
         var diff_y = target_position.y - self.sY
         var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * self.scale.x)
-        var near_y = game_size.y * (NEAR_SCREEN_THRESHOLD / 2 * self.scale.y)
+        var near_y = game_size.y * ((NEAR_SCREEN_THRESHOLD / 2) * self.scale.y)
 
-        if diff_x > -near_x && diff_x < near_x && diff_y > -near_y && diff_y < near_y:
+        if abs(diff_x) < near_x and abs(diff_y) < near_y:
             return
+
         self.target = target_position
         self.panning = true
 
@@ -138,7 +139,7 @@ func process(delta):
             var diff_y = self.target.y - self.sY
 
             panning = self.__do_panning(diff_x, diff_y)
-            if diff_x > -NEAR_THRESHOLD && diff_x < NEAR_THRESHOLD && diff_y > -NEAR_THRESHOLD && diff_y < NEAR_THRESHOLD:
+            if abs(diff_x) < NEAR_THRESHOLD and abs(diff_y) < NEAR_THRESHOLD / 3:
                 target = pos
             else:
                 self.sX = self.sX + diff_x * temp_delta * self.camera_speed;
