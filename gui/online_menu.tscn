@@ -1,24 +1,10 @@
-[gd_scene load_steps=20 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=2]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/buttons/analog_size3_5.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=15]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=17]
-[ext_resource path="res://gui/font_22.tres" type="Theme" id=18]
-[ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=19]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=3]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=4]
+[ext_resource path="res://gui/online/online_match_box.tscn" type="PackedScene" id=5]
 
 [node name="online" type="CenterContainer"]
 
@@ -121,12 +107,13 @@ margin/top = -32.0
 margin/right = 0.0
 margin/bottom = -32.0
 
-[node name="back" type="TextureButton" parent="controls/buttons"]
+[node name="back" type="Button" parent="controls/buttons"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = -313.0
 margin/top = 192.0
 margin/right = -169.0
@@ -134,38 +121,18 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 4 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
-
-[node name="Label" type="Label" parent="controls/buttons/back"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
 text = "< BACK"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_BACK"
 
-[node name="download" type="TextureButton" parent="controls/buttons"]
+[node name="download" type="Button" parent="controls/buttons"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = 19.0
 margin/top = 192.0
 margin/right = 163.0
@@ -173,39 +140,18 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
-textures/hover = ExtResource( 8 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 9 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
-
-[node name="Label" type="Label" parent="controls/buttons/download"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 16.0
-margin/right = 138.0
-margin/bottom = 34.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "DOWNLOAD"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_DOWNLOAD"
 
-[node name="upload" type="TextureButton" parent="controls/buttons"]
+[node name="upload" type="Button" parent="controls/buttons"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = 168.0
 margin/top = 192.0
 margin/right = 312.0
@@ -213,39 +159,18 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
-textures/hover = ExtResource( 8 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 9 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
-
-[node name="Label" type="Label" parent="controls/buttons/upload"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "UPLOAD"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_UPLOAD"
 
-[node name="refresh" type="TextureButton" parent="controls/buttons"]
+[node name="refresh" type="Button" parent="controls/buttons"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = 160.0
 margin/top = -160.0
 margin/right = 304.0
@@ -253,41 +178,18 @@ margin/bottom = -112.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 9 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
-
-[node name="Label" type="Label" parent="controls/buttons/refresh"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 8.0
-margin/top = 16.0
-margin/right = 138.0
-margin/bottom = 32.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "REFRESH"
-align = 1
-valign = 1
-uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_REFRESH"
 
-[node name="help" type="TextureButton" parent="controls/buttons"]
+[node name="help" type="Button" parent="controls/buttons"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 2 )
 margin/left = 56.0
 margin/top = -160.0
 margin/right = 152.0
@@ -295,33 +197,10 @@ margin/bottom = -112.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 13 )
-textures/pressed = ExtResource( 14 )
-textures/hover = ExtResource( 15 )
-textures/disabled = ExtResource( 16 )
-textures/focused = ExtResource( 17 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
-
-[node name="Label" type="Label" parent="controls/buttons/help"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 7.0
-margin/top = 17.0
-margin/right = 90.0
-margin/bottom = 33.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "HELP"
-align = 1
-valign = 1
-uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+script/script = ExtResource( 3 )
+trans_key = "LABEL_HELP"
 
 [node name="online_headline" type="Label" parent="controls"]
 
@@ -329,7 +208,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 18 )
+theme/theme = ExtResource( 4 )
 margin/left = -304.0
 margin/top = -192.0
 margin/right = 48.0
@@ -403,24 +282,24 @@ custom_constants/vseparation = 8
 custom_constants/hseparation = 8
 columns = 2
 
-[node name="match1" parent="controls/matches" instance=ExtResource( 19 )]
+[node name="match1" parent="controls/matches" instance=ExtResource( 5 )]
 
 margin/top = 0.0
 margin/bottom = 120.0
 
-[node name="match2" parent="controls/matches" instance=ExtResource( 19 )]
+[node name="match2" parent="controls/matches" instance=ExtResource( 5 )]
 
 margin/left = 308.0
 margin/top = 0.0
 margin/right = 608.0
 margin/bottom = 120.0
 
-[node name="match3" parent="controls/matches" instance=ExtResource( 19 )]
+[node name="match3" parent="controls/matches" instance=ExtResource( 5 )]
 
 margin/top = 128.0
 margin/bottom = 248.0
 
-[node name="match4" parent="controls/matches" instance=ExtResource( 19 )]
+[node name="match4" parent="controls/matches" instance=ExtResource( 5 )]
 
 margin/left = 308.0
 margin/top = 128.0

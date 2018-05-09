@@ -8,9 +8,7 @@ var popup
 var hud_title
 var hud_message
 var confirm_button
-var confirm_button_label
 var cancel_button
-var cancel_button_label
 var input_box
 
 var bound_object
@@ -41,9 +39,7 @@ func bind_hud():
     self.hud_title = self.popup.get_node("title")
     self.hud_message = self.popup.get_node("message")
     self.confirm_button = self.popup.get_node("confirm")
-    self.confirm_button_label = self.confirm_button.get_node("Label")
     self.cancel_button = self.popup.get_node("cancel")
-    self.cancel_button_label = self.cancel_button.get_node("Label")
     self.input_box = self.popup.get_node('input')
 
 func attach_panel(container_node):
@@ -70,8 +66,8 @@ func disconnect():
 func fill_labels(title, message, confirm, cancel):
     self.hud_title.set_text(title)
     self.hud_message.set_text(message)
-    self.confirm_button_label.set_text(confirm)
-    self.cancel_button_label.set_text(cancel)
+    self.confirm_button.set_trans_key(confirm)
+    self.cancel_button.set_trans_key(cancel)
 
 func connect(bound_object, bound_method):
     self.bound_object = bound_object

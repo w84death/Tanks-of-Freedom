@@ -60,10 +60,8 @@ func show():
         self.multiplayer.refresh_matches_list()
     if self.bag.map_list.maps.size() == 0:
         self.upload_button.set_disabled(true)
-        self.upload_button.get_node('Label').hide()
     else:
         self.upload_button.set_disabled(false)
-        self.upload_button.get_node('Label').show()
 
 
 func hide():

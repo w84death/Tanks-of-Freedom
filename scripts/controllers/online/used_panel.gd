@@ -117,11 +117,6 @@ func reset_layout():
     self.clear_button.hide()
     self.replay_button.hide()
 
-    self.play_button.get_node('Label').set_text(tr('LABEL_PLAY'))
-    self.forfeit_button.get_node('Label').set_text(tr('LABEL_FORFEIT'))
-    self.clear_button.get_node('Label').set_text(tr('LABEL_CLEAR'))
-    self.replay_button.get_node('Label').set_text(tr('LABEL_REPLAY'))
-
 func switch_to_new_layout():
     self.show_side()
     self.show_match_code()

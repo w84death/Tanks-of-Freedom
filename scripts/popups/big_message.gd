@@ -5,7 +5,7 @@ var popup = preload("res://gui/popups/big_message.tscn").instance()
 var hud_title
 var hud_message
 var confirm_button
-var confirm_button_label
+
 
 var bound_object
 var bound_method
@@ -24,7 +24,7 @@ func bind_hud():
     self.hud_title = self.popup.get_node("controls/title")
     self.hud_message = self.popup.get_node("controls/message")
     self.confirm_button = self.popup.get_node("controls/buttons/back")
-    self.confirm_button_label = self.confirm_button.get_node("Label")
+
 
 func attach_panel(container_node):
     if self.current_container != null:
@@ -55,7 +55,6 @@ func fill_labels(title, messages, confirm):
     self.hud_message.set_text(combined_message)
 
     self.hud_title.set_text(title)
-    self.confirm_button_label.set_text(confirm)
 
 func connect(bound_object, bound_method):
     self.bound_object = bound_object

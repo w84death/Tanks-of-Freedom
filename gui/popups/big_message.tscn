@@ -1,17 +1,16 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=3]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=4]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=5]
-[ext_resource path="res://assets/gui/buttons/analog_size3_5.png" type="Texture" id=6]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=7]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=11]
-[ext_resource path="res://gui/font_22.tres" type="Theme" id=12]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=4]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=10]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=11]
 
 [node name="online" type="CenterContainer"]
 
@@ -27,7 +26,10 @@ margin/top = 0.0
 margin/right = 0.0
 margin/bottom = 0.0
 use_top_left = false
-__meta__ = { "__editor_plugin_screen__":"2D", "_edit_lock_":true }
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
 
 [node name="controls" type="Control" parent="."]
 
@@ -113,13 +115,13 @@ margin/top = -32.0
 margin/right = 0.0
 margin/bottom = -32.0
 
-[node name="back" type="TextureButton" parent="controls/buttons"]
+[node name="back" type="Button" parent="controls/buttons"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 4 )
 margin/left = -312.0
 margin/top = 192.0
 margin/right = -168.0
@@ -127,28 +129,10 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 4 )
-textures/pressed = ExtResource( 5 )
-textures/hover = ExtResource( 6 )
-textures/disabled = ExtResource( 7 )
-textures/focused = ExtResource( 6 )
-params/scale = Vector2( 3, 3 )
-
-[node name="Label" type="Label" parent="controls/buttons/back"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
 text = "< BACK"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+flat = false
+script/script = ExtResource( 5 )
+trans_key = "LABEL_BACK"
 
 [node name="previous" type="TextureButton" parent="controls/buttons"]
 
@@ -165,12 +149,14 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 7 )
-textures/focused = ExtResource( 11 )
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
+textures/disabled = ExtResource( 9 )
+textures/focused = ExtResource( 10 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/previous"]
 
@@ -205,12 +191,14 @@ margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 7 )
-textures/focused = ExtResource( 11 )
+textures/normal = ExtResource( 6 )
+textures/pressed = ExtResource( 7 )
+textures/hover = ExtResource( 8 )
+textures/disabled = ExtResource( 9 )
+textures/focused = ExtResource( 10 )
+params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
 
 [node name="Label" type="Label" parent="controls/buttons/next"]
 
@@ -236,7 +224,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 12 )
+theme/theme = ExtResource( 11 )
 margin/left = -296.0
 margin/top = -192.0
 margin/right = 296.0
@@ -258,7 +246,9 @@ margin/left = -304.0
 margin/top = -160.0
 margin/right = 304.0
 margin/bottom = 120.0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat est, mollis venenatis dapibus et, tincidunt non elit. \n\nMorbi ut dui faucibus, commodo nisi ut, porta augue. Aliquam imperdiet gravida quam aliquam scelerisque. Maecenas ut lorem turpis. Morbi a imperdiet dolor. Nam in vulputate massa. Proin viverra, metus sit amet facilisis euismod, sapien est ultrices sem, vitae convallis enim quam eget ipsum. Nulla congue ut risus lobortis dignissim. "
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat est, mollis venenatis dapibus et, tincidunt non elit. 
+
+Morbi ut dui faucibus, commodo nisi ut, porta augue. Aliquam imperdiet gravida quam aliquam scelerisque. Maecenas ut lorem turpis. Morbi a imperdiet dolor. Nam in vulputate massa. Proin viverra, metus sit amet facilisis euismod, sapien est ultrices sem, vitae convallis enim quam eget ipsum. Nulla congue ut risus lobortis dignissim. "
 autowrap = true
 uppercase = true
 percent_visible = 1.0
