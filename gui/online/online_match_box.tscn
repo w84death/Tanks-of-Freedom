@@ -109,7 +109,6 @@ max_lines_visible = -1
 
 [node name="used" type="Control" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -237,7 +236,6 @@ margin/left = 4.0
 margin/top = 80.0
 margin/right = 100.0
 margin/bottom = 112.0
-disabled = true
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
