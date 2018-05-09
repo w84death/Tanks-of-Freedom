@@ -70,12 +70,8 @@ func reload_labels():
     self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/online_headline'), 'MSG_MULTIPLAYER_LOBBY_HEADLINE')
     self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/online_subline'), 'MSG_MULTIPLAYER_LOBBY_SUB')
     self.reload_label(self.bag.controllers.online_menu_controller.online_menu.get_node('controls/online_maps'), 'LABEL_ONLINE_MENU')
-    self.reload_button(self.bag.controllers.online_menu_controller.back_button, 'LABEL_BACK')
-    self.reload_button(self.bag.controllers.online_menu_controller.download_button, 'LABEL_DOWNLOAD')
-    self.reload_button(self.bag.controllers.online_menu_controller.upload_button, 'LABEL_UPLOAD')
 
-    self.reload_button(self.bag.controllers.online_menu_controller.multiplayer.refresh_button, 'LABEL_REFRESH')
-    self.reload_button(self.bag.controllers.online_menu_controller.multiplayer.help_button, 'LABEL_HELP')
+
     self.bag.controllers.online_menu_controller.refreshed = false
 
     #WORKSHOP
@@ -158,7 +154,6 @@ func reload_labels():
         self.reload_label(hud_game_over.get_node('center/controls/labels/red/red2'), 'LABEL_RED')
         self.reload_label(hud_game_over.get_node('center/controls/labels/red/red3'), 'LABEL_RED')
 
-        self.reload_button(hud_game_over.get_node('center/controls/restart'), 'LABEL_PLAY_AGAIN')
 
     #GAMEPAD INFO
     var gamepad_popup = self.bag.gamepad_popup.popup.get_node('center')

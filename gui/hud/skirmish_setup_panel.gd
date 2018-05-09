@@ -7,11 +7,11 @@ var current_container
 
 var map_name_label
 var player_0_button
-var player_0_button_label
+
 var player_1_button
-var player_1_button_label
+
 var turn_cap_button
-var turn_cap_button_label
+
 var back_button
 var play_button
 
@@ -32,11 +32,11 @@ func _init_bag(bag):
 func bind_hud():
     self.map_name_label = self.panel.get_node("controls/map_name")
     self.player_0_button = self.panel.get_node("controls/blue_player")
-    self.player_0_button_label = self.player_0_button.get_node("Label")
+
     self.player_1_button = self.panel.get_node("controls/red_player")
-    self.player_1_button_label = self.player_1_button.get_node("Label")
+
     self.turn_cap_button = self.panel.get_node("controls/turns_cap")
-    self.turn_cap_button_label = self.turn_cap_button.get_node("Label")
+
     self.back_button = self.panel.get_node("controls/back")
     self.play_button = self.panel.get_node("controls/play")
 
@@ -62,11 +62,11 @@ func _play_button_pressed():
 
 func refresh_labels():
     if self.bag.root.settings['turns_cap'] > 0:
-        self.turn_cap_button_label.set_text(str(self.bag.root.settings['turns_cap']))
+        self.turn_cap_button.set_text(str(self.bag.root.settings['turns_cap']))
     else:
-        self.turn_cap_button_label.set_text(tr('LABEL_OFF'))
-    self.set_player_button_state(0, self.player_0_button_label)
-    self.set_player_button_state(1, self.player_1_button_label)
+        self.turn_cap_button.set_trans_key('LABEL_OFF')
+    self.set_player_button_state(0, self.player_0_button)
+    self.set_player_button_state(1, self.player_1_button)
 
 func set_map_name(map_name, map_label, is_remote = false):
     self.connected_map_name = map_name
@@ -122,11 +122,11 @@ func toggle_turns_cap():
     self.refresh_labels()
     self.bag.root.write_settings_to_file()
 
-func set_player_button_state(player, button_label):
+func set_player_button_state(player, button):
     var label
     if self.bag.root.settings['cpu_' + str(player)]:
         label = "LABEL_CPU"
     else:
         label = "LABEL_HUMAN"
 
-    button_label.set_text(tr(label))
+    button.set_trans_key(label)
