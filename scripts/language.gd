@@ -134,7 +134,6 @@ func reload_labels():
         self.reload_label(hud.get_node('top_center/center/game_card/gamepad_buttons/Label1'), 'LABEL_NEXT_TURN')
 
     #GAME OVER
-        hud_controller.adjust_missions_button()
         hud_game_over = hud_controller.hud_end_game
         self.reload_label(hud_game_over.get_node('center/controls/labels/headers/game_over'), 'LABEL_GAME_OVER')
         self.reload_label(hud_game_over.get_node('center/controls/labels/headers/domination'), 'LABEL_DOMINATION')
