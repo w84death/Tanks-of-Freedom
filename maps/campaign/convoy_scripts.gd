@@ -23,10 +23,10 @@ var stories = {
 
     'cap_towers' : [
         {'action' : 'lock', 'details' : {}, 'delay' : 0.5},
-       {'action' : 'message', 'details': {'text' : 'MISSION_12_TOWERS_1', 'portrait' : 'officer_red', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
-       {'action' : 'message', 'details': {'text' : 'MISSION_12_TOWERS_2', 'portrait' : 'officer_red', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
-        {'action' : 'win', 'details' : {'player' : 1}},
+        {'action' : 'message', 'details': {'text' : 'MISSION_12_TOWERS_1', 'portrait' : 'officer_red', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
+        {'action' : 'message', 'details': {'text' : 'MISSION_12_TOWERS_2', 'portrait' : 'officer_red', 'name' : 'ACTOR_OFFICER', 'side' : 'left'}},
         {'action' : 'unlock', 'details' : {}},
+        {'action' : 'win', 'details' : {'player' : 1}},
     ]
 }
 
@@ -53,5 +53,5 @@ var triggers = {
         'suspended': true
     },
 
-    'cap_towers' : {'type' : 'domination', 'story' : 'cap_towers', 'details' : { 'amount' : 1, 'list' : [Vector2(11, 3), Vector2(11, 13), Vector2(18, 16), Vector2(21, 24)], 'player' : 1 }, 'one_off' : true},
+    'cap_towers' : {'type' : 'domination', 'story' : 'cap_towers', 'details' : { 'amount' : 4, 'list' : [Vector2(11, 3), Vector2(11, 13), Vector2(18, 16), Vector2(21, 24)], 'player' : 1 }, 'one_off' : true},
 }
