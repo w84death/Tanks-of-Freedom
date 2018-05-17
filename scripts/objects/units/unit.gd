@@ -213,6 +213,7 @@ func clear_floating_damage():
     floating_damage.call_deferred("free")
 
 func die_after_explosion(ysort):
+    self.remove_from_group('units')
     die = true
     parent = self.get_parent()
     self.show_big_explosion()
