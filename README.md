@@ -36,6 +36,9 @@ Please note, that all controls listed are for the XBox 360 controler gamepad. If
 
 Please note, that changing the map name with a gamepad is not possible at this time. A keyboard is still required.
 
+## Open Source Engine
+Game is made using [Godot Engine 2.1+](https://downloads.tuxfamily.org/godotengine/). It will not work in 3.0+ and will not be ported anytime soon (if ever).
+
 ## Download
 ### Official builds:
 - Windows
