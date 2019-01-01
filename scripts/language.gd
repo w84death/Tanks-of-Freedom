@@ -171,7 +171,7 @@ func reload_labels():
 
 
 func reload_button(button, translation, label_node_name="Label"):
-    if button:
+    if button and button.has_node(label_node_name):
         self.reload_label(button.get_node(label_node_name), translation)
 
 func reload_label(label, translation):
