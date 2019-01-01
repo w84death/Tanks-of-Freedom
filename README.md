@@ -1,4 +1,4 @@
-# Tanks of Freedom - Added Spanish translation
+# Tanks of Freedom
 
 ![Tanks of Freedom](https://i.imgur.com/Xa66BXO.png)
 
@@ -91,7 +91,7 @@ For online funcionalities a ToF server is required. Sources can be found in a se
 ### gfx
    - w84death http://krzysztofjankowski.com licensed under MIT
    - Free font Courier Prime http://www.quoteunquoteapps.com/courierprime/ licensed under OFL
-   - NotoSans fonr licensed under Apache License 2.0
+   - NotoSans font licensed under Apache License 2.0
 
 ### music
    - QmYaan (Grand Beats) http://www.grandbeats.com/ licensed under CC BY-SA 4.0
