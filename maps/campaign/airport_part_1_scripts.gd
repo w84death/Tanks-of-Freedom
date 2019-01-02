@@ -76,5 +76,5 @@ var triggers = {
 
     'cap_airport' : {'type' : 'domination', 'story' : 'cap_airport', 'details' : { 'amount' : 1, 'list' : [Vector2(15, 10)], 'player' : 1 }, 'one_off' : true},
 
-    'buy_heli' : {'type' : 'deploy', 'story' : 'buy_heli', 'details' : { 'player' : 0, 'amount': 1, 'type': 'heli' }, 'one_off' : true},
+    'buy_heli' : {'type' : 'deploy', 'story' : 'buy_heli', 'details' : { 'player' : 1, 'amount': 1, 'type': 'heli' }, 'one_off' : true},
 }
