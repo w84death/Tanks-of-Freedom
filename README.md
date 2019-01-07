@@ -109,6 +109,7 @@ For online funcionalities a ToF server is required. Sources can be found in a se
   - German - [cyberbeat](https://github.com/cyberbeat)
   - English - P1X, [glenlife](https://github.com/glenlife)
   - Polish - P1X
+  - Spanish - [Carlavilla](https://www.carlavilla.es) [repo](https://www.gitlab.com/carlavilla)
 
 ## Public game catalogs
 
