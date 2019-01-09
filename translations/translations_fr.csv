@@ -1,7 +1,7 @@
 ,fr
 TIP_HEADER,"Saviez-vous que..."
 TIP_1,"Chaque unité ne peut attaquer qu'une seule fois par tour"
-TIP_2,"Chaque unité a ses forces et ses faiblesses - seul les fantassins peuvent capturer les bâtiments mais ils n'ont aucune chance contre les tanks - ces derniers ne peuvent pas attaquer les hélicoptères"
+TIP_2,"Chaque unité a ses forces et faiblesses - seul les fantassins peuvent capturer les bâtiments mais ils n'ont aucune chance contre les tanks - qui ne peuvent pas attaquer les hélicoptères"
 TIP_3,"Vous pouvez déployer des soldats dans le QG mais il est moins cher de le faire dans les casernes"
 TIP_4,"Les unités qui capturent un bâtiment ne peuvent plus rien faire jusqu'au tour suivant"
 TIP_5,"Chaque bâtiment de production requiert un soldat pour l'entretenir - capturer un bâtiment vous coûte donc un soldat"
@@ -10,9 +10,9 @@ TIP_7,"Les points d'action peuvent être dépensés pour déployer des unités o
 TIP_8,"Utilisez vos points d'action avec sagesse - une grande armée sera plus lente et moins efficace qu'un petit bataillon"
 TIP_9,"Ce n'est jamais une bonne idée d'envoyer une unité seule sur le champ de bataille"
 TIP_10,"Mélanger différents types d'unités dans un bataillon vous donne un avantage stratégique"
-TIP_11,"Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos propre soldats !"
+TIP_11,"Vous ne pouvez pas déployer d'unité quand le point d'apparition est bloqué par un ennemi et il en va de même pour ce dernier - bloquez la production d'unités ennemies avec vos soldats !"
 TIP_12,"Une unité ne peut attaquer que les cases adjacentes à sa position - vous devez d'abord déplacer votre unité si votre cible se trouve trop loin"
-TIP_13,"Le QG est le bâtiment le plus important du jeu. Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate...:"
+TIP_13,"Le QG est le bâtiment le plus important du jeu. Si vous capturez le QG ennemi vous gagnerez mais perdre le votre signifie la défaite immédiate..."
 LABEL_WORKSHOP,ÉDITEUR
 LABEL_MAIN_MENU,MENU
 LABEL_START_TURN,GO !
@@ -26,7 +26,7 @@ LABEL_BUILDING_HQ,QG
 LABEL_BUILDING_BARRACKS,CASERNE
 LABEL_BUILDING_FACTORY,USINE
 LABEL_BUILDING_AIRPORT,AÉROPORT
-LABEL_BUILDING_GSM_TOWER,RADAR
+LABEL_BUILDING_GSM_TOWER,TOUR GSM
 LABEL_REMOTE,DISTANT
 LABEL_LOCAL,LOCAL
 LABEL_OFF,NON
@@ -38,13 +38,13 @@ LABEL_NORMAL,NORMAL
 LABEL_MAPS_CREATED,CARTES CRÉÉES
 LABEL_COMPLETED,TERMINÉ
 LABEL_NEXT,SUIVANT
-LABEL_DELETE_MODE,DELETE MODE
+LABEL_DELETE_MODE,SUPPRIMER
 LABEL_TURNS_CAP:,TOURS :
 LABEL_BACK,> RETOUR
 LABEL_SELECTED_MAP,CARTE CHOISIE :
 LABEL_TURNS_CAP,LIMITE TOURS :
 LABEL_PLAY,JOUER
-LABEL_CPU,CPU
+LABEL_CPU,ORDI
 LABEL_HUMAN,HUMAIN
 LABEL_ATTACK,ATTAQUE
 LABEL_HEALTH_MAX,VIE / MAX
@@ -68,7 +68,7 @@ LABEL_SELECT_UNIT,CHOISIR
 LABEL_PLEASE_WAIT,UN INSTANT...
 LABEL_SOUND_EFFECTS,EFFETS SONORES
 LABEL_MUSIC,MUSIQUE
-LABEL_CAMERA_SHAKE,SECOUSSES CAMERA
+LABEL_CAMERA_SHAKE,SECOUSSES CAMÉRA
 LABEL_AUTO_FOLLOW,SUIVI AUTO CAMÉRA
 LABEL_ZOOM_LEVEL,ZOOM
 LABEL_BIGGER,+ GROS
@@ -126,10 +126,10 @@ LABEL_WORKSHOP_HQ,QG
 LABEL_WORKSHOP_BARRACKS,CASERNE
 LABEL_WORKSHOP_FACTORY,USINE
 LABEL_WORKSHOP_AIRPORT,AÉROPORT
-LABEL_WORKSHOP_SPAWN,SPAWN
-LABEL_WORKSHOP_GSM_TOWER,RADAR
-LABEL_WORKSHOP_TOWER,RADAR
-LABEL_WORKSHOP_INFANTRY,INFANTERIE
+LABEL_WORKSHOP_SPAWN,DÉPART
+LABEL_WORKSHOP_GSM_TOWER,TOUR GSM
+LABEL_WORKSHOP_TOWER,TOUR
+LABEL_WORKSHOP_INFANTRY,INFANTR.
 LABEL_WORKSHOP_TANK,TANK
 LABEL_WORKSHOP_HELI,HÉLICO
 LABEL_WORKSHOP_CIVILIAN,CIVIL
@@ -137,9 +137,9 @@ LABEL_WORKSHOP_CONCRETE,BÉTON
 MSG_NO_ENOUGH_AP,PA INSUFFISANT
 MSG_START_YOUR_TURN_NOW,À votre tour maintenant !
 MSG_EMPTY_DISPLAY,&lt; RIEN À AFFICHER&#000a;&lt; SÉLECTIONNEZ UNE UNITÉ OU UN BÂTIMENT
-MSG_GAME_DESCRIPTION_1,JEU DE STRATÉGIE AU TOUR PAR TOUR
-MSG_GAME_DESCRIPTION_2,LIBRE ET OPEN SOURCE
-MSG_FREE_AS_FREEDOM,""
+MSG_GAME_DESCRIPTION_1,JEU DE STRATÉGIE
+MSG_GAME_DESCRIPTION_2,AU TOUR PAR TOUR
+MSG_FREE_AS_FREEDOM,"LIBRE ET OPEN SOURCE"
 MSG_INDIE_GAME,INDIE GAME&#000a;DESIGN &amp; &#000a;DEVELOP
 MSG_WORKSHOP_USE_UNIQUE_NAME,UTILISEZ UN NOM UNIQUE
 MSG_WORKSHOP_CREATE_NEW_ISLAND,CRÉER UNE NOUVELLE ÎLE AU CENTRE
@@ -201,14 +201,14 @@ LABEL_VERSION,Version
 TITLE_GAMEPAD_CONFIG,CONFIGURATION MANETTE
 LABEL_PREVIOUS_UNIT,UNITÉ PRÉCÉDENTE
 LABEL_NEXT_UNIT,UNITÉ SUIVANTE
-LABEL_SELECTOR_MOVEMENT,MOVE FIELD SELECTOR
-LABEL_GAME_MENU_MOVEMENT,NAVIGATE MENU
+LABEL_SELECTOR_MOVEMENT,DÉPLACER SÉLECTION
+LABEL_GAME_MENU_MOVEMENT,NAVIGATION MENU
 LABEL_END_TURN,FIN DU TOUR
 LABEL_BACK_TO_MENU,MENU PRINCIPAL
-LABEL_SELECT,EFFECTUER
+LABEL_SELECT,EFFECTUER ACTION
 LABEL_DEPLOY_UNIT,ACH. NOUV. UNITÉ
 LABEL_GAMEPAD_INFO,INFO MANETTE
-LABEL_WORKSHOP_THEME,THÈME CARTE
+LABEL_WORKSHOP_THEME,THÈME DE LA CARTE
 LABEL_SUMMER,ÉTÉ
 LABEL_FALL,AUTOMNE
 LABEL_WINTER,HIVER
@@ -218,8 +218,8 @@ MSG_WORKSHOP_FILE_NOT_FOUND,"Ce nom ne correspond à aucune carte."
 MSG_WORKSHOP_CHECK_TYPOS,"Revérifiez le nom du fichier SVP"
 LABEL_OK,OK
 LABEL_NEXT_TURN,FINIR TOUR
-LABEL_CPU_TURN,TOUR DU CPU
-LABEL_REFRESHING_MATCHES,RAFRAÎCHISSEMENT DES MATCHS
+LABEL_CPU_TURN,TOUR DE L'ORDI
+LABEL_REFRESHING_MATCHES,RAFRAÎCHISSEMENT
 TIP_REFRESHING_WAIT,"RAFRAÎCHISSEMENT DE LA LISTE DES MATCHS EN LIGNE, PATIENTEZ SVP..."
 LABEL_CREATE_MATCH,CRÉER UN MATCH
 MSG_CONFIRM_CREATE,VOULEZ-VOUS HÉBERGER UN NOUVEAU MATCH ?
@@ -248,12 +248,12 @@ LABEL_YOU_LOSE,"VOUS PERDEZ"
 LABEL_NEW_MATCH,"NOUVEAU MATCH"
 LABEL_MATCH_IN_PROGRESS,"EN COURS"
 LABEL_MATCH_ENDED,"FIN DU MATCH"
-LABEL_MATCH_FORFEIT,"ADVERSAIRE GAUCHE"
+LABEL_MATCH_FORFEIT,"ADVERSAIRE PARTI"
 LABEL_MAP_CODE,"CARTE : "
 LABEL_INVALID_MATCH,"MATCH INVALIDE"
 LABEL_ABANDON_MATCH,"ABANDONNER LE MATCH"
 MAG_ABANDON_MATCH,"ÊTES-VOUS SÛR DE VOULOIR ABANDONNER LE MATCH ? VOUS NE POURREZ PAS REPRENDRE LE MATCH."
-LABEL_CLEAR_SLOT,"LIBÉRER LES EMPLACEMENTS DE JEU"
+LABEL_CLEAR_SLOT,"LIBÉRER EMPLACEMENTS"
 MSG_CLEARING_SLOT_WAIT,"LIBÉRATION DES EMPLACEMENTS, PATIENTEZ SVP..."
 LABEL_SHOW_REPLAY,"MONTRER LE REPLAY"
 MSG_SHOW_REPLAY,"VOULEZ-VOUS VOIR LE REPLAY DES TOURS DE L'ADVERSAIRE ?"
@@ -272,24 +272,24 @@ LABEL_CLEAR,EFFACER
 LABEL_HELP,AIDE
 MSG_MULTIPLAYER_WELCOME,"Bienvenu sur ToF multijoueur !"
 TIP_ONLINE_HELP_1,"Pour débuter votre partie en ligne, cliquez sur le bouton CRÉER sur l'un des emplacements libres. Si le bouton est désactivé, cela signifie que vous devez d'abord télécharger une carte en ligne, ou envoyer la votre. Vous pourriez commencer par télécharger la carte 'CHEKLEEN' ! Une fois que vous hébergez la partie, communiquez le code de votre match à votre partenaire de jeu pour qu'il puisse vous rejoindre."
-TIP_ONLINE_HELP_2,"Durant un match, vous et votre adversaire n'avez pas de limite de temps pour jouer votre tour. Souvenez vous que vous n'avez pas besoin d'attendre votre tour indéfiniment - vous pouvez entre temps jouer aux campagnes, faire une partie en escarmouche ou même jouer à une autre partie multijoueur ! Quitter le jeu est aussi une option, mais voudrez vous vraiment le faire ?"
+TIP_ONLINE_HELP_2,"Durant un match, vous et votre adversaire n'avez pas de limite de temps pour jouer votre tour. Souvenez-vous que vous n'avez pas besoin d'attendre votre tour indéfiniment - vous pouvez entre temps jouer aux campagnes, faire une partie en escarmouche ou même jouer à une autre partie multijoueur ! Quitter le jeu est aussi une option, mais voudrez vous vraiment le faire ?"
 TIP_ONLINE_HELP_3,"Vous êtes limités à quatre emplacements de jeux multijoueurs. Souvenez vous de supprimer ceux qui sont terminés et inactifs."
 MSG_SPAWN_BLOCKED,DÉPLOIEMENT BLOQUÉ
 MSG_MULTIPLAYER_LOBBY_HEADLINE,MODE MULTIJOUEUR
 MSG_MULTIPLAYER_LOBBY_SUB,"Vous pouvez avoir jusqu'à quatre jeux en cours simultanément"
-LABEL_WORKSHOP_CLEAR_MAP,EFFACER TOUTE LA CARTE
+LABEL_WORKSHOP_CLEAR_MAP,EFFACER LA CARTE
 MSG_WORKSHOP_FILL_MAP,REMPLIR DE TUILES D'HERBE
 LABEL_WORKSHOP_TILES,TUILES
 LABEL_PREVIEW,APERÇU
-MSG_ASK_UPLOAD,"DÉBUTER TÉLÉVERSEMENT CARTE?"
-LABEL_GFX,GFX
-LABEL_SOUND,SFX
+MSG_ASK_UPLOAD,"DÉBUTER TÉLÉVERSEMENT CARTE ?"
+LABEL_GFX,GRAPH.
+LABEL_SOUND,SON
 LABEL_TOOLTIPS,INFOBULLES
 LABEL_CURRENT_TEAM,ÉQUIPE ACTUELLE
 LABEL_CURRENT_MAP,CARTE ACTUELLE
-LABEL_AI_SPEED,AI SPEED
-LABEL_CAMERA_MOVE_TO_BUNKER,MOVE CAMERA TO HQ
-LABEL_CAMERA_SPEED,CAMERA SPEED
-LABEL_BLUE_TEAM_TURN,BLUE TEAM TURN
-LABEL_RED_TEAM_TURN,RED TEAM TURN
-LABEL_NO_MORE_MOVES,NO MOVES LEFT
+LABEL_AI_SPEED,VITESSE IA
+LABEL_CAMERA_MOVE_TO_BUNKER,DÉP. CAMÉRA SUR QG
+LABEL_CAMERA_SPEED,VITESSE CAMÉRA
+LABEL_BLUE_TEAM_TURN,TOUR ÉQUIPE BLEUE
+LABEL_RED_TEAM_TURN,TOUR ÉQUIPE ROUGE
+LABEL_NO_MORE_MOVES,PLUS DE DÉPLACEMENTS
