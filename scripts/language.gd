@@ -171,8 +171,10 @@ func reload_labels():
 
 
 func reload_button(button, translation, label_node_name="Label"):
-    if button:
+    if button and buggon.has_node(label_node_name):
         self.reload_label(button.get_node(label_node_name), translation)
+    else:
+        self.reload_label(button, translation)
 
 func reload_label(label, translation):
     if label:
