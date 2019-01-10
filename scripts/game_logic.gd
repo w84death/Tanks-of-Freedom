@@ -290,6 +290,7 @@ func unload_map():
         return
 
     is_map_loaded = false
+    self.bag.perform.stop_ai_timer()
     self.bag.storyteller.clear_stories()
     if action_controller.active_indicator.is_inside_tree():
         action_controller.active_indicator.get_parent().remove_child(action_controller.active_indicator)
