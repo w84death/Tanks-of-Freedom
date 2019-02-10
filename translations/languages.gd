@@ -2,4 +2,4 @@
 var available = ['en', 'de', 'es', 'fr', 'ja', 'pl', 'ru']
 
 # languages available locally - ADD OWN LANG HERE
-var in_develop = []
+var in_develop = ['pt']
