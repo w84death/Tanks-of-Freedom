@@ -313,124 +313,124 @@ func unload_map():
     self.bag.camera.reset_player_cameras()
 
 func toggle_menu(target = 'menu', skip_back_check = true):
-    if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:
-        return
+	if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:
+		return
 
-    if not skip_back_check and self.bag.menu_back.perform_back():
-        return
+	if not skip_back_check and self.bag.menu_back.perform_back():
+		return
 
-    if is_map_loaded:
-        if menu.is_hidden():
-            is_paused = true
-            action_controller.stats_set_time()
-            menu.show()
-            if target == 'menu':
-                self.menu.hide_settings()
-            if target == 'settings':
-                self.menu.show_settings()
-            hud.hide()
-            menu.close_button.grab_focus()
-        else:
-            is_paused = false
-            action_controller.stats_start_time()
-            menu.hide()
-            hud.show()
-            if hud_controller.hud_message_card_visible:
-                hud_controller.hud_message_card_button.grab_focus()
-            if action_controller.game_ended:
-                hud_controller.hud_end_game_missions_button.grab_focus()
+	if is_map_loaded:
+		if menu.is_hidden():
+			is_paused = true
+			action_controller.stats_set_time()
+			menu.show()
+			if target == 'menu':
+				self.menu.hide_settings()
+			if target == 'settings':
+				self.menu.show_settings()
+			hud.hide()
+			menu.close_button.grab_focus()
+		else:
+			is_paused = false
+			action_controller.stats_start_time()
+			menu.hide()
+			hud.show()
+			if hud_controller.hud_message_card_visible:
+				hud_controller.hud_message_card_button.grab_focus()
+			if action_controller.game_ended:
+				hud_controller.hud_end_game_missions_button.grab_focus()
 
 func show_menu():
-    if self.is_map_loaded and self.menu.is_hidden():
-        self.toggle_menu()
+	if self.is_map_loaded and self.menu.is_hidden():
+		self.toggle_menu()
 
 func hide_menu():
     if self.menu.is_visible():
         self.toggle_menu()
 
 func show_missions():
-    self.toggle_menu()
-    menu.show_maps_menu()
+	self.toggle_menu()
+	menu.show_maps_menu()
 
 func show_campaign():
-    self.toggle_menu()
-    self.bag.controllers.campaign_menu_controller.show_campaign_menu()
+	self.toggle_menu()
+	self.bag.controllers.campaign_menu_controller.show_campaign_menu()
 
 func load_menu():
-    menu.show()
-    is_intro = false
-    self.remove_child(intro)
-    intro.call_deferred("free")
-    self.add_child(menu)
-    menu.manage_close_button()
-    self.bag.resolution.refresh_menu_background()
-    self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
-    self.sound_controller.play_soundtrack()
-    self.bag.language.reload_labels()
-    set_process_input(true)
+	menu.show()
+	is_intro = false
+	self.remove_child(intro)
+	intro.call_deferred("free")
+	self.add_child(menu)
+	menu.manage_close_button()
+	self.bag.resolution.refresh_menu_background()
+	self.bag.timers.set_timeout(0.1, menu.campaign_button, "grab_focus")
+	self.sound_controller.play_soundtrack()
+	self.bag.language.reload_labels()
+	set_process_input(true)
 
 func lock_for_cpu():
-    self.is_locked_for_cpu = true
-    self.hud_controller.lock_hud()
-    self.selector.hide()
-    if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
-        self.camera.camera_follow = false
-        if not self.bag.match_state.is_multiplayer:
-            self.hud_controller.switch_cinematic_to_cpu_meter()
-        else:
-            self.hud_controller.switch_cinematic_to_multiplayer()
-        self.hud_controller.show_cinematic_camera()
-    else:
-        self.hud_controller.hide_cinematic_camera()
+	self.is_locked_for_cpu = true
+	self.hud_controller.lock_hud()
+	self.selector.hide()
+	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
+		self.camera.camera_follow = false
+		if not self.bag.match_state.is_multiplayer:
+			self.hud_controller.switch_cinematic_to_cpu_meter()
+		else:
+			self.hud_controller.switch_cinematic_to_multiplayer()
+		self.hud_controller.show_cinematic_camera()
+	else:
+		self.hud_controller.hide_cinematic_camera()
 
 func unlock_for_player():
-    self.is_locked_for_cpu = false
-    self.hud_controller.unlock_hud()
-    self.selector.show()
-    self.camera.camera_follow = true
-    self.hud_controller.hide_cinematic_camera()
+	self.is_locked_for_cpu = false
+	self.hud_controller.unlock_hud()
+	self.selector.show()
+	self.camera.camera_follow = true
+	self.hud_controller.hide_cinematic_camera()
 
 func lock_for_demo():
-    is_demo = true
-    self.lock_for_cpu()
+	is_demo = true
+	self.lock_for_cpu()
 
 func unlock_for_demo():
-    is_demo = false
+	is_demo = false
 
 func is_demo_mode():
-    return self.is_demo or (self.settings['cpu_0'] and self.settings['cpu_1'])
+	return self.is_demo or (self.settings['cpu_0'] and self.settings['cpu_1'])
 
 func read_settings_from_file():
-    var data = self.bag.file_handler.read(self.SETTINGS_PATH)
-    if data.empty():
-        self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
-    else:
-        for option in data:
-            self.settings[option] = data[option]
+	var data = self.bag.file_handler.read(self.SETTINGS_PATH)
+	if data.empty():
+		self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
+	else:
+		for option in data:
+			self.settings[option] = data[option]
 
 func write_settings_to_file():
-    self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
+	self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
-    self.bag = preload('res://scripts/services/dependency_container.gd').new()
-    self.scale_root = get_node("/root/game/viewport/pixel_scale")
-    self.read_settings_from_file()
-    TranslationServer.set_locale(self.settings['language'])
-    if self.hud_layout == "overscan":
-        self.hud_template = self.hud_tv
-    elif self.hud_layout == "pandora":
-        self.hud_template = self.hud_pandora
-    else:
-        self.hud_template = self.hud_pc
-    self.bag.init_root(self)
-    self.main_tileset = self.bag.tileset_handler.get_current_tileset()
-    self.camera = self.bag.camera
-    self.menu = self.bag.controllers.menu_controller
-    self.sound_controller.init_root(self)
-    menu.init_root(self)
-    menu.hide()
-    intro.init_root(self)
-    self.add_child(intro)
-    self.bag.language.reload_labels()
-    if self.is_mobile:
-        self.get_tree().set_auto_accept_quit(false)
+	self.bag = preload('res://scripts/services/dependency_container.gd').new()
+	self.scale_root = get_node("/root/game/viewport/pixel_scale")
+	self.read_settings_from_file()
+	TranslationServer.set_locale(self.settings['language'])
+	if self.hud_layout == "overscan":
+		self.hud_template = self.hud_tv
+	elif self.hud_layout == "pandora":
+		self.hud_template = self.hud_pandora
+	else:
+		self.hud_template = self.hud_pc
+	self.bag.init_root(self)
+	self.main_tileset = self.bag.tileset_handler.get_current_tileset()
+	self.camera = self.bag.camera
+	self.menu = self.bag.controllers.menu_controller
+	self.sound_controller.init_root(self)
+	menu.init_root(self)
+	menu.hide()
+	intro.init_root(self)
+	self.add_child(intro)
+	self.bag.language.reload_labels()
+	if self.is_mobile:
+		self.get_tree().set_auto_accept_quit(false)
