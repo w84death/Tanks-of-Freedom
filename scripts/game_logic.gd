@@ -1,6 +1,6 @@
 extends Control
 
-var version_name = "Version 0.7.1-ALPHA"
+var version_name = "Version 0.7.1-BETA"
 var version_short = "0.7.1"
 
 var selector = preload('res://gui/selector.xscn').instance()

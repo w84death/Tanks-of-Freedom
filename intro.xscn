@@ -2,9 +2,9 @@
 <resource_file type="PackedScene" subresource_count="8" version="2.1" version_name="Godot Engine v2.1.5.stable.official">
 	<ext_resource path="res://assets/sounds/soundtrack/intro.ogg" type="AudioStream" index="4"></ext_resource>
 	<ext_resource path="res://gui/corners.xscn" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://scripts/intro.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://scripts/intro.gd" type="Script" index="0"></ext_resource>
 	<resource type="Animation" path="local://2">
 		<string name="resource/name"> "idle" </string>
 		<real name="length"> 1 </real>
@@ -154,12 +154,12 @@
 			<string> "conn_count" </string>
 			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				14, 0, 67, 66, 2, 0 </int_array>
+			<int_array  len="6"> 				13, 0, 66, 65, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="68">
+			<string_array  len="67">
 				<string> "intro" </string>
 				<string> "anchor/right" </string>
 				<string> "anchor/bottom" </string>
@@ -197,7 +197,6 @@
 				<string> "credits" </string>
 				<string> "czlowiekimadlo" </string>
 				<string> "Grand Beats" </string>
-				<string> "BlackBearGames" </string>
 				<string> "corners" </string>
 				<string> "audio" </string>
 				<string> "stream/stream" </string>
@@ -230,14 +229,14 @@
 				<string> "timeout" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 15 </int>
+			<int> 14 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="393"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 16, 14, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 1, 0, 13, 17, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 8, 9, 7, 10, 8, 0, 2, 0, 22, 18, -1, 3, 19, 4, 20, 9, 21, 10, 0, 2, 0, 29, 23, -1, 14, 19, 4, 3, 2, 4, 2, 5, 3, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 24, 16, 25, 0, 26, 17, 27, 11, 28, 18, 0, 2, 0, 32, 30, -1, 10, 3, 2, 4, 2, 5, 3, 6, 3, 7, 19, 8, 20, 9, 21, 10, 22, 21, 23, 31, 11, 0, 2, 0, 29, 33, -1, 14, 19, 4, 3, 2, 4, 2, 5, 3, 6, 11, 7, 24, 8, 25, 9, 26, 10, 27, 24, 28, 25, 0, 26, 17, 27, 11, 28, 18, 0, 1, 0, 13, 34, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 8, 9, 7, 10, 8, 0, 7, 0, 29, 35, -1, 13, 3, 2, 4, 2, 5, 3, 6, 11, 7, 29, 8, 30, 9, 31, 10, 32, 24, 33, 25, 0, 26, 17, 27, 11, 28, 18, 0, 7, 0, 29, 36, -1, 13, 3, 2, 4, 2, 5, 3, 6, 11, 7, 34, 8, 35, 9, 36, 10, 37, 24, 38, 25, 0, 26, 17, 27, 11, 28, 18, 0, 7, 0, 29, 37, -1, 13, 3, 2, 4, 2, 5, 3, 6, 11, 7, 34, 8, 39, 9, 36, 10, 40, 24, 41, 25, 0, 26, 17, 27, 11, 28, 18, 0, 0, 0, 2147483647, 38, 42, 4, 7, 4, 8, 4, 9, 4, 10, 4, 0, 0, 0, 48, 39, -1, 8, 40, 43, 41, 2, 42, 1, 43, 4, 44, 1, 45, 1, 46, 4, 47, 44, 0, 0, 0, 59, 49, -1, 9, 50, 0, 51, 4, 52, 45, 53, 46, 54, 47, 55, 2, 56, 17, 57, 48, 58, 49, 0, 0, 0, 65, 60, -1, 4, 61, 0, 62, 50, 63, 2, 64, 2, 0 </int_array>
+			<int_array  len="352"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 11, 5, 12, 6, 0, 0, 0, 16, 14, -1, 11, 1, 0, 2, 0, 3, 1, 4, 2, 5, 3, 6, 3, 7, 4, 8, 4, 9, 4, 10, 4, 15, 1, 0, 1, 0, 13, 17, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 8, 9, 7, 10, 8, 0, 2, 0, 22, 18, -1, 3, 19, 4, 20, 9, 21, 10, 0, 2, 0, 29, 23, -1, 14, 19, 4, 3, 2, 4, 2, 5, 3, 6, 11, 7, 12, 8, 13, 9, 14, 10, 15, 24, 16, 25, 0, 26, 17, 27, 11, 28, 18, 0, 2, 0, 32, 30, -1, 10, 3, 2, 4, 2, 5, 3, 6, 3, 7, 19, 8, 20, 9, 21, 10, 22, 21, 23, 31, 11, 0, 2, 0, 29, 33, -1, 14, 19, 4, 3, 2, 4, 2, 5, 3, 6, 11, 7, 24, 8, 25, 9, 26, 10, 27, 24, 28, 25, 0, 26, 17, 27, 11, 28, 18, 0, 1, 0, 13, 34, -1, 8, 3, 1, 4, 2, 5, 3, 6, 3, 7, 7, 8, 8, 9, 7, 10, 8, 0, 7, 0, 29, 35, -1, 13, 3, 2, 4, 2, 5, 3, 6, 11, 7, 29, 8, 30, 9, 31, 10, 32, 24, 33, 25, 0, 26, 17, 27, 11, 28, 18, 0, 7, 0, 29, 36, -1, 13, 3, 2, 4, 2, 5, 3, 6, 11, 7, 34, 8, 35, 9, 36, 10, 37, 24, 38, 25, 0, 26, 17, 27, 11, 28, 18, 0, 0, 0, 2147483647, 37, 39, 0, 0, 0, 0, 47, 38, -1, 8, 39, 40, 40, 2, 41, 1, 42, 4, 43, 1, 44, 1, 45, 4, 46, 41, 0, 0, 0, 58, 48, -1, 9, 49, 0, 50, 4, 51, 42, 52, 43, 53, 44, 54, 2, 55, 17, 56, 45, 57, 46, 0, 0, 0, 64, 59, -1, 4, 60, 0, 61, 47, 62, 2, 63, 2, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="51" shared="false">
+			<array  len="48" shared="false">
 				<int> 1 </int>
 				<bool> False </bool>
 				<bool> True </bool>
@@ -280,9 +279,6 @@
 				<real> 310 </real>
 				<real> 109 </real>
 				<string> "GRAND BEATS" </string>
-				<real> 110 </real>
-				<real> 124 </real>
-				<string> "BlackBearGames" </string>
 				<resource  external="3">  </resource>
 				<resource  external="4">  </resource>
 				<int> 500 </int>
