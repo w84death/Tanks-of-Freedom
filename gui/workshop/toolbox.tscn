@@ -1,0 +1,522 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
+[ext_resource path="res://gui/panel_gray.tres" type="Theme" id=2]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/buttons/analog_size3_7.png" type="Texture" id=7]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=14]
+
+[node name="toolbox" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
+mouse_filter = 0
+
+[node name="background" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
+mouse_filter = 0
+
+[node name="Panel" type="Panel" parent="background"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+margin_left = -288.0
+margin_top = -144.0
+margin_right = 288.0
+margin_bottom = -48.0
+mouse_filter = 0
+
+[node name="Panel1" type="Panel" parent="background"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+margin_left = -288.0
+margin_top = -48.0
+margin_right = 288.0
+margin_bottom = 128.0
+mouse_filter = 0
+
+[node name="Panel2" type="Panel" parent="background"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+margin_left = 128.0
+margin_top = 136.0
+margin_right = 288.0
+margin_bottom = 200.0
+mouse_filter = 0
+
+[node name="front" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -277.0
+margin_top = -214.0
+margin_right = -237.0
+margin_bottom = -174.0
+mouse_filter = 0
+
+[node name="fill" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 405.0
+margin_top = 278.0
+margin_right = 549.0
+margin_bottom = 326.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/fill"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -33.0
+margin_top = 15.0
+margin_right = 177.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LABEL_WORKSHOP_CREATE"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="front"]
+
+visible = false
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+margin_left = 7.0
+margin_top = 72.0
+margin_right = 547.0
+margin_bottom = 102.0
+text = "LABEL_WORKSHOP_TOOLBOX"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="label_fill_map" type="Label" parent="front"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+margin_left = 13.0
+margin_top = 246.0
+margin_right = 385.0
+margin_bottom = 269.0
+text = "FILL MAP WITH GRASS"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="label_theme" type="Label" parent="front"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+margin_left = 5.0
+margin_top = 107.0
+margin_right = 389.0
+margin_bottom = 130.0
+text = "LAVBEL_WORKSOP_THEME"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="label_clear_map" type="Label" parent="front"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
+margin_left = 13.0
+margin_top = 206.0
+margin_right = 386.0
+margin_bottom = 229.0
+text = "NEW MAP"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="label_lose_data" type="Label" parent="front"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 176.0
+margin_right = 384.0
+margin_bottom = 192.0
+text = "MSG_WORKSHOP_LOSE_MAP_DATA"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="Label_x" type="Label" parent="front"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+margin_left = 269.0
+margin_top = 294.0
+margin_right = 300.0
+margin_bottom = 315.0
+text = "x"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="label_size" type="Label" parent="front"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+margin_left = -38.0
+margin_top = 290.0
+margin_right = 152.0
+margin_bottom = 308.0
+text = "LABEL_WORKSHOP_SIZE"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="x" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 173.0
+margin_top = 278.0
+margin_right = 269.0
+margin_bottom = 326.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 13 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/x"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 4.0
+margin_top = 12.0
+margin_right = 86.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "8"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="y" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 301.0
+margin_top = 278.0
+margin_right = 397.0
+margin_bottom = 326.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 13 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/y"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 4.0
+margin_top = 12.0
+margin_right = 86.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "8"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="clear_units" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 129.0
+margin_top = 283.0
+margin_right = 273.0
+margin_bottom = 331.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 14 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/clear_units"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 3.0
+margin_top = 16.0
+margin_right = 139.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "units"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="clear_terrain" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 405.0
+margin_top = 190.0
+margin_right = 549.0
+margin_bottom = 238.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 14 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/clear_terrain"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -10.0
+margin_top = 16.0
+margin_right = 154.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "terrain"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="theme" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 405.0
+margin_top = 94.0
+margin_right = 549.0
+margin_bottom = 142.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 14 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/theme"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -32.0
+margin_top = 16.0
+margin_right = 180.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "SUMMER"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="close" type="TextureButton" parent="front"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 413.0
+margin_top = 358.0
+margin_right = 557.0
+margin_bottom = 406.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 14 )
+params/resize_mode = 0
+texture_scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+mouse_filter = 0
+
+[node name="label" type="Label" parent="front/close"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "close"
+align = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1

@@ -55,9 +55,9 @@ var soundtracks = {
 
 func init_root(root_node):
 	root = root_node
-	stream_player = root.get_node("StreamPlayer")
+	stream_player = root.get_node("AudioStreamPlayer")
 	stream_player.set_volume(self.music_volume)
-	sample_player = root.get_node("SamplePlayer")
+	sample_player = root.get_node("Node")
 	sample_player.set_default_volume_db(self.sound_volume)
 	self.load_samples()
 
@@ -102,3 +102,4 @@ func play_unit_sound(unit, sound):
 func load_samples():
 	for sample in self.samples:
 		self.sample_player.get_sample_library().add_sample(sample[0], sample[1])
+

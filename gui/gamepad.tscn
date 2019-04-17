@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
@@ -12,250 +12,263 @@
 
 [node name="gamepad" type="CenterContainer"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 use_top_left = false
+mouse_filter = 0
 
 [node name="center" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 0
 
-[node name="background_small" type="Patch9Frame" parent="center"]
+[node name="background_small" type="NinePatchRect" parent="center"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 260.0
-margin/top = 214.0
-margin/right = -372.0
-margin/bottom = -278.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 260.0
+margin_top = 214.0
+margin_right = 372.0
+margin_bottom = 278.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
-[node name="background_big" type="Patch9Frame" parent="center"]
+[node name="background_big" type="NinePatchRect" parent="center"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -364.0
-margin/top = -206.0
-margin/right = -380.0
-margin/bottom = -210.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -364.0
+margin_top = -206.0
+margin_right = 380.0
+margin_bottom = 210.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
 [node name="gamepad" type="Sprite" parent="center"]
 
-transform/pos = Vector2( 7, 63 )
+position = Vector2( 7, 63 )
 texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
-margin/left = -152.0
-margin/top = -176.0
-margin/right = 148.0
-margin/bottom = -153.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+margin_left = -152.0
+margin_top = -176.0
+margin_right = 148.0
+margin_bottom = -153.0
 text = "GAMEPAD CONFIGURATION"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="left_shoulder" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -326.0
-margin/top = -94.0
-margin/right = 16.0
-margin/bottom = -79.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -326.0
+margin_top = -94.0
+margin_right = 16.0
+margin_bottom = -79.0
 text = "LABEL_PREVIOUS_UNIT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="right_shoulder" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 96.0
-margin/top = -96.0
-margin/right = 342.0
-margin/bottom = -81.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 96.0
+margin_top = -96.0
+margin_right = 342.0
+margin_bottom = -81.0
 text = "LABEL_NEXT_UNIT"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="analog" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -328.0
-margin/top = -56.0
-margin/right = 32.0
-margin/bottom = -41.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -328.0
+margin_top = -56.0
+margin_right = 32.0
+margin_bottom = -41.0
 text = "LABEL_SELECTOR_MOVEMENT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="dpad" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -327.0
-margin/top = 84.0
-margin/right = 0.0
-margin/bottom = 99.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -327.0
+margin_top = 84.0
+margin_right = 0.0
+margin_bottom = 99.0
 text = "LABEL_GAME_MENU_MOVEMENT"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="x" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 80.0
-margin/top = 74.0
-margin/right = 340.0
-margin/bottom = 89.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 80.0
+margin_top = 74.0
+margin_right = 340.0
+margin_bottom = 89.0
 text = "LABEL_DEPLOY_UNIT"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="y" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 32.0
-margin/top = -37.0
-margin/right = 342.0
-margin/bottom = -22.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 32.0
+margin_top = -37.0
+margin_right = 342.0
+margin_bottom = -22.0
 text = "LABEL_END_TURN"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="b" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 64.0
-margin/top = 0.0
-margin/right = 340.0
-margin/bottom = 15.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 64.0
+margin_top = 0.0
+margin_right = 340.0
+margin_bottom = 15.0
 text = "LABEL_BACK_TO_MENU"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="a" type="Label" parent="center"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 80.0
-margin/top = 41.0
-margin/right = 340.0
-margin/bottom = 56.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 80.0
+margin_top = 41.0
+margin_right = 340.0
+margin_bottom = 56.0
 text = "LABEL_SELECT"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="close" type="TextureButton" parent="center"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 268.0
-margin/top = 222.0
-margin/right = 364.0
-margin/bottom = 270.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 268.0
+margin_top = 222.0
+margin_right = 364.0
+margin_bottom = 270.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
-textures/disabled = ExtResource( 8 )
-textures/focused = ExtResource( 9 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 9 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="center/close"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 16.0
-margin/right = 96.0
-margin/bottom = 30.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = 16.0
+margin_right = 96.0
+margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OK"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-
+mouse_filter = 1

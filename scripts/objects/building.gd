@@ -6,7 +6,7 @@ export var player = -1
 export var bonus_ap = 1
 export var can_spawn = true
 
-var current_map
+var current_map : TileMap
 var group = 'building'
 var spawn_point = Vector2(0, 0)
 var spawn_field = null
@@ -16,7 +16,7 @@ var turn_claimed = -1
 
 var object_factory = preload('../object_factory.gd').new()
 
-var floating_ap_template = preload('res://particle/hit_points.xscn')
+var floating_ap_template = preload('res://particle/hit_points.tscn')
 var floating_ap
 
 var TYPE_BUNKER = 0
@@ -30,18 +30,18 @@ const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3
 func get_pos_map():
 	return position_on_map
 
-func get_spawn_point_pos():
+func get_spawn_point_position():
 	return spawn_point
 
-func get_initial_pos():
-	position_on_map = current_map.world_to_map(self.get_pos())
-	spawn_point = Vector2(position_on_map) + spawn_point_position
+func get_initial_position():
+	position_on_map = current_map.world_to_map(self.get_position())
+	spawn_point = position_on_map + spawn_point_position
 	return position_on_map
 
 func set_pos_map(new_position):
-	self.set_pos(current_map.map_to_world(new_position))
+	self.set_position(current_map.map_to_world(new_position))
 	position_on_map = new_position
-	spawn_point = Vector2(position_on_map) + spawn_point_position
+	spawn_point = position_on_map + spawn_point_position
 
 func claim(new_player, turn):
 	if new_player == -1:
@@ -60,7 +60,7 @@ func get_player():
 
 func set_frame(number):
 	var current_frame = get_region_rect()
-	var new_frame = Rect2(number * 64, current_frame.pos.y, 64, 64)
+	var new_frame = Rect2(number * 64, current_frame.position.y, 64, 64)
 	set_region_rect(new_frame)
 
 func get_spawn_type():
@@ -117,10 +117,10 @@ func clear_floating_damage():
 	floating_ap.call_deferred("free")
 	
 func can_spawn_units():
-    if self.type == 4:
-        return false
+	if self.type == 4:
+		return false
 
-    return true
+	return true
 
 func _ready():
 	add_to_group("buildings")
@@ -128,5 +128,6 @@ func _ready():
 		current_map = get_node("/root/game").current_map_terrain
 	flag = get_node('flag')
 	pass
+
 
 

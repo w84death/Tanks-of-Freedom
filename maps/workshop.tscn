@@ -1,0 +1,175 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
+[ext_resource path="res://maps/underground_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://maps/blueprint_terrain_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://maps/action_tiles_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://maps/fog_of_war.tres" type="TileSet" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+_code = {
+"fragment": "",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+_data = {
+"shaders": [ [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 596, 103 ), null, null, [  ], 4, 0, Vector2( 20, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ] ]
+}
+
+[sub_resource type="ShaderMaterial" id=2]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+
+[node name="map" type="Control"]
+
+material = SubResource( 2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+show_blueprint = true
+campaign_map = true
+take_enemy_hq = true
+control_all_towers = false
+multiplayer_map = false
+shakes_max = 5
+shake_time = 0.25
+shake_boundary = 5
+mouse_filter = 0
+
+[node name="underground" type="TileMap" parent="."]
+
+z_index = -200
+mode = 1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 1
+cell_y_sort = true
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+tile_data = PoolIntArray(  )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="terrain" type="TileMap" parent="."]
+
+z_index = -150
+mode = 1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 1
+cell_y_sort = true
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+tile_data = PoolIntArray( 524295, 1, 524296, 1, 589831, 1, 589832, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="back" type="YSort" parent="terrain"]
+
+z_index = 10
+sort_enabled = true
+
+[node name="destruction" type="YSort" parent="terrain"]
+
+z_index = 20
+sort_enabled = true
+
+[node name="actions" type="TileMap" parent="terrain"]
+
+position = Vector2( 0, -2 )
+z_index = 30
+mode = 1
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 1
+cell_y_sort = true
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+tile_data = PoolIntArray(  )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="front" type="YSort" parent="terrain"]
+
+z_index = 40
+sort_enabled = true
+
+[node name="units" type="TileMap" parent="terrain"]
+
+z_index = 50
+mode = 1
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 64, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 1
+cell_y_sort = true
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+tile_data = PoolIntArray(  )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fog_of_war" type="TileMap" parent="."]
+
+z_index = -10
+mode = 1
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 64, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 1
+cell_y_sort = true
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+tile_data = PoolIntArray(  )

@@ -19,3 +19,4 @@ func _init():
 func can_capture_building(building):
 	return false
 
+

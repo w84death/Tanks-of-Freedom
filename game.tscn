@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/game_logic.gd" type="Script" id=2]
+[ext_resource path="res://gui/corners.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/demo_timer.gd" type="Script" id=4]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=5]
+
+[node name="game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"__editor_plugin_screen__": "Script",
+"_edit_lock_": true
+}
+
+[node name="corners" parent="." instance=ExtResource( 3 )]
+
+[node name="SamplePlayer" type="Node" parent="."]
+
+[node name="StreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="IntroTimer" type="Timer" parent="."]
+wait_time = 12.0
+
+[node name="DemoTimer" type="Timer" parent="."]
+script = ExtResource( 4 )
+
+[node name="viewport" type="Viewport" parent="."]
+
+[node name="camera" type="Camera2D" parent="viewport"]
+current = true
+script = ExtResource( 5 )
+
+[node name="pixel_scale" type="Node2D" parent="viewport"]
+
+[connection signal="timeout" from="IntroTimer" to="." method="load_menu"]

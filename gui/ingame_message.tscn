@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://gui/panel_gray.tres" type="Theme" id=1]
 [ext_resource path="res://gui/ingame_avatar.tscn" type="PackedScene" id=2]
@@ -6,111 +6,118 @@
 
 [node name="ingame_message" type="Control"]
 
-anchor/top = 1
-anchor/right = 1
-anchor/bottom = 1
-rect/min_size = Vector2( 0, 128 )
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 128 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 24.0
-margin/top = 152.0
-margin/right = 24.0
-margin/bottom = 24.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 24.0
+margin_top = -152.0
+margin_right = -24.0
+margin_bottom = -24.0
+mouse_filter = 0
 
 [node name="panels" type="Control" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 90.0
-margin/top = 0.0
-margin/right = 90.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 90.0
+margin_top = 0.0
+margin_right = -90.0
+margin_bottom = 0.0
+mouse_filter = 0
 
 [node name="Panel" type="Panel" parent="panels"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 0
 
 [node name="messages" type="Control" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 0
 
 [node name="center" type="CenterContainer" parent="messages"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 use_top_left = false
+mouse_filter = 0
 
 [node name="left" type="Control" parent="messages/center"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 616.0
-margin/top = 64.0
-margin/right = 616.0
-margin/bottom = 64.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 616.0
+margin_top = 64.0
+margin_right = 616.0
+margin_bottom = 64.0
+mouse_filter = 0
 
 [node name="message" type="Label" parent="messages/center/left"]
 
-anchor/right = 1
-anchor/bottom = 1
-rect/min_size = Vector2( 700, 96 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 700, 96 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -350.0
-margin/top = -48.0
-margin/right = -290.0
-margin/bottom = -48.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -350.0
+margin_top = -48.0
+margin_right = 290.0
+margin_bottom = 48.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 autowrap = true
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="avatar" parent="messages/center/left" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-margin/left = -273.0
-margin/top = -120.0
-margin/right = -273.0
-margin/bottom = -120.0
+margin_left = -273.0
+margin_top = -120.0
+margin_right = -273.0
+margin_bottom = -120.0
 
 [node name="sprite" parent="messages/center/left/avatar"]
 
@@ -120,26 +127,27 @@ flip_h = true
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 616.0
-margin/top = 64.0
-margin/right = 616.0
-margin/bottom = 64.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 616.0
+margin_top = 64.0
+margin_right = 616.0
+margin_bottom = 64.0
+mouse_filter = 0
 
 [node name="message" type="Label" parent="messages/center/right"]
 
-anchor/right = 1
-anchor/bottom = 1
-rect/min_size = Vector2( 700, 96 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 700, 96 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -350.0
-margin/top = -48.0
-margin/right = -350.0
-margin/bottom = -48.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -350.0
+margin_top = -48.0
+margin_right = 350.0
+margin_bottom = 48.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sem purus, dapibus commodo ante non, euismod molestie velit. Pellentesque a arcu congue, sagittis quam vel, venenatis turpis. "
 align = 2
 autowrap = true
@@ -147,60 +155,62 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="avatar" parent="messages/center/right" instance=ExtResource( 2 )]
 
-margin/left = 273.0
-margin/top = -120.0
-margin/right = 273.0
-margin/bottom = -120.0
+margin_left = 273.0
+margin_top = -120.0
+margin_right = 273.0
+margin_bottom = -120.0
 
 [node name="controls" type="Control" parent="."]
 
-anchor/left = 1
-anchor/top = 1
-anchor/right = 1
-anchor/bottom = 1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 32.0
-margin/top = 32.0
-margin/right = 64.0
-margin/bottom = 64.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -32.0
+margin_top = -32.0
+margin_right = -64.0
+margin_bottom = -64.0
+mouse_filter = 0
 
 [node name="Panel1" type="Panel" parent="controls"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = -56.0
-margin/top = -32.0
-margin/right = -48.0
-margin/bottom = -32.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = -56.0
+margin_top = -32.0
+margin_right = 48.0
+margin_bottom = 32.0
+mouse_filter = 0
 
 [node name="close" type="Button" parent="controls"]
 
-rect/min_size = Vector2( 90, 48 )
+rect_min_size = Vector2( 90, 48 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 3 )
-margin/left = -48.0
-margin/top = -24.0
-margin/right = 42.0
-margin/bottom = 24.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+margin_left = -48.0
+margin_top = -24.0
+margin_right = 42.0
+margin_bottom = 24.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "CLOSE"
 flat = false
-
-
+mouse_filter = 0
 [editable path="messages/center/left/avatar"]

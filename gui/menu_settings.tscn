@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=2]
@@ -16,141 +16,148 @@
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -48.0
-margin/right = 40.0
-margin/bottom = -8.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = -48.0
+margin_right = 40.0
+margin_bottom = -8.0
 __meta__ = {
 "_edit_lock_": true
 }
+mouse_filter = 0
 
-[node name="background" type="Patch9Frame" parent="."]
+[node name="background" type="NinePatchRect" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -376.0
-margin/top = -96.0
-margin/right = -336.0
-margin/bottom = -152.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -376.0
+margin_top = -96.0
+margin_right = 336.0
+margin_bottom = 152.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
 [node name="sound_toggle" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 152.0
-margin/top = -32.0
-margin/right = 248.0
-margin/bottom = 16.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 152.0
+margin_top = -32.0
+margin_right = 248.0
+margin_bottom = 16.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="sound_toggle"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 85.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 85.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="music_toggle" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 152.0
-margin/top = 24.0
-margin/right = 248.0
-margin/bottom = 72.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 152.0
+margin_top = 24.0
+margin_right = 248.0
+margin_bottom = 72.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="music_toggle"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 84.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 84.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="effects" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -44.0
-margin/top = -16.0
-margin/right = 146.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -44.0
+margin_top = -16.0
+margin_right = 146.0
+margin_bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SOUND_EFFECTS"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="music" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 34.0
-margin/top = 40.0
-margin/right = 144.0
-margin/bottom = 56.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 34.0
+margin_top = 40.0
+margin_right = 144.0
+margin_bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MUSIC"
 align = 2
@@ -158,40 +165,42 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="shake_toggle" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -161.0
-margin/top = 24.0
-margin/right = -65.0
-margin/bottom = 72.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -161.0
+margin_top = 24.0
+margin_right = -65.0
+margin_bottom = 72.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="shake_toggle"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 87.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 87.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ON"
 align = 1
@@ -199,17 +208,18 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="shake" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -350.0
-margin/top = 40.0
-margin/right = -170.0
-margin/bottom = 56.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -350.0
+margin_top = 40.0
+margin_right = -170.0
+margin_bottom = 56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_CAMERA_SHAKE"
 align = 2
@@ -217,17 +227,18 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="auto_follow_" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -410.0
-margin/top = -16.0
-margin/right = -170.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -410.0
+margin_top = -16.0
+margin_right = -170.0
+margin_bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_AUTO_FOLLOW"
 align = 2
@@ -235,58 +246,61 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="camera_follow" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -160.0
-margin/top = -32.0
-margin/right = -64.0
-margin/bottom = 16.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -160.0
+margin_top = -32.0
+margin_right = -64.0
+margin_bottom = 16.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="camera_follow"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 88.0
-margin/bottom = 33.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 88.0
+margin_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "ON"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="camera_zoom_level" type="Label" parent="."]
 
-visibility/visible = false
+visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 144.0
-margin/top = -80.0
-margin/right = 188.0
-margin/bottom = -50.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 144.0
+margin_top = -80.0
+margin_right = 188.0
+margin_bottom = -50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "7"
 align = 1
@@ -294,17 +308,18 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="zoom_level_" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -64.0
-margin/top = -72.0
-margin/right = 145.0
-margin/bottom = -54.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -64.0
+margin_top = -72.0
+margin_right = 145.0
+margin_bottom = -54.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_ZOOM_LEVEL"
 align = 2
@@ -312,154 +327,162 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="camera_zoom_in" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 272.0
-margin/top = -88.0
-margin/right = 368.0
-margin/bottom = -40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 272.0
+margin_top = -88.0
+margin_right = 368.0
+margin_bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="camera_zoom_in"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -14.0
-margin/top = 16.0
-margin/right = 106.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -14.0
+margin_top = 16.0
+margin_right = 106.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_BIGGER"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="camera_zoom_out" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 152.0
-margin/top = -88.0
-margin/right = 248.0
-margin/bottom = -40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 152.0
+margin_top = -88.0
+margin_right = 248.0
+margin_bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="camera_zoom_out"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -22.0
-margin/top = 16.0
-margin/right = 108.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -22.0
+margin_top = 16.0
+margin_right = 108.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_SMALLER"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="display_mode_toggle" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -160.0
-margin/top = 80.0
-margin/right = -64.0
-margin/bottom = 128.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -160.0
+margin_top = 80.0
+margin_right = -64.0
+margin_bottom = 128.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="display_mode_toggle"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 86.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 86.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "WINDOW"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="display_mode_" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -342.0
-margin/top = 96.0
-margin/right = -172.0
-margin/bottom = 112.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -342.0
+margin_top = 96.0
+margin_right = -172.0
+margin_bottom = 112.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_FULL_SCREEN"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="effects1" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -329.0
-margin/top = -72.0
-margin/right = -169.0
-margin/bottom = -56.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -329.0
+margin_top = -72.0
+margin_right = -169.0
+margin_bottom = -56.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_DIFFICULTY"
 align = 2
@@ -467,68 +490,72 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="difficulty_mode_toggle" type="TextureButton" parent="."]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -160.0
-margin/top = -88.0
-margin/right = -64.0
-margin/bottom = -40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -160.0
+margin_top = -88.0
+margin_right = -64.0
+margin_bottom = -40.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="difficulty_mode_toggle"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 2.0
-margin/top = 16.0
-margin/right = 93.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 2.0
+margin_top = 16.0
+margin_right = 93.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "NORMAL"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="overscan_group" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -212.0
-margin/top = 140.0
-margin/right = 223.0
-margin/bottom = 195.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -212.0
+margin_top = 140.0
+margin_right = 223.0
+margin_bottom = 195.0
+mouse_filter = 0
 
 [node name="overscan_label" type="Label" parent="overscan_group"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 217.0
-margin/top = -44.0
-margin/right = 357.0
-margin/bottom = -28.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 217.0
+margin_top = -44.0
+margin_right = 357.0
+margin_bottom = -28.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_OVERSCAN"
 align = 2
@@ -536,57 +563,60 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="overscan_button" type="TextureButton" parent="overscan_group"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 364.0
-margin/top = -60.0
-margin/right = 460.0
-margin/bottom = -12.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 364.0
+margin_top = -60.0
+margin_right = 460.0
+margin_bottom = -12.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="overscan_group/overscan_button"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 87.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 87.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="tooltips_label" type="Label" parent="overscan_group"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 217.0
-margin/top = 10.0
-margin/right = 357.0
-margin/bottom = 26.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 217.0
+margin_top = 10.0
+margin_right = 357.0
+margin_bottom = 26.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_TOOLTIPS"
 align = 2
@@ -594,57 +624,60 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="tooltips_button" type="TextureButton" parent="overscan_group"]
 
 editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 364.0
-margin/top = -6.0
-margin/right = 460.0
-margin/bottom = 42.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 364.0
+margin_top = -6.0
+margin_right = 460.0
+margin_bottom = 42.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="overscan_group/tooltips_button"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 87.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 87.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "OFF"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="overscan_notification" type="Label" parent="overscan_group"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 476.0
-margin/top = -76.0
-margin/right = 572.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 476.0
+margin_top = -76.0
+margin_right = 572.0
+margin_bottom = 0.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_REQUIES_RESTART"
 valign = 1
@@ -652,67 +685,71 @@ autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="language_group" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -280.0
-margin/top = 154.0
-margin/right = -58.0
-margin/bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -280.0
+margin_top = 154.0
+margin_right = -58.0
+margin_bottom = 176.0
+mouse_filter = 0
 
 [node name="language_label" type="Label" parent="language_group"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -32.0
-margin/top = -2.0
-margin/right = 108.0
-margin/bottom = 14.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -32.0
+margin_top = -2.0
+margin_right = 108.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_LANGUAGE"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="language_button" type="TextureButton" parent="language_group"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 120.0
-margin/top = -18.0
-margin/right = 216.0
-margin/bottom = 30.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 120.0
+margin_top = -18.0
+margin_right = 216.0
+margin_bottom = 30.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="language_group/language_button"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 86.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 86.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "EN"
 align = 1
@@ -720,73 +757,76 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="gamepad_info" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 0
 
-[node name="background_small" type="Patch9Frame" parent="gamepad_info"]
+[node name="background_small" type="NinePatchRect" parent="gamepad_info"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 216.0
-margin/top = 200.0
-margin/right = -337.0
-margin/bottom = -224.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 216.0
+margin_top = 200.0
+margin_right = 337.0
+margin_bottom = 224.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
 [node name="gamepad_info_button" type="TextureButton" parent="gamepad_info"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 224.0
-margin/top = 208.0
-margin/right = 368.0
-margin/bottom = 256.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 224.0
+margin_top = 208.0
+margin_right = 368.0
+margin_bottom = 256.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 7 )
-textures/pressed = ExtResource( 8 )
-textures/hover = ExtResource( 9 )
-textures/disabled = ExtResource( 10 )
-textures/focused = ExtResource( 11 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 10 )
+texture_focused = ExtResource( 11 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="gamepad_info/gamepad_info_button"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 10.0
-margin/top = 16.0
-margin/right = 128.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 10.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "GAMPEAD INFO"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-
+mouse_filter = 1

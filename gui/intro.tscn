@@ -1,0 +1,276 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scripts/intro.gd" type="Script" id=1]
+[ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=2]
+[ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=3]
+[ext_resource path="res://gui/corners.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/sounds/soundtrack/intro.ogg" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "idle"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("center/elements/press_start:modulate:a")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+
+length = 7.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("center/elements/P1X_logo:modulate:a")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("center/elements/presents:modulate:a")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": PoolRealArray( 2.9, 3.4, 5, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 1.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("center/elements/ToF_logo:modulate:a")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": PoolRealArray( 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("center/elements/ToF_logo:rect_position")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": PoolRealArray( 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, -62 ), Vector2( -308, -62 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("center/elements/ToF_logo:visible")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, true, false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("center/credits:modulate:a")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": PoolRealArray( 6, 6.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="intro" type="Control"]
+
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+mouse_filter = 0
+
+[node name="center" type="CenterContainer" parent="."]
+
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+use_top_left = false
+mouse_filter = 0
+
+[node name="elements" type="Control" parent="center"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 0
+
+[node name="P1X_logo" type="Sprite" parent="center/elements"]
+
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 2 )
+
+[node name="presents" type="Label" parent="center/elements"]
+
+modulate = Color( 1, 1, 1, 0 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -128.0
+margin_top = -22.0
+margin_right = 130.0
+margin_bottom = 23.0
+text = "PRESENTS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="ToF_logo" type="TextureRect" parent="center/elements"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -308.0
+margin_top = -62.0
+margin_right = 309.0
+margin_bottom = 75.0
+texture = ExtResource( 3 )
+stretch_mode = 0
+mouse_filter = 1
+
+[node name="press_start" type="Label" parent="center/elements"]
+
+modulate = Color( 1, 1, 1, 0 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -100.0
+margin_top = 160.0
+margin_right = 97.0
+margin_bottom = 181.0
+text = "PRESS START"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="credits" type="Control" parent="center"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 0
+
+[node name="czlowiekimadlo" type="Label" parent="center/credits"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -280.0
+margin_top = 80.0
+margin_right = 281.0
+margin_bottom = 92.0
+text = "CZLOWIEKIMADLO - WRMZ - W84DEATH - MATHIAS NOVA - QMYAAN"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="Grand Beats" type="Label" parent="center/credits"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 177.0
+margin_top = 95.0
+margin_right = 310.0
+margin_bottom = 109.0
+text = "GRAND BEATS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="corners" parent="." instance=ExtResource( 4 )]
+
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 5 )
+playing = true
+loop = false
+volume_db = 0.0
+autoplay = false
+paused = false
+loop_offset = 0.0
+buffering_msec = 500
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/idle = SubResource( 2 )
+anims/intro = SubResource( 1 )
+playback_active = true
+playback_speed = 1.0
+blend_times = [  ]
+autoplay = "intro"
+
+[node name="idle_timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="idle_timer" to="." method="_on_idle_timer_timeout" binds=[  ]]

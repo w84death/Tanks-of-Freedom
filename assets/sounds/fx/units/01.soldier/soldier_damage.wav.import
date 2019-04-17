@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/soldier_damage.wav-59bd4c7f45b82ff21646800e648d311c.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fx/units/01.soldier/soldier_damage.wav"
+dest_files=[ "res://.import/soldier_damage.wav-59bd4c7f45b82ff21646800e648d311c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

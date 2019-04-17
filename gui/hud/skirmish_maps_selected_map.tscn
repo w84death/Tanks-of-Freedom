@@ -1,0 +1,270 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
+[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=3]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=4]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=5]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=6]
+
+[node name="selected_map" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
+mouse_filter = 0
+
+[node name="background" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 70.0
+margin_right = 0.0
+margin_bottom = 70.0
+mouse_filter = 0
+
+[node name="top" type="NinePatchRect" parent="background"]
+
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -316.0
+margin_top = -254.0
+margin_right = 316.0
+margin_bottom = -182.0
+texture = ExtResource( 1 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
+
+[node name="bottom" type="NinePatchRect" parent="background"]
+
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -316.0
+margin_top = -174.0
+margin_right = 316.0
+margin_bottom = -70.0
+texture = ExtResource( 1 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
+
+[node name="controls" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 70.0
+margin_right = 0.0
+margin_bottom = 70.0
+mouse_filter = 0
+
+[node name="turns_cap" type="Button" parent="controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+margin_left = 32.0
+margin_top = -130.0
+margin_right = 128.0
+margin_bottom = -82.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "OFF"
+flat = false
+script = ExtResource( 3 )
+trans_key = "LABEL_OFF"
+mouse_filter = 0
+
+[node name="maps_page" type="Label" parent="controls"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 0.0
+margin_top = -150.0
+margin_right = 158.0
+margin_bottom = -135.0
+text = "LABEL_TURNS_CAP"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="blue_player" type="Button" parent="controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+margin_left = -304.0
+margin_top = -130.0
+margin_right = -160.0
+margin_bottom = -82.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "HUMAN"
+flat = false
+script = ExtResource( 3 )
+trans_key = "LABEL_HUMAN"
+mouse_filter = 0
+
+[node name="red_player" type="Button" parent="controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+margin_left = -156.0
+margin_top = -130.0
+margin_right = -12.0
+margin_bottom = -82.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "CPU"
+flat = false
+script = ExtResource( 3 )
+trans_key = "LABEL_CPU"
+mouse_filter = 0
+
+[node name="vs_" type="Label" parent="controls"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 5 )
+margin_left = -173.0
+margin_top = -158.0
+margin_right = -140.0
+margin_bottom = -135.0
+text = "VS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="map_name" type="Label" parent="controls"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -148.0
+margin_top = -215.0
+margin_right = 110.0
+margin_bottom = -200.0
+text = "MAP NAME WITH THE LONG NAME"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="selected_map_" type="Label" parent="controls"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -148.0
+margin_top = -234.0
+margin_right = 99.0
+margin_bottom = -219.0
+text = "LABEL_SELECTED_MAP"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+mouse_filter = 1
+
+[node name="back" type="Button" parent="controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+margin_left = -304.0
+margin_top = -242.0
+margin_right = -160.0
+margin_bottom = -194.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "BACK"
+flat = false
+script = ExtResource( 3 )
+trans_key = "LABEL_BACK"
+mouse_filter = 0
+
+[node name="play" type="Button" parent="controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+margin_left = 164.0
+margin_top = -130.0
+margin_right = 308.0
+margin_bottom = -82.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "PLAY"
+flat = false
+script = ExtResource( 3 )
+trans_key = "LABEL_PLAY"
+mouse_filter = 0
+
+[node name="Sprite" type="Sprite" parent="controls"]
+
+position = Vector2( -196, -162 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Sprite1" type="Sprite" parent="controls"]
+
+position = Vector2( -122, -162 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 16, 16 )

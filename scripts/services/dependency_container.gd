@@ -59,71 +59,72 @@ var saving = null
 var workshop = null
 
 func init_root(root_node):
-    self.root = root_node
+	self.root = root_node
 
-    self.language._init_bag(self)
-    self.migrations._init_bag(self)
-    self.map_list._init_bag(self)
-    self.campaign.load_campaign_progress()
+	self.language._init_bag(self)
+	self.migrations._init_bag(self)
+	self.map_list._init_bag(self)
+	self.campaign.load_campaign_progress()
 
-    if Globals.get('tof/enable_workshop'):
-        self.controllers.workshop_gui_controller = preload("res://scripts/controllers/workshop_gui_controller.gd").new()
-        self.workshop = preload("res://gui/workshop/workshop.xscn").instance()
-        self.controllers.workshop_gui_controller.init_root(root_node)
-        self.workshop.init(self.root)
+	if ProjectSettings.get_setting('tof/enable_workshop'):
+		self.controllers.workshop_gui_controller = preload("res://scripts/controllers/workshop_gui_controller.gd").new()
+		self.workshop = preload("res://gui/workshop/workshop.tscn").instance()
+		self.controllers.workshop_gui_controller.init_root(root_node)
+		self.workshop.init(self.root)
 
-    self.controllers.campaign_menu_controller.init_root(root_node)
-    self.controllers.hud_panel_controller.init_root(root_node)
-    self.controllers.workshop_menu_controller.init_root(root_node)
-    self.controllers.background_map_controller.init_root(root_node)
-    self.controllers.online_menu_controller._init_bag(self)
+	self.controllers.campaign_menu_controller.init_root(root_node)
+	self.controllers.hud_panel_controller.init_root(root_node)
+	self.controllers.workshop_menu_controller.init_root(root_node)
+	self.controllers.background_map_controller.init_root(root_node)
+	self.controllers.online_menu_controller._init_bag(self)
 
-    self.menu_back._init_bag(self)
-    self.hud_dead_zone.init_root(root_node)
-    self.workshop_dead_zone.init_root(root_node)
+	self.menu_back._init_bag(self)
+	self.hud_dead_zone.init_root(root_node)
+	self.workshop_dead_zone.init_root(root_node)
 
-    self.positions._init_bag(self)
-    self.demo_mode._init_bag(self)
-    self.action_map._init_bag(self)
-    self.ap_gain._init_bag(self)
+	self.positions._init_bag(self)
+	self.demo_mode._init_bag(self)
+	self.action_map._init_bag(self)
+	self.ap_gain._init_bag(self)
 
-    self.unit_switcher._init_bag(self)
-    self.camera._init_bag(self)
-    self.timers._init_bag(self)
-    self.map_picker._init_bag(self)
-    self.confirm_popup._init_bag(self)
-    self.prompt_popup._init_bag(self)
-    self.message_popup._init_bag(self)
-    self.message_big_popup._init_bag(self)
-    self.gamepad_popup._init_bag(self)
-    self.skirmish_setup._init_bag(self)
-    self.fog_controller._init_bag(self)
-    self.resolution._init_bag(self)
-    self.gamepad._init_bag(self)
-    self.pandora._init_bag(self)
+	self.unit_switcher._init_bag(self)
+	self.camera._init_bag(self)
+	self.timers._init_bag(self)
+	self.map_picker._init_bag(self)
+	self.confirm_popup._init_bag(self)
+	self.prompt_popup._init_bag(self)
+	self.message_popup._init_bag(self)
+	self.message_big_popup._init_bag(self)
+	self.gamepad_popup._init_bag(self)
+	self.skirmish_setup._init_bag(self)
+	self.fog_controller._init_bag(self)
+	self.resolution._init_bag(self)
+	self.gamepad._init_bag(self)
+	self.pandora._init_bag(self)
 
-    self.processing._init_bag(self)
-    self.processing.ready = true
-    self.processing.register(self.camera)
-    self.processing.register(self.gamepad)
+	self.processing._init_bag(self)
+	self.processing.ready = true
+	self.processing.register(self.camera)
+	self.processing.register(self.gamepad)
 
-    self.online_request._init_bag(self)
-    self.online_request_async._init_bag(self)
-    self.online_player._init_bag(self)
-    self.online_maps._init_bag(self)
-    self.online_multiplayer._init_bag(self)
-    self.tileset_handler._init_bag(self)
-    self.script_player._init_bag(self)
-    self.game_conditions._init_bag(self)
-    self.ai.pathfinder._init_bag(self)
-    self.ai._init_bag(self)
-    self.perform._init_bag(self)
-    self.waypoint_factory._init_bag(self)
+	self.online_request._init_bag(self)
+	self.online_request_async._init_bag(self)
+	self.online_player._init_bag(self)
+	self.online_maps._init_bag(self)
+	self.online_multiplayer._init_bag(self)
+	self.tileset_handler._init_bag(self)
+	self.script_player._init_bag(self)
+	self.game_conditions._init_bag(self)
+	self.ai.pathfinder._init_bag(self)
+	self.ai._init_bag(self)
+	self.perform._init_bag(self)
+	self.waypoint_factory._init_bag(self)
 
-    self.storyteller._init_bag(self)
+	self.storyteller._init_bag(self)
 
-    if Globals.get('tof/enable_save_load'):
-        self.saving = load('res://scripts/saving.gd').new()
-        self.saving._init_bag(self)
+	if ProjectSettings.get_setting('tof/enable_save_load'):
+		self.saving = load('res://scripts/saving.gd').new()
+		self.saving._init_bag(self)
+
 
 

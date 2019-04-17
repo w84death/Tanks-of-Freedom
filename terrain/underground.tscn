@@ -1,0 +1,11 @@
+[gd_scene load_steps=1 format=2]
+
+[ext_resource path="res://assets/terrain/underground.png" type="Texture" id=1]
+
+[node name="underground" type="Sprite"]
+
+texture = ExtResource( 1 )
+hframes = 4
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/font_12.tres" type="Theme" id=2]
@@ -14,126 +14,134 @@
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 0
 
 [node name="no_ap" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -64.0
-margin/right = 40.0
-margin/bottom = -40.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = -64.0
+margin_right = 40.0
+margin_bottom = -40.0
+mouse_filter = 0
 
-[node name="background" type="Patch9Frame" parent="no_ap"]
+[node name="background" type="NinePatchRect" parent="no_ap"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 24.0
-margin/top = -27.0
-margin/right = 216.0
-margin/bottom = -3.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 24.0
+margin_top = -27.0
+margin_right = 216.0
+margin_bottom = -3.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 12
-patch_margin/right = 24
-patch_margin/bottom = 12
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+mouse_filter = 1
 
 [node name="no_ap" type="Label" parent="no_ap"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 2 )
-margin/left = 32.0
-margin/top = -19.0
-margin/right = 208.0
-margin/bottom = -7.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+margin_left = 32.0
+margin_top = -19.0
+margin_right = 208.0
+margin_bottom = -7.0
 text = "MSG_NO_ENOUGH_AP"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
-[node name="background_top" type="Patch9Frame" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -184.0
-margin/top = -104.0
-margin/right = -80.0
-margin/bottom = 0.0
-texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
-
-[node name="background_main" type="Patch9Frame" parent="."]
+[node name="background_top" type="NinePatchRect" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -72.0
-margin/top = -64.0
-margin/right = 216.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -184.0
+margin_top = -104.0
+margin_right = -80.0
+margin_bottom = 0.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
+
+[node name="background_main" type="NinePatchRect" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -72.0
+margin_top = -64.0
+margin_right = 216.0
+margin_bottom = 0.0
+texture = ExtResource( 1 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
 [node name="building_name" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -176.0
-margin/top = -96.0
-margin/right = 54.0
-margin/bottom = -81.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -176.0
+margin_top = -96.0
+margin_right = 54.0
+margin_bottom = -81.0
 text = "LABEL_BUILDING_BARRACKS"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="unit_name" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -176.0
-margin/top = -70.0
-margin/right = -72.0
-margin/bottom = -55.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -176.0
+margin_top = -70.0
+margin_right = -72.0
+margin_bottom = -55.0
 text = "LABEL_UNIT_HELI"
 clip_text = true
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="unit_sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( -40, -35 )
-transform/scale = Vector2( 3, 3 )
+position = Vector2( -40, -35 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 flip_h = true
 vframes = 4
@@ -144,133 +152,138 @@ frame = 12
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 2 )
-margin/left = -176.0
-margin/top = -52.0
-margin/right = -83.0
-margin/bottom = -38.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+margin_left = -176.0
+margin_top = -52.0
+margin_right = -83.0
+margin_bottom = -38.0
 text = "LABEL_ATTACK"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="health" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 2 )
-margin/left = -176.0
-margin/top = -38.0
-margin/right = -81.0
-margin/bottom = -24.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+margin_left = -176.0
+margin_top = -38.0
+margin_right = -81.0
+margin_bottom = -24.0
 text = "LABEL_HEALTH"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="range" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 2 )
-margin/left = -176.0
-margin/top = -24.0
-margin/right = -87.0
-margin/bottom = -10.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+margin_left = -176.0
+margin_top = -24.0
+margin_right = -87.0
+margin_bottom = -10.0
 text = "LABEL_RANGE"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="price" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
-margin/left = 8.0
-margin/top = -38.0
-margin/right = 109.0
-margin/bottom = -4.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+margin_left = 8.0
+margin_top = -38.0
+margin_right = 109.0
+margin_bottom = -4.0
 text = "99AP"
 align = 2
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="price_" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -30.0
-margin/top = -52.0
-margin/right = 107.0
-margin/bottom = -38.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -30.0
+margin_top = -52.0
+margin_right = 107.0
+margin_bottom = -38.0
 text = "LABEL_DEPLOY_PRICE"
 align = 2
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="deploy_button" type="TextureButton" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 116.0
-margin/top = -56.0
-margin/right = 212.0
-margin/bottom = -8.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 116.0
+margin_top = -56.0
+margin_right = 212.0
+margin_bottom = -8.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 5 )
-textures/pressed = ExtResource( 6 )
-textures/hover = ExtResource( 7 )
-textures/disabled = ExtResource( 8 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="deploy_button"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -12.0
-margin/top = 16.0
-margin/right = 108.0
-margin/bottom = 31.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -12.0
+margin_top = 16.0
+margin_right = 108.0
+margin_bottom = 31.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_DEPLOY"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="gamepad_button" type="Sprite" parent="deploy_button"]
 
-visibility/visible = false
-transform/pos = Vector2( 84.4429, 36.7297 )
-transform/scale = Vector2( 3, 3 )
+visible = false
+position = Vector2( 84.4429, 36.7297 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 9 )
 vframes = 2
 hframes = 4
-
-

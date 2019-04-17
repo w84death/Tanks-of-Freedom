@@ -1,49 +1,47 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/popups/prompt.tscn" type="PackedScene" id=1]
 
 [node name="message" instance=ExtResource( 1 )]
 
-margin/top = -128.0
-margin/bottom = -88.0
+margin_top = -128.0
+margin_bottom = -88.0
 
 [node name="Patch9Frame" parent="."]
 
-margin/left = 300.0
-margin/right = -268.0
-margin/bottom = -44.0
+margin_left = 300.0
+margin_right = -268.0
+margin_bottom = -44.0
 
 [node name="cancel" parent="."]
 
-margin/left = -272.0
-margin/top = 8.0
-margin/right = -128.0
-margin/bottom = 56.0
+margin_left = -272.0
+margin_top = 8.0
+margin_right = -128.0
+margin_bottom = 56.0
 
 [node name="confirm" parent="."]
 
-margin/left = 136.0
-margin/top = 8.0
-margin/right = 280.0
-margin/bottom = 56.0
+margin_left = 136.0
+margin_top = 8.0
+margin_right = 280.0
+margin_bottom = 56.0
 
 [node name="title" parent="."]
 
-margin/left = -264.0
-margin/right = 272.0
+margin_left = -264.0
+margin_right = 272.0
 
 [node name="message" parent="."]
 
-margin/left = -264.0
-margin/right = 272.0
+margin_left = -264.0
+margin_right = 272.0
 
 [node name="input" parent="."]
 
-focus_neighbour/top = NodePath("../cancel")
-focus_neighbour/bottom = NodePath("../confirm")
-margin/left = -110.0
-margin/top = 18.0
-margin/right = 120.0
-margin/bottom = 44.0
-
-
+focus_neighbour_top = NodePath("../cancel")
+focus_neighbour_bottom = NodePath("../confirm")
+margin_left = -110.0
+margin_top = 18.0
+margin_right = 120.0
+margin_bottom = 44.0

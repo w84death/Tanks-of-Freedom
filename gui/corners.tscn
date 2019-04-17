@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/gui/extras/corner.png" type="Texture" id=1]
+
+[node name="corners" type="Control"]
+
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+mouse_filter = 0
+
+[node name="corner_ 1" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 192.0
+margin_bottom = 144.0
+mouse_filter = 0
+
+[node name="Sprite" type="Sprite" parent="corner_ 1"]
+
+position = Vector2( 96, 72 )
+scale = Vector2( 3, 3 )
+z_index = 999
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+
+[node name="corner_2" type="Control" parent="."]
+
+anchor_left = 1.0
+anchor_right = 1.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -192.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 144.0
+mouse_filter = 0
+
+[node name="Sprite" type="Sprite" parent="corner_2"]
+
+position = Vector2( 96, 72 )
+scale = Vector2( 3, 3 )
+z_index = 999
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+frame = 1
+
+[node name="corner_ 3" type="Control" parent="."]
+
+anchor_top = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = -144.0
+margin_right = 192.0
+margin_bottom = 0.0
+mouse_filter = 0
+
+[node name="Sprite" type="Sprite" parent="corner_ 3"]
+
+position = Vector2( 96, 72 )
+scale = Vector2( 3, 3 )
+z_index = 999
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+frame = 2
+
+[node name="corner_ 4" type="Control" parent="."]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -192.0
+margin_top = -144.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 0
+
+[node name="Sprite" type="Sprite" parent="corner_ 4"]
+
+position = Vector2( 96, 72 )
+scale = Vector2( 3, 3 )
+z_index = 999
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 2
+frame = 3

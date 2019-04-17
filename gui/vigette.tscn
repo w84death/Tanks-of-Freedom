@@ -1,42 +1,42 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/gui/extras/vigette.png" type="Texture" id=1]
 
 [node name="vigette" type="CenterContainer"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 use_top_left = false
 __meta__ = {
 "_edit_lock_": true
 }
+mouse_filter = 0
 
 [node name="center" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 0
 
 [node name="sprite" type="Sprite" parent="center"]
 
-visibility/opacity = 0.6
-transform/scale = Vector2( 5, 5 )
+modulate = Color( 1, 1, 1, 0.6 )
+scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-

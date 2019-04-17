@@ -1,10 +1,10 @@
 
-var red_tank_template = preload('res://units/tank_red.xscn')
-var blue_tank_template = preload('res://units/tank_blue.xscn')
-var red_soldier_template = preload('res://units/soldier_red.xscn')
-var blue_soldier_template = preload('res://units/soldier_blue.xscn')
-var red_helicopter_template = preload('res://units/helicopter_red.xscn')
-var blue_helicopter_template = preload('res://units/helicopter_blue.xscn')
+var red_tank_template = preload('res://units/tank_red.tscn')
+var blue_tank_template = preload('res://units/tank_blue.tscn')
+var red_soldier_template = preload('res://units/soldier_red.tscn')
+var blue_soldier_template = preload('res://units/soldier_blue.tscn')
+var red_helicopter_template = preload('res://units/helicopter_red.tscn')
+var blue_helicopter_template = preload('res://units/helicopter_blue.tscn')
 
 var player_blue = 0
 var player_red = 1
@@ -35,3 +35,4 @@ func build_helicopter(player):
 		return blue_helicopter_template.instance()
 	if (player == player_red):
 		return red_helicopter_template.instance()
+

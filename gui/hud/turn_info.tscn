@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/hud/current_team.tscn" type="PackedScene" id=2]
@@ -11,211 +11,220 @@
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+mouse_filter = 0
 
-[node name="background_top" type="Patch9Frame" parent="."]
+[node name="background_top" type="NinePatchRect" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -88.0
-margin/top = -152.0
-margin/right = -88.0
-margin/bottom = 93.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -88.0
+margin_top = -152.0
+margin_right = 88.0
+margin_bottom = -93.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 12
-patch_margin/right = 24
-patch_margin/bottom = 12
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+mouse_filter = 1
 
 [node name="current_blue" parent="." instance=ExtResource( 2 )]
 
-rect/min_size = Vector2( 180, 40 )
-margin/left = -90.0
-margin/top = -180.0
-margin/right = -90.0
-margin/bottom = 140.0
+rect_min_size = Vector2( 180, 40 )
+margin_left = -90.0
+margin_top = -180.0
+margin_right = -90.0
+margin_bottom = 140.0
 
 [node name="current_red" parent="." instance=ExtResource( 2 )]
 
 editor/display_folded = true
-visibility/visible = false
-margin/left = -90.0
-margin/top = -180.0
-margin/right = -90.0
-margin/bottom = 140.0
+visible = false
+margin_left = -90.0
+margin_top = -180.0
+margin_right = -90.0
+margin_bottom = 140.0
 texture = ExtResource( 3 )
 
 [node name="flag" parent="current_red"]
 
 color = 1
 
-[node name="background_bottom" type="Patch9Frame" parent="."]
+[node name="background_bottom" type="NinePatchRect" parent="."]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -88.0
-margin/top = -92.0
-margin/right = -88.0
-margin/bottom = 1.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -88.0
+margin_top = -92.0
+margin_right = 88.0
+margin_bottom = -1.0
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
 [node name="ap" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
-margin/left = -52.0
-margin/top = -71.0
-margin/right = 35.0
-margin/bottom = -37.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+margin_left = -52.0
+margin_top = -71.0
+margin_right = 35.0
+margin_bottom = -37.0
 text = "999"
 align = 2
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="ap_" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -80.0
-margin/top = -84.0
-margin/right = 80.0
-margin/bottom = -68.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -80.0
+margin_top = -84.0
+margin_right = 80.0
+margin_bottom = -68.0
 text = "LABEL_ACTION_POINTS"
 align = 2
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="pap" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
-margin/left = -76.0
-margin/top = -31.0
-margin/right = 51.0
-margin/bottom = -8.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 5 )
+margin_left = -76.0
+margin_top = -31.0
+margin_right = 51.0
+margin_bottom = -8.0
 text = "120"
 align = 2
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="ap2" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 5 )
-margin/left = 53.0
-margin/top = -31.0
-margin/right = 79.0
-margin/bottom = -8.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 5 )
+margin_left = 53.0
+margin_top = -31.0
+margin_right = 79.0
+margin_bottom = -8.0
 text = "AP"
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="ap_1" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -81.0
-margin/top = -43.0
-margin/right = 79.0
-margin/bottom = -29.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -81.0
+margin_top = -43.0
+margin_right = 79.0
+margin_bottom = -29.0
 text = "LABEL_NEXT_TURN_GAIN"
 align = 2
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="map_name" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -86.0
-margin/top = -121.0
-margin/right = 80.0
-margin/bottom = -107.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -86.0
+margin_top = -121.0
+margin_right = 80.0
+margin_bottom = -107.0
 text = "LABEL_MAP_NAME"
 align = 2
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="map_current_map" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -86.0
-margin/top = -137.0
-margin/right = 80.0
-margin/bottom = -123.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -86.0
+margin_top = -137.0
+margin_right = 80.0
+margin_bottom = -123.0
 text = "CURRENT MAP"
 align = 2
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = ExtResource( 6 )
+script = ExtResource( 6 )
 trans_key = "LABEL_CURRENT_MAP"
+mouse_filter = 1
 
 [node name="ap1" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
-margin/left = 40.0
-margin/top = -71.0
-margin/right = 78.0
-margin/bottom = -37.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 4 )
+margin_left = 40.0
+margin_top = -71.0
+margin_right = 78.0
+margin_bottom = -37.0
 text = "AP"
 align = 2
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-
+mouse_filter = 1
 [editable path="current_red"]

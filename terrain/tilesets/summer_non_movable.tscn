@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/terrain/summer/terrain_non-movable.png" type="Texture" id=1]
+[ext_resource path="res://scripts/terrain.gd" type="Script" id=2]
+
+[node name="terrain_non-movable" type="Sprite"]
+
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 8
+script = ExtResource( 2 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+destructable = false
+fence = false
+smoke_particles = 16
+smoke_lifetime = 1
+unique_type_id = 12
+
+[node name="snow1" type="Particles2D" parent="."]
+
+visible = false
+position = Vector2( 0.647072, -6.14713 )
+amount = 4
+lifetime = 2.0
+speed_scale = 0.5
+preprocess = 1.5
+config/process_mode = 1
+config/offset = Vector2( -8, -16 )
+params/direction = 0.0
+params/spread = 50.0
+params/linear_velocity = 10.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 4.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+
+[node name="snow2" type="Particles2D" parent="."]
+
+visible = false
+position = Vector2( 0.647072, -6.14713 )
+amount = 4
+lifetime = 2.0
+speed_scale = 0.5
+preprocess = 1.5
+config/process_mode = 1
+config/offset = Vector2( 8, -16 )
+params/direction = 0.0
+params/spread = 50.0
+params/linear_velocity = 10.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 4.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0

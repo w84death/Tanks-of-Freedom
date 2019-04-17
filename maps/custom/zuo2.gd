@@ -655,3 +655,4 @@ var map_data = [
    {'x': 29, 'y': 15, 'terrain': 1, 'unit': -1},
    {'x': 29, 'y': 24, 'terrain': 0, 'unit': -1},
 ]
+

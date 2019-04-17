@@ -1,3 +1,5 @@
+extends Control
+
 export var trans_key = 'LABEL_DEFAULT'
 
 func _ready():
@@ -6,8 +8,10 @@ func _ready():
 	pass
 
 func refresh_label():
-	self.set_text(tr(self.trans_key))
+	#__sself.set_text(tr(self.trans_key))
+	pass
 
 func set_trans_key(new_key):
 	self.trans_key = new_key
 	refresh_label()
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
@@ -14,160 +14,168 @@
 
 [node name="online" type="CenterContainer"]
 
-anchor/right = 1
-anchor/bottom = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 use_top_left = false
 __meta__ = {
 "__editor_plugin_screen__": "2D",
 "_edit_lock_": true
 }
+mouse_filter = 0
 
 [node name="controls" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 0
 
-[node name="background" type="Patch9Frame" parent="controls"]
+[node name="background" type="NinePatchRect" parent="controls"]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
-rect/min_size = Vector2( 640, 350 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_min_size = Vector2( 640, 350 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 320.0
-margin/top = 208.0
-margin/right = -320.0
-margin/bottom = -142.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -320.0
+margin_top = -208.0
+margin_right = 320.0
+margin_bottom = 142.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
-[node name="background2" type="Patch9Frame" parent="controls"]
+[node name="background2" type="NinePatchRect" parent="controls"]
 
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 320.0
-margin/top = -152.0
-margin/right = 160.0
-margin/bottom = -216.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -320.0
+margin_top = 152.0
+margin_right = -160.0
+margin_bottom = 216.0
 texture = ExtResource( 3 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
-[node name="background3" type="Patch9Frame" parent="controls"]
+[node name="background3" type="NinePatchRect" parent="controls"]
 
-visibility/visible = false
-anchor/left = 3
-anchor/top = 3
-anchor/right = 3
-anchor/bottom = 3
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 56.0
-margin/top = -152.0
-margin/right = -320.0
-margin/bottom = -216.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -56.0
+margin_top = 152.0
+margin_right = 320.0
+margin_bottom = 216.0
 texture = ExtResource( 3 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 1
 
 [node name="buttons" type="Control" parent="controls"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -32.0
-margin/right = 0.0
-margin/bottom = -32.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = -32.0
+margin_right = 0.0
+margin_bottom = -32.0
+mouse_filter = 0
 
 [node name="back" type="Button" parent="controls/buttons"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 4 )
-margin/left = -312.0
-margin/top = 192.0
-margin/right = -168.0
-margin/bottom = 240.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 4 )
+margin_left = -312.0
+margin_top = 192.0
+margin_right = -168.0
+margin_bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 text = "< BACK"
 flat = false
-script/script = ExtResource( 5 )
+script = ExtResource( 5 )
 trans_key = "LABEL_BACK"
+mouse_filter = 0
 
 [node name="previous" type="TextureButton" parent="controls/buttons"]
 
 editor/display_folded = true
-visibility/visible = false
+visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -48.0
-margin/top = 192.0
-margin/right = 96.0
-margin/bottom = 240.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = -48.0
+margin_top = 192.0
+margin_right = 96.0
+margin_bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
-textures/hover = ExtResource( 8 )
-textures/disabled = ExtResource( 9 )
-textures/focused = ExtResource( 10 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 10 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="controls/buttons/previous"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 16.0
-margin/right = 136.0
-margin/bottom = 34.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 6.0
+margin_top = 16.0
+margin_right = 136.0
+margin_bottom = 34.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "previous"
 align = 1
@@ -175,41 +183,43 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="next" type="TextureButton" parent="controls/buttons"]
 
 editor/display_folded = true
-visibility/visible = false
+visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 168.0
-margin/top = 192.0
-margin/right = 312.0
-margin/bottom = 240.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 168.0
+margin_top = 192.0
+margin_right = 312.0
+margin_bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 6 )
-textures/pressed = ExtResource( 7 )
-textures/hover = ExtResource( 8 )
-textures/disabled = ExtResource( 9 )
-textures/focused = ExtResource( 10 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 10 )
 params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
+texture_scale = Vector2( 3, 3 )
 params/stretch_mode = 0
+mouse_filter = 0
 
 [node name="Label" type="Label" parent="controls/buttons/next"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 6.0
+margin_top = 17.0
+margin_right = 136.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "next"
 align = 1
@@ -217,35 +227,37 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="title" type="Label" parent="controls"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 11 )
-margin/left = -296.0
-margin/top = -192.0
-margin/right = 296.0
-margin/bottom = -172.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+theme = ExtResource( 11 )
+margin_left = -296.0
+margin_top = -192.0
+margin_right = 296.0
+margin_bottom = -172.0
 text = "ONLINE HELP"
 align = 1
 autowrap = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="message" type="Label" parent="controls"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -304.0
-margin/top = -160.0
-margin/right = 304.0
-margin/bottom = 120.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = -304.0
+margin_top = -160.0
+margin_right = 304.0
+margin_bottom = 120.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas erat est, mollis venenatis dapibus et, tincidunt non elit. 
 
 Morbi ut dui faucibus, commodo nisi ut, porta augue. Aliquam imperdiet gravida quam aliquam scelerisque. Maecenas ut lorem turpis. Morbi a imperdiet dolor. Nam in vulputate massa. Proin viverra, metus sit amet facilisis euismod, sapien est ultrices sem, vitae convallis enim quam eget ipsum. Nulla congue ut risus lobortis dignissim. "
@@ -254,18 +266,19 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 1
 
 [node name="online_help_text1" type="Label" parent="controls"]
 
-visibility/visible = false
+visible = false
 focus/ignore_mouse = true
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 112.0
-margin/top = 176.0
-margin/right = 152.0
-margin/bottom = 192.0
+size_flags_horizontal = 1
+size_flags_vertical = 0
+margin_left = 112.0
+margin_top = 176.0
+margin_right = 152.0
+margin_bottom = 192.0
 text = "1/3"
 align = 1
 autowrap = true
@@ -273,5 +286,4 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-
+mouse_filter = 1

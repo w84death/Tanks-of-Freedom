@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tank_attack.wav-5c9f10bdac259ad2e48e484e6b4e6565.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fx/units/02.tank/tank_attack.wav"
+dest_files=[ "res://.import/tank_attack.wav-5c9f10bdac259ad2e48e484e6b4e6565.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -10,47 +10,48 @@ var file_panel = preload("res://scripts/workshop/file_panel.gd").new()
 var navigation_panel = preload("res://scripts/workshop/navigation_panel.gd").new()
 
 func init_root(root_node):
-    self.root = root_node
-    self.workshop = self.root.bag.workshop
-    self.root.add_child(self.root.bag.workshop)
-    self.blueprint.init_root(root_node)
-    self.toolbox_panel.init_root(root_node)
-    self.building_blocks_panel.init_root(root_node)
-    self.file_panel.init_root(root_node)
-    self.navigation_panel.init_root(root_node)
-    self.bind_workshop()
-    self.workshop.hide()
+	self.root = root_node
+	self.workshop = self.root.bag.workshop
+	self.root.add_child(self.root.bag.workshop)
+	self.blueprint.init_root(root_node)
+	self.toolbox_panel.init_root(root_node)
+	self.building_blocks_panel.init_root(root_node)
+	self.file_panel.init_root(root_node)
+	self.navigation_panel.init_root(root_node)
+	self.bind_workshop()
+	self.workshop.hide()
 
 func bind_workshop():
-    self.blueprint.bind_panel(self.workshop.get_node("blueprint"))
-    self.toolbox_panel.bind_panel(self.workshop.get_node("toolbox_panel"))
-    self.building_blocks_panel.bind_panel(self.workshop.get_node("building_blocks_panel"))
-    self.file_panel.bind_panel(self.workshop.get_node("file_card"))
-    self.navigation_panel.bind_panel(self.workshop.get_node("navigation_panel/center/navigation_panel"))
-    self.message_popup = self.workshop.hud_message
+	self.blueprint.bind_panel(self.workshop.get_node("blueprint"))
+	self.toolbox_panel.bind_panel(self.workshop.get_node("toolbox_panel"))
+	self.building_blocks_panel.bind_panel(self.workshop.get_node("building_blocks_panel"))
+	self.file_panel.bind_panel(self.workshop.get_node("file_card"))
+	self.navigation_panel.bind_panel(self.workshop.get_node("navigation_panel/center/navigation_panel"))
+	self.message_popup = self.workshop.hud_message
 
 func show_toolbox_panel():
-    self.toolbox_panel.show()
-    self.workshop.painting_allowed = false
+	self.toolbox_panel.show()
+	self.workshop.painting_allowed = false
 
 func hide_toolbox_panel():
-    self.toolbox_panel.hide()
-    self.workshop.painting_allowed = true
+	self.toolbox_panel.hide()
+	self.workshop.painting_allowed = true
 
 func toggle_toolbox_panel():
-    if self.toolbox_panel.toolbox_panel.is_visible():
-        self.hide_toolbox_panel()
-    else:
-        self.show_toolbox_panel()
+	if self.toolbox_panel.toolbox_panel.is_visible():
+		self.hide_toolbox_panel()
+	else:
+		self.show_toolbox_panel()
 
 func show_block_panel():
-    self.building_blocks_panel.show()
+	self.building_blocks_panel.show()
 
 func hide_block_panel():
-    self.building_blocks_panel.hide()
+	self.building_blocks_panel.hide()
 
 func toggle_block_blocks():
-    if self.building_blocks_panel.building_block_panel.is_visible():
-        self.hide_block_panel()
-    else:
-        self.show_block_panel()
+	if self.building_blocks_panel.building_block_panel.is_visible():
+		self.hide_block_panel()
+	else:
+		self.show_block_panel()
+

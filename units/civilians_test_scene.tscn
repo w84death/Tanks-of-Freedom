@@ -1,274 +1,273 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=57 format=2]
 
-[ext_resource path="res://maps/map_sample.xscn" type="PackedScene" id=1]
+[ext_resource path="res://maps/map_sample.tscn" type="PackedScene" id=1]
 [ext_resource path="res://units/civilians/protest_guy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://units/civilians/refugee.tscn" type="PackedScene" id=3]
 [ext_resource path="res://units/civilians/old_woman.tscn" type="PackedScene" id=4]
 [ext_resource path="res://units/civilians/protest_guy2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://units/civilians/refugee2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://units/tank_blue.xscn" type="PackedScene" id=7]
-[ext_resource path="res://units/soldier_blue.xscn" type="PackedScene" id=8]
+[ext_resource path="res://units/tank_blue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://units/soldier_blue.tscn" type="PackedScene" id=8]
 
 [node name="Control" type="Control"]
 
-anchor/right = 1
-anchor/bottom = 1
-rect/scale = Vector2( 5, 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 5, 5 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 1280.0
-margin/bottom = 720.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+margin_left = 0.0
+margin_top = 0.0
+margin_right = -1280.0
+margin_bottom = -720.0
+mouse_filter = 0
 
 [node name="map" parent="." instance=ExtResource( 1 )]
 
-margin/left = 108.0
-margin/top = -63.0
-margin/right = 148.0
-margin/bottom = -23.0
-script/script = null
+margin_left = 108.0
+margin_top = -63.0
+margin_right = 148.0
+margin_bottom = -23.0
+script = null
 
 [node name="YSort" type="YSort" parent="map"]
 
 editor/display_folded = true
-transform/pos = Vector2( -150, 14 )
-sort/enabled = true
+position = Vector2( -150, 14 )
+sort_enabled = true
 
 [node name="civilian_protest_guy" parent="map/YSort" instance=ExtResource( 2 )]
 
 editor/display_folded = true
-transform/pos = Vector2( 209.916, 160.329 )
+position = Vector2( 209.916, 160.329 )
 frame = 0
 
 [node name="civilian_protest_guy3" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 271.945, 174.17 )
+position = Vector2( 271.945, 174.17 )
 
 [node name="civilian_protest_guy7" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 156.346, 208.17 )
+position = Vector2( 156.346, 208.17 )
 
 [node name="civilian_protest_guy1" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 147.345, 62.9918 )
+position = Vector2( 147.345, 62.9918 )
 
 [node name="civilian_protest_guy6" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 127.563, 193.427 )
+position = Vector2( 127.563, 193.427 )
 
 [node name="civilian_protest_guy4 2" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 263.562, 58.6646 )
+position = Vector2( 263.562, 58.6646 )
 
 [node name="civilian_protest_guy43" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 144.254, 133.464 )
+position = Vector2( 144.254, 133.464 )
 
 [node name="civilian_protest_guy2" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 124.271, 125.793 )
+position = Vector2( 124.271, 125.793 )
 flip_h = true
 
 [node name="civilian_protest_guy4" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 240.488, 72.0117 )
+position = Vector2( 240.488, 72.0117 )
 flip_h = true
 
 [node name="civilian_protest_guy5" parent="map/YSort" instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 165.07, 124.557 )
+position = Vector2( 165.07, 124.557 )
 flip_h = true
 
 [node name="civilian_refugee" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 78.7808, 66.5818 )
+position = Vector2( 78.7808, 66.5818 )
 
 [node name="civilian_refugee4" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 174.598, 63.491 )
+position = Vector2( 174.598, 63.491 )
 
 [node name="civilian_refugee5" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 75.0717, 91.927 )
+position = Vector2( 75.0717, 91.927 )
 
 [node name="civilian_refugee3" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 109.453, 71.6939 )
+position = Vector2( 109.453, 71.6939 )
 
 [node name="civilian_refugee4 2" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 205.271, 68.6031 )
+position = Vector2( 205.271, 68.6031 )
 
 [node name="civilian_refugee44" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 177.453, 186.675 )
+position = Vector2( 177.453, 186.675 )
 
 [node name="civilian_refugee43" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 184.253, 117.439 )
+position = Vector2( 184.253, 117.439 )
 
 [node name="civilian_refugee1" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 250.814, 180.777 )
+position = Vector2( 250.814, 180.777 )
 flip_h = true
 
 [node name="civilian_refugee2" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 280.233, 156.887 )
+position = Vector2( 280.233, 156.887 )
 flip_h = true
 
 [node name="civilian_refugee6" parent="map/YSort" instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 164.634, 190.886 )
+position = Vector2( 164.634, 190.886 )
 flip_h = true
 
 [node name="civilian_old_woman" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 265.805, 81.2815 )
+position = Vector2( 265.805, 81.2815 )
 
 [node name="civilian_old_woman4 2" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 230.569, 99.2085 )
+position = Vector2( 230.569, 99.2085 )
 
 [node name="civilian_old_woman43" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 230.569, 99.2085 )
+position = Vector2( 230.569, 99.2085 )
 
 [node name="civilian_old_woman1" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 92.2585, 77.1531 )
+position = Vector2( 92.2585, 77.1531 )
 
 [node name="civilian_old_woman4" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 188.076, 74.0623 )
+position = Vector2( 188.076, 74.0623 )
 
 [node name="civilian_old_woman6" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 168.294, 204.497 )
+position = Vector2( 168.294, 204.497 )
 
 [node name="civilian_old_woman5" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 164.585, 113.625 )
+position = Vector2( 164.585, 113.625 )
 
 [node name="civilian_old_woman2" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 300.106, 170.48 )
+position = Vector2( 300.106, 170.48 )
 flip_h = true
 
 [node name="civilian_old_woman7" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 184.507, 204.479 )
+position = Vector2( 184.507, 204.479 )
 flip_h = true
 
 [node name="civilian_old_woman3" parent="map/YSort" instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 233.855, 167.268 )
+position = Vector2( 233.855, 167.268 )
 flip_h = true
 
 [node name="civilian_protest_guy2 2" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 243.152, 142.591 )
+position = Vector2( 243.152, 142.591 )
 
 [node name="civilian_protest_guy23" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 96.3485, 114.512 )
+position = Vector2( 96.3485, 114.512 )
 
 [node name="civilian_protest_guy27 2" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 213.184, 58.8765 )
+position = Vector2( 213.184, 58.8765 )
 
 [node name="civilian_protest_guy273" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 202.056, 107.094 )
+position = Vector2( 202.056, 107.094 )
 
 [node name="civilian_protest_guy24" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 91.9765, 85.2402 )
+position = Vector2( 91.9765, 85.2402 )
 
 [node name="civilian_protest_guy27" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 187.794, 82.1493 )
+position = Vector2( 187.794, 82.1493 )
 
 [node name="civilian_protest_guy29" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 168.012, 212.584 )
+position = Vector2( 168.012, 212.584 )
 
 [node name="civilian_protest_guy28" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 77.7585, 99.4582 )
+position = Vector2( 77.7585, 99.4582 )
 
 [node name="civilian_protest_guy25" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 47.5827, 90.6645 )
+position = Vector2( 47.5827, 90.6645 )
 flip_h = true
 
 [node name="civilian_protest_guy27 3" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 223.763, 75.8282 )
+position = Vector2( 223.763, 75.8282 )
 flip_h = true
 
 [node name="civilian_protest_guy274" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 210.781, 92.519 )
+position = Vector2( 210.781, 92.519 )
 flip_h = true
 
 [node name="civilian_protest_guy26" parent="map/YSort" instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 131.791, 116.989 )
+position = Vector2( 131.791, 116.989 )
 flip_h = true
 
 [node name="civilian_refugee2 2" parent="map/YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 263.959, 186.436 )
+position = Vector2( 263.959, 186.436 )
 
 [node name="civilian_refugee27" parent="map/YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 148.36, 220.436 )
+position = Vector2( 148.36, 220.436 )
 
 [node name="civilian_refugee23" parent="map/YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 193.747, 184.783 )
+position = Vector2( 193.747, 184.783 )
 
 [node name="civilian_refugee24" parent="map/YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 216.137, 176.44 )
+position = Vector2( 216.137, 176.44 )
 flip_h = true
 
 [node name="civilian_refugee25" parent="map/YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 130.304, 111.112 )
+position = Vector2( 130.304, 111.112 )
 flip_h = true
 
 [node name="civilian_refugee26" parent="map/YSort" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 279.548, 135.575 )
+position = Vector2( 279.548, 135.575 )
 flip_h = true
 
 [node name="tank_blue" parent="map/YSort" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 234.751, 117.783 )
+position = Vector2( 234.751, 117.783 )
 
 [node name="tank_blue1" parent="map/YSort" instance=ExtResource( 7 )]
 
-transform/pos = Vector2( 267.515, 99.8561 )
+position = Vector2( 267.515, 99.8561 )
 
 [node name="soldier_blue" parent="map/YSort" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 200.289, 136.617 )
+position = Vector2( 200.289, 136.617 )
 
 [node name="soldier_blue1" parent="map/YSort" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 173.089, 152.071 )
+position = Vector2( 173.089, 152.071 )
 
 [node name="soldier_blue2" parent="map/YSort" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 140.326, 166.907 )
+position = Vector2( 140.326, 166.907 )
 
 [node name="soldier_blue3" parent="map/YSort" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 110.035, 182.98 )
-
-
+position = Vector2( 110.035, 182.98 )

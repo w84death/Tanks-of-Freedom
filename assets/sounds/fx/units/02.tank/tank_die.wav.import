@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tank_die.wav-1561e5552f33fdf7ca94205ca3da43af.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fx/units/02.tank/tank_die.wav"
+dest_files=[ "res://.import/tank_die.wav-1561e5552f33fdf7ca94205ca3da43af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
