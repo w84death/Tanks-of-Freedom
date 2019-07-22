@@ -62,7 +62,6 @@ LABEL_ACTION_POINTS,ОЧКОВ ДЕЙСТВИЯ
 LABEL_UNIT,ЮНИТ
 LABEL_BUILDING,ЗДАНИЕ
 LABEL_NEXT_TURN_GAIN,ПРИБЫЛЬ НА СЛЕДУЮЩИЙ ХОД
-LABEL_ACTION_POINTS,ОЧКОВ ДЕЙСТВИЯ
 LABEL_MAP_NAME,НАЗВАНИЕ КАРТЫ
 LABEL_SELECT_UNIT,ВЫБРАТЬ ЮНИТ
 LABEL_PLEASE_WAIT,ПОДОЖДИТЕ
