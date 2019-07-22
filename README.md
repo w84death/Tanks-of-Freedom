@@ -11,7 +11,7 @@ A classic turn-based strategy game with two armies fighting against each other. 
 Each 32x32 sprite was handcrafted in gorgeous, 32 colour pixel art. Original soundtrack was made on Access Virus C and Korg Electribe. Sound effects were made on real GameBoy hardware. The game is open-source and runs smoothly thanks to Godot Engine.
 
 ## Gamepad Controls
-Please note, that all controls listed are for the XBox 360 controler gamepad. If you are using a different gamepad, please check for the corresponding buttons.
+Please note, that all controls listed are for the XBox 360 controller gamepad. If you are using a different gamepad, please check for the corresponding buttons.
 
 ### Menus
 - DPad to navigate menu buttons
