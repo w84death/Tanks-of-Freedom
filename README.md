@@ -57,6 +57,7 @@ Game is made using [Godot Engine 2.1+](https://downloads.tuxfamily.org/godotengi
 - [Mageia](http://madb.mageia.org/package/show/application/0/name/tanks-of-freedom) thanks to [Akien](https://github.com/akien-mga)
 - [openSUSE](https://software.opensuse.org/package/Tanks-of-Freedom)
 - [Pandora](https://repo.openpandora.org/?page=detail&app=tanksoffreedom) thanks to Canseco
+- [Google PlayStore](https://play.google.com/store/apps/details?id=online.oakcreationsYH.toffYH&hl) OakCreations Team YH
 
 ### Build from sources
 To get the latest version of the game, you'll need to use the source code and Godot Engine.
