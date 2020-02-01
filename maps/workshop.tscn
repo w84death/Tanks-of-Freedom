@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
-[ext_resource path="res://maps/underground_tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://maps/blueprint_terrain_tileset.xml" type="TileSet" id=3]
-[ext_resource path="res://maps/action_tiles_tileset.xml" type="TileSet" id=4]
-[ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet" id=5]
-[ext_resource path="res://maps/fog_of_war.xml" type="TileSet" id=6]
+[ext_resource path="res://maps/underground_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://maps/blueprint_terrain_tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://maps/action_tiles_tileset.tres" type="TileSet" id=4]
+[ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=5]
+[ext_resource path="res://maps/fog_of_war.tres" type="TileSet" id=6]
 
 [sub_resource type="CanvasItemShaderGraph" id=1]
 

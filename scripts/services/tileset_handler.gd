@@ -1,9 +1,9 @@
 extends "res://scripts/bag_aware.gd"
 
 var available_tilesets = {
-    'summer' : preload("res://maps/tilesets/summer_tileset.xml"),
-    'fall'   : preload("res://maps/tilesets/fall_tileset.xml"),
-    'winter' : preload("res://maps/tilesets/winter_tileset.xml")
+    'summer' : preload("res://maps/tilesets/summer_tileset.tres"),
+    'fall'   : preload("res://maps/tilesets/fall_tileset.tres"),
+    'winter' : preload("res://maps/tilesets/winter_tileset.tres")
 }
 
 var available_objects = {

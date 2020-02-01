@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
-[ext_resource path="res://maps/tilesets/summer_tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://maps/blueprint_units_tileset.xml" type="TileSet" id=3]
+[ext_resource path="res://maps/tilesets/summer_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=3]
 
 [node name="map" type="Control"]
 
