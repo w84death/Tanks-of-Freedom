@@ -1,0 +1,876 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=4]
+[ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=5]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=6]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=7]
+
+[node name="end_game" type="CenterContainer"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
+margin/left = 0.0
+margin/top = 260.0
+margin/right = 0.0
+margin/bottom = 260.0
+use_top_left = false
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
+
+[node name="center" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 0.0
+
+[node name="background" type="Patch9Frame" parent="center"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -296.0
+margin/top = -84.0
+margin/right = -296.0
+margin/bottom = -236.0
+texture = ExtResource( 2 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="asdasd" type="Control" parent="center"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="Sprite2" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( -234.63, 113.749 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 24
+
+[node name="Sprite6" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( -164.63, 113.749 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 26
+
+[node name="Sprite7" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( 1.76044, 13.5531 )
+transform/scale = Vector2( 12, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 25
+
+[node name="Sprite7 2" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( 235.37, 13.7487 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 26
+
+[node name="Sprite7 3" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( -234.63, 13.7487 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 24
+
+[node name="Sprite8 2" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( 32.37, 114 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 26
+
+[node name="Sprite8 3" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( -61, 114 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 24
+
+[node name="Sprite9" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( 165.37, 113.749 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 28
+
+[node name="Sprite9 2" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( 235.37, 113.749 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 29
+
+[node name="Sprite9 3" type="Sprite" parent="center/asdasd"]
+
+transform/pos = Vector2( 135.37, 113.749 )
+transform/scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 8
+hframes = 8
+frame = 27
+
+[node name="controls" type="Control" parent="center"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="labels" type="Control" parent="center/controls"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 40.0
+margin/bottom = 59.0
+
+[node name="total_turns" type="Label" parent="center/controls/labels"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -214.0
+margin/top = 89.0
+margin/right = -132.0
+margin/bottom = 103.0
+custom_colors/font_color = Color( 0.698039, 0.862745, 0.937255, 1 )
+text = "9999"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="total_time" type="Label" parent="center/controls/labels"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -231.0
+margin/top = 112.0
+margin/right = -132.0
+margin/bottom = 126.0
+text = "00:00"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="headers" type="Control" parent="center/controls/labels"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="domination" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -210.0
+margin/top = -32.0
+margin/right = -50.0
+margin/bottom = -11.0
+text = "LABEL_DOMINATION"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="unit_moves" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -91.0
+margin/top = -32.0
+margin/right = 19.0
+margin/bottom = -12.0
+text = "LABEL_MOVES"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="turn_time" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -92.0
+margin/top = 65.0
+margin/right = 64.0
+margin/bottom = 80.0
+text = "LABEL_PLAYERS_TIME"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="kills" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 120.0
+margin/top = -32.0
+margin/right = 280.0
+margin/bottom = -17.0
+text = "LABEL_ELIMINATED"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="overall" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 4 )
+margin/left = 68.0
+margin/top = 64.0
+margin/right = 306.0
+margin/bottom = 87.0
+text = "LABEL_TOTAL_SCORE"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="spawn_count" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -4.0
+margin/top = -32.0
+margin/right = 136.0
+margin/bottom = -15.0
+text = "LABEL_DEPLOYED"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="turns" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -270.0
+margin/top = 89.0
+margin/right = -160.0
+margin/bottom = 110.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "LABEL_TURNS"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="time" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -269.0
+margin/top = 113.0
+margin/right = -193.0
+margin/bottom = 127.0
+text = "LABEL_TIME"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="game_time" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -272.0
+margin/top = 65.0
+margin/right = -134.0
+margin/bottom = 80.0
+text = "LABEL_GAME_TIME"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="game_over" type="Label" parent="center/controls/labels/headers"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 4 )
+margin/left = -280.0
+margin/top = -87.0
+margin/right = -21.0
+margin/bottom = -64.0
+text = "LABEL_GAME_OVER"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="blue" type="Control" parent="center/controls/labels"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -4.0
+margin/right = 40.0
+margin/bottom = 36.0
+
+[node name="blue1" type="Label" parent="center/controls/labels/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -92.0
+margin/top = 91.0
+margin/right = -14.0
+margin/bottom = 106.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "LABEL_BLUE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="blue2" type="Label" parent="center/controls/labels/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -270.0
+margin/top = -12.0
+margin/right = -179.0
+margin/bottom = 3.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "LABEL_BLUE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="blue3" type="Label" parent="center/controls/labels/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 107.0
+margin/top = 94.0
+margin/right = 185.0
+margin/bottom = 109.0
+custom_colors/font_color = Color( 0.968627, 0.886275, 0.419608, 1 )
+text = "LABEL_BLUE"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="red" type="Control" parent="center/controls/labels"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="red1" type="Label" parent="center/controls/labels/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -92.0
+margin/top = 110.0
+margin/right = -22.0
+margin/bottom = 125.0
+text = "LABEL_RED"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="red2" type="Label" parent="center/controls/labels/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -270.0
+margin/top = 7.0
+margin/right = -183.0
+margin/bottom = 22.0
+text = "LABEL_RED"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="red3" type="Label" parent="center/controls/labels/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 106.0
+margin/top = 112.0
+margin/right = 147.0
+margin/bottom = 127.0
+custom_colors/font_color = Color( 0.639216, 0.807843, 0.152941, 1 )
+text = "LABEL_RED"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="blue" type="Control" parent="center/controls"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 19.0
+margin/right = 40.0
+margin/bottom = 59.0
+
+[node name="domination" type="Label" parent="center/controls/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -164.0
+margin/top = -14.0
+margin/right = -96.0
+margin/bottom = 0.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="unit_moves" type="Label" parent="center/controls/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -70.0
+margin/top = -14.0
+margin/right = -2.0
+margin/bottom = 0.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="turn_time" type="Label" parent="center/controls/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -38.0
+margin/top = 87.0
+margin/right = 61.0
+margin/bottom = 101.0
+custom_colors/font_color = Color( 0.698039, 0.862745, 0.937255, 1 )
+text = "00:00"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="kills" type="Label" parent="center/controls/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 159.0
+margin/top = -13.0
+margin/right = 241.0
+margin/bottom = 1.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="spawn_count" type="Label" parent="center/controls/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 17.0
+margin/top = -14.0
+margin/right = 116.0
+margin/bottom = 0.0
+custom_colors/font_color = Color( 0.694118, 0.858824, 0.937255, 1 )
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="overall" type="Label" parent="center/controls/blue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 188.0
+margin/top = 90.0
+margin/right = 267.0
+margin/bottom = 104.0
+custom_colors/font_color = Color( 0.968627, 0.886275, 0.419608, 1 )
+text = "99999"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="red" type="Control" parent="center/controls"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 19.0
+margin/right = 56.0
+margin/bottom = 59.0
+
+[node name="domination" type="Label" parent="center/controls/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -181.0
+margin/top = 8.0
+margin/right = -112.0
+margin/bottom = 23.0
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="unit_moves" type="Label" parent="center/controls/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -87.0
+margin/top = 8.0
+margin/right = -19.0
+margin/bottom = 22.0
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="turn_time" type="Label" parent="center/controls/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -54.0
+margin/top = 110.0
+margin/right = 45.0
+margin/bottom = 124.0
+text = "00:00"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="kills" type="Label" parent="center/controls/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 143.0
+margin/top = 8.0
+margin/right = 225.0
+margin/bottom = 22.0
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="overall" type="Label" parent="center/controls/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 172.0
+margin/top = 110.0
+margin/right = 251.0
+margin/bottom = 124.0
+custom_colors/font_color = Color( 0.639216, 0.807843, 0.152941, 1 )
+text = "99999"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="spawn_count" type="Label" parent="center/controls/red"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 8.0
+margin/right = 100.0
+margin/bottom = 22.0
+text = "9999"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="win" type="Control" parent="center/controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -5.0
+margin/right = 40.0
+margin/bottom = 35.0
+
+[node name="blue_win" type="Control" parent="center/controls/win"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -16.0
+margin/top = -117.0
+margin/right = 24.0
+margin/bottom = -77.0
+
+[node name="Sprite" type="Sprite" parent="center/controls/win/blue_win"]
+
+transform/pos = Vector2( 244.243, 29.1794 )
+transform/scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+vframes = 4
+hframes = 6
+
+[node name="blue_win" type="Label" parent="center/controls/win/blue_win"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 4 )
+margin/left = 5.0
+margin/top = 53.0
+margin/right = 215.0
+margin/bottom = 76.0
+text = "LABEL_BLUE_WINS"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 6 )
+trans_key = "LABEL_BLUE_WINS"
+
+[node name="red_win" type="Control" parent="center/controls/win"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -16.0
+margin/top = -117.0
+margin/right = 24.0
+margin/bottom = -77.0
+
+[node name="Sprite" type="Sprite" parent="center/controls/win/red_win"]
+
+transform/pos = Vector2( 244.243, 29.1794 )
+transform/scale = Vector2( 6, 6 )
+texture = ExtResource( 5 )
+vframes = 4
+hframes = 6
+frame = 3
+
+[node name="red_win" type="Label" parent="center/controls/win/red_win"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 4 )
+margin/left = 5.0
+margin/top = 53.0
+margin/right = 209.0
+margin/bottom = 76.0
+text = "LABEL_RED_WINS"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 6 )
+trans_key = "LABEL_RED_WINS"
+
+[node name="menu" type="Button" parent="center/controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 7 )
+margin/left = -280.0
+margin/top = 172.0
+margin/right = -125.0
+margin/bottom = 220.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "MENU"
+flat = false
+script/script = ExtResource( 6 )
+trans_key = "LABEL_MENU"
+
+[node name="campaign" type="Button" parent="center/controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 7 )
+margin/left = -36.0
+margin/top = 172.0
+margin/right = 119.0
+margin/bottom = 220.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "CAMPAIGN"
+flat = false
+script/script = ExtResource( 6 )
+trans_key = "LABEL_DEFAULT"
+
+[node name="restart" type="Button" parent="center/controls"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+theme/theme = ExtResource( 7 )
+margin/left = 124.0
+margin/top = 172.0
+margin/right = 279.0
+margin/bottom = 220.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "PLAY AGAIN"
+flat = false
+script/script = ExtResource( 6 )
+trans_key = "LABEL_PLAY_AGAIN"
+
+

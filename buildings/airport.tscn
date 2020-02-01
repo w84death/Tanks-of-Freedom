@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://assets/buildings/military.png" type="Texture" id=1]
+[ext_resource path="res://scripts/objects/building.gd" type="Script" id=2]
+[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=3]
+
+[node name="airport" type="Sprite"]
+
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+region = true
+region_rect = Rect2( 0, 128, 64, 64 )
+script/script = ExtResource( 2 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+position_on_map = Vector2( 0, 0 )
+type = 3
+player = -1
+bonus_ap = 5
+can_spawn = true
+spawn_point_position = Vector2( 0, 1 )
+
+[node name="flag" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -26.5932, 7.55115 )
+
+

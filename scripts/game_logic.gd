@@ -19,7 +19,7 @@ var hud_template
 var screen_size
 var half_screen_size = Vector2(0, 0)
 
-var intro = preload('res://intro.xscn').instance()
+var intro = preload('res://intro.tscn').instance()
 var loading_screen = preload('res://gui/loading.xscn').instance()
 
 var action_controller
