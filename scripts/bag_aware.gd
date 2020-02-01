@@ -5,4 +5,5 @@ func _init_bag(bag):
     self._initialize()
 
 func _initialize():
+	pass
     #do nothing

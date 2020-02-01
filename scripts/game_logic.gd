@@ -55,7 +55,6 @@ var settings = {
     'ENV' : 'dev',
     'seen_gamepad' : false,
     'ai_speed': 1,
-    "camera_move_to_bunker": true,
     "camera_speed": 1,
     "tooltips_enabled" : true,
 }
