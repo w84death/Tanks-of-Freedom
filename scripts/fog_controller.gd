@@ -97,11 +97,11 @@ func clear_fog():
     self.bag.positions.refresh_units()
     self.bag.positions.refresh_buildings()
     var units = self.__get_units_to_unhide(current_player)
-    for position in units:
+    for positionVAR in units:
         #taking visibility parameter from unit
-        self.__remove_fog(position, units[position].visibility)
-    for position in self.__get_buildings_to_unhide(current_player):
-        self.__remove_fog(position, 3)
+        self.__remove_fog(positionVAR, units[positionVAR].visibility)
+    for positionVAR in self.__get_buildings_to_unhide(current_player):
+        self.__remove_fog(positionVAR, 3)
 
     self.apply_fog()
 

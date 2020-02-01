@@ -7,7 +7,7 @@ var file_panel
 var file_panel_wrapper
 var file_panel_top_controls
 
-var position
+var positionVAR
 var positions = [-48,50]
 var toggle_button
 var play_button
@@ -29,7 +29,7 @@ func init_root(root_node):
 func bind_panel(file_panel_wrapper_node):
     self.file_panel_wrapper = file_panel_wrapper_node
     self.file_panel = self.file_panel_wrapper.get_node("center/file_panel")
-    self.position = self.file_panel.get_pos()
+    self.positionVAR = self.file_panel.get_pos()
     self.save_animation = self.file_panel.get_node("controls/progress_animation")
     self.file_panel_top_controls = self.file_panel.get_node('controls/top')
     self.file_name = self.file_panel_top_controls.get_node("file_name")
@@ -56,12 +56,12 @@ func _toggle_button_pressed():
 
 func toggle_file_panel():
     if self.is_extended():
-        self.position.y = self.positions[0]
+        self.positionVAR.y = self.positions[0]
         self.file_panel_top_controls.hide()
     else:
-        self.position.y = self.positions[1]
+        self.positionVAR.y = self.positions[1]
         self.file_panel_top_controls.show()
-    self.file_panel.set_pos(self.position)
+    self.file_panel.set_pos(self.positionVAR)
 
 func save_button_pressed():
     self.root.sound_controller.play('menu')
@@ -129,6 +129,6 @@ func is_game_setup_visible():
     return self.bag.skirmish_setup.is_attached_to(self.central_container)
 
 func is_extended():
-    if self.position.y == self.positions[0]:
+    if self.positionVAR.y == self.positions[0]:
         return false
     return true

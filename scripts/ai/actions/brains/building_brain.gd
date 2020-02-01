@@ -33,11 +33,11 @@ func get_actions(entity, enemies = {}, units = {}):
     var score = self.base_spawn_score
     var distance
 
-    for position in enemies:
-        if enemies[position].type_name != "soldier":
+    for positionVAR in enemies:
+        if enemies[positionVAR].type_name != "soldier":
             continue
 
-        distance = self.bag.ai.pathfinder.get_distance(entity.position_on_map, position)
+        distance = self.bag.ai.pathfinder.get_distance(entity.position_on_map, positionVAR)
         if distance <= self.close_threshold:
             score = score + self.in_danger_score
             break

@@ -19,7 +19,7 @@ func is_dead_zone(x, y):
     if not self.ready:
         return false
 
-    if self.check_if_in_zone(x, y, self.root.bag.controllers.workshop_gui_controller.file_panel.position.y - self.file_panel_top_offset, self.file_panel_size):
+    if self.check_if_in_zone(x, y, self.root.bag.controllers.workshop_gui_controller.file_panel.positionVAR.y - self.file_panel_top_offset, self.file_panel_size):
         return true
 
     if self.check_if_in_zone(x, y, self.screen_size.y - self.bottom_panel_size.y, self.bottom_panel_size):

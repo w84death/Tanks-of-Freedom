@@ -1,5 +1,5 @@
 var terrain_type
-var position
+var positionVAR
 var object = null
 var damage = null
 var abstract_map = null
@@ -8,8 +8,8 @@ var waypoint = null
 var destroyed_tile_template = load("res://terrain/destroyed_tile.tscn")
 
 func is_adjacent(field):
-    var diff_x = abs(self.position.x - field.position.x)
-    var diff_y = abs(self.position.y - field.position.y)
+    var diff_x = abs(self.positionVAR.x - field.positionVAR.x)
+    var diff_y = abs(self.positionVAR.y - field.positionVAR.y)
 
     return (diff_x + diff_y) == 1
 
@@ -23,7 +23,7 @@ func add_damage(damage_layer):
 func add_damage_frame(damage_layer, damage_frame):
     self.damage = destroyed_tile_template.instance()
     damage_layer.add_child(damage)
-    var damage_position = abstract_map.tilemap.map_to_world(self.position)
+    var damage_position = abstract_map.tilemap.map_to_world(self.positionVAR)
     damage_position.y += 8
     self.damage.set_pos(damage_position)
     self.damage.set_frame(damage_frame)
@@ -82,8 +82,8 @@ func has_capturable_building(unit):
 
 func get_neighbours():
     return [
-        self.abstract_map.get_field(self.position + Vector2(0, -1)),
-        self.abstract_map.get_field(self.position + Vector2(0, 1)),
-        self.abstract_map.get_field(self.position + Vector2(-1, 0)),
-        self.abstract_map.get_field(self.position + Vector2(1, 0))
+        self.abstract_map.get_field(self.positionVAR + Vector2(0, -1)),
+        self.abstract_map.get_field(self.positionVAR + Vector2(0, 1)),
+        self.abstract_map.get_field(self.positionVAR + Vector2(-1, 0)),
+        self.abstract_map.get_field(self.positionVAR + Vector2(1, 0))
     ]

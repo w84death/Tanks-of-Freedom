@@ -31,4 +31,4 @@ func perform(action_details):
     field.object = unit
     self.bag.controllers.action_controller.ysort.add_child(unit)
     self.bag.root.sound_controller.play_unit_sound(unit, self.bag.root.sound_controller.SOUND_SPAWN)
-    unit.set_pos_map(field.position)
+    unit.set_pos_map(field.positionVAR)

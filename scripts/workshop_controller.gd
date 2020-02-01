@@ -75,13 +75,13 @@ func add_action(params):
     var last_brush
 
     if params.tool_type == "terrain":
-        last_brush = terrain.get_cell(params.position.x,params.position.y)
+        last_brush = terrain.get_cell(params.positionVAR.x,params.positionVAR.y)
 
     if params.tool_type == "units":
-        last_brush = units.get_cell(params.position.x,params.position.y)
+        last_brush = units.get_cell(params.positionVAR.x,params.positionVAR.y)
 
     history.append({
-        position = params.position,
+        positionVAR = params.positionVAR,
         tool_type = params.tool_type,
         brush_type = last_brush
         })
@@ -94,7 +94,7 @@ func undo_last_action():
     var last_action
     if self.history.size() > 0:
         last_action = history[history.size()-1]
-        self.paint(last_action.position,last_action.tool_type,last_action.brush_type, true)
+        self.paint(last_action.positionVAR,last_action.tool_type,last_action.brush_type, true)
         history.remove(history.size()-1)
 
 func toolbox_fill():
@@ -137,7 +137,7 @@ func load_map(name, input = false, suppress=false, is_remote = false):
     else:
         self.selected_tileset = self.map.theme
 
-func paint(position, tool_type = null, brush_type = null, undo_action = false):
+func paint(positionVAR, tool_type = null, brush_type = null, undo_action = false):
     if hud_message.is_visible():
         return false
 
@@ -147,26 +147,26 @@ func paint(position, tool_type = null, brush_type = null, undo_action = false):
         brush_type = self.brush_type
 
 
-    if position.x < 0 or position.y < 0 or position.x >= self.bag.abstract_map.MAP_MAX_X or position.y >= self.bag.abstract_map.MAP_MAX_Y:
+    if positionVAR.x < 0 or positionVAR.y < 0 or positionVAR.x >= self.bag.abstract_map.MAP_MAX_X or positionVAR.y >= self.bag.abstract_map.MAP_MAX_Y:
         return false
     else:
         if tool_type == "terrain":
-            if brush_type == -1 and units.get_cell(position.x,position.y) > -1:
+            if brush_type == -1 and units.get_cell(positionVAR.x,positionVAR.y) > -1:
                 if not undo_action:
-                    add_action({position=Vector2(position.x,position.y),tool_type="units"})
-                units.set_cell(position.x,position.y,brush_type)
+                    add_action({positionVAR=Vector2(positionVAR.x,positionVAR.y),tool_type="units"})
+                units.set_cell(positionVAR.x,positionVAR.y,brush_type)
             else:
-                if terrain.get_cell(position.x,position.y) != brush_type:
+                if terrain.get_cell(positionVAR.x,positionVAR.y) != brush_type:
                     if not undo_action:
-                        add_action({position=Vector2(position.x,position.y),tool_type="terrain"})
-                    terrain.set_cell(position.x,position.y,brush_type)
+                        add_action({positionVAR=Vector2(positionVAR.x,positionVAR.y),tool_type="terrain"})
+                    terrain.set_cell(positionVAR.x,positionVAR.y,brush_type)
 
         if tool_type == "units":
-            if units.get_cell(position.x,position.y) != brush_type:
-                if terrain.get_cell(position.x, position.y) in [self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN, self.tileset.TERRAIN_CONCRETE]:
+            if units.get_cell(positionVAR.x,positionVAR.y) != brush_type:
+                if terrain.get_cell(positionVAR.x, positionVAR.y) in [self.tileset.TERRAIN_PLAIN, self.tileset.TERRAIN_DIRT, self.tileset.TERRAIN_ROAD, self.tileset.TERRAIN_DIRT_ROAD, self.tileset.TERRAIN_BRIDGE, self.tileset.TERRAIN_SPAWN, self.tileset.TERRAIN_CONCRETE]:
                     if not undo_action:
-                        add_action({position=Vector2(position.x,position.y),tool_type="units"})
-                    units.set_cell(position.x,position.y,brush_type)
+                        add_action({positionVAR=Vector2(positionVAR.x,positionVAR.y),tool_type="units"})
+                    units.set_cell(positionVAR.x,positionVAR.y,brush_type)
                 else:
                     return false
     units.raise()
@@ -200,9 +200,9 @@ func _input(event):
             var new_selector_x = (event.x - self.root.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
             var new_selector_y = (event.y - self.root.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
             selector_position = terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
-            var position = terrain.map_to_world(selector_position)
-            position.y = position.y + 4
-            selector.set_pos(position)
+            var positionVAR = terrain.map_to_world(selector_position)
+            positionVAR.y = positionVAR.y + 4
+            selector.set_pos(positionVAR)
 
         if (event.type == InputEvent.MOUSE_MOTION):
             painting_motion = true
@@ -213,10 +213,10 @@ func _input(event):
 
         if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.bag.workshop_dead_zone.is_dead_zone(event.x, event.y):
             #map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
-            #var position = terrain.map_to_world(selector_position)
-            #position.x = (position.x + map_pos.x) * map.scale.x
-            #position.y = (position.y + map_pos.y) * map.scale.y
-            #if not self.bag.workshop_dead_zone.is_dead_zone(position.x, position.y):
+            #var positionVAR = terrain.map_to_world(selector_position)
+            #positionVAR.x = (positionVAR.x + map_pos.x) * map.scale.x
+            #positionVAR.y = (positionVAR.y + map_pos.y) * map.scale.y
+            #if not self.bag.workshop_dead_zone.is_dead_zone(positionVAR.x, positionVAR.y):
             self.paint(selector_position)
 
         if event.type == InputEvent.KEY:
@@ -257,19 +257,19 @@ func center_camera():
     self.set_camera_map_pos(center_position)
     self.set_selector_map_pos(center_position)
 
-func set_camera_map_pos(position):
-    if position.x < 0 or position.y < 0 or position.x > self.bag.abstract_map.MAP_MAX_X or position.y > self.bag.abstract_map.MAP_MAX_Y:
+func set_camera_map_pos(positionVAR):
+    if positionVAR.x < 0 or positionVAR.y < 0 or positionVAR.x > self.bag.abstract_map.MAP_MAX_X or positionVAR.y > self.bag.abstract_map.MAP_MAX_Y:
         return
 
-    self.camera.set_offset(self.terrain.map_to_world(position))
+    self.camera.set_offset(self.terrain.map_to_world(positionVAR))
 
 func set_selector_map_pos(pos):
     if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
         return
 
-    var position = self.terrain.map_to_world(pos)
-    position.y += 4
-    selector.set_pos(position)
+    var positionVAR = self.terrain.map_to_world(pos)
+    positionVAR.y += 4
+    selector.set_pos(positionVAR)
     self.selector_position = pos
 
 func show():

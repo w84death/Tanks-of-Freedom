@@ -102,9 +102,9 @@ func _input(event):
                 var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
                 selector_position = current_map_terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
             if (event.type == InputEvent.MOUSE_MOTION):
-                var position = current_map_terrain.map_to_world(selector_position)
-                position.y += 4
-                selector.set_pos(position)
+                var positionVAR = current_map_terrain.map_to_world(selector_position)
+                positionVAR.y += 4
+                selector.set_pos(positionVAR)
                 if self.is_camera_drag:
                     camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
                     camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
@@ -118,16 +118,16 @@ func _input(event):
 
 
             if (event.type == InputEvent.MOUSE_MOTION):
-                var position = current_map_terrain.map_to_world(selector_position)
-                position.y += 4
-                selector.set_pos(position)
+                var positionVAR = current_map_terrain.map_to_world(selector_position)
+                positionVAR.y += 4
+                selector.set_pos(positionVAR)
                 if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
                     self.registered_click = false
 
             # MOUSE SELECT
             if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
                 if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
-                    var position = current_map_terrain.map_to_world(selector_position)
+                    var positionVAR = current_map_terrain.map_to_world(selector_position)
                     if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
                         if event.is_pressed():
                             self.registered_click = true
@@ -171,9 +171,9 @@ func move_selector_to_map_position(pos):
     if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
         return
 
-    var position = current_map_terrain.map_to_world(pos)
-    position.y += 4
-    selector.set_pos(position)
+    var positionVAR = current_map_terrain.map_to_world(pos)
+    positionVAR.y += 4
+    selector.set_pos(positionVAR)
     selector_position = pos
 
 func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false, post_load_object = null, post_load_method = null):

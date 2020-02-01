@@ -2,8 +2,8 @@ extends "res://scripts/bag_aware.gd"
 
 var waypoint = preload('waypoint.gd')
 
-func create(position, subtype=waypoint.TYPE_LEVEL_1):
-    return self.waypoint.new(position, subtype)
+func create(positionVAR, subtype=waypoint.TYPE_LEVEL_1):
+    return self.waypoint.new(positionVAR, subtype)
 
 func create_for_building(building, all_neighbours=true):
     var spawn_point = building.spawn_point

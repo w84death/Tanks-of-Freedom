@@ -10,7 +10,7 @@ var new_obstacles = []
 var passable_field_count = 0
 
 const NEIGHBOURS_KEY = "neighbours"
-const POSITION_KEY = "position"
+const POSITION_KEY = "positionVAR"
 
 const DEFAULT_WEIGHT = 1.0
 const TEMP_IMPASSABLE_WEIGHT = 999.0
@@ -56,8 +56,8 @@ func set_obstacles(obstacle_positions):
     self.set_obstacles_old(obstacle_positions)
     return
 
-    for position in obstacle_positions:
-        self.new_obstacles.push_back(self._get_point_id(position.x, position.y))
+    for positionVAR in obstacle_positions:
+        self.new_obstacles.push_back(self._get_point_id(positionVAR.x, positionVAR.y))
 
     for id in self.bag.helpers.array_diff(self.obstacles, self.new_obstacles):
         self._remove_obstacle(id)
@@ -68,8 +68,8 @@ func set_obstacles(obstacle_positions):
     self.new_obstacles = []
 
 func set_obstacles_old(obstacle_positions):
-    for position in obstacle_positions:
-        self.new_obstacles.push_back(self._get_point_id(position.x, position.y))
+    for positionVAR in obstacle_positions:
+        self.new_obstacles.push_back(self._get_point_id(positionVAR.x, positionVAR.y))
 
     for id in self.bag.helpers.array_diff(self.obstacles, self.new_obstacles):
         self._connect_point(id)

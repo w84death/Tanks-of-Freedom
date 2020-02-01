@@ -59,12 +59,12 @@ func update_zoom():
 func get_pos():
     return self.camera.get_offset()
 
-func set_pos(position):
-    self.camera.set_offset(position)
-    self.target = position
-    self.pos = position
-    self.sX = position.x
-    self.sY = position.y
+func set_pos(positionVAR):
+    self.camera.set_offset(positionVAR)
+    self.target = positionVAR
+    self.pos = positionVAR
+    self.sX = positionVAR.x
+    self.sY = positionVAR.y
 
 func get_scale():
     return self.scale
@@ -181,10 +181,10 @@ func store_position_for_player(player):
     self.position_for_player["player_" + str(player)] = self.get_pos()
 
 func restore_position_for_player(player):
-    var position = self.position_for_player["player_" + str(player)]
+    var positionVAR = self.position_for_player["player_" + str(player)]
 
-    if position.x != 0 and position.y != 0:
-        self.set_pos(position)
+    if positionVAR.x != 0 and positionVAR.y != 0:
+        self.set_pos(positionVAR)
 
 func update_camera_speed():
     self.camera_speed = self.camera_speeds[self.bag.root.settings['camera_speed']]

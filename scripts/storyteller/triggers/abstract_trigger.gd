@@ -11,8 +11,8 @@ func is_triggered(trigger_details, story_event):
 func mark_actors(trigger_details):
     return
 
-func _mark_actor(position, mark):
+func _mark_actor(positionVAR, mark):
     var field
 
-    field = self.bag.abstract_map.get_field(position)
+    field = self.bag.abstract_map.get_field(positionVAR)
     field.object.story_markers[mark] = mark

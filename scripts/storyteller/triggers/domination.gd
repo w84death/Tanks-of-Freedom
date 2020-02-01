@@ -10,8 +10,8 @@ func is_triggered(trigger_details, story_event):
     var field
     var count = 0
 
-    for position in list:
-        field = self.bag.abstract_map.get_field(position)
+    for positionVAR in list:
+        field = self.bag.abstract_map.get_field(positionVAR)
         if field.object.player == player:
             count = count + 1
 

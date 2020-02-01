@@ -73,8 +73,8 @@ func get_type():
 func get_pos_map():
     return position_on_map
 
-func add_move(position):
-    self.move_positions.push_back(position)
+func add_move(positionVAR):
+    self.move_positions.push_back(positionVAR)
 
 func get_initial_pos():
     position_on_map = current_map_terrain.world_to_map(self.get_pos())

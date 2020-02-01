@@ -224,11 +224,11 @@ func fill_block(block, map, counter):
     button.get_node("title").set_text(label)
     button.connect("pressed", self, "map_selected", [map])
 
-    var position = button.get_pos()
+    var positionVAR = button.get_pos()
     if counter % 2 == 1:
-        position.x = self.OFFSET_X
-    position.y = 15 + ((counter - (counter % 2)) / 2) * self.OFFSET_Y
-    block.set_pos(position)
+        positionVAR.x = self.OFFSET_X
+    positionVAR.y = 15 + ((counter - (counter % 2)) / 2) * self.OFFSET_Y
+    block.set_pos(positionVAR)
 
 func map_selected(name):
     self.root.sound_controller.play('menu')

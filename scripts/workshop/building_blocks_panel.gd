@@ -116,7 +116,7 @@ func clear_blocks_panel():
 
 func fill_blocks_panel(blocks):
     var new_block
-    var position = Vector2(20, 50)
+    var positionVAR = Vector2(20, 50)
     var index = 0
     self.clear_blocks_panel()
     for block in blocks:
@@ -126,11 +126,11 @@ func fill_blocks_panel(blocks):
         new_block.get_node("select").connect("pressed", self, "set_building_block_type", [block[2], block[3], block[0]])
         self.blocks_area.add_child(new_block)
         if index > 0 && index % 5 == 0:
-            position.x = 20
-            position.y = position.y + 100
+            positionVAR.x = 20
+            positionVAR.y = positionVAR.y + 100
         elif index > 0:
-            position.x = position.x + 100
-        new_block.set_pos(position)
+            positionVAR.x = positionVAR.x + 100
+        new_block.set_pos(positionVAR)
         index = index + 1
         self.current_blocks.append(new_block)
 

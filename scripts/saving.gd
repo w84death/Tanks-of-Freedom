@@ -189,8 +189,8 @@ func collect_state_data():
     self.data.clear()
     for field_row in self.root_node.bag.abstract_map.fields:
         for field in field_row:
-            pos = Vector2(field.position.x, field.position.y)
-            self.data[pos] = {'x' : field.position.x, 'y': field.position.y, 'terrain': field.terrain_type, 'unit' : -1, 'building' : -1, 'meta': {}}
+            pos = Vector2(field.positionVAR.x, field.positionVAR.y)
+            self.data[pos] = {'x' : field.positionVAR.x, 'y': field.positionVAR.y, 'terrain': field.terrain_type, 'unit' : -1, 'building' : -1, 'meta': {}}
             if field.damage == null:
                 ground_damage = null
             else:

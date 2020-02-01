@@ -265,21 +265,21 @@ func prepare_nearby_tiles_ranges():
 
 
 #get all tiles
-func get_nearby_tiles(position, lookup_range=CLOSE_RANGE):
+func get_nearby_tiles(positionVAR, lookup_range=CLOSE_RANGE):
     var tiles = Vector2Array([])
 
     for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
-        tiles.push_back(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+        tiles.push_back(Vector2(positionVAR.x + tile_modifier.x, positionVAR.y + tile_modifier.y))
 
     return tiles
 
 #only subset (ranges)
-func get_nearby_tiles_subset(position, lookup_range=CLOSE_RANGE):
+func get_nearby_tiles_subset(positionVAR, lookup_range=CLOSE_RANGE):
     var tiles = Vector2Array([])
     if lookup_range == 0:
         return tiles
 
     for tile_modifier in self.precalculated_nearby_tiles_ranges[lookup_range]:
-        tiles.push_back(Vector2(position.x + tile_modifier.x, position.y + tile_modifier.y))
+        tiles.push_back(Vector2(positionVAR.x + tile_modifier.x, positionVAR.y + tile_modifier.y))
 
     return tiles

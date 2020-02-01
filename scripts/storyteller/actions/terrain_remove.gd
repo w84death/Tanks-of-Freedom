@@ -1,9 +1,9 @@
 extends "res://scripts/storyteller/actions/abstract_action.gd"
 
 func perform(action_details):
-    var position = action_details['where']
+    var positionVAR = action_details['where']
     var boom = action_details['explosion']
-    var field = self.bag.abstract_map.get_field(position)
+    var field = self.bag.abstract_map.get_field(positionVAR)
 
     var object = field.object
 

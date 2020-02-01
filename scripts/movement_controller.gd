@@ -18,7 +18,7 @@ func move_object(from, to, action_cost=DEFAULT_COST):
 
         to.object = from.object
         from.object = null
-        to.object.set_pos_map(to.position)
+        to.object.set_pos_map(to.positionVAR)
         return true
     else:
         return false

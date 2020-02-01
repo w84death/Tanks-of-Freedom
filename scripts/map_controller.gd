@@ -127,13 +127,13 @@ func move_to(target):
     if not mouse_dragging:
         self.camera.target = target;
 
-func set_map_pos_global(position):
-    self.camera.set_pos(position)
+func set_map_pos_global(positionVAR):
+    self.camera.set_pos(positionVAR)
 
-func set_map_pos(position):
+func set_map_pos(positionVAR):
     self.game_size = self.root.get_size()
-    position = self.terrain.map_to_world(position*Vector2(-1,-1)) + Vector2(self.game_size.x/(2*self.scale.x), self.game_size.y/(2*self.scale.y))
-    self.set_map_pos_global(position)
+    positionVAR = self.terrain.map_to_world(positionVAR*Vector2(-1,-1)) + Vector2(self.game_size.x/(2*self.scale.x), self.game_size.y/(2*self.scale.y))
+    self.set_map_pos_global(positionVAR)
 
 func move_to_map(target):
     self.camera.move_to_map(target)
@@ -339,10 +339,10 @@ func generate_map():
     self.bag.fog_controller.clear_fog()
     return
 
-func attach_object(position, object):
-    object.set_pos(terrain.map_to_world(position))
+func attach_object(positionVAR, object):
+    object.set_pos(terrain.map_to_world(positionVAR))
     map_layer_front.add_child(object)
-    self.find_spawn_for_building(position.x, position.y, object)
+    self.find_spawn_for_building(positionVAR.x, positionVAR.y, object)
 
 func connect_fences():
     for fence in get_tree().get_nodes_in_group("terrain_fence"):

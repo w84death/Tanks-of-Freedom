@@ -19,7 +19,7 @@ func find_movement_tiles(source_field, move_range):
     var depth
     var field
     var abstract_map = self.bag.abstract_map
-    visited_tiles[source_field.position] = true
+    visited_tiles[source_field.positionVAR] = true
 
     if move_range == 0:
         return {}
@@ -29,15 +29,15 @@ func find_movement_tiles(source_field, move_range):
         depth = processing_queue[index].depth
 
         if depth > 0:
-            tiles[field.position] = depth
+            tiles[field.positionVAR] = depth
 
         if depth < move_range:
             for neighbour in field.get_neighbours():
-                if neighbour.is_passable() and not visited_tiles.has(neighbour.position):
-                    if self.bag.fog_controller.is_fogged(neighbour.position):
+                if neighbour.is_passable() and not visited_tiles.has(neighbour.positionVAR):
+                    if self.bag.fog_controller.is_fogged(neighbour.positionVAR):
                         continue
                     processing_queue.push_back({ 'field': neighbour, 'depth': depth + 1 })
-                    visited_tiles[neighbour.position] = true
+                    visited_tiles[neighbour.positionVAR] = true
         index += 1
 
     return tiles
@@ -63,7 +63,7 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
             if neighbour.is_empty():
                 continue
 
-            if self.bag.fog_controller.is_fogged(neighbour.position):
+            if self.bag.fog_controller.is_fogged(neighbour.positionVAR):
                 continue
 
             if neighbour.has_attackable_enemy(source.object) || neighbour.has_capturable_building(source.object):

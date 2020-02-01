@@ -7,11 +7,11 @@ func execute():
     self.move_camera(Vector2(1,1), 2)
 
 
-func click(position, delay):
-    self.bag.timers.set_timeout(delay, self, "__click", [position])
+func click(positionVAR, delay):
+    self.bag.timers.set_timeout(delay, self, "__click", [positionVAR])
 
-func move_camera(position, delay):
-    self.bag.timers.set_timeout(delay, self, "__move_camera", [position])
+func move_camera(positionVAR, delay):
+    self.bag.timers.set_timeout(delay, self, "__move_camera", [positionVAR])
 
 func __click(args):
     self.bag.controllers.action_controller.handle_action(args[0])

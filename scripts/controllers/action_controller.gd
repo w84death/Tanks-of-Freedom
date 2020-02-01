@@ -90,18 +90,18 @@ func refresh_abstract_map():
     self.root_node.bag.abstract_map.init_map(self.root_node.current_map)
     self.import_objects()
 
-func set_active_field(position):
-    var field = self.root_node.bag.abstract_map.get_field(position)
+func set_active_field(positionVAR):
+    var field = self.root_node.bag.abstract_map.get_field(positionVAR)
     self.clear_active_field()
     self.activate_field(field)
-    self.move_camera_to_point(field.position)
+    self.move_camera_to_point(field.positionVAR)
     return field
 
-func handle_action(position):
+func handle_action(positionVAR):
     if game_ended:
         return self.status.list[self.status.GAME_ENDED]
 
-    var field = self.root_node.bag.abstract_map.get_field(position)
+    var field = self.root_node.bag.abstract_map.get_field(positionVAR)
     if field.object == null:
         if active_field != null && active_field.object != null && field != active_field:
             if active_field.has_unit()  && self.is_movement_possible(field, active_field) && !field.is_empty() && self.has_ap():
@@ -139,7 +139,7 @@ func capture_building(active_field, field):
     self.use_ap(field)
 
     if self.root_node.bag.match_state.is_multiplayer:
-        self.root_node.bag.match_state.register_action_taken({'action': 'capture', 'who': [active_field.position.x, active_field.position.y], 'what': [field.position.x, field.position.y]})
+        self.root_node.bag.match_state.register_action_taken({'action': 'capture', 'who': [active_field.positionVAR.x, active_field.positionVAR.y], 'what': [field.positionVAR.x, field.positionVAR.y]})
 
     field.object.claim(self.current_player, self.turn)
     sound_controller.play('occupy_building')
@@ -171,9 +171,9 @@ func activate_field(field):
         active_indicator.get_parent().remove_child(active_indicator)
     self.root_node.bag.abstract_map.tilemap.add_child(active_indicator)
     self.root_node.bag.abstract_map.tilemap.move_child(active_indicator, 0)
-    var position = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(field.position))
-    position.y += 2
-    active_indicator.set_pos(position)
+    var positionVAR = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(field.positionVAR))
+    positionVAR.y += 2
+    active_indicator.set_pos(positionVAR)
     sound_controller.play('select')
     if not self.is_cpu_player:
         if field.has_unit():
@@ -222,20 +222,20 @@ func add_interaction_indicators(field):
         indicator = self.interaction_indicators[direction]['indicator']
         indicator.hide()
 
-        neighbour = self.root_node.bag.abstract_map.get_field(Vector2(field.position) + self.interaction_indicators[direction]['offset'])
+        neighbour = self.root_node.bag.abstract_map.get_field(Vector2(field.positionVAR) + self.interaction_indicators[direction]['offset'])
 
         if neighbour.is_empty():
             continue
 
-        indicator_position = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(neighbour.position))
+        indicator_position = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(neighbour.positionVAR))
 
         if neighbour.has_attackable_enemy(field.object):
             self.__show_indicator(indicator, indicator_position + Vector2(1,1), "attack")
         elif neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move(field, neighbour):
             self.__show_indicator(indicator, indicator_position, "enter")
 
-func __show_indicator(indicator, position, type):
-    indicator.set_pos(position)
+func __show_indicator(indicator, positionVAR, type):
+    indicator.set_pos(positionVAR)
     indicator.show()
     indicator.get_node('anim').play(type)
 
@@ -263,15 +263,15 @@ func spawn_unit_from_active_building():
     var required_ap = active_object.get_required_ap()
     if spawn_point.object == null && self.has_enough_ap(required_ap):
         if self.root_node.bag.match_state.is_multiplayer:
-            self.root_node.bag.match_state.register_action_taken({'action': 'spawn', 'from': [active_field.position.x, active_field.position.y]})
+            self.root_node.bag.match_state.register_action_taken({'action': 'spawn', 'from': [active_field.positionVAR.x, active_field.positionVAR.y]})
         var unit = active_object.spawn_unit(current_player)
         ysort.add_child(unit)
-        unit.set_pos_map(spawn_point.position)
+        unit.set_pos_map(spawn_point.positionVAR)
         spawn_point.object = unit
         self.deduct_ap(required_ap)
         sound_controller.play_unit_sound(unit, sound_controller.SOUND_SPAWN)
         self.activate_field(spawn_point)
-        self.move_camera_to_point(spawn_point.position)
+        self.move_camera_to_point(spawn_point.positionVAR)
 
         #gather stats
         self.root_node.bag.battle_stats.add_spawn(self.current_player)
@@ -363,8 +363,8 @@ func move_camera_to_active_bunker():
     else:
         self.root_node.bag.camera.restore_position_for_player(current_player)
 
-func move_camera_to_point(position):
-    self.root_node.bag.abstract_map.map.move_to_map(position)
+func move_camera_to_point(positionVAR):
+    self.root_node.bag.abstract_map.map.move_to_map(positionVAR)
 
 func in_game_menu_pressed():
     hud_controller.close_in_game_card()
@@ -381,10 +381,10 @@ func has_enough_ap(ap):
     return false
 
 func use_ap(field):
-    var position = field.position
+    var positionVAR = field.positionVAR
     var cost = 1
-    if self.actual_movement_tiles.has(position):
-        cost = self.actual_movement_tiles[position]
+    if self.actual_movement_tiles.has(positionVAR):
+        cost = self.actual_movement_tiles[positionVAR]
     self.deduct_ap(cost)
 
 func is_movement_possible(field, active_field):
@@ -395,8 +395,8 @@ func is_movement_possible(field, active_field):
         else:
             return active_field.is_adjacent(field)
 
-    var position = field.position
-    if self.actual_movement_tiles.has(position):
+    var positionVAR = field.positionVAR
+    if self.actual_movement_tiles.has(positionVAR):
         return true
 
     return false
@@ -529,12 +529,12 @@ func update_unit(field):
 
 func move_unit(active_field, field):
     var action_cost = self.root_node.bag.movement_controller.DEFAULT_COST
-    if !self.is_cpu_player && self.actual_movement_tiles.has(field.position):
-        action_cost = self.actual_movement_tiles[field.position]
+    if !self.is_cpu_player && self.actual_movement_tiles.has(field.positionVAR):
+        action_cost = self.actual_movement_tiles[field.positionVAR]
 
     if self.root_node.bag.movement_controller.move_object(active_field, field, action_cost):
         if self.root_node.bag.match_state.is_multiplayer:
-            self.root_node.bag.match_state.register_action_taken({'action': 'move', 'from': [active_field.position.x, active_field.position.y], 'to': [field.position.x, field.position.y]})
+            self.root_node.bag.match_state.register_action_taken({'action': 'move', 'from': [active_field.positionVAR.x, active_field.positionVAR.y], 'to': [field.positionVAR.x, field.positionVAR.y]})
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_MOVE)
         self.use_ap(field)
         self.activate_field(field)
@@ -547,7 +547,7 @@ func move_unit(active_field, field):
             'type' : 'move',
             'details' : {
                 'who' : field.object,
-                'where' : field.position
+                'where' : field.positionVAR
             }
         })
 
@@ -570,7 +570,7 @@ func handle_battle(active_field, field):
 
         sound_controller.play_unit_sound(field.object, sound_controller.SOUND_ATTACK)
         if self.root_node.bag.match_state.is_multiplayer:
-            self.root_node.bag.match_state.register_action_taken({'action': 'attack', 'who': [active_field.position.x, active_field.position.y], 'whom': [field.position.x, field.position.y]})
+            self.root_node.bag.match_state.register_action_taken({'action': 'attack', 'who': [active_field.positionVAR.x, active_field.positionVAR.y], 'whom': [field.positionVAR.x, field.positionVAR.y]})
 
         if (self.root_node.bag.battle_controller.resolve_fight(active_field.object, field.object)):
             markers = field.object.story_markers
@@ -580,7 +580,7 @@ func handle_battle(active_field, field):
 
             #gather stats
             self.root_node.bag.battle_stats.add_kills(current_player)
-            self.collateral_damage(field.position)
+            self.collateral_damage(field.positionVAR)
             self.root_node.bag.storyteller.register_story_event({
                 'type' : 'die',
                 'details' : {
@@ -602,7 +602,7 @@ func handle_battle(active_field, field):
 
                     #gather stats
                     self.root_node.bag.battle_stats.add_kills(abs(current_player - 1))
-                    self.collateral_damage(active_field.position)
+                    self.collateral_damage(active_field.positionVAR)
                     self.root_node.bag.storyteller.register_story_event({
                         'type' : 'die',
                         'details' : {
@@ -631,8 +631,8 @@ func collateral_damage(center):
     if field.damage == null:
         field.add_damage(damage_layer)
 
-func damage_terrain(position):
-    var field = self.root_node.bag.abstract_map.get_field(position)
+func damage_terrain(positionVAR):
+    var field = self.root_node.bag.abstract_map.get_field(positionVAR)
     if field == null || field.object == null || field.object.group != 'terrain':
         return
 
@@ -651,6 +651,6 @@ func switch_unit(direction):
             self.activate_field(unit_field)
 
         if self.active_field != null:
-            self.root_node.move_selector_to_map_position(self.active_field.position)
-            self.move_camera_to_point(self.active_field.position)
+            self.root_node.move_selector_to_map_position(self.active_field.positionVAR)
+            self.move_camera_to_point(self.active_field.positionVAR)
 

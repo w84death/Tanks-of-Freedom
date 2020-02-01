@@ -371,35 +371,35 @@ func end_replay():
     self.bag.root.action_controller.local_end_turn()
 
 func move_camera_to_action(move):
-    var position
+    var positionVAR
     if move['action'] == 'spawn':
-        position = move['from']
+        positionVAR = move['from']
     elif move['action'] == 'move':
-        position = move['from']
+        positionVAR = move['from']
     elif move['action'] == 'capture':
-        position = move['who']
+        positionVAR = move['who']
     elif move['action'] == 'attack':
-        position = move['who']
+        positionVAR = move['who']
 
-    position = Vector2(position[0], position[1])
-    self.bag.camera.move_to_map(position)
-    self.bag.root.action_controller.set_active_field(position)
+    positionVAR = Vector2(positionVAR[0], positionVAR[1])
+    self.bag.camera.move_to_map(positionVAR)
+    self.bag.root.action_controller.set_active_field(positionVAR)
 
 
 func perform_action(move):
-    var position
+    var positionVAR
     print(move)
     if move['action'] == 'spawn':
         self.bag.root.action_controller.spawn_unit_from_active_building()
     elif move['action'] == 'move':
-        position = move['to']
-        position = Vector2(position[0], position[1])
-        self.bag.root.action_controller.handle_action(position)
+        positionVAR = move['to']
+        positionVAR = Vector2(positionVAR[0], positionVAR[1])
+        self.bag.root.action_controller.handle_action(positionVAR)
     elif move['action'] == 'capture':
-        position = move['what']
-        position = Vector2(position[0], position[1])
-        self.bag.root.action_controller.handle_action(position)
+        positionVAR = move['what']
+        positionVAR = Vector2(positionVAR[0], positionVAR[1])
+        self.bag.root.action_controller.handle_action(positionVAR)
     elif move['action'] == 'attack':
-        position = move['whom']
-        position = Vector2(position[0], position[1])
-        self.bag.root.action_controller.handle_action(position)
+        positionVAR = move['whom']
+        positionVAR = Vector2(positionVAR[0], positionVAR[1])
+        self.bag.root.action_controller.handle_action(positionVAR)
