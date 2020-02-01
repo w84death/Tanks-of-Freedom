@@ -59,8 +59,8 @@ func perform_refresh_list():
 func fill_matches_list_with_data(returned_request):
 	var i = 1
 	if returned_request.has('data') and returned_request['data'].has('matches'):
-		for match in returned_request['data']['matches']:
-			self.match_boxes[i].bind_match_data(match)
+		for matchVAR in returned_request['data']['matches']:
+			self.match_boxes[i].bind_match_data(matchVAR)
 			i = i+1
 		if i <= self.MATCH_LIMIT:
 			self.match_boxes[i].show_fill()
