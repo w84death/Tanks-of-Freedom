@@ -82,8 +82,8 @@ var seasons = {
 }
 
 func get_current_tileset():
-	for theme in self.seasons:
-		if self.bag.helpers.comp_days(self.seasons[theme], OS.get_date()) != 1:
-			return theme
+	for themeVAR in self.seasons:
+		if self.bag.helpers.comp_days(self.seasons[themeVAR], OS.get_date()) != 1:
+			return themeVAR
 	return 'winter'
 

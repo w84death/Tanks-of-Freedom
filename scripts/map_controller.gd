@@ -21,7 +21,7 @@ var game_size
 var scale
 var root
 var camera
-var theme
+var themeVAR
 
 var shake_timer = Timer.new()
 var shakes = 0
@@ -607,7 +607,7 @@ func get_map_data_as_array():
 func save_map(file_name):
 	var temp_data = {
 		'tiles' : self.get_map_data_as_array(),
-		'theme' : self.theme
+		'themeVAR' : self.themeVAR
 	}
 
 	file_name = str(file_name)
@@ -653,7 +653,7 @@ func load_map(file_name, is_remote = false, switch_tileset=true):
 		if switch_tileset:
 			self.switch_to_tileset(self.map_file.get_theme())
 		self.fill_map_from_data_array(self.map_file.get_tiles())
-		self.theme = self.map_file.get_theme()
+		self.themeVAR = self.map_file.get_theme()
 		# TODO [waypoints] - add building waypoints
 		return true
 	return false

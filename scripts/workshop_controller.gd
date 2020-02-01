@@ -124,7 +124,7 @@ func post_play_map():
 func save_map(name, input = false):
 	if input:
 		name = name.get_text()
-	self.map.theme = self.selected_tileset
+	self.map.themeVAR = self.selected_tileset
 	if not map.save_map(name):
 		self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_ERROR_NAME"), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 
@@ -135,7 +135,7 @@ func load_map(name, input = false, suppress=false, is_remote = false):
 		if not suppress:
 			self.show_message(tr("LABEL_WORKSHOP_FAILURE"), tr("MSG_WORKSHOP_FILE_NOT_FOUND"), tr("MSG_WORKSHOP_CHECK_TYPOS"), tr("LABEL_OK"))
 	else:
-		self.selected_tileset = self.map.theme
+		self.selected_tileset = self.map.themeVAR
 
 func paint(positionVAR, tool_type = null, brush_type = null, undo_action = false):
 	if hud_message.is_visible():

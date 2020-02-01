@@ -38,8 +38,8 @@ func write_as_plain_file(path, data):
 	file.close()
 
 func get_theme():
-	if self.data.has('theme') && self.data['theme'] != null:
-		return self.data['theme']
+	if self.data.has('themeVAR') && self.data['themeVAR'] != null:
+		return self.data['themeVAR']
 
 	return self.DEFAULT_THEME
 
