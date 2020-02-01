@@ -117,10 +117,10 @@ func clear_floating_damage():
 	floating_ap.call_deferred("free")
 	
 func can_spawn_units():
-    if self.type == 4:
-        return false
+	if self.type == 4:
+		return false
 
-    return true
+	return true
 
 func _ready():
 	add_to_group("buildings")
