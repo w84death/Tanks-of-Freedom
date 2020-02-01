@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
 [ext_resource path="res://maps/underground_tileset.tres" type="TileSet" id=2]
@@ -7,28 +7,8 @@
 [ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://maps/fog_of_war.tres" type="TileSet" id=6]
 
-[sub_resource type="CanvasItemShaderGraph" id=1]
-
-_code = {
-"fragment": "",
-"fragment_ofs": 0,
-"light": "",
-"light_ofs": 0,
-"vertex": "",
-"vertex_ofs": 0
-}
-_data = {
-"shaders": [ [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 596, 103 ), null, null, [  ], 4, 0, Vector2( 20, 20 ), null, null, [  ] ], [ 0, 33, Vector2( 250, 20 ), null, null, [  ] ] ]
-}
-
-[sub_resource type="CanvasItemMaterial" id=2]
-
-shader/shader = SubResource( 1 )
-shader/shading_mode = 0
-
 [node name="map" type="Control"]
 
-material/material = SubResource( 2 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
