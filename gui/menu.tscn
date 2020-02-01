@@ -25,7 +25,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=23]
 [ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=24]
 [ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=25]
-[ext_resource path="res://gui/stats.xscn" type="PackedScene" id=26]
+[ext_resource path="res://gui/stats.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Animation" id=1]
 

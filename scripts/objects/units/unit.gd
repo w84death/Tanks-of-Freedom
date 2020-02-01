@@ -32,10 +32,10 @@ var visibility
 
 var group = 'unit'
 
-var explosion_template = preload('res://particle/explosion.xscn')
-var explosion_big_template = preload('res://particle/explosion_big.xscn')
+var explosion_template = preload('res://particle/explosion.tscn')
+var explosion_big_template = preload('res://particle/explosion_big.tscn')
 var explosion
-var floating_damage_template = preload('res://particle/hit_points.xscn')
+var floating_damage_template = preload('res://particle/hit_points.tscn')
 var floating_damage
 var die = false
 var active = 1

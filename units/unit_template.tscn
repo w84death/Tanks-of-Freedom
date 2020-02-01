@@ -2,8 +2,8 @@
 
 [ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scripts/objects/units/soldier.gd" type="Script" id=2]
-[ext_resource path="res://gui/health_bar.xscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/icon_shield.xscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/icon_shield.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 

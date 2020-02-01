@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/buildings/military.png" type="Texture" id=1]
 [ext_resource path="res://scripts/objects/building.gd" type="Script" id=2]
-[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/flag.tscn" type="PackedScene" id=3]
 
 [node name="airport" type="Sprite"]
 

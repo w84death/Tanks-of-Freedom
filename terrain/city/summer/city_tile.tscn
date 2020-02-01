@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/terrain.gd" type="Script" id=1]
-[ext_resource path="res://particle/smoke.xscn" type="PackedScene" id=2]
+[ext_resource path="res://particle/smoke.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/buildings/summer/buildings_small.png" type="Texture" id=3]
 
 [sub_resource type="ColorRamp" id=1]

@@ -2,8 +2,8 @@
 var root
 var bag
 
-var picker = preload("res://gui/hud/skirmish_maps_panel.xscn").instance()
-var block_template = preload("res://gui/hud/skirmish_maps_block.xscn")
+var picker = preload("res://gui/hud/skirmish_maps_panel.tscn").instance()
+var block_template = preload("res://gui/hud/skirmish_maps_block.tscn")
 
 var blocks_cache = []
 

@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/workshop_controller.gd" type="Script" id=1]
-[ext_resource path="res://gui/workshop/toolbox.xscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/workshop/building_blocks.xscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/workshop/toolbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/workshop/building_blocks.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/message.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/workshop/file_panel.xscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/workshop/navigation_panel.xscn" type="PackedScene" id=6]
-[ext_resource path="res://maps/workshop.xscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/workshop/file_panel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/workshop/navigation_panel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://maps/workshop.tscn" type="PackedScene" id=7]
 
 [node name="workshop" type="Control"]
 

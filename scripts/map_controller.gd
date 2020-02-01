@@ -42,43 +42,43 @@ var campaign
 var used_tiles_list = []
 
 var tileset
-var map_movable = preload('res://terrain/tilesets/summer_movable.xscn')
-var map_non_movable = preload('res://terrain/tilesets/summer_non_movable.xscn')
-var wave = preload('res://terrain/wave.xscn')
-var underground_rock = preload('res://terrain/underground.xscn')
+var map_movable = preload('res://terrain/tilesets/summer_movable.tscn')
+var map_non_movable = preload('res://terrain/tilesets/summer_non_movable.tscn')
+var wave = preload('res://terrain/wave.tscn')
+var underground_rock = preload('res://terrain/underground.tscn')
 
 var map_city_small = [
-    preload('res://terrain/city/summer/city_small_1.xscn'),
-    preload('res://terrain/city/summer/city_small_2.xscn'),
-    preload('res://terrain/city/summer/city_small_3.xscn'),
-    preload('res://terrain/city/summer/city_small_4.xscn'),
-    preload('res://terrain/city/summer/city_small_5.xscn'),
-    preload('res://terrain/city/summer/city_small_6.xscn')
+    preload('res://terrain/city/summer/city_small_1.tscn'),
+    preload('res://terrain/city/summer/city_small_2.tscn'),
+    preload('res://terrain/city/summer/city_small_3.tscn'),
+    preload('res://terrain/city/summer/city_small_4.tscn'),
+    preload('res://terrain/city/summer/city_small_5.tscn'),
+    preload('res://terrain/city/summer/city_small_6.tscn')
     ]
 var map_city_big = [
-    preload('res://terrain/city/summer/city_big_1.xscn'),
-    preload('res://terrain/city/summer/city_big_2.xscn'),
-    preload('res://terrain/city/summer/city_big_3.xscn'),
-    preload('res://terrain/city/summer/city_big_4.xscn')
+    preload('res://terrain/city/summer/city_big_1.tscn'),
+    preload('res://terrain/city/summer/city_big_2.tscn'),
+    preload('res://terrain/city/summer/city_big_3.tscn'),
+    preload('res://terrain/city/summer/city_big_4.tscn')
     ]
-var map_statue = preload('res://terrain/city/summer/city_statue.xscn')
+var map_statue = preload('res://terrain/city/summer/city_statue.tscn')
 var map_buildings = [
-    preload('res://buildings/bunker_blue.xscn'),
-    preload('res://buildings/bunker_red.xscn'),
-    preload('res://buildings/barrack.xscn'),
-    preload('res://buildings/factory.xscn'),
-    preload('res://buildings/airport.xscn'),
-    preload('res://buildings/tower.xscn'),
-    preload('res://buildings/fence.xscn')
+    preload('res://buildings/bunker_blue.tscn'),
+    preload('res://buildings/bunker_red.tscn'),
+    preload('res://buildings/barrack.tscn'),
+    preload('res://buildings/factory.tscn'),
+    preload('res://buildings/airport.tscn'),
+    preload('res://buildings/tower.tscn'),
+    preload('res://buildings/fence.tscn')
 ]
 
 var map_units = [
-    preload('res://units/soldier_blue.xscn'),
-    preload('res://units/tank_blue.xscn'),
-    preload('res://units/helicopter_blue.xscn'),
-    preload('res://units/soldier_red.xscn'),
-    preload('res://units/tank_red.xscn'),
-    preload('res://units/helicopter_red.xscn')
+    preload('res://units/soldier_blue.tscn'),
+    preload('res://units/tank_blue.tscn'),
+    preload('res://units/helicopter_blue.tscn'),
+    preload('res://units/soldier_red.tscn'),
+    preload('res://units/tank_red.tscn'),
+    preload('res://units/helicopter_red.tscn')
 ]
 
 var map_civilians = [

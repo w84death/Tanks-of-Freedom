@@ -68,7 +68,7 @@ func init_root(root_node):
 
     if Globals.get('tof/enable_workshop'):
         self.controllers.workshop_gui_controller = preload("res://scripts/controllers/workshop_gui_controller.gd").new()
-        self.workshop = preload("res://gui/workshop/workshop.xscn").instance()
+        self.workshop = preload("res://gui/workshop/workshop.tscn").instance()
         self.controllers.workshop_gui_controller.init_root(root_node)
         self.workshop.init(self.root)
 

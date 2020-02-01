@@ -1,6 +1,6 @@
 
 var root
-var hud_panel = preload("res://gui/hud/hud_panel.xscn").instance()
+var hud_panel = preload("res://gui/hud/hud_panel.tscn").instance()
 var end_turn_panel_scene = preload("res://gui/hud/end_turn.tscn").instance()
 var info_panel_scene = preload("res://gui/hud/turn_info.tscn").instance()
 var zoom_panel_scene = preload("res://gui/hud/zoom_panel.tscn").instance()

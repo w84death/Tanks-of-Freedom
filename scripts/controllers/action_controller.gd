@@ -5,7 +5,7 @@ var ysort
 var damage_layer
 var selector
 var active_field = null
-var active_indicator = preload('res://gui/selector.xscn').instance()
+var active_indicator = preload('res://gui/selector.tscn').instance()
 var hud_controller = preload('res://scripts/hud_controller.gd').new()
 var status = load('res://scripts/controllers/action_status.gd').new()
 var sound_controller
@@ -77,7 +77,7 @@ func init_root(root, map, hud):
     self.positions.get_player_bunker_position(self.current_player)
 
     sound_controller = root.sound_controller
-    var interaction_template = load('res://gui/movement.xscn')
+    var interaction_template = load('res://gui/movement.tscn')
     for direction in self.interaction_indicators:
         self.interaction_indicators[direction]['indicator'] = interaction_template.instance()
         ysort.add_child(self.interaction_indicators[direction]['indicator'])

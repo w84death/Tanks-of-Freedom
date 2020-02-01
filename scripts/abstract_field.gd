@@ -5,7 +5,7 @@ var damage = null
 var abstract_map = null
 var waypoint = null
 
-var destroyed_tile_template = load("res://terrain/destroyed_tile.xscn")
+var destroyed_tile_template = load("res://terrain/destroyed_tile.tscn")
 
 func is_adjacent(field):
     var diff_x = abs(self.position.x - field.position.x)

@@ -16,7 +16,7 @@ var turn_claimed = -1
 
 var object_factory = preload('../object_factory.gd').new()
 
-var floating_ap_template = preload('res://particle/hit_points.xscn')
+var floating_ap_template = preload('res://particle/hit_points.tscn')
 var floating_ap
 
 var TYPE_BUNKER = 0

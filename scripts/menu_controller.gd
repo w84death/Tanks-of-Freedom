@@ -33,7 +33,7 @@ var label_wins
 var label_maps_created
 var label_version
 
-var maps_sub_menu = preload("res://gui/menu_maps.xscn").instance()
+var maps_sub_menu = preload("res://gui/menu_maps.tscn").instance()
 var maps_sub_menu_anchor
 var maps_close_button
 var workshop_button

@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/branding/p1x_logo.png" type="Texture" id=2]
 [ext_resource path="res://assets/branding/tof_logo_enchanced.png" type="Texture" id=3]
-[ext_resource path="res://gui/corners.xscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/corners.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sounds/soundtrack/intro.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=2]

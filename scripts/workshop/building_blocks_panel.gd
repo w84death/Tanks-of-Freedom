@@ -11,7 +11,7 @@ var units_button
 var close_button
 
 var blocks_area
-var block_template = preload("res://gui/workshop/block.xscn")
+var block_template = preload("res://gui/workshop/block.tscn")
 
 var tiles
 

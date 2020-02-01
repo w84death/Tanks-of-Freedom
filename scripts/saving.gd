@@ -12,7 +12,7 @@ var unit_map
 var loaded_data
 
 var saved_settings = ['cpu_0', 'cpu_1', 'turns_cap', 'easy_mode']
-var destroyed_tile_template = preload("res://terrain/destroyed_tile.xscn")
+var destroyed_tile_template = preload("res://terrain/destroyed_tile.tscn")
 
 func _initialize():
     self.root_node = self.bag.root

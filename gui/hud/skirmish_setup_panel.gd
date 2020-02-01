@@ -2,7 +2,7 @@
 var root
 var bag
 
-var panel = preload("res://gui/hud/skirmish_maps_selected_map.xscn").instance()
+var panel = preload("res://gui/hud/skirmish_maps_selected_map.tscn").instance()
 var current_container
 
 var map_name_label

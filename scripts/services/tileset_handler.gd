@@ -8,70 +8,70 @@ var available_tilesets = {
 
 var available_objects = {
     'summer' : {
-        'movable' : preload('res://terrain/tilesets/summer_movable.xscn'),
-        'non-movable' : preload('res://terrain/tilesets/summer_non_movable.xscn')
+        'movable' : preload('res://terrain/tilesets/summer_movable.tscn'),
+        'non-movable' : preload('res://terrain/tilesets/summer_non_movable.tscn')
     },
     'fall' : {
-        'movable' : preload('res://terrain/tilesets/fall_movable.xscn'),
-        'non-movable' : preload('res://terrain/tilesets/fall_non_movable.xscn')
+        'movable' : preload('res://terrain/tilesets/fall_movable.tscn'),
+        'non-movable' : preload('res://terrain/tilesets/fall_non_movable.tscn')
     },
     'winter' : {
-        'movable' : preload('res://terrain/tilesets/winter_movable.xscn'),
-        'non-movable' : preload('res://terrain/tilesets/winter_non_movable.xscn')
+        'movable' : preload('res://terrain/tilesets/winter_movable.tscn'),
+        'non-movable' : preload('res://terrain/tilesets/winter_non_movable.tscn')
     }
 }
 
 var available_city = {
     'summer' : {
         'small' : [
-            preload('res://terrain/city/summer/city_small_1.xscn'),
-            preload('res://terrain/city/summer/city_small_2.xscn'),
-            preload('res://terrain/city/summer/city_small_3.xscn'),
-            preload('res://terrain/city/summer/city_small_4.xscn'),
-            preload('res://terrain/city/summer/city_small_5.xscn'),
-            preload('res://terrain/city/summer/city_small_6.xscn')
+            preload('res://terrain/city/summer/city_small_1.tscn'),
+            preload('res://terrain/city/summer/city_small_2.tscn'),
+            preload('res://terrain/city/summer/city_small_3.tscn'),
+            preload('res://terrain/city/summer/city_small_4.tscn'),
+            preload('res://terrain/city/summer/city_small_5.tscn'),
+            preload('res://terrain/city/summer/city_small_6.tscn')
         ],
         'large' : [
-            preload('res://terrain/city/summer/city_big_1.xscn'),
-            preload('res://terrain/city/summer/city_big_2.xscn'),
-            preload('res://terrain/city/summer/city_big_3.xscn'),
-            preload('res://terrain/city/summer/city_big_4.xscn')
+            preload('res://terrain/city/summer/city_big_1.tscn'),
+            preload('res://terrain/city/summer/city_big_2.tscn'),
+            preload('res://terrain/city/summer/city_big_3.tscn'),
+            preload('res://terrain/city/summer/city_big_4.tscn')
         ],
-        'statue' : preload('res://terrain/city/summer/city_statue.xscn')
+        'statue' : preload('res://terrain/city/summer/city_statue.tscn')
     },
     'fall' : {
         'small' : [
-            preload('res://terrain/city/fall/city_small_1.xscn'),
-            preload('res://terrain/city/fall/city_small_2.xscn'),
-            preload('res://terrain/city/fall/city_small_3.xscn'),
-            preload('res://terrain/city/fall/city_small_4.xscn'),
-            preload('res://terrain/city/fall/city_small_5.xscn'),
-            preload('res://terrain/city/fall/city_small_6.xscn')
+            preload('res://terrain/city/fall/city_small_1.tscn'),
+            preload('res://terrain/city/fall/city_small_2.tscn'),
+            preload('res://terrain/city/fall/city_small_3.tscn'),
+            preload('res://terrain/city/fall/city_small_4.tscn'),
+            preload('res://terrain/city/fall/city_small_5.tscn'),
+            preload('res://terrain/city/fall/city_small_6.tscn')
         ],
         'large' : [
-            preload('res://terrain/city/fall/city_big_1.xscn'),
-            preload('res://terrain/city/fall/city_big_2.xscn'),
-            preload('res://terrain/city/fall/city_big_3.xscn'),
-            preload('res://terrain/city/fall/city_big_4.xscn')
+            preload('res://terrain/city/fall/city_big_1.tscn'),
+            preload('res://terrain/city/fall/city_big_2.tscn'),
+            preload('res://terrain/city/fall/city_big_3.tscn'),
+            preload('res://terrain/city/fall/city_big_4.tscn')
         ],
-        'statue' : preload('res://terrain/city/fall/city_statue.xscn')
+        'statue' : preload('res://terrain/city/fall/city_statue.tscn')
     },
     'winter' : {
         'small' : [
-            preload('res://terrain/city/winter/city_small_1.xscn'),
-            preload('res://terrain/city/winter/city_small_2.xscn'),
-            preload('res://terrain/city/winter/city_small_3.xscn'),
-            preload('res://terrain/city/winter/city_small_4.xscn'),
-            preload('res://terrain/city/winter/city_small_5.xscn'),
-            preload('res://terrain/city/winter/city_small_6.xscn')
+            preload('res://terrain/city/winter/city_small_1.tscn'),
+            preload('res://terrain/city/winter/city_small_2.tscn'),
+            preload('res://terrain/city/winter/city_small_3.tscn'),
+            preload('res://terrain/city/winter/city_small_4.tscn'),
+            preload('res://terrain/city/winter/city_small_5.tscn'),
+            preload('res://terrain/city/winter/city_small_6.tscn')
         ],
         'large' : [
-            preload('res://terrain/city/winter/city_big_1.xscn'),
-            preload('res://terrain/city/winter/city_big_2.xscn'),
-            preload('res://terrain/city/winter/city_big_3.xscn'),
-            preload('res://terrain/city/winter/city_big_4.xscn')
+            preload('res://terrain/city/winter/city_big_1.tscn'),
+            preload('res://terrain/city/winter/city_big_2.tscn'),
+            preload('res://terrain/city/winter/city_big_3.tscn'),
+            preload('res://terrain/city/winter/city_big_4.tscn')
         ],
-        'statue' : preload('res://terrain/city/winter/city_statue.xscn')
+        'statue' : preload('res://terrain/city/winter/city_statue.tscn')
     }
 }
 

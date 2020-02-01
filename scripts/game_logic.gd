@@ -3,7 +3,7 @@ extends Control
 var version_name = "Version 0.7.0-BETA"
 var version_short = "0.7.0"
 
-var selector = preload('res://gui/selector.xscn').instance()
+var selector = preload('res://gui/selector.tscn').instance()
 var selector_position
 var current_map_terrain
 var camera_pos
@@ -20,7 +20,7 @@ var screen_size
 var half_screen_size = Vector2(0, 0)
 
 var intro = preload('res://intro.tscn').instance()
-var loading_screen = preload('res://gui/loading.xscn').instance()
+var loading_screen = preload('res://gui/loading.tscn').instance()
 
 var action_controller
 var sound_controller = preload("sound_controller.gd").new()
@@ -30,7 +30,7 @@ var current_map_name
 var hud
 var bag
 
-var map_template = preload('res://maps/workshop.xscn')
+var map_template = preload('res://maps/workshop.tscn')
 var main_tileset
 
 var settings = {
