@@ -776,7 +776,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 6 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_BLUE_WINS"
 
 [node name="red_win" type="Control" parent="center/controls/win"]
 
@@ -815,7 +815,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 6 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_RED_WINS"
 
 [node name="menu" type="Button" parent="center/controls"]
 
@@ -834,7 +834,7 @@ shortcut = null
 text = "MENU"
 flat = false
 script/script = ExtResource( 8 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_MENU"
 
 [node name="campaign" type="Button" parent="center/controls"]
 
@@ -872,6 +872,6 @@ shortcut = null
 text = "PLAY AGAIN"
 flat = false
 script/script = ExtResource( 8 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_PLAY_AGAIN"
 
 

@@ -97,7 +97,7 @@ shortcut = null
 text = "OFF"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_OFF"
 
 [node name="maps_page" type="Label" parent="controls"]
 
@@ -132,7 +132,7 @@ shortcut = null
 text = "HUMAN"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_HUMAN"
 
 [node name="red_player" type="Button" parent="controls"]
 
@@ -151,7 +151,7 @@ shortcut = null
 text = "CPU"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_CPU"
 
 [node name="vs_" type="Label" parent="controls"]
 
@@ -217,7 +217,7 @@ shortcut = null
 text = "BACK"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_BACK"
 
 [node name="play" type="Button" parent="controls"]
 
@@ -236,7 +236,7 @@ shortcut = null
 text = "PLAY"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_PLAY"
 
 [node name="Sprite" type="Sprite" parent="controls"]
 

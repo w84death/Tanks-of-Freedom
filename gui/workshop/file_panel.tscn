@@ -393,6 +393,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 10 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_WORKSHOP_FILE_SAVED"
 
 

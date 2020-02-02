@@ -181,7 +181,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 5 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_BLUE_TEAM_TURN"
 
 [node name="red" type="Control" parent="top_center/center/game_card/current_team"]
 

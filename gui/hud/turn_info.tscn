@@ -197,7 +197,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 6 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_CURRENT_MAP"
 
 [node name="ap1" type="Label" parent="."]
 

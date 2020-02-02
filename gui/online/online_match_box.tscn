@@ -68,7 +68,7 @@ shortcut = null
 text = "CREATE"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_CREATE"
 
 [node name="join" type="Button" parent="free"]
 
@@ -87,7 +87,7 @@ shortcut = null
 text = "JOIN"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_JOIN"
 
 [node name="Label" type="Label" parent="free"]
 
@@ -202,7 +202,7 @@ shortcut = null
 text = "PLAY"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_PLAY"
 
 [node name="replay" type="Button" parent="used"]
 
@@ -222,7 +222,7 @@ shortcut = null
 text = "REPLY"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_REPLY"
 
 [node name="forfeit" type="Button" parent="used"]
 
@@ -242,7 +242,7 @@ shortcut = null
 text = "FORFEIT"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_FORFEIT"
 
 [node name="clear" type="Button" parent="used"]
 
@@ -261,6 +261,6 @@ shortcut = null
 text = "CLEAR"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_CLEAR"
 
 

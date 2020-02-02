@@ -132,7 +132,7 @@ shortcut = null
 text = "< BACK"
 flat = false
 script/script = ExtResource( 5 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_BACK"
 
 [node name="previous" type="TextureButton" parent="controls/buttons"]
 

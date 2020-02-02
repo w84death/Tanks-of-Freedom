@@ -60,7 +60,7 @@ shortcut = null
 text = "CANCEL"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_CANCEL"
 
 [node name="confirm" type="Button" parent="."]
 
@@ -79,7 +79,7 @@ shortcut = null
 text = "CONFIRM"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_CONFIRM"
 
 [node name="title" type="Label" parent="."]
 

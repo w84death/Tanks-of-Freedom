@@ -54,6 +54,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+trans_key = "LABEL_PLEASE_WAIT"
 
 
