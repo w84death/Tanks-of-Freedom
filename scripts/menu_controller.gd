@@ -1,3 +1,5 @@
+extends Control
+
 var root
 var control_nodes
 

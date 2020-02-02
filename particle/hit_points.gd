@@ -1,4 +1,4 @@
-extends Sprite
+extends Label
 
 var unit
 

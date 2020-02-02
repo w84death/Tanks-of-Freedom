@@ -26,7 +26,6 @@ unique_type_id = 7
 
 [node name="smoke" parent="." instance=ExtResource( 3 )]
 
-config/process_mode = 1
 color/color_ramp = SubResource( 1 )
 
 

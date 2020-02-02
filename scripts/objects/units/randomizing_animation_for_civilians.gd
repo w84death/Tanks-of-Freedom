@@ -1,3 +1,5 @@
+extends Sprite
+
 func _ready():
 	randomize()
 	get_node("anim").seek(randf())

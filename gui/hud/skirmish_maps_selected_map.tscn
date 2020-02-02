@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=2]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=3]
+[ext_resource path="res://scripts/translate_me_button.gd" type="Script" id=3]
 [ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=4]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=5]
 [ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=6]
@@ -97,7 +97,7 @@ shortcut = null
 text = "OFF"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_OFF"
+trans_key = "LABEL_DEFAULT"
 
 [node name="maps_page" type="Label" parent="controls"]
 
@@ -132,7 +132,7 @@ shortcut = null
 text = "HUMAN"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_HUMAN"
+trans_key = "LABEL_DEFAULT"
 
 [node name="red_player" type="Button" parent="controls"]
 
@@ -151,7 +151,7 @@ shortcut = null
 text = "CPU"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_CPU"
+trans_key = "LABEL_DEFAULT"
 
 [node name="vs_" type="Label" parent="controls"]
 
@@ -217,7 +217,7 @@ shortcut = null
 text = "BACK"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_BACK"
+trans_key = "LABEL_DEFAULT"
 
 [node name="play" type="Button" parent="controls"]
 
@@ -236,7 +236,7 @@ shortcut = null
 text = "PLAY"
 flat = false
 script/script = ExtResource( 3 )
-trans_key = "LABEL_PLAY"
+trans_key = "LABEL_DEFAULT"
 
 [node name="Sprite" type="Sprite" parent="controls"]
 

@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/buttons/analog_size3_7.png" type="Texture" id=8]
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=9]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=10]
+[ext_resource path="res://scripts/translate_me_label.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -393,6 +393,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 10 )
-trans_key = "LABEL_WORKSHOP_FILE_SAVED"
+trans_key = "LABEL_DEFAULT"
 
 

@@ -9,7 +9,8 @@
 
 [sub_resource type="GDScript" id=1]
 
-script/source = "
+script/source = "extends Control
+
 func load_map(name):
 	get_parent().load_map(name)
 "

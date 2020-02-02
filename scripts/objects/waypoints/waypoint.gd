@@ -1,4 +1,4 @@
-extends Sprite
+extends Control
 
 export var position_on_map = Vector2(0,0)
 var group = 'waypoint'

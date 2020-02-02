@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource/name = "move"
 length = 0.75
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 0.5
 loop = false
@@ -74,7 +74,7 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/idle_no_ap = SubResource( 1 )
-anims/move = SubResource( 3 )
+anims/move = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -93,7 +93,7 @@ transform/pos = Vector2( 6, 4 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/in = SubResource( 2 )
+anims/in = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

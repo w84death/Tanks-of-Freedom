@@ -9,7 +9,7 @@
 offsets = FloatArray( 0, 0.1, 0.2, 0.8 )
 colors = ColorArray( 0, 0, 0, 0.194805, 0.266667, 0.266667, 0.266667, 0.838384, 0.771574, 0.77665, 0.767677, 0.590909, 0.615686, 0.615686, 0.615686, 0 )
 
-[node name="city_small" type="Node2D"]
+[node name="city_small" type="Sprite"]
 
 script/script = ExtResource( 1 )
 __meta__ = {
@@ -23,7 +23,6 @@ unique_type_id = -1
 
 [node name="smoke" parent="." instance=ExtResource( 2 )]
 
-config/process_mode = 1
 color/color_ramp = SubResource( 1 )
 
 [node name="c1" type="Sprite" parent="."]

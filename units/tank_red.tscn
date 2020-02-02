@@ -5,7 +5,7 @@
 [ext_resource path="res://gui/health_bar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/icon_shield.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 
 resource/name = "idle_no_ap"
 length = 1.0
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 
 length = 0.75
 loop = true
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
 length = 0.5
 loop = false
@@ -72,8 +72,8 @@ position_on_map = Vector2( 0, 0 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/idle_no_ap = SubResource( 3 )
-anims/move = SubResource( 1 )
+anims/idle_no_ap = SubResource( 1 )
+anims/move = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -92,7 +92,7 @@ transform/pos = Vector2( 6, 4 )
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/in = SubResource( 2 )
+anims/in = SubResource( 3 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

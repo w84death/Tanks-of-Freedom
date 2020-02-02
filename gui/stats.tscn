@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
 [ext_resource path="res://assets/gui/dialogs/gui_spritesheet.png" type="Texture" id=3]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=4]
 [ext_resource path="res://assets/units/units_spritesheet.png" type="Texture" id=5]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=6]
+[ext_resource path="res://scripts/translate_me_label.gd" type="Script" id=6]
 [ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=7]
+[ext_resource path="res://scripts/translate_me_button.gd" type="Script" id=8]
 
 [node name="end_game" type="CenterContainer"]
 
@@ -775,7 +776,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 6 )
-trans_key = "LABEL_BLUE_WINS"
+trans_key = "LABEL_DEFAULT"
 
 [node name="red_win" type="Control" parent="center/controls/win"]
 
@@ -814,7 +815,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script/script = ExtResource( 6 )
-trans_key = "LABEL_RED_WINS"
+trans_key = "LABEL_DEFAULT"
 
 [node name="menu" type="Button" parent="center/controls"]
 
@@ -832,8 +833,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "MENU"
 flat = false
-script/script = ExtResource( 6 )
-trans_key = "LABEL_MENU"
+script/script = ExtResource( 8 )
+trans_key = "LABEL_DEFAULT"
 
 [node name="campaign" type="Button" parent="center/controls"]
 
@@ -851,7 +852,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "CAMPAIGN"
 flat = false
-script/script = ExtResource( 6 )
+script/script = ExtResource( 8 )
 trans_key = "LABEL_DEFAULT"
 
 [node name="restart" type="Button" parent="center/controls"]
@@ -870,7 +871,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "PLAY AGAIN"
 flat = false
-script/script = ExtResource( 6 )
-trans_key = "LABEL_PLAY_AGAIN"
+script/script = ExtResource( 8 )
+trans_key = "LABEL_DEFAULT"
 
 

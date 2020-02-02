@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=2]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=3]
+[ext_resource path="res://scripts/translate_me_label.gd" type="Script" id=3]
 [ext_resource path="res://gui/settings/option_one_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/settings/option_two_buttons.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=6]
-[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=7]
-[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=8]
+[ext_resource path="res://scripts/translate_me.gd" type="Script" id=6]
+[ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=7]
+[ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=8]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=9]
 
 [node name="settings_panel" type="Control"]
 
@@ -267,11 +268,13 @@ margin/bottom = 176.0
 [node name="title" parent="body/tabs/gfx/camera_zoom"]
 
 text = "ZOOM LEVEL"
+script/script = ExtResource( 6 )
 trans_key = "LABEL_ZOOM_LEVEL"
 
 [node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
 text = "SMALLER"
+script/script = ExtResource( 6 )
 trans_key = "LABEL_SMALLER"
 
 [node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
@@ -348,7 +351,7 @@ margin/left = -328.0
 margin/top = 200.0
 margin/right = -88.0
 margin/bottom = -224.0
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -375,7 +378,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 7 )
+theme/theme = ExtResource( 8 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 90.0
@@ -385,7 +388,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GAME"
 flat = false
-script/script = ExtResource( 3 )
+script/script = ExtResource( 6 )
 trans_key = "LABEL_GAME"
 
 [node name="gfx" type="Button" parent="nav/tabs"]
@@ -395,7 +398,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 7 )
+theme/theme = ExtResource( 8 )
 margin/left = 94.0
 margin/top = 0.0
 margin/right = 184.0
@@ -405,7 +408,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GFX"
 flat = false
-script/script = ExtResource( 3 )
+script/script = ExtResource( 6 )
 trans_key = "LABEL_GFX"
 
 [node name="sound" type="Button" parent="nav/tabs"]
@@ -415,7 +418,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 7 )
+theme/theme = ExtResource( 8 )
 margin/left = 188.0
 margin/top = 0.0
 margin/right = 278.0
@@ -425,7 +428,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "SOUND"
 flat = false
-script/script = ExtResource( 3 )
+script/script = ExtResource( 6 )
 trans_key = "LABEL_SOUND"
 
 [node name="pad" type="Button" parent="nav/tabs"]
@@ -435,7 +438,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 8 )
+theme/theme = ExtResource( 9 )
 margin/left = 282.0
 margin/top = 0.0
 margin/right = 442.0
@@ -445,7 +448,7 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GAMEPAD INFO"
 flat = false
-script/script = ExtResource( 3 )
+script/script = ExtResource( 6 )
 trans_key = "LABEL_GAMEPAD_INFO"
 
 

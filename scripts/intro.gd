@@ -1,4 +1,3 @@
-
 extends Control
 
 # zuo istnieje

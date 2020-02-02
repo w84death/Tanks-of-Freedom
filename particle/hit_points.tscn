@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=1]
-[ext_resource path="res://particle/explosion.gd" type="Script" id=2]
+[ext_resource path="res://particle/hit_points.gd" type="Script" id=2]
 [ext_resource path="res://assets/gui/dialogs/icons.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]

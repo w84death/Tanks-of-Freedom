@@ -1,5 +1,5 @@
-
 extends Sprite
+
 export var destructable = false
 export var fence = false
 var current_map
