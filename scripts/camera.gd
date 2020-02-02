@@ -103,7 +103,7 @@ func set_zoom_value(value):
 	self.scaleVAR = Vector2(new_scale, new_scale)
 	self.camera.set_zoom(self.scaleVAR)
 	self.root.bag.workshop.camera.set_zoom(self.scaleVAR)
-	self.root.game_scale = self.scale
+	self.root.game_scale = self.scaleVAR
 	self.root.settings['camera_zoom'] = self.camera_zoom_level_pos
 	self.root.write_settings_to_file()
 
