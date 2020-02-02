@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://gui/vigette.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/hud/cinematic_camera.tscn" type="PackedScene" id=2]
@@ -6,21 +6,20 @@
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=4]
 [ext_resource path="res://scripts/translate_me_label.gd" type="Script" id=5]
 [ext_resource path="res://assets/gui/dialogs/menu9_blue@2x.png" type="Texture" id=6]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=7]
-[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=8]
-[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=9]
-[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=10]
-[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=11]
-[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=12]
-[ext_resource path="res://assets/gui/buttons/analog_size3_6.png" type="Texture" id=13]
-[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=14]
-[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=15]
-[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=16]
-[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=17]
-[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=18]
-[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=19]
-[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=20]
-[ext_resource path="res://gui/stats.tscn" type="PackedScene" id=21]
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=8]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=11]
+[ext_resource path="res://assets/gui/buttons/analog_size3_6.png" type="Texture" id=12]
+[ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=13]
+[ext_resource path="res://assets/gui/buttons/analog_size2_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/gui/buttons/analog_size2_2.png" type="Texture" id=15]
+[ext_resource path="res://assets/gui/buttons/analog_size2_3.png" type="Texture" id=16]
+[ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=17]
+[ext_resource path="res://assets/gui/dialogs/big_icons.png" type="Texture" id=18]
+[ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=19]
+[ext_resource path="res://gui/stats.tscn" type="PackedScene" id=20]
 
 [node name="GUI" type="Control"]
 
@@ -186,7 +185,6 @@ trans_key = "LABEL_DEFAULT"
 
 [node name="red" type="Control" parent="top_center/center/game_card/current_team"]
 
-editor/display_folded = true
 visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -231,8 +229,8 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script/script = ExtResource( 7 )
-trans_key = "LABEL_RED_TEAM_TURN"
+script/script = ExtResource( 5 )
+trans_key = "LABEL_DEFAULT"
 
 [node name="background" type="Patch9Frame" parent="top_center/center/game_card"]
 
@@ -246,7 +244,7 @@ margin/left = -136.0
 margin/top = 8.0
 margin/right = -136.0
 margin/bottom = -72.0
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 patch_margin/left = 24
 patch_margin/top = 24
 patch_margin/right = 24
@@ -268,11 +266,11 @@ margin/bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 9 )
-textures/pressed = ExtResource( 10 )
-textures/hover = ExtResource( 11 )
-textures/disabled = ExtResource( 12 )
-textures/focused = ExtResource( 13 )
+textures/normal = ExtResource( 8 )
+textures/pressed = ExtResource( 9 )
+textures/hover = ExtResource( 10 )
+textures/disabled = ExtResource( 11 )
+textures/focused = ExtResource( 12 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -309,11 +307,11 @@ margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 14 )
-textures/pressed = ExtResource( 15 )
-textures/hover = ExtResource( 16 )
-textures/disabled = ExtResource( 17 )
-textures/focused = ExtResource( 18 )
+textures/normal = ExtResource( 13 )
+textures/pressed = ExtResource( 14 )
+textures/hover = ExtResource( 15 )
+textures/disabled = ExtResource( 16 )
+textures/focused = ExtResource( 17 )
 params/resize_mode = 0
 params/scale = Vector2( 3, 3 )
 params/stretch_mode = 0
@@ -322,7 +320,7 @@ params/stretch_mode = 0
 
 transform/pos = Vector2( 50, 23 )
 transform/scale = Vector2( 2, 2 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 vframes = 2
 hframes = 2
 frame = 1
@@ -381,7 +379,7 @@ patch_margin/bottom = 12
 
 transform/pos = Vector2( -126, 66 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 vframes = 2
 hframes = 4
 frame = 3
@@ -390,7 +388,7 @@ frame = 3
 
 transform/pos = Vector2( 346, 40 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 vframes = 2
 hframes = 4
 frame = 2
@@ -416,7 +414,7 @@ max_lines_visible = -1
 visibility/visible = false
 transform/pos = Vector2( -342, 40 )
 transform/scale = Vector2( 3, 3 )
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 vframes = 2
 hframes = 4
 frame = 1
@@ -450,7 +448,7 @@ margin/top = 80.0
 margin/right = 128.0
 margin/bottom = 80.0
 
-[node name="end_game" parent="." instance=ExtResource( 21 )]
+[node name="end_game" parent="." instance=ExtResource( 20 )]
 
 visibility/visible = false
 

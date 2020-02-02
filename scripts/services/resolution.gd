@@ -75,9 +75,9 @@ func apply_resolution():
 	self.refresh_menu_background()
 
 	OS.set_window_fullscreen(fullscreen)
-	if OS.get_name() == 'OSX':
-		newsize = OS.get_screen_size()
-	OS.set_video_mode(newsize, fullscreen, false)
+	#if OS.get_name() == 'OSX':
+	#	newsize = OS.get_screen_size()
+	#OS.set_video_mode(newsize, fullscreen, false)
 	OS.set_window_size(newsize)
 
 	self.bag.hud_dead_zone.screen_size = newsize

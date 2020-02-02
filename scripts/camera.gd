@@ -1,4 +1,12 @@
-extends "res://scripts/bag_aware.gd"
+extends Camera2D
+#extends "res://scripts/bag_aware.gd"
+### BAG
+var bag = null
+
+func _init_bag(bag):
+	self.bag = bag
+	self._initialize()
+### END BAG
 
 var root
 var game_logic
@@ -11,7 +19,7 @@ var mouse_dragging = false
 
 var pos
 var game_size
-var scale
+var scaleVAR
 var sX = 0
 var sY = 0
 var k = 0.90
@@ -54,7 +62,7 @@ func _initialize():
 	self.update_camera_speed()
 
 func update_zoom():
-	self.scale = self.camera.get_zoom()
+	self.scaleVAR = self.camera.get_zoom()
 
 func get_pos():
 	return self.camera.get_offset()
@@ -67,16 +75,16 @@ func set_pos(positionVAR):
 	self.sY = positionVAR.y
 
 func get_scale():
-	return self.scale
+	return self.scaleVAR
 
 func get_camera_zoom():
-	return self.scale
+	return self.scaleVAR
 
 func apply_default_camera():
 	self.set_camera_zoom(self.camera_zoom_levels[self.camera_zoom_level_pos])
 
 func camera_zoom_do(direction):
-	if ( direction < 0 && scale.x > self.camera_zoom_levels[0] ) or ( direction > 0 && scale.x < self.camera_zoom_levels[10] ):
+	if ( direction < 0 && scaleVAR.x > self.camera_zoom_levels[0] ) or ( direction > 0 && scaleVAR.x < self.camera_zoom_levels[10] ):
 		self.camera_zoom_level_pos = self.camera_zoom_level_pos + direction
 		self.set_zoom_value(self.camera_zoom_level_pos)
 	self.bag.controllers.menu_controller.update_zoom_label()
@@ -92,16 +100,16 @@ func set_zoom_value(value):
 	var new_scale
 	self.camera_zoom_level_pos = value
 	new_scale = self.camera_zoom_levels[self.camera_zoom_level_pos]
-	self.scale = Vector2(new_scale, new_scale)
-	self.camera.set_zoom(self.scale)
-	self.root.bag.workshop.camera.set_zoom(self.scale)
+	self.scaleVAR = Vector2(new_scale, new_scale)
+	self.camera.set_zoom(self.scaleVAR)
+	self.root.bag.workshop.camera.set_zoom(self.scaleVAR)
 	self.root.game_scale = self.scale
 	self.root.settings['camera_zoom'] = self.camera_zoom_level_pos
 	self.root.write_settings_to_file()
 
 func set_camera_zoom(zoom_value):
 	self.camera.set_zoom(Vector2(zoom_value, zoom_value))
-	self.scale = Vector2(zoom_value, zoom_value)
+	self.scaleVAR = Vector2(zoom_value, zoom_value)
 	self.bag.controllers.background_map_controller.update_background_scale()
 
 func move_to_map(target, forced_movement = false):
@@ -118,8 +126,8 @@ func move_to_map(target, forced_movement = false):
 		var target_position = self.bag.abstract_map.tilemap.map_to_world(target)
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
-		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * self.scale.x)
-		var near_y = game_size.y * ((NEAR_SCREEN_THRESHOLD / 2) * self.scale.y)
+		var near_x = game_size.x * (NEAR_SCREEN_THRESHOLD * self.scaleVAR.x)
+		var near_y = game_size.y * ((NEAR_SCREEN_THRESHOLD / 2) * self.scaleVAR.y)
 
 		if abs(diff_x) < near_x and abs(diff_y) < near_y:
 			return
@@ -160,8 +168,8 @@ func process(delta):
 			self.awesome_explosions_interval_counter += 1
 
 func __do_panning(diff_x, diff_y):
-	var threshold_x = PAN_THRESHOLD * self.scale.x
-	var threshold_y = PAN_THRESHOLD * self.scale.y
+	var threshold_x = PAN_THRESHOLD * self.scaleVAR.x
+	var threshold_y = PAN_THRESHOLD * self.scaleVAR.y
 	if diff_x > -threshold_x && diff_x < threshold_x && diff_y > -threshold_y && diff_y < threshold_y:
 		return false
 

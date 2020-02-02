@@ -229,7 +229,7 @@ func load_map_for_real(template_name, workshop_file_name = false, load_saved_sta
 	if load_saved_state && self.bag.saving != null:
 		self.bag.saving.load_map_state()
 
-	game_scale = self.bag.camera.scale
+	game_scale = self.bag.camera.scaleVAR
 	action_controller = self.bag.controllers.action_controller
 	action_controller.init_root(self, current_map, hud)
 	hud_controller = action_controller.hud_controller
