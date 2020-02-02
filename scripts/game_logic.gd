@@ -372,7 +372,7 @@ func lock_for_cpu():
 	self.is_locked_for_cpu = true
 	self.hud_controller.lock_hud()
 	self.selector.hide()
-	if self.settings['cpu_0'] * self.settings['cpu_1'] == 0:
+	if bool(self.settings['cpu_0']) && bool(self.settings['cpu_1']) == false:
 		self.camera.camera_follow = false
 		if not self.bag.match_state.is_multiplayer:
 			self.hud_controller.switch_cinematic_to_cpu_meter()
