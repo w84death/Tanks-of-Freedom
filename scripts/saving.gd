@@ -32,7 +32,7 @@ func _initialize():
 
 func load_save_file_contents():
 	self.loaded_data = self.bag.file_handler.read(self.FILE_PATH)
-	if self.loaded_data == false:
+	if self.loaded_data["is_ok"] == 0:
 		self.loaded_data = {
 			'map' : [],
 			'is_current' : false,
@@ -307,8 +307,8 @@ func __get_building_id(type, owner):
 	return self.building_map[owner][type]
 
 func store_map_in_binary_file():
-	var save_data
 	var map_array = []
+	var save_data 
 	for map_item in self.data.values():
 		map_array.append(map_item)
 
