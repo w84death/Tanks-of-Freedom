@@ -87,14 +87,14 @@ func detach_panel():
 	if self.current_container != null:
 		self.current_container.remove_child(self.panel)
 		self.current_container = null
-	self.disconnect()
+	self.disconnectALT()
 
-func connect(object, back_method, play_method):
+func connectALT(object, back_method, play_method):
 	self.connected_object = object
 	self.connected_back_method = back_method
 	self.connected_play_method = play_method
 
-func disconnect():
+func disconnectALT():
 	self.connected_object = null
 	self.connected_back_method = null
 	self.connected_play_method = null

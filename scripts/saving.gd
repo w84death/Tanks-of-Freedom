@@ -32,7 +32,7 @@ func _initialize():
 
 func load_save_file_contents():
 	self.loaded_data = self.bag.file_handler.read(self.FILE_PATH)
-	if self.loaded_data["is_ok"] == 0:
+	if self.loaded_data.has("is_ok") == false:
 		self.loaded_data = {
 			'map' : [],
 			'is_current' : false,

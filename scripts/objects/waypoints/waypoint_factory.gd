@@ -1,6 +1,6 @@
 extends "res://scripts/bag_aware.gd"
 
-var waypoint = preload('waypoint.gd')
+var waypoint = preload('res://scripts/objects/waypoints/waypoint.gd')
 
 func create(positionVAR, subtype=waypoint.TYPE_LEVEL_1):
 	return self.waypoint.new(positionVAR, subtype)

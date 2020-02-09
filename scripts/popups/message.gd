@@ -39,14 +39,14 @@ func detach_panel():
 	if self.current_container != null:
 		self.current_container.remove_child(self.popup)
 		self.current_container = null
-	self.disconnect()
+	self.disconnectALT()
 	self.show_button()
 	self.fill_important("")
 
 func connect_buttons():
 	self.confirm_button.connect("pressed", self, "_confirm_button_pressed")
 
-func disconnect():
+func disconnectALT():
 	self.bound_object = null
 	self.bound_method = null
 
@@ -58,7 +58,7 @@ func fill_labels(title, message, confirm):
 func fill_important(text):
 	self.hud_important.set_text(text)
 
-func connect(bound_object, bound_method):
+func connectALT(bound_object, bound_method):
 	self.bound_object = bound_object
 	self.bound_method = bound_method
 

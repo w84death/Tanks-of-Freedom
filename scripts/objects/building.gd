@@ -14,7 +14,7 @@ export var spawn_point_position = Vector2(0, 1)
 var flag
 var turn_claimed = -1
 
-var object_factory = preload('../object_factory.gd').new()
+var object_factory = preload('res://scripts/object_factory.gd').new()
 
 var floating_ap_template = preload('res://particle/hit_points.tscn')
 var floating_ap

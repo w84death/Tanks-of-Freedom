@@ -3,7 +3,7 @@ var size = Vector2(0, 0)
 var fields = [[null]]
 var map
 var tilemap
-var field_template = preload('abstract_field.gd')
+var field_template = preload('res://scripts/abstract_field.gd')
 
 var MAX_MAP_SIZE = 40
 const MAP_MAX_X = 40

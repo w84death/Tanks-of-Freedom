@@ -23,7 +23,7 @@ var intro = preload('res://intro.tscn').instance()
 var loading_screen = preload('res://gui/loading.tscn').instance()
 
 var action_controller
-var sound_controller = preload("sound_controller.gd").new()
+var sound_controller = preload("res://scripts/sound_controller.gd").new()
 var hud_controller
 var current_map
 var current_map_name

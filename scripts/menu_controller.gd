@@ -271,7 +271,7 @@ func show_campaign_menu():
 func show_maps_menu():
 	self.hide_control_nodes()
 	self.root.bag.map_picker.attach_panel(self.maps_sub_menu_anchor)
-	self.root.bag.map_picker.connect(self, "switch_to_skirmish_setup_panel")
+	self.root.bag.map_picker.connectALT(self, "switch_to_skirmish_setup_panel")
 	self.root.bag.map_picker.lock_delete_mode_button()
 	self.maps_sub_menu.show()
 	if self.root.bag.map_picker.blocks_cache.size() > 0:
@@ -283,7 +283,7 @@ func switch_to_skirmish_setup_panel(selected_map_name, is_remote):
 	self.root.bag.map_picker.detach_panel()
 	self.root.bag.skirmish_setup.attach_panel(self.maps_sub_menu_anchor)
 	self.root.bag.skirmish_setup.set_map_name(selected_map_name, selected_map_name, is_remote)
-	self.root.bag.skirmish_setup.connect(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
+	self.root.bag.skirmish_setup.connectALT(self, "switch_to_map_selection_panel", "play_selected_skirmish_map")
 	self.root.bag.skirmish_setup.play_button.grab_focus()
 
 func switch_to_map_selection_panel():

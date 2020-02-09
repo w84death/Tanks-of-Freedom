@@ -12,17 +12,18 @@ const STATS = 2
 const NO_DELAY = 3
 
 func _process(delta):
-	timeout += delta
-	if timeout > self.__get_interval():
-		self.stop()
-
-		if state == INTRO:
-			if self.root.is_intro:
-				self.root.load_menu()
-			self.reset(STATS)
-		else:
-			self.reset(INTRO)
-		self.root.bag.demo_mode.start_map()
+	if is_active():
+		timeout += delta
+		if timeout > self.__get_interval():
+			self.stop()
+	
+			if state == INTRO:
+				if self.root.is_intro:
+					self.root.load_menu()
+				self.reset(STATS)
+			else:
+				self.reset(INTRO)
+			self.root.bag.demo_mode.start_map()
 
 func inject_root(root_obj):
 	root = root_obj
