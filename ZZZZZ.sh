@@ -34,10 +34,21 @@ find . -type f -name "*.gd" -exec sed -i 's/event.type != InputEvent.KEY ||/ /g'
 
 find . -type f -name "*.gd" -exec sed -i 's/OS.get_main_loop().quit()/get_tree().quit()/g' {} +
 
-#find . -type f -name "*game_logic.gd" -exec sed -i 's/event.x/event.relative.x/g' {} +
-#find . -type f -name "*game_logic.gd" -exec sed -i 's/event.y/event.relative.y/g' {} +
+find . -type f -name "*.gd" -exec sed -i 's/preload/load/g' {} +
 
-#find . -type f -name "*.gd" -exec sed -i 's/disconnect()/disconnect2()/g' {} +
+find . -type f -name "*.gd" -exec sed -i 's/self.do_awesome_cinematic_pan()/call("do_awesome_cinematic_pan")/g' {} +
+find . -type f -name "*.gd" -exec sed -i 's/self.do_awesome_random_explosions()/call("do_awesome_random_explosions")/g' {} +
 
-#find . -type f -name "*.gd" -exec sed -i 's/func connect/func connect2/g' {} +    ````````````````````````````````````````````````````````````````111  ``````````1`~~~~~~~~~~~~                ``` `11 >`1     
+find . -type f -name "*.gd" -exec sed -i 's/func get(api/func getReq(api/g' {} +
+
+find . -type f -name "*.gd" -exec sed -i 's/func clear_points():/func clear_points(var _empty_anim : String):/g' {} +
+find . -type f -name "*.gd" -exec sed -i 's/func _die():/func _die(var _empty_anim : String):/g' {} +
+
+find . -type f -name "*.gd" -exec sed -i 's/self.bag.skirmish_setup.connect(self, "hide_skirmish_setup_panel"/self.bag.skirmish_setup.connectALT(self, "hide_skirmish_setup_panel"/g' {} +
+
+find . -type f -name "*demo_timer.gd" -exec sed -i 's/timeout/timeoutVAR/g' {} +
+find . -type f -name "*timers.gd" -exec sed -i 's/(timeout/(timeoutVAR/g' {} +
+
+find . -type f -name "*demo_timer.gd" -exec sed -i 's/is_active/!is_stopped/g' {} +
+
 

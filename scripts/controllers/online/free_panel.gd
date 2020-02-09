@@ -48,7 +48,7 @@ func ask_if_really_want_to_create():
 	self.background.hide()
 	self.bag.confirm_popup.attach_panel(self.middle_container)
 	self.bag.confirm_popup.fill_labels(tr('LABEL_CREATE_MATCH'), tr('MSG_CONFIRM_CREATE'), tr('LABEL_PROCEED'), tr('LABEL_CANCEL'))
-	self.bag.confirm_popup.connect(self, "confirm_start_creation")
+	self.bag.confirm_popup.connectALT(self, "confirm_start_creation")
 	self.bag.confirm_popup.confirm_button.grab_focus()
 
 func confirm_start_creation(confirmation):
@@ -63,7 +63,7 @@ func confirm_start_creation(confirmation):
 
 func show_map_picker():
 	self.bag.map_picker.attach_panel(self.middle_container)
-	self.bag.map_picker.connect(self, "select_side")
+	self.bag.map_picker.connectALT(self, "select_side")
 	self.bag.map_picker.lock_delete_mode_button()
 	self.bag.map_picker.switch_to_remote_list()
 	self.bag.map_picker.disable_list_switch()
@@ -75,7 +75,7 @@ func select_side(map_code, is_remote = true):
 	self.selected_map = map_code
 	self.bag.confirm_popup.attach_panel(self.middle_container)
 	self.bag.confirm_popup.fill_labels(tr('LABEL_PICK_SIDE'), tr('MSG_PICK_SIDE'), tr('LABEL_BLUE'), tr('LABEL_RED'))
-	self.bag.confirm_popup.connect(self, "ask_if_selected_data_is_ok")
+	self.bag.confirm_popup.connectALT(self, "ask_if_selected_data_is_ok")
 	self.bag.confirm_popup.confirm_button.grab_focus()
 
 func ask_if_selected_data_is_ok(selected_side):
@@ -118,7 +118,7 @@ func operation_completed(response={}):
 func operation_failed(response={}):
 	self.bag.message_popup.attach_panel(self.middle_container)
 	self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
-	self.bag.message_popup.connect(self, "operation_completed")
+	self.bag.message_popup.connectALT(self, "operation_completed")
 	self.bag.message_popup.confirm_button.grab_focus()
 
 
@@ -149,7 +149,7 @@ func confirm_join_match(confirmation, code):
 func already_in_match():
 	self.bag.message_popup.attach_panel(self.middle_container)
 	self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_ALREADY_IN_MATCH'), tr('LABEL_DONE'))
-	self.bag.message_popup.connect(self, "operation_completed")
+	self.bag.message_popup.connectALT(self, "operation_completed")
 	self.bag.message_popup.confirm_button.grab_focus()
 
 func perform_get_match_details(code):

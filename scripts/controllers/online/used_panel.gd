@@ -228,7 +228,7 @@ func ask_if_really_want_to_abandon():
 	self.background.hide()
 	self.bag.confirm_popup.attach_panel(self.middle_container)
 	self.bag.confirm_popup.fill_labels(tr('LABEL_ABANDON_MATCH'), tr('MAG_ABANDON_MATCH'), tr('LABEL_PROCEED'), tr('LABEL_CANCEL'))
-	self.bag.confirm_popup.connect(self, "confirm_abandon_match")
+	self.bag.confirm_popup.connectALT(self, "confirm_abandon_match")
 	self.bag.confirm_popup.confirm_button.grab_focus()
 
 func clear_without_asking():
@@ -265,7 +265,7 @@ func operation_completed(response={}):
 func operation_failed(response={}):
 	self.bag.message_popup.attach_panel(self.middle_container)
 	self.bag.message_popup.fill_labels(tr('LABEL_FAILURE'), tr('MSG_OPERATION_FAILED'), tr('LABEL_DONE'))
-	self.bag.message_popup.connect(self, "operation_completed")
+	self.bag.message_popup.connectALT(self, "operation_completed")
 	self.bag.message_popup.confirm_button.grab_focus()
 
 
@@ -305,7 +305,7 @@ func ask_load_replay_or_turn():
 	self.background.hide()
 	self.bag.confirm_popup.attach_panel(self.middle_container)
 	self.bag.confirm_popup.fill_labels(tr('LABEL_SHOW_REPLAY'), tr('MSG_SHOW_REPLAY'), tr('LABEL_REPLAY'), tr('LABEL_SKIP'))
-	self.bag.confirm_popup.connect(self, "confirm_load_replay_or_turn")
+	self.bag.confirm_popup.connectALT(self, "confirm_load_replay_or_turn")
 	self.bag.confirm_popup.confirm_button.grab_focus()
 
 func confirm_load_replay_or_turn(confirmation):

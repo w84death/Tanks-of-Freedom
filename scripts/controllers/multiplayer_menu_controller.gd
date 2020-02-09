@@ -103,7 +103,7 @@ func show_help():
 	self.background.hide()
 	self.bag.message_big_popup.attach_panel(self.middle_container)
 	self.bag.message_big_popup.fill_labels(tr('MSG_MULTIPLAYER_WELCOME'), messages, "LABEL_BACK")
-	self.bag.message_big_popup.connect(self, "close_help")
+	self.bag.message_big_popup.connectALT(self, "close_help")
 	self.bag.message_big_popup.confirm_button.grab_focus()
 	self.middle_container.show()
 

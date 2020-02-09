@@ -37,7 +37,7 @@ var explosion_big_template = preload('res://particle/explosion_big.tscn')
 var explosion
 var floating_damage_template = preload('res://particle/hit_points.tscn')
 var floating_damage
-var die = false
+var dieVAR = false
 var active = 1
 var parent
 
@@ -198,7 +198,7 @@ func clear_explosion():
 	self.remove_child(explosion)
 	explosion.call_deferred("free")
 	self.get_node("/root/game").action_controller.exploding = false
-	if die:
+	if dieVAR:
 		parent.remove_child(self)
 		self.die()
 
@@ -214,7 +214,7 @@ func clear_floating_damage():
 
 func die_after_explosion(ysort):
 	self.remove_from_group('units')
-	die = true
+	dieVAR = true
 	parent = self.get_parent()
 	self.show_big_explosion()
 

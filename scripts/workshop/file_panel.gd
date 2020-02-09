@@ -80,7 +80,7 @@ func show_skirmish_setup_panel():
 	self.hide_map_picker()
 	self.central_container.show()
 	self.bag.skirmish_setup.attach_panel(self.central_container)
-	self.bag.skirmish_setup.connect(self, "hide_skirmish_setup_panel", "play_map_from_skirmish_setup_panel")
+	self.bag.skirmish_setup.connectALT(self, "hide_skirmish_setup_panel", "play_map_from_skirmish_setup_panel")
 	self.bag.skirmish_setup.set_map_name('not important', self.file_name.get_text())
 	self.bag.skirmish_setup.play_button.grab_focus()
 
@@ -100,7 +100,7 @@ func pick_button_pressed():
 func show_map_picker():
 	self.central_container.show()
 	self.bag.map_picker.attach_panel(self.central_container)
-	self.bag.map_picker.connect(self, "load_map_from_picker")
+	self.bag.map_picker.connectALT(self, "load_map_from_picker")
 	self.bag.map_picker.unlock_delete_mode_button()
 
 func hide_map_picker():

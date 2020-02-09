@@ -77,7 +77,7 @@ func ask_start_map_upload():
 	self.background.hide()
 	self.bag.confirm_popup.attach_panel(self.middle_container)
 	self.bag.confirm_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), tr('MSG_ASK_UPLOAD'), tr('LABEL_UPLOAD'), tr('LABEL_CANCEL'))
-	self.bag.confirm_popup.connect(self, "confirm_start_map_upload")
+	self.bag.confirm_popup.connectALT(self, "confirm_start_map_upload")
 	self.bag.confirm_popup.confirm_button.grab_focus()
 
 func confirm_start_map_upload(confirmation):
@@ -92,7 +92,7 @@ func confirm_start_map_upload(confirmation):
 
 func show_maps_list_for_upload():
 	self.bag.map_picker.attach_panel(self.middle_container)
-	self.bag.map_picker.connect(self, "upload_custom_map")
+	self.bag.map_picker.connectALT(self, "upload_custom_map")
 	self.bag.map_picker.lock_delete_mode_button()
 	self.bag.map_picker.switch_to_local_list()
 	self.bag.map_picker.disable_list_switch()
@@ -108,13 +108,13 @@ func upload_custom_map(map_name, is_remote = false):
 		message = tr('LABEL_MAP_TO_UPLOAD') + ': ' + map_name + '. ' + tr('LABEL_PROCEED_QUESTION')
 		self.bag.confirm_popup.attach_panel(self.middle_container)
 		self.bag.confirm_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_UPLOAD'), tr('LABEL_CANCEL'))
-		self.bag.confirm_popup.connect(self, "confirm_map_upload")
+		self.bag.confirm_popup.connectALT(self, "confirm_map_upload")
 		self.bag.confirm_popup.confirm_button.grab_focus()
 	else:
 		message = tr('TIP_COMPLETE_MAP_FIRST')
 		self.bag.message_popup.attach_panel(self.middle_container)
 		self.bag.message_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_GOT_IT'))
-		self.bag.message_popup.connect(self, "close_cant_upload_message")
+		self.bag.message_popup.connectALT(self, "close_cant_upload_message")
 		self.bag.message_popup.confirm_button.grab_focus()
 
 func close_cant_upload_message():
@@ -151,7 +151,7 @@ func map_upload_complete_show(message):
 	self.bag.confirm_popup.detach_panel()
 	self.bag.message_popup.attach_panel(self.middle_container)
 	self.bag.message_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_DONE'))
-	self.bag.message_popup.connect(self, "map_upload_complete_hide")
+	self.bag.message_popup.connectALT(self, "map_upload_complete_hide")
 	self.bag.message_popup.confirm_button.grab_focus()
 
 func map_upload_complete_hide():
@@ -166,7 +166,7 @@ func show_register_confirmation():
 	self.background.hide()
 	self.bag.confirm_popup.attach_panel(self.middle_container)
 	self.bag.confirm_popup.fill_labels(tr('TIP_WELCOME_ONLINE'), tr('TIP_NEED_REGISTER'), tr('LABEL_REGISTER'), tr('LABEL_LATER'))
-	self.bag.confirm_popup.connect(self, "register_confirmation")
+	self.bag.confirm_popup.connectALT(self, "register_confirmation")
 	self.middle_container.show()
 	self.bag.confirm_popup.confirm_button.grab_focus()
 
@@ -196,7 +196,7 @@ func online_register_done():
 	else:
 		self.bag.message_popup.fill_labels(tr('LABEL_REGISTER_PLAYER'), tr('TIP_REQUESTING_PLAYER_SUCCESS'), tr('LABEL_DONE'))
 		self.registration_successfull = true
-	self.bag.message_popup.connect(self, "hide_register_confirmation")
+	self.bag.message_popup.connectALT(self, "hide_register_confirmation")
 	self.bag.message_popup.confirm_button.grab_focus()
 
 func hide_register_confirmation():
@@ -216,7 +216,7 @@ func show_map_download_code_prompt():
 	self.background.hide()
 	self.bag.prompt_popup.attach_panel(self.middle_container)
 	self.bag.prompt_popup.fill_labels(tr('LABEL_DOWNLOAD_MAP'), tr('TIP_INPUT_CODE'), tr('LABEL_DOWNLOAD'), tr('LABEL_CANCEL'))
-	self.bag.prompt_popup.connect(self, "confirm_map_download")
+	self.bag.prompt_popup.connectALT(self, "confirm_map_download")
 	self.bag.prompt_popup.clear_prepopulate()
 	self.middle_container.show()
 	self.bag.prompt_popup.input_box.grab_focus()
@@ -244,7 +244,7 @@ func show_map_download_done_message(message):
 	self.bag.message_popup.detach_panel()
 	self.bag.message_popup.attach_panel(self.middle_container)
 	self.bag.message_popup.fill_labels(tr('LABEL_DOWNLOAD_MAP'), message, tr('LABEL_DONE'))
-	self.bag.message_popup.connect(self, "hide_map_download_done_message")
+	self.bag.message_popup.connectALT(self, "hide_map_download_done_message")
 	self.bag.message_popup.confirm_button.grab_focus()
 
 func hide_map_download_done_message():
