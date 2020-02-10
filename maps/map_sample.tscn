@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
+[ext_resource path="res://maps/tilesets/summer_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=3]
+
+[node name="map" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+show_blueprint = false
+campaign_map = true
+take_enemy_hq = true
+control_all_towers = false
+multiplayer_map = false
+shakes_max = 5
+shake_time = 0.25
+shake_boundary = 5
+
+[node name="underground" type="TileMap" parent="."]
+
+mode = 1
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="terrain" type="TileMap" parent="."]
+
+transform/pos = Vector2( 23.6741, 2.00983 )
+mode = 1
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65537, 3, -131072, 3, -131071, 3, -131070, 3, -131069, 3, -131068, 3, -131067, 19, -131066, 3, -131065, 3, -131064, 1, -131063, 1, -2, 3, -1, 3, -65536, 3, -65535, 3, -65534, 3, -65533, 3, -65532, 3, -65531, 19, -65530, 3, -65529, 3, -65528, 3, -65527, 1, 65534, 3, 65535, 3, 0, 3, 1, 3, 2, 3, 3, 3, 4, 3, 5, 19, 6, 3, 7, 3, 8, 3, 9, 1, 10, 1, 131070, 4, 131071, 3, 65536, 4, 65537, 3, 65538, 4, 65539, 4, 65540, 3, 65541, 19, 65542, 3, 65543, 3, 65544, 3, 65545, 1, 65546, 1, 196606, 3, 196607, 3, 131072, 3, 131073, 4, 131074, 4, 131075, 4, 131076, 3, 131077, 19, 131078, 4, 131079, 3, 131080, 3, 131081, 1, 131082, 1, 262142, 3, 262143, 4, 196608, 4, 196609, 4, 196610, 4, 196611, 3, 196612, 3, 196613, 19, 196614, 3, 196615, 4, 196616, 3, 196617, 1, 196618, 1, 327678, 3, 327679, 4, 262144, 4, 262145, 4, 262146, 4, 262147, 3, 262148, 4, 262149, 19, 262150, 3, 262151, 4, 262152, 3, 262153, 1, 262154, 1, 393214, 3, 393215, 3, 327680, 3, 327681, 3, 327682, 3, 327683, 3, 327684, 3, 327685, 19, 327686, 3, 327687, 4, 327688, 3, 327689, 1, 327690, 1, 458750, 20, 458751, 20, 393216, 20, 393217, 20, 393218, 20, 393219, 20, 393220, 20, 393221, 25, 393222, 3, 393223, 4, 393224, 3, 393225, 1, 393226, 1, 393227, 1, 524286, 3, 524287, 3, 458752, 3, 458753, 3, 458754, 4, 458755, 4, 458756, 3, 458757, 19, 458758, 3, 458759, 3, 458760, 3, 458761, 1, 458762, 1, 458763, 1, 589823, 3, 524288, 3, 524289, 4, 524290, 3, 524291, 4, 524292, 3, 524293, 19, 524294, 3, 524295, 3, 524296, 1, 524297, 1, 524298, 1, 589824, 3, 589825, 3, 589826, 4, 589827, 4, 589828, 4, 589829, 19, 589830, 1, 589831, 1, 589832, 1, 589833, 1, 589834, 1, 655361, 3, 655362, 3, 655363, 3, 655364, 3, 655365, 19, 655366, 1, 655367, 1, 655368, 1 )
+
+[node name="back" type="YSort" parent="terrain"]
+
+sort/enabled = true
+
+[node name="destruction" type="YSort" parent="terrain"]
+
+sort/enabled = true
+
+[node name="front" type="YSort" parent="terrain"]
+
+sort/enabled = true
+
+[node name="units" type="TileMap" parent="terrain"]
+
+mode = 1
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 64, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 1
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+

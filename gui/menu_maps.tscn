@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/buttons/analog_size3_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/buttons/analog_size3_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/buttons/analog_size3_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/buttons/analog_size3_6.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Control
+
+func load_map(name):
+	get_parent().load_map(name)
+"
+
+[node name="menu_maps" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = SubResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D",
+"_edit_lock_": true
+}
+
+[node name="middle" type="CenterContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="bottom" type="CenterContainer" parent="."]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="control" type="Control" parent="bottom"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 0.0
+
+[node name="menu_background" type="Control" parent="bottom/control"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="background" type="Patch9Frame" parent="bottom/control/menu_background"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -312.0
+margin/top = -72.0
+margin/right = 192.0
+margin/bottom = 45.0
+texture = ExtResource( 1 )
+patch_margin/left = 24
+patch_margin/top = 24
+patch_margin/right = 24
+patch_margin/bottom = 24
+
+[node name="menu_controls" type="Control" parent="bottom/control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="close" type="TextureButton" parent="bottom/control/menu_controls"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -304.0
+margin/top = -64.0
+margin/right = -160.0
+margin/bottom = -16.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+textures/pressed = ExtResource( 3 )
+textures/hover = ExtResource( 4 )
+textures/disabled = ExtResource( 5 )
+textures/focused = ExtResource( 6 )
+params/resize_mode = 0
+params/scale = Vector2( 3, 3 )
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="bottom/control/menu_controls/close"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 1.0
+margin/top = 16.0
+margin/right = 142.0
+margin/bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LABEL_BACK"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

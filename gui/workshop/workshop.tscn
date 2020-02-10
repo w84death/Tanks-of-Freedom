@@ -1,0 +1,271 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/workshop_controller.gd" type="Script" id=1]
+[ext_resource path="res://gui/workshop/toolbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/workshop/building_blocks.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/message.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/workshop/file_panel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/workshop/navigation_panel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://maps/workshop.tscn" type="PackedScene" id=7]
+
+[node name="workshop" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+script/script = ExtResource( 1 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+
+[node name="blueprint" type="CenterContainer" parent="."]
+
+editor/display_folded = true
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="center" type="Control" parent="blueprint"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
+
+[node name="toolbox_panel" type="CenterContainer" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Control" parent="toolbox_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
+
+[node name="toolbox" parent="toolbox_panel/center" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+margin/top = -24.0
+margin/bottom = -24.0
+
+[node name="building_blocks_panel" type="CenterContainer" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Control" parent="building_blocks_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
+
+[node name="building_blocks" parent="building_blocks_panel/center" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+margin/top = -24.0
+margin/bottom = -24.0
+
+[node name="message" type="CenterContainer" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Control" parent="message"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 360.0
+margin/right = 640.0
+margin/bottom = 360.0
+
+[node name="message" parent="message/center" instance=ExtResource( 4 )]
+
+[node name="central_container" type="CenterContainer" parent="."]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="file_card" type="CenterContainer" parent="."]
+
+editor/display_folded = true
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Control" parent="file_card"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 0.0
+
+[node name="file_panel" parent="file_card/center" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+
+[node name="navigation_panel" type="CenterContainer" parent="."]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="center" type="Control" parent="navigation_panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 640.0
+margin/top = 0.0
+margin/right = 640.0
+margin/bottom = 0.0
+
+[node name="navigation_panel" parent="navigation_panel/center" instance=ExtResource( 6 )]
+
+[node name="viewport" type="Viewport" parent="."]
+
+rect = Rect2( 0, 0, 1280, 720 )
+own_world = false
+world = null
+transparent_bg = false
+render_target/enabled = false
+render_target/v_flip = false
+render_target/clear_on_new_frame = true
+render_target/filter = false
+render_target/gen_mipmaps = false
+render_target/update_mode = 2
+audio_listener/enable_2d = false
+audio_listener/enable_3d = false
+physics/object_picking = false
+gui/disable_input = false
+
+[node name="camera" type="Camera2D" parent="viewport"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="scale" type="Node2D" parent="viewport/camera"]
+
+[node name="map" parent="viewport/camera/scale" instance=ExtResource( 7 )]
+
+editor/display_folded = true
+margin/left = -7.0
+margin/top = -6.0
+margin/right = 33.0
+margin/bottom = 34.0
+
+

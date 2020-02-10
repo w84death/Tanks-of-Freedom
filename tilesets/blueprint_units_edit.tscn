@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/units/blueprint_units.png" type="Texture" id=1]
+
+[node name="units_blueprint" type="Node2D"]
+
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+
+[node name="soldier blue" type="Sprite" parent="."]
+
+transform/pos = Vector2( 16, 30 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="tank blue" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 30 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 32, 0, 32, 32 )
+
+[node name="helicopter blue" type="Sprite" parent="."]
+
+transform/pos = Vector2( 79, 29 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 64, 0, 32, 32 )
+
+[node name="soldier red" type="Sprite" parent="."]
+
+transform/pos = Vector2( 113, 30 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 96, 0, 32, 32 )
+
+[node name="tank red" type="Sprite" parent="."]
+
+transform/pos = Vector2( 141, 29 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 128, 0, 32, 32 )
+
+[node name="helicopter red" type="Sprite" parent="."]
+
+transform/pos = Vector2( 170.663, 28.3366 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 160, 0, 32, 32 )
+
+[node name="protesters" type="Sprite" parent="."]
+
+transform/pos = Vector2( 18.6537, 67.1516 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 0, 32, 32, 32 )
+
+

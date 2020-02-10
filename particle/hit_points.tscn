@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://gui/font_22.tres" type="Theme" id=1]
+[ext_resource path="res://particle/hit_points.gd" type="Script" id=2]
+[ext_resource path="res://assets/gui/dialogs/icons.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "fly"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 1, 1.3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2, 1.3 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -11, -12 ), Vector2( -11, -27 ), Vector2( -11, -36 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visibility/self_opacity")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 1.3 ),
+"transitions": FloatArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[node name="hit_points" type="Label"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 1 )
+margin/left = -11.0
+margin/top = -12.0
+margin/right = 15.0
+margin/bottom = 10.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+text = "99"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 2 )
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/fly = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "fly"
+
+[node name="AP" type="Sprite" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 11, -4 )
+texture = ExtResource( 3 )
+vframes = 3
+hframes = 3
+frame = 6
+
+[connection signal="finished" from="AnimationPlayer" to="." method="clear_points"]
+
+

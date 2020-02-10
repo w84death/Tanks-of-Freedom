@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=2]
-[ext_resource path="res://scripts/translate_me.gd" type="Script" id=3]
+[ext_resource path="res://scripts/translate_me_label.gd" type="Script" id=3]
 [ext_resource path="res://gui/settings/option_one_button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/settings/option_two_buttons.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=6]
 [ext_resource path="res://gui/button_small_theme.tres" type="Theme" id=7]
-[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=8]
+[ext_resource path="res://scripts/translate_me_button.gd" type="Script" id=8]
+[ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=9]
 
 [node name="settings_panel" type="Control"]
 
@@ -97,6 +98,7 @@ margin/bottom = 8.0
 
 [node name="game" type="GridContainer" parent="body/tabs"]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
@@ -126,6 +128,7 @@ trans_key = "LABEL_DIFFICULTY"
 
 [node name="tooltips" parent="body/tabs/game" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 margin/left = 222.0
 margin/right = 412.0
 
@@ -258,7 +261,6 @@ trans_key = "LABEL_ON"
 
 [node name="camera_zoom" parent="body/tabs/gfx" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 margin/left = 222.0
 margin/top = 96.0
 margin/right = 412.0
@@ -267,12 +269,10 @@ margin/bottom = 176.0
 [node name="title" parent="body/tabs/gfx/camera_zoom"]
 
 text = "ZOOM LEVEL"
-trans_key = "LABEL_ZOOM_LEVEL"
 
 [node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
 text = "SMALLER"
-trans_key = "LABEL_SMALLER"
 
 [node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
 
@@ -337,7 +337,6 @@ trans_key = "LABEL_MUSIC"
 
 [node name="nav" type="Patch9Frame" parent="."]
 
-editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
@@ -385,8 +384,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GAME"
 flat = false
-script/script = ExtResource( 3 )
-trans_key = "LABEL_GAME"
+script/script = ExtResource( 8 )
+trans_key = "LABEL_DEFAULT"
 
 [node name="gfx" type="Button" parent="nav/tabs"]
 
@@ -405,8 +404,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GFX"
 flat = false
-script/script = ExtResource( 3 )
-trans_key = "LABEL_GFX"
+script/script = ExtResource( 8 )
+trans_key = "LABEL_DEFAULT"
 
 [node name="sound" type="Button" parent="nav/tabs"]
 
@@ -425,8 +424,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "SOUND"
 flat = false
-script/script = ExtResource( 3 )
-trans_key = "LABEL_SOUND"
+script/script = ExtResource( 8 )
+trans_key = "LABEL_DEFAULT"
 
 [node name="pad" type="Button" parent="nav/tabs"]
 
@@ -435,7 +434,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 8 )
+theme/theme = ExtResource( 9 )
 margin/left = 282.0
 margin/top = 0.0
 margin/right = 442.0
@@ -445,8 +444,8 @@ enabled_focus_mode = 2
 shortcut = null
 text = "GAMEPAD INFO"
 flat = false
-script/script = ExtResource( 3 )
-trans_key = "LABEL_GAMEPAD_INFO"
+script/script = ExtResource( 8 )
+trans_key = "LABEL_DEFAULT"
 
 
 [editable path="body/tabs/game/difficulty"]

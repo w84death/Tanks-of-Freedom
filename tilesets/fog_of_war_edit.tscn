@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://assets/terrain/clouds.png" type="Texture" id=1]
+
+[node name="fog_of_war" type="Node2D"]
+
+__meta__ = {
+"__editor_plugin_screen__": "2D"
+}
+
+[node name="cloud" type="Sprite" parent="."]
+
+transform/pos = Vector2( 17.3518, 34.0555 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="cloud 2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 71.4246, 35.4073 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 64, 0, 64, 64 )
+
+[node name="cloud 3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 121.442, 35.4073 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 128, 0, 64, 64 )
+
+[node name="cloud3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 210.662, 32.0278 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="cloud1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 172.135, 34.0554 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -14 )
+region = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+

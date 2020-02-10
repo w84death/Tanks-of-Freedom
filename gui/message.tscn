@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_7.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/buttons/gamepad-buttons.png" type="Texture" id=8]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=9]
-[ext_resource path="res://gui/flag.xscn" type="PackedScene" id=10]
+[ext_resource path="res://gui/flag.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 

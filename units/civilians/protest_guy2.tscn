@@ -14,7 +14,12 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 0.4, 0.7 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ 9, 10, 11 ] }
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4, 0.7 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11 ]
+}
 
 [node name="civilian_protest_guy2" instance=ExtResource( 1 )]
 

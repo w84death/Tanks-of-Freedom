@@ -1,5 +1,5 @@
-
 extends Sprite
+
 export var destructable = false
 export var fence = false
 var current_map
@@ -12,7 +12,7 @@ export var smoke_particles = 16
 export var smoke_lifetime = 1
 export var unique_type_id = -1
 
-var explosion_big_template = preload('res://particle/explosion_big.xscn')
+var explosion_big_template = preload('res://particle/explosion_big.tscn')
 var explosion
 
 func get_pos_map():

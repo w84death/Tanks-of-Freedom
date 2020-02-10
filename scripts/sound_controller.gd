@@ -1,7 +1,7 @@
 
 var root
 var stream_player
-var sample_player
+#var sample_player
 
 var sound_volume = 0.5
 var music_volume = 1.0
@@ -57,8 +57,8 @@ func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
 	stream_player.set_volume(self.music_volume)
-	sample_player = root.get_node("SamplePlayer")
-	sample_player.set_default_volume_db(self.sound_volume)
+#	sample_player = root.get_node("SamplePlayer")
+#	sample_player.set_default_volume_db(self.sound_volume)
 	self.load_samples()
 
 func play_soundtrack():
@@ -93,12 +93,14 @@ func stop_soundtrack():
 	self.currently_playing = null
 
 func play(sound):
-	if root.settings['sound_enabled']:
-		sample_player.play(sound)
+	pass
+#	if root.settings['sound_enabled']:
+#		sample_player.play(sound)
 
 func play_unit_sound(unit, sound):
 	self.play(unit.type_name+'_'+sound)
 
 func load_samples():
-	for sample in self.samples:
-		self.sample_player.get_sample_library().add_sample(sample[0], sample[1])
+	pass
+#	for sample in self.samples:
+#		self.sample_player.get_sample_library().add_sample(sample[0], sample[1])
