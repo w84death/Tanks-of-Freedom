@@ -79,3 +79,4 @@ func __fill(value):
 func __increment(stat, player, value = 1):
 	self.stats[stat][player] = self.stats[stat][player] + value
 
+

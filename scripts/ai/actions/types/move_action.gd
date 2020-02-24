@@ -23,3 +23,4 @@ func can_continue():
 		return false
 
 	return true
+

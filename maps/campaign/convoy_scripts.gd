@@ -55,3 +55,4 @@ var triggers = {
 
 	'cap_towers' : {'type' : 'domination', 'story' : 'cap_towers', 'details' : { 'amount' : 4, 'list' : [Vector2(11, 3), Vector2(11, 13), Vector2(18, 16), Vector2(21, 24)], 'player' : 1 }, 'one_off' : true},
 }
+

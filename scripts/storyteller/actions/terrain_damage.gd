@@ -8,3 +8,4 @@ func perform(action_details):
 	if object != null:
 		self.bag.root.sound_controller.play('explosion')
 		object.set_damage()
+

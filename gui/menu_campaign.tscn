@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=1]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=2]
@@ -18,303 +18,187 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=16]
 
 [node name="campaign" type="Control"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "__editor_plugin_screen__": "2D",
 "_edit_lock_": true
 }
 
 [node name="middle" type="CenterContainer" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-use_top_left = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="control" type="Control" parent="middle"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
 
 [node name="dialog_background" type="Control" parent="middle/control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Patch9Frame1" type="Patch9Frame" parent="middle/control/dialog_background"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -183.0
-margin/top = 72.0
-margin/right = -145.0
-margin/bottom = -104.0
+[node name="Patch9Frame1" type="NinePatchRect" parent="middle/control/dialog_background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -183.0
+margin_top = 72.0
+margin_right = 145.0
+margin_bottom = 104.0
+mouse_filter = 1
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
-[node name="Patch9Frame" type="Patch9Frame" parent="middle/control/dialog_background"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -256.0
-margin/top = -230.0
-margin/right = -216.0
-margin/bottom = 4.0
+[node name="Patch9Frame" type="NinePatchRect" parent="middle/control/dialog_background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -230.0
+margin_right = 216.0
+margin_bottom = -4.0
+mouse_filter = 1
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="dialog_controls" type="Control" parent="middle/control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="Introduction" type="Label" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -240.0
-margin/top = -120.0
-margin/right = 239.0
-margin/bottom = 33.0
+margin_left = -240.0
+margin_top = -120.0
+margin_right = 239.0
+margin_bottom = 33.0
+mouse_filter = 1
+size_flags_vertical = 0
 text = "Sample sentence about this
 awesome campaign 
 full off zasadzkas."
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="playing_as" type="Label" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -176.0
-margin/top = 80.0
-margin/right = -78.0
-margin/bottom = 98.0
+margin_left = -176.0
+margin_top = 80.0
+margin_right = -78.0
+margin_bottom = 98.0
+mouse_filter = 1
+size_flags_vertical = 0
 text = "PLAYING AS"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="difficulty_button" type="TextureButton" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 130.0
-margin/top = -190.0
-margin/right = 226.0
-margin/bottom = -142.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 130.0
+margin_top = -190.0
+margin_right = 226.0
+margin_bottom = -142.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
 
 [node name="Label" type="Label" parent="middle/control/dialog_controls/difficulty_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -4.0
-margin/top = 16.0
-margin/right = 100.0
-margin/bottom = 34.0
+margin_left = -4.0
+margin_top = 16.0
+margin_right = 100.0
+margin_bottom = 34.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_EASY"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="difficulty_" type="Label" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 21.0
-margin/top = -211.0
-margin/right = 226.0
-margin/bottom = -193.0
+margin_left = 21.0
+margin_top = -211.0
+margin_right = 226.0
+margin_bottom = -193.0
+mouse_filter = 1
+size_flags_vertical = 0
 text = "LABEL_DIFFICULTY"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="mission_name" type="Label" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 7 )
-margin/left = -240.0
-margin/top = -193.0
-margin/right = 130.0
-margin/bottom = -126.0
+margin_left = -240.0
+margin_top = -193.0
+margin_right = 130.0
+margin_bottom = -126.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 7 )
 text = "Lorem Ipsum"
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="mission_num_" type="Label" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 8 )
-margin/left = -241.0
-margin/top = -218.0
-margin/right = -123.0
-margin/bottom = -193.0
+margin_left = -241.0
+margin_top = -218.0
+margin_right = -123.0
+margin_bottom = -193.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
 text = "LABEL_MISSION"
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="mission_num" type="Label" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 8 )
-margin/left = -119.0
-margin/top = -218.0
-margin/right = -94.0
-margin/bottom = -193.0
+margin_left = -119.0
+margin_top = -218.0
+margin_right = -94.0
+margin_bottom = -193.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 8 )
 text = "1"
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="blue" type="Control" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -72.0
-margin/top = 32.0
-margin/right = -32.0
-margin/bottom = 72.0
+margin_left = -72.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = 72.0
 
 [node name="team" type="Sprite" parent="middle/control/dialog_controls/blue"]
-
-transform/pos = Vector2( 65, 35 )
-transform/scale = Vector2( 2, 2 )
+position = Vector2( 65, 35 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 flip_h = true
 vframes = 2
 hframes = 6
 
 [node name="blue_team" type="Label" parent="middle/control/dialog_controls/blue"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 7 )
-margin/left = -110.0
-margin/top = 69.0
-margin/right = 255.0
-margin/bottom = 103.0
+margin_left = -110.0
+margin_top = 69.0
+margin_right = 255.0
+margin_bottom = 103.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 7 )
 text = "LABEL_BLUE_TEAM"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="red" type="Control" parent="middle/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -72.0
-margin/top = 32.0
-margin/right = -32.0
-margin/bottom = 72.0
+margin_left = -72.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = 72.0
 
 [node name="team" type="Sprite" parent="middle/control/dialog_controls/red"]
-
-transform/pos = Vector2( 65, 35 )
-transform/scale = Vector2( 2, 2 )
+position = Vector2( 65, 35 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 flip_h = true
 vframes = 2
@@ -322,307 +206,185 @@ hframes = 6
 frame = 3
 
 [node name="blue_team" type="Label" parent="middle/control/dialog_controls/red"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 7 )
-margin/left = -109.0
-margin/top = 69.0
-margin/right = 255.0
-margin/bottom = 103.0
+margin_left = -109.0
+margin_top = 69.0
+margin_right = 255.0
+margin_bottom = 103.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 7 )
 text = "LABEL_RED_TEAM"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="bottom" type="CenterContainer" parent="."]
-
-anchor/top = 1
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-use_top_left = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="control" type="Control" parent="bottom"]
+margin_left = 640.0
+margin_right = 640.0
 
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 640.0
-margin/top = 0.0
-margin/right = 640.0
-margin/bottom = 0.0
-
-[node name="left" type="Patch9Frame" parent="bottom/control"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -304.0
-margin/top = -80.0
-margin/right = 144.0
-margin/bottom = 16.0
+[node name="left" type="NinePatchRect" parent="bottom/control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -304.0
+margin_top = -80.0
+margin_right = -144.0
+margin_bottom = -16.0
+mouse_filter = 1
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
-[node name="right" type="Patch9Frame" parent="bottom/control"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -136.0
-margin/top = -80.0
-margin/right = 328.0
-margin/bottom = -16.0
+[node name="right" type="NinePatchRect" parent="bottom/control"]
+margin_left = -136.0
+margin_top = -80.0
+margin_right = 328.0
+margin_bottom = -16.0
+mouse_filter = 1
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="dialog_controls" type="Control" parent="bottom/control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="close" type="TextureButton" parent="bottom/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -296.0
-margin/top = -72.0
-margin/right = -152.0
-margin/bottom = -24.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 14 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = -296.0
+margin_top = -72.0
+margin_right = -152.0
+margin_bottom = -24.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 14 )
+expand = true
 
 [node name="Label" type="Label" parent="bottom/control/dialog_controls/close"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 6.0
-margin/top = 16.0
-margin/right = 138.0
-margin/bottom = 34.0
+margin_left = 6.0
+margin_top = 16.0
+margin_right = 138.0
+margin_bottom = 34.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "> BACK"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="start_button" type="TextureButton" parent="bottom/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 176.0
-margin/top = -72.0
-margin/right = 320.0
-margin/bottom = -22.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 15 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 176.0
+margin_top = -72.0
+margin_right = 320.0
+margin_bottom = -22.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 15 )
+expand = true
 
 [node name="title" type="Label" parent="bottom/control/dialog_controls/start_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 7.0
-margin/top = 16.0
-margin/right = 136.0
-margin/bottom = 34.0
+margin_left = 7.0
+margin_top = 16.0
+margin_right = 136.0
+margin_bottom = 34.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_START"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="completed" type="Label" parent="bottom/control/dialog_controls/start_button"]
-
-visibility/visible = false
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 234.0
-margin/bottom = 43.0
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 234.0
+margin_bottom = 43.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0.745098, 0.14902, 0.2, 1 )
 text = "LABEL_MISSION_COMPLETED"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="prev_button" type="TextureButton" parent="bottom/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -128.0
-margin/top = -72.0
-margin/right = 16.0
-margin/bottom = -24.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 16 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = -128.0
+margin_top = -72.0
+margin_right = 16.0
+margin_bottom = -24.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 16 )
+expand = true
 
 [node name="title" type="Label" parent="bottom/control/dialog_controls/prev_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 4.0
-margin/top = 17.0
-margin/right = 136.0
-margin/bottom = 35.0
+margin_left = 4.0
+margin_top = 17.0
+margin_right = 136.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_PREVIOUS"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="completed" type="Label" parent="bottom/control/dialog_controls/prev_button"]
-
-visibility/visible = false
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 234.0
-margin/bottom = 43.0
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 234.0
+margin_bottom = 43.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0.745098, 0.14902, 0.2, 1 )
 text = "LABEL_MISSION_COMPLETED"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="next_button" type="TextureButton" parent="bottom/control/dialog_controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 24.0
-margin/top = -72.0
-margin/right = 168.0
-margin/bottom = -24.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 10 )
-textures/pressed = ExtResource( 11 )
-textures/hover = ExtResource( 12 )
-textures/disabled = ExtResource( 13 )
-textures/focused = ExtResource( 16 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 24.0
+margin_top = -72.0
+margin_right = 168.0
+margin_bottom = -24.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 16 )
+expand = true
 
 [node name="title" type="Label" parent="bottom/control/dialog_controls/next_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 5.0
-margin/top = 16.0
-margin/right = 138.0
-margin/bottom = 34.0
+margin_left = 5.0
+margin_top = 16.0
+margin_right = 138.0
+margin_bottom = 34.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_NEXT"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="completed" type="Label" parent="bottom/control/dialog_controls/next_button"]
-
-visibility/visible = false
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 7.0
-margin/top = 7.0
-margin/right = 234.0
-margin/bottom = 43.0
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 234.0
+margin_bottom = 43.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0.745098, 0.14902, 0.2, 1 )
 text = "LABEL_MISSION_COMPLETED"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-

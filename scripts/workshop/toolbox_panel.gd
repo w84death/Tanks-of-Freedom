@@ -95,3 +95,4 @@ func cycle_theme():
 
 func refresh_theme_button():
 	self.theme_button.get_node('label').set_text(tr(self.theme_names[self.workshop.selected_tileset]))
+

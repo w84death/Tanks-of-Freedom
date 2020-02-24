@@ -59,18 +59,18 @@ func _initialize():
 	self.update_zoom()
 
 	self.apply_default_camera()
-	self.update_camera_speed()
+	self.update_camera_speed_scale()
 
 func update_zoom():
 	self.scaleVAR = self.camera.get_zoom()
 
-func get_pos():
+func get_position():
 	return self.camera.get_offset()
 
-func set_pos(positionVAR):
+func set_position(positionVAR):
 	self.camera.set_offset(positionVAR)
 	self.target = positionVAR
-	self.pos = positionVAR
+	self.position = positionVAR
 	self.sX = positionVAR.x
 	self.sY = positionVAR.y
 
@@ -122,7 +122,7 @@ func move_to_map(target, forced_movement = false):
 		return
 
 	if not mouse_dragging:
-		self.game_size = self.game_logic.get_size()
+		self.game_size = OS.get_window_size()
 		var target_position = self.bag.abstract_map.tilemap.map_to_world(target)
 		var diff_x = target_position.x - self.sX
 		var diff_y = target_position.y - self.sY
@@ -160,9 +160,9 @@ func process(delta):
 		self.forced_movement = false
 
 	if self.do_cinematic_pan:
-		self.do_awesome_cinematic_pan()
+		call("do_awesome_cinematic_pan")
 		if self.awesome_explosions_interval_counter == self.awesome_explosions_interval:
-			self.do_awesome_random_explosions()
+			call("do_awesome_random_explosions")
 			self.awesome_explosions_interval_counter = 0
 		else:
 			self.awesome_explosions_interval_counter += 1
@@ -176,7 +176,7 @@ func __do_panning(diff_x, diff_y):
 	return true
 
 func stop():
-	self.set_pos(self.pos)
+	self.set_position(self.position)
 	self.panning = false
 
 func reset_player_cameras():
@@ -186,13 +186,14 @@ func reset_player_cameras():
 	}
 
 func store_position_for_player(player):
-	self.position_for_player["player_" + str(player)] = self.get_pos()
+	self.position_for_player["player_" + str(player)] = self.get_position()
 
 func restore_position_for_player(player):
 	var positionVAR = self.position_for_player["player_" + str(player)]
 
 	if positionVAR.x != 0 and positionVAR.y != 0:
-		self.set_pos(positionVAR)
+		self.set_position(positionVAR)
 
-func update_camera_speed():
+func update_camera_speed_scale():
 	self.camera_speed = self.camera_speeds[self.bag.root.settings['camera_speed']]
+

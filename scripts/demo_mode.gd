@@ -22,7 +22,7 @@ func start_map():
 	self.root.load_map('workshop', self.get_random_map(), false, false, self, "post_start_map")
 
 func post_start_map():
-	if !self.root.menu.is_hidden():
+	if !self.root.menu.is_visible() == false:
 		self.root.toggle_menu()
 	self.root.lock_for_demo()
 

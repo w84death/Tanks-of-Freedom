@@ -81,3 +81,4 @@ var triggers = {
 
 	'app_red_hq' : {'type' : 'move', 'story' : 'app_red_hq', 'details' : { 'fields' : [Vector2(10, 7), Vector2(10, 8), Vector2(9, 7), Vector2(9, 8), Vector2(8, 7), Vector2(8, 8), Vector2(7, 7), Vector2(7, 8), Vector2(6, 7), Vector2(6, 8)], 'player' : 0 }, 'one_off' : true},
 }
+

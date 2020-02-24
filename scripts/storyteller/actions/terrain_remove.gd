@@ -20,3 +20,4 @@ func perform(action_details):
 
 func remove_object(object):
 	object[0].queue_free()
+

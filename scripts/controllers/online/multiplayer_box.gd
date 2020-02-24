@@ -2,8 +2,8 @@
 var bag
 var match_box
 
-var match_panel = preload("res://scripts/controllers/online/used_panel.gd").new()
-var fill_panel = preload("res://scripts/controllers/online/free_panel.gd").new()
+var match_panel = load("res://scripts/controllers/online/used_panel.gd").new()
+var fill_panel = load("res://scripts/controllers/online/free_panel.gd").new()
 
 func _init(bag, match_box):
 	self.bag = bag
@@ -30,3 +30,4 @@ func hide():
 func bind_match_data(data):
 	self.match_panel.bind_match_data(data)
 	self.show_match()
+

@@ -1,6 +1,6 @@
 extends "res://scripts/bag_aware.gd"
 
-var popup = preload("res://gui/gamepad.tscn").instance()
+var popup = load("res://gui/gamepad.tscn").instance()
 
 var close_button
 
@@ -27,3 +27,4 @@ func hide():
 		self.bag.timers.set_timeout(0.1, self.bag.root.menu.settings_nav_pad, "grab_focus")
 	else:
 		self.bag.timers.set_timeout(0.1, self.bag.root.menu.campaign_button, "grab_focus")
+

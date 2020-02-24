@@ -1,7 +1,7 @@
 extends "res://scripts/ai/actions/hands/base_hand.gd"
 
 func _initialize():
-	self.handled_action = preload("res://scripts/ai/actions/types/move_action.gd")
+	self.handled_action = load("res://scripts/ai/actions/types/move_action.gd")
 
 func execute(action):
 	if action.path.size() < 2:
@@ -14,3 +14,4 @@ func execute(action):
 
 	self.bag.controllers.action_controller.set_active_field(action.entity.position_on_map)
 	self.bag.controllers.action_controller.handle_action(action.path[1])
+

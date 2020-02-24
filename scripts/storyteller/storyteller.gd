@@ -2,25 +2,25 @@ extends "res://scripts/bag_aware.gd"
 
 const STEP_INTERVAL = 0.2
 
-var action_triggers = preload("res://scripts/storyteller/triggers.gd").new()
+var action_triggers = load("res://scripts/storyteller/triggers.gd").new()
 
 var action_handlers = {
-	'lock' : preload("res://scripts/storyteller/actions/lock_hud.gd").new(),
-	'unlock' : preload("res://scripts/storyteller/actions/unlock_hud.gd").new(),
-	'camera' : preload("res://scripts/storyteller/actions/camera.gd").new(),
-	'sleep' : preload("res://scripts/storyteller/actions/sleep.gd").new(),
-	'move' : preload("res://scripts/storyteller/actions/move.gd").new(),
-	'die' : preload("res://scripts/storyteller/actions/die.gd").new(),
-	'claim' : preload("res://scripts/storyteller/actions/claim.gd").new(),
-	'win' : preload("res://scripts/storyteller/actions/win.gd").new(),
-	'message' : preload("res://scripts/storyteller/actions/message.gd").new(),
-	'terrain_add' : preload("res://scripts/storyteller/actions/terrain_add.gd").new(),
-	'terrain_remove' : preload("res://scripts/storyteller/actions/terrain_remove.gd").new(),
-	'terrain_damage' : preload("res://scripts/storyteller/actions/terrain_damage.gd").new(),
-	'spawn' : preload("res://scripts/storyteller/actions/spawn.gd").new(),
-	'attack' : preload("res://scripts/storyteller/actions/attack.gd").new(),
-	'despawn' : preload("res://scripts/storyteller/actions/despawn.gd").new(),
-	'trigger' : preload("res://scripts/storyteller/actions/trigger.gd").new(),
+	'lock' : load("res://scripts/storyteller/actions/lock_hud.gd").new(),
+	'unlock' : load("res://scripts/storyteller/actions/unlock_hud.gd").new(),
+	'camera' : load("res://scripts/storyteller/actions/camera.gd").new(),
+	'sleep' : load("res://scripts/storyteller/actions/sleep.gd").new(),
+	'move' : load("res://scripts/storyteller/actions/move.gd").new(),
+	'die' : load("res://scripts/storyteller/actions/die.gd").new(),
+	'claim' : load("res://scripts/storyteller/actions/claim.gd").new(),
+	'win' : load("res://scripts/storyteller/actions/win.gd").new(),
+	'message' : load("res://scripts/storyteller/actions/message.gd").new(),
+	'terrain_add' : load("res://scripts/storyteller/actions/terrain_add.gd").new(),
+	'terrain_remove' : load("res://scripts/storyteller/actions/terrain_remove.gd").new(),
+	'terrain_damage' : load("res://scripts/storyteller/actions/terrain_damage.gd").new(),
+	'spawn' : load("res://scripts/storyteller/actions/spawn.gd").new(),
+	'attack' : load("res://scripts/storyteller/actions/attack.gd").new(),
+	'despawn' : load("res://scripts/storyteller/actions/despawn.gd").new(),
+	'trigger' : load("res://scripts/storyteller/actions/trigger.gd").new(),
 }
 
 var available_stories = {}
@@ -111,3 +111,4 @@ func _has_unit_modifications():
 			return true
 
 	return false
+

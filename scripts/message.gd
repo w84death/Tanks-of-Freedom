@@ -33,3 +33,4 @@ func _ready():
 	self.hud_button_text = self.hud_button_close.get_node("Label")
 	self.flag = self.get_node("flag")
 	self.hud_button_close.connect("pressed",self,"close_message")
+

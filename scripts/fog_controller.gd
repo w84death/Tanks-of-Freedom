@@ -73,7 +73,7 @@ func add_cloud(x, y, sprite):
 	fog_of_war.set_cell(x, y, sprite)
 
 func move_cloud(pos):
-	fog_of_war.set_pos(pos)
+	fog_of_war.set_position(pos)
 
 func toggle_fog():
 	if self.fog_of_war.is_visible():
@@ -129,3 +129,4 @@ func is_cpu(player):
 		return true
 
 	return false
+

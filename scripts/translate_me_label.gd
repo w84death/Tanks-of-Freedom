@@ -13,3 +13,4 @@ func refresh_label():
 func set_trans_key(new_key):
 	self.trans_key = new_key
 	refresh_label()
+

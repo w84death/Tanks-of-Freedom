@@ -9,3 +9,4 @@ func init_root(root_node):
 
 func bind_panel(bluepring_node):
 	self.blueprint = bluepring_node
+

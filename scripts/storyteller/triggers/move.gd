@@ -39,3 +39,4 @@ func is_triggered(trigger_details, story_event):
 
 func _create_vip_mark(vip):
 	return "vip_" + str(vip.x) + "_" + str(vip.y)
+

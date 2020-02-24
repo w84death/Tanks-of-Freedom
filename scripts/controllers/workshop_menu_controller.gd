@@ -10,7 +10,7 @@ func init_root(root_node):
 	self.bag = self.root.bag
 	self.workshop = self.bag.workshop
 	self.menu_controller = self.bag.controllers.menu_controller
-	self.workshop_enabled = Globals.get('tof/enable_workshop')
+	self.workshop_enabled = ProjectSettings.get_setting('tof/enable_workshop')
 	self.background_map_controller = self.bag.controllers.background_map_controller
 
 func enter_workshop():

@@ -1,13 +1,13 @@
 var root
 var workshop
 
-var blueprint = preload("res://scripts/workshop/blueprint.gd").new()
+var blueprint = load("res://scripts/workshop/blueprint.gd").new()
 
-var toolbox_panel = preload("res://scripts/workshop/toolbox_panel.gd").new()
-var building_blocks_panel = preload("res://scripts/workshop/building_blocks_panel.gd").new()
+var toolbox_panel = load("res://scripts/workshop/toolbox_panel.gd").new()
+var building_blocks_panel = load("res://scripts/workshop/building_blocks_panel.gd").new()
 var message_popup
-var file_panel = preload("res://scripts/workshop/file_panel.gd").new()
-var navigation_panel = preload("res://scripts/workshop/navigation_panel.gd").new()
+var file_panel = load("res://scripts/workshop/file_panel.gd").new()
+var navigation_panel = load("res://scripts/workshop/navigation_panel.gd").new()
 
 func init_root(root_node):
 	self.root = root_node
@@ -54,3 +54,4 @@ func toggle_block_blocks():
 		self.hide_block_panel()
 	else:
 		self.show_block_panel()
+

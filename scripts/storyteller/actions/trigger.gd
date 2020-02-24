@@ -5,3 +5,4 @@ func perform(action_details):
 	var is_suspended = action_details['suspended']
 
 	self.bag.storyteller.action_triggers.suspend(trigger_name, is_suspended)
+

@@ -2,8 +2,8 @@
 var root
 var bag
 
-var picker = preload("res://gui/hud/skirmish_maps_panel.tscn").instance()
-var block_template = preload("res://gui/hud/skirmish_maps_block.tscn")
+var picker = load("res://gui/hud/skirmish_maps_panel.tscn").instance()
+var block_template = load("res://gui/hud/skirmish_maps_block.tscn")
 
 var blocks_cache = []
 
@@ -51,7 +51,7 @@ func bind_hud():
 	self.online_button = self.picker.get_node("controls/online")
 	self.online_button_label = self.online_button.get_node("Label")
 
-	if not Globals.get('tof/online'):
+	if not ProjectSettings.get_setting('tof/online'):
 		self.online_button.hide()
 
 func connect_buttons():
@@ -92,7 +92,7 @@ func detach_panel():
 	self.disable_delete_mode()
 	self.lock_delete_mode_button()
 	self.enable_list_switch()
-	self.picker.set_pos(Vector2(0, 0))
+	self.picker.set_position(Vector2(0, 0))
 
 func fill_page():
 	var maps_amount = self.get_maps_amount()
@@ -224,11 +224,11 @@ func fill_block(block, map, counter):
 	button.get_node("title").set_text(label)
 	button.connect("pressed", self, "map_selected", [map])
 
-	var positionVAR = button.get_pos()
+	var positionVAR = button.get_position()
 	if counter % 2 == 1:
 		positionVAR.x = self.OFFSET_X
 	positionVAR.y = 15 + ((counter - (counter % 2)) / 2) * self.OFFSET_Y
-	block.set_pos(positionVAR)
+	block.set_position(positionVAR)
 
 func map_selected(name):
 	self.root.sound_controller.play('menu')
@@ -310,3 +310,4 @@ func disable_list_switch():
 
 func enable_list_switch():
 	self.button_enable_switch(self.online_button, true)
+

@@ -1,7 +1,7 @@
 extends "res://scripts/bag_aware.gd"
 
-var popup_regular_template = preload("res://gui/popups/prompt.tscn")
-var popup_mobile_template = preload("res://gui/popups/prompt_mobile.tscn")
+var popup_regular_template = load("res://gui/popups/prompt.tscn")
+var popup_mobile_template = load("res://gui/popups/prompt_mobile.tscn")
 
 var popup
 
@@ -22,7 +22,7 @@ func _initialize():
 	self.connect_buttons()
 
 func select_prompt_template():
-	if Globals.get("tof/mobile_prompt"):
+	if ProjectSettings.get_setting("tof/mobile_prompt"):
 		self.popup = self.popup_mobile_template.instance()
 	else:
 		self.popup = self.popup_regular_template.instance()
@@ -86,3 +86,4 @@ func prepopulate(text):
 	self.input_box.set_text(str(text))
 func clear_prepopulate():
 	self.prepopulate("")
+

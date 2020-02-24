@@ -42,54 +42,54 @@ var campaign
 var used_tiles_list = []
 
 var tileset
-var map_movable = preload('res://terrain/tilesets/summer_movable.tscn')
-var map_non_movable = preload('res://terrain/tilesets/summer_non_movable.tscn')
-var wave = preload('res://terrain/wave.tscn')
-var underground_rock = preload('res://terrain/underground.tscn')
+var map_movable = load('res://terrain/tilesets/summer_movable.tscn')
+var map_non_movable = load('res://terrain/tilesets/summer_non_movable.tscn')
+var wave = load('res://terrain/wave.tscn')
+var underground_rock = load('res://terrain/underground.tscn')
 
 var map_city_small = [
-	preload('res://terrain/city/summer/city_small_1.tscn'),
-	preload('res://terrain/city/summer/city_small_2.tscn'),
-	preload('res://terrain/city/summer/city_small_3.tscn'),
-	preload('res://terrain/city/summer/city_small_4.tscn'),
-	preload('res://terrain/city/summer/city_small_5.tscn'),
-	preload('res://terrain/city/summer/city_small_6.tscn')
+	load('res://terrain/city/summer/city_small_1.tscn'),
+	load('res://terrain/city/summer/city_small_2.tscn'),
+	load('res://terrain/city/summer/city_small_3.tscn'),
+	load('res://terrain/city/summer/city_small_4.tscn'),
+	load('res://terrain/city/summer/city_small_5.tscn'),
+	load('res://terrain/city/summer/city_small_6.tscn')
 	]
 var map_city_big = [
-	preload('res://terrain/city/summer/city_big_1.tscn'),
-	preload('res://terrain/city/summer/city_big_2.tscn'),
-	preload('res://terrain/city/summer/city_big_3.tscn'),
-	preload('res://terrain/city/summer/city_big_4.tscn')
+	load('res://terrain/city/summer/city_big_1.tscn'),
+	load('res://terrain/city/summer/city_big_2.tscn'),
+	load('res://terrain/city/summer/city_big_3.tscn'),
+	load('res://terrain/city/summer/city_big_4.tscn')
 	]
-var map_statue = preload('res://terrain/city/summer/city_statue.tscn')
+var map_statue = load('res://terrain/city/summer/city_statue.tscn')
 var map_buildings = [
-	preload('res://buildings/bunker_blue.tscn'),
-	preload('res://buildings/bunker_red.tscn'),
-	preload('res://buildings/barrack.tscn'),
-	preload('res://buildings/factory.tscn'),
-	preload('res://buildings/airport.tscn'),
-	preload('res://buildings/tower.tscn'),
-	preload('res://buildings/fence.tscn')
+	load('res://buildings/bunker_blue.tscn'),
+	load('res://buildings/bunker_red.tscn'),
+	load('res://buildings/barrack.tscn'),
+	load('res://buildings/factory.tscn'),
+	load('res://buildings/airport.tscn'),
+	load('res://buildings/tower.tscn'),
+	load('res://buildings/fence.tscn')
 ]
 
 var map_units = [
-	preload('res://units/soldier_blue.tscn'),
-	preload('res://units/tank_blue.tscn'),
-	preload('res://units/helicopter_blue.tscn'),
-	preload('res://units/soldier_red.tscn'),
-	preload('res://units/tank_red.tscn'),
-	preload('res://units/helicopter_red.tscn')
+	load('res://units/soldier_blue.tscn'),
+	load('res://units/tank_blue.tscn'),
+	load('res://units/helicopter_blue.tscn'),
+	load('res://units/soldier_red.tscn'),
+	load('res://units/tank_red.tscn'),
+	load('res://units/helicopter_red.tscn')
 ]
 
 var map_civilians = [
-	preload('res://units/civilians/old_woman.tscn'),
-	preload('res://units/civilians/protest_guy.tscn'),
-	preload('res://units/civilians/protest_guy2.tscn'),
-	preload('res://units/civilians/refugee.tscn'),
-	preload('res://units/civilians/refugee2.tscn')
+	load('res://units/civilians/old_woman.tscn'),
+	load('res://units/civilians/protest_guy.tscn'),
+	load('res://units/civilians/protest_guy2.tscn'),
+	load('res://units/civilians/refugee.tscn'),
+	load('res://units/civilians/refugee2.tscn')
 ]
 
-var waypoint = preload('res://maps/waypoint.tscn')
+var waypoint = load('res://maps/waypoint.tscn')
 
 var is_dead = false
 
@@ -128,9 +128,9 @@ func move_to(target):
 		self.camera.target = target;
 
 func set_map_pos_global(positionVAR):
-	self.camera.set_pos(positionVAR)
+	self.camera.set_position(positionVAR)
 
-func set_map_pos(positionVAR):
+func set_map_position(positionVAR):
 	self.game_size = self.root.get_size()
 	positionVAR = self.terrain.map_to_world(positionVAR*Vector2(-1,-1)) + Vector2(self.game_size.x/(2*self.scale.x), self.game_size.y/(2*self.scale.y))
 	self.set_map_pos_global(positionVAR)
@@ -192,11 +192,11 @@ func generate_map():
 						temp = map_movable.instance()
 						temp.set_frame(16 + (randi()%8))
 			if temp:
-				temp.set_pos(terrain.map_to_world(Vector2(x, y)))
+				temp.set_position(terrain.map_to_world(Vector2(x, y)))
 				map_layer_back.add_child(temp)
 				temp = null
 			if temp2:
-				temp2.set_pos(terrain.map_to_world(Vector2(x, y)))
+				temp2.set_position(terrain.map_to_world(Vector2(x, y)))
 				map_layer_back.add_child(temp2)
 				temp2 = null
 
@@ -340,7 +340,7 @@ func generate_map():
 	return
 
 func attach_object(positionVAR, object):
-	object.set_pos(terrain.map_to_world(positionVAR))
+	object.set_position(terrain.map_to_world(positionVAR))
 	map_layer_front.add_child(object)
 	self.find_spawn_for_building(positionVAR.x, positionVAR.y, object)
 
@@ -534,11 +534,11 @@ func spawn_unit(x, y, type):
 			temp = map_civilians[randi() % map_civilians.size()].instance()
 			new_x = (randi() % MOVE_OFFSET) - (MOVE_OFFSET/2)
 			new_y = (randi() % MOVE_OFFSET) - (MOVE_OFFSET/2)
-			temp.set_pos(terrain.map_to_world(Vector2(x,y)) + Vector2(new_x, new_y))
+			temp.set_position(terrain.map_to_world(Vector2(x,y)) + Vector2(new_x, new_y))
 			map_layer_front.add_child(temp)
 	else:
 		temp = map_units[type].instance()
-		temp.set_pos(terrain.map_to_world(Vector2(x,y)))
+		temp.set_position(terrain.map_to_world(Vector2(x,y)))
 		temp.position_on_map = Vector2(x,y)
 		map_layer_front.add_child(temp)
 	return temp
@@ -553,7 +553,7 @@ func generate_underground(x, y):
 		temp.set_frame(1)
 	if neighbours in [20]:
 		temp.set_frame(2)
-	temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
+	temp.set_position(terrain.map_to_world(Vector2(x+1,y+1)))
 	underground.add_child(temp)
 	temp = null
 
@@ -569,7 +569,7 @@ func generate_wave(x, y):
 
 	if generate:
 		temp = wave.instance()
-		temp.set_pos(terrain.map_to_world(Vector2(x+1,y+1)))
+		temp.set_position(terrain.map_to_world(Vector2(x+1,y+1)))
 		underground.add_child(temp)
 		temp = null
 		return true
@@ -638,13 +638,13 @@ func check_file_name(name):
 	if name == "" || name == "settings":
 		return false
 
-	var validator = RegEx.new()
-	validator.compile("^([a-zA-Z0-9-_]*)$")
-	validator.find(name)
-	var matches = validator.get_captures()
-
-	if matches[1] != name:
-		return false
+#	var validator = RegEx.new() # TODO Disabled for now
+#	validator.compile("^([a-zA-Z0-9-_]*)$")
+#	validator.find(name)
+#	var matches = validator.get_captures()
+#
+#	if matches[1] != name:
+#		return false
 
 	return true
 
@@ -722,7 +722,7 @@ func _ready():
 		scale = self.camera.get_scale()
 	else:
 		self.set_default_zoom()
-	pos = terrain.get_pos()
+	pos = terrain.get_position()
 
 	self.shake_timer.set_wait_time(shake_time / shakes_max)
 	self.shake_timer.set_one_shot(true)
@@ -741,7 +741,7 @@ func _ready():
 func shake_camera():
 	if root.settings['shake_enabled'] and not mouse_dragging:
 		self.shakes = 0
-		shake_initial_position = terrain.get_pos()
+		shake_initial_position = terrain.get_position()
 		self.do_single_shake()
 
 func do_single_shake():
@@ -758,15 +758,15 @@ func do_single_shake():
 
 		pos = Vector2(shake_initial_position) + Vector2(distance_x, distance_y)
 		target = pos
-		underground.set_pos(pos)
-		terrain.set_pos(pos)
+		underground.set_position(pos)
+		terrain.set_position(pos)
 		self.shakes += 1
 		self.shake_timer.start()
 	else:
 		pos = shake_initial_position
 		target = pos
-		self.underground.set_pos(shake_initial_position)
-		self.terrain.set_pos(shake_initial_position)
+		self.underground.set_position(shake_initial_position)
+		self.terrain.set_position(shake_initial_position)
 
 func switch_to_tileset(tileset):
 	self.get_node('terrain').set_tileset(self.bag.tileset_handler.available_tilesets[tileset])
@@ -779,4 +779,3 @@ func switch_to_tileset(tileset):
 func _init_bag(bag):
 	self.bag = bag
 	self.campaign = bag.campaign
-

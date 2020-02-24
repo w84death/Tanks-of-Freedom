@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=1]
 [ext_resource path="res://gui/font_22.tres" type="Theme" id=2]
@@ -11,104 +11,65 @@
 [ext_resource path="res://gui/button_normal_theme.tres" type="Theme" id=9]
 
 [node name="settings_panel" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -48.0
-margin/right = 40.0
-margin/bottom = -8.0
+margin_top = -48.0
+margin_right = 40.0
+margin_bottom = -8.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="header" type="Patch9Frame" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -328.0
-margin/top = -152.0
-margin/right = -288.0
-margin/bottom = 144.0
+[node name="header" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -328.0
+margin_top = -152.0
+margin_right = 288.0
+margin_bottom = -144.0
+mouse_filter = 1
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="title" type="Label" parent="header"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 2 )
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 2 )
 text = "SETTINGS"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-script/script = ExtResource( 3 )
-trans_key = "LABEL_DEFAULT"
+script = ExtResource( 3 )
 
-[node name="body" type="Patch9Frame" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -328.0
-margin/top = -96.0
-margin/right = -288.0
-margin/bottom = -152.0
+[node name="body" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -328.0
+margin_top = -96.0
+margin_right = 288.0
+margin_bottom = 152.0
+mouse_filter = 1
 texture = ExtResource( 1 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="tabs" type="Control" parent="body"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 8.0
-margin/top = 8.0
-margin/right = 8.0
-margin/bottom = 8.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
 
 [node name="game" type="GridContainer" parent="body/tabs"]
-
-editor/display_folded = true
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
 custom_constants/vseparation = 16
 custom_constants/hseparation = 32
 columns = 3
@@ -117,347 +78,243 @@ __meta__ = {
 }
 
 [node name="difficulty" parent="body/tabs/game" instance=ExtResource( 4 )]
+margin_right = 190.0
 
-editor/display_folded = true
-margin/right = 190.0
-
-[node name="title" parent="body/tabs/game/difficulty"]
-
+[node name="title" parent="body/tabs/game/difficulty" index="0"]
 text = "DIFFICULTY"
 trans_key = "LABEL_DIFFICULTY"
 
 [node name="tooltips" parent="body/tabs/game" instance=ExtResource( 4 )]
+margin_left = 222.0
+margin_right = 412.0
 
-editor/display_folded = true
-margin/left = 222.0
-margin/right = 412.0
-
-[node name="title" parent="body/tabs/game/tooltips"]
-
+[node name="title" parent="body/tabs/game/tooltips" index="0"]
 text = "TOOLTIPS"
 trans_key = "LABEL_TOOLTIPS"
 
 [node name="language" parent="body/tabs/game" instance=ExtResource( 4 )]
+margin_left = 444.0
+margin_right = 634.0
 
-editor/display_folded = true
-margin/left = 444.0
-margin/right = 634.0
-
-[node name="title" parent="body/tabs/game/language"]
-
+[node name="title" parent="body/tabs/game/language" index="0"]
 text = "GAME LANGUAGE"
 trans_key = "LABEL_LANGUAGE"
 
-[node name="first" parent="body/tabs/game/language/buttons/center"]
-
+[node name="first" parent="body/tabs/game/language/buttons/center" index="0"]
 text = "EN/PL"
 trans_key = "LABEL_EN"
 
 [node name="ai_speed" parent="body/tabs/game" instance=ExtResource( 4 )]
+margin_top = 96.0
+margin_right = 190.0
+margin_bottom = 176.0
 
-editor/display_folded = true
-margin/top = 96.0
-margin/right = 190.0
-margin/bottom = 176.0
-
-[node name="title" parent="body/tabs/game/ai_speed"]
-
+[node name="title" parent="body/tabs/game/ai_speed" index="0"]
 text = "AI SPEED"
 trans_key = "LABEL_AI_SPEED"
 
 [node name="camera_speed" parent="body/tabs/game" instance=ExtResource( 4 )]
+margin_left = 222.0
+margin_top = 96.0
+margin_right = 412.0
+margin_bottom = 176.0
 
-editor/display_folded = true
-margin/left = 222.0
-margin/top = 96.0
-margin/right = 412.0
-margin/bottom = 176.0
-
-[node name="title" parent="body/tabs/game/camera_speed"]
-
+[node name="title" parent="body/tabs/game/camera_speed" index="0"]
 text = "CAMERA SPEED"
 trans_key = "LABEL_CAMERA_SPEED"
 
 [node name="gfx" type="GridContainer" parent="body/tabs"]
-
-visibility/visible = false
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
 custom_constants/vseparation = 16
 custom_constants/hseparation = 32
 columns = 3
 
 [node name="shake_toggle" parent="body/tabs/gfx" instance=ExtResource( 4 )]
+margin_right = 190.0
 
-editor/display_folded = true
-margin/right = 190.0
-
-[node name="title" parent="body/tabs/gfx/shake_toggle"]
-
+[node name="title" parent="body/tabs/gfx/shake_toggle" index="0"]
 text = "CAMERA SHAKE"
 trans_key = "LABEL_CAMERA_SHAKE"
 
-[node name="first" parent="body/tabs/gfx/shake_toggle/buttons/center"]
-
+[node name="first" parent="body/tabs/gfx/shake_toggle/buttons/center" index="0"]
 text = "ON/OFF"
 trans_key = "LABEL_ON"
 
 [node name="camera_follow" parent="body/tabs/gfx" instance=ExtResource( 4 )]
+margin_left = 222.0
+margin_right = 412.0
 
-editor/display_folded = true
-margin/left = 222.0
-margin/right = 412.0
-
-[node name="title" parent="body/tabs/gfx/camera_follow"]
-
+[node name="title" parent="body/tabs/gfx/camera_follow" index="0"]
 text = "AUTO FOLLOW"
 trans_key = "LABEL_AUTO_FOLLOW"
 
-[node name="first" parent="body/tabs/gfx/camera_follow/buttons/center"]
-
+[node name="first" parent="body/tabs/gfx/camera_follow/buttons/center" index="0"]
 text = "ON/OFF"
 trans_key = "LABEL_ON"
 
 [node name="display_mode_toggle" parent="body/tabs/gfx" instance=ExtResource( 4 )]
+margin_left = 444.0
+margin_right = 634.0
 
-editor/display_folded = true
-margin/left = 444.0
-margin/right = 634.0
-
-[node name="title" parent="body/tabs/gfx/display_mode_toggle"]
-
+[node name="title" parent="body/tabs/gfx/display_mode_toggle" index="0"]
 text = "FULL SCREEN"
 trans_key = "LABEL_FULL_SCREEN"
 
-[node name="first" parent="body/tabs/gfx/display_mode_toggle/buttons/center"]
-
+[node name="first" parent="body/tabs/gfx/display_mode_toggle/buttons/center" index="0"]
 text = "ON/OFF"
 trans_key = "LABEL_ON"
 
 [node name="overscan_button" parent="body/tabs/gfx" instance=ExtResource( 4 )]
+margin_top = 96.0
+margin_right = 190.0
+margin_bottom = 176.0
 
-editor/display_folded = true
-margin/top = 96.0
-margin/right = 190.0
-margin/bottom = 176.0
-
-[node name="title" parent="body/tabs/gfx/overscan_button"]
-
+[node name="title" parent="body/tabs/gfx/overscan_button" index="0"]
 text = "OVERSCAN"
 trans_key = "LABEL_OVERSCAN"
 
-[node name="first" parent="body/tabs/gfx/overscan_button/buttons/center"]
-
+[node name="first" parent="body/tabs/gfx/overscan_button/buttons/center" index="0"]
 text = "ON/OFF"
 trans_key = "LABEL_ON"
 
 [node name="camera_zoom" parent="body/tabs/gfx" instance=ExtResource( 5 )]
+margin_left = 222.0
+margin_top = 96.0
+margin_right = 412.0
+margin_bottom = 176.0
 
-margin/left = 222.0
-margin/top = 96.0
-margin/right = 412.0
-margin/bottom = 176.0
-
-[node name="title" parent="body/tabs/gfx/camera_zoom"]
-
+[node name="title" parent="body/tabs/gfx/camera_zoom" index="0"]
 text = "ZOOM LEVEL"
 
-[node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center"]
-
+[node name="first" parent="body/tabs/gfx/camera_zoom/buttons/center" index="0"]
 text = "SMALLER"
 
-[node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center"]
-
+[node name="second" parent="body/tabs/gfx/camera_zoom/buttons/center" index="1"]
 text = "BIGGER"
 trans_key = "LABEL_BIGGER"
 
 [node name="camera_move_to_bunker" parent="body/tabs/gfx" instance=ExtResource( 4 )]
+margin_left = 444.0
+margin_top = 96.0
+margin_right = 634.0
+margin_bottom = 176.0
 
-editor/display_folded = true
-margin/left = 444.0
-margin/top = 96.0
-margin/right = 634.0
-margin/bottom = 176.0
-
-[node name="title" parent="body/tabs/gfx/camera_move_to_bunker"]
-
+[node name="title" parent="body/tabs/gfx/camera_move_to_bunker" index="0"]
 text = "MOVE TO BUNKER"
 trans_key = "LABEL_CAMERA_MOVE_TO_BUNKER"
 
-[node name="first" parent="body/tabs/gfx/camera_move_to_bunker/buttons/center"]
-
+[node name="first" parent="body/tabs/gfx/camera_move_to_bunker/buttons/center" index="0"]
 text = "ON/OFF"
 trans_key = "LABEL_ON"
 
 [node name="sound" type="GridContainer" parent="body/tabs"]
-
-visibility/visible = false
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
 custom_constants/vseparation = 16
 custom_constants/hseparation = 32
 columns = 3
 
 [node name="sound_toggle" parent="body/tabs/sound" instance=ExtResource( 4 )]
+margin_right = 190.0
 
-editor/display_folded = true
-margin/right = 190.0
-
-[node name="title" parent="body/tabs/sound/sound_toggle"]
-
+[node name="title" parent="body/tabs/sound/sound_toggle" index="0"]
 text = "SOUND EFFECTS"
 trans_key = "LABEL_SOUND_EFFECTS"
 
 [node name="music_toggle" parent="body/tabs/sound" instance=ExtResource( 4 )]
+margin_left = 222.0
+margin_right = 412.0
 
-editor/display_folded = true
-margin/left = 222.0
-margin/right = 412.0
-
-[node name="title" parent="body/tabs/sound/music_toggle"]
-
+[node name="title" parent="body/tabs/sound/music_toggle" index="0"]
 text = "MUSIC"
 trans_key = "LABEL_MUSIC"
 
-[node name="nav" type="Patch9Frame" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -328.0
-margin/top = 200.0
-margin/right = -88.0
-margin/bottom = -224.0
+[node name="nav" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -328.0
+margin_top = 200.0
+margin_right = 88.0
+margin_bottom = 224.0
+mouse_filter = 1
 texture = ExtResource( 6 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="tabs" type="GridContainer" parent="nav"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 8.0
-margin/top = 8.0
-margin/right = 8.0
-margin/bottom = 8.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+mouse_filter = 0
 columns = 5
 
 [node name="game" type="Button" parent="nav/tabs"]
-
-rect/min_size = Vector2( 90, 48 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 7 )
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 90.0
-margin/bottom = 48.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
+margin_right = 90.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 90, 48 )
+theme = ExtResource( 7 )
 text = "GAME"
-flat = false
-script/script = ExtResource( 8 )
-trans_key = "LABEL_DEFAULT"
+script = ExtResource( 8 )
 
 [node name="gfx" type="Button" parent="nav/tabs"]
-
-rect/min_size = Vector2( 90, 48 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 7 )
-margin/left = 94.0
-margin/top = 0.0
-margin/right = 184.0
-margin/bottom = 48.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 90, 48 )
+theme = ExtResource( 7 )
 text = "GFX"
-flat = false
-script/script = ExtResource( 8 )
-trans_key = "LABEL_DEFAULT"
+script = ExtResource( 8 )
 
 [node name="sound" type="Button" parent="nav/tabs"]
-
-rect/min_size = Vector2( 90, 48 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 7 )
-margin/left = 188.0
-margin/top = 0.0
-margin/right = 278.0
-margin/bottom = 48.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
+margin_left = 188.0
+margin_right = 278.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 90, 48 )
+theme = ExtResource( 7 )
 text = "SOUND"
-flat = false
-script/script = ExtResource( 8 )
-trans_key = "LABEL_DEFAULT"
+script = ExtResource( 8 )
 
 [node name="pad" type="Button" parent="nav/tabs"]
-
-rect/min_size = Vector2( 160, 48 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 9 )
-margin/left = 282.0
-margin/top = 0.0
-margin/right = 442.0
-margin/bottom = 48.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
+margin_left = 282.0
+margin_right = 442.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 160, 48 )
+theme = ExtResource( 9 )
 text = "GAMEPAD INFO"
-flat = false
-script/script = ExtResource( 8 )
-trans_key = "LABEL_DEFAULT"
-
+script = ExtResource( 8 )
 
 [editable path="body/tabs/game/difficulty"]
+
 [editable path="body/tabs/game/tooltips"]
+
 [editable path="body/tabs/game/language"]
+
 [editable path="body/tabs/game/ai_speed"]
+
 [editable path="body/tabs/game/camera_speed"]
+
 [editable path="body/tabs/gfx/shake_toggle"]
+
 [editable path="body/tabs/gfx/camera_follow"]
+
 [editable path="body/tabs/gfx/display_mode_toggle"]
+
 [editable path="body/tabs/gfx/overscan_button"]
+
 [editable path="body/tabs/gfx/camera_zoom"]
+
 [editable path="body/tabs/gfx/camera_move_to_bunker"]
+
 [editable path="body/tabs/sound/sound_toggle"]
+
 [editable path="body/tabs/sound/music_toggle"]

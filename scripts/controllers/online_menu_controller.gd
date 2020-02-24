@@ -1,7 +1,7 @@
 extends "res://scripts/bag_aware.gd"
 
-var online_menu = preload("res://gui/online_menu.tscn").instance()
-var multiplayer = preload("res://scripts/controllers/multiplayer_menu_controller.gd").new()
+var online_menu = load("res://gui/online_menu.tscn").instance()
+var multiplayer = load("res://scripts/controllers/multiplayer_menu_controller.gd").new()
 var controls
 var background
 var middle_container
@@ -104,7 +104,7 @@ func upload_custom_map(map_name, is_remote = false):
 	self.selected_map_name = map_name
 	var message
 
-	if self.bag.map_list.maps[map_name]['completed'] or not Globals.get('tof/map_upload_win'):
+	if self.bag.map_list.maps[map_name]['completed'] or not ProjectSettings.get_setting('tof/map_upload_win'):
 		message = tr('LABEL_MAP_TO_UPLOAD') + ': ' + map_name + '. ' + tr('LABEL_PROCEED_QUESTION')
 		self.bag.confirm_popup.attach_panel(self.middle_container)
 		self.bag.confirm_popup.fill_labels(tr('LABEL_UPLOAD_MAP'), message, tr('LABEL_UPLOAD'), tr('LABEL_CANCEL'))
@@ -253,3 +253,4 @@ func hide_map_download_done_message():
 	self.background.show()
 	self.middle_container.hide()
 	self.download_button.grab_focus()
+

@@ -37,7 +37,7 @@ Please note, that all controls listed are for the XBox 360 controller gamepad. I
 Please note, that changing the map name with a gamepad is not possible at this time. A keyboard is still required.
 
 ## Open Source Engine
-Game is made using [Godot Engine 2.1+](https://downloads.tuxfamily.org/godotengine/). It will not work in 3.0+ and will not be ported anytime soon (if ever).
+Version 0.8 is rewrited in Godot Engine 3.2 and it will not work in different version of this engine.
 
 ## Download
 ### Official builds:
@@ -62,7 +62,7 @@ Game is made using [Godot Engine 2.1+](https://downloads.tuxfamily.org/godotengi
 ### Build from sources
 To get the latest version of the game, you'll need to use the source code and Godot Engine.
 
-- download & install [Godot Engine](https://godotengine.org/download) version [2.1.4](https://downloads.tuxfamily.org/godotengine/) (3.0+ not supported)
+- download & install [Godot Engine](https://godotengine.org/download) version [3.2](https://downloads.tuxfamily.org/godotengine/) (only 3.2.x is supported)
 - download our sources
   - download [master.zip](https://github.com/w84death/Tanks-of-Freedom/archive/master.zip) and unzip
   - or clone the repository using git
@@ -72,6 +72,8 @@ To get the latest version of the game, you'll need to use the source code and Go
 Follow [this tutorial](http://docs.godotengine.org/en/latest/learning/workflow/export/exporting_projects.html) to learn how to export the game for each platform.
 
 ## Server
+
+Now (version 0.8) online game doesn't work.
 
 For online funcionalities a ToF server is required. Sources can be found in a separate repository. [https://github.com/P1X-in/Tanks-of-Freedom-Server](https://github.com/P1X-in/Tanks-of-Freedom-Server)
 
@@ -100,6 +102,9 @@ For online funcionalities a ToF server is required. Sources can be found in a se
 
 ### sfx
    - QmYaan (Grand Beats) http://www.grandbeats.com/
+
+### Rewrite Tof to Godot 3.2
+   - Qarmin
 
 ### engine
    - Godot Engine https://godotengine.org/

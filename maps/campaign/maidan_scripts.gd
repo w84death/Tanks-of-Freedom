@@ -51,3 +51,4 @@ var triggers = {
 	'hq_in_danger' : {'type' : 'move', 'story' : 'hq_in_danger', 'details' : { 'fields' : [Vector2(7, 9), Vector2(8, 9), Vector2(9, 9), Vector2(10, 9), Vector2(7, 10), Vector2(8, 10), Vector2(9, 10), Vector2(10, 10), Vector2(7, 11), Vector2(9, 11), Vector2(10, 11)], 'player' : 1 }, 'one_off' : true},
 	'loosing_soldiers' : {'type' : 'deploy', 'story' : 'loosing_soldiers', 'details' : { 'amount' : 3, 'player' : 0, 'exact' : true }, 'one_off' : true},
 }
+

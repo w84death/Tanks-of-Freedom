@@ -9,7 +9,7 @@ var working = true
 func _init(processing, handler):
 	self.processing = processing
 	self.handler = handler
-	self.set_fixed_process(true)
+	self.set_physics_process(true)
 
 func kill():
 	self.working = false
@@ -17,8 +17,9 @@ func kill():
 	self.handler = null
 	self.queue_free()
 
-func _fixed_process(delta):
+func _physics_process(delta):
 	if not self.working || not self.processing.ready:
 		return
 
 	self.handler.process(delta)
+

@@ -11,7 +11,7 @@ var units_button
 var close_button
 
 var blocks_area
-var block_template = preload("res://gui/workshop/block.tscn")
+var block_template = load("res://gui/workshop/block.tscn")
 
 var tiles
 
@@ -130,7 +130,7 @@ func fill_blocks_panel(blocks):
 			positionVAR.y = positionVAR.y + 100
 		elif index > 0:
 			positionVAR.x = positionVAR.x + 100
-		new_block.set_pos(positionVAR)
+		new_block.set_position(positionVAR)
 		index = index + 1
 		self.current_blocks.append(new_block)
 
@@ -147,4 +147,5 @@ func __trans(elements):
 		element[0] = tr("LABEL_WORKSHOP_" + element[0] )
 
 	return elements
+
 

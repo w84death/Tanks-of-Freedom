@@ -1,6 +1,6 @@
 extends Timer
 
-var timeout = 0
+var timeoutVAR = 0
 const INTERVAL = 15
 const STATS_INTERVAL = 3
 var root
@@ -12,9 +12,9 @@ const STATS = 2
 const NO_DELAY = 3
 
 func _process(delta):
-	if is_active():
-		timeout += delta
-		if timeout > self.__get_interval():
+	if !is_stopped():
+		timeoutVAR += delta
+		if timeoutVAR > self.__get_interval():
 			self.stop()
 	
 			if state == INTRO:
@@ -29,7 +29,7 @@ func inject_root(root_obj):
 	root = root_obj
 
 func reset(state = INTRO):
-	timeout = 0
+	timeoutVAR = 0
 	self.state = state
 
 func __get_interval():
@@ -39,4 +39,5 @@ func __get_interval():
 		return 0
 	else:
 		return STATS_INTERVAL
+
 

@@ -77,3 +77,4 @@ func mark_movement_tiles(source, tiles, first_action_range, current_player):
 			tile_type = 1
 
 		self.add_movement_indicator(tile, tile_type)
+

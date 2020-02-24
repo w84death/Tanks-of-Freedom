@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://assets/terrain/summer/ground.png" type="Texture" id=1]
 
 [node name="gorund_tileset" type="Node2D"]
 
-transform/pos = Vector2( 198.108, 215 )
+position = Vector2( 198.108, 215 )
 __meta__ = {
 "__editor_plugin_screen__": "2D",
 "_edit_lock_": true
@@ -12,458 +12,456 @@ __meta__ = {
 
 [node name="ground" type="Sprite" parent="."]
 
-transform/pos = Vector2( -166.108, -169 )
+position = Vector2( -166.108, -169 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="grass" type="Sprite" parent="."]
 
-transform/pos = Vector2( -76.108, -169 )
+position = Vector2( -76.108, -169 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
 
 [node name="forest" type="Sprite" parent="."]
 
-transform/pos = Vector2( 3.892, -169 )
+position = Vector2( 3.892, -169 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
 
 [node name="mountain" type="Sprite" parent="."]
 
-transform/pos = Vector2( 93.892, -169 )
+position = Vector2( 93.892, -169 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 0, 64, 64 )
 
 [node name="city" type="Sprite" parent="."]
 
-transform/pos = Vector2( 173.892, -169 )
+position = Vector2( 173.892, -169 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 0, 64, 64 )
 
 [node name="statue" type="Sprite" parent="."]
 
-transform/pos = Vector2( 263.892, -169 )
+position = Vector2( 263.892, -169 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 0, 64, 64 )
 
 [node name="hq blue" type="Sprite" parent="."]
 
-transform/pos = Vector2( 347.892, -165 )
+position = Vector2( 347.892, -165 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 0, 64, 64 )
 
 [node name="hq red 2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 427.892, -165 )
+position = Vector2( 427.892, -165 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 0, 64, 64 )
 
 [node name="barracks" type="Sprite" parent="."]
 
-transform/pos = Vector2( -166.108, -49 )
+position = Vector2( -166.108, -49 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 64, 64, 64 )
 
 [node name="factory" type="Sprite" parent="."]
 
-transform/pos = Vector2( -66.108, -59 )
+position = Vector2( -66.108, -59 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 64, 64, 64 )
 
 [node name="airport" type="Sprite" parent="."]
 
-transform/pos = Vector2( 17.892, -65 )
+position = Vector2( 17.892, -65 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 64, 64, 64 )
 
 [node name="tower" type="Sprite" parent="."]
 
-transform/pos = Vector2( 107.892, -55 )
+position = Vector2( 107.892, -55 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 64, 64, 64 )
 
 [node name="fence" type="Sprite" parent="."]
 
-transform/pos = Vector2( 183.892, -49 )
+position = Vector2( 183.892, -49 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 64, 64, 64 )
 
 [node name="exit" type="Sprite" parent="."]
 
-transform/pos = Vector2( 263.892, -59 )
+position = Vector2( 263.892, -59 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 64, 64, 64 )
 
 [node name="city road" type="Sprite" parent="."]
 
-transform/pos = Vector2( 353.892, -49 )
+position = Vector2( 353.892, -49 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 64, 64, 64 )
 
 [node name="country road" type="Sprite" parent="."]
 
-transform/pos = Vector2( 447.892, -55 )
+position = Vector2( 447.892, -55 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 64, 64, 64 )
 
 [node name="road mix" type="Sprite" parent="."]
 
-transform/pos = Vector2( -162.108, 45 )
+position = Vector2( -162.108, 45 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 128, 64, 64 )
 
 [node name="river" type="Sprite" parent="."]
 
-transform/pos = Vector2( -72.108, 45 )
+position = Vector2( -72.108, 45 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 128, 64, 64 )
 
 [node name="bridge" type="Sprite" parent="."]
 
-transform/pos = Vector2( 17.892, 45 )
+position = Vector2( 17.892, 45 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 128, 64, 64 )
 
 [node name="road 1" type="Sprite" parent="."]
 
-transform/pos = Vector2( -152.108, 145 )
+position = Vector2( -152.108, 145 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 192, 64, 64 )
 
 [node name="road 2" type="Sprite" parent="."]
 
-transform/pos = Vector2( -62.108, 145 )
+position = Vector2( -62.108, 145 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 192, 64, 64 )
 
 [node name="road 3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 23.892, 141 )
+position = Vector2( 23.892, 141 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 192, 64, 64 )
 
 [node name="road 4" type="Sprite" parent="."]
 
-transform/pos = Vector2( 123.892, 141 )
+position = Vector2( 123.892, 141 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 192, 64, 64 )
 
 [node name="road 5" type="Sprite" parent="."]
 
-transform/pos = Vector2( 217.892, 145 )
+position = Vector2( 217.892, 145 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 192, 64, 64 )
 
 [node name="road 6" type="Sprite" parent="."]
 
-transform/pos = Vector2( 297.892, 145 )
+position = Vector2( 297.892, 145 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 192, 64, 64 )
 
 [node name="road 7" type="Sprite" parent="."]
 
-transform/pos = Vector2( 377.892, 145 )
+position = Vector2( 377.892, 145 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 192, 64, 64 )
 
 [node name="road 8" type="Sprite" parent="."]
 
-transform/pos = Vector2( 487.892, 145 )
+position = Vector2( 487.892, 145 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 192, 64, 64 )
 
 [node name="road 9" type="Sprite" parent="."]
 
-transform/pos = Vector2( -162.108, 225 )
+position = Vector2( -162.108, 225 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 256, 64, 64 )
 
 [node name="road 10" type="Sprite" parent="."]
 
-transform/pos = Vector2( -62.108, 225 )
+position = Vector2( -62.108, 225 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 256, 64, 64 )
 
 [node name="road 11" type="Sprite" parent="."]
 
-transform/pos = Vector2( 27.892, 225 )
+position = Vector2( 27.892, 225 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 256, 64, 64 )
 
 [node name="bridge 1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 107.892, 235 )
+position = Vector2( 107.892, 235 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 256, 64, 64 )
 
 [node name="bridge 2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 197.892, 245 )
+position = Vector2( 197.892, 245 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 256, 64, 64 )
 
 [node name="road mix 1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 293.892, 241 )
+position = Vector2( 293.892, 241 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 256, 64, 64 )
 
 [node name="road mix 2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 377.892, 245 )
+position = Vector2( 377.892, 245 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 256, 64, 64 )
 
 [node name="road mix 3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 467.892, 235 )
+position = Vector2( 467.892, 235 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 256, 64, 64 )
 
 [node name="road mix 4" type="Sprite" parent="."]
 
-transform/pos = Vector2( -162.108, 325 )
+position = Vector2( -162.108, 325 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 320, 64, 64 )
 
 [node name="country road 1" type="Sprite" parent="."]
 
-transform/pos = Vector2( -62.108, 335 )
+position = Vector2( -62.108, 335 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 320, 64, 64 )
 
 [node name="country road 2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 27.892, 335 )
+position = Vector2( 27.892, 335 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 320, 64, 64 )
 
 [node name="country road 3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 117.892, 345 )
+position = Vector2( 117.892, 345 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 320, 64, 64 )
 
 [node name="country road 4" type="Sprite" parent="."]
 
-transform/pos = Vector2( 197.892, 345 )
+position = Vector2( 197.892, 345 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 320, 64, 64 )
 
 [node name="country road 5" type="Sprite" parent="."]
 
-transform/pos = Vector2( 277.892, 355 )
+position = Vector2( 277.892, 355 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 320, 64, 64 )
 
 [node name="country road 6" type="Sprite" parent="."]
 
-transform/pos = Vector2( 377.892, 355 )
+position = Vector2( 377.892, 355 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 320, 64, 64 )
 
 [node name="country road 7" type="Sprite" parent="."]
 
-transform/pos = Vector2( 467.892, 365 )
+position = Vector2( 467.892, 365 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 320, 64, 64 )
 
 [node name="country road 8" type="Sprite" parent="."]
 
-transform/pos = Vector2( -162.108, 415 )
+position = Vector2( -162.108, 415 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 384, 64, 64 )
 
 [node name="country road 9" type="Sprite" parent="."]
 
-transform/pos = Vector2( -62.108, 425 )
+position = Vector2( -62.108, 425 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 384, 64, 64 )
 
 [node name="country road 10" type="Sprite" parent="."]
 
-transform/pos = Vector2( 27.892, 435 )
+position = Vector2( 27.892, 435 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 384, 64, 64 )
 
 [node name="country road 11" type="Sprite" parent="."]
 
-transform/pos = Vector2( 117.892, 445 )
+position = Vector2( 117.892, 445 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 384, 64, 64 )
 
 [node name="river 1" type="Sprite" parent="."]
 
-transform/pos = Vector2( -166.108, 531 )
+position = Vector2( -166.108, 531 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 448, 64, 64 )
 
 [node name="river 2" type="Sprite" parent="."]
 
-transform/pos = Vector2( -72.108, 545 )
+position = Vector2( -72.108, 545 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 448, 64, 64 )
 
 [node name="river 3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 17.892, 545 )
+position = Vector2( 17.892, 545 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 448, 64, 64 )
 
 [node name="river 4" type="Sprite" parent="."]
 
-transform/pos = Vector2( 97.892, 545 )
+position = Vector2( 97.892, 545 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 448, 64, 64 )
 
 [node name="river 5" type="Sprite" parent="."]
 
-transform/pos = Vector2( 197.892, 555 )
+position = Vector2( 197.892, 555 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 448, 64, 64 )
 
 [node name="river 6" type="Sprite" parent="."]
 
-transform/pos = Vector2( 287.892, 565 )
+position = Vector2( 287.892, 565 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 448, 64, 64 )
 
 [node name="river 7" type="Sprite" parent="."]
 
-transform/pos = Vector2( 377.892, 565 )
+position = Vector2( 377.892, 565 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 448, 64, 64 )
 
 [node name="river 8" type="Sprite" parent="."]
 
-transform/pos = Vector2( 470.892, 565 )
+position = Vector2( 470.892, 565 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 448, 64, 64 )
 
 [node name="bridge1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 107.892, 45 )
+position = Vector2( 107.892, 45 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 128, 64, 64 )
 
 [node name="bridge2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 193.892, 51 )
+position = Vector2( 193.892, 51 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 128, 64, 64 )
-
-

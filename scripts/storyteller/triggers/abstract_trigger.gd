@@ -16,3 +16,4 @@ func _mark_actor(positionVAR, mark):
 
 	field = self.bag.abstract_map.get_field(positionVAR)
 	field.object.story_markers[mark] = mark
+

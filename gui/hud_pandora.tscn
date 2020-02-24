@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://gui/hud_pc.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9@2x.png" type="Texture" id=2]
@@ -17,124 +17,126 @@
 
 [node name="GUI" instance=ExtResource( 1 )]
 
+
 [node name="vigette" parent="."]
 
-visibility/visible = false
+visible = false
 
 [node name="cinematic_camera" parent="."]
 
-visibility/visible = false
+visible = false
 
 [node name="message_card" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
+visible = false
 use_top_left = false
 
 [node name="center" parent="message_card"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
 
 [node name="message" parent="message_card/center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/right = 40.0
-margin/bottom = 40.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="message" parent="message_card/center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/right = 40.0
-margin/bottom = 40.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="center" parent="message_card"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 640.0
-margin/top = 360.0
-margin/right = 640.0
-margin/bottom = 360.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
 
 [node name="top_left_panel" parent="."]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 128.0
-margin/top = 80.0
-margin/right = 128.0
-margin/bottom = 80.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 128.0
+margin_top = 80.0
+margin_right = 128.0
+margin_bottom = 80.0
 
 [node name="top_center" parent="."]
 
 editor/display_folded = true
-anchor/bottom = 0
-margin/bottom = 60.0
+anchor_bottom = 0.0
+margin_bottom = 60.0
 use_top_left = false
 
 [node name="center" parent="top_center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 640.0
-margin/top = 30.0
-margin/right = 640.0
-margin/bottom = 30.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_top = 30.0
+margin_right = 640.0
+margin_bottom = 30.0
 
 [node name="game_card" parent="top_center/center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/top = -30.0
-margin/bottom = -30.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -30.0
+margin_bottom = -30.0
 
 [node name="background" parent="top_center/center/game_card"]
 
 focus/ignore_mouse = true
-margin/left = -136.0
-margin/top = 8.0
-margin/right = -136.0
-margin/bottom = -72.0
+margin_left = -136.0
+margin_top = 8.0
+margin_right = -136.0
+margin_bottom = -72.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 2
 
 [node name="menu" parent="top_center/center/game_card"]
 
 editor/display_folded = true
-margin/left = -128.0
-margin/top = 16.0
-margin/right = -16.0
-margin/bottom = -64.0
+margin_left = -128.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
-params/scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+texture_scale = Vector2( 3, 3 )
 
 [node name="Label" parent="top_center/center/game_card/menu"]
 
-anchor/right = 0
-anchor/bottom = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 focus/ignore_mouse = true
-size_flags/vertical = 0
-margin/left = -2.0
-margin/top = 17.0
-margin/right = 148.0
-margin/bottom = 35.0
+size_flags_vertical = 0
+margin_left = -2.0
+margin_top = 17.0
+margin_right = 148.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MAIN_MENU"
 align = 1
@@ -142,17 +144,18 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="Label" parent="top_center/center/game_card/menu"]
 
-anchor/right = 0
-anchor/bottom = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 focus/ignore_mouse = true
-size_flags/vertical = 0
-margin/left = -2.0
-margin/top = 17.0
-margin/right = 148.0
-margin/bottom = 35.0
+size_flags_vertical = 0
+margin_left = -2.0
+margin_top = 17.0
+margin_right = 148.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_MAIN_MENU"
 align = 1
@@ -160,30 +163,31 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="settings" parent="top_center/center/game_card"]
 
 editor/display_folded = true
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 32.0
-margin/top = 16.0
-margin/right = 128.0
-margin/bottom = 64.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
-params/scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+texture_focused = ExtResource( 12 )
+texture_scale = Vector2( 3, 3 )
 
 [node name="Sprite" parent="top_center/center/game_card/settings"]
 
-transform/pos = Vector2( 50, 23 )
-transform/scale = Vector2( 2, 2 )
+position = Vector2( 50, 23 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 vframes = 2
 hframes = 2
@@ -191,8 +195,8 @@ frame = 1
 
 [node name="Sprite" parent="top_center/center/game_card/settings"]
 
-transform/pos = Vector2( 50, 23 )
-transform/scale = Vector2( 2, 2 )
+position = Vector2( 50, 23 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 13 )
 vframes = 2
 hframes = 2
@@ -201,43 +205,45 @@ frame = 1
 [node name="gamepad_buttons" parent="top_center/center/game_card"]
 
 editor/display_folded = true
-visibility/visible = false
-anchor/right = 0
-anchor/bottom = 0
-margin/right = 40.0
-margin/bottom = 40.0
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="background1" parent="top_center/center/game_card/gamepad_buttons"]
 
-visibility/visible = false
+visible = false
 focus/ignore_mouse = true
-margin/left = -352.0
-margin/top = 24.0
-margin/right = 184.0
-margin/bottom = -16.0
+margin_left = -352.0
+margin_top = 24.0
+margin_right = 184.0
+margin_bottom = -16.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 12
-patch_margin/right = 24
-patch_margin/bottom = 12
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+mouse_filter = 2
 
 [node name="background2" parent="top_center/center/game_card/gamepad_buttons"]
 
 focus/ignore_mouse = true
-margin/left = 144.0
-margin/top = 24.0
-margin/right = -312.0
-margin/bottom = -16.0
+margin_left = 144.0
+margin_top = 24.0
+margin_right = -312.0
+margin_bottom = -16.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 12
-patch_margin/right = 24
-patch_margin/bottom = 12
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+mouse_filter = 2
 
 [node name="gamepad_button" parent="top_center/center/game_card/gamepad_buttons"]
 
-transform/pos = Vector2( -126, 66 )
-transform/scale = Vector2( 3, 3 )
+position = Vector2( -126, 66 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 vframes = 2
 hframes = 4
@@ -245,8 +251,8 @@ frame = 3
 
 [node name="gamepad_button2" parent="top_center/center/game_card/gamepad_buttons"]
 
-transform/pos = Vector2( 346, 40 )
-transform/scale = Vector2( 3, 3 )
+position = Vector2( 346, 40 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 vframes = 2
 hframes = 4
@@ -254,25 +260,26 @@ frame = 2
 
 [node name="Label" parent="top_center/center/game_card/gamepad_buttons"]
 
-anchor/right = 0
-anchor/bottom = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 focus/ignore_mouse = true
-size_flags/vertical = 0
-margin/left = 152.0
-margin/top = 32.0
-margin/right = 318.0
-margin/bottom = 47.0
+size_flags_vertical = 0
+margin_left = 152.0
+margin_top = 32.0
+margin_right = 318.0
+margin_bottom = 47.0
 text = "LABEL_SELECT_UNIT"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="gamepad_button3" parent="top_center/center/game_card/gamepad_buttons"]
 
-visibility/visible = false
-transform/pos = Vector2( -342, 40 )
-transform/scale = Vector2( 3, 3 )
+visible = false
+position = Vector2( -342, 40 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 vframes = 2
 hframes = 4
@@ -280,51 +287,54 @@ frame = 1
 
 [node name="Label1" parent="top_center/center/game_card/gamepad_buttons"]
 
-visibility/visible = false
-anchor/right = 0
-anchor/bottom = 0
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
 focus/ignore_mouse = true
-size_flags/vertical = 0
-margin/left = -320.0
-margin/top = 32.0
-margin/right = -154.0
-margin/bottom = 47.0
+size_flags_vertical = 0
+margin_left = -320.0
+margin_top = 32.0
+margin_right = -154.0
+margin_bottom = 47.0
 text = "LABEL_NEXT_TURN"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="background1" parent="top_center/center/game_card/gamepad_buttons"]
 
-visibility/visible = false
+visible = false
 focus/ignore_mouse = true
-margin/left = -352.0
-margin/top = 24.0
-margin/right = 184.0
-margin/bottom = -16.0
+margin_left = -352.0
+margin_top = 24.0
+margin_right = 184.0
+margin_bottom = -16.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 12
-patch_margin/right = 24
-patch_margin/bottom = 12
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+mouse_filter = 2
 
 [node name="background2" parent="top_center/center/game_card/gamepad_buttons"]
 
 focus/ignore_mouse = true
-margin/left = 144.0
-margin/top = 24.0
-margin/right = -312.0
-margin/bottom = -16.0
+margin_left = 144.0
+margin_top = 24.0
+margin_right = -312.0
+margin_bottom = -16.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 12
-patch_margin/right = 24
-patch_margin/bottom = 12
+patch_margin_left = 24
+patch_margin_top = 12
+patch_margin_right = 24
+patch_margin_bottom = 12
+mouse_filter = 2
 
 [node name="gamepad_button" parent="top_center/center/game_card/gamepad_buttons"]
 
-transform/pos = Vector2( -126, 66 )
-transform/scale = Vector2( 3, 3 )
+position = Vector2( -126, 66 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 vframes = 2
 hframes = 4
@@ -332,8 +342,8 @@ frame = 3
 
 [node name="gamepad_button2" parent="top_center/center/game_card/gamepad_buttons"]
 
-transform/pos = Vector2( 346, 40 )
-transform/scale = Vector2( 3, 3 )
+position = Vector2( 346, 40 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 vframes = 2
 hframes = 4
@@ -341,25 +351,26 @@ frame = 2
 
 [node name="Label" parent="top_center/center/game_card/gamepad_buttons"]
 
-anchor/right = 0
-anchor/bottom = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 focus/ignore_mouse = true
-size_flags/vertical = 0
-margin/left = 152.0
-margin/top = 32.0
-margin/right = 318.0
-margin/bottom = 47.0
+size_flags_vertical = 0
+margin_left = 152.0
+margin_top = 32.0
+margin_right = 318.0
+margin_bottom = 47.0
 text = "LABEL_SELECT_UNIT"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="gamepad_button3" parent="top_center/center/game_card/gamepad_buttons"]
 
-visibility/visible = false
-transform/pos = Vector2( -342, 40 )
-transform/scale = Vector2( 3, 3 )
+visible = false
+position = Vector2( -342, 40 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 14 )
 vframes = 2
 hframes = 4
@@ -367,216 +378,216 @@ frame = 1
 
 [node name="Label1" parent="top_center/center/game_card/gamepad_buttons"]
 
-visibility/visible = false
-anchor/right = 0
-anchor/bottom = 0
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
 focus/ignore_mouse = true
-size_flags/vertical = 0
-margin/left = -320.0
-margin/top = 32.0
-margin/right = -154.0
-margin/bottom = 47.0
+size_flags_vertical = 0
+margin_left = -320.0
+margin_top = 32.0
+margin_right = -154.0
+margin_bottom = 47.0
 text = "LABEL_NEXT_TURN"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+mouse_filter = 2
 
 [node name="background" parent="top_center/center/game_card"]
 
 focus/ignore_mouse = true
-margin/left = -136.0
-margin/top = 8.0
-margin/right = -136.0
-margin/bottom = -72.0
+margin_left = -136.0
+margin_top = 8.0
+margin_right = -136.0
+margin_bottom = -72.0
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+mouse_filter = 2
 
 [node name="menu" parent="top_center/center/game_card"]
 
 editor/display_folded = true
-margin/left = -128.0
-margin/top = 16.0
-margin/right = -16.0
-margin/bottom = -64.0
+margin_left = -128.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
-params/scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+texture_scale = Vector2( 3, 3 )
 
 [node name="settings" parent="top_center/center/game_card"]
 
 editor/display_folded = true
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 32.0
-margin/top = 16.0
-margin/right = 128.0
-margin/bottom = 64.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 16.0
+margin_right = 128.0
+margin_bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 8 )
-textures/pressed = ExtResource( 9 )
-textures/hover = ExtResource( 10 )
-textures/disabled = ExtResource( 11 )
-textures/focused = ExtResource( 12 )
-params/scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+texture_focused = ExtResource( 12 )
+texture_scale = Vector2( 3, 3 )
 
 [node name="gamepad_buttons" parent="top_center/center/game_card"]
 
 editor/display_folded = true
-visibility/visible = false
-anchor/right = 0
-anchor/bottom = 0
-margin/right = 40.0
-margin/bottom = 40.0
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="game_card" parent="top_center/center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/top = -30.0
-margin/bottom = -30.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -30.0
+margin_bottom = -30.0
 
 [node name="center" parent="top_center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 640.0
-margin/top = 30.0
-margin/right = 640.0
-margin/bottom = 30.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_top = 30.0
+margin_right = 640.0
+margin_bottom = 30.0
 
 [node name="top_right_panel" parent="."]
 
-anchor/left = 1
-anchor/bottom = 0
-margin/left = 128.0
-margin/top = 80.0
-margin/right = 128.0
-margin/bottom = 80.0
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = -128.0
+margin_top = 80.0
+margin_right = 128.0
+margin_bottom = 80.0
 
 [node name="end_game" parent="."]
 
-visibility/visible = false
-margin/top = 260.0
-margin/bottom = 260.0
+visible = false
+margin_top = 260.0
+margin_bottom = 260.0
 
 [node name="bottom_left" parent="."]
 
-anchor/top = 1
-anchor/right = 0
-margin/left = 128.0
-margin/top = 64.0
-margin/right = 128.0
-margin/bottom = 64.0
+anchor_top = 1.0
+anchor_right = 0.0
+margin_left = 128.0
+margin_top = -64.0
+margin_right = 128.0
+margin_bottom = 64.0
 
 [node name="bottom_center" parent="."]
 
-anchor/top = 1
-margin/top = 64.0
-margin/bottom = 64.0
+anchor_top = 1.0
+margin_top = -64.0
+margin_bottom = 64.0
 use_top_left = false
 
 [node name="center" parent="bottom_center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 640.0
-margin/right = 640.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_right = 640.0
 
 [node name="center" parent="bottom_center"]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 640.0
-margin/right = 640.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 640.0
+margin_right = 640.0
 
 [node name="bottom_right" parent="."]
 
-anchor/left = 1
-anchor/top = 1
-margin/left = 128.0
-margin/top = 64.0
-margin/right = 128.0
-margin/bottom = 64.0
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -128.0
+margin_top = -64.0
+margin_right = 128.0
+margin_bottom = 64.0
 
 [node name="vigette" parent="."]
 
-visibility/visible = false
+visible = false
 
 [node name="cinematic_camera" parent="."]
 
-visibility/visible = false
+visible = false
 
 [node name="message_card" parent="."]
 
 editor/display_folded = true
-visibility/visible = false
+visible = false
 use_top_left = false
 
 [node name="top_left_panel" parent="."]
 
-anchor/right = 0
-anchor/bottom = 0
-margin/left = 128.0
-margin/top = 64.0
-margin/right = 128.0
-margin/bottom = 64.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 64.0
 
 [node name="top_center" parent="."]
 
 editor/display_folded = true
-anchor/bottom = 0
-margin/top = 22.0
-margin/bottom = 22.0
+anchor_bottom = 0.0
+margin_top = 22.0
+margin_bottom = 22.0
 use_top_left = false
 
 [node name="top_right_panel" parent="."]
 
-anchor/left = 1
-anchor/bottom = 0
-margin/left = 128.0
-margin/top = 64.0
-margin/right = 128.0
-margin/bottom = 64.0
+anchor_left = 1.0
+anchor_bottom = 0.0
+margin_left = -128.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 64.0
 
 [node name="end_game" parent="."]
 
-visibility/visible = false
-margin/top = 260.0
-margin/bottom = 260.0
+visible = false
+margin_top = 260.0
+margin_bottom = 260.0
 
 [node name="bottom_left" parent="."]
 
-anchor/top = 1
-anchor/right = 0
-margin/left = 88.0
-margin/right = 88.0
+anchor_top = 1.0
+anchor_right = 0.0
+margin_left = 88.0
+margin_right = 88.0
 
 [node name="bottom_center" parent="."]
 
 editor/display_folded = true
-anchor/top = 1
-margin/top = 40.0
-margin/bottom = 40.0
+anchor_top = 1.0
+margin_top = -40.0
+margin_bottom = 40.0
 use_top_left = false
 
 [node name="bottom_right" parent="."]
 
-anchor/left = 1
-anchor/top = 1
-margin/left = 72.0
-margin/top = 1.0
-margin/right = 72.0
-margin/bottom = 1.0
-
-
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -72.0
+margin_top = -1.0
+margin_right = 72.0
+margin_bottom = 1.0

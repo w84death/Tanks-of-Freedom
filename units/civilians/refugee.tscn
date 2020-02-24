@@ -1,43 +1,36 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://units/unit_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/units/civilians_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://scripts/objects/units/randomizing_animation_for_civilians.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
-
-resource/name = "move-me2"
-length = 1.0
+resource_name = "move-me2"
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": FloatArray( 0, 0.3, 0.7 ),
-"transitions": FloatArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2 ]
 }
 
 [node name="civilian_refugee" instance=ExtResource( 1 )]
-
 texture = ExtResource( 2 )
 frame = 2
-script/script = ExtResource( 3 )
+script = ExtResource( 3 )
 
-[node name="anim" parent="."]
-
-anims/move-me2 = SubResource( 1 )
+[node name="anim" parent="." index="0"]
 autoplay = "move-me2"
+anims/move-me2 = SubResource( 1 )
 
-[node name="health" parent="."]
+[node name="health" parent="." index="1"]
+visible = false
 
-visibility/visible = false
-
-[node name="shield" parent="."]
-
-visibility/visible = false
-
-
+[node name="shield" parent="." index="2"]
+visible = false

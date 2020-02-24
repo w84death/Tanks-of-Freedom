@@ -1,117 +1,34 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://gui/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/game_logic.gd" type="Script" id=2]
 [ext_resource path="res://gui/corners.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/demo_timer.gd" type="Script" id=4]
 [ext_resource path="res://scripts/camera.gd" type="Script" id=5]
 
-[sub_resource type="SampleLibrary" id=1]
-
-
-[node name="game" type="Control"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-script/script = ExtResource( 2 )
-__meta__ = {
-"__editor_plugin_screen__": "Script",
-"_edit_lock_": true
-}
+[node name="game" type="CanvasLayer"]
+script = ExtResource( 2 )
 
 [node name="corners" parent="." instance=ExtResource( 3 )]
 
-[node name="SamplePlayer" type="SamplePlayer" parent="."]
+[node name="SamplePlayer" type="Node" parent="."]
 
-config/polyphony = 4
-config/samples = SubResource( 1 )
-default/volume_db = 1.0
-default/pitch_scale = 1.0
-default/pan = 0.0
-default/depth = 0.0
-default/height = 0.0
-default/filter/type = 0
-default/filter/cutoff = 0.0
-default/filter/resonance = 0.0
-default/filter/gain = 0.0
-default/reverb_room = 2
-default/reverb_send = 0.0
-default/chorus_send = 0.0
-
-[node name="StreamPlayer" type="StreamPlayer" parent="."]
-
-stream/stream = null
-stream/play = true
-stream/loop = false
-stream/volume_db = 0.0
-stream/autoplay = false
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
+[node name="StreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="IntroTimer" type="Timer" parent="."]
-
-process_mode = 1
 wait_time = 12.0
-one_shot = false
-autostart = false
 
 [node name="DemoTimer" type="Timer" parent="."]
+script = ExtResource( 4 )
 
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-script/script = ExtResource( 4 )
-
-[node name="viewport" type="Viewport" parent="."]
-
-rect = Rect2( 0, 0, 1280, 720 )
-own_world = false
-world = null
-transparent_bg = false
-render_target/enabled = false
-render_target/v_flip = false
-render_target/clear_on_new_frame = true
-render_target/filter = false
-render_target/gen_mipmaps = false
-render_target/update_mode = 2
-audio_listener/enable_2d = false
-audio_listener/enable_3d = false
-physics/object_picking = false
-gui/disable_input = false
+[node name="viewport" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enable = true
 
 [node name="camera" type="Camera2D" parent="viewport"]
-
-anchor_mode = 1
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
-script/script = ExtResource( 5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+script = ExtResource( 5 )
 
 [node name="pixel_scale" type="Node2D" parent="viewport"]
-
 [connection signal="timeout" from="IntroTimer" to="." method="load_menu"]
-
-

@@ -1,6 +1,6 @@
 extends "res://scripts/bag_aware.gd"
 
-var waypoint = preload('res://scripts/objects/waypoints/waypoint.gd')
+var waypoint = load('res://scripts/objects/waypoints/waypoint.gd')
 
 func create(positionVAR, subtype=waypoint.TYPE_LEVEL_1):
 	return self.waypoint.new(positionVAR, subtype)
@@ -45,5 +45,6 @@ func mark_building_as_blocked(building):
 		var field = self.bag.abstract_map.get_field(tile)
 		if field.has_waypoint():
 			field.waypoint.mark_blocked()
+
 
 

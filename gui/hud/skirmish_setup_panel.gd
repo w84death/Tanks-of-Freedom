@@ -2,7 +2,7 @@
 var root
 var bag
 
-var panel = preload("res://gui/hud/skirmish_maps_selected_map.tscn").instance()
+var panel = load("res://gui/hud/skirmish_maps_selected_map.tscn").instance()
 var current_container
 
 var map_name_label
@@ -130,3 +130,4 @@ func set_player_button_state(player, button):
 		label = "LABEL_HUMAN"
 
 	button.set_trans_key(label)
+

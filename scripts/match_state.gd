@@ -107,3 +107,4 @@ func reset_actions_taken():
 func register_action_taken(action):
 	self.actions_taken.append(action)
 
+

@@ -1,8 +1,8 @@
 extends "res://scripts/bag_aware.gd"
 
-func set_timeout(timeout, object, method, args=[]):
+func set_timeout(timeoutVAR, object, method, args=[]):
 	var timer = Timer.new()
-	timer.set_wait_time(timeout)
+	timer.set_wait_time(timeoutVAR)
 	timer.set_one_shot(true)
 	timer.connect("timeout", self, "execute_timeout", [object, method, args, timer])
 	self.bag.root.add_child(timer)
@@ -15,5 +15,6 @@ func execute_timeout(object, method, args, timer):
 		object.call(method, args)
 	else:
 		object.call(method)
+
 
 

@@ -16,49 +16,49 @@ const SOUND_DIE = 'die'
 
 var stream
 var samples = [
-	['end_turn', preload('res://assets/sounds/fx/end_turn.wav')],
-	['explosion', preload('res://assets/sounds/fx/explosion.wav')],
-	['heli_attack', preload('res://assets/sounds/fx/units/03.helicopter/helicopter_attack.wav')],
-	['heli_damage', preload('res://assets/sounds/fx/units/03.helicopter/helicopter_damage.wav')],
-	['heli_die', preload('res://assets/sounds/fx/units/03.helicopter/helicopter_die.wav')],
-	['heli_move', preload('res://assets/sounds/fx/units/03.helicopter/helicopter_move.wav')],
-	['heli_spawn', preload('res://assets/sounds/fx/units/03.helicopter/helicopter_spawn.wav')],
-	['hurt', preload('res://assets/sounds/fx/hurt.wav')],
-	['menu', preload('res://assets/sounds/fx/menu.wav')],
-	['move', preload('res://assets/sounds/fx/move.wav')],
-	['no_attack', preload('res://assets/sounds/fx/no_attack.wav')],
-	['no_moves', preload('res://assets/sounds/fx/no_moves.wav')],
-	['not_dead', preload('res://assets/sounds/fx/not_dead.wav')],
-	['occupy_building', preload('res://assets/sounds/fx/units/11.buildings/occupy_building.wav')],
-	['passive_building_ap', preload('res://assets/sounds/fx/units/11.buildings/passive_building_ap.wav')],
-	['pickup_box', preload('res://assets/sounds/fx/pickup_box.wav')],
-	['powerup', preload('res://assets/sounds/fx/powerup.wav')],
-	['select', preload('res://assets/sounds/fx/select.wav')],
-	['soldier_attack', preload('res://assets/sounds/fx/units/01.soldier/soldier_attack.wav')],
-	['soldier_damage', preload('res://assets/sounds/fx/units/01.soldier/soldier_damage.wav')],
-	['soldier_die', preload('res://assets/sounds/fx/units/01.soldier/soldier_die.wav')],
-	['soldier_move', preload('res://assets/sounds/fx/units/01.soldier/soldier_move.wav')],
-	['soldier_spawn', preload('res://assets/sounds/fx/units/01.soldier/soldier_spawn.wav')],
-	['spawn', preload('res://assets/sounds/fx/spawn.wav')],
-	['tank_attack', preload('res://assets/sounds/fx/units/02.tank/tank_attack.wav')],
-	['tank_damage', preload('res://assets/sounds/fx/units/02.tank/tank_damage.wav')],
-	['tank_die', preload('res://assets/sounds/fx/units/02.tank/tank_die.wav')],
-	['tank_move', preload('res://assets/sounds/fx/units/02.tank/tank_move.wav')],
-	['tank_spawn', preload('res://assets/sounds/fx/units/02.tank/tank_spawn.wav')],
+	['end_turn', load('res://assets/sounds/fx/end_turn.wav')],
+	['explosion', load('res://assets/sounds/fx/explosion.wav')],
+	['heli_attack', load('res://assets/sounds/fx/units/03.helicopter/helicopter_attack.wav')],
+	['heli_damage', load('res://assets/sounds/fx/units/03.helicopter/helicopter_damage.wav')],
+	['heli_die', load('res://assets/sounds/fx/units/03.helicopter/helicopter_die.wav')],
+	['heli_move', load('res://assets/sounds/fx/units/03.helicopter/helicopter_move.wav')],
+	['heli_spawn', load('res://assets/sounds/fx/units/03.helicopter/helicopter_spawn.wav')],
+	['hurt', load('res://assets/sounds/fx/hurt.wav')],
+	['menu', load('res://assets/sounds/fx/menu.wav')],
+	['move', load('res://assets/sounds/fx/move.wav')],
+	['no_attack', load('res://assets/sounds/fx/no_attack.wav')],
+	['no_moves', load('res://assets/sounds/fx/no_moves.wav')],
+	['not_dead', load('res://assets/sounds/fx/not_dead.wav')],
+	['occupy_building', load('res://assets/sounds/fx/units/11.buildings/occupy_building.wav')],
+	['passive_building_ap', load('res://assets/sounds/fx/units/11.buildings/passive_building_ap.wav')],
+	['pickup_box', load('res://assets/sounds/fx/pickup_box.wav')],
+	['powerup', load('res://assets/sounds/fx/powerup.wav')],
+	['select', load('res://assets/sounds/fx/select.wav')],
+	['soldier_attack', load('res://assets/sounds/fx/units/01.soldier/soldier_attack.wav')],
+	['soldier_damage', load('res://assets/sounds/fx/units/01.soldier/soldier_damage.wav')],
+	['soldier_die', load('res://assets/sounds/fx/units/01.soldier/soldier_die.wav')],
+	['soldier_move', load('res://assets/sounds/fx/units/01.soldier/soldier_move.wav')],
+	['soldier_spawn', load('res://assets/sounds/fx/units/01.soldier/soldier_spawn.wav')],
+	['spawn', load('res://assets/sounds/fx/spawn.wav')],
+	['tank_attack', load('res://assets/sounds/fx/units/02.tank/tank_attack.wav')],
+	['tank_damage', load('res://assets/sounds/fx/units/02.tank/tank_damage.wav')],
+	['tank_die', load('res://assets/sounds/fx/units/02.tank/tank_die.wav')],
+	['tank_move', load('res://assets/sounds/fx/units/02.tank/tank_move.wav')],
+	['tank_spawn', load('res://assets/sounds/fx/units/02.tank/tank_spawn.wav')],
 ]
 
 var soundtracks = {
-	'game1' : preload("res://assets/sounds/soundtrack/map_soundtrack_1.ogg"),
-	'game2' : preload("res://assets/sounds/soundtrack/map_soundtrack_2.ogg"),
-	'menu' :  preload("res://assets/sounds/soundtrack/menu_soundtrack.ogg")
+	'game1' : load("res://assets/sounds/soundtrack/map_soundtrack_1.ogg"),
+	'game2' : load("res://assets/sounds/soundtrack/map_soundtrack_2.ogg"),
+	'menu' :  load("res://assets/sounds/soundtrack/menu_soundtrack.ogg")
 }
 
 func init_root(root_node):
 	root = root_node
 	stream_player = root.get_node("StreamPlayer")
-	stream_player.set_volume(self.music_volume)
-#	sample_player = root.get_node("SamplePlayer")
-#	sample_player.set_default_volume_db(self.sound_volume)
+	stream_player.set_volume_db(self.music_volume)
+#	sample_player = root.get_node("Node")
+#	sample_player.set_volume_db(self.sound_volume)
 	self.load_samples()
 
 func play_soundtrack():
@@ -83,7 +83,7 @@ func play_track(track_name):
 		self.stop_soundtrack()
 		var track = self.soundtracks[track_name]
 		stream_player.set_stream(track)
-		stream_player.set_loop(true)
+		#stream_player.set_loop(true)(
 		stream_player.play()
 		self.currently_playing = track_name
 
@@ -104,3 +104,4 @@ func load_samples():
 	pass
 #	for sample in self.samples:
 #		self.sample_player.get_sample_library().add_sample(sample[0], sample[1])
+

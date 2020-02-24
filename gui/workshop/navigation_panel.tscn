@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gui/font_16.tres" type="Theme" id=1]
 [ext_resource path="res://gui/panel_gray.tres" type="Theme" id=2]
@@ -11,302 +11,168 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_7.png" type="Texture" id=9]
 
 [node name="navigation_panel" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 0.0
-margin/top = -18.0
-margin/right = 40.0
-margin/bottom = 22.0
+margin_top = -18.0
+margin_right = 40.0
+margin_bottom = 22.0
+theme = ExtResource( 1 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
 
 [node name="background" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="Panel3" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 2 )
-margin/left = -152.0
-margin/top = -78.0
-margin/right = 136.0
-margin/bottom = -38.0
+margin_left = -152.0
+margin_top = -78.0
+margin_right = 136.0
+margin_bottom = -38.0
+theme = ExtResource( 2 )
 
 [node name="Panel2" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 2 )
-margin/left = 152.0
-margin/top = -110.0
-margin/right = 312.0
-margin/bottom = -30.0
+margin_left = 152.0
+margin_top = -110.0
+margin_right = 312.0
+margin_bottom = -30.0
+theme = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 2 )
-margin/left = -152.0
-margin/top = -54.0
-margin/right = 312.0
-margin/bottom = 10.0
+margin_left = -152.0
+margin_top = -54.0
+margin_right = 312.0
+margin_bottom = 10.0
+theme = ExtResource( 2 )
 
 [node name="Panel1" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 2 )
-margin/left = -320.0
-margin/top = -54.0
-margin/right = -160.0
-margin/bottom = 10.0
+margin_left = -320.0
+margin_top = -54.0
+margin_right = -160.0
+margin_bottom = 10.0
+theme = ExtResource( 2 )
 
 [node name="controls" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="toolbox_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -144.0
-margin/top = -46.0
-margin/right = 0.0
-margin/bottom = 2.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = -144.0
+margin_top = -46.0
+margin_bottom = 2.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/toolbox_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -42.0
-margin/top = 16.0
-margin/right = 178.0
-margin/bottom = 31.0
+margin_left = -42.0
+margin_top = 16.0
+margin_right = 178.0
+margin_bottom = 31.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_WORKSHOP_TOOLBOX"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="menu_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -312.0
-margin/top = -46.0
-margin/right = -168.0
-margin/bottom = 2.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 8 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = -312.0
+margin_top = -46.0
+margin_right = -168.0
+margin_bottom = 2.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 8 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/menu_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -3.0
-margin/top = 16.0
-margin/right = 143.0
-margin/bottom = 31.0
+margin_left = -3.0
+margin_top = 16.0
+margin_right = 143.0
+margin_bottom = 31.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_BACK"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="undo_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 8.0
-margin/top = -46.0
-margin/right = 152.0
-margin/bottom = 2.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 8.0
+margin_top = -46.0
+margin_right = 152.0
+margin_bottom = 2.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/undo_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -52.0
-margin/top = 16.0
-margin/right = 198.0
-margin/bottom = 31.0
+margin_left = -52.0
+margin_top = 16.0
+margin_right = 198.0
+margin_bottom = 31.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_WORKSHOP_UNDO_BUILD"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="map_move_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 163.0
-margin/top = -46.0
-margin/right = 307.0
-margin/bottom = 2.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 163.0
+margin_top = -46.0
+margin_right = 307.0
+margin_bottom = 2.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/map_move_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -43.0
-margin/top = 16.0
-margin/right = 187.0
-margin/bottom = 31.0
+margin_left = -43.0
+margin_top = 16.0
+margin_right = 187.0
+margin_bottom = 31.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_WORKSHOP_MOVE_MAP"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="building_blocks_button" type="TextureButton" parent="controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 160.0
-margin/top = -102.0
-margin/right = 304.0
-margin/bottom = -54.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 9 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 160.0
+margin_top = -102.0
+margin_right = 304.0
+margin_bottom = -54.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 9 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/building_blocks_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -301.0
-margin/top = 30.0
-margin/right = -21.0
-margin/bottom = 46.0
+margin_left = -301.0
+margin_top = 30.0
+margin_right = -21.0
+margin_bottom = 46.0
+mouse_filter = 1
+size_flags_vertical = 0
 text = "LABEL_WORKSHOP_BUILD_TERRAIN"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Label1" type="Label" parent="controls/building_blocks_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 16.0
-margin/right = 144.0
-margin/bottom = 32.0
+margin_top = 16.0
+margin_right = 144.0
+margin_bottom = 32.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "TILES"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-

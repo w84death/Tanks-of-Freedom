@@ -75,3 +75,4 @@ var triggers = {
 
 	'cap_airport' : {'type' : 'domination', 'story' : 'cap_airport', 'details' : { 'amount' : 1, 'list' : [Vector2(15, 10)], 'player' : 1 }, 'one_off' : true},
 }
+

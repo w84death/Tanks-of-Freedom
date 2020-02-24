@@ -52,3 +52,4 @@ var triggers = {
 	'capturing_flank_tower' : {'type' : 'domination', 'story' : 'capturing_flank_tower', 'details' : { 'amount' : 1, 'list' : [Vector2(7, 3)], 'player' : 1 }, 'one_off' : true},
 	'blocking_hq' : {'type' : 'move', 'story' : 'blocking_hq', 'details' : { 'fields' : [Vector2(2, 12)], 'player' : 1 }, 'one_off' : true},
 }
+

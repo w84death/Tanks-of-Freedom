@@ -31,3 +31,4 @@ func update_data_array(data):
 	return {
 		'tiles' : data
 	}
+

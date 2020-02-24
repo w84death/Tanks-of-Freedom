@@ -7,3 +7,4 @@ func perform(action_details):
 	destination_field.object = source_field.object
 	source_field.object = null
 	self.bag.root.sound_controller.play_unit_sound(destination_field.object, 'move')
+

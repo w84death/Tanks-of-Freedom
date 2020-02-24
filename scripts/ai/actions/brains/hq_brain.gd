@@ -14,3 +14,4 @@ func _apply_amount_penalty(units):
 		return true
 
 	return false
+

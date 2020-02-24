@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=2 format=1]
+[gd_resource type="Theme" load_steps=1 format=2]
 
 [ext_resource path="res://gui/font_14.tres" type="DynamicFont" id=1]
 
@@ -11,4 +11,3 @@ Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 1 )
-

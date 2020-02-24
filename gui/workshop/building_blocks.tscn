@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/panel_gray.tres" type="Theme" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size3_0.png" type="Texture" id=2]
@@ -8,251 +8,138 @@
 [ext_resource path="res://assets/gui/buttons/analog_size3_4.png" type="Texture" id=6]
 
 [node name="building_blocks" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
 __meta__ = {
 "__editor_plugin_screen__": "2D",
 "_edit_lock_": true
 }
 
 [node name="background" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Panel" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = -320.0
-margin/top = -192.0
-margin/right = 320.0
-margin/bottom = 144.0
+margin_left = -320.0
+margin_top = -192.0
+margin_right = 320.0
+margin_bottom = 144.0
+theme = ExtResource( 1 )
 
 [node name="Panel1" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = -320.0
-margin/top = 152.0
-margin/right = 144.0
-margin/bottom = 216.0
+margin_left = -320.0
+margin_top = 152.0
+margin_right = 144.0
+margin_bottom = 216.0
+theme = ExtResource( 1 )
 
 [node name="Panel2" type="Panel" parent="background"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-theme/theme = ExtResource( 1 )
-margin/left = 160.0
-margin/top = 152.0
-margin/right = 320.0
-margin/bottom = 216.0
+margin_left = 160.0
+margin_top = 152.0
+margin_right = 320.0
+margin_bottom = 216.0
+theme = ExtResource( 1 )
 
 [node name="controls" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -277.0
-margin/top = -214.0
-margin/right = -237.0
-margin/bottom = -174.0
+margin_left = -277.0
+margin_top = -214.0
+margin_right = -237.0
+margin_bottom = -174.0
 
 [node name="blocks" type="Control" parent="controls"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="terrain_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -35.0
-margin/top = 374.0
-margin/right = 109.0
-margin/bottom = 422.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = -35.0
+margin_top = 374.0
+margin_right = 109.0
+margin_bottom = 422.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/terrain_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 3.0
-margin/top = 17.0
-margin/right = 139.0
-margin/bottom = 35.0
+margin_left = 3.0
+margin_top = 17.0
+margin_right = 139.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "terrain"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="buildings_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 117.0
-margin/top = 374.0
-margin/right = 261.0
-margin/bottom = 422.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 117.0
+margin_top = 374.0
+margin_right = 261.0
+margin_bottom = 422.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/buildings_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 3.0
-margin/top = 17.0
-margin/right = 138.0
-margin/bottom = 35.0
+margin_left = 3.0
+margin_top = 17.0
+margin_right = 138.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "buildings"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="units_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 269.0
-margin/top = 374.0
-margin/right = 413.0
-margin/bottom = 422.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 269.0
+margin_top = 374.0
+margin_right = 413.0
+margin_bottom = 422.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/units_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 3.0
-margin/top = 17.0
-margin/right = 139.0
-margin/bottom = 35.0
+margin_left = 3.0
+margin_top = 17.0
+margin_right = 139.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "units"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="close_button" type="TextureButton" parent="controls"]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 445.0
-margin/top = 374.0
-margin/right = 589.0
-margin/bottom = 422.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 445.0
+margin_top = 374.0
+margin_right = 589.0
+margin_bottom = 422.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
 
 [node name="Label" type="Label" parent="controls/close_button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 3.0
-margin/top = 17.0
-margin/right = 139.0
-margin/bottom = 35.0
+margin_left = 3.0
+margin_top = 17.0
+margin_right = 139.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "close"
 align = 1
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-

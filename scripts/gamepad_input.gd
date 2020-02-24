@@ -30,9 +30,9 @@ func _init_bag(bag):
 	self.bag = bag
 
 func handle_input(event):
-	if event.type == InputEvent.JOYSTICK_MOTION:
+	if event is InputEventJoypadMotion:
 		self.handle_motion(event)
-	elif event.type == InputEvent.JOYSTICK_BUTTON:
+	elif event is InputEventJoypadButton:
 		self.handle_button(event)
 
 	if not self.gamepad_detected:
@@ -166,8 +166,8 @@ func move_selector(offset):
 
 	if self.bag.workshop.is_working and not self.bag.workshop.is_suspended:
 		new_position = self.bag.workshop.selector_position + offset
-		self.bag.workshop.set_selector_map_pos(new_position)
-		self.bag.workshop.set_camera_map_pos(new_position)
+		self.bag.workshop.set_selector_map_position(new_position)
+		self.bag.workshop.set_camera_map_position(new_position)
 		if self.painting:
 			self.bag.workshop.paint(new_position)
 		if self.erasing:
@@ -178,3 +178,4 @@ func move_selector(offset):
 			new_position = current_position + offset
 			self.bag.root.move_selector_to_map_position(new_position)
 			self.bag.camera.move_to_map(new_position)
+

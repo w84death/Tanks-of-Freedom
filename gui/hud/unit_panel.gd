@@ -66,7 +66,7 @@ func set_ap(value, max_value):
 	self.unit_panel_ap.set_text(str(value) + '/' + str(max_value))
 
 func toggle_skills():
-	#if self.unit_panel_extras.is_hidden():
+	#if self.unit_panel_extras.is_visible() == false:
 	#	self.show_skills()
 	#else:
 	#	self.hide_skills()

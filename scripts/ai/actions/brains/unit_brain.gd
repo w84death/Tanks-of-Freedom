@@ -18,8 +18,8 @@ var hq_capture_bonus = 500
 
 
 func _initialize():
-	self.actions_templates['attack'] = preload("res://scripts/ai/actions/types/attack_action.gd")
-	self.actions_templates['capture'] = preload("res://scripts/ai/actions/types/capture_action.gd")
+	self.actions_templates['attack'] = load("res://scripts/ai/actions/types/attack_action.gd")
+	self.actions_templates['capture'] = load("res://scripts/ai/actions/types/capture_action.gd")
 
 func get_actions(entity, enemies = {}, buildings = {}, allies = {}, own_buildings = {}):
 	var attack_actions = []
@@ -195,4 +195,5 @@ func _get_capture_actions(entity, enemies, buildings, allies, own_buildings):
 
 func _get_other_actions(entity, enemies, buildings, allies, own_buildings):
 	return []
+
 

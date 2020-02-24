@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/end_turn.wav-8668d08f5272d02c75783ccaf9d3dae0.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fx/end_turn.wav"
+dest_files=[ "res://.import/end_turn.wav-8668d08f5272d02c75783ccaf9d3dae0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

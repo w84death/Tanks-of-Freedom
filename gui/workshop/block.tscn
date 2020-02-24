@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/gui/workshop/building_blocks.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/buttons/analog_size2_0.png" type="Texture" id=2]
@@ -8,64 +8,37 @@
 [ext_resource path="res://assets/gui/buttons/analog_size2_4.png" type="Texture" id=6]
 
 [node name="block" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 96.0
-margin/bottom = 96.0
+margin_right = 96.0
+margin_bottom = 96.0
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
 
 [node name="tile" type="Sprite" parent="."]
-
-transform/pos = Vector2( 16.8773, -26.1228 )
+position = Vector2( 16.8773, -26.1228 )
 texture = ExtResource( 1 )
 centered = false
 vframes = 5
 hframes = 8
 
 [node name="select" type="TextureButton" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 48.0
-margin/right = 96.0
-margin/bottom = 96.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 2 )
-textures/pressed = ExtResource( 3 )
-textures/hover = ExtResource( 4 )
-textures/disabled = ExtResource( 5 )
-textures/focused = ExtResource( 6 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 96.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+expand = true
 
 [node name="name" type="Label" parent="select"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -8.0
-margin/top = 17.0
-margin/right = 100.0
-margin/bottom = 35.0
+margin_left = -8.0
+margin_top = 17.0
+margin_right = 100.0
+margin_bottom = 35.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LABEL_NAME"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-

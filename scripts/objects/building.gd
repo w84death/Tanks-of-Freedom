@@ -14,9 +14,9 @@ export var spawn_point_position = Vector2(0, 1)
 var flag
 var turn_claimed = -1
 
-var object_factory = preload('res://scripts/object_factory.gd').new()
+var object_factory = load('res://scripts/object_factory.gd').new()
 
-var floating_ap_template = preload('res://particle/hit_points.tscn')
+var floating_ap_template = load('res://particle/hit_points.tscn')
 var floating_ap
 
 var TYPE_BUNKER = 0
@@ -30,16 +30,16 @@ const HAS_SAME_TYPE_OF_UNIT_MODIFIER = 3
 func get_pos_map():
 	return position_on_map
 
-func get_spawn_point_pos():
+func get_spawn_point_position():
 	return spawn_point
 
-func get_initial_pos():
-	position_on_map = current_map.world_to_map(self.get_pos())
+func get_initial_position():
+	position_on_map = current_map.world_to_map(self.get_position())
 	spawn_point = Vector2(position_on_map) + spawn_point_position
 	return position_on_map
 
 func set_pos_map(new_position):
-	self.set_pos(current_map.map_to_world(new_position))
+	self.set_position(current_map.map_to_world(new_position))
 	position_on_map = new_position
 	spawn_point = Vector2(position_on_map) + spawn_point_position
 
@@ -60,7 +60,7 @@ func get_player():
 
 func set_frame(number):
 	var current_frame = get_region_rect()
-	var new_frame = Rect2(number * 64, current_frame.pos.y, 64, 64)
+	var new_frame = Rect2(number * 64, current_frame.position.y, 64, 64)
 	set_region_rect(new_frame)
 
 func get_spawn_type():
@@ -128,5 +128,6 @@ func _ready():
 		current_map = get_node("/root/game").current_map_terrain
 	flag = get_node('flag')
 	pass
+
 
 

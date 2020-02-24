@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=1]
+[gd_resource type="Theme" load_steps=1 format=2]
 
 [ext_resource path="res://assets/gui/checkbox/checkbox_off.png" type="Texture" id=1]
 [ext_resource path="res://assets/gui/checkbox/checkbox_on.png" type="Texture" id=2]
@@ -19,4 +19,3 @@ CheckButton/styles/focus = null
 CheckButton/styles/hover = null
 CheckButton/styles/normal = null
 CheckButton/styles/pressed = null
-

@@ -15,3 +15,4 @@ func perform(action_details):
 
 func save_camera_zoom():
 	self.bag.storyteller.camera_zoom_level = self.bag.root.settings['camera_zoom']
+

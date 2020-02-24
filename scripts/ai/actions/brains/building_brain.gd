@@ -12,7 +12,7 @@ var global_spawn_limit = 20
 
 
 func _initialize():
-	self.actions_templates['spawn'] = preload("res://scripts/ai/actions/types/spawn_unit_action.gd")
+	self.actions_templates['spawn'] = load("res://scripts/ai/actions/types/spawn_unit_action.gd")
 
 
 func get_actions(entity, enemies = {}, units = {}):
@@ -64,3 +64,4 @@ func _count_units(units):
 		counts[units[key].type_name] += 1
 
 	return counts
+

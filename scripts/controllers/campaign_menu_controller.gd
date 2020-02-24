@@ -1,6 +1,6 @@
 
 var root
-var campaign_menu = preload("res://gui/menu_campaign.tscn").instance()
+var campaign_menu = load("res://gui/menu_campaign.tscn").instance()
 
 var current_campaign_map = 0
 

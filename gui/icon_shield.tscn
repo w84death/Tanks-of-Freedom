@@ -1,12 +1,9 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://assets/units/icon_shield.png" type="Texture" id=1]
 
 [node name="shield" type="Sprite"]
-
 texture = ExtResource( 1 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
-
-

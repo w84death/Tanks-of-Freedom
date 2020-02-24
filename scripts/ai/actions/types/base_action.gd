@@ -22,3 +22,4 @@ func can_continue():
 
 func proceed():
 	return
+

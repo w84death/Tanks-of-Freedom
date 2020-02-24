@@ -403,3 +403,4 @@ func perform_action(move):
 		positionVAR = move['whom']
 		positionVAR = Vector2(positionVAR[0], positionVAR[1])
 		self.bag.root.action_controller.handle_action(positionVAR)
+

@@ -7,9 +7,9 @@ var version_file_path = "user://version.tof"
 
 func _initialize():
 	self.migrations = [
-		preload("res://scripts/migrations/version20150730.gd").new(self.bag),
-		preload("res://scripts/migrations/version20160506.gd").new(self.bag),
-		preload("res://scripts/migrations/version20160512.gd").new(self.bag)
+		load("res://scripts/migrations/version20150730.gd").new(self.bag),
+		load("res://scripts/migrations/version20160506.gd").new(self.bag),
+		load("res://scripts/migrations/version20160512.gd").new(self.bag)
 	]
 	self.load_version()
 	self.run_migrations()
@@ -39,3 +39,4 @@ func set_latest_migration():
 	for migration in self.migrations:
 		if migration.version > self.current_version:
 			self.current_version = migration.version
+

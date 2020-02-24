@@ -29,3 +29,4 @@ func _init():
 	self.add(self.CAPTURE_AND_WIN, 1, "capture hq")
 	self.add(self.UNEXPECTED, 0, "unexpected")
 	self.add(self.CANNOT_DO, 0, "cannot do action")
+

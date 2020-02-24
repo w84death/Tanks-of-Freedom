@@ -1,7 +1,6 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=1 format=2]
 
 [ext_resource path="res://units/unit_template.tscn" type="PackedScene" id=1]
 
 [node name="soldier_blue" instance=ExtResource( 1 )]
-
 
