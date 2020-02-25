@@ -24,7 +24,7 @@ func path_search(start, goal):
 
 	var path_found = self.astar.get_id_path(self._pos_2_point_id(start), self._pos_2_point_id(goal))
 	for id in path_found:
-		path_translated.push_back(self._point_id_2_pos(id))
+		path_translated.push_back(self._point_id_2_position(id))
 		value = value + self.astar.get_point_weight_scale(id)
 
 	return {
@@ -41,7 +41,7 @@ func prepare_map_grid(abstract_map):
 	var passable = false
 	self.passable_field_count = 0
 	for id in self.grid:
-		field = abstract_map.get_field(self._point_id_2_pos(id))
+		field = abstract_map.get_field(self._point_id_2_position(id))
 		passable = !(field.has_terrain() or field.is_empty())
 		self.map_grid[id] = {
 			"passable"  : passable,
@@ -135,11 +135,11 @@ func _get_point_id(x, y):
 func _pos_2_point_id(pos):
 	return self._get_point_id(pos.x, pos.y)
 
-func _point_id_2_pos(id):
+func _point_id_2_position(id):
 	return self.grid[id][self.POSITION_KEY]
 
 func _get_adjacent_tile_ids(tile_id):
-	var ids = IntArray([])
+	var ids = PoolIntArray([])
 	var field
 	if self.grid.has(tile_id):
 		var neighbours = self.grid[tile_id][self.NEIGHBOURS_KEY]
@@ -184,3 +184,4 @@ func _prepare_neighbours(x, y):
 			output[direction] = neighbours[direction]
 
 	return output
+

@@ -5,3 +5,4 @@ func _initialize():
 
 func is_triggered(trigger_details, story_event):
 	return trigger_details['details']['turn'] == story_event['details']['turn']
+

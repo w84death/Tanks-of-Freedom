@@ -94,3 +94,4 @@ func save_map(data, code, metadata = {}):
 
 func get_remote_file_name(code):
 	return "user://" + code + self.ONLINE_MAP_EXTENSION
+

@@ -1,13 +1,13 @@
 extends "res://scripts/bag_aware.gd"
 
 # copied a_star implementation to fix some issues
-var pathfinder = preload("res://scripts/ai/a_star.gd").new()
+var pathfinder = load("res://scripts/ai/a_star.gd").new()
 
 # actions collector for AI
-var collector = preload("res://scripts/ai/actions/collector.gd").new()
+var collector = load("res://scripts/ai/actions/collector.gd").new()
 
 # executor for current action
-var executor = preload("res://scripts/ai/actions/egzekutor.gd").new()
+var executor = load("res://scripts/ai/actions/egzekutor.gd").new()
 
 
 # stored action with multiple steps to be executed

@@ -15,7 +15,7 @@ var interval
 var skip_interval
 
 func _initialize():
-	self.update_ai_speed()
+	self.update_ai_speed_scale()
 
 func do_ai_stuff():
 	if !self.running:
@@ -46,10 +46,10 @@ func stop_ai_timer():
 func __execute_with_interval(interval):
 	self.bag.timers.set_timeout(interval, self, "do_ai_stuff")
 
-func update_ai_speed():
-	self.__set_ai_speed(self.bag.root.settings['ai_speed'])
+func update_ai_speed_scale():
+	self.__set_ai_speed_scale(self.bag.root.settings['ai_speed'])
 
-func __set_ai_speed(speed):
+func __set_ai_speed_scale(speed):
 	var intervals = self.ai_speeds[speed]
 	self.interval = intervals[0]
 	self.skip_interval = intervals[1]

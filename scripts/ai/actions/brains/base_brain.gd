@@ -4,3 +4,4 @@ var actions_templates = {}
 
 func get_actions(entity):
 	return []
+

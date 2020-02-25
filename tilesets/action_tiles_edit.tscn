@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/terrain/action_tiles.png" type="Texture" id=1]
 
@@ -10,34 +10,32 @@ __meta__ = {
 
 [node name="0" type="Sprite" parent="."]
 
-transform/pos = Vector2( 16, 30 )
+position = Vector2( 16, 30 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 75.7123, 30 )
+position = Vector2( 75.7123, 30 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
 
 [node name="2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 136.452, 29 )
+position = Vector2( 136.452, 29 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
 
 [node name="3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 204.896, 32.0277 )
+position = Vector2( 204.896, 32.0277 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 0, 64, 64 )
-
-

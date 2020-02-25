@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/message.gd" type="Script" id=1]
 [ext_resource path="res://assets/gui/dialogs/menu9_dark@2x.png" type="Texture" id=2]
@@ -12,144 +12,94 @@
 [ext_resource path="res://gui/flag.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
-
-resource/name = "jump"
+resource_name = "jump"
 length = 0.8
 loop = true
-step = 0.1
 
 [node name="message" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-script/script = ExtResource( 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
 
-[node name="background" type="Patch9Frame" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -256.0
-margin/top = -96.0
-margin/right = -216.0
-margin/bottom = -80.0
+[node name="background" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -256.0
+margin_top = -96.0
+margin_right = 216.0
+margin_bottom = 80.0
+mouse_filter = 1
 texture = ExtResource( 2 )
-patch_margin/left = 24
-patch_margin/top = 24
-patch_margin/right = 24
-patch_margin/bottom = 24
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
 
 [node name="button" type="TextureButton" parent="."]
-
-editor/display_folded = true
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 104.0
-margin/top = 64.0
-margin/right = 248.0
-margin/bottom = 112.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 3 )
-textures/pressed = ExtResource( 4 )
-textures/hover = ExtResource( 5 )
-textures/disabled = ExtResource( 6 )
-textures/focused = ExtResource( 7 )
-params/resize_mode = 0
-params/scale = Vector2( 3, 3 )
-params/stretch_mode = 0
+margin_left = 104.0
+margin_top = 64.0
+margin_right = 248.0
+margin_bottom = 112.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 6 )
+texture_focused = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="button"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 4.0
-margin/top = 16.0
-margin/right = 134.0
-margin/bottom = 31.0
+margin_left = 4.0
+margin_top = 16.0
+margin_right = 134.0
+margin_bottom = 31.0
+mouse_filter = 1
+size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "START TURN"
 align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="Sprite" type="Sprite" parent="button"]
-
-visibility/visible = false
-transform/pos = Vector2( 3.60998, 4.5125 )
-transform/scale = Vector2( 3, 3 )
+visible = false
+position = Vector2( 3.60998, 4.5125 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
 vframes = 2
 hframes = 4
 frame = 2
 
 [node name="title" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-theme/theme = ExtResource( 9 )
-margin/left = -240.0
-margin/top = -82.0
-margin/right = 48.0
-margin/bottom = -59.0
+margin_left = -240.0
+margin_top = -82.0
+margin_right = 48.0
+margin_bottom = -59.0
+mouse_filter = 1
+size_flags_vertical = 0
+theme = ExtResource( 9 )
 text = "DID YOU KNOW THAT<..."
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="message" type="Label" parent="."]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = -240.0
-margin/top = -48.0
-margin/right = 240.0
-margin/bottom = 52.0
+margin_left = -240.0
+margin_top = -48.0
+margin_right = 240.0
+margin_bottom = 52.0
+mouse_filter = 1
+size_flags_vertical = 0
 text = "Did you know?
 
 Little shield icon next to the unit shows that this unit can defend itself if attacked."
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 [node name="flag" parent="." instance=ExtResource( 10 )]
-
-transform/pos = Vector2( 226, 79 )
-transform/scale = Vector2( 3, 3 )
+position = Vector2( 226, 79 )
+scale = Vector2( 3, 3 )
 frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/jump = SubResource( 1 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
 autoplay = "jump"
-
-
+anims/jump = SubResource( 1 )

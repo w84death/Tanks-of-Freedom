@@ -55,3 +55,4 @@ func get_basic_auth_json():
 		'player_id' : self.player_id,
 		'player_pin' : self.player_pin
 	}
+

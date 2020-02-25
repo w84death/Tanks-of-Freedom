@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/not_dead.wav-8159d9a74a655ac708c3ce61589f9d1e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/fx/not_dead.wav"
+dest_files=[ "res://.import/not_dead.wav-8159d9a74a655ac708c3ce61589f9d1e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

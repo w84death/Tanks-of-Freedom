@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/gui/workshop/building_blocks.png" type="Texture" id=1]
 
@@ -10,282 +10,280 @@ __meta__ = {
 
 [node name="tile1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 33.512, 17.4915 )
+position = Vector2( 33.512, 17.4915 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="tile2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 71.2731, 17.4915 )
+position = Vector2( 71.2731, 17.4915 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
 
 [node name="tile3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 110.525, 17.4915 )
+position = Vector2( 110.525, 17.4915 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
 
 [node name="tile4" type="Sprite" parent="."]
 
-transform/pos = Vector2( 146.298, 17.4915 )
+position = Vector2( 146.298, 17.4915 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 0, 64, 64 )
 
 [node name="tile5" type="Sprite" parent="."]
 
-transform/pos = Vector2( 184.259, 17.4915 )
+position = Vector2( 184.259, 17.4915 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 0, 64, 64 )
 
 [node name="tile6" type="Sprite" parent="."]
 
-transform/pos = Vector2( 221.82, 17.9884 )
+position = Vector2( 221.82, 17.9884 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 0, 64, 64 )
 
 [node name="tile7" type="Sprite" parent="."]
 
-transform/pos = Vector2( 261.072, 17.9884 )
+position = Vector2( 261.072, 17.9884 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 0, 64, 64 )
 
 [node name="tile8" type="Sprite" parent="."]
 
-transform/pos = Vector2( 301.317, 17.9884 )
+position = Vector2( 301.317, 17.9884 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 0, 64, 64 )
 
 [node name="tile9" type="Sprite" parent="."]
 
-transform/pos = Vector2( 33.512, 84.3592 )
+position = Vector2( 33.512, 84.3592 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 64, 64, 64 )
 
 [node name="tile10" type="Sprite" parent="."]
 
-transform/pos = Vector2( 71.8831, 86.1892 )
+position = Vector2( 71.8831, 86.1892 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 64, 64, 64 )
 
 [node name="tile11" type="Sprite" parent="."]
 
-transform/pos = Vector2( 110.525, 86.7992 )
+position = Vector2( 110.525, 86.7992 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 64, 64, 64 )
 
 [node name="tile12" type="Sprite" parent="."]
 
-transform/pos = Vector2( 146.908, 86.1892 )
+position = Vector2( 146.908, 86.1892 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 64, 64, 64 )
 
 [node name="tile13" type="Sprite" parent="."]
 
-transform/pos = Vector2( 185.479, 86.1892 )
+position = Vector2( 185.479, 86.1892 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 64, 64, 64 )
 
 [node name="tile14" type="Sprite" parent="."]
 
-transform/pos = Vector2( 222.43, 87.2962 )
+position = Vector2( 222.43, 87.2962 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 64, 64, 64 )
 
 [node name="tile15" type="Sprite" parent="."]
 
-transform/pos = Vector2( 261.072, 87.2962 )
+position = Vector2( 261.072, 87.2962 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 64, 64, 64 )
 
 [node name="tile16" type="Sprite" parent="."]
 
-transform/pos = Vector2( 301.317, 84.8561 )
+position = Vector2( 301.317, 84.8561 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 64, 64, 64 )
 
 [node name="tile17" type="Sprite" parent="."]
 
-transform/pos = Vector2( 33.512, 161.844 )
+position = Vector2( 33.512, 161.844 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 128, 64, 64 )
 
 [node name="tile18" type="Sprite" parent="."]
 
-transform/pos = Vector2( 71.2731, 162.454 )
+position = Vector2( 71.2731, 162.454 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 128, 64, 64 )
 
 [node name="tile19" type="Sprite" parent="."]
 
-transform/pos = Vector2( 110.525, 158.184 )
+position = Vector2( 110.525, 158.184 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 128, 64, 64 )
 
 [node name="tile20" type="Sprite" parent="."]
 
-transform/pos = Vector2( 146.309, 160.624 )
+position = Vector2( 146.309, 160.624 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 128, 64, 64 )
 
 [node name="tile21" type="Sprite" parent="."]
 
-transform/pos = Vector2( 185.479, 160.624 )
+position = Vector2( 185.479, 160.624 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 128, 64, 64 )
 
 [node name="tile22" type="Sprite" parent="."]
 
-transform/pos = Vector2( 222.43, 161.731 )
+position = Vector2( 222.43, 161.731 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 128, 64, 64 )
 
 [node name="tile23" type="Sprite" parent="."]
 
-transform/pos = Vector2( 261.682, 159.901 )
+position = Vector2( 261.682, 159.901 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 128, 64, 64 )
 
 [node name="tile24" type="Sprite" parent="."]
 
-transform/pos = Vector2( 300.707, 160.511 )
+position = Vector2( 300.707, 160.511 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 128, 64, 64 )
 
 [node name="tile25" type="Sprite" parent="."]
 
-transform/pos = Vector2( 32.9553, 222.468 )
+position = Vector2( 32.9553, 222.468 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 192, 64, 64 )
 
 [node name="tile26" type="Sprite" parent="."]
 
-transform/pos = Vector2( 72.5239, 221.847 )
+position = Vector2( 72.5239, 221.847 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 192, 64, 64 )
 
 [node name="tile27" type="Sprite" parent="."]
 
-transform/pos = Vector2( 114.182, 220.028 )
+position = Vector2( 114.182, 220.028 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 192, 64, 64 )
 
 [node name="tile28" type="Sprite" parent="."]
 
-transform/pos = Vector2( 151.164, 227.812 )
+position = Vector2( 151.164, 227.812 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 192, 64, 64 )
 
 [node name="tile29" type="Sprite" parent="."]
 
-transform/pos = Vector2( 184.934, 220.028 )
+position = Vector2( 184.934, 220.028 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 256, 192, 64, 64 )
 
 [node name="tile30" type="Sprite" parent="."]
 
-transform/pos = Vector2( 222.681, 225.394 )
+position = Vector2( 222.681, 225.394 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 320, 192, 64, 64 )
 
 [node name="tile31" type="Sprite" parent="."]
 
-transform/pos = Vector2( 262.933, 221.734 )
+position = Vector2( 262.933, 221.734 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 384, 192, 64, 64 )
 
 [node name="tile32" type="Sprite" parent="."]
 
-transform/pos = Vector2( 301.958, 219.271 )
+position = Vector2( 301.958, 219.271 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 448, 192, 64, 64 )
 
 [node name="tile33" type="Sprite" parent="."]
 
-transform/pos = Vector2( 34.1528, 300.398 )
+position = Vector2( 34.1528, 300.398 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 256, 64, 64 )
 
 [node name="tile34" type="Sprite" parent="."]
 
-transform/pos = Vector2( 81.6404, 302.793 )
+position = Vector2( 81.6404, 302.793 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 256, 64, 64 )
 
 [node name="tile35" type="Sprite" parent="."]
 
-transform/pos = Vector2( 145.992, 302.793 )
+position = Vector2( 145.992, 302.793 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 256, 64, 64 )
-
-

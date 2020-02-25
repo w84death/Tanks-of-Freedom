@@ -1,18 +1,8 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://scripts/objects/waypoints/waypoint.gd" type="Script" id=1]
 
 [node name="waypoint" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-script/script = ExtResource( 1 )
-position_on_map = Vector2( 0, 0 )
-
-
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )

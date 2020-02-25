@@ -78,3 +78,4 @@ var triggers = {
 
 	'buy_heli' : {'type' : 'deploy', 'story' : 'buy_heli', 'details' : { 'player' : 1, 'amount': 1, 'type': 'heli' }, 'one_off' : true},
 }
+

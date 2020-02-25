@@ -1,6 +1,6 @@
 extends "res://scripts/storyteller/actions/abstract_action.gd"
 
-var object_factory = preload('res://scripts/object_factory.gd').new()
+var object_factory = load('res://scripts/object_factory.gd').new()
 
 func perform(action_details):
 	var spawn_type
@@ -32,3 +32,4 @@ func perform(action_details):
 	self.bag.controllers.action_controller.ysort.add_child(unit)
 	self.bag.root.sound_controller.play_unit_sound(unit, self.bag.root.sound_controller.SOUND_SPAWN)
 	unit.set_pos_map(field.positionVAR)
+

@@ -8,3 +8,4 @@ func perform(action_details):
 
 	self.bag.root.sound_controller.play_unit_sound(attacker_field.object, 'attack')
 	self.bag.root.sound_controller.play_unit_sound(victim_field.object, 'damage')
+

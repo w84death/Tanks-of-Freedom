@@ -1,9 +1,9 @@
-extends Control
+extends CanvasLayer
 
-var version_name = "Version 0.7.0-BETA"
-var version_short = "0.7.0"
+var version_name = "Version 0.8.0-BETA"
+var version_short = "0.8.0"
 
-var selector = preload('res://gui/selector.tscn').instance()
+var selector = load('res://gui/selector.tscn').instance()
 var selector_position
 var current_map_terrain
 var camera_pos
@@ -12,25 +12,25 @@ var scale_root
 var loading_container
 var camera
 var menu
-var hud_pandora = preload('res://gui/hud_pandora.tscn')
-var hud_tv = preload('res://gui/hud_tv.tscn')
-var hud_pc = preload('res://gui/hud_pc.tscn')
+var hud_pandora = load('res://gui/hud_pandora.tscn')
+var hud_tv = load('res://gui/hud_tv.tscn')
+var hud_pc = load('res://gui/hud_pc.tscn')
 var hud_template
 var screen_size
 var half_screen_size = Vector2(0, 0)
 
-var intro = preload('res://intro.tscn').instance()
-var loading_screen = preload('res://gui/loading.tscn').instance()
+var intro = load('res://intro.tscn').instance()
+var loading_screen = load('res://gui/loading.tscn').instance()
 
 var action_controller
-var sound_controller = preload("res://scripts/sound_controller.gd").new()
+var sound_controller = load("res://scripts/sound_controller.gd").new()
 var hud_controller
 var current_map
 var current_map_name
 var hud
 var bag
 
-var map_template = preload('res://maps/workshop.tscn')
+var map_template = load('res://maps/workshop.tscn')
 var main_tileset
 
 var settings = {
@@ -69,11 +69,11 @@ var is_camera_drag = false
 var settings_file = File.new()
 var workshop_file_name
 var is_remote = false
-var is_pandora = Globals.get("tof/pandora_input")
-var is_mobile = Globals.get("tof/mobile_prompt")
-var is_debug = Globals.get("tof/debug_mode")
-var click_fix_position = Globals.get("tof/selector_offset")
-var hud_layout = Globals.get("tof/hud_layout")
+var is_pandora = ProjectSettings.get_setting("tof/pandora_input")
+var is_mobile = ProjectSettings.get_setting("tof/mobile_prompt")
+var is_debug = ProjectSettings.get_setting("tof/debug_mode")
+var click_fix_position = ProjectSettings.get_setting("tof/selector_offset")
+var hud_layout = ProjectSettings.get_setting("tof/hud_layout")
 
 var registered_click = false
 var registered_click_position = Vector2(0, 0)
@@ -92,75 +92,75 @@ func _input(event):
 	if is_map_loaded && is_paused == false:
 		if is_locked_for_cpu == false or self.bag.match_state.is_multiplayer:
 			game_scale = self.camera.get_scale()
-			camera_pos = self.camera.get_pos()
-			if event.type == InputEvent.MOUSE_BUTTON && (event.button_index == BUTTON_LEFT or event.button_index == BUTTON_RIGHT) && self.is_map_loaded:
+			camera_pos = self.camera.get_position()
+			if event is InputEventMouseButton && (event.button_index == BUTTON_LEFT or event.button_index == BUTTON_RIGHT) && self.is_map_loaded:
 				self.is_camera_drag = event.pressed
 				self.bag.camera.mouse_dragging = event.pressed
-			if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON):
-				var new_selector_x = (event.x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
-				var new_selector_y = (event.y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
+			if (event is InputEventMouseMotion or event is InputEventMouseButton):
+				var new_selector_x = (event.get_position().x - self.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
+				var new_selector_y = (event.get_position().y - self.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
 				selector_position = current_map_terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
-			if (event.type == InputEvent.MOUSE_MOTION):
+			if (event is InputEventMouseMotion):
 				var positionVAR = current_map_terrain.map_to_world(selector_position)
 				positionVAR.y += 4
-				selector.set_pos(positionVAR)
+				selector.set_position(positionVAR)
 				if self.is_camera_drag:
-					camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
-					camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
-					self.camera.set_pos(camera_pos)
+					camera_pos.x = camera_pos.x - event.get_relative().x * game_scale.x
+					camera_pos.y = camera_pos.y - event.get_relative().y * game_scale.y
+					self.camera.set_position(camera_pos)
 
 		if is_locked_for_cpu == false:
-			if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
+			if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 				self.bag.gamepad.handle_input(event)
-			if self.is_pandora and event.type == InputEvent.KEY:
+			if self.is_pandora and event is InputEventKey:
 				self.bag.pandora.handle_input(event)
 
 
-			if (event.type == InputEvent.MOUSE_MOTION):
+			if (event is InputEventMouseMotion):
 				var positionVAR = current_map_terrain.map_to_world(selector_position)
 				positionVAR.y += 4
-				selector.set_pos(positionVAR)
-				if self.registered_click and abs(event.x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.y - self.registered_click_position.y) > self.registered_click_threshold:
+				selector.set_position(positionVAR)
+				if self.registered_click and abs(event.get_position().x - self.registered_click_position.x) > self.registered_click_threshold and abs(event.get_position().y - self.registered_click_position.y) > self.registered_click_threshold:
 					self.registered_click = false
 
 			# MOUSE SELECT
-			if event.type == InputEvent.MOUSE_BUTTON and event.button_index == BUTTON_LEFT:
-				if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
+			if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+				if not self.bag.hud_dead_zone.is_dead_zone(event.get_position().x, event.get_position().y):
 					var positionVAR = current_map_terrain.map_to_world(selector_position)
-					if not self.bag.hud_dead_zone.is_dead_zone(event.x, event.y):
+					if not self.bag.hud_dead_zone.is_dead_zone(event.get_position().x, event.get_position().y):
 						if event.is_pressed():
 							self.registered_click = true
-							self.registered_click_position = Vector2(event.x, event.y)
+							self.registered_click_position = Vector2(event.get_position().x, event.get_position().y)
 						else:
 							if self.registered_click:
 								action_controller.handle_action(selector_position)
 								self.registered_click = false
 
-		if event.type == InputEvent.KEY && event.scancode == KEY_H && event.pressed:
+		if event is InputEventKey && event.scancode == KEY_H && event.pressed:
 			if hud.is_visible():
 				hud.hide()
 			else:
 				hud.show()
 
-		if event.type == InputEvent.KEY && event.scancode == KEY_C && event.pressed:
+		if event is InputEventKey && event.scancode == KEY_C && event.pressed:
 			action_controller.switch_unit(self.bag.unit_switcher.NEXT)
-		if event.type == InputEvent.KEY && event.scancode == KEY_X && event.pressed:
+		if event is InputEventKey && event.scancode == KEY_X && event.pressed:
 			action_controller.switch_unit(self.bag.unit_switcher.BACK)
-		if event.type == InputEvent.KEY && event.scancode == KEY_B && event.pressed:
+		if event is InputEventKey && event.scancode == KEY_B && event.pressed:
 			self.bag.camera.move_to_map_center()
 		if self.is_debug:
-			if event.type == InputEvent.KEY && event.scancode == KEY_F && event.pressed:
+			if event is InputEventKey && event.scancode == KEY_F && event.pressed:
 				self.bag.fog_controller.toggle_fog()
-			if event.type == InputEvent.KEY && event.scancode == KEY_V && event.pressed:
+			if event is InputEventKey && event.scancode == KEY_V && event.pressed:
 				print(current_map_terrain.world_to_map(current_map_terrain.map_to_world(selector_position)))
 
 
-		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
+		if event is InputEventMouseButton && event.button_index == BUTTON_WHEEL_UP && event.pressed:
 			self.bag.camera.camera_zoom_in()
-		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_DOWN && event.pressed:
+		if event is InputEventMouseButton && event.button_index == BUTTON_WHEEL_DOWN && event.pressed:
 			self.bag.camera.camera_zoom_out()
 
-	if Input.is_action_pressed('ui_cancel') && (event.type != InputEvent.KEY || not event.is_echo()):
+	if Input.is_action_pressed('ui_cancel') && (  not event.is_echo()):
 		if is_map_loaded and action_controller.active_field != null:
 			action_controller.clear_active_field()
 		else:
@@ -172,7 +172,7 @@ func move_selector_to_map_position(pos):
 
 	var positionVAR = current_map_terrain.map_to_world(pos)
 	positionVAR.y += 4
-	selector.set_pos(positionVAR)
+	selector.set_position(positionVAR)
 	selector_position = pos
 
 func load_map(template_name, workshop_file_name = false, load_saved_state = false, is_remote = false, post_load_object = null, post_load_method = null):
@@ -319,7 +319,7 @@ func toggle_menu(target = 'menu', skip_back_check = true):
 		return
 
 	if is_map_loaded:
-		if menu.is_hidden():
+		if menu.is_visible() == false:
 			is_paused = true
 			action_controller.stats_set_time()
 			menu.show()
@@ -340,7 +340,7 @@ func toggle_menu(target = 'menu', skip_back_check = true):
 				hud_controller.hud_end_game_missions_button.grab_focus()
 
 func show_menu():
-	if self.is_map_loaded and self.menu.is_hidden():
+	if self.is_map_loaded and self.menu.is_visible() == false:
 		self.toggle_menu()
 
 func hide_menu():
@@ -411,7 +411,7 @@ func write_settings_to_file():
 	self.bag.file_handler.write(self.SETTINGS_PATH, self.settings)
 
 func _ready():
-	self.bag = preload('res://scripts/services/dependency_container.gd').new()
+	self.bag = load('res://scripts/services/dependency_container.gd').new()
 	self.scale_root = get_node("/root/game/viewport/pixel_scale")
 	self.read_settings_from_file()
 	TranslationServer.set_locale(self.settings['language'])
@@ -433,3 +433,4 @@ func _ready():
 	self.bag.language.reload_labels()
 	if self.is_mobile:
 		self.get_tree().set_auto_accept_quit(false)
+

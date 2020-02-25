@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/terrain/underground.png" type="Texture" id=1]
 
@@ -10,34 +10,32 @@ __meta__ = {
 
 [node name="0" type="Sprite" parent="."]
 
-transform/pos = Vector2( 24.7868, 38.7868 )
+position = Vector2( 24.7868, 38.7868 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="1" type="Sprite" parent="."]
 
-transform/pos = Vector2( 104.397, 37.435 )
+position = Vector2( 104.397, 37.435 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 0, 64, 64 )
 
 [node name="2" type="Sprite" parent="."]
 
-transform/pos = Vector2( 187.359, 48.9255 )
+position = Vector2( 187.359, 48.9255 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
 
 [node name="3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 262.506, 46.2218 )
+position = Vector2( 262.506, 46.2218 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -14 )
-region = true
+region_enabled = true
 region_rect = Rect2( 192, 0, 64, 64 )
-
-

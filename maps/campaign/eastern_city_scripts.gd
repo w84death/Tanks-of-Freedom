@@ -51,3 +51,4 @@ var triggers = {
 	'barracks_claimed' : {'type' : 'domination', 'story' : 'barracks_claimed', 'details' : { 'amount' : 1, 'list' : [Vector2(7, 13)], 'player' : 0 }, 'one_off' : true},
 	'hq_found' : {'type' : 'move', 'story' : 'hq_found', 'details' : { 'fields' : [Vector2(5, 7), Vector2(7, 7), Vector2(8, 7), Vector2(9, 7), Vector2(5, 6), Vector2(6, 6), Vector2(7, 6), Vector2(8, 6), Vector2(9, 6), Vector2(3, 5), Vector2(5, 5), Vector2(6, 5), Vector2(7, 5), Vector2(8, 5), Vector2(9, 5), Vector2(3, 4), Vector2(4, 4), Vector2(5, 4), Vector2(6, 4), Vector2(7, 4), Vector2(8, 4), Vector2(3, 3), Vector2(4, 3), Vector2(7, 3), Vector2(8, 3)], 'player' : 0 }, 'one_off' : true},
 }
+

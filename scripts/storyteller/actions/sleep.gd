@@ -6,3 +6,4 @@ func perform(action_details):
 
 func remove_sleep():
 	self.bag.storyteller.pause = false
+

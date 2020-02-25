@@ -382,3 +382,4 @@ func perform_map_download(code):
 		self.finished_preparing_match_data()
 	else:
 		self.operation_failed({})
+

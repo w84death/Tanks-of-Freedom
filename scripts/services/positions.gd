@@ -27,7 +27,7 @@ const CLOSE_RANGE = 0
 const MEDIUM_RANGE = 1
 const LONG_RANGE = 2
 const EXTREME_RANGE = 3 # will be not used in the future
-var TILES_LOOKUP_RANGES = IntArray(range(1, 31))
+var TILES_LOOKUP_RANGES = PoolIntArray(range(1, 31))
 
 # not changable data
 var buildings = []
@@ -120,7 +120,7 @@ func get_player_bunker_position(player):
 	var bunker = bunkers[player]
 	if bunker == null:
 		return null
-	return bunker.get_initial_pos()
+	return bunker.get_initial_position()
 
 func get_terrain_obstacles():
 	return terrain_obstacles
@@ -266,7 +266,7 @@ func prepare_nearby_tiles_ranges():
 
 #get all tiles
 func get_nearby_tiles(positionVAR, lookup_range=CLOSE_RANGE):
-	var tiles = Vector2Array([])
+	var tiles = PoolVector2Array([])
 
 	for tile_modifier in self.precalculated_nearby_tiles[lookup_range]:
 		tiles.push_back(Vector2(positionVAR.x + tile_modifier.x, positionVAR.y + tile_modifier.y))
@@ -275,7 +275,7 @@ func get_nearby_tiles(positionVAR, lookup_range=CLOSE_RANGE):
 
 #only subset (ranges)
 func get_nearby_tiles_subset(positionVAR, lookup_range=CLOSE_RANGE):
-	var tiles = Vector2Array([])
+	var tiles = PoolVector2Array([])
 	if lookup_range == 0:
 		return tiles
 
@@ -283,3 +283,4 @@ func get_nearby_tiles_subset(positionVAR, lookup_range=CLOSE_RANGE):
 		tiles.push_back(Vector2(positionVAR.x + tile_modifier.x, positionVAR.y + tile_modifier.y))
 
 	return tiles
+

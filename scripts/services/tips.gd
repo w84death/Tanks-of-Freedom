@@ -12,3 +12,4 @@ func next_tip():
 
 func header():
 	return tr(self.TIP_PREFIX + 'HEADER')
+

@@ -1,17 +1,17 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/terrain.gd" type="Script" id=1]
 [ext_resource path="res://particle/smoke.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/buildings/fall/buildings_small.png" type="Texture" id=3]
 
-[sub_resource type="ColorRamp" id=1]
+[sub_resource type="Gradient" id=1]
 
-offsets = FloatArray( 0, 0.1, 0.2, 0.8 )
-colors = ColorArray( 0, 0, 0, 0.194805, 0.266667, 0.266667, 0.266667, 0.838384, 0.771574, 0.77665, 0.767677, 0.590909, 0.615686, 0.615686, 0.615686, 0 )
+offsets = PoolRealArray( 0, 0.1, 0.2, 0.8 )
+colors = PoolColorArray( 0, 0, 0, 0.194805, 0.266667, 0.266667, 0.266667, 0.838384, 0.771574, 0.77665, 0.767677, 0.590909, 0.615686, 0.615686, 0.615686, 0 )
 
 [node name="city_small" type="Sprite"]
 
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
@@ -28,9 +28,9 @@ color/color_ramp = SubResource( 1 )
 [node name="c1" type="Sprite" parent="."]
 
 texture = ExtResource( 3 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 destructable = true
 fence = false
 smoke_particles = 16
@@ -39,11 +39,11 @@ unique_type_id = -1
 
 [node name="c2" type="Sprite" parent="."]
 
-transform/pos = Vector2( -15, 7 )
+position = Vector2( -15, 7 )
 texture = ExtResource( 3 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 destructable = true
 fence = false
 smoke_particles = 16
@@ -52,11 +52,11 @@ unique_type_id = -1
 
 [node name="c3" type="Sprite" parent="."]
 
-transform/pos = Vector2( 15, 7 )
+position = Vector2( 15, 7 )
 texture = ExtResource( 3 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 destructable = true
 fence = false
 smoke_particles = 16
@@ -65,15 +65,13 @@ unique_type_id = -1
 
 [node name="c4" type="Sprite" parent="."]
 
-transform/pos = Vector2( 0, 14 )
+position = Vector2( 0, 14 )
 texture = ExtResource( 3 )
-region = true
+region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 destructable = true
 fence = false
 smoke_particles = 16
 smoke_lifetime = 1
 unique_type_id = -1
-
-

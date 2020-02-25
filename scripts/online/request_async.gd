@@ -1,9 +1,9 @@
 extends "res://scripts/bag_aware.gd"
 
 var threads = []
-var request_template = preload('res://scripts/online/request.gd')
+var request_template = load('res://scripts/online/request.gd')
 
-func get(api, resource, calling_object = null, callbacks = {}, expect_json = true):
+func getReq(api, resource, calling_object = null, callbacks = {}, expect_json = true):
 	self._start_request_thread("GET", api, resource, "", calling_object,callbacks, expect_json)
 
 func post(api, resource, data = "", calling_object = null, callbacks = {}, expect_json = true):

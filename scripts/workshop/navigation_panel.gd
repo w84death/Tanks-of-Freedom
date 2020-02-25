@@ -68,3 +68,4 @@ func reset_block_label():
 
 func set_block_label(label):
 	self.block_button_label.set_text(label)
+

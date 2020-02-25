@@ -73,3 +73,4 @@ var triggers = {
 
 	'app_blue_hq' : {'type' : 'move', 'story' : 'app_blue_hq', 'details' : { 'fields' : [Vector2(20, 22), Vector2(21, 22), Vector2(22, 22), Vector2(23, 22), Vector2(24, 22), Vector2(22, 23), Vector2(23, 23), Vector2(24, 23), Vector2(23, 24), Vector2(24, 24), Vector2(23, 25), Vector2(24, 25)], 'player' : 1 }, 'one_off' : true},
 }
+

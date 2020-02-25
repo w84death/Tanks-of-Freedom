@@ -1,97 +1,45 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/map_controller.gd" type="Script" id=1]
 [ext_resource path="res://maps/tilesets/summer_tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://maps/blueprint_units_tileset.tres" type="TileSet" id=3]
 
 [node name="map" type="Control"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-script/script = ExtResource( 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
-show_blueprint = false
-campaign_map = true
-take_enemy_hq = true
-control_all_towers = false
-multiplayer_map = false
-shakes_max = 5
-shake_time = 0.25
-shake_boundary = 5
 
 [node name="underground" type="TileMap" parent="."]
-
 mode = 1
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 64, 32 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 1
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray(  )
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+format = 1
 
 [node name="terrain" type="TileMap" parent="."]
-
-transform/pos = Vector2( 23.6741, 2.00983 )
+position = Vector2( 23.6741, 2.00983 )
 mode = 1
 tile_set = ExtResource( 2 )
-cell/size = Vector2( 64, 32 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 1
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray( -65537, 3, -131072, 3, -131071, 3, -131070, 3, -131069, 3, -131068, 3, -131067, 19, -131066, 3, -131065, 3, -131064, 1, -131063, 1, -2, 3, -1, 3, -65536, 3, -65535, 3, -65534, 3, -65533, 3, -65532, 3, -65531, 19, -65530, 3, -65529, 3, -65528, 3, -65527, 1, 65534, 3, 65535, 3, 0, 3, 1, 3, 2, 3, 3, 3, 4, 3, 5, 19, 6, 3, 7, 3, 8, 3, 9, 1, 10, 1, 131070, 4, 131071, 3, 65536, 4, 65537, 3, 65538, 4, 65539, 4, 65540, 3, 65541, 19, 65542, 3, 65543, 3, 65544, 3, 65545, 1, 65546, 1, 196606, 3, 196607, 3, 131072, 3, 131073, 4, 131074, 4, 131075, 4, 131076, 3, 131077, 19, 131078, 4, 131079, 3, 131080, 3, 131081, 1, 131082, 1, 262142, 3, 262143, 4, 196608, 4, 196609, 4, 196610, 4, 196611, 3, 196612, 3, 196613, 19, 196614, 3, 196615, 4, 196616, 3, 196617, 1, 196618, 1, 327678, 3, 327679, 4, 262144, 4, 262145, 4, 262146, 4, 262147, 3, 262148, 4, 262149, 19, 262150, 3, 262151, 4, 262152, 3, 262153, 1, 262154, 1, 393214, 3, 393215, 3, 327680, 3, 327681, 3, 327682, 3, 327683, 3, 327684, 3, 327685, 19, 327686, 3, 327687, 4, 327688, 3, 327689, 1, 327690, 1, 458750, 20, 458751, 20, 393216, 20, 393217, 20, 393218, 20, 393219, 20, 393220, 20, 393221, 25, 393222, 3, 393223, 4, 393224, 3, 393225, 1, 393226, 1, 393227, 1, 524286, 3, 524287, 3, 458752, 3, 458753, 3, 458754, 4, 458755, 4, 458756, 3, 458757, 19, 458758, 3, 458759, 3, 458760, 3, 458761, 1, 458762, 1, 458763, 1, 589823, 3, 524288, 3, 524289, 4, 524290, 3, 524291, 4, 524292, 3, 524293, 19, 524294, 3, 524295, 3, 524296, 1, 524297, 1, 524298, 1, 589824, 3, 589825, 3, 589826, 4, 589827, 4, 589828, 4, 589829, 19, 589830, 1, 589831, 1, 589832, 1, 589833, 1, 589834, 1, 655361, 3, 655362, 3, 655363, 3, 655364, 3, 655365, 19, 655366, 1, 655367, 1, 655368, 1 )
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( -65537, 3, 0, -131072, 3, 0, -131071, 3, 0, -131070, 3, 0, -131069, 3, 0, -131068, 3, 0, -131067, 19, 0, -131066, 3, 0, -131065, 3, 0, -131064, 1, 0, -131063, 1, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -65533, 3, 0, -65532, 3, 0, -65531, 19, 0, -65530, 3, 0, -65529, 3, 0, -65528, 3, 0, -65527, 1, 0, 65534, 3, 0, 65535, 3, 0, 0, 3, 0, 1, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 19, 0, 6, 3, 0, 7, 3, 0, 8, 3, 0, 9, 1, 0, 10, 1, 0, 131070, 4, 0, 131071, 3, 0, 65536, 4, 0, 65537, 3, 0, 65538, 4, 0, 65539, 4, 0, 65540, 3, 0, 65541, 19, 0, 65542, 3, 0, 65543, 3, 0, 65544, 3, 0, 65545, 1, 0, 65546, 1, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 3, 0, 131077, 19, 0, 131078, 4, 0, 131079, 3, 0, 131080, 3, 0, 131081, 1, 0, 131082, 1, 0, 262142, 3, 0, 262143, 4, 0, 196608, 4, 0, 196609, 4, 0, 196610, 4, 0, 196611, 3, 0, 196612, 3, 0, 196613, 19, 0, 196614, 3, 0, 196615, 4, 0, 196616, 3, 0, 196617, 1, 0, 196618, 1, 0, 327678, 3, 0, 327679, 4, 0, 262144, 4, 0, 262145, 4, 0, 262146, 4, 0, 262147, 3, 0, 262148, 4, 0, 262149, 19, 0, 262150, 3, 0, 262151, 4, 0, 262152, 3, 0, 262153, 1, 0, 262154, 1, 0, 393214, 3, 0, 393215, 3, 0, 327680, 3, 0, 327681, 3, 0, 327682, 3, 0, 327683, 3, 0, 327684, 3, 0, 327685, 19, 0, 327686, 3, 0, 327687, 4, 0, 327688, 3, 0, 327689, 1, 0, 327690, 1, 0, 458750, 20, 0, 458751, 20, 0, 393216, 20, 0, 393217, 20, 0, 393218, 20, 0, 393219, 20, 0, 393220, 20, 0, 393221, 25, 0, 393222, 3, 0, 393223, 4, 0, 393224, 3, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 524286, 3, 0, 524287, 3, 0, 458752, 3, 0, 458753, 3, 0, 458754, 4, 0, 458755, 4, 0, 458756, 3, 0, 458757, 19, 0, 458758, 3, 0, 458759, 3, 0, 458760, 3, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 589823, 3, 0, 524288, 3, 0, 524289, 4, 0, 524290, 3, 0, 524291, 4, 0, 524292, 3, 0, 524293, 19, 0, 524294, 3, 0, 524295, 3, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 589824, 3, 0, 589825, 3, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 19, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 3, 0, 655365, 19, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0 )
 
 [node name="back" type="YSort" parent="terrain"]
 
-sort/enabled = true
-
 [node name="destruction" type="YSort" parent="terrain"]
-
-sort/enabled = true
 
 [node name="front" type="YSort" parent="terrain"]
 
-sort/enabled = true
-
 [node name="units" type="TileMap" parent="terrain"]
-
 mode = 1
 tile_set = ExtResource( 3 )
-cell/size = Vector2( 64, 32 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 1
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray(  )
-
-
+cell_size = Vector2( 64, 32 )
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_tile_origin = 1
+format = 1

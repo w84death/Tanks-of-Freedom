@@ -4,3 +4,4 @@ var handled_action
 
 func execute(action):
 	return
+

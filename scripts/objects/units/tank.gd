@@ -21,3 +21,4 @@ func can_capture_building(building):
 
 
 
+

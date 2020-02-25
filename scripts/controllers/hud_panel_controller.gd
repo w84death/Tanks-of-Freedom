@@ -1,14 +1,14 @@
 
 var root
-var hud_panel = preload("res://gui/hud/hud_panel.tscn").instance()
-var end_turn_panel_scene = preload("res://gui/hud/end_turn.tscn").instance()
-var info_panel_scene = preload("res://gui/hud/turn_info.tscn").instance()
-var zoom_panel_scene = preload("res://gui/hud/zoom_panel.tscn").instance()
+var hud_panel = load("res://gui/hud/hud_panel.tscn").instance()
+var end_turn_panel_scene = load("res://gui/hud/end_turn.tscn").instance()
+var info_panel_scene = load("res://gui/hud/turn_info.tscn").instance()
+var zoom_panel_scene = load("res://gui/hud/zoom_panel.tscn").instance()
 
 var default_panel = null
-var unit_panel = preload("res://gui/hud/unit_panel.gd").new()
-var building_panel = preload("res://gui/hud/building_panel.gd").new()
-var info_panel = preload("res://gui/hud/info_panel.gd").new()
+var unit_panel = load("res://gui/hud/unit_panel.gd").new()
+var building_panel = load("res://gui/hud/building_panel.gd").new()
+var info_panel = load("res://gui/hud/info_panel.gd").new()
 
 
 func init_root(root_node):

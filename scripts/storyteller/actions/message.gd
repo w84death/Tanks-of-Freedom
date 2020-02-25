@@ -30,3 +30,4 @@ func perform(action_details):
 
 func unpause():
 	self.bag.storyteller.pause = false
+

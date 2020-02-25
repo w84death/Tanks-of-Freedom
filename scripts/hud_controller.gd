@@ -62,7 +62,7 @@ func init_root(root, action_controller_object, hud):
 	self.action_controller = action_controller_object
 	self.hud_root = hud
 	self.attach_hud_panel()
-	self.tips = preload('res://scripts/services/tips.gd').new()
+	self.tips = load('res://scripts/services/tips.gd').new()
 
 	self.active_map = root.scale_root
 
@@ -101,7 +101,7 @@ func init_root(root, action_controller_object, hud):
 	hud_message_card_button.connect("pressed", self, "_hud_message_card_button_pressed")
 
 
-	self.hud_story_message = preload('res://gui/ingame_message.tscn').instance()
+	self.hud_story_message = load('res://gui/ingame_message.tscn').instance()
 	self.hud_story_message_button = self.hud_story_message.get_node('controls/close')
 	self.hud_story_message_button.connect('pressed', self, 'hide_story_message')
 
@@ -398,7 +398,7 @@ func hide_story_message():
 func fix_story_message_size(newsize=null):
 	var margin
 	if newsize == null:
-		margin = max((self.root.bag.camera.game_logic.get_size().x - 976) / 2, 24)
+		margin = max((OS.get_window_size().x - 976) / 2, 24)
 	else:
 		margin = max((newsize.x - 976) / 2, 24)
 	self.hud_story_message.set_margin(MARGIN_LEFT, margin)
@@ -411,3 +411,4 @@ func set_current_team_label(team):
 	if team == 1:
 		self.current_team_blue.hide()
 		self.current_team_red.show()
+

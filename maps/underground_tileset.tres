@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=2 format=1]
+[gd_resource type="TileSet" load_steps=1 format=2]
 
 [ext_resource path="res://assets/terrain/underground.png" type="Texture" id=1]
 
@@ -48,4 +48,3 @@
 3/shapes = [  ]
 3/one_way_collision_direction = Vector2( 0, 0 )
 3/one_way_collision_max_depth = 0.0
-

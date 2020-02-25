@@ -25,7 +25,7 @@ func add_damage_frame(damage_layer, damage_frame):
 	damage_layer.add_child(damage)
 	var damage_position = abstract_map.tilemap.map_to_world(self.positionVAR)
 	damage_position.y += 8
-	self.damage.set_pos(damage_position)
+	self.damage.set_position(damage_position)
 	self.damage.set_frame(damage_frame)
 
 func is_empty():
@@ -87,3 +87,4 @@ func get_neighbours():
 		self.abstract_map.get_field(self.positionVAR + Vector2(-1, 0)),
 		self.abstract_map.get_field(self.positionVAR + Vector2(1, 0))
 	]
+

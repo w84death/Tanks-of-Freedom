@@ -108,3 +108,4 @@ func info_panel_set_current_team(team):
 	if team == 1:
 		self.info_panel_team_blue.hide()
 		self.info_panel_team_red.show()
+

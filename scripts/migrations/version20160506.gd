@@ -27,3 +27,4 @@ func update_map(name):
 		'name' : name,
 		'completed' : false
 	}
+

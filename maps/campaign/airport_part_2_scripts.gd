@@ -66,3 +66,4 @@ var triggers = {
 		'suspended': true
 	},
 }
+

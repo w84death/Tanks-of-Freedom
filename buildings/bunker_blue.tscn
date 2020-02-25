@@ -1,33 +1,24 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/buildings/military.png" type="Texture" id=1]
 [ext_resource path="res://scripts/objects/building.gd" type="Script" id=2]
 [ext_resource path="res://gui/flag.tscn" type="PackedScene" id=3]
 
 [node name="bunker_blue" type="Sprite"]
-
 texture = ExtResource( 1 )
-region = true
+region_enabled = true
 region_rect = Rect2( 64, 192, 64, 64 )
-script/script = ExtResource( 2 )
+script = ExtResource( 2 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
-position_on_map = Vector2( 0, 0 )
-type = 0
 player = 0
 bonus_ap = 20
-can_spawn = true
-spawn_point_position = Vector2( 0, 1 )
 
 [node name="flag" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( -27.1981, 1.2048 )
+position = Vector2( -27.1981, 1.2048 )
 color = 0
 
 [node name="flag2" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 19.8132, 2.1054 )
+position = Vector2( 19.8132, 2.1054 )
 color = 0
-
-

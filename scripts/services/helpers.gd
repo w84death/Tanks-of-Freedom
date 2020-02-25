@@ -32,3 +32,4 @@ func is_adjacent(start, end):
 	var diff_y = abs(start.y - end.y)
 
 	return (diff_x + diff_y) == 1
+

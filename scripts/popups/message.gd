@@ -1,6 +1,6 @@
 extends "res://scripts/bag_aware.gd"
 
-var popup = preload("res://gui/popups/message.tscn").instance()
+var popup = load("res://gui/popups/message.tscn").instance()
 
 var hud_title
 var hud_message
@@ -70,3 +70,4 @@ func show_button():
 	self.confirm_button.show()
 func hide_button():
 	self.confirm_button.hide()
+

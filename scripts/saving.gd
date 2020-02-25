@@ -12,7 +12,7 @@ var unit_map
 var loaded_data
 
 var saved_settings = ['cpu_0', 'cpu_1', 'turns_cap', 'easy_mode']
-var destroyed_tile_template = preload("res://terrain/destroyed_tile.tscn")
+var destroyed_tile_template = load("res://terrain/destroyed_tile.tscn")
 
 func _initialize():
 	self.root_node = self.bag.root
@@ -108,7 +108,7 @@ func apply_saved_terrain():
 				for i in range(field['meta']['damage']):
 					terrain_object.set_damage()
 				self.root_node.current_map.map_layer_front.add_child(terrain_object)
-				terrain_object.set_pos(self.root_node.current_map_terrain.map_to_world(Vector2(field['x'], field['y'])))
+				terrain_object.set_position(self.root_node.current_map_terrain.map_to_world(Vector2(field['x'], field['y'])))
 
 func apply_saved_ground():
 	var abstract_field
@@ -329,7 +329,7 @@ func store_map_in_binary_file():
 	for settings in self.saved_settings:
 		save_data[settings] = self.root_node.settings[settings]
 
-	save_data['md5'] = save_data.to_json().md5_text()
+	save_data['md5'] = to_json(save_data).md5_text()
 
 	self.bag.file_handler.write(self.FILE_PATH, save_data)
 
@@ -338,3 +338,4 @@ func is_save_available():
 	if self.loaded_data == null or not self.loaded_data.has('is_current'):
 		return false
 	return self.loaded_data['is_current']
+

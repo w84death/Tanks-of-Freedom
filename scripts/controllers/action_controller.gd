@@ -5,8 +5,8 @@ var ysort
 var damage_layer
 var selector
 var active_field = null
-var active_indicator = preload('res://gui/selector.tscn').instance()
-var hud_controller = preload('res://scripts/hud_controller.gd').new()
+var active_indicator = load('res://gui/selector.tscn').instance()
+var hud_controller = load('res://scripts/hud_controller.gd').new()
 var status = load('res://scripts/controllers/action_status.gd').new()
 var sound_controller
 var pathfinding
@@ -130,7 +130,7 @@ func __handle_unit_actions(active_field, field):
 		if field.has_unit():
 			return self.handle_battle(active_field, field)
 		elif active_field.object.type == 0 && field.has_building():
-			if self.root_node.bag.movement_controller.can_move(active_field, field):
+			if self.root_node.bag.movement_controller.can_move_and_collide(active_field, field):
 				return self.capture_building(active_field, field)
 	else:
 		return self.status.list[self.status.CANNOT_DO]
@@ -173,7 +173,7 @@ func activate_field(field):
 	self.root_node.bag.abstract_map.tilemap.move_child(active_indicator, 0)
 	var positionVAR = Vector2(self.root_node.bag.abstract_map.tilemap.map_to_world(field.positionVAR))
 	positionVAR.y += 2
-	active_indicator.set_pos(positionVAR)
+	active_indicator.set_position(positionVAR)
 	sound_controller.play('select')
 	if not self.is_cpu_player:
 		if field.has_unit():
@@ -231,11 +231,11 @@ func add_interaction_indicators(field):
 
 		if neighbour.has_attackable_enemy(field.object):
 			self.__show_indicator(indicator, indicator_position + Vector2(1,1), "attack")
-		elif neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move(field, neighbour):
+		elif neighbour.has_capturable_building(field.object) && self.root_node.bag.movement_controller.can_move_and_collide(field, neighbour):
 			self.__show_indicator(indicator, indicator_position, "enter")
 
 func __show_indicator(indicator, positionVAR, type):
-	indicator.set_pos(positionVAR)
+	indicator.set_position(positionVAR)
 	indicator.show()
 	indicator.get_node('anim').play(type)
 
@@ -292,7 +292,7 @@ func import_objects():
 
 func attach_objects(collection):
 	for entity in collection:
-		self.root_node.bag.abstract_map.get_field(entity.get_initial_pos()).object = entity
+		self.root_node.bag.abstract_map.get_field(entity.get_initial_position()).object = entity
 
 func end_turn():
 	sound_controller.play('end_turn')
@@ -498,7 +498,7 @@ func end_game(winning_player):
 	self.clear_active_field()
 	self.game_ended = true
 	self.root_node.bag.perform.stop_ai_timer()
-	if root_node.hud.is_hidden():
+	if root_node.hud.is_visible() == false:
 		root_node.hud.show()
 	hud_controller.show_win(winning_player, self.root_node.bag.battle_stats.get_stats(), turn)
 	selector.hide()
@@ -653,4 +653,5 @@ func switch_unit(direction):
 		if self.active_field != null:
 			self.root_node.move_selector_to_map_position(self.active_field.positionVAR)
 			self.move_camera_to_point(self.active_field.positionVAR)
+
 

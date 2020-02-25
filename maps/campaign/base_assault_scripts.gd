@@ -68,3 +68,4 @@ var triggers = {
 	'approach' : {'type' : 'move', 'story' : 'approach', 'details' : { 'fields' : [Vector2(7, 8), Vector2(8, 8), Vector2(7, 9), Vector2(8, 9), Vector2(9, 9), Vector2(7, 10), Vector2(8, 10), Vector2(9, 10), Vector2(7, 11)], 'player' : 1 }, 'one_off' : true},
 	'comms_cut' : {'type' : 'domination', 'story' : 'comms_cut', 'details' : { 'amount' : 2, 'list' : [Vector2(3, 6), Vector2(3, 13)], 'player' : 1 }, 'one_off' : true},
 }
+

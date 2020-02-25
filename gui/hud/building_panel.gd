@@ -3,7 +3,7 @@ var building_panel
 var building_panel_units_dock
 var building_panel_units_dock_button
 
-var build_card_template = preload("res://gui/hud/build_card.gd")
+var build_card_template = load("res://gui/hud/build_card.gd")
 var build_card
 
 var building = null

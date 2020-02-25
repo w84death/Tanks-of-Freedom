@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/buildings/summer/buildings_small.png" type="Texture" id=1]
 [ext_resource path="res://scripts/terrain.gd" type="Script" id=2]
 [ext_resource path="res://particle/smoke.tscn" type="PackedScene" id=3]
 
-[sub_resource type="ColorRamp" id=1]
+[sub_resource type="Gradient" id=1]
 
-offsets = FloatArray( 0, 0.1, 0.2, 0.8 )
-colors = ColorArray( 0, 0, 0, 0.194805, 0.266667, 0.266667, 0.266667, 0.838384, 0.771574, 0.77665, 0.767677, 0.590909, 0.615686, 0.615686, 0.615686, 0 )
+offsets = PoolRealArray( 0, 0.1, 0.2, 0.8 )
+colors = PoolColorArray( 0, 0, 0, 0.194805, 0.266667, 0.266667, 0.266667, 0.838384, 0.771574, 0.77665, 0.767677, 0.590909, 0.615686, 0.615686, 0.615686, 0 )
 
 [node name="city_small_3" type="Sprite"]
 
 texture = ExtResource( 1 )
-region = true
+region_enabled = true
 region_rect = Rect2( 128, 0, 64, 64 )
-script/script = ExtResource( 2 )
+script = ExtResource( 2 )
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }
@@ -28,5 +28,3 @@ unique_type_id = 2
 
 config/process_mode = 1
 color/color_ramp = SubResource( 1 )
-
-

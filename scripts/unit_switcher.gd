@@ -46,3 +46,4 @@ func __create_unit_list(units):
 	self.unit_list.clear()
 	for unit_pos in units.keys():
 		self.unit_list.append(unit_pos)
+

@@ -5,7 +5,7 @@ var bag
 var is_working = false
 var is_suspended = true
 
-var selector = preload('res://gui/selector.tscn').instance()
+var selector = load('res://gui/selector.tscn').instance()
 var selector_position = Vector2(0,0)
 var map_pos
 
@@ -95,7 +95,7 @@ func undo_last_action():
 	if self.history.size() > 0:
 		last_action = history[history.size()-1]
 		self.paint(last_action.positionVAR,last_action.tool_type,last_action.brush_type, true)
-		history.remove(history.size()-1)
+		history.remove_and_collide(history.size()-1)
 
 func toolbox_fill():
 	map.fill(settings.fill[settings.fill_selected[0]],settings.fill[settings.fill_selected[1]])
@@ -178,12 +178,12 @@ func _input(event):
 		var camera_pos = self.camera.get_offset()
 		var game_scale = self.camera.get_zoom()
 
-		if event.type == InputEvent.JOYSTICK_BUTTON or event.type == InputEvent.JOYSTICK_MOTION:
+		if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 			self.bag.gamepad.handle_input(event)
-		if self.root.is_pandora and event.type == InputEvent.KEY:
+		if self.root.is_pandora and event is InputEventKey:
 			self.bag.pandora.handle_input(event)
 
-		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_LEFT:
+		if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
 			if not self.movement_mode:
 				if event.pressed:
 					painting = true
@@ -193,42 +193,42 @@ func _input(event):
 			else:
 				self.is_camera_drag = event.pressed
 
-		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_RIGHT:
+		if event is InputEventMouseButton && event.button_index == BUTTON_RIGHT:
 			self.is_camera_drag = event.pressed
 
-		if event.type == InputEvent.MOUSE_MOTION || event.type == InputEvent.MOUSE_BUTTON:
-			var new_selector_x = (event.x - self.root.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
-			var new_selector_y = (event.y - self.root.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
+		if event is InputEventMouseMotion || event is InputEventMouseButton:
+			var new_selector_x = (event.get_position().x - self.root.half_screen_size.x + camera_pos.x/game_scale.x) * (game_scale.x)
+			var new_selector_y = (event.get_position().y - self.root.half_screen_size.y + camera_pos.y/game_scale.y) * (game_scale.y) + 5
 			selector_position = terrain.world_to_map(Vector2(new_selector_x, new_selector_y))
 			var positionVAR = terrain.map_to_world(selector_position)
 			positionVAR.y = positionVAR.y + 4
-			selector.set_pos(positionVAR)
+			selector.set_position(positionVAR)
 
-		if (event.type == InputEvent.MOUSE_MOTION):
+		if (event is InputEventMouseMotion):
 			painting_motion = true
 			if self.is_camera_drag:
-				camera_pos.x = camera_pos.x - event.relative_x * game_scale.x
-				camera_pos.y = camera_pos.y - event.relative_y * game_scale.y
+				camera_pos.x = camera_pos.x - event.get_relative().x * game_scale.x
+				camera_pos.y = camera_pos.y - event.get_relative().y * game_scale.y
 				self.camera.set_offset(camera_pos)
 
-		if (event.type == InputEvent.MOUSE_MOTION or event.type == InputEvent.MOUSE_BUTTON) and painting and not self.bag.workshop_dead_zone.is_dead_zone(event.x, event.y):
-			#map_pos = terrain.get_global_pos() / Vector2(map.scale.x, map.scale.y)
+		if (event is InputEventMouseMotion or event is InputEventMouseButton) and painting and not self.bag.workshop_dead_zone.is_dead_zone(event.get_position().x, event.get_position().y):
+			#map_pos = terrain.get_global_position() / Vector2(map.scale.x, map.scale.y)
 			#var positionVAR = terrain.map_to_world(selector_position)
 			#positionVAR.x = (positionVAR.x + map_pos.x) * map.scale.x
 			#positionVAR.y = (positionVAR.y + map_pos.y) * map.scale.y
 			#if not self.bag.workshop_dead_zone.is_dead_zone(positionVAR.x, positionVAR.y):
 			self.paint(selector_position)
 
-		if event.type == InputEvent.KEY:
+		if event is InputEventKey:
 			if event.scancode == KEY_Z && event.pressed:
 				self.undo_last_action()
 
-		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_UP && event.pressed:
+		if event is InputEventMouseButton && event.button_index == BUTTON_WHEEL_UP && event.pressed:
 			self.bag.camera.camera_zoom_in()
-		if event.type == InputEvent.MOUSE_BUTTON && event.button_index == BUTTON_WHEEL_DOWN && event.pressed:
+		if event is InputEventMouseButton && event.button_index == BUTTON_WHEEL_DOWN && event.pressed:
 			self.bag.camera.camera_zoom_out()
 
-	if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded && (event.type != InputEvent.KEY || not event.is_echo()):
+	if Input.is_action_pressed('ui_cancel') && not self.root.is_map_loaded && (  not event.is_echo()):
 		self.toggle_menu()
 
 func toggle_menu():
@@ -238,7 +238,7 @@ func toggle_menu():
 	if self.bag.menu_back.perform_back():
 		return
 
-	if self.is_hidden():
+	if self.is_visible() == false:
 		self.is_suspended = false
 		self.bag.controllers.workshop_menu_controller.show_workshop()
 	else:
@@ -254,22 +254,22 @@ func close_message():
 
 func center_camera():
 	var center_position = Vector2(self.bag.abstract_map.MAP_MAX_X / 2, self.bag.abstract_map.MAP_MAX_Y / 2)
-	self.set_camera_map_pos(center_position)
-	self.set_selector_map_pos(center_position)
+	self.set_camera_map_position(center_position)
+	self.set_selector_map_position(center_position)
 
-func set_camera_map_pos(positionVAR):
+func set_camera_map_position(positionVAR):
 	if positionVAR.x < 0 or positionVAR.y < 0 or positionVAR.x > self.bag.abstract_map.MAP_MAX_X or positionVAR.y > self.bag.abstract_map.MAP_MAX_Y:
 		return
 
 	self.camera.set_offset(self.terrain.map_to_world(positionVAR))
 
-func set_selector_map_pos(pos):
+func set_selector_map_position(pos):
 	if pos.x < 0 or pos.y < 0 or pos.x > self.bag.abstract_map.MAP_MAX_X or pos.y > self.bag.abstract_map.MAP_MAX_Y:
 		return
 
 	var positionVAR = self.terrain.map_to_world(pos)
 	positionVAR.y += 4
-	selector.set_pos(positionVAR)
+	selector.set_position(positionVAR)
 	self.selector_position = pos
 
 func show():
@@ -277,3 +277,4 @@ func show():
 		self.center_camera()
 	camera.set_zoom(self.bag.camera.camera.get_zoom())
 	.show()
+

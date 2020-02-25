@@ -35,7 +35,7 @@ var label_wins
 var label_maps_created
 var label_version
 
-var maps_sub_menu = preload("res://gui/menu_maps.tscn").instance()
+var maps_sub_menu = load("res://gui/menu_maps.tscn").instance()
 var maps_sub_menu_anchor
 var maps_close_button
 var workshop_button
@@ -81,7 +81,7 @@ func _ready():
 	self.control_nodes = [self.get_node("top"), self.get_node("middle"), self.get_node("bottom")]
 
 	workshop_button = get_node("bottom/center/workshop")
-	if !Globals.get('tof/enable_workshop'):
+	if !ProjectSettings.get_setting('tof/enable_workshop'):
 		workshop_button.hide()
 
 	campaign_button = get_node("bottom/center/start_campaign")
@@ -93,7 +93,7 @@ func _ready():
 	demo_button = get_node("top/center/demo")
 	online_button = get_node("bottom/center/online")
 
-	if not Globals.get('tof/online'):
+	if not ProjectSettings.get_setting('tof/online'):
 		online_button.hide()
 
 	close_button_label = close_button.get_node('Label')
@@ -170,8 +170,8 @@ func _ready():
 	__bind_pressed(demo_button, ["play_menu_sound", "start_demo_mode"])
 	__bind_pressed(settings_button, ["play_menu_sound", "toggle_settings"])
 	__bind_pressed(overscan_toggle_button, ["play_menu_sound", "__toggle_overscan"])
-	__bind_pressed(ai_speed_button, ["play_menu_sound", "__toggle_ai_speed"])
-	__bind_pressed(camera_speed_button, ["play_menu_sound", "__toggle_camera_speed"])
+	__bind_pressed(ai_speed_button, ["play_menu_sound", "__toggle_ai_speed_scale"])
+	__bind_pressed(camera_speed_button, ["play_menu_sound", "__toggle_camera_speed_scale"])
 	__bind_pressed(tooltips_button, ["play_menu_sound", "__toggle_tooltips"])
 
 	self.resolution_button.connect("pressed", self, "_resolution_button_pressed")
@@ -338,7 +338,7 @@ func manage_close_button():
 		self.close_button.hide()
 
 func refresh_buttons_labels():
-	get_tree().call_group(0, "translate_me", "refresh_label")
+	get_tree().call_group( "translate_me", "refresh_label")
 	var items_for_refresh = [
 		['sound_enabled', 'sound_toggle_label'],
 		['music_enabled', 'music_toggle_label'],
@@ -358,7 +358,7 @@ func refresh_buttons_labels():
 
 	language_cycle_label.set_trans_key(self.root.settings['language'].to_upper())
 
-	if Globals.get('tof/hud_allow_overscan'):
+	if ProjectSettings.get_setting('tof/hud_allow_overscan'):
 		self.overscan_group.show()
 	else:
 		self.overscan_group.hide()
@@ -374,7 +374,7 @@ func refresh_buttons_labels():
 		self.resolution_label.hide()
 
 func quit_game():
-	OS.get_main_loop().quit()
+	get_tree().quit()
 
 func update_zoom_label():
 	#self.camera_zoom_label.set_text(str(self.root.camera.get_camera_zoom().x))
@@ -451,13 +451,13 @@ func __toggle_overscan():
 func __toggle_camera_move_to_bunker():
 	__toggle_button('camera_move_to_bunker', 'camera_move_to_bunker_label')
 
-func __toggle_ai_speed():
+func __toggle_ai_speed_scale():
 	__toggle_multioption_button('ai_speed', 'ai_speed_label', self.speed_states)
-	self.root.bag.perform.update_ai_speed()
+	self.root.bag.perform.update_ai_speed_scale()
 
-func __toggle_camera_speed():
+func __toggle_camera_speed_scale():
 	__toggle_multioption_button('camera_speed', 'camera_speed_label', self.speed_states)
-	self.root.bag.camera.update_camera_speed()
+	self.root.bag.camera.update_camera_speed_scale()
 
 func __toggle_tooltips():
 	__toggle_button('tooltips_enabled', 'tooltips_button')
@@ -476,3 +476,4 @@ func __toggle_button(setting_name, setting_label, button_states = self.button_st
 
 func __set_togglable_label(setting_name, label_name, button_states = self.button_states):
 	self.get(label_name).set_trans_key(button_states[root.settings[setting_name]])
+

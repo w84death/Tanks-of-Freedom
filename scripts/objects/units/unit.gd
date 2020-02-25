@@ -32,10 +32,10 @@ var visibility
 
 var group = 'unit'
 
-var explosion_template = preload('res://particle/explosion.tscn')
-var explosion_big_template = preload('res://particle/explosion_big.tscn')
+var explosion_template = load('res://particle/explosion.tscn')
+var explosion_big_template = load('res://particle/explosion_big.tscn')
 var explosion
-var floating_damage_template = preload('res://particle/hit_points.tscn')
+var floating_damage_template = load('res://particle/hit_points.tscn')
 var floating_damage
 var dieVAR = false
 var active = 1
@@ -73,12 +73,12 @@ func get_type():
 func get_pos_map():
 	return position_on_map
 
-func add_move(positionVAR):
+func add_move_and_collide(positionVAR):
 	self.move_positions.push_back(positionVAR)
 
-func get_initial_pos():
-	position_on_map = current_map_terrain.world_to_map(self.get_pos())
-	self.add_move(position_on_map)
+func get_initial_position():
+	position_on_map = current_map_terrain.world_to_map(self.get_position())
+	self.add_move_and_collide(position_on_map)
 	return position_on_map
 
 func get_stats():
@@ -123,8 +123,8 @@ func set_pos_map(new_position):
 	elif new_position.y > position_on_map.y:
 		self.set_flip_h(false)
 
-	self.set_pos(current_map_terrain.map_to_world(new_position) + sprite_offset_for_64x64)
-	self.add_move(position_on_map)
+	self.set_position(current_map_terrain.map_to_world(new_position) + sprite_offset_for_64x64)
+	self.add_move_and_collide(position_on_map)
 	position_on_map = new_position
 	self.teleport_anim.play('in')
 
@@ -232,8 +232,8 @@ func take_all_ap():
 	self.icon_shield.hide()
 	self.set_no_ap_idle()
 
-func fix_initial_pos():
-	self.set_pos(self.get_pos() + sprite_offset_for_64x64)
+func fix_initial_position():
+	self.set_position(self.get_position() + sprite_offset_for_64x64)
 
 func get_type_name():
 	return tr(self.type_name_label)
@@ -253,9 +253,10 @@ func _ready():
 		self.current_map = self.get_node("/root/game").current_map
 	self.health_bar = self.get_node("health")
 	self.icon_shield = self.get_node("shield")
-	self.fix_initial_pos()
+	self.fix_initial_position()
 	self.anim.play("move")
 	self.teleport_anim.play('in')
 	pass
+
 
 

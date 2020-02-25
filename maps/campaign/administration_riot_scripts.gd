@@ -38,3 +38,4 @@ var triggers = {
 	'factory_claimed_ai' : {'type' : 'domination', 'story' : 'factory_claimed_ai', 'details' : { 'amount' : 1, 'list' : [Vector2(7, 13)], 'player' : 0 }, 'one_off' : true},
 
 }
+

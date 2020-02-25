@@ -10,3 +10,4 @@ func perform(action_details):
 	field.object = null
 
 	self.bag.positions.refresh_units()
+

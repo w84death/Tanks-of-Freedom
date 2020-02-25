@@ -12,3 +12,4 @@ func perform(action_details):
 	self.bag.root.action_controller.collateral_damage(action_details['who'])
 
 	self.bag.positions.refresh_units()
+
