@@ -52,6 +52,7 @@ Game is made using [Godot Engine 2.1+](https://downloads.tuxfamily.org/godotengi
 - Official P1X page: [p1x.in](http://p1x.in)
 
 ### Unofficial ports/repos:
+- [AUR](https://aur.archlinux.org/packages/tanks-of-freedom/)
 - [F-Droid](https://f-droid.org/repository/browse/?fdid=in.p1x.tanks_of_freedom) thanks to [est31](https://github.com/est31)!
 - [FreeBSD](http://www.freshports.org/games/tanks-of-freedom/) thanks to [AMDmi3](https://github.com/AMDmi3)
 - [Mageia](http://madb.mageia.org/package/show/application/0/name/tanks-of-freedom) thanks to [Akien](https://github.com/akien-mga)
