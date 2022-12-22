@@ -36,7 +36,7 @@ func reload_labels():
 
     #TITLE SCREEN
     var title_screen = self.bag.controllers.menu_controller.get_node('middle/center/game_panel/under_logo')
-    title_screen.get_node('copy').set_text(tr('LABEL_VERSION') + ' ' + self.bag.root.version_short + '-BETA')
+    title_screen.get_node('copy').set_text(tr('LABEL_VERSION') + ' ' + self.bag.root.version_visible + '-BETA')
     self.reload_label(title_screen.get_node('title3'), 'MSG_GAME_DESCRIPTION_1')
     self.reload_label(title_screen.get_node('title5'), 'MSG_GAME_DESCRIPTION_2')
     self.reload_label(title_screen.get_node('title4'), 'MSG_FREE_AS_FREEDOM')

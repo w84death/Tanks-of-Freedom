@@ -2,6 +2,12 @@
 # Tanks of Freedom
 ## Changelog
 
+### 0.7.1-beta
+- updated SSL cert
+- updated some translations
+- fixed some typos in README
+- fixed a runtime error
+
 ### 0.7.0-beta
 - scripted map events in campaign
 - integrated RU language
