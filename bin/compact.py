@@ -8,7 +8,7 @@ default_translation = {}
 
 def process_file( name ):
     values = {}
-    with open(name, newline='') as csvfile:
+    with open(name, newline='',encoding='utf8') as csvfile:
         csvreader = csv.reader(csvfile)
         for row in csvreader:
             values[row[0]] = row[1]
@@ -90,7 +90,7 @@ def compact_translations(directory, output_file_name):
         for row in translation:
             output[row].append(translation[row])
 
-    with open(directory + output_file_name, 'w') as csvfile:
+    with open(directory + output_file_name, 'w',encoding='utf8') as csvfile:
         csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         for row in sorted(output):
             csvwriter.writerow([row] + output[row])
