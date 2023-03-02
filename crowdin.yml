@@ -1,0 +1,5 @@
+files:
+  - source: /translations/*en.csv
+    translation: /translations/translations_%two_letters_code%.%file_extension%
+    first_line_contains_header: 1
+    scheme: 'identifier,source_phrase,translation'
