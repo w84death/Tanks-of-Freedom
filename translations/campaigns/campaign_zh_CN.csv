@@ -1,4 +1,3 @@
-,zh-CN
 ACTOR_OFFICER,军官
 ACTOR_FREEDOM_FIGHTER,"Freedom Fighter"
 ACTOR_PALACE_GUARD,"Palace Guard"
@@ -11,7 +10,7 @@ ACTOR_TANK_CREW,"Tank crew"
 ACTOR_OPERATOR,Operator
 ACTOR_TANK_COMMANDER,"Tank commander"
 ACTOR_SCOUT,Scout
-MISSION_TITLE_MAYDAY_SQUARE,"MayDay Square"
+MISSION_TITLE_MAYDAY_SQUARE,五一广场
 MISSION_DESR_MAYDAY_SQUARE,经过数日的抗议，我们已经说够了。腐败和虐待必须停止！五一广场的抗议者已经准备好战斗了！接管自由战士的指挥权，攻占总统府。
 MISSION_1_OFFICER_INTRO,"长官！ 我们准备对总统宫殿的发动袭击！ 部队正在等待您的命令。"
 MISSION_1_OFFICER_OBJECTIVE,"This is the enemy HQ. We need to bring our soldiers there and capture it. Without central command, military forces guarding the Palace will disperse."
