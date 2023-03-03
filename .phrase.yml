@@ -1,0 +1,10 @@
+push:
+  sources:
+  
+  - file: /translations/campaigns/campaign_zh_CN.csv
+  
+  params:
+  
+    locale_id: zh_CN
+    
+    file_format: csv
