@@ -1,10 +1,12 @@
-push:
-  sources:
-  
-  - file: /translations/campaigns/campaign_zh_CN.csv
-  
-  params:
-  
-    locale_id: zh_CN
-    
-    file_format: csv
+phrase:
+  project_id: 900dd03fb0c98c10d17b2f52d80ae874
+  push:
+    sources:
+      - file: /translations/campaigns/campaign_zh_CN.csv
+        params:
+          file_format: csv
+  pull:
+    targets:
+      - file: /translations/campaigns/campaign_zh_CN.csv
+        params:
+          file_format: csv
