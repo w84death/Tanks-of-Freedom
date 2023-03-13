@@ -2,6 +2,9 @@
 
 ![Tanks of Freedom](https://i.imgur.com/Xa66BXO.png)
 
+## Tanks of Freedom II
+This project is no longer being actively developed. Check out the sequel: [Tanks of Freedom II](https://github.com/P1X-in/Tanks-of-Freedom-3-D)
+
 ## Indie Turn Based Strategy in Isometric Pixel Art
 
 A classic turn-based strategy game with two armies fighting against each other. Challenge yourself in campaign against AI or hot-seat battle with a friend. Using the easy map editor you can create any imaginable scenario to play and share online for others to discover!
